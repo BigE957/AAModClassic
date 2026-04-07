@@ -74,7 +74,7 @@ namespace AAModClassic.Items.Boss.Broodmother
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Incinerite>(), Main.rand.Next(75, 125));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<IncineriteOre>(), Main.rand.Next(75, 125));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<BroodScale>(), Main.rand.Next(50, 100));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DragonCape>());
 

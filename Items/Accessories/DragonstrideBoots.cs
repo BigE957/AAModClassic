@@ -1,4 +1,7 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+using AAModClassic.Items.Materials;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -50,9 +53,9 @@ Allows the ability to climb walls"); */
             recipe.AddIngredient(ItemID.LavaWaders, 1);
             recipe.AddIngredient(ItemID.TigerClimbingGear, 1);
             recipe.AddIngredient(ItemID.Flipper, 1);
-            recipe.AddIngredient(null, "ShadowBand", 1);
-            recipe.AddIngredient(null, "SoulOfSmite", 10);
-            recipe.AddIngredient(null, "SoulOfSpite", 10);
+            recipe.AddIngredient(ModContent.ItemType<ShadowBand>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 10);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();
         }

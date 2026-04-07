@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -59,8 +60,8 @@ namespace AAModClassic.Items.Blocks.Boxes
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.MusicBox);
-                recipe.AddIngredient(null, "DarkEnergy", 5);
-                recipe.AddIngredient(null, "Stardust", 5);
+                recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
+                recipe.AddIngredient(ModContent.ItemType<Stardust>(), 5);
                 recipe.AddTile(TileID.Sawmill);
                 recipe.Register();
             }

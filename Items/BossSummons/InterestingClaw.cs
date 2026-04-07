@@ -10,6 +10,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.Globals;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -41,7 +42,7 @@ Can only be used at night"); */
 		public override void AddRecipes()
 		{
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "HydraClaw", 6);
+            recipe.AddIngredient(ModContent.ItemType<HydraClaw>(), 6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

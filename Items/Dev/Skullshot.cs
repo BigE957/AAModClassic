@@ -132,7 +132,7 @@ Uses Bullets and Bones as ammo
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "GibsFemur");
+            recipe.AddIngredient(ModContent.ItemType<GibsFemur>());
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

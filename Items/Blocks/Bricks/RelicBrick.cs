@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;
@@ -31,7 +32,7 @@ namespace AAModClassic.Items.Blocks.Bricks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "VikingRelic", 1);
+            recipe.AddIngredient(ModContent.ItemType<VikingRelic>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 1);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();

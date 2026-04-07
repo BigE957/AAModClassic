@@ -1,5 +1,8 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -57,9 +60,9 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncinerite", 15);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

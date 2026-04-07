@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -82,8 +83,8 @@ Gentleman's Rapier EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "GentlemansRapier");
-            recipe.AddIngredient(null, "EXSoul");
+            recipe.AddIngredient(ModContent.ItemType<GentlemansRapier>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.Register();
         }
     }

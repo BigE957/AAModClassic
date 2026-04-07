@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
@@ -67,8 +68,8 @@ Can only be used in a glowing mushroom biome"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "Mushium", 10);
-            recipe.AddIngredient(null, "GlowingMushium", 10);
+            recipe.AddIngredient(ModContent.ItemType<Mushium>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<GlowingMushium>(), 10);
             recipe.AddTile(TileID.Anvils);
             //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();

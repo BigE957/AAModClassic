@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
 using AAModClassic.Items.Armor.Abyssal;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -51,12 +52,12 @@ namespace AAModClassic.Items.Armor.Chaos
             Recipe recipe;
             recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AbyssalFukumen>());
-			recipe.AddIngredient(null, "ChaosCrystal", 1);
+			recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Items.Armor.Dynaskull.Dynaskull>());
-            recipe.AddIngredient(null, "ChaosCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

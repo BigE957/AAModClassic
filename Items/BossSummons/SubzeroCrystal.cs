@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
@@ -112,7 +113,7 @@ namespace AAModClassic.Items.BossSummons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "SnowMana", 3);
+            recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 3);
             recipe.AddIngredient(ItemID.IceBlock, 30);
             recipe.AddTile(TileID.IceMachine);
             //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);

@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -57,9 +59,9 @@ namespace AAModClassic.Items.Dev
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DuckstepGun");
-            recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DuckstepGun>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

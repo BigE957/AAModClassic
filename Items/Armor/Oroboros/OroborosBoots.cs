@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Blocks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +28,7 @@ namespace AAModClassic.Items.Armor.Oroboros
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "OroborosWood", 25);
+                recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 25);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
             }

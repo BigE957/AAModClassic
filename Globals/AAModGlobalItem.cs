@@ -569,7 +569,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    result = ModContent.ItemType<Incinerite>();
+                    result = ModContent.ItemType<IncineriteOre>();
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);

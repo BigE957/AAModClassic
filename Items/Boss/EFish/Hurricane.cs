@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Boss.EFish
 {
@@ -82,8 +83,8 @@ Tsunami EX"); */
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Tsunami);
-			recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

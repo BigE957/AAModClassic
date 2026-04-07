@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Throwing
 {
@@ -102,9 +104,9 @@ namespace AAModClassic.Items.Throwing
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DarkEnergy", 5);
-            recipe.AddIngredient(null, "DarkMatter", 15);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 15);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
 		}
     }

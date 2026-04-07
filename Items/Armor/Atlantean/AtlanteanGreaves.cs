@@ -5,6 +5,7 @@ using AAModClassic;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Armor.Ocean;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Atlantean
 {
@@ -41,15 +42,15 @@ Allows to freely move in liquids"); */
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanBoots>());
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 6);
-            recipe.AddIngredient(null, "RelicBar", 6);
-            recipe.AddIngredient(null, "Doomite", 6);
+            recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);
             recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanBoots>());
             recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 6);
             recipe.AddIngredient(ItemID.FossilOre, 6);
-            recipe.AddIngredient(null, "Doomite", 6);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
 

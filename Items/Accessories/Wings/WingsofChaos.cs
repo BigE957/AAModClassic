@@ -1,4 +1,7 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Accessories;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -56,10 +59,10 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DraconianWings", 1);
-            recipe.AddIngredient(null, "DreadWings", 1);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DraconianWings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadWings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

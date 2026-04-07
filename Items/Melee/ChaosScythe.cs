@@ -1,3 +1,5 @@
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -55,8 +57,8 @@ Legendary Weapon"); */
             recipe.AddIngredient(ItemID.DeathSickle, 1);
             recipe.AddIngredient(ItemID.IceSickle, 1);
             recipe.AddIngredient(ItemID.Sickle, 1); ;
-            recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
 
         }

@@ -48,8 +48,8 @@ namespace AAModClassic.Items.Boss.Greed.WKG
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "GoldDigger", 1);
-            recipe.AddIngredient(null, "CovetiteBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<GoldDigger>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CovetiteBar>(), 10);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

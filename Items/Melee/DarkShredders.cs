@@ -1,3 +1,5 @@
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,9 +29,9 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DarkEnergy", 5);
-            recipe.AddIngredient(null, "DarkMatter", 12);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 12);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 

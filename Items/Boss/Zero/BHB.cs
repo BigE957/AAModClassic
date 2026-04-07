@@ -1,6 +1,8 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Zero;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -80,9 +82,9 @@ namespace AAModClassic.Items.Boss.Zero
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.VortexBeater, 1);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

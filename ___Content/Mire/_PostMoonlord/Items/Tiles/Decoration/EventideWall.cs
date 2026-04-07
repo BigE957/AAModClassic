@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "EventideBrick");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

@@ -10,6 +10,10 @@ using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
 using AAModClassic.Projectiles.Shen;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic.Items.Boss.Akuma;
 
 namespace AAModClassic.Items.Boss.Shen   //where is located
 {
@@ -110,11 +114,11 @@ Inflicts Discordian Inferno"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "SunStorm", 1);
-            recipe.AddIngredient(null, "Toxibomb", 1);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<SunStorm>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<AbyssalBomb>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

@@ -45,7 +45,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "RubySaber", 1);
+            recipe.AddIngredient(ModContent.ItemType<RubySaber>(), 1);
             recipe.AddIngredient(ItemID.LargeRuby, 1);		
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();

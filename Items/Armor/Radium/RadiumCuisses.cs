@@ -1,4 +1,6 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -46,9 +48,9 @@ Shines with the light of a starry night sky"); */
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiumBar", 27);
-            recipe.AddIngredient(null, "Stardust", 15);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 27);
+            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 15);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 	}

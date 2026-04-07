@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Dev
 {
@@ -53,8 +54,8 @@ Fury Forger EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "FuryForger");
-            recipe.AddIngredient(null, "EXSoul");
+            recipe.AddIngredient(ModContent.ItemType<FuryForger>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.Register();
         }
     }

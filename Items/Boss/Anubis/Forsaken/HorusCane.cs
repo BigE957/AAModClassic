@@ -71,7 +71,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<SentryOfTheEye>(), 1);
-            recipe.AddIngredient(null, "SoulFragment", 5);
+            recipe.AddIngredient(ModContent.ItemType<SoulFragment>(), 5);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

@@ -1,3 +1,6 @@
+using AAModClassic.Items.Armor.DoomiteU;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,11 +33,11 @@ namespace AAModClassic.Items.Armor.Doomite
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DoomiteUPlate");
-            recipe.AddIngredient(null, "Doomite", 10);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteUPlate>());
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 10);
             recipe.AddIngredient(ItemID.Coral, 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
-            recipe.AddIngredient(null, "BroodScale", 8);
+            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

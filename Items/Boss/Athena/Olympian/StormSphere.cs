@@ -50,7 +50,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "SkyCrystal", 3);
+            recipe.AddIngredient(ModContent.ItemType<SkyCrystal>(), 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

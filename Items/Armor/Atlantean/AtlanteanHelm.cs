@@ -7,6 +7,7 @@ using AAModClassic.Buffs;
 using AAModClassic.Items.Armor.Ocean;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Atlantean
 {
@@ -57,15 +58,15 @@ Allows to breath underwater"); */
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanHelm>());
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 5);
-            recipe.AddIngredient(null, "RelicBar", 5);
-            recipe.AddIngredient(null, "Doomite", 5);
+            recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanHelm>());
             recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(null, "Doomite", 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBars>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

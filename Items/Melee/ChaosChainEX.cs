@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,9 +42,9 @@ Chaos Chain EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "ChaosChain", 1);
-            recipe.AddIngredient(null, "EXSoul",1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<ChaosChain>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

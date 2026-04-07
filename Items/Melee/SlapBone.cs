@@ -1,4 +1,5 @@
 using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +31,7 @@ Slap Hand EX"); */
 			Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(ItemID.SlapHand);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 
             // rattle rattle

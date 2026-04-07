@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Zero;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -74,10 +76,10 @@ namespace AAModClassic.Items.Boss.Zero
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
             recipe.AddIngredient(ItemID.NebulaArcanum);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

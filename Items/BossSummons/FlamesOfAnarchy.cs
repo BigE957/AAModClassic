@@ -10,6 +10,10 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -78,15 +82,15 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "RadiantIncinerite", 10);
-            recipe.AddIngredient(null, "DeepAbyssium", 10);
-            recipe.AddIngredient(null, "DragonFire", 5);
-            recipe.AddIngredient(null, "HydraToxin", 5);
-            recipe.AddIngredient(null, "SoulOfSmite", 5);
-            recipe.AddIngredient(null, "SoulOfSpite", 5);
-            recipe.AddIngredient(null, "SearingSpark", 3);
-            recipe.AddIngredient(null, "TerrorSoul", 3);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<SearingSpark>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<TerrorSoul>(), 3);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

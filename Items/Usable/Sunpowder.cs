@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Usable
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(5);
-            recipe.AddIngredient(null, "Hotshroom", 1);
+            recipe.AddIngredient(ModContent.ItemType<Hotshroom>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
         }

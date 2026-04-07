@@ -6,6 +6,9 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic;
+using AAModClassic.Items.Throwing;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -73,10 +76,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssium", 5);
-            recipe.AddIngredient(null, "DreadScale", 5);
-            recipe.AddIngredient(null, "DarkmatterKunai", 999);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterKunai>(), 999);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

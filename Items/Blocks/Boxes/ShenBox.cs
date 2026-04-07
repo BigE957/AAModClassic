@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -70,8 +71,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "AkumaBox");
-            recipe.AddIngredient(null, "YamataBox");
+            recipe.AddIngredient(ModContent.ItemType<AkumaBox>());
+            recipe.AddIngredient(ModContent.ItemType<YamataBox>());
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

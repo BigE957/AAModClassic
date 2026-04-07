@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Projectiles.Sag;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Sagittarius
 {
@@ -49,8 +50,8 @@ namespace AAModClassic.Items.Boss.Sagittarius
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "Doomite", 25);
-                recipe.AddIngredient(null, "DoomiteScrap", 15);
+                recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 25);
+                recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 15);
                 recipe.AddTile(TileID.Anvils);
                 recipe.Register();
             }

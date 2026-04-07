@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Vanity.Alphakip.Shiny
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "FishDiverBoots", 1);
+            recipe.AddIngredient(ModContent.ItemType<FishDiverBoots>(), 1);
             recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }

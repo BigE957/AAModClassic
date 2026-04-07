@@ -59,7 +59,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Incinerite>(), 1, 30, 44));
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 30, 44));
 
             notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripMaskRed>(), 7));
 

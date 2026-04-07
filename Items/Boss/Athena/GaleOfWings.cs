@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Boss.Athena
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.SpellTome, 1);
-            recipe.AddIngredient(null, "GoddessFeather", 10);
+            recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
             recipe.AddTile(TileID.Bookcases);   
             recipe.Register();
         }

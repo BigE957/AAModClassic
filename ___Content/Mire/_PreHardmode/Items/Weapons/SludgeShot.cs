@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,8 +37,8 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "AbyssiumBar", 10);
-			recipe.AddIngredient(null, "MirePod", 10);
+			recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
+			recipe.AddIngredient(ModContent.ItemType<MirePod>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

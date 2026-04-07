@@ -35,8 +35,8 @@ Functions as most hardmode crafting stations + A workbench and heavy workbench")
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "HallowedAnvil", 1);
-                recipe.AddIngredient(null, "HallowedForge", 1);
+                recipe.AddIngredient(ModContent.ItemType<HallowedAnvil>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<HallowedForge>(), 1);
                 recipe.Register();
             }
         }

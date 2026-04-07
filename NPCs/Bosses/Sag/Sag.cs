@@ -484,7 +484,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                Item.NewItem(NPC.GetSource_Loot(), NPC.Center, ModContent.ItemType<Items.Materials.Doomite>(), Main.rand.Next(20, 30));
+                Item.NewItem(NPC.GetSource_Loot(), NPC.Center, ModContent.ItemType<Items.Materials.DoomiteBar>(), Main.rand.Next(20, 30));
             }
             else
             {

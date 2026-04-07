@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,8 +33,8 @@ Weightless as shadow itself"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 25);
-            recipe.AddIngredient(null, "HydraHide", 20);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 25);
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 20);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

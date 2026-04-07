@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Armor.AncientGold;
+using AAModClassic.Items.Potions;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -95,11 +97,11 @@ Have the effect of Arctic Diving Gear"); */
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.AncientGoldHelmet, 1);
-			recipe.AddIngredient(null, "AncientGoldBody", 1);
-			recipe.AddIngredient(null, "AncientGoldLeg", 1);
+			recipe.AddIngredient(ModContent.ItemType<AncientGoldBody>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<AncientGoldLeg>(), 1);
 			recipe.AddIngredient(ItemID.ArcticDivingGear, 1);
 			recipe.AddIngredient(ItemID.PDA, 1);
-			recipe.AddIngredient(null, "LuckyCracker", 1);
+			recipe.AddIngredient(ModContent.ItemType<LuckyCracker>(), 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}

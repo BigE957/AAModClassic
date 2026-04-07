@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,8 +36,8 @@ Right click the item to turn it on"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DoomiteScrap", 20);
-            recipe.AddIngredient(null, "Doomite", 20);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 20);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

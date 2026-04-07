@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,7 +39,7 @@ Increases Maximum Mana by 20"); */
                 recipe.AddIngredient(ItemID.JunglePants, 1);
                 recipe.AddIngredient(ItemID.ShadowScale, 6);
                 recipe.AddIngredient(ItemID.Bone, 6);
-                recipe.AddIngredient(null, "DevilSilk", 6);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 6);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }
@@ -47,7 +48,7 @@ Increases Maximum Mana by 20"); */
                 recipe.AddIngredient(ItemID.JunglePants, 1);
                 recipe.AddIngredient(ItemID.TissueSample, 6);
                 recipe.AddIngredient(ItemID.Bone, 6);
-                recipe.AddIngredient(null, "DevilSilk", 6);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 6);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }

@@ -3,6 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Armor.Tribal;
 
 
 namespace AAModClassic.Items.Armor.Terra
@@ -52,8 +54,8 @@ Increases magic crit by 15%"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "TribalHat", 1);
-            recipe.AddIngredient(null, "TerraCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<TribalHat>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

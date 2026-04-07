@@ -1,5 +1,7 @@
 using AAModClassic;
+using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Bars;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,8 +33,8 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiumOre", 5);              //example of how to craft with a modded item
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<RadiumOre>(), 5);              //example of how to craft with a modded item
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

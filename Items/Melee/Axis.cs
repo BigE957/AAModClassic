@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,7 +41,7 @@ namespace AAModClassic.Items.Melee
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.NorthPole);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 		

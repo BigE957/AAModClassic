@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using Terraria.Audio;
 using AAModClassic.Globals;
 using Terraria.ID;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -78,9 +80,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Neutralizer", 1);
-            recipe.AddIngredient(null, "Infinitium", 12);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<Neutralizer>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

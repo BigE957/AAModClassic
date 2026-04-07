@@ -1,10 +1,11 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
-    public class DeepAbyssium : BaseAAItem
+    public class DeepAbyssiumBar : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -33,7 +34,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
         {                                                   
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ChlorophyteBar, 1);
-            recipe.AddIngredient(null, "AbyssiumBar", 1);              //example of how to craft with a modded item
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 1);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Autohammer);
             recipe.Register();
         }

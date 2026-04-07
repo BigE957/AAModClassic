@@ -1,5 +1,7 @@
 ﻿using AAModClassic.Buffs;
+using AAModClassic.Items.Boss;
 using AAModClassic.Items.Summoning.Minions;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -63,9 +65,9 @@ namespace AAModClassic.Items.Summoning
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "ChaosRitual", 1);
-            recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<ChaosRitual>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Boss.Greed
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.FlintlockPistol, 1);
-            recipe.AddIngredient(null, "StoneShell", 10);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

@@ -1,4 +1,6 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,10 +47,10 @@ namespace AAModClassic.Items.Boss.Zero
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
             recipe.AddIngredient(ItemID.Terrarian);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -53,8 +54,8 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "Suncaller", 1);
-            recipe.AddIngredient(null, "Mooncaller", 1);
+            recipe.AddIngredient(ModContent.ItemType<Suncaller>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Mooncaller>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

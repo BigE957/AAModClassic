@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -58,7 +59,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			Recipe recipe = CreateRecipe(33);
 			recipe.AddIngredient(ItemID.Torch, 33);
-			recipe.AddIngredient(null, "DragonFire");
+			recipe.AddIngredient(ModContent.ItemType<DragonFire>());
 			recipe.Register();
 		}
 	}

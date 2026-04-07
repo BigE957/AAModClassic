@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -62,10 +64,10 @@ Inflicts Moonrazed"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssium", 5);
-            recipe.AddIngredient(null, "DreadScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ItemID.SnowmanCannon);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

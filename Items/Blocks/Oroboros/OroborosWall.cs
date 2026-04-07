@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Blocks.Oroboros
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "OroborosWood");
+            recipe.AddIngredient(ModContent.ItemType<OroborosWood>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

@@ -39,8 +39,8 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "SkycutterKopis", 1);
-            recipe.AddIngredient(null, "StormSphere", 10);
+            recipe.AddIngredient(ModContent.ItemType<SkycutterKopis>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<StormSphere>(), 10);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

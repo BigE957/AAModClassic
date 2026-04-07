@@ -6,6 +6,9 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma.Dawnstrike;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -78,11 +81,11 @@ namespace AAModClassic.Items.Boss.Akuma
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncinerite", 5);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
-            recipe.AddIngredient(null, "TheVulcano");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<TheVulcano>());
             recipe.AddIngredient(ItemID.Flamethrower);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

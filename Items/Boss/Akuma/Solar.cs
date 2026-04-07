@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -71,10 +73,10 @@ Inflicts daybroken"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncinerite", 5);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ItemID.Terrarian);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

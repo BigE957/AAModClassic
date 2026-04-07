@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Buffs;
+using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -62,9 +63,9 @@ namespace AAModClassic.Items.Summoning
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DemonStaff", 1);
-            recipe.AddIngredient(null, "PureEvil", 3);
-            recipe.AddIngredient(null, "HeroShards", 1);
+            recipe.AddIngredient(ModContent.ItemType<DemonStaff>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<PureEvil>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

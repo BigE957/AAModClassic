@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Blocks.Bricks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiumOre", 1);
+            recipe.AddIngredient(ModContent.ItemType<RadiumOre>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 1);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();

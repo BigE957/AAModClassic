@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Tribal
 {
@@ -51,7 +52,7 @@ Increases maximum mana by 20"); */
                 recipe.AddIngredient(ItemID.JungleHat, 1);
                 recipe.AddIngredient(ItemID.ShadowScale, 8);
                 recipe.AddIngredient(ItemID.Bone, 8);
-                recipe.AddIngredient(null, "DevilSilk", 8);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 8);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }
@@ -60,7 +61,7 @@ Increases maximum mana by 20"); */
                 recipe.AddIngredient(ItemID.JungleHat, 1);
                 recipe.AddIngredient(ItemID.TissueSample, 8);
                 recipe.AddIngredient(ItemID.Bone, 8);
-                recipe.AddIngredient(null, "DevilSilk", 8);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 8);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }

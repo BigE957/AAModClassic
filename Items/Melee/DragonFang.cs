@@ -69,7 +69,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "IceLongsword");
+            recipe.AddIngredient(ModContent.ItemType<IceLongsword>());
             recipe.AddIngredient(ItemID.Arkhalis);
             recipe.AddIngredient(ItemID.SoulofMight, 10);
             recipe.AddTile(TileID.MythrilAnvil);

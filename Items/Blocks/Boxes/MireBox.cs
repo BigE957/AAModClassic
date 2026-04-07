@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "Bogwood", 20);
+            recipe.AddIngredient(ModContent.ItemType<Bogwood>(), 20);
 			recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

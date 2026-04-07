@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Greed.WKG;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "GravitySphere", 1);
+            recipe.AddIngredient(ModContent.ItemType<GravitySphere>(), 1);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

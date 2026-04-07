@@ -1,8 +1,11 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -52,9 +55,9 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "EventideAbyssium", 10);
-            recipe.AddIngredient(null, "DarkMatter", 5);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 5);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 

@@ -5,6 +5,7 @@ using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Akuma;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -45,8 +46,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AkumaBox");
-            recipe.AddIngredient(null, "TaiyangBaolei");
+            recipe.AddIngredient(ModContent.ItemType<AkumaBox>());
+            recipe.AddIngredient(ModContent.ItemType<TaiyangBaolei>());
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

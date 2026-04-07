@@ -3,6 +3,8 @@ using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Abyssal
 {
@@ -49,10 +51,10 @@ Weightless as shadow itself"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DepthFukumen", 1);
-            recipe.AddIngredient(null, "RelicBar", 5);
+            recipe.AddIngredient(ModContent.ItemType<DepthHelmet>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 5);
             recipe.AddIngredient(ItemID.Coral, 5);
-            recipe.AddIngredient(null, "Doomite", 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

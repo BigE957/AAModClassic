@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Anubis;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "ForsakenFragment", 3);
+            recipe.AddIngredient(ModContent.ItemType<ForsakenFragment>(), 3);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

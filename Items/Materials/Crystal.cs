@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -41,8 +42,8 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Prism", 5);
-            recipe.AddTile(null, "TerraPrism");
+            recipe.AddIngredient(ModContent.ItemType<Prism>(), 5);
+            recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
             recipe.Register();
         }
     }
@@ -82,17 +83,17 @@ namespace AAModClassic.Items.Materials
             //Dropped by Biomite Core in Mixed and Beta
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "TerraShard", 5);
-                recipe.AddIngredient(null, "Crystal");
-                recipe.AddTile(null, "TerraPrism");
+                recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 5);
+                recipe.AddIngredient(ModContent.ItemType<Crystal>());
+                recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
                 recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
             }
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "DragonSpirit", 5);
-                recipe.AddIngredient(null, "Crystal");
-                recipe.AddTile(null, "TerraPrism");
+                recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 5);
+                recipe.AddIngredient(ModContent.ItemType<Crystal>());
+                recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
                 recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
             }

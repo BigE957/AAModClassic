@@ -5,6 +5,9 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss.Zero;
+using AAModClassic.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Doomsday
@@ -72,9 +75,9 @@ The power to destroy entire planets rests in this armor"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "ApocalyptitePlate", 20);
-			recipe.AddIngredient(null, "UnstableSingularity", 5);
-			recipe.AddTile(null, "ACS");
+			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 20);
+			recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+			recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

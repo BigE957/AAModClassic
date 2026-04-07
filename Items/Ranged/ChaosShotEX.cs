@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic;
 using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -69,9 +71,9 @@ Chaos Bustershot EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ChaosShot", 1);
-            recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ChaosShot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

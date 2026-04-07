@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +37,7 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DragonSpirit", 18);
+            recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 18);
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();
         }

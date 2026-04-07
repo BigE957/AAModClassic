@@ -1,6 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic.Items.Boss.MushroomMonarch;
 
 namespace AAModClassic.Items.Tools
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GlowingMushroom, 5);
-            recipe.AddIngredient(null, "GlowingMushiumBar", 3);
+            recipe.AddIngredient(ModContent.ItemType<GlowingMushiumBar>(), 3);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

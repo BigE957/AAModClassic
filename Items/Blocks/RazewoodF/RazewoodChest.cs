@@ -33,14 +33,14 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.IronBar, 2);
-                recipe.AddIngredient(null, "Razewood", 12);
+                recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 12);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
             }
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.LeadBar, 2);
-                recipe.AddIngredient(null, "Razewood", 12);
+                recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 12);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
             }

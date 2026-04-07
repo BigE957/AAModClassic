@@ -1,3 +1,5 @@
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -42,9 +44,9 @@ namespace AAModClassic.Items.Accessories.Wings
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "RadiumBar", 10);
-            recipe.AddIngredient(null, "Stardust", 15);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 15);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

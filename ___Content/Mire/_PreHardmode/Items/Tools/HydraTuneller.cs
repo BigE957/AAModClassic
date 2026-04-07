@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,8 +40,8 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tools
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "AbyssiumBar", 12);
-                recipe.AddIngredient(null, "HydraHide", 6);
+                recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 12);
+                recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 6);
                 recipe.AddTile(TileID.Anvils);
                 recipe.Register();
             }

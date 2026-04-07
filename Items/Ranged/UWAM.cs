@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -83,8 +85,8 @@ namespace AAModClassic.Items.Ranged
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SDMG);
-			recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

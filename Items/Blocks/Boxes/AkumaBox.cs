@@ -4,6 +4,8 @@ using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -45,8 +47,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "DaybreakIncinerite", 5);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

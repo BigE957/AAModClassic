@@ -72,7 +72,7 @@ Converts wooden arrows into slower, but high-damaging mummy arrows"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<FossilBoneslinger>(), 1);
-            recipe.AddIngredient(null, "ForsakenFragment", 5);
+            recipe.AddIngredient(ModContent.ItemType<ForsakenFragment>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

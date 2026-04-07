@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
@@ -58,7 +59,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.SlimeGun, 1);
             recipe.AddIngredient(ItemID.Gel, 200);
-            recipe.AddIngredient(null, "DeepAbyssium", 10);
+            recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

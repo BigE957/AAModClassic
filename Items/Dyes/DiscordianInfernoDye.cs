@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using System.Collections.Generic;
@@ -42,8 +43,8 @@ namespace AAModClassic.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(2);
-            recipe.AddIngredient(null, "BlazingFuryDye", 1);
-            recipe.AddIngredient(null, "AbyssalWrathDye", 1);
+            recipe.AddIngredient(ModContent.ItemType<BlazingFuryDye>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<AbyssalWrathDye>(), 1);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
             recipe.Register();
         }

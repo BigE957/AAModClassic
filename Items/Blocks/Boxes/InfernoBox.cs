@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "Razewood", 20);
+            recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 20);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

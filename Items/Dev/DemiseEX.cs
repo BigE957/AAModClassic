@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Dev
 {
@@ -108,8 +109,8 @@ Demise EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Demise");
-            recipe.AddIngredient(null, "EXSoul");
+            recipe.AddIngredient(ModContent.ItemType<Demise>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.Register();
         }
     }

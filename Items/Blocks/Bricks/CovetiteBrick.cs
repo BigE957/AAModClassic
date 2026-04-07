@@ -1,3 +1,4 @@
+using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Blocks.Bricks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "CovetiteOre", 1);
+            recipe.AddIngredient(ModContent.ItemType<CovetiteOre>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 1);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();

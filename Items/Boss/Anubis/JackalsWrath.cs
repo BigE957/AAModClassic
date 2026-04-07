@@ -38,12 +38,12 @@ namespace AAModClassic.Items.Boss.Anubis
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.GoldAxe, 1);
-			recipe.AddIngredient(null, "ForsakenFragment", 5);
+			recipe.AddIngredient(ModContent.ItemType<ForsakenFragment>(), 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register(); 
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PlatinumAxe, 1);
-			recipe.AddIngredient(null, "ForsakenFragment", 5);
+			recipe.AddIngredient(ModContent.ItemType<ForsakenFragment>(), 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

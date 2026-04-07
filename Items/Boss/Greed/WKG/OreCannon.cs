@@ -75,7 +75,7 @@ Certain ores have special effects when shot"); */
             ItemID.DemoniteOre,
             ItemID.CrimtaneOre,
             ModContent.ItemType<AbyssiumOre>(),
-            ModContent.ItemType<Incinerite>(),
+            ModContent.ItemType<IncineriteOre>(),
             ItemID.Hellstone,
             ItemID.CobaltOre,
             ItemID.PalladiumOre,
@@ -115,7 +115,7 @@ Certain ores have special effects when shot"); */
 					if (itemFired.type == ItemID.DemoniteOre) projType = 9;
 					if (itemFired.type == ItemID.CrimtaneOre) projType = 10;
 					if (itemFired.type == ModContent.ItemType<AbyssiumOre>()) projType = 11;
-					if (itemFired.type == ModContent.ItemType<Incinerite>()) projType = 12;
+					if (itemFired.type == ModContent.ItemType<IncineriteOre>()) projType = 12;
 					if (itemFired.type == ItemID.Hellstone) projType = 13;
 					if (itemFired.type == ItemID.CobaltOre) projType = 14;
 					if (itemFired.type == ItemID.PalladiumOre) projType = 15;
@@ -159,8 +159,8 @@ Certain ores have special effects when shot"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "GildedGlock", 1);
-            recipe.AddIngredient(null, "CovetiteBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<GildedGlock>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CovetiteBar>(), 10);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

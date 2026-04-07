@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "EventideAbyssium", 5);
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

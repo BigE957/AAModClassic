@@ -1,4 +1,7 @@
 using AAModClassic;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,10 +37,10 @@ namespace AAModClassic.Items.Armor.Dynaskull
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FossilPants, 1);
-            recipe.AddIngredient(null, "DynaskullOre", 15);
-            recipe.AddIngredient(null, "Doomite", 6);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullOre>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);
             recipe.AddIngredient(ItemID.Coral, 6);
-            recipe.AddIngredient(null, "BroodScale", 6);
+            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 6);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,9 +31,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssiumOre", 5);
-            recipe.AddIngredient(null, "DeepAbyssium", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumOre>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 1);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

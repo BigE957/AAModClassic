@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,7 +40,7 @@ namespace AAModClassic.Items.Melee   //where is located
             recipe.AddIngredient(ItemID.IceBlade, 1);  
 			recipe.AddIngredient(ItemID.IceBlock, 50);
 			recipe.AddIngredient(ItemID.SnowBlock, 100);
-            recipe.AddIngredient(null, "SnowMana", 3);
+            recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 3);
             recipe.AddTile(TileID.Anvils); 
             recipe.Register();
 

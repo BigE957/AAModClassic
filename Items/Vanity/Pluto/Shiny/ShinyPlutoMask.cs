@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Vanity.Pluto.Shiny
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "PlutoMask", 1);
+            recipe.AddIngredient(ModContent.ItemType<PlutoMask>(), 1);
             recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }

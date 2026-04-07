@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Blocks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "HallowedOre", 20);
+            recipe.AddIngredient(ModContent.ItemType<HallowedOre>(), 20);
             recipe.AddRecipeGroup("AAModClassic:HForge");
             recipe.Register();
         }

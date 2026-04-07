@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Deathly
@@ -51,7 +52,7 @@ namespace AAModClassic.Items.Armor.Deathly
                 recipe.AddIngredient(ItemID.NecroHelmet, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.ShadowScale, 5);
-                recipe.AddIngredient(null, "DevilSilk", 5);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 5);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }
@@ -60,7 +61,7 @@ namespace AAModClassic.Items.Armor.Deathly
                 recipe.AddIngredient(ItemID.NecroHelmet, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.TissueSample, 5);
-                recipe.AddIngredient(null, "DevilSilk", 5);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 5);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }

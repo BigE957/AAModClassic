@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
         {
             Recipe recipe;
             recipe = CreateRecipe(2);
-            recipe.AddIngredient(null, "Razewood");
+            recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>());
             recipe.Register(); 
         }
 	}

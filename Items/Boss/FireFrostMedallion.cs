@@ -42,8 +42,8 @@ namespace AAModClassic.Items.Boss
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ArcticMedallion", 1);
-            recipe.AddIngredient(null, "SandstormMedallion", 1);
+            recipe.AddIngredient(ModContent.ItemType<ArcticMedallion>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SandstormMedallion>(), 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();
         }

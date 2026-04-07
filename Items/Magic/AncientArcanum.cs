@@ -1,3 +1,5 @@
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,9 +40,9 @@ namespace AAModClassic.Items.Magic
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.NebulaArcanum);
-            recipe.AddIngredient(null, "Stardust", 10);
-            recipe.AddIngredient(null, "DarkEnergy", 10);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 10);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

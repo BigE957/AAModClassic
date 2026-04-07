@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -113,8 +114,8 @@ Every ten shots, it can shoot two extra bullets.
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "ApocalyptitePlate", 5);
-			recipe.AddIngredient(null, "UnstableSingularity", 5);
+			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+			recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
 			recipe.AddIngredient(ItemID.ChainGun);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();

@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Furniture.Doom;
 using Terraria;
 using Terraria.ID;
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Blocks.Doom
         {
             Recipe recipe;
             recipe = CreateRecipe(2);
-            recipe.AddIngredient(null, "ApocalyptitePlate");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>());
             recipe.Register();
         }
 	}

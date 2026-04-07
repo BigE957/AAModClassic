@@ -10,6 +10,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.NPCs.Bosses.Djinn;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -91,7 +92,7 @@ namespace AAModClassic.Items.BossSummons
         {
             {
                 Recipe recipe = CreateRecipe(1);
-                recipe.AddIngredient(null, "DesertMana", 3);
+                recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 3);
                 recipe.AddIngredient(ItemID.Sandstone, 30);
                 recipe.AddTile(TileID.Anvils);
                 //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);

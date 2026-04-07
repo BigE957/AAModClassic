@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Armor.Chaos
         {
             Recipe recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAModClassic:ChaosPlates");
-            recipe.AddIngredient(null, "ChaosCrystal");
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

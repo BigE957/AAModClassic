@@ -44,9 +44,9 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "MoltenLance", 1); 
-			recipe.AddIngredient(null, "AncientPoker", 1);
-			recipe.AddIngredient(null, "GrassSpear", 1);
+            recipe.AddIngredient(ModContent.ItemType<MoltenLance>(), 1); 
+			recipe.AddIngredient(ModContent.ItemType<AncientPoker>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<GrassSpear>(), 1);
 			recipe.AddIngredient(ItemID.DarkLance , 1);
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();

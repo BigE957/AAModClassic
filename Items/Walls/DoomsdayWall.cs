@@ -1,3 +1,5 @@
+using AAModClassic.Items.Blocks.Bricks;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.Walls.Bricks;
 using Terraria;
 using Terraria.ID;
@@ -30,8 +32,8 @@ namespace AAModClassic.Items.Walls
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "DoomsdayPlating");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayPlating>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

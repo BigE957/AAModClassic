@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -52,9 +53,9 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "HydraTrishot", 1);
-            recipe.AddIngredient(null, "OceanWhaler", 1);
-            recipe.AddIngredient(null, "DoomiteAssaultBlaster", 1);
+            recipe.AddIngredient(ModContent.ItemType<HydraTrishot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<OceanWhaler>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteAssaultBlaster>(), 1);
             recipe.AddIngredient(ItemID.SnowballCannon, 1);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

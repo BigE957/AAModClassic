@@ -115,8 +115,8 @@ If the enemy hits the ground after being hit, they will take damage"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "StoneSlammer", 1);
-            recipe.AddIngredient(null, "CovetiteBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<StoneSlammer>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CovetiteBar>(), 10);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
 using AAModClassic;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Dev
 {
@@ -59,8 +60,8 @@ Blade of Night EX"); */
 		public override void AddRecipes()
         {
 		    Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "UmbreonSP", 1);
-            recipe.AddIngredient(null, "EXSoul", 1);
+            recipe.AddIngredient(ModContent.ItemType<UmbreonSP>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
             recipe.AddTile(TileID.LunarCraftingStation); // (null, "ModTileID");
 		    recipe.Register();
         }

@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +30,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssiumOre", 1);
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumOre>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 1);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();

@@ -6,6 +6,9 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -134,10 +137,10 @@ Right click to fire normal arrows"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddIngredient(null, "ApollosWrath", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ApollosWrath>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

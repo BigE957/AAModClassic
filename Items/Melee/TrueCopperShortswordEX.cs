@@ -3,6 +3,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Melee
 {
@@ -49,9 +51,9 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "TrueCopperShortsword", 1);
-			recipe.AddIngredient(null, "EXSoul", 1);
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<TrueCopperShortsword>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

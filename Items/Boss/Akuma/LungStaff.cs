@@ -8,6 +8,9 @@ using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma.Lung;
 using AAModClassic.Buffs;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Summoning;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -149,10 +152,10 @@ namespace AAModClassic.Items.Boss.Akuma
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DaybreakIncinerite", 5);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
-            recipe.AddIngredient(null, "DragonriderStaff", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DragonriderStaff>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

@@ -1,4 +1,5 @@
 using AAModClassic.Buffs;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -35,8 +36,8 @@ namespace AAModClassic.Items.Pets
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "MudkipBall", 1);
-            recipe.AddIngredient(null, "ShinyCharm", 1);
+            recipe.AddIngredient(ModContent.ItemType<MudkipBall>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ShinyCharm>(), 1);
             recipe.Register();
         }
     }

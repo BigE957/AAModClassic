@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Projectiles;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -55,8 +56,8 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssalPentashot", 1);
-            recipe.AddIngredient(null, "HeroShards", 1);
+            recipe.AddIngredient(ModContent.ItemType<AbyssalPentashot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

@@ -1,5 +1,9 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -80,11 +84,11 @@ You may only have a maximum of 2 tool types active"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AkumaTerratool", 1);
-            recipe.AddIngredient(null, "YamataTerratool", 1);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<AkumaTerratool>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<YamataTerratool>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

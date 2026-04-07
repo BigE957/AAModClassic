@@ -1,11 +1,16 @@
+using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.Items.Boss;
+using AAModClassic.Items.Boss.AH;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System;
-using AAModClassic;
-using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.Items.Melee
 {
@@ -44,12 +49,12 @@ namespace AAModClassic.Items.Melee
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "ReignOfFire", 1);
-			recipe.AddIngredient(Mod, "Masamune", 1);
-            recipe.AddIngredient(Mod, "Chaos", 1);
-            recipe.AddIngredient(Mod, "EXSoul", 1);
-            recipe.AddIngredient(Mod, "ChaosCrystal", 1);
-            recipe.AddTile(null, "ACS");
+			recipe.AddIngredient(ModContent.ItemType<ReignOfFire>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<Masamune>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Chaos>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 

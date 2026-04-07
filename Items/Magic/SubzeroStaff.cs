@@ -1,3 +1,5 @@
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -68,8 +70,8 @@ namespace AAModClassic.Items.Magic
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.BlizzardStaff, 1);
-            recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Magic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
@@ -84,10 +87,10 @@ Small chance to fire an awakened bomb that explodes into abyss souls"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "EventideAbyssium", 5);
-            recipe.AddIngredient(null, "DreadScale", 5);
-            recipe.AddIngredient(null, "BogBomb", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<BogBomb>(), 1); //TODO: Should this guy be in Mire theme?
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

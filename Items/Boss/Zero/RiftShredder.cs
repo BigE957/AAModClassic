@@ -8,6 +8,9 @@ using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Dusts;
 using AAModClassic.Projectiles.Zero;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -74,10 +77,10 @@ namespace AAModClassic.Items.Boss.Zero
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddIngredient(null, "BreakingDawn");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<BreakingDawn>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

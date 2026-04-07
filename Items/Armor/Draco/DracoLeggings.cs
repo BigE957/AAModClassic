@@ -4,6 +4,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Armor.Kindled;
 
 namespace AAModClassic.Items.Armor.Draco
 {
@@ -75,10 +79,10 @@ The blazing fury of the Inferno rests in this armor"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncinerite", 18);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
-            recipe.AddIngredient(null, "KindledSuneate", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 18);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<KindledSuneate>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

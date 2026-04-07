@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.WoodenArrow, 50);
-			recipe.AddIngredient(null, "IncineriteBar", 1);
+			recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 1);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

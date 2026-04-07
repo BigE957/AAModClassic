@@ -3,6 +3,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Abyssal;
 using AAModClassic.Items.Armor.Atlantean;
 using AAModClassic.Items.Armor.Blazing;
@@ -19,10 +20,13 @@ using AAModClassic.Items.Armor.Tribal;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.FishingItem;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Mushrooms;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Alphakip;
@@ -84,25 +88,25 @@ namespace AAModClassic
 
             #region Materials
             Recipe recipe = GetNewRecipe(ItemID.HallowedBar, 1);
-            recipe.AddIngredient(null, "HallowedOre", 4);
-            recipe.AddTile(null, "HallowedForge");
+            recipe.AddIngredient(ModContent.ItemType<HallowedOre>(), 4);
+            recipe.AddTile(ModContent.TileType<HallowedForge_Tile>());
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.ShroomiteBar, 1);
-            recipe.AddIngredient(null, "MushiumBar", 1);
+            recipe.AddIngredient(ModContent.ItemType<MushiumBar>(), 1);
             recipe.AddIngredient(ItemID.GlowingMushroom, 5);
             recipe.AddTile(TileID.Autohammer);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.Mushroom, 3);
-            recipe.AddIngredient(null, "MushroomBlock");
+            recipe.AddIngredient(ModContent.ItemType<MushroomBlock>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
             #endregion
 
             #region Equipment
             recipe = GetNewRecipe(ItemID.TerraBlade, 1);
-            recipe.AddIngredient(null, "TrueFleshrendClaymore", 1);
+            recipe.AddIngredient(ModContent.ItemType<TrueFleshrendClaymore>(), 1);
             recipe.AddIngredient(ItemID.TrueExcalibur, 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
@@ -152,7 +156,7 @@ namespace AAModClassic
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.ObsidianShield);
-            recipe.AddIngredient(null, "PalladiumShield");
+            recipe.AddIngredient(ModContent.ItemType<PalladiumShield>());
             recipe.AddIngredient(ItemID.ObsidianSkull);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();
@@ -180,7 +184,7 @@ namespace AAModClassic
 
             #region Miscellaneous
             recipe = GetNewRecipe(ItemID.GuideVoodooDoll, 1);
-            recipe.AddIngredient(null, "DevilSilk", 5);
+            recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 5);
             recipe.AddIngredient(ItemID.Hay, 5);
             recipe.AddTile(TileID.Loom);
             recipe.Register();
@@ -200,25 +204,25 @@ namespace AAModClassic
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.FragmentNebula);
-            recipe.AddIngredient(null, "RadiumBar", 1);
+            recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 1);
             recipe.AddIngredient(ItemID.LunarOre, 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.FragmentSolar);
-            recipe.AddIngredient(null, "RadiumBar", 1);
+            recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 1);
             recipe.AddIngredient(ItemID.LunarOre, 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.FragmentStardust);
-            recipe.AddIngredient(null, "DarkMatter", 1);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 1);
             recipe.AddIngredient(ItemID.LunarOre, 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.FragmentVortex);
-            recipe.AddIngredient(null, "DarkMatter", 1);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 1);
             recipe.AddIngredient(ItemID.LunarOre, 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
@@ -468,7 +472,7 @@ namespace AAModClassic
             recipe = GetNewRecipe(ItemID.MusicBoxBoss2, 1);
             recipe.AddIngredient(ItemID.MusicBox, 1);
             recipe.AddIngredient(ItemID.GuideVoodooDoll, 1);
-            recipe.AddIngredient(null, "DevilSilk", 15);
+            recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 15);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
 
@@ -509,7 +513,7 @@ namespace AAModClassic
             recipe = GetNewRecipe(ItemID.MusicBoxPlantera, 1);
             recipe.AddIngredient(ItemID.MusicBox, 1);
             recipe.AddIngredient(ItemID.JungleSpores, 10);
-            recipe.AddIngredient(null, "PlanteraPetal", 5);
+            recipe.AddIngredient(ModContent.ItemType<PlanteraPetal>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
 
@@ -597,44 +601,44 @@ namespace AAModClassic
             Recipe recipe = GetNewRecipe(ItemID.RagePotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Deathweed, 1);
-            recipe.AddIngredient(null, "DragonClaw", 3);
-            recipe.AddIngredient(null, "DragonScale", 1);
+            recipe.AddIngredient(ModContent.ItemType<DragonClaw>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<DragonScale>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.WrathPotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Deathweed, 1);
-            recipe.AddIngredient(null, "HydraClaw", 3);
-            recipe.AddIngredient(null, "MirePod", 1);
+            recipe.AddIngredient(ModContent.ItemType<HydraClaw>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<MirePod>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.BattlePotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Deathweed, 1);
-            recipe.AddIngredient(null, "MirePod", 1);
+            recipe.AddIngredient(ModContent.ItemType<MirePod>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.BattlePotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Deathweed, 1);
-            recipe.AddIngredient(null, "MirePod", 1);
+            recipe.AddIngredient(ModContent.ItemType<MirePod>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.WaterWalkingPotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Waterleaf, 1);
-            recipe.AddIngredient(null, "MirePod", 2);
+            recipe.AddIngredient(ModContent.ItemType<MirePod>(), 2);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.ObsidianSkinPotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Waterleaf, 1);
-            recipe.AddIngredient(null, "DragonScale", 2);
+            recipe.AddIngredient(ModContent.ItemType<DragonScale>(), 2);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
         }
@@ -719,7 +723,7 @@ namespace AAModClassic
 
                 // Rainbow recipes
                 recipe = GetNewRecipe(potion.Item1);
-                recipe.AddIngredient(null, "Rainbow");
+                recipe.AddIngredient(ModContent.ItemType<Rainbow>());
                 recipe.AddIngredient(ItemID.BottledWater);
                 recipe.AddTile(TileID.Bottles);
                 recipe.Register();
@@ -768,7 +772,7 @@ namespace AAModClassic
 
                     // Rainbow recipes
                     recipe = GetNewRecipe(GRealm, potion.Item1);
-                    recipe.AddIngredient(null, "Rainbow");
+                    recipe.AddIngredient(ModContent.ItemType<Rainbow>());
                     if (potion.Item1 == "BloodbathPotion" || potion.Item1 == "ChitinPotion")
                     {
                         recipe.AddIngredient(ItemID.BottledWater);
@@ -816,7 +820,7 @@ namespace AAModClassic
             TransmuteRecipe(ItemID.AdamantiteBar, ItemID.TitaniumBar);
 
             TransmuteRecipe((short)ModContent.ItemType<AbyssiumBar>(), (short)ModContent.ItemType<IncineriteBar>());
-            TransmuteRecipe((short)ModContent.ItemType<DeepAbyssium>(), (short)ModContent.ItemType<RadiantIncinerite>());
+            TransmuteRecipe((short)ModContent.ItemType<DeepAbyssiumBar>(), (short)ModContent.ItemType<RadiantIncineriteBar>());
             TransmuteRecipe((short)ModContent.ItemType<DaybreakIncinerite>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
             #endregion
 
@@ -830,7 +834,7 @@ namespace AAModClassic
             TransmuteRecipe(ItemID.MythrilOre, ItemID.OrichalcumOre);
             TransmuteRecipe(ItemID.TitaniumOre, ItemID.AdamantiteOre);
 
-            TransmuteRecipe((short)ModContent.ItemType<AbyssiumOre>(), (short)ModContent.ItemType<Incinerite>());
+            TransmuteRecipe((short)ModContent.ItemType<AbyssiumOre>(), (short)ModContent.ItemType<IncineriteOre>());
             #endregion
         }
 
@@ -1079,7 +1083,7 @@ namespace AAModClassic
             if (RecipeGroup.recipeGroupIDs.ContainsKey("Wood"))
             {
                 int index = RecipeGroup.recipeGroupIDs["Wood"];
-                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Razewood>());
+                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Items.Blocks.Razewood>());
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Bogwood>());
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<OroborosWood>());
             }

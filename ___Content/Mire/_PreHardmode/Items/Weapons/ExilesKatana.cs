@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -43,7 +44,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 12);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

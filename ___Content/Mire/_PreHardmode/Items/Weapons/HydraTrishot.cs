@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
@@ -54,7 +55,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 8);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

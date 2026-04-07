@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -33,10 +34,10 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes() //the Recipe of the item
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "SandScimitar");
+            recipe.AddIngredient(ModContent.ItemType<SandScimitar>());
             recipe.AddIngredient(ItemID.Sandstone, 50);
             recipe.AddIngredient(ItemID.SandBlock, 100);
-            recipe.AddIngredient(null, "DesertMana", 3);
+            recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 3);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

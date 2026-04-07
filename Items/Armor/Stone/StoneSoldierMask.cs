@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Boss.Greed;
 
 namespace AAModClassic.Items.Armor.Stone
 {
@@ -55,7 +56,7 @@ Provides light & spelunker effect when worn"); */
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningHelmet);
-            recipe.AddIngredient(null, "StoneShell", 6);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 6);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

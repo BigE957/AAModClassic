@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -71,7 +72,7 @@ Terra Rose EX"); */
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ModContent.ItemType<TerraRose>());
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

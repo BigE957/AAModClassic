@@ -32,8 +32,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "InfernoBox");
-            recipe.AddIngredient(null, "Torchstone", 30);
+            recipe.AddIngredient(ModContent.ItemType<InfernoBox>());
+            recipe.AddIngredient(ModContent.ItemType<Torchstone>(), 30);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

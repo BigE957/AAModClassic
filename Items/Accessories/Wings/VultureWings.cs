@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -43,8 +44,8 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "vulture_feather", 15);
-            recipe.AddIngredient(null, "DesertMana", 5);
+			recipe.AddIngredient(ModContent.ItemType<vulture_feather>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 5);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

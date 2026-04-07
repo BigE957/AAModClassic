@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Usable
 {
@@ -26,7 +27,7 @@ namespace AAModClassic.Items.Usable
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "SoulOfSpite", 15);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 15);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

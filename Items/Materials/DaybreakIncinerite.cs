@@ -1,4 +1,6 @@
+using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Bars;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,9 +32,9 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncineriteOre", 5);
-            recipe.AddIngredient(null, "RadiantIncinerite", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteOre>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 1);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

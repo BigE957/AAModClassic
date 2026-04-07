@@ -1,3 +1,6 @@
+using AAModClassic.Items.Boss;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,15 +41,15 @@ namespace AAModClassic.Items.Dev
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "AmphibianLongswordEX");
-                recipe.AddIngredient(null, "ShinyCharm");
+                recipe.AddIngredient(ModContent.ItemType<AmphibianLongswordEX>());
+                recipe.AddIngredient(ModContent.ItemType<ShinyCharm>());
                 recipe.Register();
             }
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "AmphibianLongswordS");
-                recipe.AddIngredient(null, "EXSoul");
-                recipe.AddTile(null, "QuantumFusionAccelerator");
+                recipe.AddIngredient(ModContent.ItemType<AmphibianLongswordS>());
+                recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+                recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
                 recipe.Register();
             }
         }

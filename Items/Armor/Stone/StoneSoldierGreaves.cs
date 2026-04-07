@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Items.Boss.Greed;
 
 namespace AAModClassic.Items.Armor.Stone
 {
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Armor.Stone
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningPants);
-            recipe.AddIngredient(null, "StoneShell", 8);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 8);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

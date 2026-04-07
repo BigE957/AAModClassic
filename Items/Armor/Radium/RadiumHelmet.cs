@@ -8,6 +8,8 @@ using Terraria.ID;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Radium
 {
@@ -80,9 +82,9 @@ Shines with the light of a starry night sky"); */
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiumBar", 25);
-            recipe.AddIngredient(null, "Stardust", 10);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 25);
+            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 10);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 	}

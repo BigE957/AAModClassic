@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,8 +28,8 @@ namespace AAModClassic.Items.Boss.EFish
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Flairon);
-            recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

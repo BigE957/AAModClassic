@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.DoomiteU
@@ -46,7 +47,7 @@ namespace AAModClassic.Items.Armor.DoomiteU
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DoomiteScrap", 6);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 6);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

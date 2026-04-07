@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Armor.Darkmatter
 {
@@ -69,9 +71,9 @@ Dark, yet still barely visible"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "DarkMatter", 30);
-            recipe.AddIngredient(null, "DarkEnergy", 20);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 30);
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 20);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

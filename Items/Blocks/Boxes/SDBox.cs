@@ -49,8 +49,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "PagodaBox");
-            recipe.AddIngredient(null, "LakeBox");
+            recipe.AddIngredient(ModContent.ItemType<PagodaBox>());
+            recipe.AddIngredient(ModContent.ItemType<LakeBox>());
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

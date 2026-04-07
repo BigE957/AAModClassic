@@ -50,14 +50,14 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-			recipe.AddIngredient(null, "Poppy", 1);
-            recipe.AddIngredient(null, "AmethystGreatsword", 1);
-            recipe.AddIngredient(null, "EmeraldGreatsword", 1);
-            recipe.AddIngredient(null, "RubyGreatsword", 1);
-            recipe.AddIngredient(null, "SapphireGreatsword", 1);
-            recipe.AddIngredient(null, "TopazGreatsword", 1);
-            recipe.AddIngredient(null, "AmberGreatsword", 1);
-            recipe.AddIngredient(null, "DiamondGreatsword", 1);
+			recipe.AddIngredient(ModContent.ItemType<Poppy>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<AmethystGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EmeraldGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<RubyGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SapphireGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TopazGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<AmberGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DiamondGreatsword>(), 1);
             recipe.AddIngredient(ItemID.BeamSword);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

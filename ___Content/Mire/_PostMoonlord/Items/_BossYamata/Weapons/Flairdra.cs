@@ -8,6 +8,8 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
 using AAModClassic;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -93,10 +95,10 @@ Inflicts Moonraze"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "EventideAbyssium", 5);
-            recipe.AddIngredient(null, "DreadScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ItemID.Flairon, 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

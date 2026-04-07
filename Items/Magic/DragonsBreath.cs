@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +38,7 @@ namespace AAModClassic.Items.Magic
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Book, 1);
-            recipe.AddIngredient(null, "IncineriteBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
             recipe.AddTile(TileID.Bookcases);   
             recipe.Register();
         }

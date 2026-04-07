@@ -1,6 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Tools
 {
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Tools
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DesertFossil, 15);
             recipe.AddIngredient(ItemID.Sandstone, 20);
-            recipe.AddIngredient(null, "DesertMana", 5);
+            recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

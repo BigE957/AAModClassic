@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Razewood
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Razewood", 20);
+            recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 20);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

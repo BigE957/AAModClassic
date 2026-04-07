@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Armor.Doomite;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -59,7 +60,7 @@ namespace AAModClassic.Items.Armor.Chaos
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DoomiteVisor>());
-			recipe.AddIngredient(null, "ChaosCrystal", 1);
+			recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

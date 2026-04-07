@@ -1,5 +1,8 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Zero;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -75,9 +78,9 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 15);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

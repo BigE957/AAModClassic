@@ -46,8 +46,8 @@ namespace AAModClassic.Items.Armor.Paints
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "HallowedPaint", 1);
-            recipe.AddIngredient(null, "ChlorophytePaint", 1);
+            recipe.AddIngredient(ModContent.ItemType<HallowedPaint>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChlorophytePaint>(), 1);
             recipe.AddTile(TileID.BewitchingTable);
 			recipe.Register();
 		}

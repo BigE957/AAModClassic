@@ -8,6 +8,8 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma   //where is located
 {
@@ -97,10 +99,10 @@ Inflicts Daybroken"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncinerite", 5);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ItemID.MoonlordTurretStaff);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

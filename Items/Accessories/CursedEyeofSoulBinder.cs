@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Items.Boss.Anubis.Forsaken;
 
 namespace AAModClassic.Items.Accessories
 {
@@ -45,11 +46,11 @@ While Old One's Army is on, increase 31% minion damage."); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.SummonerEmblem, 1);
-            recipe.AddIngredient(null, "OldOneCharm", 1);
+            recipe.AddIngredient(ModContent.ItemType<OldOneCharm>(), 1);
             recipe.AddIngredient(ItemID.PygmyNecklace, 1);
-            recipe.AddIngredient(null, "OrnateBand", 1);
+            recipe.AddIngredient(ModContent.ItemType<OrnateBand>(), 1);
             recipe.AddIngredient(ItemID.SpectreBar, 10);
-            recipe.AddIngredient(null, "SoulFragment", 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulFragment>(), 10);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

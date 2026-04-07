@@ -3,6 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Armor
@@ -70,10 +73,10 @@ The abyssal wrath of the Mire rests in this armor"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssium", 15);
-            recipe.AddIngredient(null, "DreadScale", 5);
-            recipe.AddIngredient(null, "DepthFukumen", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DepthHelmet>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 {
@@ -37,7 +38,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Bogwood", 20);
+            recipe.AddIngredient(ModContent.ItemType<Bogwood>(), 20);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

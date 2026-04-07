@@ -9,6 +9,8 @@ using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
 using ReLogic.Content;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Materials
 {
@@ -58,9 +60,9 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DaybreakIncinerite", 1);
-            recipe.AddIngredient(null, "EventideAbyssium", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

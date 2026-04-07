@@ -8,6 +8,7 @@ using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 
 
 namespace AAModClassic.Items.BossSummons
@@ -59,7 +60,7 @@ Can only be used in the Void"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DoomiteScrap", 10);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 10);
             recipe.AddIngredient(ItemID.Bone, 20);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();

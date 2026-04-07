@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Vanity.Hallam.Shiny
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "HalHat", 1);
+            recipe.AddIngredient(ModContent.ItemType<HalHat>(), 1);
             recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }

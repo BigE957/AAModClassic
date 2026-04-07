@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -73,9 +75,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "EventHorizon");
-			recipe.AddIngredient(null, "Infinitium", 12);
-	        recipe.AddTile(null, "ACS");
+			recipe.AddIngredient(ModContent.ItemType<EventHorizon>());
+			recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
+	        recipe.AddTile(ModContent.TileType<ACS_Tile>());
 	        recipe.Register();
 		}
 		

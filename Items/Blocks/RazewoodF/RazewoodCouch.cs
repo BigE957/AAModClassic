@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Razewood>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 5);
             recipe.AddIngredient(ItemID.Silk, 2);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();

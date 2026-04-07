@@ -3,6 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Kindled
@@ -40,8 +42,8 @@ namespace AAModClassic.Items.Armor.Kindled
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "IncineriteBar", 15);
-            recipe.AddIngredient(null, "BroodScale", 10);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

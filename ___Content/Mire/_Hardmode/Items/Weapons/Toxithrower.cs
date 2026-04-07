@@ -2,6 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
@@ -41,9 +43,9 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "HydraToxin", 5);
-            recipe.AddIngredient(null, "AbyssiumBar", 10);
-            recipe.AddIngredient(null, "SoulOfSpite", 3);
+            recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

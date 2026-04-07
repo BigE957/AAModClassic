@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Blocks;
 using AAModClassic.Walls.Bricks;
 using Terraria;
 using Terraria.ID;
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Walls
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "Doomstone");
+            recipe.AddIngredient(ModContent.ItemType<Doomstone>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

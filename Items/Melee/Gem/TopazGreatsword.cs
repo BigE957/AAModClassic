@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "TopazSaber", 1);
+            recipe.AddIngredient(ModContent.ItemType<TopazSaber>(), 1);
 			recipe.AddIngredient(ItemID.LargeTopaz, 1);			
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();

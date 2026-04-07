@@ -47,7 +47,7 @@ Stacks up to 5"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<RadiantIncinerite>(), 3);
+			recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 3);
 			recipe.AddIngredient(ItemID.LivingFireBlock, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

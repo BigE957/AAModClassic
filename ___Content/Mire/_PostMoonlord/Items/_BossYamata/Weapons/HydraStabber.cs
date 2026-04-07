@@ -7,6 +7,9 @@ using Terraria.ModLoader;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Melee;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
@@ -93,10 +96,10 @@ IInflicts Moonraze"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssium", 5);
-            recipe.AddIngredient(null, "DreadScale", 5);
-            recipe.AddIngredient(null, "TrueCopperShortsword");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<TrueCopperShortsword>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

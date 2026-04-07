@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria;
 using AAModClassic;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {
@@ -62,8 +63,8 @@ Allows you to work with Dark Matter and Radium"); */
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.LunarCraftingStation, 1);
-                recipe.AddIngredient(null, "DarkmatterOre", 30);
-                recipe.AddIngredient(null, "DarkEnergy", 15);
+                recipe.AddIngredient(ModContent.ItemType<DarkmatterOre>(), 30);
+                recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 15);
                 recipe.Register();
             }
         }

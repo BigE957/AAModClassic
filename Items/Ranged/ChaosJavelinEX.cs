@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,9 +40,9 @@ Chaos Javelin EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "ChaosJavelin");
-            recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ChaosJavelin>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

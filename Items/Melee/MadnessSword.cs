@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Melee   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "MadnessFragment", 5);
+            recipe.AddIngredient(ModContent.ItemType<MadnessFragment>(), 5);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
 

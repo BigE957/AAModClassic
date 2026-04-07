@@ -9,6 +9,10 @@ using System.Collections.Generic;
 using Terraria.Audio;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic.Items.Boss.Akuma;
 
 namespace AAModClassic.Items.Boss.Shen
 {
@@ -139,11 +143,11 @@ namespace AAModClassic.Items.Boss.Shen
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiantDawn", 1);
-            recipe.AddIngredient(null, "FallingTwilight", 1);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<RadiantDawn>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<FallingTwilight>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

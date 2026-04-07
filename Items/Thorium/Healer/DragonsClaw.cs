@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
+using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Thorium;
 using Microsoft.Xna.Framework;
 
@@ -99,7 +100,7 @@ Grants 1 soul essence on direct hit"); */
         {
             if (ModSupport.GetMod("ThoriumMod") == null) return;
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "IncineriteBar", 8);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "DiamondSaber", 1);
+            recipe.AddIngredient(ModContent.ItemType<DiamondSaber>(), 1);
             recipe.AddIngredient(ItemID.LargeDiamond, 1);			
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();

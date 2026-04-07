@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DreadScale", 3);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
             recipe.Register();

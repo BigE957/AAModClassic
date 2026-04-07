@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Projectiles;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -57,9 +58,9 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DragonFire", 5);
-            recipe.AddIngredient(null, "IncineriteBar", 10);
-            recipe.AddIngredient(null, "SoulOfSmite", 3);
+            recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

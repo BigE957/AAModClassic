@@ -50,7 +50,7 @@ namespace AAModClassic.Items.Dev
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Skullshot");
+            recipe.AddIngredient(ModContent.ItemType<Skullshot>());
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

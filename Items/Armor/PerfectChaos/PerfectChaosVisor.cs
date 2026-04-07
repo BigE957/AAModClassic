@@ -7,6 +7,10 @@ using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {
@@ -68,10 +72,10 @@ The power of discordian rage radiates from this hood"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DreadHelm", 1);
-            recipe.AddIngredient(null, "Discordium", 6);
-            recipe.AddIngredient(null, "ChaosScale", 6);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DreadHelmet>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

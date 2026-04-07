@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 {
@@ -70,10 +72,10 @@ Non-consumable"); */
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "EventideAbyssium", 1);
-            recipe.AddIngredient(null, "DreadScale", 1);
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 1);
             recipe.AddIngredient(ItemID.MoonlordArrow, 999);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

@@ -42,7 +42,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssalDye", 2);
+            recipe.AddIngredient(ModContent.ItemType<AbyssalDye>(), 2);
             recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
             recipe.Register();

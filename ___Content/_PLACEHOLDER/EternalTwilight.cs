@@ -3,6 +3,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.___Content._PLACEHOLDER
 {
@@ -55,9 +58,9 @@ namespace AAModClassic.___Content._PLACEHOLDER
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "FallingTwilight");
-            recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<FallingTwilight>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

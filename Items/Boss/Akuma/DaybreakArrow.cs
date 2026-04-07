@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -71,9 +73,9 @@ Non-consumable"); */
 		{
 			Recipe recipe = CreateRecipe(1);
 			recipe.AddIngredient(ItemID.MoonlordArrow, 999);
-            recipe.AddIngredient(null, "DaybreakIncinerite", 1);
-            recipe.AddIngredient(null, "CrucibleScale", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

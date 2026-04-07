@@ -1,6 +1,10 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Boss.Zero;
 using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -85,21 +89,21 @@ Non-consumable"); */
         {
             Recipe recipe;
             recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "GoldenCarrot", 1);
-            recipe.AddIngredient(null, "UnstableSingularity", 3);
-            recipe.AddIngredient(null, "CrucibleScale", 3);
-            recipe.AddIngredient(null, "DreadScale", 3);
+            recipe.AddIngredient(ModContent.ItemType<GoldenCarrot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
             recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "PlatinumCarrot", 1);
-            recipe.AddIngredient(null, "UnstableSingularity", 3);
-            recipe.AddIngredient(null, "CrucibleScale", 3);
-            recipe.AddIngredient(null, "DreadScale", 3);
+            recipe.AddIngredient(ModContent.ItemType<PlatinumCarrot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }

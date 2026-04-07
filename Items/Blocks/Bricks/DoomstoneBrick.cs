@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Bricks;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Blocks.Bricks
 {
@@ -47,8 +48,8 @@ namespace AAModClassic.Items.Blocks.Bricks
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "Doomstone", 3);
-                recipe.AddTile(null, "ACS");
+                recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 3);
+                recipe.AddTile(ModContent.TileType<ACS_Tile>());
                 recipe.Register();
             }
         }

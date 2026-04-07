@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
@@ -42,8 +43,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "YamataBox");
-            recipe.AddIngredient(null, "Naitokurosu");
+            recipe.AddIngredient(ModContent.ItemType<YamataBox>());
+            recipe.AddIngredient(ModContent.ItemType<Naitokurosu>());
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

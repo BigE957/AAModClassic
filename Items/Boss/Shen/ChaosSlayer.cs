@@ -7,6 +7,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Shen;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic.Items.Boss.Akuma;
 
 namespace AAModClassic.Items.Boss.Shen
 {
@@ -85,11 +89,11 @@ blades go through tiles
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ReignOfFire", 1);
-            recipe.AddIngredient(null, "Hydraslayer", 1);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ReignOfFire>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Amenomuraku>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

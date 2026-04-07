@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Furniture.Oroboros;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -52,8 +53,8 @@ namespace AAModClassic.Items.Blocks
 		{
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "DoomiteScrap", 2);
-                recipe.AddIngredient(null, "OroborosWood", 12);
+                recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 2);
+                recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 12);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
             }

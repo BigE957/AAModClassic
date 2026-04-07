@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,8 +46,8 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "RadiantIncinerite", 10);
-            recipe.AddIngredient(null, "SoulOfSmite", 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

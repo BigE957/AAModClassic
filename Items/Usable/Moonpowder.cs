@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,7 +32,7 @@ namespace AAModClassic.Items.Usable
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(5);
-            recipe.AddIngredient(null, "Darkshroom", 1);
+            recipe.AddIngredient(ModContent.ItemType<Darkshroom>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
         }

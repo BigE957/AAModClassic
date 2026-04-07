@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Potions;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "Carrot", 20);
+            recipe.AddIngredient(ModContent.ItemType<Carrot>(), 20);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

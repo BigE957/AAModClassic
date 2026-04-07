@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
@@ -31,7 +32,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "AbyssiumBar", 5);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 5);
 			recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

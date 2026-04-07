@@ -1,4 +1,6 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,9 +49,9 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Stardust", 5);
-            recipe.AddIngredient(null, "RadiumBar", 12);
-            recipe.AddTile(null, "QuantumFusionAccelerator");   
+            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 12);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());   
             recipe.Register();
         }
     }

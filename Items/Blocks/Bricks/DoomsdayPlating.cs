@@ -1,5 +1,7 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Bricks;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -53,8 +55,8 @@ namespace AAModClassic.Items.Blocks.Bricks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 2);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 2);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

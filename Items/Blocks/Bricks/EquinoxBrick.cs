@@ -31,8 +31,8 @@ namespace AAModClassic.Items.Blocks.Bricks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiumBrick", 1);
-            recipe.AddIngredient(null, "DarkmatterBrick", 1);
+            recipe.AddIngredient(ModContent.ItemType<RadiumBrick>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBrick>(), 1);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
         }

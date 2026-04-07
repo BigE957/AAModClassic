@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.MushroomMonarch;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -35,8 +36,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "MushiumBar", 10);
-            recipe.AddIngredient(null, "GlowingMushiumBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<MushiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<GlowingMushiumBar>(), 10);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

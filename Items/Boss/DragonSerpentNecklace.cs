@@ -29,8 +29,8 @@ Ignores 5 Enemy defense"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DragonCape", 1);
-            recipe.AddIngredient(null, "HydraPendant", 1);
+            recipe.AddIngredient(ModContent.ItemType<DragonCape>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HydraPendant>(), 1);
             recipe.AddIngredient(ItemID.SharkToothNecklace, 1);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

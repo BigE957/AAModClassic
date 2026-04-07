@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -46,7 +47,7 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "IncineriteBar", 8);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 8);
 			recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

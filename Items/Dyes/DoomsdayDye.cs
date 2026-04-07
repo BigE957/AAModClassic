@@ -8,6 +8,7 @@ using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic.Items.Dyes
 {
@@ -45,7 +46,7 @@ namespace AAModClassic.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "UnstableSingularity", 3);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 3);
             recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
             recipe.Register();

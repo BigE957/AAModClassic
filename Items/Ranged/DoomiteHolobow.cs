@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -38,7 +39,7 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Doomite", 8);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

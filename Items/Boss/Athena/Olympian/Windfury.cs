@@ -61,8 +61,8 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "RazorwindLongbow", 1);
-            recipe.AddIngredient(null, "StormSphere", 10);
+            recipe.AddIngredient(ModContent.ItemType<RazorwindLongbow>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<StormSphere>(), 10);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

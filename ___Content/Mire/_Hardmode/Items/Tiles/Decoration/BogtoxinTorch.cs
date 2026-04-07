@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -62,7 +63,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 		{
 			Recipe recipe = CreateRecipe(33);
 			recipe.AddIngredient(ItemID.Torch, 33);
-			recipe.AddIngredient(null, "HydraToxin");
+			recipe.AddIngredient(ModContent.ItemType<HydraToxin>());
 			recipe.Register();
 		}
 	}

@@ -5,6 +5,8 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {
@@ -60,8 +62,8 @@ namespace AAModClassic.Items.Blocks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "IncineriteBar", 15);
-            recipe.AddIngredient(null, "BroodScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

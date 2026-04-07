@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Armor.Razewood
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Razewood", 25);
+            recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 25);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

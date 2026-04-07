@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 using AAModClassic;
 using Terraria.Audio;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Dev
 {
@@ -59,9 +61,9 @@ Storm Rifle EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "ThunderLord", 1);
-            recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<ThunderLord>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

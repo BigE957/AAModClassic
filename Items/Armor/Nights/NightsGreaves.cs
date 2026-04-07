@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,7 +36,7 @@ namespace AAModClassic.Items.Armor.Nights
             recipe.AddIngredient(ItemID.ShadowGreaves, 1);
             recipe.AddIngredient(ItemID.JungleSpores, 6);
             recipe.AddIngredient(ItemID.Bone, 6);
-            recipe.AddIngredient(null, "DevilSilk", 6);
+            recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

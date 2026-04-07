@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.FishingItem;
+using AAModClassic.Items.Potions;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,8 +47,8 @@ You have more chance to get a crate among the extra booty"); */
 			recipe.AddIngredient(ItemID.AnglerVest, 1);
 			recipe.AddIngredient(ItemID.AnglerPants, 1);
 			recipe.AddIngredient(ItemID.AnglerTackleBag, 1);
-			recipe.AddIngredient(null, "ShinyCharmFish", 1);
-			recipe.AddIngredient(null, "LuckyCracker", 1);
+			recipe.AddIngredient(ModContent.ItemType<ShinyCharmFish>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<LuckyCracker>(), 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}

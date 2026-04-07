@@ -702,7 +702,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     target.AddBuff(BuffID.Confused, 180);
                 }
             }
-            else if(k == ModContent.ItemType<Incinerite>())
+            else if(k == ModContent.ItemType<IncineriteOre>())
             {
                 target.AddBuff(BuffID.OnFire, 240);
                 if (Main.rand.Next(5) == 0)
@@ -1103,7 +1103,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 Projectile.extraUpdates = 1;
             }
-            else if(k == ItemID.Hellstone || k == ModContent.ItemType<Incinerite>())
+            else if(k == ItemID.Hellstone || k == ModContent.ItemType<IncineriteOre>())
             {
                 for (int num291 = 0; num291 < 5; num291++)
                 {
@@ -1361,7 +1361,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 return ModContent.DustType<Dusts.AbyssiumDust>();
             }
-            else if (k == ModContent.ItemType<Incinerite>())
+            else if (k == ModContent.ItemType<IncineriteOre>())
             {
                 return ModContent.DustType<Dusts.IncineriteDust>();
             }

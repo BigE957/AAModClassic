@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAModClassic.Tiles.Crafters;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Potions
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SuperManaPotion);
             recipe.AddRecipeGroup("AAModClassic:AncientMaterials");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

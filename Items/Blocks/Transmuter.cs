@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
@@ -34,8 +36,8 @@ namespace AAModClassic.Items.Blocks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "IncineriteBar", 10);
-            recipe.AddIngredient(null, "AbyssiumBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
             recipe.AddRecipeGroup("AAModClassic:Altar");
             recipe.Register();
         }

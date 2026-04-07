@@ -139,7 +139,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AAModClassic.Items.Pets.BroodEgg>(), 10));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 50, 75));
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Incinerite>(), 1, 75, 100));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 75, 100));
 
             npcLoot.Add(notExpertRule);
         }

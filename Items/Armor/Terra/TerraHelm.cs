@@ -3,6 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Armor.Nights;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Armor.Fleshrend;
 
 
 namespace AAModClassic.Items.Armor.Terra
@@ -49,13 +52,13 @@ namespace AAModClassic.Items.Armor.Terra
 		{
 			Recipe recipe;
 			recipe = CreateRecipe();
-			recipe.AddIngredient(null, "NightsHelm", 1);
-			recipe.AddIngredient(null, "TerraCrystal", 1);
+			recipe.AddIngredient(ModContent.ItemType<NightsHelm>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 			recipe = CreateRecipe();
-			recipe.AddIngredient(null, "FleshrendHelm", 1);
-			recipe.AddIngredient(null, "TerraCrystal", 1);
+			recipe.AddIngredient(ModContent.ItemType<FleshrendHelm>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

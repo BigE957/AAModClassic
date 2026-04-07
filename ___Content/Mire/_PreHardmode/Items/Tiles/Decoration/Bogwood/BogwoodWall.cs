@@ -31,7 +31,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwo
         {
             Recipe recipe;
             recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "Bogwood");
+            recipe.AddIngredient(ModContent.ItemType<Bogwood>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

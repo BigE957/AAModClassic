@@ -1,3 +1,4 @@
+using AAModClassic.Items.Boss;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -56,8 +57,8 @@ Prismeow EX"); */
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "Prismeow");
-                recipe.AddIngredient(null, "EXSoul");
+                recipe.AddIngredient(ModContent.ItemType<Prismeow>());
+                recipe.AddIngredient(ModContent.ItemType<EXSoul>());
                 recipe.Register();
             }
         }

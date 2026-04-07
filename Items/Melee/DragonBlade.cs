@@ -2,6 +2,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Melee   //where is located
 {
@@ -41,7 +42,7 @@ namespace AAModClassic.Items.Melee   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "DragonSpirit", 30);   
+            recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 30);   
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();
 

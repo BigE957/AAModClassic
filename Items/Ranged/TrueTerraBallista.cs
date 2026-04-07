@@ -1,5 +1,6 @@
 using AAModClassic.Items.Boss;
 using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -60,7 +61,7 @@ Terra Ballista EX"); */
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ModContent.ItemType<TerraBallista>());
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 	}

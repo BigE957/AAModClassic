@@ -1,6 +1,10 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Shen;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -120,11 +124,11 @@ Consumes gel as ammo
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddIngredient(null, "Dawnstrike");
-            recipe.AddIngredient(null, "Darksprayer");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Dawnstrike>());
+            recipe.AddIngredient(ModContent.ItemType<Darksprayer>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

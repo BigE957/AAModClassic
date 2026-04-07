@@ -33,7 +33,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 		public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Abyssium", 3);              //example of how to craft with a modded item
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumOre>(), 3);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
         }

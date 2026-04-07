@@ -62,8 +62,8 @@ Functions as most necessary crafting stations"); */
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "PaladinsSmeltery", 1);
-                recipe.AddIngredient(null, "HaphestusForge", 1);
+                recipe.AddIngredient(ModContent.ItemType<PaladinsSmeltery>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<HaphestusForge>(), 1);
                 recipe.Register();
             }
         }

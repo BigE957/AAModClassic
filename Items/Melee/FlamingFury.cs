@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -47,7 +48,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "IncineriteBar", 12);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

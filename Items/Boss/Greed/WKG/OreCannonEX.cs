@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Projectiles.Greed.WKG;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {
@@ -197,9 +198,9 @@ OreCannonEX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "OreCannon", 1);
-            recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<OreCannon>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

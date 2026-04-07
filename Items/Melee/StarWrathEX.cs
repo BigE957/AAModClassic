@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Items.Boss;
 using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -66,7 +67,7 @@ namespace AAModClassic.Items.Melee
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.StarWrath);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

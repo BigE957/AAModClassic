@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles
 {
@@ -32,8 +33,8 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 15);
-            recipe.AddIngredient(null, "HydraHide", 5);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

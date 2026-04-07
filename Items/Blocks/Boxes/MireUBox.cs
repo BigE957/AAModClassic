@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.___Content.Mire.World.Tiles;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -32,8 +33,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "MireBox");
-            recipe.AddIngredient(null, "Depthstone", 30);
+            recipe.AddIngredient(ModContent.ItemType<MireBox>());
+            recipe.AddIngredient(ModContent.ItemType<Depthstone>(), 30);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

@@ -1,5 +1,7 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
@@ -35,8 +37,8 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Apocalyptite", 5);              //example of how to craft with a modded item
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<Apocalyptite>(), 5);              //example of how to craft with a modded item
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

@@ -11,6 +11,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -126,9 +128,9 @@ N0N-C0NSUMABLE"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 15);
-            recipe.AddIngredient(null, "DarkMatter", 20);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 20);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

@@ -4,6 +4,7 @@ using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -48,8 +49,8 @@ namespace AAModClassic.Items.Blocks.Boxes
             { 
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.MusicBox);
-                recipe.AddIngredient(null, "ZeroBox");
-                recipe.AddIngredient(null, "BrokenCode");
+                recipe.AddIngredient(ModContent.ItemType<ZeroBox>());
+                recipe.AddIngredient(ModContent.ItemType<BrokenCode>());
                 recipe.AddTile(TileID.Sawmill);
                 recipe.Register();
             }

@@ -67,14 +67,14 @@ Right Clicking fires a piercing rose"); */
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Vilethorn, 1);
-            recipe.AddIngredient(null, "MagicFlower", 1);
+            recipe.AddIngredient(ModContent.ItemType<MagicFlower>(), 1);
             recipe.AddIngredient(ItemID.MagicMissile, 1);
             recipe.AddIngredient(ItemID.FlowerofFire, 1);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.CrimsonRod, 1);
-            recipe.AddIngredient(null, "MagicFlower", 1);
+            recipe.AddIngredient(ModContent.ItemType<MagicFlower>(), 1);
             recipe.AddIngredient(ItemID.MagicMissile, 1);
             recipe.AddIngredient(ItemID.FlowerofFire, 1);
             recipe.AddTile(TileID.DemonAltar);

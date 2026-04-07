@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons   //where is located
 {
@@ -39,7 +40,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons   //where is loca
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-			recipe.AddIngredient(null, "DeepAbyssium", 10);
+			recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 10);
 			recipe.AddIngredient(ItemID.Ectoplasm, 15);
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();

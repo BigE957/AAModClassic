@@ -31,7 +31,7 @@ Allows you to dash into enemies, damaging them"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ClawOfChaos", 1);
+            recipe.AddIngredient(ModContent.ItemType<ClawOfChaos>(), 1);
             recipe.AddIngredient(ItemID.EoCShield, 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();

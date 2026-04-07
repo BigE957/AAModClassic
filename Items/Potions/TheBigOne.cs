@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -45,10 +46,10 @@ namespace AAModClassic.Items.Potions
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "GrandHealingPotion");
-            recipe.AddIngredient(null, "GrandManaPotion");
+			recipe.AddIngredient(ModContent.ItemType<GrandHealingPotion>());
+            recipe.AddIngredient(ModContent.ItemType<GrandManaPotion>());
             recipe.AddRecipeGroup("AAModClassic:SuperAncientMaterials");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

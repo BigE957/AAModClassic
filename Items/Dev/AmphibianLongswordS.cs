@@ -3,6 +3,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Dev
 {
@@ -51,8 +52,8 @@ namespace AAModClassic.Items.Dev
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AmphibianLongsword");
-            recipe.AddIngredient(null, "ShinyCharm");
+            recipe.AddIngredient(ModContent.ItemType<AmphibianLongsword>());
+            recipe.AddIngredient(ModContent.ItemType<ShinyCharm>());
             recipe.Register();
         }
     }

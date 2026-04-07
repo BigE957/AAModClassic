@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,8 +36,8 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "PrimevalJavelin");
-            recipe.AddIngredient(null, "ChaosCrystal");
+            recipe.AddIngredient(ModContent.ItemType<PrimevalJavelin>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

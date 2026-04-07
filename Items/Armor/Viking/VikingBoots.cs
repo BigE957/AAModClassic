@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Viking
 {
@@ -25,7 +26,7 @@ namespace AAModClassic.Items.Armor.Viking
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null,"RelicBar", 14);
+			recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 14);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

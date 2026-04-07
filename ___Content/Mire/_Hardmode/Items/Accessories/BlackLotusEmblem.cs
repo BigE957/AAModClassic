@@ -1,6 +1,10 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Accessories
 {
@@ -42,10 +46,10 @@ Your magic attacks inflicts moonraze
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ManaFlower, 1);
             recipe.AddIngredient(ItemID.CelestialEmblem, 1);
-            recipe.AddIngredient(null, "BlackLotus", 1);
-            recipe.AddIngredient(null, "ShadowBand", 1);
-            recipe.AddIngredient(null, "SoulOfSpite", 10);
-            recipe.AddTile(null, "HallowedAnvil");
+            recipe.AddIngredient(ModContent.ItemType<BlackLotus>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ShadowBand>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 10);
+            recipe.AddTile(ModContent.TileType<HallowedAnvil_Tile>());
             recipe.Register();
         }
 

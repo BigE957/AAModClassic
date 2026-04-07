@@ -3,6 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Equinox
 {
@@ -75,11 +77,11 @@ Gives immensely increased stats
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.CelestialShell, 1);
-            recipe.AddIngredient(null, "RadiantStar", 1);
-            recipe.AddIngredient(null, "DarkVoid", 1);
-            recipe.AddIngredient(null, "Stardust", 20);
-            recipe.AddIngredient(null, "DarkEnergy", 20);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<RadiantStar>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DarkVoid>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 20);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

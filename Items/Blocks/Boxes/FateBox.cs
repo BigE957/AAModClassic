@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

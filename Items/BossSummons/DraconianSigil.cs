@@ -12,6 +12,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -122,9 +124,9 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DaybreakIncinerite", 10);
-            recipe.AddIngredient(null, "RadiumBar", 5);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 5);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

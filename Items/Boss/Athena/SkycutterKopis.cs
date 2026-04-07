@@ -36,12 +36,12 @@ namespace AAModClassic.Items.Boss.Athena
 			Recipe recipe;
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SilverBroadsword, 1);
-			recipe.AddIngredient(null, "GoddessFeather", 10);
+			recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.TungstenBroadsword, 1);
-			recipe.AddIngredient(null, "GoddessFeather", 10);
+			recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

@@ -1,5 +1,7 @@
 using System;
+using AAModClassic.Items.Boss;
 using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -118,8 +120,8 @@ namespace AAModClassic.Items.Magic
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BeeGun);
 			recipe.AddIngredient(ItemID.ChainGun);
-			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

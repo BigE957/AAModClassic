@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -83,8 +84,8 @@ Cursed Sickle EX"); */
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "CursedSickle");
-                recipe.AddIngredient(null, "EXSoul");
+                recipe.AddIngredient(ModContent.ItemType<CursedSickle>());
+                recipe.AddIngredient(ModContent.ItemType<EXSoul>());
                 recipe.Register();
             }
         }

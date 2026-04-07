@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Shen;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -36,8 +37,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "ShenBox");
-            recipe.AddIngredient(null, "ChaosSoul");
+            recipe.AddIngredient(ModContent.ItemType<ShenBox>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosSoul>());
             recipe.AddTile(TileID.Sawmill);
             recipe.AddCondition(Condition.InExpertMode);
             recipe.Register();

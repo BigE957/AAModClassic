@@ -38,9 +38,9 @@ namespace AAModClassic.Items.Ranged
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.BoneJavelin, 500);
-            recipe.AddIngredient(null, "DragonSpine", 500);
-            recipe.AddIngredient(null, "Winterbreak", 500);
-            recipe.AddIngredient(null, "Incapacitator", 500);
+            recipe.AddIngredient(ModContent.ItemType<DragonSpine>(), 500);
+            recipe.AddIngredient(ModContent.ItemType<Winterbreak>(), 500);
+            recipe.AddIngredient(ModContent.ItemType<Incapacitator>(), 500);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

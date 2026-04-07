@@ -37,7 +37,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<DeepAbyssium>());
+			recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

@@ -54,7 +54,7 @@ namespace AAModClassic.CrossMod
         internal static HashSet<int> RemovedItems =>
         [
             #region Materials
-            ModContent.ItemType<Incinerite>(),
+            ModContent.ItemType<IncineriteOre>(),
             ModContent.ItemType<IncineriteBar>(),
             ModContent.ItemType<MirePod>(),
             ModContent.ItemType<DragonScale>(),
@@ -143,7 +143,7 @@ namespace AAModClassic.CrossMod
                 //OldToNewItems.Add(ModContent.ItemType<Depthsandstone>(), NewAA.Find<ModItem>("Depthsandstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<DepthsandHardened>(), NewAA.Find<ModItem>("HardenedDepthsand").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<Razewood>(), NewAA.Find<ModItem>("Razewood").Type);
+                OldToNewItems.Add(ModContent.ItemType<Items.Blocks.Razewood>(), NewAA.Find<ModItem>("Razewood").Type);
                 OldToNewItems.Add(ModContent.ItemType<Torchstone>(), NewAA.Find<ModItem>("Torchstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<TorchAsh>(), NewAA.Find<ModItem>("TorchAsh").Type);
                 OldToNewItems.Add(ModContent.ItemType<Torchice>(), NewAA.Find<ModItem>("Torchice").Type);
@@ -163,7 +163,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Materials
-                OldToNewItems.Add(ModContent.ItemType<Incinerite>(), NewAA.Find<ModItem>("IncineriteOre").Type);
+                OldToNewItems.Add(ModContent.ItemType<IncineriteOre>(), NewAA.Find<ModItem>("IncineriteOre").Type);
                 //OldToNewItems.Add(ModContent.ItemType<Abyssium>(), NewAA.Find<ModItem>("AbyssiumOre").Type);
                 OldToNewItems.Add(ModContent.ItemType<IncineriteBar>(), NewAA.Find<ModItem>("IncineriteBar").Type);
                 //OldToNewItems.Add(ModContent.ItemType<AbyssiumBar>(), NewAA.Find<ModItem>("AbyssiumBar").Type);
@@ -233,8 +233,8 @@ namespace AAModClassic.CrossMod
             ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<ClawOfChaos>()] = NewAA.Find<ModItem>("TwinClawPendant").Type;
 
             //Tiles
-            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<Incinerite>()] = NewAA.Find<ModItem>("IncineriteOre").Type;
-            ItemID.Sets.ShimmerTransformToItem[NewAA.Find<ModItem>("IncineriteOre").Type] = ModContent.ItemType<Incinerite>();
+            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<IncineriteOre>()] = NewAA.Find<ModItem>("IncineriteOre").Type;
+            ItemID.Sets.ShimmerTransformToItem[NewAA.Find<ModItem>("IncineriteOre").Type] = ModContent.ItemType<IncineriteOre>();
             #endregion
         }
 

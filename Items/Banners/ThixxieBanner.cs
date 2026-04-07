@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Banners
 	    public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "FatPixieBanner", 20);
+            recipe.AddIngredient(ModContent.ItemType<FatPixieBanner>(), 20);
             recipe.Register();
         }
     }

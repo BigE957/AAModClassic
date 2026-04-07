@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -54,8 +55,8 @@ namespace AAModClassic.Items.Dev
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "TimeTeller");
-            recipe.AddIngredient(null, "EXSoul");
+            recipe.AddIngredient(ModContent.ItemType<TimeTeller>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.Register();
         }
 

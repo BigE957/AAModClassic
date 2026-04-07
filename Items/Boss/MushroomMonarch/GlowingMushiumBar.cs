@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "GlowingMushium", 3);              //example of how to craft with a modded item
+            recipe.AddIngredient(ModContent.ItemType<GlowingMushium>(), 3);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
         }

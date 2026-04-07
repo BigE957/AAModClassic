@@ -36,7 +36,7 @@ Not Consumable"); */
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.HolyArrow, 999);
-			recipe.AddIngredient(null, "ReaperArrow", 999);
+			recipe.AddIngredient(ModContent.ItemType<ReaperArrow>(), 999);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

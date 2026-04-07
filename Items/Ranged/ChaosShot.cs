@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -64,8 +65,8 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssalShadowshot", 1);
-            recipe.AddIngredient(null, "ChaosCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<AbyssalShadowshot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

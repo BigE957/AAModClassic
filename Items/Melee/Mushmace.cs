@@ -1,6 +1,7 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using AAModClassic.Items.Boss.MushroomMonarch;
 
 namespace AAModClassic.Items.Melee
 {
@@ -35,7 +36,7 @@ namespace AAModClassic.Items.Melee
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Mushroom, 5);
-            recipe.AddIngredient(null, "MushiumBar", 3);
+            recipe.AddIngredient(ModContent.ItemType<MushiumBar>(), 3);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

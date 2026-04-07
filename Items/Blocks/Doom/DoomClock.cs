@@ -1,4 +1,5 @@
 using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Furniture.Doom;
 using Terraria;
 using Terraria.ID;
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Blocks.Doom
             recipe.AddIngredient(ItemID.Glass, 6);
             recipe.AddRecipeGroup("IronBar", 3);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 10);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

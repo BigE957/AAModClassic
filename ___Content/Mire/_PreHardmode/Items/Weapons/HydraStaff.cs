@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -69,7 +70,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

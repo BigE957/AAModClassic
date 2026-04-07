@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Items.Armor.Oroboros
 {
@@ -38,7 +39,7 @@ namespace AAModClassic.Items.Armor.Oroboros
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "OroborosWood", 20);
+                recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 20);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
             }

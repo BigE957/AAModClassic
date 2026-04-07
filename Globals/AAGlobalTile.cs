@@ -759,7 +759,7 @@ namespace AAModClassic.Globals
 				float chance = Config.LuckyOre[itemtype];
                 chance -= Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].pick;
                 chance = chance/ChanceBalance * 100f;
-                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<AbyssiumOre>() || itemtype == ModContent.ItemType<Incinerite>() || itemtype == ModContent.ItemType<Apocalyptite>()))
+                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<AbyssiumOre>() || itemtype == ModContent.ItemType<IncineriteOre>() || itemtype == ModContent.ItemType<Apocalyptite>()))
                 {
                     if(Utils.NextFloat(Main.rand, SecondDrop) < 1)
                     {
@@ -786,7 +786,7 @@ namespace AAModClassic.Globals
                         return itemtype;
                     }
                 }
-                else if(itemtype == ModContent.ItemType<Incinerite>())
+                else if(itemtype == ModContent.ItemType<IncineriteOre>())
                 {
                     if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Torchstone_Tile>())
                     {

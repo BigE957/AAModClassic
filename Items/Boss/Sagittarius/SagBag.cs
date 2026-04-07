@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Items.Materials.Doomite>(), Main.rand.Next(35, 45));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Items.Materials.DoomiteBar>(), Main.rand.Next(35, 45));
 			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SagShield>());			
         }
     }

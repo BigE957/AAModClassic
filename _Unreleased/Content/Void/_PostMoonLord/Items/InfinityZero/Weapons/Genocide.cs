@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Zero;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -106,9 +107,9 @@ Doesn't require ammo"); */
         {
             Recipe recipe = CreateRecipe();
             //TODOIZ this item doesnt exist anymore
-            //recipe.AddIngredient(null, "AntimatterRifle", 1);
-            recipe.AddIngredient(null, "Infinitium", 12);
-            recipe.AddTile(null, "ACS");
+            //recipe.AddIngredient(ModContent.ItemType<AntimatterRifle>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

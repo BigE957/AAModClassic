@@ -71,7 +71,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()  //How to craft this sword
         {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "FleshrendClaymore");
+			recipe.AddIngredient(ModContent.ItemType<FleshrendClaymore>());
 			recipe.AddIngredient(ItemID.LunarTabletFragment, 30);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

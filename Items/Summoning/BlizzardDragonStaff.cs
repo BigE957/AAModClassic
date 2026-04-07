@@ -1,4 +1,6 @@
+using AAModClassic.Items.Boss;
 using AAModClassic.Items.Summoning.Minions;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -72,8 +74,8 @@ Hydra Staff EX"); */
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.StaffoftheFrostHydra);
-			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
     }

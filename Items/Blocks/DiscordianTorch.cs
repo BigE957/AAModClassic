@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -70,7 +71,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.Torch, 50);
-			recipe.AddIngredient(null, "Discordium");
+			recipe.AddIngredient(ModContent.ItemType<Discordium>());
 			recipe.Register();
 		}
 	}

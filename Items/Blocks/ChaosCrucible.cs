@@ -7,6 +7,8 @@ using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {
@@ -73,8 +75,8 @@ namespace AAModClassic.Items.Blocks
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "DaybreakIncinerite", 15);
-                recipe.AddIngredient(null, "EventideAbyssium", 15);
+                recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 15);
+                recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 15);
                 recipe.Register();
             }
         }

@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Magic
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpellTome);
 			recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 20);
-			recipe.AddIngredient(null, "SoulOfSmite", 15);
+			recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 15);
 			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();
 		}

@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -55,7 +56,7 @@ namespace AAModClassic.Items.Summoning
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "IncineriteBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

@@ -1,4 +1,6 @@
 using System;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -54,8 +56,8 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 10);
-            recipe.AddIngredient(null, "HydraToxin", 10);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 10);
 		    recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
 		}

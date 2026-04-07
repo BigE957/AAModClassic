@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -57,8 +58,8 @@ Razorblade Typhoon EX"); */
 		{
 			Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(ItemID.RazorbladeTyphoon);
-			recipe.AddIngredient(null, "EXSoul", 1);
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 	}

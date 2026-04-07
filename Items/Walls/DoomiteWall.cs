@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Walls.Bricks;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Walls
 {
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Walls
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "DoomiteScrap");
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>());
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

@@ -1,6 +1,8 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Zero;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -52,9 +54,9 @@ Non-consumable"); */
 		{
 			Recipe recipe = CreateRecipe(1);
 			recipe.AddIngredient(ItemID.MoonlordBullet, 999);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 1);
-            recipe.AddIngredient(null, "UnstableSingularity", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

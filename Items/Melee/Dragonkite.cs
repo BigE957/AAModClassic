@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Melee   //where is located
 {
@@ -38,7 +39,7 @@ namespace AAModClassic.Items.Melee   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "RadiantIncinerite", 10);
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 10);
             recipe.AddIngredient(ItemID.Ectoplasm, 15); 
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();

@@ -100,7 +100,7 @@ Hold down and jump to hover for an extended period of time
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "KipronWings", 1);
+            recipe.AddIngredient(ModContent.ItemType<KipronWings>(), 1);
             recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }

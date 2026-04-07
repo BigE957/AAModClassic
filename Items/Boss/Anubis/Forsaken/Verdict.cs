@@ -55,7 +55,7 @@ Creates 2 forsaken phantom blades which hit enemy horizontally as well"); */
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Judgment>(), 1);
-			recipe.AddIngredient(null, "SoulFragment", 5);
+			recipe.AddIngredient(ModContent.ItemType<SoulFragment>(), 5);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}

@@ -67,7 +67,7 @@ Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer'
             recipe.AddIngredient(ItemID.TinkerersWorkshop, 1);
             recipe.AddIngredient(ItemID.WoodenTable);
             recipe.AddIngredient(ItemID.WoodenChair, 1);
-            recipe.AddIngredient(null, "HellstoneAnvil", 1);
+            recipe.AddIngredient(ModContent.ItemType<HellstoneAnvil>(), 1);
             recipe.Register();
         }
     }

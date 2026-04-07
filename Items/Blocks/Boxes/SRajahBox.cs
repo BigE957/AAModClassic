@@ -1,5 +1,6 @@
 
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -45,8 +46,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "RajahBox");
-            recipe.AddIngredient(null, "EXSoul");
+            recipe.AddIngredient(ModContent.ItemType<RajahBox>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

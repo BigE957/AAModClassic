@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic.Projectiles;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -72,9 +73,9 @@ Fires an explosive ghast skull every other shot"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DeathlyLongbow", 1);
+            recipe.AddIngredient(ModContent.ItemType<DeathlyLongbow>(), 1);
             recipe.AddIngredient(ItemID.Ectoplasm, 20);
-            recipe.AddIngredient(null, "HeroShards", 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

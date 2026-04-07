@@ -13,6 +13,11 @@ using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {
@@ -48,14 +53,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "UnstableSingularity", 15);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 20);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 20);
             //TODOSIEGE doesnt exist 
-            //recipe.AddIngredient(null, "FulguriteBar", 20);
-            recipe.AddIngredient(null, "OroborosWood", 10);
-            recipe.AddIngredient(null, "ZeroTesseract", 1);
-            //recipe.AddTile(null, "AncientForge");
-            recipe.AddTile(null, "ACS");
+            //recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<ZeroTesseract>(), 1);
+            //recipe.AddTile(ModContent.TileType<AncientForge>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 

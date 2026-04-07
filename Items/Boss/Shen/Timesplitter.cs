@@ -1,6 +1,10 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Shen;
+using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -60,11 +64,11 @@ Inflicts Daybroken and Moonraze"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddIngredient(null, "AbyssalYari");
-			recipe.AddIngredient(null, "SunSpear");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<AbyssalYari>());
+			recipe.AddIngredient(ModContent.ItemType<SunSpear>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

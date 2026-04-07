@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Armor.Terra.Projectiles;
+using AAModClassic.Items.Armor.Demon;
 
 namespace AAModClassic.Items.Armor.Terra
 {
@@ -51,8 +52,8 @@ namespace AAModClassic.Items.Armor.Terra
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DemonHood", 1);
-            recipe.AddIngredient(null, "TerraCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<DemonHood>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Items.Materials.TerraCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

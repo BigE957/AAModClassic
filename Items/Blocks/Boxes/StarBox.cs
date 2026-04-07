@@ -77,8 +77,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "DarkmatterOre", 5);
-            recipe.AddIngredient(null, "RadiumOre", 5);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterOre>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiumOre>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

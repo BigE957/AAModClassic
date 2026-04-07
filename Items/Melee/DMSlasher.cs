@@ -8,6 +8,8 @@ using ReLogic.Content;
 using AAModClassic.CrossMod.Overhaul;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Melee
 {
@@ -51,9 +53,9 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DarkEnergy", 35);
-            recipe.AddIngredient(null, "DarkMatter", 25);
-		    recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 35);
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 25);
+		    recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 

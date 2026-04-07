@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using AAModClassic.Items.Boss.Athena;
 
 namespace AAModClassic.Items.Armor.Olympian
 {
@@ -43,7 +44,7 @@ namespace AAModClassic.Items.Armor.Olympian
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GladiatorHelmet);
-            recipe.AddIngredient(null, "GoddessFeather", 6);
+            recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 6);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

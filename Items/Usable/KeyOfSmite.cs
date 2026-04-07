@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Usable
 {
@@ -26,7 +27,7 @@ namespace AAModClassic.Items.Usable
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "SoulOfSmite", 15);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 15);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

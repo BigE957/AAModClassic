@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Boss.MushroomMonarch;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -49,7 +50,7 @@ namespace AAModClassic.Items.Throwing
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Mushroom, 5);
-            recipe.AddIngredient(null, "MushiumBar", 3);
+            recipe.AddIngredient(ModContent.ItemType<MushiumBar>(), 3);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

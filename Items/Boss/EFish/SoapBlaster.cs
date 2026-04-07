@@ -5,6 +5,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Boss.EFish
 {
@@ -67,8 +68,8 @@ namespace AAModClassic.Items.Boss.EFish
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.BubbleGun);
-            recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

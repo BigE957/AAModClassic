@@ -42,7 +42,7 @@ namespace AAModClassic.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "BlazingDye", 2);
+            recipe.AddIngredient(ModContent.ItemType<BlazingDye>(), 2);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
             recipe.Register();
         }

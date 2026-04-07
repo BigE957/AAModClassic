@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Boss.Grips
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ClawBaton>());
             }
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AbyssiumOre>(), Main.rand.Next(25, 56));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Incinerite>(), Main.rand.Next(25, 56));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<IncineriteOre>(), Main.rand.Next(25, 56));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ClawOfChaos>());
 		}
 	}

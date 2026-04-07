@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Vanity.Moon.Shiny
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "MoonHood", 1);
+            recipe.AddIngredient(ModContent.ItemType<MoonHood>(), 1);
             recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }

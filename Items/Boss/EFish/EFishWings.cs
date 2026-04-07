@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Boss.EFish
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FishronWings);
-            recipe.AddIngredient(null, "EXSoul");
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }

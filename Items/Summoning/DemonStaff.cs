@@ -86,7 +86,7 @@ namespace AAModClassic.Items.Summoning
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ImpStaff, 1);
             recipe.AddIngredient(ItemID.HornetStaff, 1);
-            recipe.AddIngredient(null, "SkullStaff", 1);
+            recipe.AddIngredient(ModContent.ItemType<SkullStaff>(), 1);
             recipe.AddRecipeGroup("AAModClassic:EvilStaff", 1);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Tools
 {
@@ -71,9 +73,9 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DarkMatter", 20);
-            recipe.AddIngredient(null, "DarkEnergy", 5);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

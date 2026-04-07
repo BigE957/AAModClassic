@@ -9,6 +9,8 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Usable;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra
 {
@@ -38,8 +40,8 @@ Can only be used at night"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "MirePod", 15);
-            recipe.AddIngredient(null, "Moonpowder", 30);
+            recipe.AddIngredient(ModContent.ItemType<MirePod>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<Moonpowder>(), 30);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

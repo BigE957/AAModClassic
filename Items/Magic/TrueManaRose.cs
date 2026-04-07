@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -66,8 +67,8 @@ Right Clicking fires a piercing rose"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ManaRose", 1);
-            recipe.AddIngredient(null, "PlanteraPetal", 10);
+            recipe.AddIngredient(ModContent.ItemType<ManaRose>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<PlanteraPetal>(), 10);
             recipe.AddIngredient(Mod, "HeroShards", 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -34,7 +35,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Doomite", 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 5);
             recipe.AddIngredient(ItemID.MusicBox);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();

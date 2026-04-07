@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Ranged
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "BoneBow", 1);
+                recipe.AddIngredient(ModContent.ItemType<BoneBow>(), 1);
                 recipe.AddIngredient(ItemID.BeesKnees, 1);
                 recipe.AddIngredient(ItemID.DemonBow, 1);
                 recipe.AddIngredient(ItemID.MoltenFury, 1);
@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Ranged
             }
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "BoneBow", 1);
+                recipe.AddIngredient(ModContent.ItemType<BoneBow>(), 1);
                 recipe.AddIngredient(ItemID.BeesKnees, 1);
                 recipe.AddIngredient(ItemID.TendonBow, 1);
                 recipe.AddIngredient(ItemID.MoltenFury, 1);

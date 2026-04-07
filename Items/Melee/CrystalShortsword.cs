@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,7 +32,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(null, "TerraShard", 10);
+            recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 10);
             recipe.AddTile(TileID.Anvils);  
             recipe.Register();
         }

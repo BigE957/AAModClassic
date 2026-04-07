@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Items.Boss.Rajah;
 
 namespace AAModClassic.Items.Armor.Hoodlum
 {
@@ -38,7 +39,7 @@ Hopping Mad."); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RajahPelt", 10);
+            recipe.AddIngredient(ModContent.ItemType<RajahPelt>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

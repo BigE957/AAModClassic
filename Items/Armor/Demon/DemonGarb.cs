@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Armor.Imp;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +37,7 @@ namespace AAModClassic.Items.Armor.Demon
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "ImpGarb", 1);
+                recipe.AddIngredient(ModContent.ItemType<ImpGarb>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 8);
                 recipe.AddIngredient(ItemID.JungleSpores, 8);
                 recipe.AddIngredient(ItemID.ShadowScale, 8);
@@ -45,7 +46,7 @@ namespace AAModClassic.Items.Armor.Demon
             }
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "ImpGarb", 1);
+                recipe.AddIngredient(ModContent.ItemType<ImpGarb>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 8);
                 recipe.AddIngredient(ItemID.JungleSpores, 8);
                 recipe.AddIngredient(ItemID.TissueSample, 8);

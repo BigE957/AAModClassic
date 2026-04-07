@@ -5,6 +5,8 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Bars;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Materials
 {
@@ -56,8 +58,8 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DarkmatterOre", 5);              //example of how to craft with a modded item
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterOre>(), 5);              //example of how to craft with a modded item
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

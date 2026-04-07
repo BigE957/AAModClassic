@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -42,7 +43,7 @@ namespace AAModClassic.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "CrucibleScale", 3);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
             recipe.Register();

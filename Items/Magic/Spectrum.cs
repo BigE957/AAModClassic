@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -43,7 +44,7 @@ Last Prism EX"); */
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.LastPrism);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-			recipe.AddTile(null, "ACS");
+			recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

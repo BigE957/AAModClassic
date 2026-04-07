@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -33,8 +34,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "Incinerite", 5);
-            recipe.AddIngredient(null, "Abyssium", 5);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteOre>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumOre>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

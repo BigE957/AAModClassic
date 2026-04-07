@@ -29,7 +29,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwo
         {
             Recipe recipe;
             recipe = CreateRecipe(2);
-            recipe.AddIngredient(null, "Bogwood");
+            recipe.AddIngredient(ModContent.ItemType<Bogwood>());
             recipe.Register(); 
         }
 	}

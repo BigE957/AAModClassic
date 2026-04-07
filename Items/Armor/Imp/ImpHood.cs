@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Imp
@@ -48,7 +49,7 @@ namespace AAModClassic.Items.Armor.Imp
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "DevilSilk", 6);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 6);
                 recipe.AddTile(TileID.Loom);
                 recipe.Register();
             }

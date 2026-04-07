@@ -752,7 +752,7 @@ namespace AAModClassic
                                         Chest chest = Main.chest[PlacementSuccess];
                                         chest.item[0].SetDefaults(ModContent.ItemType<DragonriderStaff>(), false);
                                         chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { ModContent.ItemType<RadiantIncinerite>() }), false);
+                                        { ModContent.ItemType<RadiantIncineriteBar>() }), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
@@ -808,7 +808,7 @@ namespace AAModClassic
                                         Chest chest = Main.chest[PlacementSuccess];
                                         chest.item[0].SetDefaults(ModContent.ItemType<BogBomb>(), false);
                                         chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { ModContent.ItemType<DeepAbyssium>() }), false);
+                                        { ModContent.ItemType<DeepAbyssiumBar>() }), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
@@ -870,7 +870,7 @@ namespace AAModClassic
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
                                         int[] array = new int[]
-                                        { ModContent.ItemType<Items.Materials.Doomite>() };
+                                        { ModContent.ItemType<Items.Materials.DoomiteBar>() };
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];

@@ -1,4 +1,6 @@
-﻿using Terraria;
+﻿using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -38,8 +40,8 @@ Wand of Sparking EX"); */
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.WandofSparking);
-                recipe.AddIngredient(null, "EXSoul");
-                recipe.AddTile(null, "QuantumFusionAccelerator");
+                recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+                recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
                 recipe.Register();
             }
         }

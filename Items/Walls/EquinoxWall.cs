@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Walls.Bricks;
+using AAModClassic.Items.Blocks.Bricks;
 
 namespace AAModClassic.Items.Walls
 {
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Walls
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(null, "EquinoxBrick");
+            recipe.AddIngredient(ModContent.ItemType<EquinoxBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

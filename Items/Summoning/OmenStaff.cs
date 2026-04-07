@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -87,8 +89,8 @@ Raven Staff EX"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.RavenStaff);
-			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
         }
     }

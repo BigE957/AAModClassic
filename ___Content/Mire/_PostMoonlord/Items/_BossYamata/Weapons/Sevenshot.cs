@@ -5,6 +5,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -77,9 +79,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 	    public override void AddRecipes()
 	    {
 	        Recipe recipe = CreateRecipe();
-	        recipe.AddIngredient(null, "EventideAbyssium", 5);
-	        recipe.AddIngredient(null, "DreadScale", 5);
-            recipe.AddIngredient(null, "HydraTrishot");
+	        recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+	        recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<HydraTrishot>());
             recipe.AddIngredient(ItemID.OnyxBlaster);
             recipe.AddTile(TileID.LunarCraftingStation);
 	        recipe.Register();

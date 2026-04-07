@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "CovetiteCrystal", 5);
+            recipe.AddIngredient(ModContent.ItemType<CovetiteCrystal>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

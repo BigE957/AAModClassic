@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,8 +38,8 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "Ryusei", 1);
-            recipe.AddIngredient(null, "ChaosCrystal",1);
+            recipe.AddIngredient(ModContent.ItemType<Ryusei>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

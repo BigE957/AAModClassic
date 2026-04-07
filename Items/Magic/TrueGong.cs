@@ -59,7 +59,7 @@ namespace AAModClassic.Items.Magic
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Gong");
+            recipe.AddIngredient(ModContent.ItemType<Gong>());
             recipe.AddIngredient(ItemID.BrokenHeroSword);
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();

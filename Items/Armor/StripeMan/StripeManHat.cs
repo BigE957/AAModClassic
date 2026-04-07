@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic;
+using AAModClassic.Items.Potions;
 
 
 namespace AAModClassic.Items.Armor.StripeMan
@@ -84,7 +85,7 @@ You can put any sand into the Extractinator"); */
 			recipe.AddIngredient(ItemID.MiningPants, 1);
 			recipe.AddIngredient(ItemID.BonePickaxe, 1);
 			recipe.AddIngredient(ItemID.ArchitectGizmoPack, 1);
-			recipe.AddIngredient(null, "LuckyCracker", 1);
+			recipe.AddIngredient(ModContent.ItemType<LuckyCracker>(), 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}

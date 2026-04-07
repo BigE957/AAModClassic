@@ -5,6 +5,7 @@ using AAModClassic;
 using AAModClassic.Items.Armor.Ocean;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Atlantean
 {
@@ -39,15 +40,15 @@ It vibrates with the powers of Atlantis"); */
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanShirt>());
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 8);
-            recipe.AddIngredient(null, "RelicBar", 8);
-            recipe.AddIngredient(null, "Doomite", 8);
+            recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 8);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanShirt>());
             recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
-            recipe.AddIngredient(null, "Doomite", 8);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
 		}

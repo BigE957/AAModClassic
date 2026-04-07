@@ -57,7 +57,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 2, 4));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Incinerite>(), 1, 5, 6));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 5, 6));
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

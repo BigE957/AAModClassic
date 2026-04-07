@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Armor.Atlantean;
 using AAModClassic.Buffs;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -58,7 +59,7 @@ Allows you to breath underwater"); */
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AtlanteanHelm>());
-			recipe.AddIngredient(null, "ChaosCrystal", 1);
+			recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

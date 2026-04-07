@@ -8,6 +8,8 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Broodmother;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Usable;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -66,8 +68,8 @@ Only useable during the day"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DragonScale", 15);
-            recipe.AddIngredient(null, "Sunpowder", 30);
+            recipe.AddIngredient(ModContent.ItemType<DragonScale>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<Sunpowder>(), 30);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

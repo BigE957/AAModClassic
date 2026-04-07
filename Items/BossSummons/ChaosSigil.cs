@@ -14,6 +14,11 @@ using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -113,12 +118,12 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DraconianSigil", 1);
-            recipe.AddIngredient(null, "DreadSigil", 1);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
-            recipe.AddIngredient(null, "DreadScale", 5);
-            recipe.AddIngredient(null, "Discordium", 10);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<DraconianSigil>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadSigil>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 10);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

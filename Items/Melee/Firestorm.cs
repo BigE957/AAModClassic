@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -57,7 +58,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "RadiantIncinerite", 15);
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 15);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

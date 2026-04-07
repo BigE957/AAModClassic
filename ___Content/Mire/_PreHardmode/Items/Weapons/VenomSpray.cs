@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -45,7 +46,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Book, 1);
-            recipe.AddIngredient(null, "AbyssiumBar", 10);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
             recipe.AddTile(TileID.Bookcases);   
             recipe.Register();
         }

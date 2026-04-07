@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -78,7 +79,7 @@ namespace AAModClassic.Items.Accessories.Wings
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.WaterBucket, 5);
             recipe.AddIngredient(ItemID.SoulofFlight, 20);
-            recipe.AddIngredient(null, "SoulOfSpite", 25);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 25);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

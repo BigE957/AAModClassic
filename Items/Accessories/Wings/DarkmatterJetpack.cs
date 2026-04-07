@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -84,9 +86,9 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DarkMatter", 10);
-            recipe.AddIngredient(null, "DarkEnergy", 15);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 15);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

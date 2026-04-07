@@ -1,5 +1,7 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Melee;
 using AAModClassic.Projectiles.Shen;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -63,10 +65,10 @@ Chaos Slayer EX"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ChaosSlayer");
-            recipe.AddIngredient(null, "PerfectChaos");
-            recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<ChaosSlayer>());
+            recipe.AddIngredient(ModContent.ItemType<PerfectChaos>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

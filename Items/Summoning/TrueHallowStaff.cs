@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Summoning.Minions;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -84,8 +85,8 @@ namespace AAModClassic.Items.Summoning
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "HallowStaff");
-            recipe.AddIngredient(null, "HeroShards");
+            recipe.AddIngredient(ModContent.ItemType<HallowStaff>());
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

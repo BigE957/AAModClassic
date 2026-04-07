@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,8 +33,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "DreadScale", 15);
-			recipe.AddTile(null, "ACS");
+			recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 15);
+			recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

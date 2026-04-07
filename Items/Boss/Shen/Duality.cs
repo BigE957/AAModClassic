@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -113,10 +116,10 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "TaiyangBaolei", 1);
-            recipe.AddIngredient(null, "Naitokurosu", 1);
-            recipe.AddIngredient(null, "ChaosSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<TaiyangBaolei>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Naitokurosu>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosSoul>(), 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

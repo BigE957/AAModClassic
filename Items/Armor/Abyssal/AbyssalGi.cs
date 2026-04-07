@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,10 +34,10 @@ Weightless as shadow itself"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "DepthGi", 1);
-            recipe.AddIngredient(null, "RelicBar", 8);
+            recipe.AddIngredient(ModContent.ItemType<DepthChestplate>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 8);
             recipe.AddIngredient(ItemID.Coral, 8);
-            recipe.AddIngredient(null, "Doomite", 8);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

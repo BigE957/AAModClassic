@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Tiles.Bars;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Items.Materials
 {
@@ -55,7 +56,7 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "Incinerite", 3);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteOre>(), 3);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
         }

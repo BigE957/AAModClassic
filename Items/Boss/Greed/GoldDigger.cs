@@ -39,12 +39,12 @@ Only 1 fountain may be active at once"); */
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.GoldOre, 30);
-            recipe.AddIngredient(null, "StoneShell", 10);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
             recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.PlatinumOre, 30);
-            recipe.AddIngredient(null, "StoneShell", 10);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

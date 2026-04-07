@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -66,7 +67,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.Torch, 50);
-			recipe.AddIngredient(null, "EventideAbyssium");
+			recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>());
 			recipe.Register();
 		}
 	}

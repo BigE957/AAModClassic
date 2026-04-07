@@ -36,12 +36,12 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBoxTitle);
-            recipe.AddIngredient(null, "MonarchBox", 1);
-            recipe.AddIngredient(null, "InfernoBox", 1);
-            recipe.AddIngredient(null, "MireUBox", 1);
-            recipe.AddIngredient(null, "InfernoBox", 1);
-            recipe.AddIngredient(null, "MireUBox", 1);
-            recipe.AddIngredient(null, "VoidBox", 1);
+            recipe.AddIngredient(ModContent.ItemType<MonarchBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<InfernoBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<MireUBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<InfernoBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<MireUBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<VoidBox>(), 1);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -49,8 +50,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "VoidBox");
-            recipe.AddIngredient(null, "UnstableSingularity", 10);
+            recipe.AddIngredient(ModContent.ItemType<VoidBox>());
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 10);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

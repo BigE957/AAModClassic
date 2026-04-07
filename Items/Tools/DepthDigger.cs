@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Tools
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(null, "DeepAbyssium", 20);
+                recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 20);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }

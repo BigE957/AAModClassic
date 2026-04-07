@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -44,8 +45,8 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DeepAbyssium", 10);
-            recipe.AddIngredient(null, "SoulOfSpite", 5);
+            recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

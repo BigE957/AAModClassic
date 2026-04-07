@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {
@@ -70,7 +71,7 @@ namespace AAModClassic.Items.Blocks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "ApocalyptitePlate", 30);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 30);
             recipe.Register();
         }
     }

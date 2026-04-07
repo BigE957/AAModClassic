@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Blocks.Bricks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "SkyCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<SkyCrystal>(), 1);
             recipe.AddIngredient(ItemID.Marble, 1);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();

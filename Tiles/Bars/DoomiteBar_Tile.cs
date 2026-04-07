@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.DoomDust>();
-            RegisterItemDrop(ModContent.ItemType<Items.Materials.Doomite>());   
+            RegisterItemDrop(ModContent.ItemType<Items.Materials.DoomiteBar>());   
             AddMapEntry(new Color(100, 90, 90));
 			MinPick = 0;
         }

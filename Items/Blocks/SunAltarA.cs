@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Decoration;
 using Terraria;
 using Terraria.ID;
@@ -33,8 +35,8 @@ namespace AAModClassic.Items.Blocks
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(null, "CrucibleScale", 15);
-			recipe.AddTile(null, "ACS");
+			recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 15);
+			recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

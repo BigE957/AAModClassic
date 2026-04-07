@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
@@ -98,7 +99,7 @@ Grants 1 soul essence on direct hit"); */
         {
             if (ModSupport.GetMod("ThoriumMod") == null) return;
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 8);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

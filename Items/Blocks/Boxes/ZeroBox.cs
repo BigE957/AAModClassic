@@ -4,6 +4,8 @@ using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Boss.Zero;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -46,8 +48,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

@@ -1,5 +1,7 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -49,8 +51,8 @@ namespace AAModClassic.Items.Melee
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
-			recipe.AddIngredient(Mod, "EXSoul", 1);
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}
 
