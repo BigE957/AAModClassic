@@ -32,7 +32,7 @@ namespace AAModClassic.Items.DevTools
             Item.autoReuse = true;   
             Item.useTurn = true;
             Item.expert = true; Item.expertOnly = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Noodle>();
+			Item.shoot = ModContent.ProjectileType<Noodle>();
 			Item.shootSpeed = 9f;
             Item.GetGlobalItem<RogueItem>().rogue = true; //Set rogue damage
         }

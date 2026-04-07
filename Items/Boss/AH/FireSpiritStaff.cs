@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.AH;
 using Microsoft.Xna.Framework;

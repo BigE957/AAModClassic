@@ -6,6 +6,7 @@ using System;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
+using AAModClassic.Projectiles.Greed.WKG;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {

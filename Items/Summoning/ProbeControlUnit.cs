@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Items.Summoning.Minions;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -20,7 +21,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ProbeMinion>();
+            Item.shoot = ModContent.ProjectileType<ProbeMinion>();
             Item.damage = 14;
             Item.width = 20;
             Item.height = 24;

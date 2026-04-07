@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Anubis;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +26,7 @@ namespace AAModClassic.Items.Boss.Anubis
 			Item.damage = 30;
 			Item.UseSound = SoundID.Item71;
 			Item.rare = ItemRarityID.LightPurple;
-			Item.shoot = ModContent.ProjectileType<Projectiles.PhantomBlade>();
+			Item.shoot = ModContent.ProjectileType<PhantomBlade>();
 			Item.shootSpeed = 14f;
 			Item.value = 10000;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

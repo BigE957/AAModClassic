@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<RoyalRabbit>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Rajah.Supreme.RoyalRabbit>()] > 0)
 			{
 				modPlayer.RabbitcopterR = true;
 			}

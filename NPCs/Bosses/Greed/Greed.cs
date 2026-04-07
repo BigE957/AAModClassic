@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Projectiles.Greed.WKG;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

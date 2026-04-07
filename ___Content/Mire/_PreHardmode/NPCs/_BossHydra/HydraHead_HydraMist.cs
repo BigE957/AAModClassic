@@ -78,7 +78,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Poison_Buff>(), 300);
+            target.AddBuff(BuffID.Poisoned, 300); //TODO: Was originally getting "Poison" from the mod. Odd.
         }
     }
 }

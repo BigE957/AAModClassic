@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Greed.WKG;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +26,7 @@ namespace AAModClassic.Items.Boss.Greed.WKG
             Item.knockBack = 5;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.OreBomb>();
+            Item.shoot = ModContent.ProjectileType<OreBomb>();
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.shootSpeed = 12;

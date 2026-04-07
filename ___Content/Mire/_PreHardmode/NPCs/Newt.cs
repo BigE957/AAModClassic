@@ -1,5 +1,6 @@
 ﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.Projectiles;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

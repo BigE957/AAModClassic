@@ -1,6 +1,8 @@
 ﻿using System;
 using AAModClassic;
+using AAModClassic.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Zero;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -38,7 +40,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Protocol>();
+            Item.shoot = ModContent.ProjectileType<Protocol>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<Protocol_Buff>();
             Item.autoReuse = true;

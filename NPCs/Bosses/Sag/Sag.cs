@@ -13,6 +13,7 @@ using AAModClassic.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
 using AAModClassic.Items.Boss.Sagittarius;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {

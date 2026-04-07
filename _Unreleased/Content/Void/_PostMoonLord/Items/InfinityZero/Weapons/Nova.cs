@@ -29,7 +29,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.height = 54;
             Item.damage = 390;
             Item.UseSound = SoundID.Item20;
-            Item.shoot = ModContent.ProjectileType<Projectiles.NovaBurst>();
+            Item.shoot = ModContent.ProjectileType<Nova_NovaBurst>();
             Item.mana = 20;
             Item.value = Item.buyPrice(1, 0, 0, 0);
             Item.noMelee = true;

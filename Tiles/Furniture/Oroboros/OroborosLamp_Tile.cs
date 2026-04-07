@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-    public class OroborosLamp : ModTile
+    public class OroborosLamp_Tile : ModTile
 {
     public override void SetStaticDefaults()
     {

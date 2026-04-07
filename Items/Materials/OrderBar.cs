@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Tiles.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Materials

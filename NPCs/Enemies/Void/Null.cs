@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using AAModClassic.Items.Boss.Zero;
+using AAModClassic.Items.Vanity.Ohno;
 
 namespace AAModClassic.NPCs.Enemies.Void
 {

@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.BossSummons;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;

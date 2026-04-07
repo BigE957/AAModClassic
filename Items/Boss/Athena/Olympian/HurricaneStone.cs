@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Athena;
 
 namespace AAModClassic.Items.Boss.Athena.Olympian
 {
@@ -25,7 +26,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             Item.damage = 200;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.OwlRuneCharged>();
+            Item.shoot = ModContent.ProjectileType<OwlRuneCharged>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item78;
