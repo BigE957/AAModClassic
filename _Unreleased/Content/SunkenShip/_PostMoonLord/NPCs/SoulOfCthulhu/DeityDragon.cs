@@ -94,22 +94,22 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     int num9 = NPC.whoAmI;
                     for (int l = 0; l < 30; l++)
                     {
-                        int num10 = ModContent.NPCType<DeityDragonBody1>();
+                        int num10 = ModContent.NPCType<DeityDragon_Body1>();
                         if ((l - 2) % 4 == 0 && l < 26)
                         {
-                            num10 = ModContent.NPCType<DeityDragonArms>();
+                            num10 = ModContent.NPCType<DeityDragon_Arms>();
                         }
                         else if (l == 27)
                         {
-                            num10 = ModContent.NPCType<DeityDragonBody2>();
+                            num10 = ModContent.NPCType<DeityDragon_Body2>();
                         }
                         else if (l == 28)
                         {
-                            num10 = ModContent.NPCType<DeityDragonBody3>();
+                            num10 = ModContent.NPCType<DeityDragon_Body3>();
                         }
                         else if (l == 29)
                         {
-                            num10 = ModContent.NPCType<DeityDragonTail>();
+                            num10 = ModContent.NPCType<DeityDragon_Tail>();
                         }
                         int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         Main.npc[num11].ai[3] = NPC.whoAmI;
@@ -375,10 +375,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
     }
 
-    public class DeityDragonArms : DeityDragon
+    public class DeityDragon_Arms : DeityDragon
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/DeityDragonArms"; } }
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
@@ -510,10 +508,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
     }
 
-    public class DeityDragonBody1 : DeityDragon
+    public class DeityDragon_Body1 : DeityDragon
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/DeityDragonBody1"; } }
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
@@ -645,10 +641,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
     }
 
-    public class DeityDragonBody2 : DeityDragon
+    public class DeityDragon_Body2 : DeityDragon
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/DeityDragonBody2"; } }
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
@@ -780,10 +774,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
     }
 
-    public class DeityDragonBody3 : DeityDragon
+    public class DeityDragon_Body3 : DeityDragon
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/DeityDragonBody3"; } }
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
@@ -915,10 +907,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
     }
 
-    public class DeityDragonTail : DeityDragon
+    public class DeityDragon_Tail : DeityDragon
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/DeityDragonTail"; } }
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");

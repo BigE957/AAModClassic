@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Tiles
 {
-    public class PitStone_Tile : ModTile
+    public class Pitstone_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

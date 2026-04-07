@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
-    public class Shock : ModProjectile
+    public class YamataHead_Shockwave : ModProjectile
     {
         public override void SetStaticDefaults()
         {

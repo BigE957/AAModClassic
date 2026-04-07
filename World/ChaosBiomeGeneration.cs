@@ -152,7 +152,7 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(0, 0, 255)] = ModContent.WallType<Depthstone_Wall>(),
+                [new Color(0, 0, 255)] = ModContent.WallType<DepthstoneWall_Wall>(),
                 [Color.Black] = -1 //don't touch when genning
             };
 
@@ -202,7 +202,7 @@ namespace AAModClassic.World
                     {
                         if (Main.rand.Next(15) == 0)
                         {
-                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar1_Tile>());
+                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<MireAltarSafe_Tile>());
                         }
                     }
                 }
@@ -225,7 +225,7 @@ namespace AAModClassic.World
             Mod mod = AAMod.instance;
             ushort LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaf_Tile>();
 
-            ushort BogwoodWall = (ushort)ModContent.WallType<LivingBogwood_Wall>(), LeafWall = (ushort)ModContent.WallType<LivingBogleaf_Wall>();
+            ushort BogwoodWall = (ushort)ModContent.WallType<LivingBogwoodWall_Wall>(), LeafWall = (ushort)ModContent.WallType<LivingBogleafWall_Wall>();
 
             int worldSize = GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
@@ -1008,7 +1008,7 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(128, 128, 128)] = ModContent.TileType<PitStone_Tile>(),
+                [new Color(128, 128, 128)] = ModContent.TileType<Pitstone_Tile>(),
                 [new Color(0, 0, 255)] = ModContent.TileType<PitBars_Tile>(),
                 [new Color(0, 255, 0)] = ModContent.TileType<PitBridge_Tile>(),
                 [new Color(255, 255, 255)] = -2, //turn into air
@@ -1049,7 +1049,7 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(128, 128, 128)] = ModContent.TileType<PitStone_Tile>(),
+                [new Color(128, 128, 128)] = ModContent.TileType<Pitstone_Tile>(),
                 [new Color(0, 0, 255)] = ModContent.TileType<PitBars_Tile>(),
                 [new Color(0, 255, 0)] = ModContent.TileType<PitBridge_Tile>(),
                 [new Color(255, 255, 255)] = -2, //turn into air

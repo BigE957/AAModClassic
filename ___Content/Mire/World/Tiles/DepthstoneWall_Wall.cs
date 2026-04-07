@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire.World.Tiles
 {
-    public class Depthstone_Wall : ModWall
+    public class DepthstoneWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

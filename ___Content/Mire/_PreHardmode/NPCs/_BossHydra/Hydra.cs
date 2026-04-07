@@ -89,7 +89,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             //notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask(1-3)>(), 7)); Exists but doesn't drop...?
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 30, 50));
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Abyssium>(), 1, 40, 90));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 40, 90));
 
             npcLoot.Add(notExpertRule);
         }

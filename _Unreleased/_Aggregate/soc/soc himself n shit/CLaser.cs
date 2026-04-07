@@ -11,6 +11,7 @@ using AAModClassic;
 
 namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 {
+    /*
     public class CLaser : ModProjectile
     {
         public override void SetStaticDefaults()
@@ -171,8 +172,8 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 return false;
             }
             Texture2D texture2D18 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D19 = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/CLaserTex");
-            Texture2D texture2D20 = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/CLaserHead");
+            Texture2D texture2D19 = Mod.GetTexture(Texture + "Tex");
+            Texture2D texture2D20 = Mod.GetTexture(Texture + "Head");
             float num224 = Projectile.localAI[1];
             Microsoft.Xna.Framework.Color color44 = new Microsoft.Xna.Framework.Color(255, 255, 255, 0) * 0.9f;
             Main.spriteBatch.Draw(texture2D18, Projectile.Center - Main.screenPosition, null, color44, Projectile.rotation, texture2D18.Size() / 2f, Projectile.scale, SpriteEffects.None, 0f);
@@ -203,4 +204,5 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             return false;
         }
     }
+    */
 }

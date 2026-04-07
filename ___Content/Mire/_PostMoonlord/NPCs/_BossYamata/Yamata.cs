@@ -95,7 +95,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 LegInfo.normalTextures[3] = ModContent.Request<Texture2D>(texRoot + "LegSegmentR");
                 LegInfo.normalTextures[4] = ModContent.Request<Texture2D>(texRoot + "Foot");
 
-                texRoot = Texture + "A_";
+                texRoot = ModContent.GetInstance<YamataA>().Texture + "_";
                 LegInfo.awakenedTextures = new Asset<Texture2D>[5];
                 LegInfo.awakenedTextures[0] = ModContent.Request<Texture2D>(texRoot + "LegCapL");
                 LegInfo.awakenedTextures[1] = ModContent.Request<Texture2D>(texRoot + "LegSegmentL");

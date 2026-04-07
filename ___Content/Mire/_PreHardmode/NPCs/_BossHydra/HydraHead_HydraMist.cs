@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
-    internal class HydraMist : ModProjectile
+    internal class HydraHead_HydraMist : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -74,8 +74,8 @@ Certain ores have special effects when shot"); */
             ItemID.Meteorite,
             ItemID.DemoniteOre,
             ItemID.CrimtaneOre,
-            AAMod.instance.Find<ModItem>("Abyssium").Type,
-            AAMod.instance.Find<ModItem>("Incinerite").Type,
+            ModContent.ItemType<AbyssiumOre>(),
+            ModContent.ItemType<Incinerite>(),
             ItemID.Hellstone,
             ItemID.CobaltOre,
             ItemID.PalladiumOre,
@@ -83,14 +83,14 @@ Certain ores have special effects when shot"); */
             ItemID.OrichalcumOre,
             ItemID.AdamantiteOre,
             ItemID.TitaniumOre,
-            AAMod.instance.Find<ModItem>("HallowedOre").Type,
+            ModContent.ItemType<HallowedOre>(),
             ItemID.ChlorophyteOre,
             ItemID.LunarOre,
-            AAMod.instance.Find<ModItem>("DarkmatterOre").Type,
-            AAMod.instance.Find<ModItem>("RadiumOre").Type,
-            AAMod.instance.Find<ModItem>("DaybreakIncineriteOre").Type,
-            AAMod.instance.Find<ModItem>("EventideAbyssiumOre").Type,
-            AAMod.instance.Find<ModItem>("Apocalyptite").Type,
+            ModContent.ItemType<DarkmatterOre>(),
+            ModContent.ItemType<RadiumOre>(),
+            ModContent.ItemType<DaybreakIncineriteOre>(),
+            ModContent.ItemType<EventideAbyssiumOre>(),
+            ModContent.ItemType<Apocalyptite>(),
         };
         public int projType = -1;
 
@@ -114,7 +114,7 @@ Certain ores have special effects when shot"); */
 					if (itemFired.type == ItemID.Meteorite) projType = 8;
 					if (itemFired.type == ItemID.DemoniteOre) projType = 9;
 					if (itemFired.type == ItemID.CrimtaneOre) projType = 10;
-					if (itemFired.type == ModContent.ItemType<Abyssium>()) projType = 11;
+					if (itemFired.type == ModContent.ItemType<AbyssiumOre>()) projType = 11;
 					if (itemFired.type == ModContent.ItemType<Incinerite>()) projType = 12;
 					if (itemFired.type == ItemID.Hellstone) projType = 13;
 					if (itemFired.type == ItemID.CobaltOre) projType = 14;

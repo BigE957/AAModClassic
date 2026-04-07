@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
-    public class YamataStorm : ModProjectile
+    public class YamataHead_AbyssalStorm : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{
@@ -84,8 +84,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 		    	for (i = 0; i < 10; i++ )
 		    	{
 		   			offsetAngle = startAngle + Angle * ( i + i * i ) / 2f  + 32f * i;
-		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 6f ), (float)( Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<YamataRain>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 6f ), (float)( -Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<YamataRain>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 6f ), (float)( Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<YamataHead_AbyssalStormRain>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 6f ), (float)( -Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<YamataHead_AbyssalStormRain>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 		    	}
 	    	}
         	for (int dust = 0; dust <= 5; dust++)

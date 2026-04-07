@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient.Walls
 {
-	public class AncientFulguritePlatingWallS : ModWall
+	public class AncientFulguritePlatingS_Wall : ModWall
 	{
         public Texture2D glowTex;
 		public bool glow = true;

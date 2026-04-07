@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
-    public class YamataRain : ModProjectile
+    public class YamataHead_AbyssalStormRain : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()

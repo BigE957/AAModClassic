@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire.World.Tiles
 {
-    class DepthsandBall : ModProjectile
+    class Depthsand_Proj : ModProjectile
     {
         protected bool falling = true;
         public override void SetStaticDefaults()

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
-    public class HydraFangP : ModProjectile
+    public class HydraFang_Proj : ModProjectile
 	{
 		public override void SetDefaults()
 		{

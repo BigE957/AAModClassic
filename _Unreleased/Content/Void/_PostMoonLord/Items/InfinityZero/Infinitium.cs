@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 10));
             if (Main.netMode != NetmodeID.Server)
-                GlowTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Glowmasks/" + GetType().Name + "_Glow");
+                GlowTexture = ModContent.Request<Texture2D>(Texture + "_Glow");
 
 
         }

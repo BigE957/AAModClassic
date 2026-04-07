@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class YamataDeathraySmall : ModProjectile
+    public class YamataAHead_MireDeathraySmall : ModProjectile
     {
         private const float maxTime = 30;
 
@@ -117,8 +117,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         public override void OnKill(int timeLeft)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<YamataDeathray>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<YamataAHead_MireDeathray>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
         }
+
+        //TODO: Cache these textures in a static Asset<Texture2D> field
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -127,8 +129,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray2");
-            Texture2D texture2D21 = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>(Texture + "2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>(Texture + "3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

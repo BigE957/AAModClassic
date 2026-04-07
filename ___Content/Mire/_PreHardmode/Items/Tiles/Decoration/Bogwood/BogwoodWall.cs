@@ -18,7 +18,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwo
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<Bogwood_Wall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<BogwoodWall_Wall>(); //put your CustomBlock Tile name
         }
 
         

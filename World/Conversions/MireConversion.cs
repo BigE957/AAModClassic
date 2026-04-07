@@ -46,21 +46,21 @@ namespace AAModClassic.World.Conversions
             //WallLoader.RegisterConversion(WallID.JungleUnsafe4, Type, ModContent.WallType<MireJungleWall>());
             
             TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<Depthstone_Tile>());
-            WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<Depthstone_Wall>());
+            WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<DepthstoneWall_Wall>());
             
             TileLoader.RegisterConversion(TileID.Sand, Type, ModContent.TileType<Depthsand_Tile>());
             TileLoader.RegisterConversion(TileID.HardenedSand, Type, ModContent.TileType<DepthsandHardened_Tile>());
-            WallLoader.RegisterConversion(WallID.HardenedSand, Type, ModContent.WallType<DepthsandHardened_Wall>());
+            WallLoader.RegisterConversion(WallID.HardenedSand, Type, ModContent.WallType<DepthsandHardenedWall_Wall>());
             TileLoader.RegisterConversion(TileID.Sandstone, Type, ModContent.TileType<Depthsandstone_Tile>());
-            WallLoader.RegisterConversion(WallID.Sandstone, Type, ModContent.WallType<Depthsandstone_Wall>());
+            WallLoader.RegisterConversion(WallID.Sandstone, Type, ModContent.WallType<DepthsandstoneWall_Wall>());
             
             TileLoader.RegisterConversion(TileID.IceBlock, Type, ModContent.TileType<IndigoIce_Tile>());
             
             TileLoader.RegisterConversion(TileID.LivingWood, Type, ModContent.TileType<LivingBogwood_Tile>());
-            WallLoader.RegisterConversion(WallID.LivingWood, Type, ModContent.WallType<LivingBogwood_Wall>());
-            WallLoader.RegisterConversion(WallID.LivingWoodUnsafe, Type, ModContent.WallType<LivingBogwood_Wall>());
+            WallLoader.RegisterConversion(WallID.LivingWood, Type, ModContent.WallType<LivingBogwoodWall_Wall>());
+            WallLoader.RegisterConversion(WallID.LivingWoodUnsafe, Type, ModContent.WallType<LivingBogwoodWall_Wall>());
             TileLoader.RegisterConversion(TileID.LeafBlock, Type, ModContent.TileType<LivingBogleaf_Tile>());
-            WallLoader.RegisterConversion(WallID.LivingLeaf, Type, ModContent.WallType<LivingBogleaf_Wall>());
+            WallLoader.RegisterConversion(WallID.LivingLeaf, Type, ModContent.WallType<LivingBogleafWall_Wall>());
 
             TileLoader.RegisterConversion(TileID.LivingMahogany, Type, ModContent.TileType<LivingBogwood_Tile>());
             TileLoader.RegisterConversion(TileID.LivingMahoganyLeaves, Type, ModContent.TileType<LivingBogleaf_Tile>());
@@ -78,8 +78,8 @@ namespace AAModClassic.World.Conversions
 
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("LivingBaobab").Type, Type, ModContent.TileType<LivingBogwood_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("LivingBaobabLeaf").Type, Type, ModContent.TileType<LivingBogleaf_Tile>());
-                WallLoader.RegisterConversion(spirit.Find<ModWall>("LivingBaobabWall").Type, Type, ModContent.WallType<LivingBogwood_Wall>());
-                WallLoader.RegisterConversion(spirit.Find<ModWall>("LivingBaobabLeafWall").Type, Type, ModContent.WallType<LivingBogleaf_Wall>());
+                WallLoader.RegisterConversion(spirit.Find<ModWall>("LivingBaobabWall").Type, Type, ModContent.WallType<LivingBogwoodWall_Wall>());
+                WallLoader.RegisterConversion(spirit.Find<ModWall>("LivingBaobabLeafWall").Type, Type, ModContent.WallType<LivingBogleafWall_Wall>());
             }
         }
     }

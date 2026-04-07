@@ -193,7 +193,7 @@ namespace AAModClassic.Globals
 
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<MireAltarSafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<MireAltarSafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }
@@ -208,7 +208,7 @@ namespace AAModClassic.Globals
 
         public override bool CanExplode(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<MireAltarSafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<MireAltarSafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }
@@ -218,7 +218,7 @@ namespace AAModClassic.Globals
 
         public override bool Slope(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<MireAltarSafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<MireAltarSafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }
@@ -759,7 +759,7 @@ namespace AAModClassic.Globals
 				float chance = Config.LuckyOre[itemtype];
                 chance -= Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].pick;
                 chance = chance/ChanceBalance * 100f;
-                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<Abyssium>() || itemtype == ModContent.ItemType<Incinerite>() || itemtype == ModContent.ItemType<Apocalyptite>()))
+                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<AbyssiumOre>() || itemtype == ModContent.ItemType<Incinerite>() || itemtype == ModContent.ItemType<Apocalyptite>()))
                 {
                     if(Utils.NextFloat(Main.rand, SecondDrop) < 1)
                     {
@@ -779,7 +779,7 @@ namespace AAModClassic.Globals
                         return itemtype;
                     }
                 }
-                else if(itemtype == ModContent.ItemType<Abyssium>())
+                else if(itemtype == ModContent.ItemType<AbyssiumOre>())
                 {
                     if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Depthstone_Tile>())
                     {

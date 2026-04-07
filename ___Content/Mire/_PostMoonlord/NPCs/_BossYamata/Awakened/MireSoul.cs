@@ -10,7 +10,7 @@ using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class YamataSoul : ModNPC
+    public class MireSoul : ModNPC
     {
         public override void SetStaticDefaults()
         {

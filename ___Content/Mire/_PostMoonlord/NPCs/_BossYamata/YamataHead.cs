@@ -236,7 +236,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     if (attackTimer == 40)
                     {
                         SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
-                        int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<YamataBomb>(), projDamage, 0, Main.myPlayer);
+                        int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<YamataHead_AbyssalBomb>(), projDamage, 0, Main.myPlayer);
                         Main.projectile[proj2].damage = projDamage;
                         attackTimer = 0;
                         attackFrame = 0;
@@ -256,7 +256,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2f, PlayerPosY * 2f, ModContent.ProjectileType<YamataBreath>(), projDamage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2f, PlayerPosY * 2f, ModContent.ProjectileType<YamataHead_AbyssalWrath>(), projDamage, 0f, Main.myPlayer);
                             }
                         }
                         
@@ -305,7 +305,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     QuoteSaid = true;
                     Quote1 = true;
                 }
-                BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, player.position.Y - 1), player.width, player.height, ModContent.ProjectileType<YamataVenom>(), ref internalAI[3], 6, projDamage, 9f, true, new Vector2(20f, 15f));
+                BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, player.position.Y - 1), player.width, player.height, ModContent.ProjectileType<YamataHead_Venom>(), ref internalAI[3], 6, projDamage, 9f, true, new Vector2(20f, 15f));
             }
             if (AttackType == 1f)
             {
@@ -316,7 +316,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     QuoteSaid = true;
                     Quote3 = true;
                 }
-                BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, -4f), player.width, player.height, ModContent.ProjectileType<YamataStorm>(), ref internalAI[3], 40, projDamage, 10f, true, new Vector2(20f, 15f));
+                BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, -4f), player.width, player.height, ModContent.ProjectileType<YamataHead_AbyssalStorm>(), ref internalAI[3], 40, projDamage, 10f, true, new Vector2(20f, 15f));
             }
             if (AttackType == 2f)
             {
@@ -327,7 +327,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     QuoteSaid = true;
                     Quote3 = true;
                 }
-                BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, player.position.Y - 1), player.width, player.height, ModContent.ProjectileType<YamataBlast>(), ref internalAI[3], 15, projDamage, 10f, true, new Vector2(20f, 15f));
+                BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, player.position.Y - 1), player.width, player.height, ModContent.ProjectileType<YamataHead_VenomBlast>(), ref internalAI[3], 15, projDamage, 10f, true, new Vector2(20f, 15f));
             }
             if (AttackType == 3f)
             {

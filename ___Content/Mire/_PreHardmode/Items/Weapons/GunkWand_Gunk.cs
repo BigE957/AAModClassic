@@ -7,7 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
-    public class Gunk : ModProjectile
+    public class GunkWand_Gunk : ModProjectile
     {
         public override void SetStaticDefaults()
         {

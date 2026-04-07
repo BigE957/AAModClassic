@@ -208,7 +208,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     if (internalAI[1] == NPC.ai[3] * 60 - 30)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(targetPlayer.Center), ModContent.ProjectileType<YamataDeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(targetPlayer.Center), ModContent.ProjectileType<YamataAHead_MireDeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                     }
                     if (++internalAI[1] > 360)
                     {
@@ -365,7 +365,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             if (NPC.life <= 0)
             {
                 CombatText.NewText(NPC.getRect(), new Color(146, 30, 68), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataAHead"), false, false);
-                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<YamataSoul>());
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<MireSoul>());
             }
         }
 

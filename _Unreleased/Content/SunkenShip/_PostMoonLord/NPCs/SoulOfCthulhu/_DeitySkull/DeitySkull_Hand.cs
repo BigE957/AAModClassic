@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull
 {
-    public class DeitySkullHand : ModNPC
+    public class DeitySkull_Hand : ModNPC
     {
 
         public override void SetStaticDefaults()

@@ -76,7 +76,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Abyssium>(), Main.rand.Next(75, 125));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AbyssiumOre>(), Main.rand.Next(75, 125));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraHide>(), Main.rand.Next(50, 100));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraPendant>());
 

@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
-    public class HydraSpear : ModProjectile
+    public class HydraSpear_Holdout : ModProjectile
     {
         public override void SetDefaults()
         {

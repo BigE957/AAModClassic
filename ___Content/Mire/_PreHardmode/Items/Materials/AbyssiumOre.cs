@@ -2,7 +2,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
-    public class Abyssium : BaseAAItem
+    public class AbyssiumOre : BaseAAItem
     {
         public override void SetDefaults()
         {

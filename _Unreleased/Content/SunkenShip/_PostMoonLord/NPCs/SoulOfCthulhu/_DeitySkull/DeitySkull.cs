@@ -100,7 +100,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             bool expert = Main.expertMode;
             HandTimer--;
 
-            if (NPC.type == ModContent.NPCType<DeitySkull>() && (!NPC.AnyNPCs(ModContent.NPCType<DeitySkullHand>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkullHand1>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkullHand2>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkullHand3>()) || !NPC.AnyNPCs(ModContent.NPCType<DeitySkullHand4>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkullHand5>())) && HandTimer <= 0)
+            if (NPC.type == ModContent.NPCType<DeitySkull>() && (!NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand1>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand2>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand3>()) || !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand4>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand5>())) && HandTimer <= 0)
             {
                 NPC.life = 0;
             }
@@ -114,36 +114,36 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     NPC.TargetClosest(true);
                     NPC.ai[0]++;
-                    int index1 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkullHand>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
+                    int index1 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkull_Hand>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
                     Main.npc[index1].ai[0] = -1f;
                     Main.npc[index1].ai[1] = NPC.whoAmI;
                     Main.npc[index1].target = NPC.target;
                     Main.npc[index1].netUpdate = true;
-                    int index2 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkullHand1>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
+                    int index2 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkull_Hand1>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
                     Main.npc[index2].ai[0] = -1f;
                     Main.npc[index2].ai[1] = NPC.whoAmI;
                     Main.npc[index2].target = NPC.target;
                     Main.npc[index2].ai[3] = 150f;
                     Main.npc[index2].netUpdate = true;
-                    int index3 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkullHand2>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
+                    int index3 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkull_Hand2>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
                     Main.npc[index3].ai[0] = -1f;
                     Main.npc[index3].ai[1] = NPC.whoAmI;
                     Main.npc[index3].target = NPC.target;
                     Main.npc[index3].ai[3] = 150f;
                     Main.npc[index3].netUpdate = true;
-                    int index4 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkullHand3>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
+                    int index4 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkull_Hand3>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
                     Main.npc[index4].ai[0] = 1f;
                     Main.npc[index4].ai[1] = NPC.whoAmI;
                     Main.npc[index4].target = NPC.target;
                     Main.npc[index4].netUpdate = true;
                     Main.npc[index4].ai[3] = 150f;
-                    int index5 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkullHand4>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
+                    int index5 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkull_Hand4>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
                     Main.npc[index5].ai[0] = 1f;
                     Main.npc[index5].ai[1] = NPC.whoAmI;
                     Main.npc[index5].target = NPC.target;
                     Main.npc[index5].netUpdate = true;
                     Main.npc[index5].ai[3] = 150f;
-                    int index6 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkullHand5>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
+                    int index6 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<DeitySkull_Hand5>(), NPC.whoAmI, 0.0f, 0.0f, 0.0f, 0.0f, byte.MaxValue);
                     Main.npc[index6].ai[0] = 1f;
                     Main.npc[index6].ai[1] = NPC.whoAmI;
                     Main.npc[index6].ai[3] = 150f;

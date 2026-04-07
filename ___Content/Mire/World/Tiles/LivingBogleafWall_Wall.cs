@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire.World.Tiles
 {
-    public class LivingBogleaf_Wall : ModWall
+    public class LivingBogleafWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

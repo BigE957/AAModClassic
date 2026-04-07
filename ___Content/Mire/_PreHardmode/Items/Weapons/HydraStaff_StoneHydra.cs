@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
-    public class StoneHydra : ModProjectile
+    public class HydraStaff_StoneHydra : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -164,7 +164,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
                     if (Main.myPlayer == Projectile.owner)
                     {
                         float num521 = 6f;
-                        int num522 = ModContent.ProjectileType<BogBomb>();
+                        int num522 = ModContent.ProjectileType<HydraStaff_BogBomb>();
                         Vector2 vector37 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
                         if (num518 == 0)
                         {

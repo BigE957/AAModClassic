@@ -368,7 +368,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     
     public class DeityEaterBody : DeityEater
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEaterBody"; } }
+        //public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEaterBody"; } }
 
         public override void SetStaticDefaults()
         {
@@ -455,7 +455,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
     public class DeityEaterTail : DeityEater
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEaterTail"; } }
+        //public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEaterTail"; } }
 
         public override void SetStaticDefaults()
         {

@@ -1,4 +1,54 @@
-﻿using AAModClassic.Items.Summoning;
+﻿using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.Items.Armor.Abyssal;
+using AAModClassic.Items.Armor.Atlantean;
+using AAModClassic.Items.Armor.Blazing;
+using AAModClassic.Items.Armor.Darkmatter;
+using AAModClassic.Items.Armor.Deathly;
+using AAModClassic.Items.Armor.Demon;
+using AAModClassic.Items.Armor.Doomite;
+using AAModClassic.Items.Armor.Dynaskull;
+using AAModClassic.Items.Armor.Fleshrend;
+using AAModClassic.Items.Armor.Nights;
+using AAModClassic.Items.Armor.Radium;
+using AAModClassic.Items.Armor.Raider;
+using AAModClassic.Items.Armor.Tribal;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Items.Boss.Zero;
+using AAModClassic.Items.FishingItem;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Summoning;
+using AAModClassic.Items.Usable;
+using AAModClassic.Items.Vanity.Alphakip;
+using AAModClassic.Items.Vanity.Anarchy;
+using AAModClassic.Items.Vanity.Apawn;
+using AAModClassic.Items.Vanity.Aves;
+using AAModClassic.Items.Vanity.Beg;
+using AAModClassic.Items.Vanity.Blazen;
+using AAModClassic.Items.Vanity.CC;
+using AAModClassic.Items.Vanity.Cerberus;
+using AAModClassic.Items.Vanity.Charlie;
+using AAModClassic.Items.Vanity.Dallin;
+using AAModClassic.Items.Vanity.Delly;
+using AAModClassic.Items.Vanity.Fargo;
+using AAModClassic.Items.Vanity.Gibs;
+using AAModClassic.Items.Vanity.Grox;
+using AAModClassic.Items.Vanity.Hallam;
+using AAModClassic.Items.Vanity.Maskano;
+using AAModClassic.Items.Vanity.Mikpin;
+using AAModClassic.Items.Vanity.Moon;
+using AAModClassic.Items.Vanity.Pluto;
+using AAModClassic.Items.Vanity.Shox;
+using AAModClassic.Items.Vanity.Tails;
+using AAModClassic.Items.Vanity.Tied;
+using AAModClassic.Items.Vanity.VoidEye;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Furniture.Razewood;
 using System;
 using System.Collections.Generic;
@@ -749,11 +799,11 @@ namespace AAModClassic
 
             TransmuteRecipe(ItemID.SoulofNight, ItemID.SoulofLight);
 
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("BroodScale").Type, (short)AAMod.instance.Find<ModItem>("HydraHide").Type);
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("Hotshroom").Type, (short)AAMod.instance.Find<ModItem>("Darkshroom").Type);
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("DragonFire").Type, (short)AAMod.instance.Find<ModItem>("HydraToxin").Type);
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("SoulOfSmite").Type, (short)AAMod.instance.Find<ModItem>("SoulOfSpite").Type);
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("InfernoKey").Type, (short)AAMod.instance.Find<ModItem>("MireKey").Type);
+            TransmuteRecipe((short)ModContent.ItemType<BroodScale>(), (short)ModContent.ItemType<HydraHide>());
+            TransmuteRecipe((short)ModContent.ItemType<Hotshroom>(), (short)ModContent.ItemType<Darkshroom>());
+            TransmuteRecipe((short)ModContent.ItemType<DragonFire>(), (short)ModContent.ItemType<HydraToxin>());
+            TransmuteRecipe((short)ModContent.ItemType<SoulOfSmite>(), (short)ModContent.ItemType<SoulOfSpite>());
+            TransmuteRecipe((short)ModContent.ItemType<InfernoKey>(), (short)ModContent.ItemType<MireKey>());
             #endregion
 
             #region Bars
@@ -765,9 +815,9 @@ namespace AAModClassic
             TransmuteRecipe(ItemID.MythrilBar, ItemID.OrichalcumBar);
             TransmuteRecipe(ItemID.AdamantiteBar, ItemID.TitaniumBar);
 
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("AbyssiumBar").Type, (short)AAMod.instance.Find<ModItem>("IncineriteBar").Type);
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("DeepAbyssium").Type, (short)AAMod.instance.Find<ModItem>("RadiantIncinerite").Type);
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("DaybreakIncinerite").Type, (short)AAMod.instance.Find<ModItem>("EventideAbyssium").Type);
+            TransmuteRecipe((short)ModContent.ItemType<AbyssiumBar>(), (short)ModContent.ItemType<IncineriteBar>());
+            TransmuteRecipe((short)ModContent.ItemType<DeepAbyssium>(), (short)ModContent.ItemType<RadiantIncinerite>());
+            TransmuteRecipe((short)ModContent.ItemType<DaybreakIncinerite>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
             #endregion
 
             #region Ores
@@ -780,7 +830,7 @@ namespace AAModClassic
             TransmuteRecipe(ItemID.MythrilOre, ItemID.OrichalcumOre);
             TransmuteRecipe(ItemID.TitaniumOre, ItemID.AdamantiteOre);
 
-            TransmuteRecipe((short)AAMod.instance.Find<ModItem>("Abyssium").Type, (short)AAMod.instance.Find<ModItem>("Incinerite").Type);
+            TransmuteRecipe((short)ModContent.ItemType<AbyssiumOre>(), (short)ModContent.ItemType<Incinerite>());
             #endregion
         }
 
@@ -788,12 +838,12 @@ namespace AAModClassic
         { 
             Recipe recipe = GetNewRecipe(item2);
             recipe.AddIngredient(item, 2);
-            recipe.AddTile(AAMod.instance, "Transmuter");
+            recipe.AddTile(ModContent.TileType<Transmuter_Tile>());
             recipe.Register();
 
             recipe = GetNewRecipe(item);
             recipe.AddIngredient(item2, 2);
-            recipe.AddTile(AAMod.instance, "Transmuter");
+            recipe.AddTile(ModContent.TileType<Transmuter_Tile>());
             recipe.Register();
         }
         #endregion
@@ -802,21 +852,21 @@ namespace AAModClassic
         {
             RecipeGroup group0 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.darkmatterhelmet"), new int[]
             {
-                AAMod.instance.Find<ModItem>("DarkmatterVisor").Type,
-                //AAMod.instance.Find<ModItem>("DarkmatterHelm").Type,
-                AAMod.instance.Find<ModItem>("DarkmatterHelmet").Type,
-                AAMod.instance.Find<ModItem>("DarkmatterHeaddress").Type,
-                AAMod.instance.Find<ModItem>("DarkmatterMask").Type
+                ModContent.ItemType<DarkmatterVisor>(),
+                //ModContent.ItemType<DarkmatterHelm>(),
+                ModContent.ItemType<DarkmatterHelmet>(),
+                ModContent.ItemType<DarkmatterHeaddress>(),
+                ModContent.ItemType<DarkmatterMask>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DarkmatterHelmets", group0);
 
             RecipeGroup group1 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.radiumhelmet"), new int[]
             {
-                AAMod.instance.Find<ModItem>("RadiumHat").Type,
-                //AAMod.instance.Find<ModItem>("RadiumHelm").Type,
-                AAMod.instance.Find<ModItem>("RadiumHelmet").Type,
-                AAMod.instance.Find<ModItem>("RadiumHeadgear").Type,
-                AAMod.instance.Find<ModItem>("RadiumMask").Type
+                ModContent.ItemType<RadiumHat>(),
+                //ModContent.ItemType<RadiumHelm>(),
+                ModContent.ItemType<RadiumHelmet>(),
+                ModContent.ItemType<RadiumHeadgear>(),
+                ModContent.ItemType<RadiumMask>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:RadiumHelmets", group1);
 
@@ -829,22 +879,23 @@ namespace AAModClassic
            
             RecipeGroup group3 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.celestialcraftingstation"), new int[]
             {
-                AAMod.instance.Find<ModItem>("RadiantArcanum").Type,
-                AAMod.instance.Find<ModItem>("QuantumFusionAccelerator").Type,
+                ModContent.ItemType<RadiantArcanum>(),
+                ModContent.ItemType<QuantumFusionAccelerator>(),
             });
             RecipeGroup.RegisterGroup("AAModClassic:AstralStations", group3);
 
             RecipeGroup group4 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ancientmaterial"), new int[]
             {
-                AAMod.instance.Find<ModItem>("UnstableSingularity").Type,
-                AAMod.instance.Find<ModItem>("CrucibleScale").Type,
-                AAMod.instance.Find<ModItem>("DreadScale").Type
+                ModContent.ItemType<UnstableSingularity>(),
+                ModContent.ItemType<CrucibleScale>(),
+                ModContent.ItemType<DreadScale>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:AncientMaterials", group4);
 
+            //TODO: Add SoC and IZ materials
             RecipeGroup group5 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.superancientmaterial"), new int[]
             {
-                AAMod.instance.Find<ModItem>("ChaosScale").Type
+                ModContent.ItemType<ChaosScale>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:SuperAncientMaterials", group5);
             
@@ -864,8 +915,8 @@ namespace AAModClassic
 
             RecipeGroup group8 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.chaosclaw"), new int[]
             {
-                AAMod.instance.Find<ModItem>("DragonClaw").Type,
-                AAMod.instance.Find<ModItem>("HydraClaw").Type
+                ModContent.ItemType<DragonClaw>(),
+                ModContent.ItemType<HydraClaw>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosClaw", group8);
 
@@ -899,8 +950,8 @@ namespace AAModClassic
 
             RecipeGroup group13 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.chaosbar"), new int[]
             {
-                AAMod.instance.Find<ModItem>("IncineriteBar").Type,
-                AAMod.instance.Find<ModItem>("AbyssiumBar").Type
+                ModContent.ItemType<IncineriteBar>(),
+                ModContent.ItemType<AbyssiumBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosBar", group13);
 
@@ -908,15 +959,15 @@ namespace AAModClassic
             {
                 ItemID.DemoniteBar,
                 ItemID.CrimtaneBar,
-                AAMod.instance.Find<ModItem>("IncineriteBar").Type,
-                AAMod.instance.Find<ModItem>("AbyssiumBar").Type
+                ModContent.ItemType<IncineriteBar>(),
+                ModContent.ItemType<AbyssiumBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:EvilorChaosBar", group14);
 
             RecipeGroup group15 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ancientcraftingstation"), new int[]
             {
-                AAMod.instance.Find<ModItem>("BinaryReassembler").Type,
-                AAMod.instance.Find<ModItem>("ChaosCrucible").Type
+                ModContent.ItemType<BinaryReassembler>(),
+                ModContent.ItemType<ChaosCrucible>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ACS", group15);
 
@@ -929,32 +980,32 @@ namespace AAModClassic
 
             RecipeGroup group17 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.altar"), new int[]
             {
-                AAMod.instance.Find<ModItem>("MireAltar").Type,
-                AAMod.instance.Find<ModItem>("CrimsonAltar").Type,
-                AAMod.instance.Find<ModItem>("CorruptAltar").Type,
-                AAMod.instance.Find<ModItem>("InfernoAltar").Type
+                ModContent.ItemType<MireAltarSafe>(),
+                ModContent.ItemType<CrimsonAltar>(),
+                ModContent.ItemType<CorruptAltar>(),
+                ModContent.ItemType<InfernoAltar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:Altar", group17);
 
             RecipeGroup group18 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ChaosLeggings"), new int[]
             {
-                AAMod.instance.Find<ModItem>("BlazingSuneate").Type,
-                AAMod.instance.Find<ModItem>("AbyssalHakama").Type,
-                AAMod.instance.Find<ModItem>("AtlanteanGreaves").Type,
-                AAMod.instance.Find<ModItem>("DoomiteGreaves").Type,
-                AAMod.instance.Find<ModItem>("RaiderLegs").Type,
-                AAMod.instance.Find<ModItem>("DynaskullGreaves").Type
+                ModContent.ItemType<BlazingSuneate>(),
+                ModContent.ItemType<AbyssalHakama>(),
+                ModContent.ItemType<AtlanteanGreaves>(),
+                ModContent.ItemType<DoomiteGreaves>(),
+                ModContent.ItemType<RaiderLegs>(),
+                ModContent.ItemType<DynaskullGreaves>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosBoots", group18);
 
             RecipeGroup group19 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ChaosChestpiece"), new int[]
             {
-                AAMod.instance.Find<ModItem>("BlazingDou").Type,
-                AAMod.instance.Find<ModItem>("AbyssalGi").Type,
-                AAMod.instance.Find<ModItem>("AtlanteanPlate").Type,
-                AAMod.instance.Find<ModItem>("DoomiteBreastplate").Type,
-                AAMod.instance.Find<ModItem>("RaiderChest").Type,
-                AAMod.instance.Find<ModItem>("DynaskullRibguard").Type
+                ModContent.ItemType<BlazingDou>(),
+                ModContent.ItemType<AbyssalGi>(),
+                ModContent.ItemType<AtlanteanPlate>(),
+                ModContent.ItemType<DoomiteBreastplate>(),
+                ModContent.ItemType<RaiderChest>(),
+                ModContent.ItemType<DynaskullRibguard>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosPlates", group19);
 
@@ -972,65 +1023,65 @@ namespace AAModClassic
 
             RecipeGroup group22 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.ShinyCharm"), new int[]
             {
-                AAMod.instance.Find<ModItem>("ShinyCharm").Type,
-                AAMod.instance.Find<ModItem>("ShinyCharmFish").Type
+                ModContent.ItemType<ShinyCharm>(),
+                ModContent.ItemType<ShinyCharmFish>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ShinyCharm", group22);
 
             RecipeGroup group23 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.DevBag"), new int[]
             {
-                AAMod.instance.Find<ModItem>("AlphaBag").Type,
-                AAMod.instance.Find<ModItem>("InvokerBag").Type,
-                AAMod.instance.Find<ModItem>("CCBox").Type,
-                AAMod.instance.Find<ModItem>("BlazenBag").Type,
-                AAMod.instance.Find<ModItem>("AvesBag").Type,
-                AAMod.instance.Find<ModItem>("DellyBag").Type,
-                AAMod.instance.Find<ModItem>("OldMagiciansHat").Type,
-                AAMod.instance.Find<ModItem>("MagiciansHat").Type,
-                AAMod.instance.Find<ModItem>("FezLordsBag").Type,
-                AAMod.instance.Find<ModItem>("MoonBag").Type,
-                AAMod.instance.Find<ModItem>("GibsBag").Type,
-                AAMod.instance.Find<ModItem>("GroviteSeaChest").Type,
-                AAMod.instance.Find<ModItem>("PlutoBag").Type,
-                AAMod.instance.Find<ModItem>("VoidBag").Type,
-                AAMod.instance.Find<ModItem>("AnarchyBag").Type,
-                AAMod.instance.Find<ModItem>("MaskBag").Type,
-                AAMod.instance.Find<ModItem>("TopHat").Type,
-                AAMod.instance.Find<ModItem>("BegBag").Type,
-                AAMod.instance.Find<ModItem>("CharlieBag").Type,
-                AAMod.instance.Find<ModItem>("MikBag").Type,
-                AAMod.instance.Find<ModItem>("TailsToolbox").Type,
-                AAMod.instance.Find<ModItem>("ShoxBag").Type,
-                AAMod.instance.Find<ModItem>("ApawnEgg").Type
+                ModContent.ItemType<AlphaBag>(),
+                ModContent.ItemType<InvokerBag>(),
+                ModContent.ItemType<CCBox>(),
+                ModContent.ItemType<BlazenBag>(),
+                ModContent.ItemType<AvesBag>(),
+                ModContent.ItemType<DellyBag>(),
+                ModContent.ItemType<OldMagiciansHat>(),
+                ModContent.ItemType<MagiciansHat>(),
+                ModContent.ItemType<FezLordsBag>(),
+                ModContent.ItemType<MoonBag>(),
+                ModContent.ItemType<GibsBag>(),
+                ModContent.ItemType<GroviteSeaChest>(),
+                ModContent.ItemType<PlutoBag>(),
+                ModContent.ItemType<VoidBag>(),
+                ModContent.ItemType<AnarchyBag>(),
+                ModContent.ItemType<MaskBag>(),
+                ModContent.ItemType<TopHat>(),
+                ModContent.ItemType<BegBag>(),
+                ModContent.ItemType<CharlieBag>(),
+                ModContent.ItemType<MikBag>(),
+                ModContent.ItemType<TailsToolbox>(),
+                ModContent.ItemType<ShoxBag>(),
+                ModContent.ItemType<ApawnEgg>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DevBag", group23);
 
             RecipeGroup group24 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Boots", new int[]
             {
-                AAMod.instance.Find<ModItem>("NightsGreaves").Type,
-                AAMod.instance.Find<ModItem>("FleshrendGreaves").Type,
-                AAMod.instance.Find<ModItem>("TribalKilt").Type,
-                AAMod.instance.Find<ModItem>("DeathlyGreaves").Type,
-                AAMod.instance.Find<ModItem>("DemonBoots").Type
+                ModContent.ItemType<FleshrendGreaves>(),
+                ModContent.ItemType<NightsGreaves>(),
+                ModContent.ItemType<TribalKilt>(),
+                ModContent.ItemType<DeathlyGreaves>(),
+                ModContent.ItemType<DemonBoots>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraBoots", group24);
 
             RecipeGroup group25 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Chestplate", new int[]
             {
-                AAMod.instance.Find<ModItem>("NightsPlate").Type,
-                AAMod.instance.Find<ModItem>("FleshrendPlate").Type,
-                AAMod.instance.Find<ModItem>("TribalCloak").Type,
-                AAMod.instance.Find<ModItem>("DeathlyRibguard").Type,
-                AAMod.instance.Find<ModItem>("DemonGarb").Type
+                ModContent.ItemType<NightsPlate>(),
+                ModContent.ItemType<FleshrendPlate>(),
+                ModContent.ItemType<TribalCloak>(),
+                ModContent.ItemType<DeathlyRibguard>(),
+                ModContent.ItemType<DemonGarb>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraPlates", group25);
 
             if (RecipeGroup.recipeGroupIDs.ContainsKey("Wood"))
             {
                 int index = RecipeGroup.recipeGroupIDs["Wood"];
-                RecipeGroup.recipeGroups[index].ValidItems.Add(AAMod.instance.Find<ModItem>("Razewood").Type);
-                RecipeGroup.recipeGroups[index].ValidItems.Add(AAMod.instance.Find<ModItem>("Bogwood").Type);
-                RecipeGroup.recipeGroups[index].ValidItems.Add(AAMod.instance.Find<ModItem>("OroborosWood").Type);
+                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Razewood>());
+                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Bogwood>());
+                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<OroborosWood>());
             }
         }
     }

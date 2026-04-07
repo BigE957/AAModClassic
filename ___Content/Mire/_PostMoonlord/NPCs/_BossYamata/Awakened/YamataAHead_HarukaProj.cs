@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class YamataHarukaProj : ModProjectile
+    public class YamataAHead_HarukaProj : ModProjectile
     {
         public override void SetStaticDefaults()
 		{

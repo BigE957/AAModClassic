@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Trees
 {
-    class RazewoodPalmTreeSapling_Tile : ModTile
+    class RazewoodPalmSapling_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

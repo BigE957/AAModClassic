@@ -76,7 +76,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Abyssium>(), 1, 16, 20));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 16, 20));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
             LeadingConditionRule expertRule = new(new Conditions.IsExpert());
@@ -255,21 +255,21 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
                     210;
 
                 int proj =
-                    Red ? ModContent.ProjectileType<HydraBreath>() :
+                    Red ? ModContent.ProjectileType<HydraHead_HydraBreath>() :
                     Yellow ? ModContent.ProjectileType<AcidProj>() :
-                    ModContent.ProjectileType<HydraBomb>();
+                    ModContent.ProjectileType<HydraHead_HydraBomb>();
 
                 if (Green)
                 {
-                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraBomb>();
+                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraHead_HydraBomb>();
                 }
                 if (Orange)
                 {
-                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraBreath>();
+                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraHead_HydraBreath>();
                 }
                 if (Purple)
                 {
-                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<HydraBomb>() : ModContent.ProjectileType<HydraBreath>();
+                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<HydraHead_HydraBomb>() : ModContent.ProjectileType<HydraHead_HydraBreath>();
                 }
 
                 if (Shoot == Interval)

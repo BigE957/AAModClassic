@@ -158,7 +158,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     {
                         internalAI[3] = 1;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<YamataHarukaProj>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<YamataAHead_HarukaProj>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target);
 
 
                         if (NPC.life <= NPC.lifeMax / 2 && !spawnHaruka)
@@ -236,7 +236,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     if (internalAI[1] == NPC.ai[3] * 60 - 30)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), ModContent.ProjectileType<YamataDeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), ModContent.ProjectileType<YamataAHead_MireDeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                     }
                     if (++internalAI[1] > 360)
                     {

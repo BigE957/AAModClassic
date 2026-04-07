@@ -8,7 +8,7 @@ using AAModClassic.Dusts;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
-    internal class HydraBreath : ModProjectile
+    internal class HydraHead_HydraBreath : ModProjectile
     {
         public override void SetStaticDefaults()
         {

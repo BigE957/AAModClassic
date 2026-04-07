@@ -42,7 +42,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
                             int projectileType = 0;
                             if (tileType == Type)
                             {
-                                projectileType = ModContent.ProjectileType<DepthsandBall>();
+                                projectileType = ModContent.ProjectileType<Depthsand_Proj>();
                                 damage = 0;
                             }
                             tile.ClearTile();
@@ -61,7 +61,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
                         int projectileType = 0;
                         if (tileType == Type)
                         {
-                            projectileType = ModContent.ProjectileType<DepthsandBall>();
+                            projectileType = ModContent.ProjectileType<Depthsand_Proj>();
                             damage2 = 0;
                         }
 

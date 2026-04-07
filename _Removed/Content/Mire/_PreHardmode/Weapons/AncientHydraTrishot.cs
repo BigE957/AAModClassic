@@ -8,7 +8,7 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 
 namespace AAModClassic._Removed.Content.Mire._PreHardmode.Weapons
 {
-    public class HydraTrishot_Removed : ModItem
+    public class AncientHydraTrishot : ModItem
     {
         public override void SetDefaults()
         {

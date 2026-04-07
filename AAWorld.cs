@@ -1101,7 +1101,7 @@ namespace AAModClassic
 
                         if (Altar == 0)
                         {
-                            Altar = ModContent.TileType<ChaosAltar1_Tile>();
+                            Altar = ModContent.TileType<MireAltarSafe_Tile>();
                         }
                         else
                         {
@@ -1115,7 +1115,7 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<Torchsandstone_Tile>() ||
                                 tile.TileType == ModContent.TileType<Torchsand_Tile>() ||
                                 tile.TileType == ModContent.TileType<InfernoGrass_Tile>())  
-                                && Altar == ModContent.TileType<ChaosAltar1_Tile>())
+                                && Altar == ModContent.TileType<MireAltarSafe_Tile>())
                             {
                                 Altar = ModContent.TileType<ChaosAltar2_Tile>();
                             }
@@ -1127,7 +1127,7 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<MireGrass_Tile>()) 
                                 && Altar == ModContent.TileType<ChaosAltar2_Tile>())
                             {
-                                Altar = ModContent.TileType<ChaosAltar1_Tile>();
+                                Altar = ModContent.TileType<MireAltarSafe_Tile>();
                             }
                             WorldGen.PlaceObject(AltarX, AltarY - 1, Altar);
                         }

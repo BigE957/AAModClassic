@@ -26,7 +26,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Gunk>();
+            Item.shoot = ModContent.ProjectileType<GunkWand_Gunk>();
             Item.shootSpeed = 4f;
         }
     }

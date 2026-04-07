@@ -29,7 +29,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<SludgeShotP>();
+			Item.shoot = ModContent.ProjectileType<SludgeShot_Proj>();
 			Item.shootSpeed = 12f;
 		}
 

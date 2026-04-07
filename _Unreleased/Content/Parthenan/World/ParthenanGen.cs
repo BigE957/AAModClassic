@@ -37,8 +37,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World
             colorToTile[Color.Black] = -1; //don't touch when genning		
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
-            colorToWall[new Color(0, 255, 0)] = ModContent.WallType<AncientFulguritePlatingWallS>();
-            colorToWall[new Color(255, 0, 255)] = ModContent.WallType<AncientFulgurGlassWallS>();
+            colorToWall[new Color(0, 255, 0)] = ModContent.WallType<AncientFulguritePlatingS_Wall>();
+            colorToWall[new Color(255, 0, 255)] = ModContent.WallType<AncientFulgurGlassS_Wall>();
             colorToWall[Color.Black] = -1; //don't touch when genning				
 
             TexGen gen = TexGen.GetTexGenerator(TexGenAssets_Unreleased.ParthenanTileData, colorToTile, TexGenAssets_Unreleased.ParthenanWallData, colorToWall);

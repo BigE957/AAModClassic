@@ -41,18 +41,18 @@ namespace AAModClassic.World.Conversions
 
             //Walls
             WallLoader.RegisterConversion(ModContent.WallType<TorchstoneWall_Wall>(), Type, WallID.Stone);
-            WallLoader.RegisterConversion(ModContent.WallType<Depthstone_Wall>(), Type, WallID.Stone);
+            WallLoader.RegisterConversion(ModContent.WallType<DepthstoneWall_Wall>(), Type, WallID.Stone);
 
             WallLoader.RegisterConversion(ModContent.WallType<InfernoGrassWall_Wall>(), Type, WallID.GrassUnsafe);
             WallLoader.RegisterConversion(ModContent.WallType<MireGrassWall_Wall>(), Type, WallID.JungleUnsafe);
 
             WallLoader.RegisterConversion(ModContent.WallType<TorchsandHardenedWall_Wall>(), Type, WallID.HardenedSand);
-            WallLoader.RegisterConversion(ModContent.WallType<DepthsandHardened_Wall>(), Type, WallID.HardenedSand);
+            WallLoader.RegisterConversion(ModContent.WallType<DepthsandHardenedWall_Wall>(), Type, WallID.HardenedSand);
 
             WallLoader.RegisterConversion(ModContent.WallType<TorchsandstoneWall_Wall>(), Type, WallID.Sandstone);
-            WallLoader.RegisterConversion(ModContent.WallType<Depthsandstone_Wall>(), Type, WallID.Sandstone);
+            WallLoader.RegisterConversion(ModContent.WallType<DepthsandstoneWall_Wall>(), Type, WallID.Sandstone);
 
-            WallLoader.RegisterConversion(ModContent.WallType<LivingBogwood_Wall>(), Type, WallID.LivingWood);
+            WallLoader.RegisterConversion(ModContent.WallType<LivingBogwoodWall_Wall>(), Type, WallID.LivingWood);
         }
     }
 }

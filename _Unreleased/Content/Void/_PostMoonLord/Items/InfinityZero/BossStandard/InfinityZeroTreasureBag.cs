@@ -7,9 +7,8 @@ using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
 {
-    public class IZCache : ModItem
+    public class InfinityZeroTreasureBag : ModItem
 	{
-        
         public override void SetStaticDefaults()
         {
             
@@ -29,7 +28,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("_Unreleased/Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture(Texture + "_Glow");
             spriteBatch.Draw
             (
                 texture,

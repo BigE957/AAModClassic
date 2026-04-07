@@ -23,7 +23,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
             TileID.Sets.JungleSpecial[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<Abyssium>());   
+            RegisterItemDrop(ModContent.ItemType<AbyssiumOre>());   
             DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Abyssium Ore");

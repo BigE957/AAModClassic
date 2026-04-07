@@ -116,7 +116,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 }
             }*/
             SoundEngine.PlaySound(SoundID.Item89);
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataABoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataAHead_Soulsplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Projectile.active = false;
         }
 

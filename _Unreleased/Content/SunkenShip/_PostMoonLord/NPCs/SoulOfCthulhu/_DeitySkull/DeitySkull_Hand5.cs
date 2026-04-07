@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull
 {
-    public class DeitySkullHand5 : ModNPC
+    public class DeitySkull_Hand5 : ModNPC
     {
 
         public override void SetStaticDefaults()
@@ -17,13 +17,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Main.npcFrameCount[NPC.type] = 4;
         }
 
-        public override string Texture
-        {
-            get
-            {
-                return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeitySkull_Hand";
-            }
-        }
+        public override string Texture => ModContent.GetInstance<DeitySkull_Hand>().Texture;
+
         public override void SetDefaults()
         {
             NPC.aiStyle = -1;

@@ -550,7 +550,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    result = ModContent.ItemType<Abyssium>();
+                    result = ModContent.ItemType<AbyssiumOre>();
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);

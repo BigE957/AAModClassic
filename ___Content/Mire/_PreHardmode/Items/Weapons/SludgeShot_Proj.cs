@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
-    public class SludgeShotP : ModProjectile
+    public class SludgeShot_Proj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

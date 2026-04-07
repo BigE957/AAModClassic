@@ -266,7 +266,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             AAWorld_Unreleased.downedIZ = true;
             if (Main.expertMode)
             {
-                NPC.DropLoot(ModContent.ItemType<IZCache>());
+                NPC.DropLoot(ModContent.ItemType<InfinityZeroTreasureBag>());
             }
             else
             {

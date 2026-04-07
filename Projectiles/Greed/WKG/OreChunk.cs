@@ -123,7 +123,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == ModContent.ItemType<Abyssium>())
+            else if(k == ModContent.ItemType<AbyssiumOre>())
             {
                 if(Projectile.ai[0]++ > 800)
                 {
@@ -407,7 +407,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 				Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 			}
 
-            if (Projectile.ai[1] == ItemID.DemoniteOre || Projectile.ai[1] == ModContent.ItemType<Abyssium>() || Projectile.ai[1] == ItemID.LunarOre || Projectile.ai[1] == ModContent.ItemType<EventideAbyssiumOre>())
+            if (Projectile.ai[1] == ItemID.DemoniteOre || Projectile.ai[1] == ModContent.ItemType<AbyssiumOre>() || Projectile.ai[1] == ItemID.LunarOre || Projectile.ai[1] == ModContent.ItemType<EventideAbyssiumOre>())
             {
                 Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, Projectile.position, null, lightColor, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
@@ -457,7 +457,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     Main.dust[num292].noGravity = true;
                 };
             }
-            else if (Projectile.ai[1] == ModContent.ItemType<Abyssium>())
+            else if (Projectile.ai[1] == ModContent.ItemType<AbyssiumOre>())
             {
                 for(int shoot = 0; shoot < 3; shoot ++)
                 {
@@ -727,7 +727,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == ModContent.ItemType<Abyssium>())
+            else if(k == ModContent.ItemType<AbyssiumOre>())
             {
                 target.AddBuff(BuffID.Venom, 180);
             }
@@ -1099,7 +1099,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 item.SetDefaults(k, false);
             }
-            if(k == ItemID.DemoniteOre || k == ModContent.ItemType<Abyssium>() || k == ModContent.ItemType<RadiumOre>())
+            if(k == ItemID.DemoniteOre || k == ModContent.ItemType<AbyssiumOre>() || k == ModContent.ItemType<RadiumOre>())
             {
                 Projectile.extraUpdates = 1;
             }
@@ -1357,7 +1357,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 return 117;
             }
-            else if (k == ModContent.ItemType<Abyssium>())
+            else if (k == ModContent.ItemType<AbyssiumOre>())
             {
                 return ModContent.DustType<Dusts.AbyssiumDust>();
             }

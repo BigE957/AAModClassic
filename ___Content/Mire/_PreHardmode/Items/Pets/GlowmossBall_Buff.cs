@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
 {
-    public class Glowmoss_Buff : ModBuff
+    public class GlowmossBall_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -17,10 +17,10 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
         {
             player.GetModPlayer<AAPlayer>().Glowmoss = true;
             player.buffTime[buffIndex] = 18000;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Glowmoss>()] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<GlowmossBall_Pet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<Glowmoss>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<GlowmossBall_Pet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

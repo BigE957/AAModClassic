@@ -120,6 +120,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<YamataAHeadFake_MireDeathrayWave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
         }
 
+        //TODO: Cache these textures in a static Asset<Texture2D> field
+
         public override bool PreDraw(ref Color lightColor)
         {
             if (Projectile.velocity == Vector2.Zero)
@@ -127,8 +129,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray2");
-            Texture2D texture2D21 = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>(Texture + "2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>(Texture + "3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

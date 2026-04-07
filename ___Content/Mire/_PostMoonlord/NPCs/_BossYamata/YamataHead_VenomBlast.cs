@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
-    public class YamataBlast : ModProjectile
+    public class YamataHead_VenomBlast : ModProjectile
 	{
         
         public override void SetStaticDefaults()
@@ -50,7 +50,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 Main.dust[num469].velocity *= 2f;
             }
             SoundEngine.PlaySound(SoundID.Item89);
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 51 + 8, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Shock>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 51 + 8, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataHead_Shockwave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

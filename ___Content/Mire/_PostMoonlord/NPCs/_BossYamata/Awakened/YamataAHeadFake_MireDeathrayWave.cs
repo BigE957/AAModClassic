@@ -12,7 +12,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
     public class YamataAHeadFake_MireDeathrayWave : ModProjectile
     {
-        public override string Texture => "AAModClassic/NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray";
         private const float maxTime = 300;
         private float timer = 0;
 
@@ -116,6 +115,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             //Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], (float)projectile.width * projectile.scale, new Utils.TileActionAttempt(DelegateMethods.CastLight));
         }
 
+        //TODO: Cache these textures in a static Asset<Texture2D> field
+
         public override bool PreDraw(ref Color lightColor)
         {
             if (Projectile.velocity == Vector2.Zero)
@@ -123,8 +124,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray2");
-            Texture2D texture2D21 = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>(Texture + "2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>(Texture + "3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

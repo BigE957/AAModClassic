@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
-    internal class YamataBomb : ModProjectile
+    internal class YamataHead_AbyssalBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -121,8 +121,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 for (i = 0; i < 4; i++)
                 {
                     offsetAngle = startAngle + Angle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<YamataVenom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<YamataVenom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<YamataHead_Venom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<YamataHead_Venom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 }
             }
             for (int num468 = 0; num468 < 20; num468++)
@@ -131,7 +131,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataHead_Soulsplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Projectile.active = false;
         }
     }

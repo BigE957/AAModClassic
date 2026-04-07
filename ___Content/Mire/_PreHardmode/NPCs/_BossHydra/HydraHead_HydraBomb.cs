@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
-    public class HydraBomb : ModProjectile
+    public class HydraHead_HydraBomb : ModProjectile
 	{
         
         public override void SetStaticDefaults()
@@ -56,7 +56,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
                     Vector2 value21 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                     value21.Normalize();
                     value21 *= Main.rand.Next(10, 201) * 0.01f;
-                    int a = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, value21.X, value21.Y, ModContent.ProjectileType<HydraMist>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
+                    int a = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, value21.X, value21.Y, ModContent.ProjectileType<HydraHead_HydraMist>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
                     Main.projectile[a].localAI[0] = Main.rand.Next(3);
                 }
             }

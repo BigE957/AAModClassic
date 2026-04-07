@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
 {
-    public class EnderMinionBuffEX_Buff : ModBuff
+    public class EnderMinionEX_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

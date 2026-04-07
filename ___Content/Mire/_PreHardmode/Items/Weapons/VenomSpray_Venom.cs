@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
-    public class Venom : ModProjectile
+    public class VenomSpray_Venom : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
         public override void SetStaticDefaults()

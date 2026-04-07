@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Abyssium>(), 1, 30, 44));
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 30, 44));
 
             notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripMaskBlue>(), 7));
 
