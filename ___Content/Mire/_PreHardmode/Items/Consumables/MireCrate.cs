@@ -1,11 +1,9 @@
-﻿using AAModClassic;
-using AAModClassic.___Content.Mire.World.who;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.FishingItem.Crate
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Consumables
 {
     public class MireCrate : BaseAAItem
     {

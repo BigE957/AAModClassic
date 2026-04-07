@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
@@ -12,7 +11,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
     [AutoloadBossHead]
     public class HydraHead1 : ModNPC
@@ -90,7 +89,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         }
 
         public int Head = 0;
-        public Hydra Body => (bodyNPC != null && bodyNPC.ModNPC is Hydra) ? (Hydra)bodyNPC.ModNPC : null;
+        public Hydra Body => bodyNPC != null && bodyNPC.ModNPC is Hydra ? (Hydra)bodyNPC.ModNPC : null;
         public NPC bodyNPC = null;
         public int damage = 0;
 

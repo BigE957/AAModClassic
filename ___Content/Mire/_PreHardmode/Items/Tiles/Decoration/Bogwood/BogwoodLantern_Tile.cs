@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood
 {
     public class BogwoodLantern_Tile : ModTile
 	{
@@ -30,8 +30,8 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
         }
         public override void HitWire(int i, int j)
         {
-            int left = i - (Main.tile[i, j].TileFrameX / 18) % 1;
-            int top = j - (Main.tile[i, j].TileFrameY / 18) % 2;
+            int left = i - Main.tile[i, j].TileFrameX / 18 % 1;
+            int top = j - Main.tile[i, j].TileFrameY / 18 % 2;
             for (int x = left; x < left + 1; x++)
             {
                 for (int y = top; y < top + 2; y++)
@@ -80,7 +80,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Bogwood/BogwoodLantern_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Bogwood/BogwoodLantern_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

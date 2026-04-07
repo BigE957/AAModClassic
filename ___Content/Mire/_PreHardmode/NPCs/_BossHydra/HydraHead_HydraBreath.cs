@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.NPCs.Bosses.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
     internal class HydraBreath : ModProjectile
     {
@@ -69,7 +69,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                 {
                     for (int num298 = 0; num298 < 5; num298++)
                     {
-                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.7f);
+                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.7f);
                         if (Main.rand.Next(6) != 0)
                         {
                             Main.dust[num299].noGravity = true;

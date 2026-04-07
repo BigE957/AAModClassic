@@ -8,7 +8,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic.NPCs.Bosses.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 { 
     public class HarukaShade : ModNPC
     {

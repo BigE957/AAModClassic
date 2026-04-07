@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire.World.who
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Consumables
 {
     public class MireCrate_Tile : ModTile
     {

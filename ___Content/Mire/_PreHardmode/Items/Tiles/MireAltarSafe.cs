@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Crafters;
 
-namespace AAModClassic.___Content.Mire.World.who
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles
 {
     public class MireAltarSafe : BaseAAItem
 	{

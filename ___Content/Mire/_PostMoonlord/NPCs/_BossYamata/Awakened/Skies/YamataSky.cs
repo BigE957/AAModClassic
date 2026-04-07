@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.Backgrounds
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.Skies
 {
     
 
@@ -76,7 +76,7 @@ namespace AAModClassic.Backgrounds
                 if (!Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().YamataAltar)
                 {
                     spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
-                    double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
+                    double bgTop = (int)(-Main.screenPosition.Y / (Main.worldSurface * 16.0 - 600.0) * 200.0);
                     Main.ColorOfTheSkies = Color.White;
                     if (Main.gameMenu || Main.netMode == NetmodeID.Server)
                     {
@@ -151,7 +151,7 @@ namespace AAModClassic.Backgrounds
                     int num4 = 0;
                     for (float num5 = 0f; num5 <= 1f; num5 += 0.03f)
                     {
-                        float num6 = 1f - (num5 + Main.GlobalTimeWrappedHourly * 0.02f + (float)Math.Sin((float)j)) % 1f;
+                        float num6 = 1f - (num5 + Main.GlobalTimeWrappedHourly * 0.02f + (float)Math.Sin(j)) % 1f;
                         spriteBatch.Draw(RockTextures[num4], vector + new Vector2((float)Math.Sin(num5 * 1582f) * (num3 * 0.5f) + num3 * 0.5f, num6 * 2000f), null, Color.White * num6 * scale * Intensity, num6 * 20f, new Vector2(RockTextures[num4].Width >> 1, RockTextures[num4].Height >> 1), 0.9f, SpriteEffects.None, 0f);
                         num4 = (num4 + 1) % RockTextures.Length;
                     }

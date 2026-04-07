@@ -1,4 +1,3 @@
-using AAModClassic.___Content.Mire.World.who;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -11,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Chests
+namespace AAModClassic.___Content.Dungeon.World.Tiles
 {
     public class MireChest_Tile : ModTile
 	{
@@ -58,7 +57,7 @@ namespace AAModClassic.Tiles.Chests
 
         public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual)
         {
-            dustType = this.DustType;
+            dustType = DustType;
             return true;
         }
 

@@ -7,9 +7,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
-using AAModClassic.Items.FishingItem;
 
-namespace AAModClassic.Tiles.Crafters
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles
 {
     public class ToxinMonkfish_Tile : ModTile
     {

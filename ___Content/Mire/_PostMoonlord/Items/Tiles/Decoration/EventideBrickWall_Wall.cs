@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
     public class EventideBrick_Wall : ModWall
 	{
@@ -12,7 +12,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
+            DustType = ModContent.DustType<AbyssiumDust>();
 			AddMapEntry(new Color(33, 37, 96));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<EventideWall>());

@@ -41,7 +41,8 @@ using AAModClassic.Items.Melee;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.___Content.Mire.World.who;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
+using AAModClassic.___Content.Dungeon.World.Tiles;
 
 namespace AAModClassic
 {

@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood;
+﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
 using Microsoft.Xna.Framework;
 using System;

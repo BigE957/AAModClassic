@@ -1,7 +1,7 @@
 ﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.GlowingMushium;

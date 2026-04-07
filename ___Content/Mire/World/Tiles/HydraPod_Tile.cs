@@ -5,14 +5,13 @@ using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
-using AAModClassic.NPCs.Bosses.Hydra;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 
-namespace AAModClassic.Tiles.Boss
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class HydraPod_Tile : ModTile
     {
@@ -61,24 +60,24 @@ namespace AAModClassic.Tiles.Boss
             int thinger = Main.rand.Next(5);
             if (thinger == 0)
             {
-                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop1);
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop1);
             }
             else if (thinger == 1)
             {
-                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop2);
-                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.MusketBall, 100);
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop2);
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.MusketBall, 100);
             }
             else if (thinger == 2)
             {
-                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop3);
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop3);
             }
             else if (thinger == 3)
             {
-                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop4);
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop4);
             }
             else
             {
-                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop5);
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop5);
             }
 
             if (AAWorld.SmashHydraPod == 2)

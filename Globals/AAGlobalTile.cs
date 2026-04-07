@@ -12,7 +12,7 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Tiles;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.___Content.Mire.World.who;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 
 namespace AAModClassic.Globals
 {

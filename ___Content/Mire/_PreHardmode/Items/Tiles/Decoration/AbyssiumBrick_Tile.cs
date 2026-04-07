@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration
 {
     class AbyssiumBrick_Tile : ModTile
     {
@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<AbyssiumBrick>());   
             AddMapEntry(new Color(0, 0, 51));
-            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
+            DustType = ModContent.DustType<AbyssiumDust>();
         }
     }
 }

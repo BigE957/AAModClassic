@@ -1,7 +1,6 @@
-using AAModClassic.Tiles.Chests;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.___Content.Mire.World.who
+namespace AAModClassic.___Content.Dungeon.World.Tiles
 {
     public class MireChest : BaseAAItem
 	{

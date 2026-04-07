@@ -1,5 +1,5 @@
 using Terraria.ModLoader;
-namespace AAModClassic.NPCs.Bosses.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
     [AutoloadBossHead]
     public class HydraHead7 : HydraHead1

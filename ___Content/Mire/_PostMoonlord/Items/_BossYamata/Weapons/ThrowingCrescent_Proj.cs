@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.___Content.Mire.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -85,7 +86,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 float num114 = num78;
                 float num115 = num79 + (Main.rand.Next(-40, 41) * 0.05f);
                 //TODO: Fomrerly YW Split, dunno if this is right
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<HydraSoul>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
             }
         }
 

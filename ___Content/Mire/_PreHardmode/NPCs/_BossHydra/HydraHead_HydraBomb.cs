@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
     public class HydraBomb : ModProjectile
 	{

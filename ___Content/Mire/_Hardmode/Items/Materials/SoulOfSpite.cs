@@ -1,10 +1,9 @@
-﻿using AAModClassic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
     public class SoulOfSpite : BaseAAItem
     {

@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood
 {
     public class BogwoodWorkbench_Tile : ModTile
 	{

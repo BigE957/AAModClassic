@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
     public class EventideWall : BaseAAItem
     {

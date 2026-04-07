@@ -1,5 +1,7 @@
 using System;
 using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.Mire.Projectiles;
+using AAModClassic.Projectiles.Yamata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -106,10 +108,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 double deltaAngle = spread / 3;
                 for (int i = 0; i < 3; i++)
                 {
-                    //TODO: Formerly YWSplit, dunno if this is right
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>(), Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>(), Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<HydraSoul>(), Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<HydraSoul>(), Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 }
                 Projectile.netUpdate = true;
             }

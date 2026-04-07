@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAModClassic.Water
+namespace AAModClassic.___Content.Mire.World.Biomes.Water
 {
     public class FogWaterfallStyle : ModWaterfallStyle
 	{

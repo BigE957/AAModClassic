@@ -10,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Decoration
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
 	public class EventideTorch_Tile : ModTile
 	{
