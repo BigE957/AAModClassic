@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.___Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -129,7 +130,7 @@ namespace AAModClassic.___Content.Mire.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 300);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 300);
         }
     }
 }
