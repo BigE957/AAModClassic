@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
-    public class AntimonBoomerangP : ModProjectile
+    public class AbyssalArc_Proj : ModProjectile
 	{
 		public override void SetDefaults()
 		{

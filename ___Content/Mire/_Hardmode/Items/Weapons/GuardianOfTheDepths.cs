@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons   //where is located
 {
-    public class GuardianNight : BaseAAItem
+    public class GuardianOfTheDepths : BaseAAItem
     {
         
         public override void SetDefaults()

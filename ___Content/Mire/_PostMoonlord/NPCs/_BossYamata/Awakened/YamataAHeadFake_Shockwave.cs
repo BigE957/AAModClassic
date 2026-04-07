@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class Shockwave2 : ModProjectile
+    public class YamataAHeadFake_Shockwave : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -53,7 +53,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient && Projectile.ai[0] != 0)
                 {
                     Projectile.ai[0] -= Projectile.ai[0] > 0 ? 1 : -1; //approach 0
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Vector2.UnitX * Math.Sign(Projectile.ai[0]) * Projectile.width, Vector2.Zero, ModContent.ProjectileType<Shockwave2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Vector2.UnitX * Math.Sign(Projectile.ai[0]) * Projectile.width, Vector2.Zero, ModContent.ProjectileType<YamataAHeadFake_Shockwave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
                 }
         }
 

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
-    public class Squirt : ModProjectile
+    public class TheSquirter_Squirt : ModProjectile
     {
         public override void SetDefaults()
         {

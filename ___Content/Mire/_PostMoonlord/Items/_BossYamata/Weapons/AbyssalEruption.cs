@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class AE : BaseAAItem
+    public class AbyssalEruption : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

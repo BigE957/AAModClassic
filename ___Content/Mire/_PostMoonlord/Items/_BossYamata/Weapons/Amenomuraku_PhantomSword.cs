@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
 
-    public class PhantomSword : ModProjectile
+    public class Amenomuraku_PhantomSword : ModProjectile
     {
         public override void SetDefaults()
         {

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class AEBoom : ModProjectile
+    public class AbyssalEruption_Soulsplosion : ModProjectile
     {
         public override void SetStaticDefaults()
         {

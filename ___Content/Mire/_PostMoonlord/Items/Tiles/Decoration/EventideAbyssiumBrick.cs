@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
-    public class EventideBrick : BaseAAItem
+    public class EventideAbyssiumBrick : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -18,7 +18,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<EventideBrick_Tile>();
+            Item.createTile = ModContent.TileType<EventideAbyssiumBrick_Tile>();
         }
 
         public override void SetStaticDefaults()

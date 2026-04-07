@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
 {
-    public class EventideAbyssium : BaseAAItem
+    public class EventideAbyssiumBar : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

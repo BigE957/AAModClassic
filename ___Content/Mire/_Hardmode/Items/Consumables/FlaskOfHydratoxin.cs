@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 {
-    public class HydratoxinFlask : BaseAAItem
+    public class FlaskOfHydratoxin : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -26,7 +26,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 			Item.height = 28;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
 			Item.rare = ItemRarityID.Orange;
-			Item.buffType = ModContent.BuffType<HydratoxinFlask_Buff>();
+			Item.buffType = ModContent.BuffType<FlaskOfHydratoxin_Buff>();
 			Item.buffTime = 52000;
 		}
 

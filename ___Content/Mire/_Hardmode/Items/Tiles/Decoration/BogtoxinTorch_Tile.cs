@@ -13,7 +13,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 {
-	public class HydratoxinTorch_Tile : ModTile
+	public class BogtoxinTorch_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -42,7 +42,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(20, 120, 160), name);
 			DustType = ModContent.DustType<DragonflameDust>();
-			RegisterItemDrop(ModContent.ItemType<HydratoxinTorch>());
+			RegisterItemDrop(ModContent.ItemType<BogtoxinTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };
 			TileID.Sets.Torch[Type] = true;

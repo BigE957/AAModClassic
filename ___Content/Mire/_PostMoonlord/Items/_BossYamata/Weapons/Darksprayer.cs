@@ -32,7 +32,7 @@ Inflicts Moonrazed"); */
             Item.UseSound = SoundID.Item38;      
             Item.autoReuse = true;   
             Item.shootSpeed = 20f;
-            Item.shoot = ModContent.ProjectileType<Moonblow>();
+            Item.shoot = ModContent.ProjectileType<Darksprayer_Moonblow>();
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
             Item.noMelee = true;
         }
@@ -55,7 +55,7 @@ Inflicts Moonrazed"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Moonblow>(), damage, knockback, player.whoAmI, 0, 1);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Darksprayer_Moonblow>(), damage, knockback, player.whoAmI, 0, 1);
             return false;
         }
 	

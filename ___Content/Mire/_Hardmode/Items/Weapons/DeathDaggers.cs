@@ -20,7 +20,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
             Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 8f;
-            Item.shoot = ModContent.ProjectileType<DeathDagger>();
+            Item.shoot = ModContent.ProjectileType<DeathDaggers_DeathDagger>();
             Item.damage = 29;
             Item.width = 54;
             Item.height = 54;

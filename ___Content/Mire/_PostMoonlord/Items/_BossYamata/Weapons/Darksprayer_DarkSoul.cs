@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class DarkSoul : ModProjectile
+    public class Darksprayer_DarkSoul : ModProjectile
     {
         public override void SetStaticDefaults()
         {

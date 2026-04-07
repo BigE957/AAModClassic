@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content._PLACEHOLDER
 {
-    class YamataPhantom : ModProjectile
+    class EternalTwilight_YamataPhantom : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -63,7 +63,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 					Projectile.timeLeft -= 20;
 				}
 				Projectile.ai[1] = 0f;
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 8f, ModContent.ProjectileType<HydratoxinDrop>(), Projectile.damage/2, Projectile.knockBack * 0.5f, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 8f, ModContent.ProjectileType<HydratoxinDart_HydratoxinDroplet>(), Projectile.damage/2, Projectile.knockBack * 0.5f, Projectile.owner, 0f, 0f);
 			}
 		}
 

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class NightSoul : ModProjectile
+    public class FallingTwilight_HydraSoul : ModProjectile
     {
         public override void SetStaticDefaults()
         {

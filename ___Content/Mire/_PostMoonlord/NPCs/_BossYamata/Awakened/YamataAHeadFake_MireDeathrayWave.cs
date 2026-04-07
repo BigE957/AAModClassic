@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class YamataWaveDeathray : ModProjectile
+    public class YamataAHeadFake_MireDeathrayWave : ModProjectile
     {
         public override string Texture => "AAModClassic/NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray";
         private const float maxTime = 300;

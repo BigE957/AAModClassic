@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 {
-    public class HydratoxinFlask_Buff : ModBuff
+    public class FlaskOfHydratoxin_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class AbyssalThunder : ModProjectile
+    public class YamataAHeadFake_AbyssalThunder : ModProjectile
 	{
         
         public override void SetStaticDefaults()
@@ -69,7 +69,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     -Projectile.velocity.Y - 4f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 101 + 8, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Shockwave2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 101 + 8, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataAHeadFake_Shockwave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

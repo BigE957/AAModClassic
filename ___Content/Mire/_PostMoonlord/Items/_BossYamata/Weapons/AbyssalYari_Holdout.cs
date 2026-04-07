@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class AbyssalYariP : ModProjectile
+    public class AbyssalYari_Holdout : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -115,7 +115,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 num6 = num5 / num6;
                 velocityX *= num6;
                 velocityY *= num6;
-                Projectile p = Projectile.NewProjectileDirect(Projectile.GetSource_OnHit(target), new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<AbyssalYariP2>(), damageDone, 0f, player.whoAmI);
+                Projectile p = Projectile.NewProjectileDirect(Projectile.GetSource_OnHit(target), new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<AbyssalYari_Proj>(), damageDone, 0f, player.whoAmI);
                 p.tileCollide = false;
             }
         }

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
-    public class EventideBrick_Wall : ModWall
+    public class EventideBrickWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {

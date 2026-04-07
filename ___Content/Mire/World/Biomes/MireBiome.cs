@@ -212,15 +212,15 @@ namespace AAModClassic.___Content.Mire.World.Biomes
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireBG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_SurfaceBackground");
         }
         public override int ChooseMiddleTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireFG2");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_SurfaceForeground2");
         }
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireFG1");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_SurfaceForeground1");
         }
 
         public override bool PreDrawCloseBackground(SpriteBatch spriteBatch)
@@ -240,10 +240,10 @@ namespace AAModClassic.___Content.Mire.World.Biomes
     {
         public override void FillTextureArray(int[] textureSlots)
         {
-            textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireUndergroundTop");
-            textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireUnderground");
-            textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireCavernTop");
-            textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireCavern");
+            textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_UndergroundTop");
+            textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_Underground");
+            textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_CavernTop");
+            textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_Cavern");
         }
     }
 
@@ -276,7 +276,7 @@ namespace AAModClassic.___Content.Mire.World.Biomes
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireDesertBG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "___Content/Mire/World/Biomes/MireBiome_SurfaceBackground_Desert");
         }
 
         public override bool PreDrawCloseBackground(SpriteBatch spriteBatch)

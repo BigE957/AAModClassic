@@ -13,6 +13,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 {
     public class EventideArrow_Proj : ModProjectile
 	{
+        //TODO: Did this exist?
+        /*
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
          {
@@ -23,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask = glowMasks;
             }
@@ -31,9 +33,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 
             // DisplayName.SetDefault("Eventide Arrow");    
 		}
-        public override bool IsLoadingEnabled(Mod mod)/* tModPorter Suggestion: If you return false for the purposes of manual loading, use the [Autoload(false)] attribute on your class instead */ 
-        { return true; 
-        }
+        */
 
         private const float bulletFadeTime = 20;
 

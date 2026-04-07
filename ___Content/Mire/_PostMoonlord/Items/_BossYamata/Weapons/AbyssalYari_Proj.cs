@@ -11,7 +11,7 @@ using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class AbyssalYariP2 : ModProjectile
+    public class AbyssalYari_Proj : ModProjectile
     {
         public override void SetDefaults()
         {

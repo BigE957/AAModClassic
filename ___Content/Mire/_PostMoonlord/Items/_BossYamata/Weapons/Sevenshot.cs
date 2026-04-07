@@ -57,7 +57,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 		{
 		    float SpeedX = velocity.X + Main.rand.Next(-25, 26) * 0.05f;
 		    float SpeedY = velocity.Y + Main.rand.Next(-25, 26) * 0.05f;
-		    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Moonblow>(), (int)(damage * 1.5f), knockback, player.whoAmI, 0.0f, 0.0f);
+		    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Darksprayer_Moonblow>(), (int)(damage * 1.5f), knockback, player.whoAmI, 0.0f, 0.0f);
 		    for (int i = 0; i <= 6; i++)
 		    {
 		    	float SpeedNewX = velocity.X + Main.rand.Next(-45, 46) * 0.05f;

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class CrescentSaw : ModProjectile
+    public class Crescent_Saw : ModProjectile
     {
         public override void SetStaticDefaults()
         {

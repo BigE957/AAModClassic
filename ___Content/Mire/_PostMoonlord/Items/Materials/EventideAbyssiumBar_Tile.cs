@@ -23,7 +23,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            RegisterItemDrop(ModContent.ItemType<EventideAbyssium>());   
+            RegisterItemDrop(ModContent.ItemType<EventideAbyssiumBar>());   
             DustType = ModContent.DustType<Dusts.AbyssDust>();
             AddMapEntry(new Color(0, 0, 255));
 			MinPick = 0;

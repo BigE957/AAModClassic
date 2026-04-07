@@ -64,7 +64,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles
         public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
-            player.AddBuff(ModContent.BuffType<HydratoxinFlask_Buff>(), 36000, true);
+            player.AddBuff(ModContent.BuffType<FlaskOfHydratoxin_Buff>(), 36000, true);
 			SoundEngine.PlaySound(SoundID.Grab, player.position);
             return true;
         }

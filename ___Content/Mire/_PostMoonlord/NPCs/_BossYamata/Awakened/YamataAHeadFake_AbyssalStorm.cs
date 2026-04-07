@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class YamataAHead_AbyssalStorm : ModProjectile
+    public class YamataAHeadFake_AbyssalStorm : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{
@@ -58,8 +58,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 	    	if (Main.netMode != NetmodeID.MultiplayerClient)
 	    	{
                 const float ai0 = 20;
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Shockwave2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai0);
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Shockwave2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -ai0);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<YamataAHeadFake_Shockwave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai0);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<YamataAHeadFake_Shockwave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -ai0);
             }
         	for (int dust = 0; dust <= 10; dust++)
         	{

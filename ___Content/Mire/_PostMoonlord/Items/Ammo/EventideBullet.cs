@@ -32,7 +32,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Ammo
 		{
 			Recipe recipe = CreateRecipe(500);
             recipe.AddIngredient(ItemID.ExplodingBullet, 500);
-			recipe.AddIngredient(ModContent.ItemType<EventideAbyssium>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

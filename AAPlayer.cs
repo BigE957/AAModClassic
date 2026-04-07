@@ -1080,7 +1080,7 @@ namespace AAModClassic
                 target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<HydratoxinFlask_Buff>()))
+            if (Player.HasBuff(ModContent.BuffType<FlaskOfHydratoxin_Buff>()))
             {
                 target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 900);
             }
@@ -1142,7 +1142,7 @@ namespace AAModClassic
                     target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
                 }
 
-                if (Player.HasBuff(ModContent.BuffType<HydratoxinFlask_Buff>()))
+                if (Player.HasBuff(ModContent.BuffType<FlaskOfHydratoxin_Buff>()))
                 {
                     target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 900);
                 }

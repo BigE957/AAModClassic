@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 {
-	public class HydratoxinTorch : BaseAAItem
+	public class BogtoxinTorch : BaseAAItem
     {
 		public override void SetStaticDefaults()
 		{
@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<HydratoxinTorch_Tile>();
+			Item.createTile = ModContent.TileType<BogtoxinTorch_Tile>();
 			Item.flame = true;
             Item.rare = ItemRarityID.Orange;
             Item.value = Item.sellPrice(0, 0, 1, 0);

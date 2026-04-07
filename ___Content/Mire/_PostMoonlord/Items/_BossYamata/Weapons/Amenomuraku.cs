@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
-    public class Hydraslayer : BaseAAItem
+    public class Amenomuraku : BaseAAItem
     {
         
         public override void SetStaticDefaults()
@@ -19,7 +19,7 @@ Inflicts Moonrazed"); */
         
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<PhantomSword>();
+            Item.shoot = ModContent.ProjectileType<Amenomuraku_PhantomSword>();
             Item.damage = 220;            
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
             Item.width = 86;              

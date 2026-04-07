@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
-    public class DeathDagger : ModProjectile
+    public class DeathDaggers_DeathDagger : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{

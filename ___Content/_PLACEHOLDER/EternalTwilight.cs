@@ -47,7 +47,7 @@ namespace AAModClassic.___Content._PLACEHOLDER
             {
                 float SpeedX = velocity.X + Main.rand.Next(-25, 26) * 0.05f;
                 float SpeedY = velocity.Y + Main.rand.Next(-25, 26) * 0.05f;
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<YamataPhantom>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<EternalTwilight_YamataPhantom>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
             }
             return false;
         }

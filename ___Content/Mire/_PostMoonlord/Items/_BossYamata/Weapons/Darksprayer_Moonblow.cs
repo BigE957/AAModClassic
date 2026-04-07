@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class Moonblow : ModProjectile
+    public class Darksprayer_Moonblow : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -199,7 +199,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                         float num629 = Main.rand.Next(-35, 36) * 0.02f;
                         num628 *= 10f;
                         num629 *= 10f;
-                        int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<DarkSoul>(), Projectile.damage / 4, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
+                        int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<Darksprayer_DarkSoul>(), Projectile.damage / 4, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
                         num3 = num627;
                         Main.projectile[p].timeLeft = 240;
                     }

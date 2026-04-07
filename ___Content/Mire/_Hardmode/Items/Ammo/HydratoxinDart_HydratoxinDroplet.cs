@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 {
-    public class HydratoxinDrop : ModProjectile
+    public class HydratoxinDart_HydratoxinDroplet : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
