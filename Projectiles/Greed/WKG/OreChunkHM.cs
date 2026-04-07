@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Dusts;
 using AAModClassic.Buffs;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.___Content.Mire.Buffs;
 
 
 namespace AAModClassic.Projectiles.Greed.WKG
@@ -126,7 +127,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 
                 case 23: target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 180); break;
                 case 25: target.AddBuff(BuffID.Daybreak, 180); break;
-                case 26: target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 180); break;
+                case 26: target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 180); break;
             }
         }
 

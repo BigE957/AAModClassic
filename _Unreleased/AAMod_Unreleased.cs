@@ -1,4 +1,5 @@
-﻿using AAModClassic._Unreleased.Content.Parthenan.Biomes;
+﻿using AAModClassic.___Content.Mire.World.Biomes;
+using AAModClassic._Unreleased.Content.Parthenan.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Biomes;
 using AAModClassic.Backgrounds;

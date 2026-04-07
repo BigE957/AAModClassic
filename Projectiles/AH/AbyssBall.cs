@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -54,7 +55,7 @@ namespace AAModClassic.Projectiles.AH
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 1000);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 1000);
         }
 
         public override void OnKill(int timeleft)

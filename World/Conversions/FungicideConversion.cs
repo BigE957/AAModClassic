@@ -18,7 +18,7 @@ namespace AAModClassic.World.Conversions
             WallLoader.RegisterConversion(WallID.Mushroom, Type, WallID.Jungle);
             WallLoader.RegisterConversion(WallID.MushroomUnsafe, Type, WallID.JungleUnsafe);
             TileLoader.RegisterConversion(ModContent.TileType<Mycelium_Tile>(), Type, TileID.Grass);
-            WallLoader.RegisterConversion(ModContent.WallType<Mushwall>(), Type, WallID.Grass);
+            WallLoader.RegisterConversion(ModContent.WallType<RedMushrooomWall_Wall>(), Type, WallID.Grass);
         }
     }
 }
