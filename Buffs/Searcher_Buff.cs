@@ -1,3 +1,4 @@
+using AAModClassic.Items.Armor.Doomite;
 using Terraria;
 using Terraria.ModLoader;
 

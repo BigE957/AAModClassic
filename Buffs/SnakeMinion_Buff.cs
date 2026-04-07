@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles.Serpent;
 using Terraria;
 using Terraria.ModLoader;
 

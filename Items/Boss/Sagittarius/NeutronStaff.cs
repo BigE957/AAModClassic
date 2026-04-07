@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Sag;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +24,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.mana = 2;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SagStar>();
+            Item.shoot = ModContent.ProjectileType<SagStar>();
             Item.shootSpeed = 7f;
         }   
 

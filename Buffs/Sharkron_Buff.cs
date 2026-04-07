@@ -1,3 +1,4 @@
+using AAModClassic.Items.Pets;
 using Terraria;
 using Terraria.ModLoader;
 

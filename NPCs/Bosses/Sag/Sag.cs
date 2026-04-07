@@ -12,6 +12,7 @@ using Terraria.Graphics.Shaders;
 using AAModClassic.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
+using AAModClassic.Items.Boss.Sagittarius;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {

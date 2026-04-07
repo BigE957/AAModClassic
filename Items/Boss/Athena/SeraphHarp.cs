@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Projectiles.Athena;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
