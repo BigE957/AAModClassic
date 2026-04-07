@@ -1,5 +1,7 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.AH;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -68,7 +70,7 @@ Right click to shoot a blade wave"); */
                 Item.useTime = 15;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.autoReuse = true;
-                Item.shoot = ModContent.ProjectileType<Projectiles.MasamuneSlash>();
+                Item.shoot = ModContent.ProjectileType<MasamuneSlash>();
                 Item.shootSpeed = 12f;
             }
             else

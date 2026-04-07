@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.Items.Accessories
 {
@@ -24,7 +25,7 @@ namespace AAModClassic.Items.Accessories
         {
             if (Item.accessory)
             {
-                player.buffImmune[ModContent.BuffType<Buffs.Clueless_Buff>()] = true;
+                player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
             }
         }
 

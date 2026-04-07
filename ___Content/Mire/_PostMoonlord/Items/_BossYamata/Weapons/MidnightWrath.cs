@@ -25,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.MidnightWrath_Proj>();
+            Item.shoot = ModContent.ProjectileType<MidnightWrath_Proj>();
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;

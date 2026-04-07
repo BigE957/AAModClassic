@@ -9,6 +9,7 @@ using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.NPCs.Enemies.Mushroom;
 
 namespace AAModClassic.Tiles.Banners
 {

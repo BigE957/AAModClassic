@@ -1,4 +1,5 @@
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Ranged.Ammo;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

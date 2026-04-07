@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Dusts;
+using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.Projectiles
 {

@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -19,7 +20,7 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ShadowOrb);
-			Item.shoot = ModContent.ProjectileType<Projectiles.MiniProbe>();
+			Item.shoot = ModContent.ProjectileType<MiniProbe>();
             Item.buffType = ModContent.BuffType<MiniProbe_Buff>();
 		}
 

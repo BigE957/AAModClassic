@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -20,7 +21,7 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.UnluckyYarn);
-			Item.shoot = ModContent.ProjectileType<Projectiles.Mudkip>();
+			Item.shoot = ModContent.ProjectileType<Mudkip>();
             
             Item.buffType = ModContent.BuffType<Mudkip_Buff>();
 		}

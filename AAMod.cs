@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire.World.Biomes;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;

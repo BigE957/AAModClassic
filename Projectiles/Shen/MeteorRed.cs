@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
@@ -65,7 +66,7 @@ namespace AAModClassic.Projectiles.Shen
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             EnemyHit = true;
-            target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

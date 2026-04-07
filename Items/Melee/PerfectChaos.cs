@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
 using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.Items.Melee
 {

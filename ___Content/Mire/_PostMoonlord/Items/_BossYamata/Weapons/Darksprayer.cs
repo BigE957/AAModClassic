@@ -32,7 +32,7 @@ Inflicts Moonrazed"); */
             Item.UseSound = SoundID.Item38;      
             Item.autoReuse = true;   
             Item.shootSpeed = 20f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Moonblow>();
+            Item.shoot = ModContent.ProjectileType<Moonblow>();
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
             Item.noMelee = true;
         }

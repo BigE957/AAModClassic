@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Summoning.Minions.Terra;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -19,7 +21,7 @@ namespace AAModClassic.Items.Summoning
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Minion1>();
+            Item.shoot = ModContent.ProjectileType<Minion1>();
             Item.buffType = ModContent.BuffType<TerraSummon_Buff>();
             Item.knockBack = 2;
             Item.rare = ItemRarityID.Yellow;

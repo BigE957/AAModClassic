@@ -1,3 +1,4 @@
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -28,7 +29,7 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Minions.ChaosConstruct>();
+            Item.shoot = ModContent.ProjectileType<ChaosConstruct>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<Buffs.ChaosConstruct_Buff>();
             Item.autoReuse = true;

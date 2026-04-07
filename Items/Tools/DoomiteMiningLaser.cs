@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Projectiles.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +29,7 @@ namespace AAModClassic.Items.Tools
             Item.pick = 100;
             Item.axe = 30;
             Item.UseSound = SoundID.Item23;
-            Item.shoot = ModContent.ProjectileType<Projectiles.MiningLaser>();
+            Item.shoot = ModContent.ProjectileType<MiningLaser>();
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 54, 0);
             Item.tileBoost = 2;
