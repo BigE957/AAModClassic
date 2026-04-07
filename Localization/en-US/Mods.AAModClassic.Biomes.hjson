@@ -52,3 +52,8 @@ LostKeepBiomeZone: {
 	DisplayName: Lost Keep
 	TownNPCDialogueName: the Lost Keep
 }
+
+StormBiomeZone: {
+	DisplayName: Storm Biome Zone
+	TownNPCDialogueName: the Storm Biome Zone
+}

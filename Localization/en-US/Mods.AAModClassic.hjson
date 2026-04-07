@@ -49,6 +49,11 @@ Configs: {
 			Label: Ancient Intro Text
 			Tooltip: ""
 		}
+
+		DisableAnticheat: {
+			Label: Disable Anticheat
+			Tooltip: ""
+		}
 	}
 }
 

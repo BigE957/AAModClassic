@@ -683,3 +683,618 @@ LuckyWrath: {
 	DisplayName: Wrath
 	Description: 11% increased damage
 }
+
+FlaskOfHydratoxin_Buff: {
+	DisplayName: Flask Of Hydratoxin_ Buff
+	Description: Mods.AAModClassic.Buffs.FlaskOfHydratoxin_Buff.Description
+}
+
+GlowmossBall_Buff: {
+	DisplayName: Glowmoss Ball_ Buff
+	Description: Mods.AAModClassic.Buffs.GlowmossBall_Buff.Description
+}
+
+Clueless_Buff: {
+	DisplayName: Clueless_ Buff
+	Description: Mods.AAModClassic.Buffs.Clueless_Buff.Description
+}
+
+HydraToxin_Buff: {
+	DisplayName: Hydra Toxin_ Buff
+	Description: Mods.AAModClassic.Buffs.HydraToxin_Buff.Description
+}
+
+Moonraze_Buff: {
+	DisplayName: Moonraze_ Buff
+	Description: Mods.AAModClassic.Buffs.Moonraze_Buff.Description
+}
+
+InfinityScorch_Buff: {
+	DisplayName: Infinity Scorch_ Buff
+	Description: Mods.AAModClassic.Buffs.InfinityScorch_Buff.Description
+}
+
+LockedOn_Buff: {
+	DisplayName: Locked On_ Buff
+	Description: Mods.AAModClassic.Buffs.LockedOn_Buff.Description
+}
+
+AsheFlame_Buff: {
+	DisplayName: Ashe Flame_ Buff
+	Description: Mods.AAModClassic.Buffs.AsheFlame_Buff.Description
+}
+
+Athena_Buff: {
+	DisplayName: Athena_ Buff
+	Description: Mods.AAModClassic.Buffs.Athena_Buff.Description
+}
+
+Atlantean_Buff: {
+	DisplayName: Atlantean_ Buff
+	Description: Mods.AAModClassic.Buffs.Atlantean_Buff.Description
+}
+
+BabyPhoenix_Buff: {
+	DisplayName: Baby Phoenix_ Buff
+	Description: Mods.AAModClassic.Buffs.BabyPhoenix_Buff.Description
+}
+
+BlazingPain_Buff: {
+	DisplayName: Blazing Pain_ Buff
+	Description: Mods.AAModClassic.Buffs.BlazingPain_Buff.Description
+}
+
+BoomBoi_Buff: {
+	DisplayName: Boom Boi_ Buff
+	Description: Mods.AAModClassic.Buffs.BoomBoi_Buff.Description
+}
+
+BrokenArmor_Buff: {
+	DisplayName: Broken Armor_ Buff
+	Description: Mods.AAModClassic.Buffs.BrokenArmor_Buff.Description
+}
+
+Broodmini_Buff: {
+	DisplayName: Broodmini_ Buff
+	Description: Mods.AAModClassic.Buffs.Broodmini_Buff.Description
+}
+
+BurningAsh_Buff: {
+	DisplayName: Burning Ash_ Buff
+	Description: Mods.AAModClassic.Buffs.BurningAsh_Buff.Description
+}
+
+CCRune_Buff: {
+	DisplayName: C C Rune_ Buff
+	Description: Mods.AAModClassic.Buffs.CCRune_Buff.Description
+}
+
+Cerberus_Buff: {
+	DisplayName: Cerberus_ Buff
+	Description: Mods.AAModClassic.Buffs.Cerberus_Buff.Description
+}
+
+Chaos_Buff: {
+	DisplayName: Chaos_ Buff
+	Description: Mods.AAModClassic.Buffs.Chaos_Buff.Description
+}
+
+ChaosClaw_Buff: {
+	DisplayName: Chaos Claw_ Buff
+	Description: Mods.AAModClassic.Buffs.ChaosClaw_Buff.Description
+}
+
+ChaosConstruct_Buff: {
+	DisplayName: Chaos Construct_ Buff
+	Description: Mods.AAModClassic.Buffs.ChaosConstruct_Buff.Description
+}
+
+ChaosWrath_Buff: {
+	DisplayName: Chaos Wrath_ Buff
+	Description: Mods.AAModClassic.Buffs.ChaosWrath_Buff.Description
+}
+
+CrasyLucky_Buff: {
+	DisplayName: Crasy Lucky_ Buff
+	Description: Mods.AAModClassic.Buffs.CrasyLucky_Buff.Description
+}
+
+CrimeraMinion_Buff: {
+	DisplayName: Crimera Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.CrimeraMinion_Buff.Description
+}
+
+CrowMinion_Buff: {
+	DisplayName: Crow Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.CrowMinion_Buff.Description
+}
+
+CursedHellfire_Buff: {
+	DisplayName: Cursed Hellfire_ Buff
+	Description: Mods.AAModClassic.Buffs.CursedHellfire_Buff.Description
+}
+
+DapperSquirrel_Buff: {
+	DisplayName: Dapper Squirrel_ Buff
+	Description: Mods.AAModClassic.Buffs.DapperSquirrel_Buff.Description
+}
+
+DarkCurse_Buff: {
+	DisplayName: Dark Curse_ Buff
+	Description: Mods.AAModClassic.Buffs.DarkCurse_Buff.Description
+}
+
+DarkLock_Buff: {
+	DisplayName: Dark Lock_ Buff
+	Description: Mods.AAModClassic.Buffs.DarkLock_Buff.Description
+}
+
+Demon_Buff: {
+	DisplayName: Demon_ Buff
+	Description: Mods.AAModClassic.Buffs.Demon_Buff.Description
+}
+
+DemonMinion_Buff: {
+	DisplayName: Demon Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.DemonMinion_Buff.Description
+}
+
+DestinedToDie_Buff: {
+	DisplayName: Destined To Die_ Buff
+	Description: Mods.AAModClassic.Buffs.DestinedToDie_Buff.Description
+}
+
+DevilMinion_Buff: {
+	DisplayName: Devil Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.DevilMinion_Buff.Description
+}
+
+DiscordInferno_Buff: {
+	DisplayName: Discord Inferno_ Buff
+	Description: Mods.AAModClassic.Buffs.DiscordInferno_Buff.Description
+}
+
+DoomiteProbe_Buff: {
+	DisplayName: Doomite Probe_ Buff
+	Description: Mods.AAModClassic.Buffs.DoomiteProbe_Buff.Description
+}
+
+DoomiteProbeC_Buff: {
+	DisplayName: Doomite Probe C_ Buff
+	Description: Mods.AAModClassic.Buffs.DoomiteProbeC_Buff.Description
+}
+
+DragonFire_Buff: {
+	DisplayName: Dragon Fire_ Buff
+	Description: Mods.AAModClassic.Buffs.DragonFire_Buff.Description
+}
+
+DragonfireFlask_Buff: {
+	DisplayName: Dragonfire Flask_ Buff
+	Description: Mods.AAModClassic.Buffs.DragonfireFlask_Buff.Description
+}
+
+DragonMinion_Buff: {
+	DisplayName: Dragon Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.DragonMinion_Buff.Description
+}
+
+DragonSoul_Buff: {
+	DisplayName: Dragon Soul_ Buff
+	Description: Mods.AAModClassic.Buffs.DragonSoul_Buff.Description
+}
+
+DragonSpirit_Buff: {
+	DisplayName: Dragon Spirit_ Buff
+	Description: Mods.AAModClassic.Buffs.DragonSpirit_Buff.Description
+}
+
+DustDevil_Buff: {
+	DisplayName: Dust Devil_ Buff
+	Description: Mods.AAModClassic.Buffs.DustDevil_Buff.Description
+}
+
+DynaEnergy1_Buff: {
+	DisplayName: Dyna Energy1_ Buff
+	Description: Mods.AAModClassic.Buffs.DynaEnergy1_Buff.Description
+}
+
+DynaEnergy2_Buff: {
+	DisplayName: Dyna Energy2_ Buff
+	Description: Mods.AAModClassic.Buffs.DynaEnergy2_Buff.Description
+}
+
+EaterMinion_Buff: {
+	DisplayName: Eater Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.EaterMinion_Buff.Description
+}
+
+Electrified_Buff: {
+	DisplayName: Electrified_ Buff
+	Description: Mods.AAModClassic.Buffs.Electrified_Buff.Description
+}
+
+EnderMinion_Buff: {
+	DisplayName: Ender Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.EnderMinion_Buff.Description
+}
+
+EnderMinionEX_Buff: {
+	DisplayName: Ender Minion E X_ Buff
+	Description: Mods.AAModClassic.Buffs.EnderMinionEX_Buff.Description
+}
+
+EyeOfForsaken_Buff: {
+	DisplayName: Eye Of Forsaken_ Buff
+	Description: Mods.AAModClassic.Buffs.EyeOfForsaken_Buff.Description
+}
+
+EyeOfJudgement_Buff: {
+	DisplayName: Eye Of Judgement_ Buff
+	Description: Mods.AAModClassic.Buffs.EyeOfJudgement_Buff.Description
+}
+
+Falling_Buff: {
+	DisplayName: Falling_ Buff
+	Description: Mods.AAModClassic.Buffs.Falling_Buff.Description
+}
+
+Fishnado_Buff: {
+	DisplayName: Fishnado_ Buff
+	Description: Mods.AAModClassic.Buffs.Fishnado_Buff.Description
+}
+
+FlameSoul_Buff: {
+	DisplayName: Flame Soul_ Buff
+	Description: Mods.AAModClassic.Buffs.FlameSoul_Buff.Description
+}
+
+Forsaken_Buff: {
+	DisplayName: Forsaken_ Buff
+	Description: Mods.AAModClassic.Buffs.Forsaken_Buff.Description
+}
+
+ForsakenFlames_Buff: {
+	DisplayName: Forsaken Flames_ Buff
+	Description: Mods.AAModClassic.Buffs.ForsakenFlames_Buff.Description
+}
+
+ForsakenWeak_Buff: {
+	DisplayName: Forsaken Weak_ Buff
+	Description: Mods.AAModClassic.Buffs.ForsakenWeak_Buff.Description
+}
+
+Glitched_Buff: {
+	DisplayName: Glitched_ Buff
+	Description: Mods.AAModClassic.Buffs.Glitched_Buff.Description
+}
+
+GripMinion_Buff: {
+	DisplayName: Grip Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.GripMinion_Buff.Description
+}
+
+HallowedPrism_Buff: {
+	DisplayName: Hallowed Prism_ Buff
+	Description: Mods.AAModClassic.Buffs.HallowedPrism_Buff.Description
+}
+
+Hunted_Buff: {
+	DisplayName: Hunted_ Buff
+	Description: Mods.AAModClassic.Buffs.Hunted_Buff.Description
+}
+
+Impaled_Buff: {
+	DisplayName: Impaled_ Buff
+	Description: Mods.AAModClassic.Buffs.Impaled_Buff.Description
+}
+
+InfinityOverload_Buff: {
+	DisplayName: Infinity Overload_ Buff
+	Description: Mods.AAModClassic.Buffs.InfinityOverload_Buff.Description
+}
+
+InvokedCaligulaSafe_Buff: {
+	DisplayName: Invoked Caligula Safe_ Buff
+	Description: Mods.AAModClassic.Buffs.InvokedCaligulaSafe_Buff.Description
+}
+
+InvokerofMadness_Buff: {
+	DisplayName: Invokerof Madness_ Buff
+	Description: Mods.AAModClassic.Buffs.InvokerofMadness_Buff.Description
+}
+
+Irradiated_Buff: {
+	DisplayName: Irradiated_ Buff
+	Description: Mods.AAModClassic.Buffs.Irradiated_Buff.Description
+}
+
+K9_Buff: {
+	DisplayName: K9_ Buff
+	Description: Mods.AAModClassic.Buffs.K9_Buff.Description
+}
+
+Lunamini_Buff: {
+	DisplayName: Lunamini_ Buff
+	Description: Mods.AAModClassic.Buffs.Lunamini_Buff.Description
+}
+
+LungMinion_Buff: {
+	DisplayName: Lung Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.LungMinion_Buff.Description
+}
+
+ManaOverload_Buff: {
+	DisplayName: Mana Overload_ Buff
+	Description: Mods.AAModClassic.Buffs.ManaOverload_Buff.Description
+}
+
+MiniProbe_Buff: {
+	DisplayName: Mini Probe_ Buff
+	Description: Mods.AAModClassic.Buffs.MiniProbe_Buff.Description
+}
+
+Mudkip_Buff: {
+	DisplayName: Mudkip_ Buff
+	Description: Mods.AAModClassic.Buffs.Mudkip_Buff.Description
+}
+
+MudkipS_Buff: {
+	DisplayName: Mudkip S_ Buff
+	Description: Mods.AAModClassic.Buffs.MudkipS_Buff.Description
+}
+
+Orbiters_Buff: {
+	DisplayName: Orbiters_ Buff
+	Description: Mods.AAModClassic.Buffs.Orbiters_Buff.Description
+}
+
+PrettyPony_Buff: {
+	DisplayName: Pretty Pony_ Buff
+	Description: Mods.AAModClassic.Buffs.PrettyPony_Buff.Description
+}
+
+PrinceFishron_Buff: {
+	DisplayName: Prince Fishron_ Buff
+	Description: Mods.AAModClassic.Buffs.PrinceFishron_Buff.Description
+}
+
+ProbeMinion_Buff: {
+	DisplayName: Probe Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.ProbeMinion_Buff.Description
+}
+
+Protocol_Buff: {
+	DisplayName: Protocol_ Buff
+	Description: Mods.AAModClassic.Buffs.Protocol_Buff.Description
+}
+
+RabbitcopterSoldier_Buff: {
+	DisplayName: Rabbitcopter Soldier_ Buff
+	Description: Mods.AAModClassic.Buffs.RabbitcopterSoldier_Buff.Description
+}
+
+RadiumInferno_Buff: {
+	DisplayName: Radium Inferno_ Buff
+	Description: Mods.AAModClassic.Buffs.RadiumInferno_Buff.Description
+}
+
+RealityBent_Buff: {
+	DisplayName: Reality Bent_ Buff
+	Description: Mods.AAModClassic.Buffs.RealityBent_Buff.Description
+}
+
+ReaperCD_Buff: {
+	DisplayName: Reaper C D_ Buff
+	Description: Mods.AAModClassic.Buffs.ReaperCD_Buff.Description
+}
+
+ReaperImmune_Buff: {
+	DisplayName: Reaper Immune_ Buff
+	Description: Mods.AAModClassic.Buffs.ReaperImmune_Buff.Description
+}
+
+ReaperImmune2_Buff: {
+	DisplayName: Reaper Immune2_ Buff
+	Description: Mods.AAModClassic.Buffs.ReaperImmune2_Buff.Description
+}
+
+Ronin_Buff: {
+	DisplayName: Ronin_ Buff
+	Description: Mods.AAModClassic.Buffs.Ronin_Buff.Description
+}
+
+RoyalKitten_Buff: {
+	DisplayName: Royal Kitten_ Buff
+	Description: Mods.AAModClassic.Buffs.RoyalKitten_Buff.Description
+}
+
+RoyalRabbit_Buff: {
+	DisplayName: Royal Rabbit_ Buff
+	Description: Mods.AAModClassic.Buffs.RoyalRabbit_Buff.Description
+}
+
+SagOrbiter_Buff: {
+	DisplayName: Sag Orbiter_ Buff
+	Description: Mods.AAModClassic.Buffs.SagOrbiter_Buff.Description
+}
+
+SagShield_Buff: {
+	DisplayName: Sag Shield_ Buff
+	Description: Mods.AAModClassic.Buffs.SagShield_Buff.Description
+}
+
+ScoutMinion_Buff: {
+	DisplayName: Scout Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.ScoutMinion_Buff.Description
+}
+
+Searcher_Buff: {
+	DisplayName: Searcher_ Buff
+	Description: Mods.AAModClassic.Buffs.Searcher_Buff.Description
+}
+
+Seraph_Buff: {
+	DisplayName: Seraph_ Buff
+	Description: Mods.AAModClassic.Buffs.Seraph_Buff.Description
+}
+
+Sharkron_Buff: {
+	DisplayName: Sharkron_ Buff
+	Description: Mods.AAModClassic.Buffs.Sharkron_Buff.Description
+}
+
+Shroomed_Buff: {
+	DisplayName: Shroomed_ Buff
+	Description: Mods.AAModClassic.Buffs.Shroomed_Buff.Description
+}
+
+SkullMinion_Buff: {
+	DisplayName: Skull Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.SkullMinion_Buff.Description
+}
+
+SnakeMinion_Buff: {
+	DisplayName: Snake Minion_ Buff
+	Description: Mods.AAModClassic.Buffs.SnakeMinion_Buff.Description
+}
+
+Socc_Buff: {
+	DisplayName: Socc_ Buff
+	Description: Mods.AAModClassic.Buffs.Socc_Buff.Description
+}
+
+SockPuppet_Buff: {
+	DisplayName: Sock Puppet_ Buff
+	Description: Mods.AAModClassic.Buffs.SockPuppet_Buff.Description
+}
+
+SpearStuck_Buff: {
+	DisplayName: Spear Stuck_ Buff
+	Description: Mods.AAModClassic.Buffs.SpearStuck_Buff.Description
+}
+
+Squirrel_Buff: {
+	DisplayName: Squirrel_ Buff
+	Description: Mods.AAModClassic.Buffs.Squirrel_Buff.Description
+}
+
+Stunned_Buff: {
+	DisplayName: Stunned_ Buff
+	Description: Mods.AAModClassic.Buffs.Stunned_Buff.Description
+}
+
+Terrablaze_Buff: {
+	DisplayName: Terrablaze_ Buff
+	Description: Mods.AAModClassic.Buffs.Terrablaze_Buff.Description
+}
+
+Terrarium_Buff: {
+	DisplayName: Terrarium_ Buff
+	Description: Mods.AAModClassic.Buffs.Terrarium_Buff.Description
+}
+
+TerraSummon_Buff: {
+	DisplayName: Terra Summon_ Buff
+	Description: Mods.AAModClassic.Buffs.TerraSummon_Buff.Description
+}
+
+TerraWizard_Buff: {
+	DisplayName: Terra Wizard_ Buff
+	Description: Mods.AAModClassic.Buffs.TerraWizard_Buff.Description
+}
+
+TimeFrozen_Buff: {
+	DisplayName: Time Frozen_ Buff
+	Description: Mods.AAModClassic.Buffs.TimeFrozen_Buff.Description
+}
+
+TrueHallowedPrism_Buff: {
+	DisplayName: True Hallowed Prism_ Buff
+	Description: Mods.AAModClassic.Buffs.TrueHallowedPrism_Buff.Description
+}
+
+UnstableSoul_Buff: {
+	DisplayName: Unstable Soul_ Buff
+	Description: Mods.AAModClassic.Buffs.UnstableSoul_Buff.Description
+}
+
+XiaoDoragon_Buff: {
+	DisplayName: Xiao Doragon_ Buff
+	Description: Mods.AAModClassic.Buffs.XiaoDoragon_Buff.Description
+}
+
+YamataAGravity_Buff: {
+	DisplayName: Yamata A Gravity_ Buff
+	Description: Mods.AAModClassic.Buffs.YamataAGravity_Buff.Description
+}
+
+YamataGravity_Buff: {
+	DisplayName: Yamata Gravity_ Buff
+	Description: Mods.AAModClassic.Buffs.YamataGravity_Buff.Description
+}
+
+Yanked_Buff: {
+	DisplayName: Yanked_ Buff
+	Description: Mods.AAModClassic.Buffs.Yanked_Buff.Description
+}
+
+ZeroBab_Buff: {
+	DisplayName: Zero Bab_ Buff
+	Description: Mods.AAModClassic.Buffs.ZeroBab_Buff.Description
+}
+
+AssassinHurt_Buff: {
+	DisplayName: Assassin Hurt_ Buff
+	Description: Mods.AAModClassic.Buffs.AssassinHurt_Buff.Description
+}
+
+Baron_Buff: {
+	DisplayName: Baron_ Buff
+	Description: Mods.AAModClassic.Buffs.Baron_Buff.Description
+}
+
+CBoost1_Buff: {
+	DisplayName: C Boost1_ Buff
+	Description: Mods.AAModClassic.Buffs.CBoost1_Buff.Description
+}
+
+CBoost2_Buff: {
+	DisplayName: C Boost2_ Buff
+	Description: Mods.AAModClassic.Buffs.CBoost2_Buff.Description
+}
+
+CBoost3_Buff: {
+	DisplayName: C Boost3_ Buff
+	Description: Mods.AAModClassic.Buffs.CBoost3_Buff.Description
+}
+
+DroneCool_Buff: {
+	DisplayName: Drone Cool_ Buff
+	Description: Mods.AAModClassic.Buffs.DroneCool_Buff.Description
+}
+
+Rage_Buff: {
+	DisplayName: Rage_ Buff
+	Description: Mods.AAModClassic.Buffs.Rage_Buff.Description
+}
+
+RageCool_Buff: {
+	DisplayName: Rage Cool_ Buff
+	Description: Mods.AAModClassic.Buffs.RageCool_Buff.Description
+}
+
+Charm_Buff: {
+	DisplayName: Charm_ Buff
+	Description: Mods.AAModClassic.Buffs.Charm_Buff.Description
+}
+
+Talisman_Buff: {
+	DisplayName: Talisman_ Buff
+	Description: Mods.AAModClassic.Buffs.Talisman_Buff.Description
+}
+
+Cinematic_Buff: {
+	DisplayName: Cinematic_ Buff
+	Description: Mods.AAModClassic.Buffs.Cinematic_Buff.Description
+}

@@ -4019,6 +4019,11 @@ GenocideCannon: {
 		'''
 }
 
+Genocide: {
+	DisplayName: Genocide
+	Tooltip: ""
+}
+
 Gigataser: {
 	DisplayName: Gigataser
 	Tooltip: Fires void lightning
@@ -5391,6 +5396,11 @@ NovaFlare: {
 		Shoots homing flares from the sky
 		Lunar Flare EX
 		'''
+}
+
+Nova: {
+	DisplayName: Nova
+	Tooltip: ""
 }
 
 OceanTrident: {
@@ -9518,4 +9528,194 @@ BiomiteArmor: {
 
 		Increase 5 armor penetration
 		'''
+}
+
+FlaskOfHydratoxin: {
+	DisplayName: Flask Of Hydratoxin
+	Tooltip: ""
+}
+
+DeepAbyssiumBar: {
+	DisplayName: Deep Abyssium Bar
+	Tooltip: ""
+}
+
+BogtoxinTorch: {
+	DisplayName: Bogtoxin Torch
+	Tooltip: ""
+}
+
+GuardianOfTheDepths: {
+	DisplayName: Guardian Of The Depths
+	Tooltip: ""
+}
+
+EventideArrow: {
+	DisplayName: Eventide Arrow
+	Tooltip: ""
+}
+
+AbyssalBomb: {
+	DisplayName: Abyssal Bomb
+	Tooltip: ""
+}
+
+AbyssalEruption: {
+	DisplayName: Abyssal Eruption
+	Tooltip: ""
+}
+
+Amenomuraku: {
+	DisplayName: Amenomuraku
+	Tooltip: ""
+}
+
+DreadChestplate: {
+	DisplayName: Dread Chestplate
+	Tooltip: ""
+}
+
+DreadHelmet: {
+	DisplayName: Dread Helmet
+	Tooltip: ""
+}
+
+DreadLeggings: {
+	DisplayName: Dread Leggings
+	Tooltip: ""
+}
+
+EventideAbyssiumBar: {
+	DisplayName: Eventide Abyssium Bar
+	Tooltip: ""
+}
+
+EventideAbyssiumBrick: {
+	DisplayName: Eventide Abyssium Brick
+	Tooltip: ""
+}
+
+BogwoodLeggings: {
+	DisplayName: Bogwood Leggings
+	Tooltip: ""
+}
+
+DepthChestplate: {
+	DisplayName: Depth Chestplate
+	Tooltip: ""
+}
+
+DepthHelmet: {
+	DisplayName: Depth Helmet
+	Tooltip: ""
+}
+
+DepthLeggings: {
+	DisplayName: Depth Leggings
+	Tooltip: ""
+}
+
+AbyssiumOre: {
+	DisplayName: Abyssium Ore
+	Tooltip: ""
+}
+
+MireAltarSafe: {
+	DisplayName: Mire Altar Safe
+	Tooltip: ""
+}
+
+AncientHydraTrishot: {
+	DisplayName: Ancient Hydra Trishot
+	Tooltip: ""
+}
+
+GreedLore: {
+	DisplayName: Greed Lore
+	Tooltip: ""
+}
+
+SoulOfCthulhuTreasureBag: {
+	DisplayName: Soul Of Cthulhu Treasure Bag
+	Tooltip: ""
+}
+
+CursedCompass: {
+	DisplayName: Cursed Compass
+	Tooltip: ""
+}
+
+CthulhuCannon: {
+	DisplayName: Cthulhu Cannon
+	Tooltip: ""
+}
+
+GalacticStormspike: {
+	DisplayName: Galactic Stormspike
+	Tooltip: ""
+}
+
+SquidStorm: {
+	DisplayName: Squid Storm
+	Tooltip: ""
+}
+
+InfinityZeroTreasureBag: {
+	DisplayName: Infinity Zero Treasure Bag
+	Tooltip: ""
+}
+
+InfinityZeroTrophy: {
+	DisplayName: Infinity Zero Trophy
+	Tooltip: ""
+}
+
+Infinitium: {
+	DisplayName: Infinitium
+	Tooltip: ""
+}
+
+InfinityOverloader: {
+	DisplayName: Infinity Overloader
+	Tooltip: ""
+}
+
+Sticker: {
+	DisplayName: Sticker
+	Tooltip: ""
+}
+
+Annihilator: {
+	DisplayName: Annihilator
+	Tooltip: ""
+}
+
+InfinityBlade: {
+	DisplayName: Infinity Blade
+	Tooltip: ""
+}
+
+Sagittarius: {
+	DisplayName: Sagittarius
+	Tooltip: ""
+}
+
+TotalDestruction: {
+	DisplayName: Total Destruction
+	Tooltip: ""
+}
+
+IncineriteOre: {
+	DisplayName: Incinerite Ore
+	Tooltip: ""
+}
+
+DoomiteBar: {
+	DisplayName: Doomite Bar
+	Tooltip: ""
+}
+
+RadiantIncineriteBar: {
+	DisplayName: Radiant Incinerite Bar
+	Tooltip: ""
 }

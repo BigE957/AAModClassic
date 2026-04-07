@@ -285,3 +285,267 @@ TilesInfo: {
 	HydraPod2: You hear hissing somewhere nearby
 	HydraPod3: You hear hissing, but it scuttles away into the fog...
 }
+
+MireChest_Tile.MapEntry: Mire Chest_ Tile
+BogtoxinTorch_Tile.MapEntry: Bogtoxin Torch_ Tile
+ToxinMonkfish_Tile.MapEntry: Toxin Monkfish_ Tile
+YamataABox_Tile.MapEntry: Yamata A Box_ Tile
+YamataBox_Tile.MapEntry: Yamata Box_ Tile
+EventideAbyssiumOre_Tile.MapEntry: Eventide Abyssium Ore_ Tile
+EventideTorch_Tile.MapEntry: Eventide Torch_ Tile
+HydraBox_Tile.MapEntry: Hydra Box_ Tile
+MireCrate_Tile.MapEntry: Mire Crate_ Tile
+AbyssiumOre_Tile.MapEntry: Abyssium Ore_ Tile
+BogwoodBathtub_Tile.MapEntry: Bogwood Bathtub_ Tile
+BogwoodBed_Tile.MapEntry: Bogwood Bed_ Tile
+BogwoodBench_Tile.MapEntry: Bogwood Bench_ Tile
+BogwoodBookshelf_Tile.MapEntry: Bogwood Bookshelf_ Tile
+BogwoodCandelabra_Tile.MapEntry: Bogwood Candelabra_ Tile
+BogwoodCandle_Tile.MapEntry: Bogwood Candle_ Tile
+BogwoodChair_Tile.MapEntry: Bogwood Chair_ Tile
+BogwoodChandelier_Tile.MapEntry: Bogwood Chandelier_ Tile
+BogwoodChest_Tile.MapEntry: Bogwood Chest_ Tile
+BogwoodClock_Tile.MapEntry: Bogwood Clock_ Tile
+BogwoodCouch_Tile.MapEntry: Bogwood Couch_ Tile
+BogwoodDoorClosed_Tile.MapEntry: Bogwood Door Closed_ Tile
+BogwoodDoorOpen_Tile.MapEntry: Bogwood Door Open_ Tile
+BogwoodDresser_Tile.MapEntry: Bogwood Dresser_ Tile
+BogwoodLamp_Tile.MapEntry: Bogwood Lamp_ Tile
+BogwoodLantern_Tile.MapEntry: Bogwood Lantern_ Tile
+BogwoodPiano_Tile.MapEntry: Bogwood Piano_ Tile
+BogwoodSink_Tile.MapEntry: Bogwood Sink_ Tile
+BogwoodTable_Tile.MapEntry: Bogwood Table_ Tile
+BogwoodWorkbench_Tile.MapEntry: Bogwood Workbench_ Tile
+MireAltarSafe_Tile.MapEntry: Mire Altar Safe_ Tile
+HydraPod_Tile.MapEntry: Hydra Pod_ Tile
+BogwoodPalmTreeSapling_Tile.MapEntry: Bogwood Palm Tree Sapling_ Tile
+BogwoodSapling_Tile.MapEntry: Bogwood Sapling_ Tile
+AncientDataBank_Tile.MapEntry: Ancient Data Bank_ Tile
+AncientStormChest_Tile.MapEntry: Ancient Storm Chest_ Tile
+SoulOfCthulhuMusicBox_Tile.MapEntry: Soul Of Cthulhu Music Box_ Tile
+SunkenChest_Tile.MapEntry: Sunken Chest_ Tile
+InfinityZeroMusicBox_Tile.MapEntry: Infinity Zero Music Box_ Tile
+CCMireBox_Tile.MapEntry: C C Mire Box_ Tile
+CerberusKennel_Tile.MapEntry: Cerberus Kennel_ Tile
+InvokerBook_Tile.MapEntry: Invoker Book_ Tile
+GravAltar_Tile.MapEntry: Grav Altar_ Tile
+StarAltar_Tile.MapEntry: Star Altar_ Tile
+Banners_Tile.MapEntry: Banners_ Tile
+FatPixieBanner_Tile.MapEntry: Fat Pixie Banner_ Tile
+ThixxieBanner_Tile.MapEntry: Thixxie Banner_ Tile
+Core_Tile.MapEntry: Core_ Tile
+CoreActivator_Tile.MapEntry: Core Activator_ Tile
+DragonEgg_Tile.MapEntry: Dragon Egg_ Tile
+GreedAltar_Tile.MapEntry: Greed Altar_ Tile
+Throne_Tile.MapEntry: Throne_ Tile
+AcropolisBox_Tile.MapEntry: Acropolis Box_ Tile
+AkumaABox_Tile.MapEntry: Akuma A Box_ Tile
+AkumaBox_Tile.MapEntry: Akuma Box_ Tile
+AnubisBox_Tile.MapEntry: Anubis Box_ Tile
+AnubisFBox_Tile.MapEntry: Anubis F Box_ Tile
+AthenaABox_Tile.MapEntry: Athena A Box_ Tile
+AthenaBox_Tile.MapEntry: Athena Box_ Tile
+BroodBox_Tile.MapEntry: Brood Box_ Tile
+DjinnBox_Tile.MapEntry: Djinn Box_ Tile
+Equibox_Tile.MapEntry: Equibox_ Tile
+FateBox_Tile.MapEntry: Fate Box_ Tile
+FungusBox_Tile.MapEntry: Fungus Box_ Tile
+GreedABox_Tile.MapEntry: Greed A Box_ Tile
+GreedBox_Tile.MapEntry: Greed Box_ Tile
+GripsBox_Tile.MapEntry: Grips Box_ Tile
+HoardBox_Tile.MapEntry: Hoard Box_ Tile
+InfernoBox_Tile.MapEntry: Inferno Box_ Tile
+InfernoNightBox_Tile.MapEntry: Inferno Night Box_ Tile
+InfernoUBox_Tile.MapEntry: Inferno U Box_ Tile
+LakeBox_Tile.MapEntry: Lake Box_ Tile
+MireBox_Tile.MapEntry: Mire Box_ Tile
+MireDayBox_Tile.MapEntry: Mire Day Box_ Tile
+MireUBox_Tile.MapEntry: Mire U Box_ Tile
+MonarchBox_Tile.MapEntry: Monarch Box_ Tile
+MushBox_Tile.MapEntry: Mush Box_ Tile
+PagodaBox_Tile.MapEntry: Pagoda Box_ Tile
+RajahBox_Tile.MapEntry: Rajah Box_ Tile
+SagBox_Tile.MapEntry: Sag Box_ Tile
+SDBox_Tile.MapEntry: S D Box_ Tile
+SerpentBox_Tile.MapEntry: Serpent Box_ Tile
+SGBox_Tile.MapEntry: S G Box_ Tile
+ShenABox_Tile.MapEntry: Shen A Box_ Tile
+ShenBox_Tile.MapEntry: Shen Box_ Tile
+SistersBox_Tile.MapEntry: Sisters Box_ Tile
+SRajahBox_Tile.MapEntry: S Rajah Box_ Tile
+StarBox_Tile.MapEntry: Star Box_ Tile
+TerrariumBox_Tile.MapEntry: Terrarium Box_ Tile
+ToadBox_Tile.MapEntry: Toad Box_ Tile
+VoidBox_Tile.MapEntry: Void Box_ Tile
+Zero2Box_Tile.MapEntry: Zero2 Box_ Tile
+ZeroBox_Tile.MapEntry: Zero Box_ Tile
+DoomsdayChest_Tile.MapEntry: Doomsday Chest_ Tile
+GreedChest_Tile.MapEntry: Greed Chest_ Tile
+InfernoChest_Tile.MapEntry: Inferno Chest_ Tile
+ACS_Tile.MapEntry: A C S_ Tile
+BinaryReassembler_Tile.MapEntry: Binary Reassembler_ Tile
+ChaosAltar_Tile.MapEntry: Chaos Altar_ Tile
+ChaosAltar2_Tile.MapEntry: Chaos Altar2_ Tile
+ChaosCrucible_Tile.MapEntry: Chaos Crucible_ Tile
+EvilAltar_Tile.MapEntry: Evil Altar_ Tile
+FurnitureDynamo_Tile.MapEntry: Furniture Dynamo_ Tile
+HallowedAnvil_Tile.MapEntry: Hallowed Anvil_ Tile
+HallowedForge_Tile.MapEntry: Hallowed Forge_ Tile
+HaphestusForge_Tile.MapEntry: Haphestus Forge_ Tile
+HellstoneAnvil_Tile.MapEntry: Hellstone Anvil_ Tile
+PaladinsSmeltery_Tile.MapEntry: Paladins Smeltery_ Tile
+QuantumFusionAccelerator_Tile.MapEntry: Quantum Fusion Accelerator_ Tile
+RadiantArcanum_Tile.MapEntry: Radiant Arcanum_ Tile
+SharpeningLavaFish_Tile.MapEntry: Sharpening Lava Fish_ Tile
+TerraCore_Tile.MapEntry: Terra Core_ Tile
+TerraPrism_Tile.MapEntry: Terra Prism_ Tile
+Transmuter_Tile.MapEntry: Transmuter_ Tile
+TruePaladinsSmeltery_Tile.MapEntry: True Paladins Smeltery_ Tile
+DesertCrate_Tile.MapEntry: Desert Crate_ Tile
+HellCrate_Tile.MapEntry: Hell Crate_ Tile
+IceCrate_Tile.MapEntry: Ice Crate_ Tile
+InfernoCrate_Tile.MapEntry: Inferno Crate_ Tile
+VoidCrate_Tile.MapEntry: Void Crate_ Tile
+AvesInABox_Tile.MapEntry: Aves In A Box_ Tile
+DevStatue_Tile.MapEntry: Dev Statue_ Tile
+EnderMemory_Tile.MapEntry: Ender Memory_ Tile
+GreedLantern_Tile.MapEntry: Greed Lantern_ Tile
+MoonBeeJar_Tile.MapEntry: Moon Bee Jar_ Tile
+RoyalBunnyCage_Tile.MapEntry: Royal Bunny Cage_ Tile
+CrystalChandelier_Tile.MapEntry: Crystal Chandelier_ Tile
+DoomBathtub_Tile.MapEntry: Doom Bathtub_ Tile
+DoomBed_Tile.MapEntry: Doom Bed_ Tile
+DoomBookshelf_Tile.MapEntry: Doom Bookshelf_ Tile
+DoomCandelabra_Tile.MapEntry: Doom Candelabra_ Tile
+DoomCandle_Tile.MapEntry: Doom Candle_ Tile
+DoomChair_Tile.MapEntry: Doom Chair_ Tile
+DoomChandelier_Tile.MapEntry: Doom Chandelier_ Tile
+DoomChest_Tile.MapEntry: Doom Chest_ Tile
+DoomClock_Tile.MapEntry: Doom Clock_ Tile
+DoomCouch_Tile.MapEntry: Doom Couch_ Tile
+DoomDoorClosed_Tile.MapEntry: Doom Door Closed_ Tile
+DoomDoorOpen_Tile.MapEntry: Doom Door Open_ Tile
+DoomDresser_Tile.MapEntry: Doom Dresser_ Tile
+DoomLamp_Tile.MapEntry: Doom Lamp_ Tile
+DoomLantern_Tile.MapEntry: Doom Lantern_ Tile
+DoomPiano_Tile.MapEntry: Doom Piano_ Tile
+DoomSink_Tile.MapEntry: Doom Sink_ Tile
+DoomTable_Tile.MapEntry: Doom Table_ Tile
+DoomWorkbench_Tile.MapEntry: Doom Workbench_ Tile
+KeepBath_Tile.MapEntry: Keep Bath_ Tile
+KeepBed_Tile.MapEntry: Keep Bed_ Tile
+KeepBookcase_Tile.MapEntry: Keep Bookcase_ Tile
+KeepCandelabra_Tile.MapEntry: Keep Candelabra_ Tile
+KeepCandle_Tile.MapEntry: Keep Candle_ Tile
+KeepChair_Tile.MapEntry: Keep Chair_ Tile
+KeepChandelier_Tile.MapEntry: Keep Chandelier_ Tile
+KeepClock_Tile.MapEntry: Keep Clock_ Tile
+KeepCouch_Tile.MapEntry: Keep Couch_ Tile
+KeepDoorClosed_Tile.MapEntry: Keep Door Closed_ Tile
+KeepDoorOpen_Tile.MapEntry: Keep Door Open_ Tile
+KeepDresser_Tile.MapEntry: Keep Dresser_ Tile
+KeepLamp_Tile.MapEntry: Keep Lamp_ Tile
+KeepLantern_Tile.MapEntry: Keep Lantern_ Tile
+KeepPiano_Tile.MapEntry: Keep Piano_ Tile
+KeepSink_Tile.MapEntry: Keep Sink_ Tile
+KeepTable_Tile.MapEntry: Keep Table_ Tile
+KeepWorkbench_Tile.MapEntry: Keep Workbench_ Tile
+OroborosBathtub_Tile.MapEntry: Oroboros Bathtub_ Tile
+OroborosBed_Tile.MapEntry: Oroboros Bed_ Tile
+OroborosBookcase_Tile.MapEntry: Oroboros Bookcase_ Tile
+OroborosChair_Tile.MapEntry: Oroboros Chair_ Tile
+OroborosChest_Tile.MapEntry: Oroboros Chest_ Tile
+OroborosClock_Tile.MapEntry: Oroboros Clock_ Tile
+OroborosDoorClosed_Tile.MapEntry: Oroboros Door Closed_ Tile
+OroborosDoorOpen_Tile.MapEntry: Oroboros Door Open_ Tile
+OroborosLantern_Tile.MapEntry: Oroboros Lantern_ Tile
+OroborosWorkbench_Tile.MapEntry: Oroboros Workbench_ Tile
+SpiralStairs_Tile.MapEntry: Spiral Stairs_ Tile
+RazewoodBed_Tile.MapEntry: Razewood Bed_ Tile
+RazewoodBookshelf_Tile.MapEntry: Razewood Bookshelf_ Tile
+RazewoodCandelabra_Tile.MapEntry: Razewood Candelabra_ Tile
+RazewoodCandle_Tile.MapEntry: Razewood Candle_ Tile
+RazewoodChair_Tile.MapEntry: Razewood Chair_ Tile
+RazewoodChandelier_Tile.MapEntry: Razewood Chandelier_ Tile
+RazewoodChest_Tile.MapEntry: Razewood Chest_ Tile
+RazewoodClock_Tile.MapEntry: Razewood Clock_ Tile
+RazewoodCouch_Tile.MapEntry: Razewood Couch_ Tile
+RazewoodDoorClosed_Tile.MapEntry: Razewood Door Closed_ Tile
+RazewoodDoorOpen_Tile.MapEntry: Razewood Door Open_ Tile
+RazewoodDresser_Tile.MapEntry: Razewood Dresser_ Tile
+RazewoodLamp_Tile.MapEntry: Razewood Lamp_ Tile
+RazewoodLantern_Tile.MapEntry: Razewood Lantern_ Tile
+RazewoodPiano_Tile.MapEntry: Razewood Piano_ Tile
+RazewoodSink_Tile.MapEntry: Razewood Sink_ Tile
+RazewoodTable_Tile.MapEntry: Razewood Table_ Tile
+RazewoodTub_Tile.MapEntry: Razewood Tub_ Tile
+RazewoodWorkbench_Tile.MapEntry: Razewood Workbench_ Tile
+TerraBath_Tile.MapEntry: Terra Bath_ Tile
+TerraBed_Tile.MapEntry: Terra Bed_ Tile
+TerraBookcase_Tile.MapEntry: Terra Bookcase_ Tile
+TerraCandelabra_Tile.MapEntry: Terra Candelabra_ Tile
+TerraCandle_Tile.MapEntry: Terra Candle_ Tile
+TerraChair_Tile.MapEntry: Terra Chair_ Tile
+TerraChandelier_Tile.MapEntry: Terra Chandelier_ Tile
+TerraChest_Tile.MapEntry: Terra Chest_ Tile
+TerraClock_Tile.MapEntry: Terra Clock_ Tile
+TerraCouch_Tile.MapEntry: Terra Couch_ Tile
+TerraDoorClosed_Tile.MapEntry: Terra Door Closed_ Tile
+TerraDoorOpen_Tile.MapEntry: Terra Door Open_ Tile
+TerraDresser_Tile.MapEntry: Terra Dresser_ Tile
+TerraLamp_Tile.MapEntry: Terra Lamp_ Tile
+TerraLantern_Tile.MapEntry: Terra Lantern_ Tile
+TerraPiano_Tile.MapEntry: Terra Piano_ Tile
+TerraSink_Tile.MapEntry: Terra Sink_ Tile
+TerraTable_Tile.MapEntry: Terra Table_ Tile
+TerraWorkbench_Tile.MapEntry: Terra Workbench_ Tile
+AcropolisPainting_Tile.MapEntry: Acropolis Painting_ Tile
+AkumaPainting_Tile.MapEntry: Akuma Painting_ Tile
+AnubisPainting_Tile.MapEntry: Anubis Painting_ Tile
+CoreDoor_Tile.MapEntry: Core Door_ Tile
+CRajahPainting_Tile.MapEntry: C Rajah Painting_ Tile
+DaedalusPainting_Tile.MapEntry: Daedalus Painting_ Tile
+DecayPainting_Tile.MapEntry: Decay Painting_ Tile
+FulgurusPainting_Tile.MapEntry: Fulgurus Painting_ Tile
+GreedPainting_Tile.MapEntry: Greed Painting_ Tile
+HotJPainting_Tile.MapEntry: Hot J Painting_ Tile
+IZPainting_Tile.MapEntry: I Z Painting_ Tile
+JojoBagginsPainting_Tile.MapEntry: Jojo Baggins Painting_ Tile
+KeepDoor1_Tile.MapEntry: Keep Door1_ Tile
+KeepDoor2_Tile.MapEntry: Keep Door2_ Tile
+KeepDoor2S_Tile.MapEntry: Keep Door2 S_ Tile
+KeepDoor3_Tile.MapEntry: Keep Door3_ Tile
+KingQueenPainting_Tile.MapEntry: King Queen Painting_ Tile
+LuciferPainting_Tile.MapEntry: Lucifer Painting_ Tile
+MushmadPainting_Tile.MapEntry: Mushmad Painting_ Tile
+NKPainting_Tile.MapEntry: N K Painting_ Tile
+RajahPainting_Tile.MapEntry: Rajah Painting_ Tile
+SanguinePainting_Tile.MapEntry: Sanguine Painting_ Tile
+ShenPainting_Tile.MapEntry: Shen Painting_ Tile
+ShipPainting_Tile.MapEntry: Ship Painting_ Tile
+SoCPainting_Tile.MapEntry: So C Painting_ Tile
+TerraPainting_Tile.MapEntry: Terra Painting_ Tile
+TerraStatue_Tile.MapEntry: Terra Statue_ Tile
+UmbraPainting_Tile.MapEntry: Umbra Painting_ Tile
+ValkyriePainting_Tile.MapEntry: Valkyrie Painting_ Tile
+WizardPainting_Tile.MapEntry: Wizard Painting_ Tile
+YamataPainting_Tile.MapEntry: Yamata Painting_ Tile
+ZeroPainting_Tile.MapEntry: Zero Painting_ Tile
+ApocalyptiteOre_Tile.MapEntry: Apocalyptite Ore_ Tile
+CovetiteOre_Tile.MapEntry: Covetite Ore_ Tile
+DaybreakIncineriteOre_Tile.MapEntry: Daybreak Incinerite Ore_ Tile
+DiscordiumOre_Tile.MapEntry: Discordium Ore_ Tile
+DynaskullOre_Tile.MapEntry: Dynaskull Ore_ Tile
+HallowedOre_Tile.MapEntry: Hallowed Ore_ Tile
+IncineriteOre_Tile.MapEntry: Incinerite Ore_ Tile
+LuminiteOre_Tile.MapEntry: Luminite Ore_ Tile
+PrismOre_Tile.MapEntry: Prism Ore_ Tile
+RadiumOre_Tile.MapEntry: Radium Ore_ Tile
+RelicOre_Tile.MapEntry: Relic Ore_ Tile
+SkyCrystal_Tile.MapEntry: Sky Crystal_ Tile
+DaybreakTorch_Tile.MapEntry: Daybreak Torch_ Tile
+DiscordianTorch_Tile.MapEntry: Discordian Torch_ Tile
+DragonfireTorch_Tile.MapEntry: Dragonfire Torch_ Tile
+OroborosSapling_Tile.MapEntry: Oroboros Sapling_ Tile
+RazewoodPalmSapling_Tile.MapEntry: Razewood Palm Sapling_ Tile
+RazewoodSapling_Tile.MapEntry: Razewood Sapling_ Tile

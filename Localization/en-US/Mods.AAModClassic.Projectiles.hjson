@@ -277,6 +277,7 @@ Cyclone.DisplayName: Void Cyclone
 DeathLaser.DisplayName: Death Laser
 GenocideBoom.DisplayName: Genocide
 GenocideRocket.DisplayName: Genocide Rocket
+Genocide.DisplayName: Genocide
 NovaRay.DisplayName: Nova Ray
 OmegaBullet.DisplayName: Omega Bullet
 EchoRay.DisplayName: Echo Blast
@@ -928,3 +929,98 @@ RockFall.DisplayName: Rock Fall
 SandstormProj.DisplayName: Sandstorm Proj
 SistersTitle.DisplayName: Sisters Title
 Title.DisplayName: Title
+HydrasFury_Holdout.DisplayName: Hydras Fury_ Holdout
+EternalTwilight_YamataPhantom.DisplayName: Eternal Twilight_ Yamata Phantom
+HydratoxinArrow_Proj.DisplayName: Hydratoxin Arrow_ Proj
+HydratoxinBullet_Proj.DisplayName: Hydratoxin Bullet_ Proj
+HydratoxinDart_HydratoxinDroplet.DisplayName: Hydratoxin Dart_ Hydratoxin Droplet
+HydratoxinDart_Proj.DisplayName: Hydratoxin Dart_ Proj
+AbyssalArc_Proj.DisplayName: Abyssal Arc_ Proj
+DeathDaggers_DeathDagger.DisplayName: Death Daggers_ Death Dagger
+Depthsprayer_Proj.DisplayName: Depthsprayer_ Proj
+TheSquirter_Squirt.DisplayName: The Squirter_ Squirt
+EventideArrow_Proj.DisplayName: Eventide Arrow_ Proj
+AbyssalBomb_SoulBomb.DisplayName: Abyssal Bomb_ Soul Bomb
+AbyssalBomb_SoulBombSmall.DisplayName: Abyssal Bomb_ Soul Bomb Small
+AbyssalBomb_Soulsplosion.DisplayName: Abyssal Bomb_ Soulsplosion
+AbyssalBomb_SoulsplosionSmall.DisplayName: Abyssal Bomb_ Soulsplosion Small
+AbyssalEruption_Soulsplosion.DisplayName: Abyssal Eruption_ Soulsplosion
+AbyssalYari_Holdout.DisplayName: Abyssal Yari_ Holdout
+AbyssalYari_Proj.DisplayName: Abyssal Yari_ Proj
+Amenomuraku_PhantomSword.DisplayName: Amenomuraku_ Phantom Sword
+Crescent_Proj.DisplayName: Crescent_ Proj
+Crescent_Saw.DisplayName: Crescent_ Saw
+Darksprayer_DarkSoul.DisplayName: Darksprayer_ Dark Soul
+Darksprayer_Moonblow.DisplayName: Darksprayer_ Moonblow
+FallingTwilight_HydraSoul.DisplayName: Falling Twilight_ Hydra Soul
+Flairdra_Cyclone.DisplayName: Flairdra_ Cyclone
+Flairdra_Holdout.DisplayName: Flairdra_ Holdout
+MidnightWrath_Proj.DisplayName: Midnight Wrath_ Proj
+ThrowingCrescent_Proj.DisplayName: Throwing Crescent_ Proj
+EventideBullet_Proj.DisplayName: Eventide Bullet_ Proj
+EventideBullet_ProjCopy.DisplayName: Eventide Bullet_ Proj Copy
+YamataAHead_AbyssalBomb.DisplayName: Yamata A Head_ Abyssal Bomb
+YamataAHead_HarukaProj.DisplayName: Yamata A Head_ Haruka Proj
+YamataAHead_MireDeathray.DisplayName: Yamata A Head_ Mire Deathray
+YamataAHead_MireDeathraySmall.DisplayName: Yamata A Head_ Mire Deathray Small
+YamataAHead_Soulsplosion.DisplayName: Yamata A Head_ Soulsplosion
+YamataAHeadFake_AbyssalStorm.DisplayName: Yamata A Head Fake_ Abyssal Storm
+YamataAHeadFake_AbyssalThunder.DisplayName: Yamata A Head Fake_ Abyssal Thunder
+YamataAHeadFake_AbyssalWrath.DisplayName: Yamata A Head Fake_ Abyssal Wrath
+YamataAHeadFake_MireDeathrayWave.DisplayName: Yamata A Head Fake_ Mire Deathray Wave
+YamataAHeadFake_MireDeathrayWaveSmall.DisplayName: Yamata A Head Fake_ Mire Deathray Wave Small
+YamataAHeadFake_Shockwave.DisplayName: Yamata A Head Fake_ Shockwave
+YamataHead_AbyssalBomb.DisplayName: Yamata Head_ Abyssal Bomb
+YamataHead_AbyssalStorm.DisplayName: Yamata Head_ Abyssal Storm
+YamataHead_AbyssalStormRain.DisplayName: Yamata Head_ Abyssal Storm Rain
+YamataHead_AbyssalWrath.DisplayName: Yamata Head_ Abyssal Wrath
+YamataHead_Shockwave.DisplayName: Yamata Head_ Shockwave
+YamataHead_Soulsplosion.DisplayName: Yamata Head_ Soulsplosion
+YamataHead_Venom.DisplayName: Yamata Head_ Venom
+YamataHead_VenomBlast.DisplayName: Yamata Head_ Venom Blast
+GlowmossBall_Pet.DisplayName: Glowmoss Ball_ Pet
+HydraTuneller_Proj.DisplayName: Hydra Tuneller_ Proj
+Depthwalker_Holdout.DisplayName: Depthwalker_ Holdout
+GunkWand_Gunk.DisplayName: Gunk Wand_ Gunk
+HydraFang_Proj.DisplayName: Hydra Fang_ Proj
+HydraSpear_Holdout.DisplayName: Hydra Spear_ Holdout
+HydraStaff_BogBomb.DisplayName: Hydra Staff_ Bog Bomb
+HydraStaff_BogBoom.DisplayName: Hydra Staff_ Bog Boom
+HydraStaff_StoneHydra.DisplayName: Hydra Staff_ Stone Hydra
+SludgeShot_Proj.DisplayName: Sludge Shot_ Proj
+VenomSpray_Venom.DisplayName: Venom Spray_ Venom
+HydraHead_HydraBomb.DisplayName: Hydra Head_ Hydra Bomb
+HydraHead_HydraBreath.DisplayName: Hydra Head_ Hydra Breath
+HydraHead_HydraMist.DisplayName: Hydra Head_ Hydra Mist
+HydraSoul.DisplayName: Hydra Soul
+Depthsand_Proj.DisplayName: Depthsand_ Proj
+InfinityBoom.DisplayName: Infinity Boom
+InfinitySphere.DisplayName: Infinity Sphere
+CthulhuCannon_CthulhuBomb.DisplayName: Cthulhu Cannon_ Cthulhu Bomb
+CthulhuCannon_CthulhuBoom.DisplayName: Cthulhu Cannon_ Cthulhu Boom
+GalacticStormspike_Stormray.DisplayName: Galactic Stormspike_ Stormray
+RealityAnchor_Proj.DisplayName: Reality Anchor_ Proj
+RealityAnchor_RealityBurstHuge.DisplayName: Reality Anchor_ Reality Burst Huge
+RealityAnchor_RealityBurstLarge.DisplayName: Reality Anchor_ Reality Burst Large
+RealityAnchor_RealityBurstMedium.DisplayName: Reality Anchor_ Reality Burst Medium
+RealityAnchor_RealityBurstSmall.DisplayName: Reality Anchor_ Reality Burst Small
+SquidStorm_CthulhuTentacle.DisplayName: Squid Storm_ Cthulhu Tentacle
+DeityEye_DeityFlames.DisplayName: Deity Eye_ Deity Flames
+DeityLeviathan_Leviacane.DisplayName: Deity Leviathan_ Leviacane
+DeityLeviathan_Leviacane2.DisplayName: Deity Leviathan_ Leviacane2
+DeityLeviathan_RazorbladeRift.DisplayName: Deity Leviathan_ Razorblade Rift
+Annihilator_Annihilation.DisplayName: Annihilator_ Annihilation
+Annihilator_AnnihilationBurst.DisplayName: Annihilator_ Annihilation Burst
+Genocide_Antimatter.DisplayName: Genocide_ Antimatter
+InfinityBlade_Rift.DisplayName: Infinity Blade_ Rift
+Nova_NovaBurst.DisplayName: Nova_ Nova Burst
+Nova_Supernova.DisplayName: Nova_ Supernova
+Sagittarius_Proj.DisplayName: Sagittarius_ Proj
+TotalDestruction_Proj.DisplayName: Total Destruction_ Proj
+InfinityZero_InfinityBolt.DisplayName: Infinity Zero_ Infinity Bolt
+InfinityZero_InfinityStorm.DisplayName: Infinity Zero_ Infinity Storm
+InfinityZero_InfinityZeroShot.DisplayName: Infinity Zero_ Infinity Zero Shot
+HurricaneSoC.DisplayName: Hurricane So C
+Soulsplitter_Proj.DisplayName: Soulsplitter_ Proj
+AuroraScythe_Holdout.DisplayName: Aurora Scythe_ Holdout
+CarrotFarmer_Holdout.DisplayName: Carrot Farmer_ Holdout
