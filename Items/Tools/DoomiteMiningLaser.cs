@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Tools;
 using Terraria;
 using Terraria.ID;
@@ -42,7 +43,7 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddItem(null, "Doomite", 10);
+            recipe.AddItem(ModContent.ItemType<DoomiteBar>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

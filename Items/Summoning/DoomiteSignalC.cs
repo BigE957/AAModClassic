@@ -7,6 +7,9 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
+using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.Items.Boss.Serpent;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -85,18 +88,18 @@ namespace AAModClassic.Items.Summoning
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "DoomiteSignal");
-			recipe.AddIngredient(Mod, "SandScepter");
-			recipe.AddIngredient(Mod, "SnakeStaff");
-			recipe.AddIngredient(Mod, "FireStaff");
+			recipe.AddIngredient(ModContent.ItemType<DoomiteSignal>());
+			recipe.AddIngredient(ModContent.ItemType<SandScepter>());
+			recipe.AddIngredient(ModContent.ItemType<SnakeStaff>());
+			recipe.AddIngredient(ModContent.ItemType<FireStaff>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 			
 			recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "DoomiteSignal");
-			recipe.AddIngredient(Mod, "SandScepter");
-			recipe.AddIngredient(Mod, "SnakeStaff");
-			recipe.AddIngredient(Mod, "HydraStaff");
+			recipe.AddIngredient(ModContent.ItemType<DoomiteSignal>());
+			recipe.AddIngredient(ModContent.ItemType<SandScepter>());
+			recipe.AddIngredient(ModContent.ItemType<SnakeStaff>());
+			recipe.AddIngredient(ModContent.ItemType<HydraStaff>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

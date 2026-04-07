@@ -66,7 +66,7 @@ You may only have a maximum of 2 tool types active"); */
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(Mod, "TrueNightaxe");
+                recipe.AddIngredient(ModContent.ItemType<TrueNightaxe>());
                 recipe.AddIngredient(ItemID.Picksaw);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
@@ -74,7 +74,7 @@ You may only have a maximum of 2 tool types active"); */
             {
 
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(Mod, "TrueScalpel");
+                recipe.AddIngredient(ModContent.ItemType<TrueScalpel>());
                 recipe.AddIngredient(ItemID.Picksaw);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();

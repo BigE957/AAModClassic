@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI;
 using Terraria;
 using Terraria.ID;
@@ -68,9 +70,9 @@ Terratool EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "Terratool");
-            recipe.AddIngredient(Mod, "EXSoul");
-            recipe.AddTile(Mod, "ACS");
+            recipe.AddIngredient(ModContent.ItemType<Terratool>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

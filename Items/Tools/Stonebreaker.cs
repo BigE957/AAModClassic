@@ -33,10 +33,10 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "DragonDigger");
-            recipe.AddIngredient(Mod, "OceanPick");
-            recipe.AddIngredient(Mod, "Excavator");
-            recipe.AddIngredient(Mod, "DoomiteMiningLaser");
+            recipe.AddIngredient(ModContent.ItemType<DragonDigger>());
+            recipe.AddIngredient(ModContent.ItemType<OceanPick>());
+            recipe.AddIngredient(ModContent.ItemType<Excavator>());
+            recipe.AddIngredient(ModContent.ItemType<DoomiteMiningLaser>());
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

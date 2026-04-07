@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Tools;
+using AAModClassic.Items.Boss.Serpent;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,10 +39,10 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "HydraTuneller");
-            recipe.AddIngredient(Mod, "OceanPick");
-            recipe.AddIngredient(Mod, "Icepick");
-            recipe.AddIngredient(Mod, "DoomiteMiningLaser");
+            recipe.AddIngredient(ModContent.ItemType<HydraTuneller>());
+            recipe.AddIngredient(ModContent.ItemType<OceanPick>());
+            recipe.AddIngredient(ModContent.ItemType<Icepick>());
+            recipe.AddIngredient(ModContent.ItemType<DoomiteMiningLaser>());
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

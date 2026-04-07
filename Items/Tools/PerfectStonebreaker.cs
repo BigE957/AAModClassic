@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,8 +35,8 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "Stonebreaker");
-            recipe.AddIngredient(Mod, "HeroShards");
+            recipe.AddIngredient(ModContent.ItemType<Stonebreaker>());
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

@@ -34,8 +34,8 @@ namespace AAModClassic.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.NightmarePickaxe);
-            recipe.AddIngredient(Mod, "Grasscutter");
-            recipe.AddIngredient(Mod, "Toothpick");
+            recipe.AddIngredient(ModContent.ItemType<Grasscutter>());
+            recipe.AddIngredient(ModContent.ItemType<Toothpick>());
             recipe.AddIngredient(ItemID.MoltenPickaxe);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

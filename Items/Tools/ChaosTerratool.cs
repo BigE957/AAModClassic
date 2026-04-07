@@ -67,8 +67,8 @@ You may only have a maximum of 2 tool types active"); */
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(Mod, "PerfectStonebreaker");
-                recipe.AddIngredient(Mod, "PerfectShadowDrill");
+                recipe.AddIngredient(ModContent.ItemType<PerfectStonebreaker>());
+                recipe.AddIngredient(ModContent.ItemType<PerfectShadowDrill>());
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }

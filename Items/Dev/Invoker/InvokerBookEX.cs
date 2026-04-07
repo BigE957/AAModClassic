@@ -7,6 +7,7 @@ using Terraria.Localization;
 using AAModClassic;
 using AAModClassic.Items.Vanity.Cerberus;
 using AAModClassic.Items.Boss;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Dev.Invoker
 {
@@ -95,7 +96,7 @@ Includes the effects of all the pieces used to make this.
             recipe.AddIngredient(ItemID.PaladinsShield, 1);
             recipe.AddIngredient(ItemID.SpectreBar, 60);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-			recipe.AddTile(Mod, "ACS");
+			recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
     }
