@@ -231,6 +231,8 @@ namespace AAModClassic
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
+            //TODO: Rework this fucking bullshit
+            /*
             MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Monarch"), Find<ModItem>("MonarchBox").Type, Find<ModTile>("MonarchBox").Type);
             MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Fungus"), Find<ModItem>("FungusBox").Type, Find<ModTile>("FungusBox").Type);
             MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/GripsTheme"), Find<ModItem>("GripsBox").Type, Find<ModTile>("GripsBox").Type);
@@ -275,6 +277,7 @@ namespace AAModClassic
             MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shen"), Find<ModItem>("ShenBox").Type, Find<ModTile>("ShenBox").Type);
             MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/ShenA"), Find<ModItem>("ShenABox").Type, Find<ModTile>("ShenABox").Type);
             MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SupremeRajah"), Find<ModItem>("SRajahBox").Type, Find<ModTile>("SRajahBox").Type);
+            */
 
             isFullyReady = true;
         }
@@ -339,14 +342,15 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
             Filters.Scene["AAModClassic:Shockwave"].Load();
 
+            //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
             Main.QueueMainThreadAction(() => {
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/MireBiome_Moon", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/_PostMoonlord/NPCs/_BossYamata/Awakened/Skies/YamataSky_Moon", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/_PostMoonlord/NPCs/_BossYamata/Awakened/Skies/YamataSky_Beam", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex", AssetRequestMode.ImmediateLoad).Value);

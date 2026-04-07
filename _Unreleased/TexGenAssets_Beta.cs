@@ -27,12 +27,12 @@ namespace AAModClassic._Unreleased
 
         public override void OnModLoad()
         {
-            ParthenanTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/World/ParthenanGen", AssetRequestMode.ImmediateLoad).Value);
-            ParthenanWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/World/ParthenanGen_Walls", AssetRequestMode.ImmediateLoad).Value);
+            ParthenanTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/ParthenanGen", AssetRequestMode.ImmediateLoad).Value);
+            ParthenanWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/ParthenanGen_Walls", AssetRequestMode.ImmediateLoad).Value);
 
-            ShipTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/World/ShipGen", AssetRequestMode.ImmediateLoad).Value);
-            ShipWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/World/ShipGen_Walls", AssetRequestMode.ImmediateLoad).Value);
-            ShipLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/World/ShipGen_Liquid", AssetRequestMode.ImmediateLoad).Value);
+            ShipTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/SunkenShipGen", AssetRequestMode.ImmediateLoad).Value);
+            ShipWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/SunkenShipGen_Walls", AssetRequestMode.ImmediateLoad).Value);
+            ShipLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/SunkenShipGen_Liquid", AssetRequestMode.ImmediateLoad).Value);
         }
     }
 }

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DreadBoots : BaseAAItem
+	public class DreadLeggings : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

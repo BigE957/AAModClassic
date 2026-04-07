@@ -75,9 +75,10 @@ namespace AAModClassic.World
 
         public override void OnModLoad()
         {
-            LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Lake", AssetRequestMode.ImmediateLoad).Value);
-            LakeWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LakeWalls", AssetRequestMode.ImmediateLoad).Value);
-            LakeLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LakeWater", AssetRequestMode.ImmediateLoad).Value);
+            //TODO: Perhaps move these to proper content folders
+            LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/RisingMoonLake", AssetRequestMode.ImmediateLoad).Value);
+            LakeWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/RisingMoonLake_Walls", AssetRequestMode.ImmediateLoad).Value);
+            LakeLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/RisingMoonLake_Liquid", AssetRequestMode.ImmediateLoad).Value);
 
             VolcanoTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Volcano", AssetRequestMode.ImmediateLoad).Value);
             VolcanoWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/VolcanoWalls", AssetRequestMode.ImmediateLoad).Value);

@@ -51,7 +51,7 @@ The abyssal wrath of the Mire rests in this armor"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<DreadPlate>() && legs.type == ModContent.ItemType<DreadBoots>();
+			return body.type == ModContent.ItemType<DreadPlate>() && legs.type == ModContent.ItemType<DreadLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)
