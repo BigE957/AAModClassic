@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood
 {
 	public class BogwoodPlatform_Tile : ModTile
 	{

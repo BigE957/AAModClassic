@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood
 {
     public class BogwoodDresser_Tile : ModTile
 	{

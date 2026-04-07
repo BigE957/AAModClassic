@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Water
+namespace AAModClassic.___Content.Mire.World.Biomes.Water
 {
     public class MireDroplet : ModGore
 	{
@@ -18,7 +18,7 @@ namespace AAModClassic.Water
 
 		public override bool Update(Gore gore)
 		{
-			if (gore.position.Y < (Main.worldSurface * 16.0) + 8.0)
+			if (gore.position.Y < Main.worldSurface * 16.0 + 8.0)
 			{
 				gore.alpha = 0;
 			}
@@ -130,7 +130,7 @@ namespace AAModClassic.Water
 				if (Main.tile[tileX, tileY] != null && Main.tile[tileX, tileY].LiquidAmount > 0)
 				{
 					gore.velocity *= 0f;
-					gore.position.Y = (tileY * 16) - (Main.tile[tileX, tileY].LiquidAmount / 16);
+					gore.position.Y = tileY * 16 - Main.tile[tileX, tileY].LiquidAmount / 16;
 				}
 			}
 

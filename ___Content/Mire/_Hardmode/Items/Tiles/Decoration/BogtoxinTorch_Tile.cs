@@ -11,7 +11,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire._Hardmode.Items.Decoration
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 {
 	public class HydratoxinTorch_Tile : ModTile
 	{
@@ -41,7 +41,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Decoration
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(20, 120, 160), name);
-			DustType = ModContent.DustType<Dusts.DragonflameDust>();
+			DustType = ModContent.DustType<DragonflameDust>();
 			RegisterItemDrop(ModContent.ItemType<HydratoxinTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };

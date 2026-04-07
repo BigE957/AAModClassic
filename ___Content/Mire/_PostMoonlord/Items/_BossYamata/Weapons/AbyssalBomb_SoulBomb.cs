@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.Mire.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -115,11 +116,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             double deltaAngle = spread / 4;
             for (int i = 0; i < 2; i++)
             {
-                //TODO: Formerly YWSplit, dunno if this is right
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<HydraSoul>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
-                proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<HydraSoul>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             for (int num468 = 0; num468 < 20; num468++)

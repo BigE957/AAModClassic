@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Hydra;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra
 {

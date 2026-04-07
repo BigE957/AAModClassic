@@ -1,8 +1,8 @@
 ﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire.World.Biomes.Water;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Water;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

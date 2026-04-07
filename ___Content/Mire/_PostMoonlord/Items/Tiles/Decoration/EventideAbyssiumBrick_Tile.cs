@@ -3,7 +3,7 @@ using AAModClassic.Globals;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Decoration
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
     class EventideBrick_Tile : ModTile
     {
@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Decoration
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<EventideBrick>());   
             AddMapEntry(AAColor.Yamata);
-            DustType = ModContent.DustType<Dusts.AbyssDust>();
+            DustType = ModContent.DustType<AbyssDust>();
         }
     }
 }

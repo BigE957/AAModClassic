@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
@@ -17,7 +16,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
     [AutoloadBossHead]
     public class Hydra : ModNPC
@@ -55,7 +54,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             NPC.boss = true;
             NPC.noGravity = false;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Sounds/Music/HydraTheme");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/HydraTheme");
             NPC.buffImmune[BuffID.Poisoned] = true;
         }
 
@@ -382,8 +381,8 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         float x0, float x1, float x2)
         {
             return (float)(
-                x0 * Math.Pow((1 - t), 2) +
-                x1 * 2 * t * Math.Pow((1 - t), 1) +
+                x0 * Math.Pow(1 - t, 2) +
+                x1 * 2 * t * Math.Pow(1 - t, 1) +
                 x2 * Math.Pow(t, 2)
             );
         }
@@ -391,8 +390,8 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             float y0, float y1, float y2)
         {
             return (float)(
-                 y0 * Math.Pow((1 - t), 2) +
-                 y1 * 2 * t * Math.Pow((1 - t), 1) +
+                 y0 * Math.Pow(1 - t, 2) +
+                 y1 * 2 * t * Math.Pow(1 - t, 1) +
                  y2 * Math.Pow(t, 2)
              );
         }
@@ -413,10 +412,10 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                     {
                         distBetween = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) -
                         X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X),
-                        Y(i, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y) -
-                        Y(i - chainsPerUse, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y));
+                        Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) -
+                        Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, connector.Y));
                         projTrueRotation = distBetween.ToRotation() - (float)Math.PI / 2;
-                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y) - Main.screenPosition.Y),
+                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) - Main.screenPosition.Y),
                         new Rectangle(0, 0, neckTex2D.Width, neckTex2D.Height), drawColor, projTrueRotation,
                         new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                     }

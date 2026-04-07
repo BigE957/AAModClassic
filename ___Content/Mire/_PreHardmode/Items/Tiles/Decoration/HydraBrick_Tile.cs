@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire.World.who
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration
 {
     public class HydraBrick_Tile : ModTile
     {

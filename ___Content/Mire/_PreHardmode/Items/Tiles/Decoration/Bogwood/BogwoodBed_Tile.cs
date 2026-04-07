@@ -7,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood
 {
     public class BogwoodBed_Tile : ModTile
 	{
@@ -22,7 +22,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Bed");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = ModContent.DustType<Dusts.BogwoodDust>();
+            DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Beds };
 			TileID.Sets.CanBeSleptIn[Type] = true;

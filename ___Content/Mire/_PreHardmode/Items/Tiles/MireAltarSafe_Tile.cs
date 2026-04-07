@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.___Content.Mire.World.who
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles
 {
     public class ChaosAltar1_Tile : ModTile
 	{
@@ -22,7 +22,7 @@ namespace AAModClassic.___Content.Mire.World.who
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Abyss Altar");
-            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
+            DustType = ModContent.DustType<AbyssiumDust>();
             AddMapEntry(new Color(0, 0 ,100), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }

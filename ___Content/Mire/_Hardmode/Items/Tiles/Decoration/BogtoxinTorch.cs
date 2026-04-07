@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._Hardmode.Items.Decoration
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 {
 	public class HydratoxinTorch : BaseAAItem
     {

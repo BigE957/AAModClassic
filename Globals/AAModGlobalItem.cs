@@ -449,7 +449,7 @@ namespace AAModClassic.Globals
                 }
                 if (Main.hardMode && Main.rand.Next(2) == 0)
                 {
-                    int item = CrateType == 1 ? ModContent.ItemType<Items.Materials.SoulOfSpite>() : ModContent.ItemType<SoulOfSmite>();
+                    int item = CrateType == 1 ? ModContent.ItemType<SoulOfSpite>() : ModContent.ItemType<SoulOfSmite>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
 

@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._Hardmode.NPCs;
 using AAModClassic.___Content.Mire._Hardmode.NPCs.Desert;
 using AAModClassic.___Content.Mire._Hardmode.NPCs.Snow;

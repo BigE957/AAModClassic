@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Water
+namespace AAModClassic.___Content.Mire.World.Biomes.Water
 {
     public class MireWaterStyle : ModWaterStyle
 	{

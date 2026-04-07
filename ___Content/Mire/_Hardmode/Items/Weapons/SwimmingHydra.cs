@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Projectiles;
@@ -8,7 +7,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.FishingItem
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class SwimmingHydra : BaseAAItem
 	{
@@ -33,7 +32,7 @@ namespace AAModClassic.Items.FishingItem
 			Item.autoReuse = true;
 			Item.useTurn = true;
             Item.shootSpeed = 10;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<HydraSlash>();
+            Item.shoot = ModContent.ProjectileType<HydraSlash>();
 		}
 
         int shoot = 0;
@@ -49,7 +48,7 @@ namespace AAModClassic.Items.FishingItem
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(Terraria.ModLoader.ModContent.BuffType<HydraToxin_Buff>(), 180);
+			target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
 		}
 	}
 }

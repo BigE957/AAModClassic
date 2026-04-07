@@ -1,7 +1,6 @@
-using AAModClassic.Tiles.Crafters;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.FishingItem
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles
 {
     public class ToxinMonkfish : BaseAAItem
     {
