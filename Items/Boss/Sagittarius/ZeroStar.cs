@@ -2,6 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Projectiles.Sag;
 
 namespace AAModClassic.Items.Boss.Sagittarius
 {
@@ -25,7 +26,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.UseSound = SoundID.Item1;
 	        Item.autoReuse = true;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ZeroStarP>();
+            Item.shoot = ModContent.ProjectileType<ZeroStarP>();
             Item.shootSpeed = 10f;
             Item.noMelee = true;
             Item.noUseGraphic = true;

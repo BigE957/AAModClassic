@@ -5,6 +5,8 @@ using Terraria.ID;
 using System;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Summoning.Minions;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -20,7 +22,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SkullMinion>();
+            Item.shoot = ModContent.ProjectileType<SkullMinion>();
             Item.buffType = ModContent.BuffType<SkullMinion_Buff>();
             Item.damage = 19;
             Item.width = 44;

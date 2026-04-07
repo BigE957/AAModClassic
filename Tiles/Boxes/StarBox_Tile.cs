@@ -8,6 +8,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.ID;
+using AAModClassic.Items.Blocks.Boxes;
 
 namespace AAModClassic.Tiles.Boxes
 {

@@ -3,6 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.Items.Dev
 {

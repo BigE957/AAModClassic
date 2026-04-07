@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Terraria;

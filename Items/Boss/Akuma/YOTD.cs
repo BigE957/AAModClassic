@@ -1,5 +1,6 @@
 ﻿using System;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Akuma;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.useAmmo = AmmoID.Rocket;
             Item.width = 50;
             Item.height = 20;
-            Item.shoot = ModContent.ProjectileType<Projectiles.YotD>();
+            Item.shoot = ModContent.ProjectileType<YotD>();
             Item.UseSound = SoundID.Item11;
             Item.damage = 600;
             Item.shootSpeed = 30f;

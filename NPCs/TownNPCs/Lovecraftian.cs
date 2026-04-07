@@ -3,6 +3,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Flasks;
+using AAModClassic.Items.Materials;
 using AAModClassic.Items.Usable;
 using System.Collections.Generic;
 using Terraria;
@@ -301,7 +302,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 }
                 else if (Item7 >= 0 && AAWorld.squid7 < 5)
                 {
-                    Main.npcChatCornerItem = ModContent.ItemType<Items.Materials.DoomiteScrap>();
+                    Main.npcChatCornerItem = ModContent.ItemType<DoomiteScrap>();
                     player.inventory[Item7].stack--;
                     if (player.inventory[Item7].stack <= 0)
                     {
@@ -311,7 +312,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     {
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.VoidFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<VoidFlask>(), 5);
-                        Main.npcChatCornerItem = ModContent.ItemType<Z>();
+                        Main.npcChatCornerItem = ModContent.ItemType<DoomiteScrap>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{

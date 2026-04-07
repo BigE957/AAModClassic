@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Items.Pets;
 
 namespace AAModClassic.Items.Boss.Zero
 {

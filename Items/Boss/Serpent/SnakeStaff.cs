@@ -1,5 +1,7 @@
 using System.Linq;
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Projectiles.Serpent;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -23,7 +25,7 @@ Summons 2 segments for each minion slot"); */
             Item.damage = 11;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SerpentHead>();
+            Item.shoot = ModContent.ProjectileType<SerpentHead>();
             Item.width = 26;
             Item.height = 28;
             Item.UseSound = SoundID.Item44;

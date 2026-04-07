@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.Projectiles.Anubis;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -20,7 +21,7 @@ namespace AAModClassic.Items.Boss.Anubis
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.TheEye>();
+            Item.shoot = ModContent.ProjectileType<TheEye>();
             Item.damage = 65;
             Item.width = 50;
             Item.height = 50;

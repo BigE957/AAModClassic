@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using Terraria.Audio;
+using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -34,7 +35,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.damage = 240;
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Glitch");
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Projectiles.Teslashock>();
+            Item.shoot = ModContent.ProjectileType<Teslashock>();
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 

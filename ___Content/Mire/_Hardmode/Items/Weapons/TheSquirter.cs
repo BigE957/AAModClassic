@@ -21,7 +21,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
             Item.useTime = 13;
             Item.useAnimation = 13;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Squirt>();
+            Item.shoot = ModContent.ProjectileType<Squirt>();
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.LightPurple;

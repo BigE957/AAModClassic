@@ -10,6 +10,7 @@ using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;
 using AAModClassic.Items.Potions;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

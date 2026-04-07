@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Pets
 {

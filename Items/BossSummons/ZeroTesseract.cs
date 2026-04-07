@@ -9,6 +9,8 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.NPCs.Bosses.Zero;
 
 namespace AAModClassic.Items.BossSummons
 {

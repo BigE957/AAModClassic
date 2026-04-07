@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Banners
 {
-    public class ThixxieBanner : ModTile
+    public class ThixxieBanner_Tile : ModTile
 	{
 		public override void SetStaticDefaults() 
 		{

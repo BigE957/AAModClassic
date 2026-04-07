@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Armor.Witch;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

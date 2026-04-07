@@ -2,6 +2,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Trophy;
 
 namespace AAModClassic.Items.Boss.Shen
 {

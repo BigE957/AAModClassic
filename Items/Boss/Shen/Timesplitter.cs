@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Shen;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -35,7 +36,7 @@ Inflicts Daybroken and Moonraze"); */
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.shoot = ModContent.ProjectileType<Projectiles.TimesplitterP>();  //put your Spear projectile name
+            Item.shoot = ModContent.ProjectileType<TimesplitterP>();  //put your Spear projectile name
             Item.shootSpeed = 9f;
             AARarity = 14;
         }

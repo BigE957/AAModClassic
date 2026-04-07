@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using AAModClassic.Items.Dev.Minions;
 
 namespace AAModClassic.Items.Dev
 {
@@ -19,7 +20,7 @@ namespace AAModClassic.Items.Dev
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SockPuppet>();
+            Item.shoot = ModContent.ProjectileType<SockPuppet>();
             Item.damage = 130;
             Item.width = 60;
             Item.height = 56;

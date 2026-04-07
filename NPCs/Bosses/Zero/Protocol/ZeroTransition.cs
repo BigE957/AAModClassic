@@ -7,6 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using AAModClassic.Effects;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {

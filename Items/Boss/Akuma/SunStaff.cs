@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Akuma;
 
 namespace AAModClassic.Items.Boss.Akuma   //where is located
 {
@@ -28,7 +29,7 @@ Inflicts Daybroken"); */
             Item.damage = 1000;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SunOrb>();
+            Item.shoot = ModContent.ProjectileType<SunOrb>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item78;

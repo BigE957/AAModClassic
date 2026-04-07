@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Dev.Minions;
 using Terraria;
 using Terraria.ModLoader;
 

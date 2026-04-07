@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.UI.Titles;

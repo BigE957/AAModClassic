@@ -68,7 +68,7 @@ namespace AAModClassic._Unreleased
             SkyManager.Instance["AAModClassic:CthulhuSky"] = new CthulhuSky();
 
             Filters.Scene["AAModClassic:StormSky"] = new Filter(new StormSkyData("FilterMiniTower").UseColor(0.4f, 0f, 0.6f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:StormSky"] = new StormBiome();
+            //SkyManager.Instance["AAModClassic:StormSky"] = new StormBiome(); //TODO: Fake biome
 
             Filters.Scene["AAModClassic:InfinityZeroSky"] = new Filter(new InfinityZeroSkyData("FilterMiniTower").UseColor(0.4f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:InfinityZeroSky"] = new InfinityZeroSky();

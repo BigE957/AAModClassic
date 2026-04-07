@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Athena;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +27,7 @@ namespace AAModClassic.Items.Boss.Athena
 			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Skyblade>();
+            Item.shoot = ModContent.ProjectileType<Skyblade>();
             Item.shootSpeed = 10;
 		}
 

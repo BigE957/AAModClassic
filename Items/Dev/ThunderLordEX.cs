@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
 using Terraria.Audio;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.Items.Dev
 {

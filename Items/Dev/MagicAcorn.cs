@@ -4,6 +4,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Dev.Minions;
 
 namespace AAModClassic.Items.Dev
 {
@@ -21,7 +23,7 @@ namespace AAModClassic.Items.Dev
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Squirrel1>();
+            Item.shoot = ModContent.ProjectileType<Squirrel1>();
             Item.damage = 120;
             Item.width = 20;
             Item.height = 20;

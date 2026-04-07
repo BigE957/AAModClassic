@@ -4,6 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -28,7 +29,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.height = 26;
             Item.damage = 700;
             Item.UseSound = SoundID.Item20;
-            Item.shoot = ModContent.ProjectileType<Projectiles.VoidStarPF>();
+            Item.shoot = ModContent.ProjectileType<VoidStarPF>();
             Item.mana = 18;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;

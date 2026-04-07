@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Trophy;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;

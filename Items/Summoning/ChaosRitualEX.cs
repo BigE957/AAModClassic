@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Buffs;
+using AAModClassic.Items.Summoning.Minions;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -30,7 +32,7 @@ namespace AAModClassic.Items.Summoning
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.XiaoDoragon>();
+            Item.shoot = ModContent.ProjectileType<XiaoDoragon>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<XiaoDoragon_Buff>();
             Item.autoReuse = true;

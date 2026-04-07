@@ -25,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
             Item.autoReuse = true;
             Item.useTime = 12;
             Item.useAnimation = 12;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Venom>();
+            Item.shoot = ModContent.ProjectileType<Venom>();
             Item.shootSpeed = 9f;    
         }   
 

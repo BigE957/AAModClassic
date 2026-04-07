@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Crafters;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.FishingItem
@@ -24,7 +25,7 @@ namespace AAModClassic.Items.FishingItem
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 128000;
-            Item.createTile = ModContent.TileType<SharpeningLavaFishTile_Tile>();
+            Item.createTile = ModContent.TileType<SharpeningLavaFish_Tile>();
         }
     }
 }

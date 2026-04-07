@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using System;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.Items.Dev
 {

@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Dev.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -22,7 +23,7 @@ Sock Puppet Staff EX"); */
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SoccMinion>();
+            Item.shoot = ModContent.ProjectileType<SoccMinion>();
             Item.damage = 240;
             Item.width = 60;
             Item.height = 56;

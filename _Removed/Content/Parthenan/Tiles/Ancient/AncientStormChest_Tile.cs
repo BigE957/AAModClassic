@@ -179,7 +179,7 @@ namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
 				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Storm Chest";
 				if (player.cursorItemIconText == "Storm Chest")
 				{
-					player.cursorItemIconID = ModContent.ItemType<StormChest>();
+					//player.cursorItemIconID = ModContent.ItemType<StormChest>(); TODO: fake item
 					player.cursorItemIconText = "";
 				}
 			}

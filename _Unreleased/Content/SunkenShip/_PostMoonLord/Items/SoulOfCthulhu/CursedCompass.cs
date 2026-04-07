@@ -54,7 +54,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool CanUseItem(Player player)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<SoC>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.SoulOfCthulhu.SoulOfCthulhu>()))
             {
                 if (player.whoAmI == Main.myPlayer) BaseUtility.Chat("The wheel doesn't do anything", Color.DarkCyan, false);
                 return false;

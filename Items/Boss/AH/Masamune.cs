@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.AH;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,7 +33,7 @@ Right click to shoot a blade wave"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Projectiles.Surasshu>();
+            Item.shoot = ModContent.ProjectileType<Surasshu>();
             Item.shootSpeed = 15f;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
@@ -82,7 +83,7 @@ Right click to shoot a blade wave"); */
                 Item.useTime = 5;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.autoReuse = false;
-                Item.shoot = ModContent.ProjectileType<Projectiles.Surasshu>();
+                Item.shoot = ModContent.ProjectileType<Surasshu>();
                 Item.shootSpeed = 15f;
             }
             return base.CanUseItem(player);

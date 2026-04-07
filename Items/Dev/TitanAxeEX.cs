@@ -32,7 +32,7 @@ Titan Axe EX"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Projectiles.Surasshu>();
+            Item.shoot = ModContent.ProjectileType<Surasshu>();
             Item.shootSpeed = 15f;
             Item.expert = true; Item.expertOnly = true;
             Item.UseSound = SoundID.Item1;

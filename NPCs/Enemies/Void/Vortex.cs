@@ -39,11 +39,12 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public float Rotation = 0;
 
+        /*
         public override void OnKill()
         {
             Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<VoidEnergy>(), Main.rand.Next(1, 4));
         }
-
+        */
         public override void AI()
         {
             BaseAI.AIElemental(NPC, ref NPC.ai, null, 1, false, false, 800f, 600f, 180, 3f);

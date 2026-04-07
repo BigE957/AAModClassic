@@ -1,4 +1,5 @@
-﻿using AAModClassic.UI.Titles;
+﻿using AAModClassic.Effects;
+using AAModClassic.UI.Titles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

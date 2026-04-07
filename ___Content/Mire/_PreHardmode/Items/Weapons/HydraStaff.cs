@@ -18,7 +18,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.StoneHydra>();
+            Item.shoot = ModContent.ProjectileType<StoneHydra>();
             Item.damage = 15;
             Item.width = 50;
             Item.height = 50;

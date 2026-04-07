@@ -368,6 +368,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
             if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
+                //TODO: Fake dust
+                /*
                 if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
@@ -377,6 +379,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                         Main.dust[num935].noLight = false;
                     }
                 }
+                */
                 NPC.alpha -= 42;
                 if (NPC.alpha < 0)
                 {
@@ -495,6 +498,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
             if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
+                //TODO: Fake dust
+                /*
                 if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
@@ -504,6 +509,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                         Main.dust[num935].noLight = false;
                     }
                 }
+                */
                 NPC.alpha -= 42;
                 if (NPC.alpha < 0)
                 {
@@ -617,6 +623,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
             if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
+                //TODO: Fake dust
+                /*
                 if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
@@ -626,6 +634,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                         Main.dust[num935].noLight = false;
                     }
                 }
+                */
                 NPC.alpha -= 42;
                 if (NPC.alpha < 0)
                 {
@@ -742,15 +751,18 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
             if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
+                //TODO: Fake dust
+                /*
                 if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.WyrmADust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
                 }
+                */
                 NPC.alpha -= 42;
                 if (NPC.alpha < 0)
                 {

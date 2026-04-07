@@ -1,3 +1,4 @@
+using AAModClassic.Items.Boss.Serpent;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -24,7 +25,7 @@ namespace AAModClassic.Projectiles.Serpent
 		public override void OnKill(int timeLeft)
 		{
 			if (Main.rand.Next(0, 4) == 0)
-				Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<SnowflakeSuriken>(), 1, false, 0, false, false);
+				Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<SnowflakeShuriken>(), 1, false, 0, false, false);
 
 			for (int i = 0; i < 5; i++)
 			{

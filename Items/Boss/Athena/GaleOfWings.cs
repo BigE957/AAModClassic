@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Athena;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -26,7 +27,7 @@ namespace AAModClassic.Items.Boss.Athena
             Item.autoReuse = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Tornado>();
+            Item.shoot = ModContent.ProjectileType<Tornado>();
             Item.shootSpeed = 9f;    
         }   
 

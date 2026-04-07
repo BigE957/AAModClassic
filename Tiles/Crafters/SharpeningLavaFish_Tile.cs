@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using AAModClassic.Items.FishingItem;
 
 namespace AAModClassic.Tiles.Crafters
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Tiles.Crafters
             TileID.Sets.DisableSmartCursor[Type] = false;
             AdjTiles = new int[]
             {
-                ModContent.TileType<SharpeningLavaFishTile_Tile>()
+                ModContent.TileType<SharpeningLavaFish_Tile>()
             };
             AnimationFrameHeight = 38;
         }

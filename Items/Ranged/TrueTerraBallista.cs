@@ -1,4 +1,5 @@
 using AAModClassic.Items.Boss;
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

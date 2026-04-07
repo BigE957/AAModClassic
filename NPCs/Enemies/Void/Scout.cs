@@ -87,10 +87,12 @@ namespace AAModClassic.NPCs.Enemies.Void
 			}
 		}
 
+		/*
 		public override void OnKill()
         {
             Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<VoidEnergy>(), Main.rand.Next(1, 4));
         }
+		*/
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {

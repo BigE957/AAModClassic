@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
+using AAModClassic.Items.Boss.Serpent;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

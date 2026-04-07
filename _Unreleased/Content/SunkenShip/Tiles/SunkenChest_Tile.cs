@@ -188,7 +188,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Sunken Chest";
 				if (player.cursorItemIconText == "Sunken Chest")
 				{
-					player.cursorItemIconID = ModContent.ItemType<SunkenChest>(); //TODOSOC this doesnt exist yet bcuz its lazy. but its sprite is in place
+					//player.cursorItemIconID = ModContent.ItemType<SunkenChest>(); //TODOSOC this doesnt exist yet bcuz its lazy. but its sprite is in place
 					player.cursorItemIconText = "";
 				}
 			}
