@@ -21,8 +21,8 @@ namespace AAModClassic.___Content.Mire.World.Biomes
         }
 
         public override int Music =>
-            AAWorld.downedAllAncients ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/SleepingDragon") :
-            (NPC.downedMoonlord && !Main.dayTime) ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Shrines") : -1;
+            AAWorld.downedAllAncients ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingDragon") :
+            (NPC.downedMoonlord && !Main.dayTime) ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/Shrines") : -1;
 
         public override SceneEffectPriority Priority => AAWorld.downedAllAncients ? SceneEffectPriority.Event : (NPC.downedMoonlord && !Main.dayTime) ? SceneEffectPriority.Environment : SceneEffectPriority.None;
     }

@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.dontTakeDamage = true;
             NPC.damage = 0;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
         }
 
         readonly int frameHeight = 100;
@@ -43,7 +43,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.ai[3] = 39;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+                Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
                 if (NPC.velocity.Y == 0)
                 {
                     for (int a = 0; a < 8; a++)

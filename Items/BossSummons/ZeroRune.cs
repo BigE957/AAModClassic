@@ -81,7 +81,7 @@ N0N-C0NSUMABLE"); */
                     NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroProtocol>());
             }
 
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/ZeroDeath"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ZeroDeath"));
             return true;
         }
     }

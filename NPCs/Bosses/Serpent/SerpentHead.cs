@@ -86,7 +86,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Boss6");
             NPC.alpha = 50;
             NPC.buffImmune[BuffID.Frostburn] = true;
         }
@@ -898,7 +898,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Boss6");
             NPC.alpha = 50;
             NPC.dontCountMe = true;
         }
@@ -1335,7 +1335,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Boss6");
             NPC.alpha = 50;
             NPC.dontCountMe = true;
         }

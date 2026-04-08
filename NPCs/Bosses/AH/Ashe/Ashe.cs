@@ -52,7 +52,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AH");
         }
 
         public bool RuneCrash = false;

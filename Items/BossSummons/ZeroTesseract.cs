@@ -121,7 +121,7 @@ N0N-C0NSUMABLE"); */
                     NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<Zero>());
             }
 
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Glitch"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"));
             return true;
         }
 

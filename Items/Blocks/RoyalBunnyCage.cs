@@ -57,14 +57,14 @@ namespace AAModClassic.Items.Blocks
                         if (bunnyKills % 100 == 0 && bunnyKills < 1000)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RoyalRabbitSummoned1"), 107, 137, 179);
-                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
 
                         }
                         if (bunnyKills % 100 == 0 && bunnyKills >= 1000)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RoyalRabbitSummoned2") + player.name.ToUpper() + "!", 107, 137, 179);
-                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
                         };
                     }

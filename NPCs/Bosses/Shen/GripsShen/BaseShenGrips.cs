@@ -37,7 +37,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.netAlways = true;
             NPC.scale *= 1.4f;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Shen");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Shen");
         }
         
         public override void FindFrame(int frameHeight)

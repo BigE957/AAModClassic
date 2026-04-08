@@ -43,7 +43,7 @@ public class Core : ModNPC
 		NPC.value = Item.sellPrice(0, 16);
 		NPC.HitSound = SoundID.NPCHit4;
 		NPC.DeathSound = SoundID.NPCDeath14;
-		Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Core");
+		Music = Mod.GetSoundSlot(SoundType.Music, "Music/Core");
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
 		NPC.alpha = 255;

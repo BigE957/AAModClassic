@@ -28,7 +28,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             NPC.noGravity = false;
             NPC.dontTakeDamage = true;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Monarch");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Monarch");
         }
 
         int frame = 0;

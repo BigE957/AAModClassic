@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.knockBack = 2.5f;
             Item.value = 4000000;
             Item.rare = ItemRarityID.Green;
-            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/BHB");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/BHB");
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<RedBullet>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 18f;

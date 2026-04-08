@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.width = 36;
             Item.height = 42;
             Item.damage = 240;
-            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Glitch");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Glitch");
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = ModContent.ProjectileType<Teslashock>();
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

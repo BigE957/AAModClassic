@@ -74,7 +74,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Fungus");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Fungus");
             NPC.alpha = 255;
         }
 

@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
         }
 
         public override void AI()
@@ -54,7 +54,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
                 if (NPC.ai[0] >= 570)
                 {
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Greed");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Music/Greed");
                 }
 
             }

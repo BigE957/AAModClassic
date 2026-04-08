@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.defense = 80;
             NPC.lifeMax = 1000000;
             NPC.value = Item.sellPrice(1, 0, 0, 0);
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ShenA");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
             SceneEffectPriority = (SceneEffectPriority)11;
             isAwakened = true;
             NPC.alpha = 255;
@@ -716,7 +716,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (Health2)
             {
-               // music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+               // music = mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
             }
         }
 

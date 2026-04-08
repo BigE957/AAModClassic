@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

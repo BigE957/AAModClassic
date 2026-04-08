@@ -37,10 +37,10 @@ namespace AAModClassic.___Content.Mire.World.Biomes
         }
 
         public override int Music =>
-            Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireUnderground") :
-            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/SleepingDragon") :
-            Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/DM") :
-            MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireSurface");
+            Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/MireUnderground") :
+            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingDragon") :
+            Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/DM") :
+            MusicLoader.GetMusicSlot(AAMod.instance, "Music/MireSurface");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
 

@@ -45,11 +45,11 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.knockBackResist = 0f;
             NPC.npcSlots = 1000f;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Rajah");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Rajah");
             NPC.value = Item.sellPrice(0, 1, 10, 0);
             NPC.boss = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/RajahTheme");
         }
 
         public bool isSupreme = false;
@@ -105,7 +105,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         public void Roar(int timer)
         {
             roarTimer = timer;
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Rajah"), NPC.Center);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Rajah"), NPC.Center);
         }
 
         public Vector2 WeaponPos;
@@ -208,7 +208,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         }
                     }
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah5") + Name.ToUpper() + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah6"), 107, 137, 179);
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
                 }
             }
 
@@ -1251,7 +1251,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.defense = 0;
             NPC.lifeMax = 1200000;
             NPC.life = 1200000;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/SupremeRajah");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/SupremeRajah");
             isSupreme = true;
             NPC.value = Item.sellPrice(3, 0, 0, 0);
         }

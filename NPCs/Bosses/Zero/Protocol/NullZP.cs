@@ -27,7 +27,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.damage = 50;
             NPC.defense = 9999999;
             NPC.lifeMax = 10;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch");
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Glitch");
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.alpha = 70;
             NPC.value = 7000f;

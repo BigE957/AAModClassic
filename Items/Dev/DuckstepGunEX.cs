@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Dev
 			Item.knockBack = 4;
 			Item.value = 3000000;
             Item.expert = true; Item.expertOnly = true;
-			Item.UseSound = new Terraria.Audio.SoundStyle("AAModClassic/Sounds/Sounds/QUAK");
+			Item.UseSound = new Terraria.Audio.SoundStyle("AAModClassic/Sounds/QUAK");
             Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 15f;

@@ -46,7 +46,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AthenaA");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AthenaA");
             NPC.noTileCollide = true;
         }
 

@@ -38,7 +38,7 @@ Non-consumable"); */
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.noUseGraphic = true;
             Item.consumable = false;
-            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Rajah");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Rajah");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

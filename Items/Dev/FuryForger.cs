@@ -45,7 +45,7 @@ namespace AAModClassic.Items.Dev
         
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Forge"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Forge"));
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(player.velocity.X, player.velocity.Y) - spread / 2;
             double deltaAngle = spread / 8f;

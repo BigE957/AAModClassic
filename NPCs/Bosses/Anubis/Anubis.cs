@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = MusicLoader.GetMusicSlot("AAModMusic/Sounds/Music/Anubis");
+            Music = MusicLoader.GetMusicSlot("AAModMusic/Music/Anubis");
             //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
             NPC.value = Item.sellPrice(0, 1, 0, 0);
         }
@@ -677,7 +677,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.ai[3] = 39;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/silence");
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
                 if (NPC.velocity.Y == 0)
                 {
                     if (internalAI[1]++ < 420)
@@ -710,7 +710,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
                             if (internalAI[1] >= 410)
                             {
-                                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
+                                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis6"), Color.Gold);
                                 internalAI[0] = 1;
                                 NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
@@ -720,7 +720,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         }
                         else
                         {
-                            Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
+                            Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis7"), Color.Gold);
                             internalAI[0] = 1;
                             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;

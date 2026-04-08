@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             NPC.noGravity = false;
             NPC.dontTakeDamage = true;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Fungus");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Fungus");
         }
 
         int frame = 0;

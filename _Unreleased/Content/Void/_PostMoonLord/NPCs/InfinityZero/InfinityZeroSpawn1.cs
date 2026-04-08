@@ -61,7 +61,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             StartTimer--;
             if (StartTimer <= 0)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/IZ");
+                Music = Mod.GetSoundSlot(SoundType.Music, "Music/IZ");
                 NPC.alpha = 0;
                 int endFrame = spawnState == 0 ? 7 : spawnState == 1 ? 4 : spawnState == 2 ? 4 : spawnState == 3 ? 4 : spawnState == 4 ? 3 : 6;
                 if (Frame >= endFrame)

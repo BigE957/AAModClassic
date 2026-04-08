@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Boss.Akuma
 			Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 7, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Dayshot");
+			Item.UseSound = new SoundStyle("AAModClassic/Sounds/Dayshot");
 			Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 30;

@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ChaosSissy");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ChaosSissy");
 
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

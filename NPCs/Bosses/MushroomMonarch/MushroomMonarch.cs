@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             NPC.netAlways = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Monarch");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Monarch");
 
         }
 

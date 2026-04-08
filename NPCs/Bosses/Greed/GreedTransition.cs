@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
         }
 
         public override void AI()
@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.GreedTransition1"), Color.Goldenrod);
                     }
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GreedA");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Music/GreedA");
 
                     NPC.netUpdate = true;
                 }

@@ -86,7 +86,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     }
                     if (NPC.ai[0] >= 180) //after he says 'heh' on the server, change music on the client
                     {
-                        Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Akuma2");
+                        Music = Mod.GetSoundSlot(SoundType.Music, "Music/Akuma2");
                     }
                     if (NPC.ai[0] >= 380)
                     {
@@ -161,7 +161,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 				}
 				if (NPC.ai[0] >= 300) //after he says 'heh' on the server, change music on the client
 				{
-					Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Akuma2");
+					Music = Mod.GetSoundSlot(SoundType.Music, "Music/Akuma2");
 				}				
 				if (NPC.ai[0] >= 660) //after 660 on the server, transition color
 				{

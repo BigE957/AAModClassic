@@ -43,7 +43,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
-            Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Athena");
+            Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Athena");
             NPC.alpha = 255;
             NPC.noTileCollide = true;
             //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AthenaBag>();
@@ -116,7 +116,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             if (internalAI[2] != 1)
             {
                 NPC.dontTakeDamage = true;
-                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/silence");
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
                 if (Vector2.Distance(NPC.Center, Acropolis) < 10)
                 {
                     NPC.velocity *= 0;
@@ -275,7 +275,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                     }
                 }
 
-                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Athena");
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Athena");
 
                 if (internalAI[0]++ > 300 && Main.netMode != NetmodeID.MultiplayerClient)
                 {

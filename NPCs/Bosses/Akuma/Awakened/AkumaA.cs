@@ -54,8 +54,8 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar");
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Akuma2");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/AkumaRoar");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Akuma2");
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -724,7 +724,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             }
             else
             {
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar"), NPC.Center);
+                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/AkumaRoar"), NPC.Center);
             }
         }
 

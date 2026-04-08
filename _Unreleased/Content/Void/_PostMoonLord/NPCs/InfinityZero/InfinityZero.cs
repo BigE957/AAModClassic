@@ -386,7 +386,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (NPC.life <= NPC.lifeMax / 6)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+                Music = Mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
             }
 			if (NPC.life <= 0)
 			{

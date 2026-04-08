@@ -46,7 +46,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Sounds/Music/Greed");
+            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Music/Greed");
             NPC.alpha = 255;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

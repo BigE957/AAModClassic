@@ -54,7 +54,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             NPC.boss = true;
             NPC.noGravity = false;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/HydraTheme");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/HydraTheme");
             NPC.buffImmune[BuffID.Poisoned] = true;
         }
 

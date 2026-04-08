@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             NPC.dontTakeDamage = true;
             NPC.damage = 0;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
         }
 
         public override void AI()

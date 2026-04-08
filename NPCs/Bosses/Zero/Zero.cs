@@ -52,7 +52,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCHit4;
             NPC.noGravity = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Zero");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Zero");
             NPC.noTileCollide = true;
             NPC.knockBackResist = -1f;
             NPC.boss = true;

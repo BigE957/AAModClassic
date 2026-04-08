@@ -66,9 +66,9 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Akuma");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Akuma");
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/AkumaRoar");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -587,7 +587,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             }
             else
             {
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar"), NPC.Center);
+                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/AkumaRoar"), NPC.Center);
             }
         }
 

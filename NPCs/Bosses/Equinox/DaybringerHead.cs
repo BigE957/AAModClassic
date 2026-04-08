@@ -49,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             NPC.DeathSound = null;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Equinox");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Equinox");
             SceneEffectPriority = SceneEffectPriority.BossHigh;
 		}
 

@@ -105,7 +105,7 @@ Non-Consumable"); */
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
             }
             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Akuma>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/AkumaRoar"), player.position);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), player.position);
             return true;
         }
 

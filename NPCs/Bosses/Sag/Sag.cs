@@ -37,7 +37,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             NPC.aiStyle = -1;
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Sag");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Sag");
             NPC.value = 80000f;
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;

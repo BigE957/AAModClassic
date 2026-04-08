@@ -31,7 +31,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             NPC.damage = 0;
             NPC.value = 0;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ChaosSissy");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ChaosSissy");
             NPC.width = 38;
             NPC.height = 58;
         }

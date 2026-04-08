@@ -44,7 +44,7 @@ namespace AAModClassic.Tiles.Decoration
             if (Quack == false)
             {
                 QuackTimer = 90;
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/QUAK"));
+                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/QUAK"));
             }
             Quack = true;
             return true;

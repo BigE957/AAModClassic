@@ -83,7 +83,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
             NPC.boss = true;
             NPC.lavaImmune = true;
             NPC.noGravity = false;
-            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Sounds/Music/TODE");
+            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Music/TODE");
             NPC.netAlways = true;
             NPC.alpha = 255;
             NPC.HitSound = SoundID.NPCHit1;

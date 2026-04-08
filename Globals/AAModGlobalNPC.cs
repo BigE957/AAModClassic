@@ -598,7 +598,7 @@ namespace AAModClassic.Globals
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo1"), 107, 137, 179);
                     }
 
-                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Rajah"), npc.Center);
+                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), npc.Center);
                     SpawnRajah(player, true, new Vector2(npc.Center.X, npc.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
 
                 }
@@ -610,7 +610,7 @@ namespace AAModClassic.Globals
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo2") + player.name.ToUpper() + "!", 107, 137, 179);
                     }
 
-                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Rajah"), npc.Center);
+                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), npc.Center);
                     SpawnRajah(player, true, new Vector2(npc.Center.X, npc.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
                 }
 

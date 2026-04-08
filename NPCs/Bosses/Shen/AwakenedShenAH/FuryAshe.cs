@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ShenA");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
         }
         
         public int[] Vortexes = null;

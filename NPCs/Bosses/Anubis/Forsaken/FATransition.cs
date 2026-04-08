@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.dontTakeDamage = true;
             NPC.damage = 0;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
         }
 
         public override void AI()
@@ -49,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     if (NPC.ai[1] == 120)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisTransition1"), Color.Gold);
-                        Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AnubisA");
+                        Music = Mod.GetSoundSlot(SoundType.Music, "Music/AnubisA");
                     }
 
                     if (NPC.ai[1] == 240)

@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GripsTheme");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/GripsTheme");
         }
 
         public override void FindFrame(int frameHeight)

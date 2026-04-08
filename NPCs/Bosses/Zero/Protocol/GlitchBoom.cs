@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch"), Projectile.Center);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Glitch"), Projectile.Center);
             Projectile.timeLeft = 0;
         }
 

@@ -34,7 +34,7 @@ Storm Rifle EX"); */
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Thunderlord");
+            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Thunderlord");
             Item.autoReuse = true; 
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;

@@ -54,9 +54,9 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.lavaImmune = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Zerohit");
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/ZeroDeath");
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Zero2");
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Zerohit");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/ZeroDeath");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Zero2");
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             NPC.netAlways = true;
             NPC.npcSlots = 200;

@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             NPC.lavaImmune = true;
             NPC.boss = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AH");
             NPC.noGravity = true;
             NPC.noTileCollide = true;
         }

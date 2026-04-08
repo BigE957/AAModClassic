@@ -183,7 +183,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (NPC.life <= NPC.lifeMax / 10)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+                Music = Mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
                 if (!Pinch)
                 {
                     Pinch = true;

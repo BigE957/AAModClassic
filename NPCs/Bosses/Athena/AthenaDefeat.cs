@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             NPC.damage = 0;
             NPC.value = 0;
             NPC.noTileCollide = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
         }
 
         public override void AI()
@@ -85,7 +85,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             else
                             if (NPC.ai[0] == 480)
                             {
-                                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AthenaA");
+                                Music = Mod.GetSoundSlot(SoundType.Music, "Music/AthenaA");
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat3"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }

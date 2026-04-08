@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
             NPC.dontTakeDamage = true;
             NPC.boss = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
             NPC.noTileCollide = false;
         }
 
@@ -61,7 +61,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
             if (NPC.ai[0] >= 600)
             {
                 NPC.ai[1] = 1;
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ThinkAboutIt");
+                Music = Mod.GetSoundSlot(SoundType.Music, "Music/ThinkAboutIt");
                 NPC.netUpdate = true;
             }
             if (NPC.ai[0] == 600)

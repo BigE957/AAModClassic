@@ -111,7 +111,7 @@ Non-Consumable"); */
                 AAWorld.ShenSummoned = true;
             }
 
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/ShenRoar"), player.position);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ShenRoar"), player.position);
             return true;
         }
 
