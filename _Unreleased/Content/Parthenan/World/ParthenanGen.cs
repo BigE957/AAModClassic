@@ -42,7 +42,6 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World
 
             TexGen gen = TexGen.GetTexGenerator(TexGenAssets_Unreleased.ParthenanTileData, colorToTile, TexGenAssets_Unreleased.ParthenanWallData, colorToWall);
 
-            //TODOSIEGE some of these dont actually place in world
             gen.Generate(origin.X, origin.Y, true, true);
             WorldGen.PlaceObject(origin.X + 37, origin.Y + 45, (ushort)ModContent.TileType<AncientDataBank_Tile>());
             WorldGen.PlaceChest(origin.X + 32, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest_Tile>());
