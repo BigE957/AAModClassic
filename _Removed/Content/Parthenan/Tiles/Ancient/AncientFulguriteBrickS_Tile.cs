@@ -46,7 +46,7 @@ namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("_Unreleased/Glowmasks/AncientFulguriteBrick_Glow");
+                if (glowTex == null) glowTex = Mod.GetTexture("_Removed/Content/Parthenan/Tiles/Ancient/AncientFulguritePlatingS_Tile_Glow");
                 BaseDrawing.DrawTileTexture(spriteBatch, glowTex, x, y, true, false, false, null, AAGlobalTile.GetStormColorDim);
             }
         }

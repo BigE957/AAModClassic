@@ -36,22 +36,23 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
             return false;
         }
 
+        //TODO: kill them
         float Rotation1 = 0;
         float Rotation2 = 0;
 
         public override bool PreDraw(int x, int y, SpriteBatch sb)
         {
-            Texture2D PortalTex = Mod.GetTexture("_Unreleased/Tiles/CthulhuPortal_Tile_Portal");
-            Texture2D PortalTex2 = Mod.GetTexture("_Unreleased/Tiles/CthulhuPortal_Tile_Portal2");
-            Rotation1 -= .0008f;
-            Rotation2 += .0008f;
-            Tile tile = Main.tile[x, y];
-            Rectangle Frame = BaseDrawing.GetFrame(0, 60, 60, 0, 0);
-            
-            //TODOSOC idk why this doesnt work. ive tried porting it to reasonable land aka spritebatch.draw but idk, nothing works
-            BaseDrawing.DrawTexture(sb, PortalTex, 0, new Vector2(x, y) - Main.screenPosition, 60, 60, 0, Rotation1, 0, 1, Frame, AAColor.Cthulhu, false);
-            BaseDrawing.DrawTexture(sb, PortalTex2, 0, new Vector2(x, y) - Main.screenPosition, 60, 60, 0, Rotation2, 0, 1, Frame, AAColor.Cthulhu, false);
+            Main.instance.TilesRenderer.AddSpecialPoint(x, y, Terraria.GameContent.Drawing.TileDrawing.TileCounterType.CustomNonSolid);
             return false;
+        }
+
+        public override void SpecialDraw(int x, int y, SpriteBatch spriteBatch)
+        {
+            Texture2D PortalTex = Mod.GetTexture("_Unreleased/Content/SunkenShip/Tiles/CthulhuPortal_Tile_Portal");
+            Texture2D PortalTex2 = Mod.GetTexture("_Unreleased/Content/SunkenShip/Tiles/CthulhuPortal_Tile_Portal2");
+
+            spriteBatch.Draw(PortalTex, new Point(x, y).ToWorldCoordinates() - Main.screenPosition, null, AAColor.Cthulhu, -Main.GlobalTimeWrappedHourly, PortalTex.Size() * 0.5f, 1f, 0, 0);
+            spriteBatch.Draw(PortalTex2, new Point(x, y).ToWorldCoordinates() - Main.screenPosition, null, AAColor.Cthulhu, Main.GlobalTimeWrappedHourly, PortalTex2.Size() * 0.5f, 1f, 0, 0);
         }
     }
 }

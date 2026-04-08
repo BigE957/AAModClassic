@@ -45,7 +45,7 @@ namespace AAModClassic.Tiles
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/TerraWood"), i, j, true, false, false, null, AAGlobalTile.GetTerraColorDim);
+            BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/TerraWood_Tile"), i, j, true, false, false, null, AAGlobalTile.GetTerraColorDim);
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

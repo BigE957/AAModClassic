@@ -213,7 +213,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosChest_Glow");
+            Texture2D glowTex = Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosChest_Tile_Glow");
             int frameX = tile != null && tile.HasTile ? tile.TileFrameX + (Main.tileFrame[Type] * 38) : 0;
 
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, tile.TileFrameY, false, false, false, null, White);

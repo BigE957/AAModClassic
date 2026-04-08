@@ -23,8 +23,6 @@ namespace AAModClassic.UI.MenuThemes
         private static Asset<Texture2D> MireLogo;
         private static Asset<Texture2D> InfernoLogo;
         private static Asset<Texture2D> VoidLogo;
-        private static Asset<Texture2D> Sun;
-        private static Asset<Texture2D> Moon;
         private static Asset<Texture2D> BlankTex;
 
         public override void SetStaticDefaults()
@@ -32,8 +30,6 @@ namespace AAModClassic.UI.MenuThemes
             MireLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
             InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
             VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
-            Sun = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun");
-            Moon = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon");
             BlankTex = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
         }
 

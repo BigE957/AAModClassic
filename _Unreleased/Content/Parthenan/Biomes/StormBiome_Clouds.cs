@@ -22,9 +22,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
         {
 			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
-			Player player = Main.player[Main.myPlayer];
-			bool inStorm = Main.player[Main.myPlayer].GetModPlayer<AAPlayer_Unreleased>().ZoneStorm;
-			if(!backgroundClouds) inStorm = false;
+			bool inStorm = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneStorm;
+
+            if (!backgroundClouds) inStorm = false;
 			
 			fogOffsetX += 1;
 			if(fogOffsetX >= texture.Width) fogOffsetX = 0;

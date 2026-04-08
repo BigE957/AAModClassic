@@ -16,16 +16,16 @@ namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 
         public override int DropWood() => AAMod.instance.Find<ModItem>("Bogwood").Type;
 
-        public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogPalmTree");
+        public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/BogwoodPalmTree_Tile");
 
-        public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogPalmTreetops");
+        public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/BogwoodPalmTree_Tile_Tops");
 
-        public override Asset<Texture2D> GetOasisTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogPalmTreetopsOasis");
+        public override Asset<Texture2D> GetOasisTopTextures() => ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/BogwoodPalmTree_Tile_Top_Oasis");
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("BogwoodSapling").Type;
+            return AAMod.instance.Find<ModTile>("BogwoodSapling_Tile").Type;
         }
     }
 }

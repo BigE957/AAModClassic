@@ -37,7 +37,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("Tiles/AbyssVines");
+                if (glowTex == null) glowTex = Mod.GetTexture("Tiles/AbyssVines_Tile");
                 BaseDrawing.DrawTileTexture(spriteBatch, glowTex, x, y, true, false, false, null, AAGlobalTile.GetYamataColorDim);
             }
         }

@@ -5,6 +5,7 @@ using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,8 +56,13 @@ namespace AAModClassic.___Content.Mire.World.Biomes
         public bool Active;
         public float Intensity;
 
+        public static Asset<Texture2D> Moon;
+        public static Asset<Texture2D> Sky;
+
         public override void OnLoad()
         {
+            Moon = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon");
+            Sky = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Sky");
         }
 
         public override void Update(GameTime gameTime)
@@ -84,13 +90,13 @@ namespace AAModClassic.___Content.Mire.World.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon").Value;
-            Texture2D SkyTexture = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Sky").Value;
+            Texture2D moon = Moon.Value;
+            Texture2D sky = Sky.Value;
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (!Main.dayTime || (!Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().MoonAltar))
                 {
-                    spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
+                    spriteBatch.Draw(sky, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                     double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
                     Main.ColorOfTheSkies = Color.White;
                     if (Main.gameMenu || Main.netMode == NetmodeID.Server)
@@ -129,7 +135,7 @@ namespace AAModClassic.___Content.Mire.World.Biomes
                     white2.G = (byte)(white2.G * num65);
                     white2.B = (byte)(white2.B * num65);
                     white2.A = (byte)(white2.A * num65);
-                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY)), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2 * Intensity, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(moon, new Vector2(num23, num24 + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY)), new Rectangle?(new Rectangle(0, 0, moon.Width, moon.Width)), white2 * Intensity, rotation2, new Vector2(moon.Width / 2, moon.Width / 2), num25, SpriteEffects.None, 0f);
                 }
             }
         }

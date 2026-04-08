@@ -22,23 +22,23 @@ namespace AAModClassic.Tiles.Trees
 
         public override Asset<Texture2D> GetTexture()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTree_Tile");
         }
 
         public override Asset<Texture2D> GetBranchTextures()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTree_Tile_Branches");
         }
 
         public override Asset<Texture2D> GetTopTextures()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTreeTop");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTree_Tile_Top");
         }
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("OroborosSapling").Type;
+            return AAMod.instance.Find<ModTile>("OroborosSapling_Tile").Type;
         }
     }
 }

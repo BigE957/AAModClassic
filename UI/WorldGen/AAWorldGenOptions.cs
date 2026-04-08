@@ -1,4 +1,6 @@
-﻿using Microsoft.CodeAnalysis.Options;
+﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+using AAModClassic.Items.Vanity.Mask;
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -134,9 +136,9 @@ namespace AAModClassic.UI.WorldGen
             };
 
             string[] array5 = new string[3] {
-                "AAModClassic/NPCs/Bosses/Yamata/YamataHead_Head_Boss",
-                "AAModClassic/Items/Vanity/Mask/ShenAMask",
-                "AAModClassic/Items/Vanity/Mask/AkumaMask"
+                ModContent.GetInstance<YamataHead>().BossHeadTexture,
+                ModContent.GetInstance<ShenAMask>().Texture,
+                ModContent.GetInstance<AkumaMask>().Texture,
             };
 
             ModGroupOptionButton<AAWorldOption>[] array6 = new ModGroupOptionButton<AAWorldOption>[array.Length];

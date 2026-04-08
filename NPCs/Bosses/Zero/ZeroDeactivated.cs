@@ -99,6 +99,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
+
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
             if (NPC.downedMoonlord)
             {

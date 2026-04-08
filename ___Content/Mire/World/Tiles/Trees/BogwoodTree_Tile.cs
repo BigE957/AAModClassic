@@ -21,23 +21,23 @@ namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 
         public override Asset<Texture2D> GetTexture()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodTree");
+            return ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/BogwoodTree_Tile");
         }
 
         public override Asset<Texture2D> GetBranchTextures()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/BogwoodTree_Tile_Branches");
         }
 
         public override Asset<Texture2D> GetTopTextures()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodTreeTop");
+            return ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/BogwoodTree_Tile_Top");
         }
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("BogwoodSapling").Type;
+            return AAMod.instance.Find<ModTile>("BogwoodSapling_Tile").Type;
         }
     }
 }

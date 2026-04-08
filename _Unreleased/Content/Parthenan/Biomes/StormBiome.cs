@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Backgrounds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -49,8 +50,10 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
             public bool IsAlive;
         }
 
-        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormSky_Bolt").Value;
-        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormSky_Flash").Value;
+        private static Asset<Texture2D> texture;
+        public static Asset<Texture2D> boltTexture;
+        public static Asset<Texture2D> flashTexture;
+        
         private Bolt[] bolts;
         public bool Active;
         public int ticksUntilNextBolt;
@@ -61,7 +64,13 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
         private readonly float fogOpacity2 = 0.4f;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
-        private static Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormSky_Clouds").Value;
+
+        public override void OnLoad()
+        {
+            texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Clouds");
+            boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Bolt");
+            flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Flash");;
+        }
 
         public override void Activate(Vector2 position, params object[] args)
         {
@@ -94,12 +103,12 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
             _fogTimer2 -= 3;
             if (_fogTimer <= 0)
             {
-                _fogTimer = texture.Width;
+                _fogTimer = texture.Width();
             }
 
             if (_fogTimer2 <= 0)
             {
-                _fogTimer2 = texture.Width;
+                _fogTimer2 = texture.Width();
             }
             if (ticksUntilNextBolt <= 0)
             {
@@ -140,8 +149,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            BGClouds.Update(texture);
-            BGClouds.Draw(texture, true, new Color(160, 100, 180));
+            BGClouds.Update(texture.Value);
+            BGClouds.Draw(texture.Value, true, new Color(160, 100, 180));
             float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
             Vector2 value3 = Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
             Rectangle rectangle = new Rectangle(-1000, -1000, 4000, 4000);
@@ -154,11 +163,11 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
                     position = bolts[i].Position; //TODOSIEGE i really just dont know what he was trying to do in the lines above. figure it out?
                     if (rectangle.Contains((int)position.X, (int)position.Y))
                     {
-                        Texture2D texture = boltTexture;
+                        Texture2D texture = boltTexture.Value;
                         int life = bolts[i].Life;
                         if (life > 26 && life % 2 == 0)
                         {
-                            texture = flashTexture;
+                            texture = flashTexture.Value;
                         }
                         float scale2 = life / 30f;
                         spriteBatch.Draw(texture, position, null, Color.White * scale * scale2 * Intensity, 0f, Vector2.Zero, value4.X * 5f, SpriteEffects.None, 0f);
@@ -235,17 +244,17 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/StormSky_BG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/Backgrounds/StormBiome_BG");
         }
 
         public override int ChooseMiddleTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/StormSky_BG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/Backgrounds/StormBiome_BG");
         }
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/StormSky_BG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/Backgrounds/StormBiome_BG");
         }
     }
 }

@@ -9719,3 +9719,13 @@ RadiantIncineriteBar: {
 	DisplayName: Radiant Incinerite Bar
 	Tooltip: ""
 }
+
+GlowingMasshroom: {
+	DisplayName: Glowing Masshroom
+	Tooltip: ""
+}
+
+Masshroom: {
+	DisplayName: Masshroom
+	Tooltip: ""
+}
