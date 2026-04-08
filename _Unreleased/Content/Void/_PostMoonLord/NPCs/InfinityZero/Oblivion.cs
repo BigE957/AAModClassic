@@ -32,7 +32,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Sounds/Music/IZDeath"); //TODOIZ why doesnt this work????
+            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/IZDeath"); //TODOIZ why doesnt this work????
         }
 
         public int OblivionSpeech = 0;

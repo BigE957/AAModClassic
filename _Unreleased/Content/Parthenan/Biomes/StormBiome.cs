@@ -25,9 +25,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
             player.ManageSpecialBiomeVisuals("AAModClassic:StormSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "_Unreleased/Sounds/Music/Maelstrom");
+        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "_Unreleased/Music/Maelstrom");
 
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<StormSurfaceBgStyle>();
     }

@@ -39,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.DeathSound = SoundID.Item88;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/SoC");
             NPC.noGravity = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;

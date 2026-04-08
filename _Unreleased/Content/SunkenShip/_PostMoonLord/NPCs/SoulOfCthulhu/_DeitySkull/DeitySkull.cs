@@ -39,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[20] = true;
             NPC.buffImmune[24] = true;
             NPC.buffImmune[39] = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/SoC");
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
             NPC.lavaImmune = true;
         }

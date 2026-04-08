@@ -21,7 +21,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.height = 100;
             NPC.alpha = 255;
             NPC.damage = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/SoC");
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
