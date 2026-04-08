@@ -12,6 +12,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static System.Net.Mime.MediaTypeNames;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater
 {
@@ -48,7 +49,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[20] = true;
             NPC.buffImmune[24] = true;
             NPC.buffImmune[39] = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/_Unreleased/Music/SoC");
+            Music = MusicManagementSystem.MusicSlots["SoC"];
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
             NPC.alpha = 255;
         }

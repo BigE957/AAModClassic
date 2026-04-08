@@ -7,6 +7,7 @@ using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Ore;
 using Microsoft.Xna.Framework;
@@ -39,7 +40,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             NPC.noTileCollide = true;
             NPC.chaseable = true;
             NPC.damage = 35;
-            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Music/BroodTheme");
+            Music = MusicManagementSystem.MusicSlots["Broodmother"];
             NPC.defense = 10;
             NPC.boss = true;
             NPC.lavaImmune = true;

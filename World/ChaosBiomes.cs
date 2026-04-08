@@ -2,6 +2,7 @@
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
@@ -37,10 +38,10 @@ namespace AAModClassic.World
         }
 
         public override int Music => 
-            Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/InfernoUnderground") :
-            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingDragon") :
-            !Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/IN") :
-            MusicLoader.GetMusicSlot(AAMod.instance, "Music/InfernoSurface");
+            Main.LocalPlayer.ZoneRockLayerHeight ? MusicManagementSystem.MusicSlots["Inferno_Underground"] :
+            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
+            !Main.dayTime ? MusicManagementSystem.MusicSlots["Inferno_Night"] :
+            MusicManagementSystem.MusicSlots["Inferno_Surface"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
 
@@ -82,9 +83,9 @@ namespace AAModClassic.World
         }
 
         public override int Music => 
-            AAWorld.downedZero ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingGiant") : 
-            NPC.downedMoonlord ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/VoidButNowItsSpooky") : 
-            MusicLoader.GetMusicSlot(AAMod.instance, "Music/Void");
+            AAWorld.downedZero ? MusicManagementSystem.MusicSlots["Void_PreIZ"] : 
+            NPC.downedMoonlord ? MusicManagementSystem.MusicSlots["Void_PostML"] : 
+            MusicManagementSystem.MusicSlots["Void"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 
@@ -102,7 +103,7 @@ namespace AAModClassic.World
             return player.GetModPlayer<AAPlayer>().ZoneMush = AAWorld.mushTiles > 100;
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Music/Shroom");
+        public override int Music => MusicManagementSystem.MusicSlots["Mushroom_Surface"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
 
@@ -119,7 +120,7 @@ namespace AAModClassic.World
             return AAWorld.terraTiles >= 1;
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Music/Terrarium");
+        public override int Music => MusicManagementSystem.MusicSlots["Terrarium"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
 
@@ -136,7 +137,7 @@ namespace AAModClassic.World
             return AAWorld.keepTiles >= 1;
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Music/LostKeep");
+        public override int Music => MusicManagementSystem.MusicSlots["LostKeep"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 
@@ -159,8 +160,8 @@ namespace AAModClassic.World
         }
 
         public override int Music => 
-            AAWorld.downedAllAncients ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingDragon") : 
-            (NPC.downedMoonlord && Main.dayTime) ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/AkumaShrine") : -1;
+            AAWorld.downedAllAncients ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] : 
+            (NPC.downedMoonlord && Main.dayTime) ? MusicManagementSystem.MusicSlots["Inferno_Pagoda"] : -1;
 
         public override SceneEffectPriority Priority => AAWorld.downedAllAncients ? SceneEffectPriority.Event : (NPC.downedMoonlord && Main.dayTime) ? SceneEffectPriority.Environment : SceneEffectPriority.None;
     }
@@ -172,7 +173,7 @@ namespace AAModClassic.World
             return player.GetModPlayer<AAPlayer>().ZoneStars = AAWorld.Radium >= 20;
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Music/Stars");
+        public override int Music => MusicManagementSystem.MusicSlots["Stars"];
         
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
     }
@@ -185,7 +186,7 @@ namespace AAModClassic.World
             return player.GetModPlayer<AAPlayer>().ZoneHoard;
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Music/Hoard");
+        public override int Music => MusicManagementSystem.MusicSlots["Hoard"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 
@@ -199,7 +200,7 @@ namespace AAModClassic.World
             return player.GetModPlayer<AAPlayer>().ZoneAcropolis = AAWorld.CloudTiles > 1;
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Music/Acropolis");
+        public override int Music => MusicManagementSystem.MusicSlots["Acropolis"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 
@@ -209,7 +210,7 @@ namespace AAModClassic.World
     if (Ancients.ZoneShip)
     {
         priority = MusicPriority.Event;
-        music = MusicLoader.GetMusicSlot("Music/Ship");
+        music = MusicManagementSystem.MusicSlots["Ship"];
 
         return;
     }

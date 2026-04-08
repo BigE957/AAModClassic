@@ -13,6 +13,7 @@ using AAModClassic.NPCs.Bosses.AH;
 using Terraria.Audio;
 using Terraria.Localization;
 using AAModClassic.Items.Boss.AH;
+using AAModClassic.Music;
 
 
 namespace AAModClassic.NPCs.Bosses.AH.Haruka
@@ -48,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             NPC.lavaImmune = true;
             NPC.boss = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AH");
+            Music = MusicManagementSystem.MusicSlots["Sisters"];
             NPC.noGravity = true;
             NPC.noTileCollide = true;
         }

@@ -15,6 +15,7 @@ using AAModClassic.Globals;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Toad
 {
@@ -83,7 +84,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
             NPC.boss = true;
             NPC.lavaImmune = true;
             NPC.noGravity = false;
-            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Music/TODE");
+            Music = MusicManagementSystem.MusicSlots["TruffleToad"];
             NPC.netAlways = true;
             NPC.alpha = 255;
             NPC.HitSound = SoundID.NPCHit1;

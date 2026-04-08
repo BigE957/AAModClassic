@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using AAModClassic.Effects;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -31,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+            Music = MusicManagementSystem.MusicSlots["Silence"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

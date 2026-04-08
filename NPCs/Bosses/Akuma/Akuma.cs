@@ -4,6 +4,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -66,7 +67,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Akuma");
+            Music = MusicManagementSystem.MusicSlots["Akuma"];
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/AkumaRoar");
             for (int k = 0; k < NPC.buffImmune.Length; k++)

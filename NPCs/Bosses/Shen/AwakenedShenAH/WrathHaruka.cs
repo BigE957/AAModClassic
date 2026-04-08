@@ -14,6 +14,7 @@ using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Dusts;
 using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
+using AAModClassic.Music;
 
 
 namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
@@ -47,7 +48,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             }
             NPC.lavaImmune = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
+            Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
             NPC.noGravity = true;
             NPC.noTileCollide = true;
         }

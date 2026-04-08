@@ -14,6 +14,7 @@ using Terraria.Localization;
 using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Items.Boss.Athena;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
@@ -46,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AthenaA");
+            Music = MusicManagementSystem.MusicSlots["Athena_Awakened"];
             NPC.noTileCollide = true;
         }
 

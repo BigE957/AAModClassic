@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
@@ -28,7 +29,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             NPC.noGravity = false;
             NPC.dontTakeDamage = true;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Monarch");
+            Music = MusicManagementSystem.MusicSlots["Monarch"];
         }
 
         int frame = 0;

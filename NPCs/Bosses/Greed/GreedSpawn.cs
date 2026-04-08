@@ -7,6 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Greed
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+            Music = MusicManagementSystem.MusicSlots["Silence"];
         }
 
         public override void AI()
@@ -54,7 +55,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
                 if (NPC.ai[0] >= 570)
                 {
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Music/Greed");
+                    Music = MusicManagementSystem.MusicSlots["Greed"];
                 }
 
             }

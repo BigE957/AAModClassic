@@ -9,6 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
@@ -37,7 +38,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.netAlways = true;
             NPC.scale *= 1.4f;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Shen");
+            Music = MusicManagementSystem.MusicSlots["Shen"];
         }
         
         public override void FindFrame(int frameHeight)

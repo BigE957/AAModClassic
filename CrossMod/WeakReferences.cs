@@ -635,7 +635,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<ToadTrophy>(),
                         ModContent.ItemType<ToadMask>(),
-                        ModContent.ItemType<ToadBox>()
+                        ModContent.ItemType<TruffleToadBox>()
                     },
                         ["customPortrait"] = GetPortrait("Toad"),
                         //["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
@@ -654,7 +654,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<BroodmotherTrophy>(),
                         ModContent.ItemType<BroodmotherMask>(),
-                        ModContent.ItemType<BroodBox>()
+                        ModContent.ItemType<BroodmotherBox>()
                     },
                     ["customPortrait"] = GetPortrait("Brood")
                 });
@@ -688,7 +688,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<Items.Boss.Serpent.SerpentTrophy>(),
                         ModContent.ItemType<SerpentMask>(),
-                        ModContent.ItemType<SerpentBox>()
+                        ModContent.ItemType<SubzeroBox>()
                     },
                     ["customPortrait"] = GetPortrait("Serpent1"),
                     //["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
@@ -724,7 +724,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<SagTrophy>(),
                         ModContent.ItemType<SagMask>(),
-                        ModContent.ItemType<SagBox>()
+                        ModContent.ItemType<SagittariusBox>()
                     },
                     ["customPortrait"] = GetPortrait("Sag")
                 });
@@ -809,7 +809,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<Items.Boss.Anubis.Forsaken.FAnubisTrophy>(),
                         ModContent.ItemType<FAnubisMask>(),
-                        ModContent.ItemType<AnubisFBox>()
+                        ModContent.ItemType<AnubisAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("FAnubis")
                 });
@@ -824,7 +824,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Owl>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<AthenaABox>()
+                        ModContent.ItemType<AthenaAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("AthenaA"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedAnubisA)
@@ -840,7 +840,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<GreedABox>()
+                        ModContent.ItemType<GreedAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("GreedA"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedAnubisA)
@@ -860,7 +860,7 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<Items.Boss.Equinox.NCTrophy>(),
                         ModContent.ItemType<DaybringerMask>(),
                         ModContent.ItemType<NightcrawlerMask>(),
-                        ModContent.ItemType<Equibox>()
+                        ModContent.ItemType<EquinoxBox>()
                     },
                     ["customPortrait"] = GetPortrait("Equinox")
                 });
@@ -909,7 +909,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<AkumaATrophy>(),
                         ModContent.ItemType<AkumaAMask>(),
-                        ModContent.ItemType<AkumaABox>()
+                        ModContent.ItemType<AkumaAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("AkumaA"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedAkuma && Main.expertMode)
@@ -942,7 +942,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<YamataATrophy>(),
                         ModContent.ItemType<YamataAMask>(),
-                        ModContent.ItemType<YamataABox>()
+                        ModContent.ItemType<YamataAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("YamataA"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode)
@@ -1022,7 +1022,7 @@ namespace AAModClassic.CrossMod
                     {
                         ModContent.ItemType<ShenATrophy>(),
                         ModContent.ItemType<ShenAMask>(),
-                        ModContent.ItemType<ShenABox>()
+                        ModContent.ItemType<ShenAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("ShenA"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedShen && Main.expertMode)

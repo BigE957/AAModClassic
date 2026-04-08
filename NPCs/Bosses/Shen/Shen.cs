@@ -20,6 +20,7 @@ using AAModClassic.UI.Titles;
 using AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH;
 using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -56,7 +57,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/ShenRoar");
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Shen");
+            Music = MusicManagementSystem.MusicSlots["Shen"];
             SceneEffectPriority = (SceneEffectPriority)11;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

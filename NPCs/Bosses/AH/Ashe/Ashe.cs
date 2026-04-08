@@ -15,6 +15,7 @@ using Terraria.Audio;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss.AH;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
@@ -52,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AH");
+            Music = MusicManagementSystem.MusicSlots["Sisters"];
         }
 
         public bool RuneCrash = false;

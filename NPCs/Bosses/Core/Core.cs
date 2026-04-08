@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
+using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Core.Projectiles;
 using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
@@ -43,7 +44,7 @@ public class Core : ModNPC
 		NPC.value = Item.sellPrice(0, 16);
 		NPC.HitSound = SoundID.NPCHit4;
 		NPC.DeathSound = SoundID.NPCDeath14;
-		Music = Mod.GetSoundSlot(SoundType.Music, "Music/Core");
+		Music = MusicManagementSystem.MusicSlots["BiomiteCore"];
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
 		NPC.alpha = 255;

@@ -8,6 +8,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus
 {
@@ -34,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             NPC.noGravity = false;
             NPC.dontTakeDamage = true;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Fungus");
+            Music = MusicManagementSystem.MusicSlots["Fungus"];
         }
 
         int frame = 0;

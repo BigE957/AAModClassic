@@ -20,7 +20,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             npc.height = 100;
             npc.alpha = 255;
             npc.damage = 0;
-            music = mod.GetSoundSlot(SoundType.Music, "Music/Cthulhu");
+            music = MusicManagementSystem.MusicSlots["Cthulhu"];
             npc.lifeMax = 1500000;
             npc.dontTakeDamage = false;
             npc.noGravity = true;

@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
 using Microsoft.Xna.Framework;
@@ -65,7 +66,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             if (NPC.ai[1] == 60)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn1"), new Color(102, 20, 48));
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/ChaosSissy");
+                Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
             }
 
             if (NPC.ai[1] == 300)
@@ -116,7 +117,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 820)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/AH");
+                Music = MusicManagementSystem.MusicSlots["Sisters"];
                 Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AsheSpawn>(), -1)].Transform(ModContent.NPCType<Ashe.Ashe>());
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn8"), new Color(102, 20, 48));
                 SpawnBoss(player, "Ashe");

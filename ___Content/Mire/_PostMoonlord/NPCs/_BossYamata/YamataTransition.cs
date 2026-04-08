@@ -3,6 +3,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -97,7 +98,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 				}
 				if (NPC.ai[0] >= 375) //after he says 'nyeh' on the server, change music on the client
 				{
-					Music = Mod.GetSoundSlot(SoundType.Music, "Music/Yamata2");
+					Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
 				}
 				if (NPC.ai[0] >= 900) //after he says 'as if' on the server, transition color
 				{
@@ -230,7 +231,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     }
                     if (NPC.ai[0] >= 180) //after he says 'heh' on the server, change music on the client
                     {
-                        Music = Mod.GetSoundSlot(SoundType.Music, "Music/Akuma2");
+                        Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
                     }
                     if (NPC.ai[0] >= 380)
                     {

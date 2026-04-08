@@ -6,6 +6,7 @@ using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
@@ -52,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCHit4;
             NPC.noGravity = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Zero");
+            Music = MusicManagementSystem.MusicSlots["Zero"];
             NPC.noTileCollide = true;
             NPC.knockBackResist = -1f;
             NPC.boss = true;

@@ -6,6 +6,7 @@ using System.IO;
 using Terraria.ID;
 using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
@@ -36,7 +37,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Yamata2");
+            Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
             NPC.knockBackResist *= 0.05f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -118,8 +119,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             }
 
             Laugh();
-
-            int roarSound = Mod.GetSoundSlot(SoundType.Sound, "Sounds/YamataRoar");
 
             if (!player.active || player.dead || !Body.NPC.active)
             {

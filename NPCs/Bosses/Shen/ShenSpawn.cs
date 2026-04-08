@@ -3,6 +3,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -27,7 +28,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.width = 100;
             NPC.height = 100;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenIntro");
+            Music = MusicManagementSystem.MusicSlots["Shen_Intro"];
             NPC.lifeMax = 1000000000;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
@@ -265,7 +266,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+            Music = MusicManagementSystem.MusicSlots["Silence"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -319,7 +320,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ChaosSissy");
+            Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -454,7 +455,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (NPC.ai[0] > 350)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
+                Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
                 for (int LOOP = 0; LOOP < 8; LOOP++)
                 {
                     Dust dust1;
@@ -521,7 +522,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 NPC.ai[0]++;
                 if (NPC.alpha < 255 && NPC.ai[0] > 200)
                 {
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
+                    Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
                     for (int LOOP = 0; LOOP < 8; LOOP++)
                     {
                         Dust dust1;

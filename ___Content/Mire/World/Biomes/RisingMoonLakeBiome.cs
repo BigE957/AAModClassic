@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AAModClassic.Music;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,8 @@ namespace AAModClassic.___Content.Mire.World.Biomes
         }
 
         public override int Music =>
-            AAWorld.downedAllAncients ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingDragon") :
-            (NPC.downedMoonlord && !Main.dayTime) ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/Shrines") : -1;
+            AAWorld.downedAllAncients ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
+            (NPC.downedMoonlord && !Main.dayTime) ? MusicManagementSystem.MusicSlots["Mire_Lake"] : -1;
 
         public override SceneEffectPriority Priority => AAWorld.downedAllAncients ? SceneEffectPriority.Event : (NPC.downedMoonlord && !Main.dayTime) ? SceneEffectPriority.Environment : SceneEffectPriority.None;
     }

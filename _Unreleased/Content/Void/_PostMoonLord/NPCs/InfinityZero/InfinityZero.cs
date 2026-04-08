@@ -15,6 +15,7 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Boss;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using ReLogic.Content;
+using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -63,7 +64,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.noTileCollide = true;
 			NPC.netAlways = true;
 			NPC.chaseable = true;
-			Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/IZ");
+			Music = MusicManagementSystem.MusicSlots["IZ"];
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
@@ -386,7 +387,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (NPC.life <= NPC.lifeMax / 6)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
+                Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
 			if (NPC.life <= 0)
 			{

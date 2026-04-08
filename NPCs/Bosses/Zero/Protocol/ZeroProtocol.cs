@@ -17,6 +17,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -56,7 +57,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.noTileCollide = true;
             NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Zerohit");
             NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/ZeroDeath");
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Zero2");
+            Music = MusicManagementSystem.MusicSlots["Zero_Awakened"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             NPC.netAlways = true;
             NPC.npcSlots = 200;

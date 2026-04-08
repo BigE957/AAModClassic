@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.Music;
 
 
 namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
@@ -31,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
             NPC.dontTakeDamage = true;
             NPC.boss = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+            Music = MusicManagementSystem.MusicSlots["Silence"];
             NPC.noTileCollide = false;
         }
 
@@ -61,7 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
             if (NPC.ai[0] >= 600)
             {
                 NPC.ai[1] = 1;
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/ThinkAboutIt");
+                Music = MusicManagementSystem.MusicSlots["Rajah_Epilogue"];
                 NPC.netUpdate = true;
             }
             if (NPC.ai[0] == 600)

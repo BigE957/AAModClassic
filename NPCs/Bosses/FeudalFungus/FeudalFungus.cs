@@ -13,6 +13,7 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Flasks;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus
@@ -74,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Fungus");
+            Music = MusicManagementSystem.MusicSlots["Fungus"];
             NPC.alpha = 255;
         }
 

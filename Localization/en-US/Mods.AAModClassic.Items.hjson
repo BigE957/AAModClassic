@@ -1550,7 +1550,7 @@ AcropolisBox: {
 	Tooltip: Plays 'Palace in the Sky' by ENNWAY
 }
 
-AkumaABox: {
+AkumaAwakenedBox: {
 	DisplayName: Music Box (Oni Akuma)
 	Tooltip: Plays 'Dawn of the Dragon' by Tyseki
 }
@@ -1565,12 +1565,12 @@ AnubisBox: {
 	Tooltip: Plays 'Strings of Judgement' by Tyseki
 }
 
-AnubisFBox: {
+AnubisAwakenedBox: {
 	DisplayName: Music Box (Forsaken Anubis)
 	Tooltip: Plays 'Purgatorium' by Tyseki
 }
 
-AthenaABox: {
+AthenaAwakenedBox: {
 	DisplayName: Music Box (Olympian Athena)
 	Tooltip: Plays 'Goddess of Those Winged' by ENNWAY
 }
@@ -1580,7 +1580,7 @@ AthenaBox: {
 	Tooltip: Plays 'Magisaint' by ENNWAY
 }
 
-BroodBox: {
+BroodmotherBox: {
 	DisplayName: Music Box (Broodmother)
 	Tooltip: Plays 'Blazing Fury' by Spectral Aves
 }
@@ -1590,13 +1590,13 @@ DjinnBox: {
 	Tooltip: Plays 'The Dust Bowl' by Tyseki
 }
 
-Equibox: {
+EquinoxBox: {
 	DisplayName: Music Box (Equinox Worms)
 	Tooltip: Plays 'Symphony of the Stars'
 }
 
-FateBox: {
-	DisplayName: Music Box (True Void)
+VoidPostMLBox: {
+	DisplayName: Music Box (Void - Activated)
 	Tooltip: Plays 'Systems Engaged'
 }
 
@@ -1605,7 +1605,7 @@ FungusBox: {
 	Tooltip: Plays 'Bioluminescent Beatdown' by Spectral Aves
 }
 
-GreedABox: {
+GreedAwakenedBox: {
 	DisplayName: Music Box (Worm King Greed)
 	Tooltip: Plays 'Ira De Riquezas Perdidas' by Tyseki
 }
@@ -1630,7 +1630,7 @@ HydraBox: {
 	Tooltip: Plays 'Abyssal Wrath' by Spectral Aves
 }
 
-InfernoBox: {
+InfernoSurfaceBox: {
 	DisplayName: Music Box (Inferno)
 	Tooltip: Plays 'Scorched Landscape' by Shadow Figure
 }
@@ -1640,17 +1640,17 @@ InfernoNightBox: {
 	Tooltip: Plays 'Burnt to Ashes' by Shadow Figure
 }
 
-InfernoUBox: {
+InfernoUndergroundBox: {
 	DisplayName: Music Box (Underground Inferno)
 	Tooltip: Plays 'Superheated' by Shadow Figure
 }
 
-LakeBox: {
+MireLakeBox: {
 	DisplayName: Music Box (Lake of the Rising Moon)
 	Tooltip: Plays 'Lake of Souls' by Rockwizard
 }
 
-MireBox: {
+MireSurfaceBox: {
 	DisplayName: Music Box (Mire)
 	Tooltip: Plays 'Secluded Swamp' by ProduceVGM
 }
@@ -1660,7 +1660,7 @@ MireDayBox: {
 	Tooltip: Plays 'Through the Toxic Mist' by ProduceVGM
 }
 
-MireUBox: {
+MireUndergroundBox: {
 	DisplayName: Music Box (Underground Mire)
 	Tooltip: Plays 'Creepy Crawlers' by ProduceVGM
 }
@@ -1670,7 +1670,7 @@ MonarchBox: {
 	Tooltip: Plays 'Fungal Face-off' by Spectral Aves
 }
 
-PagodaBox: {
+InfernoPagodaBox: {
 	DisplayName: Music Box (Pagoda of the Rising Sun)
 	Tooltip: Plays 'Scorched Tower' by Rockwizard
 }
@@ -1680,27 +1680,32 @@ RajahBox: {
 	Tooltip: Plays 'JUSTICE' by Spectral Aves
 }
 
-SagBox: {
+SagittariusBoxBox: {
 	DisplayName: Music Box (Sagittarius)
 	Tooltip: Plays 'Event Horizon' by SpectralAves
 }
 
-SDBox: {
+SagittariusBox: {
+	DisplayName: Sagittarius Box
+	Tooltip: ""
+}
+
+ChaosPreShenBox: {
 	DisplayName: Music Box (Sleeping Dragon)
 	Tooltip: Plays 'Sleeping Dragon'
 }
 
-SerpentBox: {
-	DisplayName: Subzero Serpent Music Box
+SubzeroBox: {
+	DisplayName: Music Box (Subzero Serpent)
 	Tooltip: Plays 'Bells of Ice'
 }
 
-SGBox: {
+VoidPreIZBox: {
 	DisplayName: Music Box (Sleeping Giant)
 	Tooltip: Plays 'Sleeping Giant' by LordCakeSpy
 }
 
-ShenABox: {
+ShenAwakenedBox: {
 	DisplayName: Music Box (Awakened Shen Doragon)
 	Tooltip: Plays 'VS Champion Of Alola' by Emdasche
 }
@@ -1715,7 +1720,7 @@ SistersBox: {
 	Tooltip: Plays 'Sisters of Anarchy' by Shadow Figure
 }
 
-StarBox: {
+StarsBox: {
 	DisplayName: Music Box (Celestial Stars)
 	Tooltip: Plays 'Interstellar'
 }
@@ -1725,7 +1730,7 @@ TerrariumBox: {
 	Tooltip: Plays 'Heart of the World' by Shadow Figure feat. Charlie Debnam
 }
 
-ToadBox: {
+TruffleToadBox: {
 	DisplayName: Music Box (Truffle Toad)
 	Tooltip: Plays 'TODESTOOL' by Spectral Aves
 }
@@ -1735,7 +1740,7 @@ VoidBox: {
 	Tooltip: Plays 'What Once Was'
 }
 
-YamataABox: {
+YamataAwakenedBox: {
 	DisplayName: Music Box (Yamata No Orochi)
 	Tooltip: Plays 'Abyssal Nightmare' by Tyseki
 }
@@ -1745,7 +1750,7 @@ YamataBox: {
 	Tooltip: Plays 'Crescent of Madness' by Saucecoie
 }
 
-Zero2Box: {
+ZeroAwakenedBox: {
 	DisplayName: Music Box (Zero Protocol)
 	Tooltip: Plays 'Doomsday Arrives' by Saucecoie
 }
@@ -2127,8 +2132,8 @@ MoonAltarA: {
 	Tooltip: ""
 }
 
-MushBox: {
-	DisplayName: Red Mushroom Music Box
+MushroomSurfaceBox: {
+	DisplayName: Music Box (Red Mushroom)
 	Tooltip: Plays 'Overgrowth' by Spectral Aves
 }
 
@@ -9445,9 +9450,9 @@ TerraKey: {
 	Tooltip: ""
 }
 
-SRajahBox: {
-	DisplayName: Champion of the Innocent Music Box
-	Tooltip: Plays 'Supreme Justice' by OmegaFerretMusic
+RajahAwakenedBox: {
+	DisplayName: Music Box (Champion of the Innocent)
+	Tooltip: Plays 'Supreme Justice'
 }
 
 RajahSPTooltip: {

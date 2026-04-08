@@ -14,6 +14,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose;
+using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
@@ -39,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.DeathSound = SoundID.Item88;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/SoC");
+            Music = MusicManagementSystem.MusicSlots["SoC"];
             NPC.noGravity = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
@@ -183,7 +184,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (NPC.life <= NPC.lifeMax / 10)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
+                Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
                 if (!Pinch)
                 {
                     Pinch = true;

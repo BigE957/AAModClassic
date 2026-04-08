@@ -14,6 +14,7 @@ using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
 using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {
@@ -37,7 +38,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             NPC.aiStyle = -1;
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Sag");
+            Music = MusicManagementSystem.MusicSlots["Sagittarius"];
             NPC.value = 80000f;
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;

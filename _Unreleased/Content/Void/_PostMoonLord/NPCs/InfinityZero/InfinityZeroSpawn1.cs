@@ -9,6 +9,7 @@ using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using Terraria.ID;
+using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -36,7 +37,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.scale *= 1.4f;
             NPC.behindTiles = true;
             //TODOIZ what is he even talking abt here
-            Music = Mod.GetSoundSlot(SoundType.Music, "Lulspooky");
+            //Music = Mod.GetSoundSlot(SoundType.Music, "Lulspooky");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -61,7 +62,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             StartTimer--;
             if (StartTimer <= 0)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/IZ");
+                Music = MusicManagementSystem.MusicSlots["IZ"];
                 NPC.alpha = 0;
                 int endFrame = spawnState == 0 ? 7 : spawnState == 1 ? 4 : spawnState == 2 ? 4 : spawnState == 3 ? 4 : spawnState == 4 ? 3 : 6;
                 if (Frame >= endFrame)

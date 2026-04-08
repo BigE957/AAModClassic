@@ -1,3 +1,4 @@
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -21,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.height = 100;
             NPC.alpha = 255;
             NPC.damage = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/IZDeath");
+            Music = MusicManagementSystem.MusicSlots["IZDeath"];
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;

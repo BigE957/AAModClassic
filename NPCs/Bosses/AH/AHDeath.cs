@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -29,7 +30,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ChaosSissy");
+            Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
 
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

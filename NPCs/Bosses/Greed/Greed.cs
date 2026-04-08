@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using AAModClassic.Projectiles.Greed.WKG;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
@@ -46,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Music/Greed");
+            Music = MusicManagementSystem.MusicSlots["Greed"];
             NPC.alpha = 255;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

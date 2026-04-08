@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using AAModClassic.Dusts;
+using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
@@ -42,7 +43,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[24] = true;
             NPC.buffImmune[31] = true;
             NPC.buffImmune[44] = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/SoC");
+            Music = MusicManagementSystem.MusicSlots["SoC"];
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
         }
 

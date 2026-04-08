@@ -6,6 +6,7 @@ using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
+using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -111,7 +112,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
             NPC.chaseable = false;
             NPC.value = Item.sellPrice(0, 40, 0, 0);
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Yamata2");
+            Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

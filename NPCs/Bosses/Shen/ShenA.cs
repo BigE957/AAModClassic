@@ -16,6 +16,7 @@ using Terraria.Audio;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -35,7 +36,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.defense = 80;
             NPC.lifeMax = 1000000;
             NPC.value = Item.sellPrice(1, 0, 0, 0);
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
+            Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
             SceneEffectPriority = (SceneEffectPriority)11;
             isAwakened = true;
             NPC.alpha = 255;
@@ -716,7 +717,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (Health2)
             {
-               // music = mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
+               // music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
         }
 

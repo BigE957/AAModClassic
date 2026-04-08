@@ -4,6 +4,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Materials;
+using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -49,7 +50,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             NPC.DeathSound = null;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Equinox");
+            Music = MusicManagementSystem.MusicSlots["Equinox"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
 		}
 

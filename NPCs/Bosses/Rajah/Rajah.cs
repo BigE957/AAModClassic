@@ -19,6 +19,7 @@ using AAModClassic.Items.Boss.Rajah;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -49,7 +50,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.value = Item.sellPrice(0, 1, 10, 0);
             NPC.boss = true;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/RajahTheme");
+            Music = MusicManagementSystem.MusicSlots["Rajah"];
         }
 
         public bool isSupreme = false;
@@ -208,7 +209,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         }
                     }
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah5") + Name.ToUpper() + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah6"), 107, 137, 179);
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Music/LastStand");
+                    Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
                 }
             }
 
@@ -1251,7 +1252,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.defense = 0;
             NPC.lifeMax = 1200000;
             NPC.life = 1200000;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/SupremeRajah");
+            Music = MusicManagementSystem.MusicSlots["Rajah_Awakened"];
             isSupreme = true;
             NPC.value = Item.sellPrice(3, 0, 0, 0);
         }

@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -46,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             NPC.boss = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Djinn");
+            Music = MusicManagementSystem.MusicSlots["Djinn"];
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

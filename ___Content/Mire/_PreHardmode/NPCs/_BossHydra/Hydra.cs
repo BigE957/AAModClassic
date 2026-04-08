@@ -5,6 +5,7 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -54,7 +55,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             NPC.boss = true;
             NPC.noGravity = false;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/HydraTheme");
+            Music = MusicManagementSystem.MusicSlots["Hydra"];
             NPC.buffImmune[BuffID.Poisoned] = true;
         }
 

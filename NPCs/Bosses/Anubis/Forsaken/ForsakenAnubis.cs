@@ -2,6 +2,7 @@
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -34,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/AnubisA");
+            Music = MusicManagementSystem.MusicSlots["Anubis_Awakened"];
             NPC.value = Item.sellPrice(0, 10, 0, 0);
         }
 

@@ -1,6 +1,7 @@
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -32,7 +33,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = Mod.GetSoundSlot(SoundType.Music, "_Unreleased/Music/IZDeath"); //TODOIZ why doesnt this work????
+            Music = MusicManagementSystem.MusicSlots["IZDeath"]; //TODOIZ why doesnt this work????
         }
 
         public int OblivionSpeech = 0;

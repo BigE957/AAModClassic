@@ -7,6 +7,7 @@ using Terraria.Audio;
 
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 { 
@@ -31,7 +32,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             NPC.damage = 0;
             NPC.value = 0;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ChaosSissy");
+            Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
             NPC.width = 38;
             NPC.height = 58;
         }

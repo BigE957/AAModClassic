@@ -4,6 +4,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
+using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -117,7 +118,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             NPC.defense = 999999;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Yamata");
+            Music = MusicManagementSystem.MusicSlots["Yamata"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             NPC.noGravity = true;
             NPC.netAlways = true;

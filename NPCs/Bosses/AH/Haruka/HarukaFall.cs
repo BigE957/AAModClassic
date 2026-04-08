@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Items.Boss.AH;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -29,7 +30,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             NPC.dontTakeDamage = true;
             NPC.damage = 0;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+            Music = MusicManagementSystem.MusicSlots["Silence"];
         }
 
         public override void AI()

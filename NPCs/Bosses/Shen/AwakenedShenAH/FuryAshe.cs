@@ -14,6 +14,7 @@ using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic;
 using AAModClassic.NPCs.Bosses.Shen;
 using Terraria.Localization;
+using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 {
@@ -48,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/ShenA");
+            Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
         }
         
         public int[] Vortexes = null;

@@ -10,6 +10,7 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
@@ -67,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             NPC.netAlways = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/Monarch");
+            Music = MusicManagementSystem.MusicSlots["Monarch"];
 
         }
 

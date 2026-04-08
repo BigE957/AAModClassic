@@ -3,6 +3,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.___Content.Mire.World.Biomes.Water;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -37,10 +38,10 @@ namespace AAModClassic.___Content.Mire.World.Biomes
         }
 
         public override int Music =>
-            Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/MireUnderground") :
-            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/SleepingDragon") :
-            Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Music/DM") :
-            MusicLoader.GetMusicSlot(AAMod.instance, "Music/MireSurface");
+            Main.LocalPlayer.ZoneRockLayerHeight ? MusicManagementSystem.MusicSlots["Mire_Underground"] :
+            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
+            Main.dayTime ? MusicManagementSystem.MusicSlots["Mire_Day"] :
+            MusicManagementSystem.MusicSlots["Mire_Surface"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
 

@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Effects;
+using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Terraria;
 using Terraria.Audio;
@@ -31,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.dontTakeDamage = true;
             NPC.damage = 0;
             NPC.value = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+            Music = MusicManagementSystem.MusicSlots["Silence"];
         }
 
         readonly int frameHeight = 100;
@@ -43,7 +44,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.ai[3] = 39;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Music/silence");
+                Music = MusicManagementSystem.MusicSlots["Silence"];
                 if (NPC.velocity.Y == 0)
                 {
                     for (int a = 0; a < 8; a++)
