@@ -1,31 +1,35 @@
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
-using System;
-using Terraria.Localization;
-using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Darkmatter
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DarkmatterHelmet : BaseAAItem
 	{
-        
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmatter Helmet");
-			/* Tooltip.SetDefault(@"10% increased melee damage
+            /* Tooltip.SetDefault(@"10% increased melee damage
 Dark, yet still barely visible"); */
-		}
+
+            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+        }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
                 texture,
@@ -146,16 +150,25 @@ Dark, yet still barely visible"); */
         }
         public class drawShield : PlayerDrawLayer// = new PlayerLayer("AAMod", "drawShield", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
         {
+            public static Asset<Texture2D> DarkmatterShieldTex;
+            public static Asset<Texture2D> RadiumShieldTex;
+
+            public override void SetStaticDefaults()
+            {
+                DarkmatterShieldTex = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Darkmatter/DarkmatterShield");
+                RadiumShieldTex = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumShield");
+            }
+
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.ElectrifiedDebuffFront);
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
                 Player drawPlayer = drawInfo.drawPlayer;
                 Mod mod = AAMod.instance;
-                Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Darkmatter/DarkmatterShield").Value;
+                Texture2D texture = DarkmatterShieldTex.Value;
                 if(drawPlayer.GetModPlayer<HelmetEffects>().badShield)
                 {
-                    texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumShield").Value;
+                    texture = RadiumShieldTex.Value;
                 }
                 if (drawPlayer.GetModPlayer<HelmetEffects>().ShieldTime>0)
                 {

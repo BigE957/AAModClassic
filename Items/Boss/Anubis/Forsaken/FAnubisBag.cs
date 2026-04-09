@@ -1,18 +1,23 @@
-using Terraria;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using ReLogic.Content;
+using Terraria;
 using Terraria.ID;
-using AAModClassic.Items.Vanity.Mask;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
     public class FAnubisBag : BaseAAItem
     {
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
         }
 
         public override void SetDefaults()
@@ -29,7 +34,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
                 texture,

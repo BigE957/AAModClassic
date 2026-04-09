@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,11 +10,15 @@ namespace AAModClassic.Items.Vanity.Mask
     [AutoloadEquip(EquipType.Head)]
 	public class GripMaskRed : BaseAAItem
 	{
-		public override void SetStaticDefaults()
+        public static Asset<Texture2D> Glowmask;
+
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Inferno Grip of Chaos Mask");
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+
+            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
         }
 
         public override void SetDefaults()
@@ -26,7 +31,7 @@ namespace AAModClassic.Items.Vanity.Mask
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
                 texture,

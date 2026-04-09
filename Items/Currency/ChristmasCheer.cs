@@ -1,22 +1,27 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.GameContent.UI;
-using Terraria.Localization;
+﻿using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria;
+using Terraria.GameContent.UI;
+using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.Items.Currency
 {
     public class ChristmasCheer : BaseAAItem
     {
+        public static Asset<Texture2D> ChristmasCheerAnimatedTex;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Christmas Cheer");
             // Tooltip.SetDefault("Pure joy and minty fresh goodness");
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+
+            ChristmasCheerAnimatedTex = ModContent.Request<Texture2D>("AAModClassic/Items/Currency/ChristmasCheerA");
         }
 
 
@@ -49,7 +54,7 @@ namespace AAModClassic.Items.Currency
                 }
             }
 
-            Texture2D itemTex = ModContent.Request<Texture2D>("AAModClassic/Items/Currency/ChristmasCheerA").Value;
+            Texture2D itemTex = ChristmasCheerAnimatedTex.Value;
 
             Rectangle iframe = BaseDrawing.GetFrame(cframe, itemTex.Width, itemTex.Height / 4, 0, 0);
 

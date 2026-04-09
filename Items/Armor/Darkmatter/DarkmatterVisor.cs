@@ -1,21 +1,21 @@
+using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.ModLoader;
-using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Projectiles;
-using AAModClassic.Items.Materials;
-using AAModClassic.Tiles.Crafters;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Darkmatter
 {
     [AutoloadEquip(EquipType.Head)]
     public class DarkmatterVisor : BaseAAItem
     {
-
         public override void SetStaticDefaults()
         {
 
@@ -128,15 +128,24 @@ Dark, yet still barely visible"); */
         }
         public class PortalDrawLayer : PlayerDrawLayer// = new PlayerLayer("AAMod", "Portal", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
         {
+            public static Asset<Texture2D> DarkPortalTex;
+            public static Asset<Texture2D> SunPortalTex;
+
+            public override void SetStaticDefaults()
+            {
+                DarkPortalTex = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Darkmatter/DarkPortal");
+                SunPortalTex = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/SunPortal");
+            }
+            
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.ElectrifiedDebuffFront);
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
                 Player drawPlayer = drawInfo.drawPlayer;
                 Mod mod = AAMod.instance;
-                Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Darkmatter/DarkPortal").Value;
+                Texture2D texture = DarkPortalTex.Value;
                 if(drawPlayer.GetModPlayer<VisorEffects>().sunPortal)
                 {
-                    texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/SunPortal").Value;
+                    texture = SunPortalTex.Value;
                 }
                 if (drawPlayer.GetModPlayer<VisorEffects>().setBonus)
                 {

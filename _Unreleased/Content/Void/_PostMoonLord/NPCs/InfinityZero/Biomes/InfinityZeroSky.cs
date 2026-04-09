@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -46,12 +47,19 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
             public bool IsAlive;
         }
 
-        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/InfinityZeroSky_Bolt").Value;
-        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/InfinityZeroSky_Flash").Value;
         private Bolt[] bolts;
         public bool Active;
         public int ticksUntilNextBolt;
         public float Intensity;
+
+        public static Asset<Texture2D> BoltTex;
+        public static Asset<Texture2D> FlashTex;
+
+        public override void OnLoad()
+        {
+            BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/InfinityZeroSky_Bolt");
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/InfinityZeroSky_Flash");
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -115,11 +123,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
                     if (rectangle.Contains((int)position.X, (int)position.Y))
                     {
                         Vector2 value4 = new Vector2(1f / bolts[i].Depth, 0.9f / bolts[i].Depth);
-                        Texture2D texture = boltTexture;
+                        Texture2D texture = BoltTex.Value;
                         int life = bolts[i].Life;
                         if (life > 26 && life % 2 == 0)
                         {
-                            texture = flashTexture;
+                            texture = FlashTex.Value;
                         }
                         float scale2 = life / 30f;
                         spriteBatch.Draw(texture, position, null, Color.White * scale * scale2 * Intensity, bolts[i].Rotation, Vector2.Zero, scale, SpriteEffects.None, 0f);

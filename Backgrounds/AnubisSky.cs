@@ -1,6 +1,7 @@
 ﻿using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -36,6 +37,18 @@ namespace AAModClassic.Backgrounds
 
         private readonly UnifiedRandom _random = new UnifiedRandom();
 
+        public static Asset<Texture2D> BeamTex;
+        public static Asset<Texture2D>[] RuneTex = new Asset<Texture2D>[8];
+
+        public override void OnLoad()
+        {
+            BeamTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AnubisBeam");
+            for (int i = 0; i < RuneTex.Length; i++)
+            {
+                RuneTex[i] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Runes/Rune" + i);
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Active)
@@ -58,11 +71,11 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D BeamTexture = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AnubisBeam").Value;
-            Texture2D[] RuneTextures = new Texture2D[8];
-            for (int i = 0; i < RuneTextures.Length; i++)
+            Texture2D BeamTexture = BeamTex.Value;
+            Texture2D[] RuneTextures = new Texture2D[RuneTex.Length];
+            for (int i = 0; i < RuneTex.Length; i++)
             {
-                RuneTextures[i] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Runes/Rune" + i).Value;
+                RuneTextures[i] = RuneTex[i].Value;
             }
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {

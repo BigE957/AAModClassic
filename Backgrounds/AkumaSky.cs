@@ -1,6 +1,7 @@
 ﻿using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -45,6 +46,17 @@ namespace AAModClassic.Backgrounds
 
         private readonly float num = 1200f;
 
+        public static Asset<Texture2D> SunTex;
+        public static Asset<Texture2D> MeteorTex;
+        public static Asset<Texture2D> SkyTex;
+
+        public override void OnLoad()
+        {
+            SunTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex");
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Active)
@@ -81,16 +93,16 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun").Value;
-            Texture2D MeteorTexture = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor").Value;
-            Texture2D SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex").Value;
+            Texture2D sun = SunTex.Value;
+            Texture2D meteor = MeteorTex.Value;
+            Texture2D sky = SkyTex.Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().AkumaAltar)
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                    spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.DeepSkyBlue * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
+                    spriteBatch.Draw(sky, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.DeepSkyBlue * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
                     float num64 = 1f;
                     num64 -= Main.cloudAlpha * 1.5f;
                     if (num64 < 0f)
@@ -121,7 +133,7 @@ namespace AAModClassic.Backgrounds
                     num22 = MathHelper.Lerp(0.25f, num22, Intensity);
 
                     Color color6 = new Color((byte)(255f * num64), (byte)(Color.White.G * num64), (byte)(Color.White.B * num64), (byte)(255f * num64));
-                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(sun, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, sun.Width, sun.Height)), color6, rotation, new Vector2(sun.Width / 2, sun.Height / 2), num22, SpriteEffects.None, 0f);
                 }
             }
 
@@ -156,7 +168,7 @@ namespace AAModClassic.Backgrounds
                 Meteors[j].FrameCounter = (Meteors[j].FrameCounter + 1) % 12;
                 if (rectangle.Contains((int)position.X, (int)position.Y))
                 {
-                    spriteBatch.Draw(MeteorTexture, position, new Rectangle?(new Rectangle(0, num3 * (MeteorTexture.Height / 4), MeteorTexture.Width, MeteorTexture.Height / 4)), Color.White * scale * Intensity, 0f, Vector2.Zero, value4.X * 5f * Meteors[j].Scale, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(meteor, position, new Rectangle?(new Rectangle(0, num3 * (meteor.Height / 4), meteor.Width, meteor.Height / 4)), Color.White * scale * Intensity, 0f, Vector2.Zero, value4.X * 5f * Meteors[j].Scale, SpriteEffects.None, 0f);
                 }
             }
         }

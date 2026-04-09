@@ -1,16 +1,19 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.GameContent.UI;
-using Terraria.Localization;
+﻿using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria;
+using Terraria.GameContent.UI;
+using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.Items.Currency
 {
     public class MonsterSoul : BaseAAItem
     {
+        public static Asset<Texture2D> MonsterSoulAnimatedTex;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Monster Soul");
@@ -18,6 +21,8 @@ namespace AAModClassic.Items.Currency
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+
+            MonsterSoulAnimatedTex = ModContent.Request<Texture2D>("AAModClassic/Items/Currency/MonsterSoulA");
         }
 
 
@@ -50,7 +55,7 @@ namespace AAModClassic.Items.Currency
                 }
             }
 
-            Texture2D itemTex = ModContent.Request<Texture2D>("AAModClassic/Items/Currency/MonsterSoulA").Value;
+            Texture2D itemTex = MonsterSoulAnimatedTex.Value;
 
             Rectangle iframe = BaseDrawing.GetFrame(cframe, itemTex.Width, itemTex.Height / 8, 0, 0);
 

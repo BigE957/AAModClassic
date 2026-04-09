@@ -1,16 +1,21 @@
-using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Shen
 {
     public class ShenCache : BaseAAItem
 	{
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Cache");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
         }
 
 		public override void SetDefaults()
@@ -26,7 +31,7 @@ namespace AAModClassic.Items.Boss.Shen
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
                 texture,

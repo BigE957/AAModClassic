@@ -53,13 +53,13 @@ namespace AAModClassic.___Content.Mire.World.Biomes
         public bool Active;
         public float Intensity;
 
-        public static Asset<Texture2D> Moon;
-        public static Asset<Texture2D> Sky;
+        public static Asset<Texture2D> MoonTex;
+        public static Asset<Texture2D> SkyTex;
 
         public override void OnLoad()
         {
-            Moon = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon");
-            Sky = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Sky");
+            MoonTex = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/Backgrounds/MireBiome_Sky");
         }
 
         public override void Update(GameTime gameTime)
@@ -87,8 +87,8 @@ namespace AAModClassic.___Content.Mire.World.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D moon = Moon.Value;
-            Texture2D sky = Sky.Value;
+            Texture2D moon = MoonTex.Value;
+            Texture2D sky = SkyTex.Value;
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (!Main.dayTime || (!Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().MoonAltar))
