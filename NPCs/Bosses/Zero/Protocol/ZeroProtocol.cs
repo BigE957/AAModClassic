@@ -100,13 +100,13 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                Move[0] = reader.ReadFloat();
-                Move[1] = reader.ReadFloat();
-                Move[2] = reader.ReadFloat();
-                Move[3] = reader.ReadFloat();
-                Counter[0] = reader.ReadInt();
-                Counter[1] = reader.ReadInt();
-                Counter[2] = reader.ReadInt();
+                Move[0] = reader.ReadSingle();
+                Move[1] = reader.ReadSingle();
+                Move[2] = reader.ReadSingle();
+                Move[3] = reader.ReadSingle();
+                Counter[0] = reader.ReadInt32();
+                Counter[1] = reader.ReadInt32();
+                Counter[2] = reader.ReadInt32();
             }
         }
 

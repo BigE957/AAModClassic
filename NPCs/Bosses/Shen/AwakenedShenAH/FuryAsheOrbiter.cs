@@ -54,8 +54,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                body = reader.ReadInt();
-                rotValue = reader.ReadFloat();
+                body = reader.ReadInt32();
+                rotValue = reader.ReadSingle();
             }
         }
 

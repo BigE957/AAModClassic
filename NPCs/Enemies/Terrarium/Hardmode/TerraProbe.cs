@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -53,7 +54,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
                 if (NPC.ai[2] >= 90)
                 {
                     NPC.ai[2] = 0;
-                    int projType = Mod.ProjType("PurityShot");
+                    int projType = ModContent.ProjectileType<PurityShot>();
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                         BaseAI.FireProjectile(player.Center, NPC, projType, (int)(NPC.damage * 0.25f), 0f, 2f);
                     NPC.netUpdate2 = true;

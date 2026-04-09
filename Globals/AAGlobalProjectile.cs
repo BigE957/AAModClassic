@@ -243,11 +243,11 @@ namespace AAModClassic.Globals
                         int tileY = 0;
                         while(tileX < 20 && tileY < 20)
                         {
-                            if (Main.tile[projectileX - 10 + tileX, projectileY - 20 + tileY].lava())
+                            if (Main.tile[projectileX - 10 + tileX, projectileY - 20 + tileY].LiquidType == LiquidID.Lava)
                             {
                                 liquidtype = 1;
                             }
-                            else if (Main.tile[projectileX - 10 + tileX, projectileY - 20 + tileY].honey())
+                            else if (Main.tile[projectileX - 10 + tileX, projectileY - 20 + tileY].LiquidType == LiquidID.Honey)
                             {
                                 liquidtype = 2;
                             }

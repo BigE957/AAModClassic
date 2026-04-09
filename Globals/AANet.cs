@@ -35,12 +35,12 @@ namespace AAModClassic.Globals
 					if (Main.netMode == NetmodeID.Server)
 					{
 						int playerID = bb.ReadByte();
-						int bossType = bb.ReadShort();
-						bool spawnMessage = bb.ReadBool();
-						int npcCenterX = bb.ReadInt();
-						int npcCenterY = bb.ReadInt();
+						int bossType = bb.ReadInt16();
+						bool spawnMessage = bb.ReadBoolean();
+						int npcCenterX = bb.ReadInt32();
+						int npcCenterY = bb.ReadInt32();
 						string overrideDisplayName = bb.ReadString();
-						bool namePlural = bb.ReadBool();
+						bool namePlural = bb.ReadBoolean();
 
 						AAModGlobalNPC.SpawnBoss(Main.player[playerID], bossType, spawnMessage, new Vector2(npcCenterX, npcCenterY), overrideDisplayName, namePlural);
 					}

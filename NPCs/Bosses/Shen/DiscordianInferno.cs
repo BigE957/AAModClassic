@@ -111,7 +111,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                InternalAI[0] = reader.ReadFloat();
+                InternalAI[0] = reader.ReadSingle();
             }
         }
 

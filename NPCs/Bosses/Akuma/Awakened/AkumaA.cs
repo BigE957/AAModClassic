@@ -109,9 +109,9 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
             }
         }
         public Texture2D AkumaTex = null;

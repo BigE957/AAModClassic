@@ -45,8 +45,8 @@ namespace AAModClassic.Projectiles
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                InternalAI[0] = reader.ReadFloat();
-                InternalAI[1] = reader.ReadFloat();
+                InternalAI[0] = reader.ReadSingle();
+                InternalAI[1] = reader.ReadSingle();
             }
         }
 

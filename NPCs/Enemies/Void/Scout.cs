@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic.NPCs.Enemies.Void
 {
@@ -63,7 +64,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-                    int projType = Mod.ProjType("NeutralizerP");
+                    int projType = ModContent.ProjectileType<Neutralizer>();
 
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                     {

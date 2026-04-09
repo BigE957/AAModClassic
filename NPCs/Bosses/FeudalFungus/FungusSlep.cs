@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus
 {
@@ -47,11 +48,11 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             {
                 return 0f;
             }
-            if (spawnInfo.Player.InZone("Surface"))
+            if (spawnInfo.Player.ZoneSurface())
             {
                 return SpawnCondition.OverworldMushroom.Chance * 0.001f;
             }
-            if (spawnInfo.Player.InZone("Underground"))
+            if (spawnInfo.Player.ZoneDirtLayerHeight)
             {
                 return SpawnCondition.UndergroundMushroom.Chance * 0.001f;
             }

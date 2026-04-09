@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddItem(ModContent.ItemType<DoomiteBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

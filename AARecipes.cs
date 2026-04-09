@@ -3,6 +3,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Abyssal;
 using AAModClassic.Items.Armor.Atlantean;
@@ -896,10 +897,11 @@ namespace AAModClassic
             });
             RecipeGroup.RegisterGroup("AAModClassic:AncientMaterials", group4);
 
-            //TODO: Add SoC and IZ materials
+            //TODO: Add SoC material
             RecipeGroup group5 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.superancientmaterial"), new int[]
             {
-                ModContent.ItemType<ChaosScale>()
+                ModContent.ItemType<ChaosScale>(),
+                ModContent.ItemType<Infinitium>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:SuperAncientMaterials", group5);
             

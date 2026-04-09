@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles   //The directory for your .cs and .png; Exam
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
             }
         }
 

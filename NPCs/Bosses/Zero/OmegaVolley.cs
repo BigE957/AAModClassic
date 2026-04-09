@@ -116,7 +116,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                     {
                         SoundEngine.PlaySound(SoundID.Item41, NPC.Center);
                     }
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.ProjType("OmegaBullet"), ref NPC.ai[3], 6, (int)(NPC.damage * .75f), 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<OmegaBullet>(), ref NPC.ai[3], 6, (int)(NPC.damage * .75f), 10, true);
                 }
                 if (NPC.ai[2] > 360)
                 {

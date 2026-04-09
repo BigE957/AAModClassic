@@ -96,11 +96,11 @@ namespace AAModClassic.Base.BaseMod.Base
          */
         public static Vector2[] ReadVector2Array(BinaryReader reader)
         {
-            int arrayLength = reader.ReadInt();
+            int arrayLength = reader.ReadInt32();
             Vector2[] array = new Vector2[arrayLength];
             for (int m = 0; m < arrayLength; m++)
             {
-                array[m] = new Vector2(reader.ReadFloat(), reader.ReadFloat());
+                array[m] = new Vector2(reader.ReadSingle(), reader.ReadSingle());
             }
             return array;
         }

@@ -277,10 +277,10 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                headindex[0] = reader.ReadInt();
-                headindex[1] = reader.ReadInt();
-                headindex[2] = reader.ReadInt();
+                internalAI[0] = reader.ReadSingle();
+                headindex[0] = reader.ReadInt32();
+                headindex[1] = reader.ReadInt32();
+                headindex[2] = reader.ReadInt32();
             }
         }
 

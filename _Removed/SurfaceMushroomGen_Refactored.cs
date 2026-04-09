@@ -13,6 +13,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic._Removed
 {
@@ -26,7 +27,7 @@ namespace AAModClassic._Removed
 
             ushort tileGrass = (ushort)ModContent.TileType<Mycelium_Tile>();
 
-            int worldSize = BaseWorldGen.GetWorldSize();
+            int worldSize = GetWorldSize();
             int biomeWidth = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150, biomeWidthHalf = biomeWidth / 2;
             int biomeHeight = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150;
 

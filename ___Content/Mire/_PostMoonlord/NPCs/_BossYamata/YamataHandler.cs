@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Base.NPCs;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
@@ -138,11 +139,11 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			float result;
-			if (!invasionSpawn && (Main.invasionType > 0 || Main.pumpkinMoon || Main.snowMoon || Main.bloodMoon || Main.eclipse || DD2Event.Ongoing || BaseExtensions.InZone(spawnInfo.Player, "TowerAny", null)))
+			if (!invasionSpawn && (Main.invasionType > 0 || Main.pumpkinMoon || Main.snowMoon || Main.bloodMoon || Main.eclipse || DD2Event.Ongoing || spawnInfo.Player.ZoneTowerAny()))
 			{
 				result = 0f;
 			}
-			else if (!specialBiomeSpawn && (BaseExtensions.InZone(spawnInfo.Player, "TowerAny", null) || BaseExtensions.InZone(spawnInfo.Player, "Dungeon", null) || BaseExtensions.InZone(spawnInfo.Player, "Meteor", null) || spawnInfo.Lihzahrd))
+			else if (!specialBiomeSpawn && spawnInfo.Player.ZoneTowerAny() || spawnInfo.Player.ZoneDungeon || spawnInfo.Player.ZoneMeteor || spawnInfo.Lihzahrd)
 			{
 				result = 0f;
 			}

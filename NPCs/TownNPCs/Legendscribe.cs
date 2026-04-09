@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.TownNPCs
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI = reader.ReadFloat();
+                internalAI = reader.ReadSingle();
             }
         }
 

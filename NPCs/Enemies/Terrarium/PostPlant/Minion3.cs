@@ -38,7 +38,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             Player player = Main.player[NPC.target];
 
             BaseAI.AISkull(NPC, ref NPC.ai, false, 4, 300, .011f, .020f);
-            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.ProjType("SummonBlast"), ref shootAI[0], 120, (int)(NPC.damage * (Main.expertMode ? 0.25f : 0.5f)), 3f, true, new Vector2(20f, 15f));
+            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<SummonBlast>(), ref shootAI[0], 120, (int)(NPC.damage * (Main.expertMode ? 0.25f : 0.5f)), 3f, true, new Vector2(20f, 15f));
 
             if (NPC.alpha != 0)
             {
@@ -59,7 +59,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
         public void FireMagic(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, Mod.ProjType("SummonBlast"), ref shootAI[0], 5, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 24f, true, new Vector2(20f, 15f));
+            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<SummonBlast>(), ref shootAI[0], 5, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 24f, true, new Vector2(20f, 15f));
         }
 
         public override void HitEffect(NPC.HitInfo hit)

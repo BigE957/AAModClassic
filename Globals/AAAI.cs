@@ -9,6 +9,7 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.Globals
 {
@@ -763,7 +764,7 @@ namespace AAModClassic.Globals
                 {
                     for (int tY = tileY; tY < tileCenterY; tY++)
                     {
-						Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+						Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                         if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                         {
                             Vector2 tPos;

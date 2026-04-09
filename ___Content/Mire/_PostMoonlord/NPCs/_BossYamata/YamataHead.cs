@@ -91,11 +91,11 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                EATTHELITTLEMAGGOT = reader.ReadBool();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
+                EATTHELITTLEMAGGOT = reader.ReadBoolean();
             }
         }
 

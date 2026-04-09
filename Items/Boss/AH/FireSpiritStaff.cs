@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Boss.AH
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Summon;
-            Item.shoot = Mod.ProjType("FireOrbiter");
+            Item.shoot = ModContent.ProjectileType<FireOrbiter>();
             Item.shootSpeed = 5;
         }
 

@@ -1,3 +1,4 @@
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -98,11 +99,11 @@ namespace AAModClassic.Base.BaseMod.Base
 
                     if (info.tileID != -1 || info.wallID > -1 || info.wire > -1)
                     {
-                        BaseWorldGen.GenerateTile(x2, y2, info.tileID, info.wallID, info.tileStyle != 0 ? info.tileStyle : info.tileID == TileID.Torches ? torchStyle : info.tileID == TileID.Platforms ? platformStyle : 0, info.tileID > -1, info.liquidAmt == 0, info.slope, silent: silent, sync: sync);
+                        WorldGenUtils.GenerateTile(x2, y2, info.tileID, info.wallID, info.tileStyle != 0 ? info.tileStyle : info.tileID == TileID.Torches ? torchStyle : info.tileID == TileID.Platforms ? platformStyle : 0, info.tileID > -1, info.liquidAmt == 0, info.slope, silent: silent, sync: sync);
                     }
                     if (info.liquidType != -1)
                     {
-                        BaseWorldGen.GenerateLiquid(x2, y2, info.liquidType, false, info.liquidAmt, sync);
+                        WorldGenUtils.GenerateLiquid(x2, y2, info.liquidType, false, info.liquidAmt, sync);
                     }
                     if (info.objectID != 0)
                     {

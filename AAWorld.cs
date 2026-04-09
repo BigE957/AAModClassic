@@ -43,6 +43,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Dungeon.World.Tiles;
+using AAModClassic.Utilities;
 
 namespace AAModClassic
 {
@@ -928,7 +929,7 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next(0, y);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    //TODO: This was formerly generating "EverleafRoot", unsure if this is the proper replacement.
+                    //TODO: Figure out who Everleaf Root is.
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)ModContent.TileType<EverleafRoot_Tile>());
                 }
             }
@@ -1603,7 +1604,7 @@ namespace AAModClassic
 
             {
                 Point origin = new Point((int)infernoPos.X, (int)infernoPos.Y);
-                origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
+                origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
                 InfernoBiome biome = new InfernoBiome();
                 InfernoDelete delete = new InfernoDelete();
                 delete.Place(origin, GenVars.structures);
@@ -1614,7 +1615,7 @@ namespace AAModClassic
 
             {
                 Point origin = new Point((int)mirePos.X, (int)mirePos.Y);
-                origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
+                origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
                 MireDelete delete = new MireDelete();
                 MireBiome biome = new MireBiome();
                 delete.Place(origin, GenVars.structures);
@@ -1639,7 +1640,7 @@ namespace AAModClassic
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
-            origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
+            origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
             new TerrariumDelete().Place(origin, GenVars.structures);
             new TerrariumSphere().Place(origin, GenVars.structures);
         }

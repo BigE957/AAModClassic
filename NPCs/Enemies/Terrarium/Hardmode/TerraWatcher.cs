@@ -66,7 +66,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
                 {
 
                     NPC.ai[2] = 0;
-                    int projType = Mod.ProjType("TerraWatcherSphere");
+                    int projType = ModContent.ProjectileType<TerraWatcherSphere>();
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                         BaseAI.FireProjectile(player.Center, NPC, projType, (int)(NPC.damage * 0.25f), 0f, 2f);
                     NPC.frame.Y = 0;

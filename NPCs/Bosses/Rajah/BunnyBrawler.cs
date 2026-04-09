@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                SetLife = reader.ReadBool(); //Set Lifex
+                SetLife = reader.ReadBoolean(); //Set Lifex
             }
         }
 

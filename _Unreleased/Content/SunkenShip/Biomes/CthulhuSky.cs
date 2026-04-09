@@ -121,7 +121,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
                     break;
                 }
             }
-            if (Main.player[Main.myPlayer].InZone("Ocean") && !AAWorld_Unreleased.downedSoC && AAWorld.downedAllAncients)
+            if (Main.player[Main.myPlayer].ZoneBeach && !AAWorld_Unreleased.downedSoC && AAWorld.downedAllAncients)
             {
                 return;
             }

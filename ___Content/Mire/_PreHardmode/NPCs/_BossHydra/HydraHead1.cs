@@ -38,7 +38,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                Shoot = reader.ReadFloat();
+                Shoot = reader.ReadSingle();
             }
         }
 

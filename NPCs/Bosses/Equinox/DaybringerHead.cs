@@ -88,19 +88,19 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             {
                 if(NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>())
                 {
-                    internalAI[0] = reader.ReadFloat(); //DaybringerCounter
-                    internalAI[1] = reader.ReadFloat(); //NightclawerCounter
-                    internalAI[2] = reader.ReadFloat();
-                    internalAI[3] = reader.ReadFloat();
-                    internalAI[4] = reader.ReadFloat(); //DaybringerPosCheck
-                    internalAI[5] = reader.ReadFloat(); //VelocitySave
-                    internalAI[6] = reader.ReadFloat(); //VelocitySave
-                    internalAI[7] = reader.ReadFloat();
+                    internalAI[0] = reader.ReadSingle(); //DaybringerCounter
+                    internalAI[1] = reader.ReadSingle(); //NightclawerCounter
+                    internalAI[2] = reader.ReadSingle();
+                    internalAI[3] = reader.ReadSingle();
+                    internalAI[4] = reader.ReadSingle(); //DaybringerPosCheck
+                    internalAI[5] = reader.ReadSingle(); //VelocitySave
+                    internalAI[6] = reader.ReadSingle(); //VelocitySave
+                    internalAI[7] = reader.ReadSingle();
                     
                     preShootingSun = reader.ReadBoolean();
                     preDeathRay = reader.ReadBoolean();
                     isDeathRay = reader.ReadBoolean();
-                    CloudCooldown = reader.ReadInt();
+                    CloudCooldown = reader.ReadInt32();
                 }
 
                 initCustom = reader.ReadBoolean();

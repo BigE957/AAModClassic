@@ -74,12 +74,12 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat(); //SpaceOctopus AI stuff
-                internalAI[1] = reader.ReadFloat(); //Is Flying
-                internalAI[2] = reader.ReadFloat(); //Is Jumping
-                internalAI[3] = reader.ReadFloat(); //Minion/Rocket Timer
-                internalAI[4] = reader.ReadFloat(); //JumpFlyControl and Vertical dash
-                isSupreme = reader.ReadBool();
+                internalAI[0] = reader.ReadSingle(); //SpaceOctopus AI stuff
+                internalAI[1] = reader.ReadSingle(); //Is Flying
+                internalAI[2] = reader.ReadSingle(); //Is Jumping
+                internalAI[3] = reader.ReadSingle(); //Minion/Rocket Timer
+                internalAI[4] = reader.ReadSingle(); //JumpFlyControl and Vertical dash
+                isSupreme = reader.ReadBoolean();
             }
         }
 

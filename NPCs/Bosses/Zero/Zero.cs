@@ -319,12 +319,12 @@ namespace AAModClassic.NPCs.Bosses.Zero
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                internalAI[4] = reader.ReadFloat();
-                Distance = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
+                internalAI[4] = reader.ReadSingle();
+                Distance = reader.ReadSingle();
             }
         }
 

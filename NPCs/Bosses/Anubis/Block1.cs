@@ -45,7 +45,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
             }
         }
 

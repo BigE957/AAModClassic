@@ -610,9 +610,9 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                pos = reader.ReadFloat();
-                Health = reader.ReadBool();
-                RuneCrash = reader.ReadBool();
+                pos = reader.ReadSingle();
+                Health = reader.ReadBoolean();
+                RuneCrash = reader.ReadBoolean();
             }
         }
 

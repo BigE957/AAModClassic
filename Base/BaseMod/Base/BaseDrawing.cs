@@ -689,8 +689,8 @@ namespace AAModClassic.Base.BaseMod.Base
         public static bool ShouldDrawArmor(Player drawPlayer, int armorType, int itemType = -1)
         {
             if (drawPlayer.merman || drawPlayer.wereWolf) { return false; }
-            if (itemType == -1) { return (drawPlayer.armor[10 + armorType].type > ItemID.None) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type > ItemID.None); }
-            return (drawPlayer.armor[10 + armorType].type == itemType) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type == itemType);
+            if (itemType == -1) { return (drawPlayer.armor[10 + armorType].type > ItemID.None) || (IsBlank(drawPlayer.armor[10 + armorType]) && drawPlayer.armor[0 + armorType].type > ItemID.None); }
+            return (drawPlayer.armor[10 + armorType].type == itemType) || (IsBlank(drawPlayer.armor[10 + armorType]) && drawPlayer.armor[0 + armorType].type == itemType);
         }
 
         public static bool ShouldDrawAccessory(Player drawPlayer, int itemType)
@@ -698,9 +698,15 @@ namespace AAModClassic.Base.BaseMod.Base
             for (int m = 3; m < 8 + drawPlayer.extraAccessorySlots; m++)
             {
                 if (drawPlayer.armor[m + 10].type == itemType) return true;
-                if (drawPlayer.armor[m + 10].IsBlank() && !drawPlayer.hideVisibleAccessory[m] && (drawPlayer.armor[m].type == itemType)) return true;
+                if (IsBlank(drawPlayer.armor[m + 10]) && !drawPlayer.hideVisibleAccessory[m] && (drawPlayer.armor[m].type == itemType)) return true;
             }
             return false;
+        }
+
+        private static bool IsBlank(Item item)
+        {
+            if (item.type <= ItemID.None || item.stack <= 0) return true;
+            return string.IsNullOrEmpty(item.Name);
         }
 
         /*
@@ -1904,51 +1910,6 @@ namespace AAModClassic.Base.BaseMod.Base
             return drawZoneRect.Intersects(rect);
         }
     }
-    public class AmmoSlotRender
-    {
-        //------------------------------------------------------//
-        //----------------AMMO SLOT RENDERER--------------------//
-        //------------------------------------------------------//
-        // A basic class that renders an ammo-like string over  //
-        // an item when registed.                               //
-        //------------------------------------------------------//
-        //  Author(s): Grox the Great                           //
-        //------------------------------------------------------//
-
-        public int itemType = -1;
-        public int[] ammoItemTypes = new int[0];
-        public int[] ammoTypes = new int[0];
-
-        public AmmoSlotRender() //dummy constructor
-        {
-        }
-
-        /*
-         * typeisammo : If true, ammoitemtype is considered an ammo type. If false, it is considered an item type.
-         */
-        public AmmoSlotRender(int itemtype, int ammoitemtype, bool typeisammo = false) : this(itemtype, typeisammo ? default(int[]) : new int[] { ammoitemtype }, typeisammo ? new int[] { ammoitemtype } : default(int[]))
-        {
-        }
-
-        public AmmoSlotRender(int itemtype, int[] ammoitemtypes, int[] ammotypes = default(int[]))
-        {
-            itemType = itemtype;
-            ammoItemTypes = ammoitemtypes;
-            ammoTypes = ammotypes;
-        }
-
-        public virtual void Draw(SpriteBatch sb, Color color, Item item, Vector2 pos, float sc)
-        {
-            if (Main.playerInventory || item.type <= ItemID.None || item.stack <= 0 || item.type != itemType) return;
-            int totalItemCount = 0;
-            if (ammoItemTypes != default(int[])) { totalItemCount += BasePlayer.GetItemstackSum(Main.player[Main.myPlayer], ammoItemTypes, false, true, true); }
-            if (ammoTypes != default(int[])) { totalItemCount += BasePlayer.GetItemstackSum(Main.player[Main.myPlayer], ammoTypes, true, true, true); }
-            string s = "" + totalItemCount;
-            if (totalItemCount > 99999) { s = "A Lot!"; }
-            //sb.DrawString(Main.fontItemStack, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), sc *= 0.8f, SpriteEffects.None, 0f);   
-            ChatManager.DrawColorCodedStringWithShadow(sb, FontAssets.ItemStack.Value, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), new Vector2(sc *= 0.8f), -1f, 0.8f);
-        }
-    }
 
     public class BaseArmorData(Asset<Effect> shader, string passName) : ArmorShaderData(shader, passName)
     {
@@ -2005,8 +1966,9 @@ namespace AAModClassic.Base.BaseMod.Base
                     else
                     if (ent is Player)
                     {
+                        Rectangle frame = new Rectangle(0, 0, 40, 54); //FRAME_PLAYER from base mod
                         Vector4 v4 = new Vector4(0, 0, TextureAssets.Players[0, 0].Width(), TextureAssets.Players[0, 0].Height());
-                        Vector4 v4_2 = new Vector4(0, 0, BaseConstants.FRAME_PLAYER.Width, BaseConstants.FRAME_PLAYER.Height + 2);
+                        Vector4 v4_2 = new Vector4(0, 0, frame.Width, frame.Height + 2);
                         base.Shader.Parameters["uTexSize"].SetValue(v4);
                         base.Shader.Parameters["uFrame"].SetValue(v4_2);
                     }
@@ -2029,12 +1991,6 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 BaseUtility.LogFancy("AAMod~ BASE ARMOR ERROR:", e);
             }
-        }
-
-        public override ArmorShaderData GetSecondaryShader(Entity entity)
-        {
-            secondaryApply = true;
-            return base.GetSecondaryShader(entity);
         }
     }
 }

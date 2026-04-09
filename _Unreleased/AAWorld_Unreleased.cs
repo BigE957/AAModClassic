@@ -26,6 +26,7 @@ using AAModClassic._Removed.Content.Parthenan.Tiles;
 using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Unreleased
 {
@@ -128,7 +129,7 @@ namespace AAModClassic._Unreleased
             int y = Main.maxTilesY;
             int center = Main.maxTilesX / 2;
 
-            int worldSize = BaseWorldGen.GetWorldSize();
+            int worldSize = WorldGenUtils.GetWorldSize();
             int biomeWidth = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150;
             int biomeHeight = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150;
             int biomeWidthHalf = biomeWidth / 2;
@@ -145,7 +146,7 @@ namespace AAModClassic._Unreleased
                 while (attempts > 0 && (!isInBounds || isInCenter || origin == new Point() || newOrigin == new Point()))
                 {
                     origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
-                    origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
+                    origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
 
                     // do some stuff to make it so the old origin is the position
                     newOrigin = new Point(origin.X, origin.Y);
@@ -240,7 +241,7 @@ namespace AAModClassic._Unreleased
             for (int biomes = 0; biomes < 0; biomes++)
             {
                 Point origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
-                origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
+                origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
                 SurfaceMushroom biome = new SurfaceMushroom();
                 biome.Place(origin, GenVars.structures);
             }
@@ -264,7 +265,7 @@ namespace AAModClassic._Unreleased
             progress.Message = "Sinking the ship";
 
             Point origin = new Point((int)shipPos.X, (int)GenVars.worldSurfaceLow - 200);
-            origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
+            origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
             SunkenShipGen biome = new SunkenShipGen();
             biome.Place(origin, GenVars.structures);
         }

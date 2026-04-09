@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
+using AAModClassic.Projectiles.Sag;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Summon;
-            Item.shoot = Mod.ProjType("OrbiterMinion");
+            Item.shoot = ModContent.ProjectileType<OrbiterMinion>();
             Item.shootSpeed = 5;
             Item.damage = 50;
             Item.mana = 10;

@@ -23,6 +23,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic.World
 {

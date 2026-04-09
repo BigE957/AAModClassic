@@ -6,6 +6,7 @@ using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -74,12 +75,12 @@ namespace AAModClassic.NPCs.Bosses.Greed
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                internalAI[4] = reader.ReadFloat();
-                internalAI[5] = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
+                internalAI[4] = reader.ReadSingle();
+                internalAI[5] = reader.ReadSingle();
             }
         }
 
@@ -418,7 +419,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                     if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
@@ -891,7 +892,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                     if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;

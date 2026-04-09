@@ -118,28 +118,28 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadInt();
-                internalAI[1] = reader.ReadInt();
-                internalAI[2] = reader.ReadInt();
-                internalAI[3] = reader.ReadInt();
-                internalAI[4] = reader.ReadInt();
-                internalAI[5] = reader.ReadInt();
-                internalAI[6] = reader.ReadInt();
-                internalAI[7] = reader.ReadInt();
-                internalAI[8] = reader.ReadInt();
-                internalAI[9] = reader.ReadInt();
-                ShadowNPC[0] = reader.ReadInt();
-                ShadowNPC[1] = reader.ReadInt();
-                ShadowNPC[2] = reader.ReadInt();
-                SHADOWCONTER = reader.ReadInt();
-                strikebackproj = reader.ReadInt();
-                ProjectileShoot = reader.ReadInt();
-                repeat = reader.ReadInt();
-                isSlashing = reader.ReadBool();
-                SelectPoint = reader.ReadBool();
-                Invisible = reader.ReadBool();
-                SpawnClone = reader.ReadBool();
-                SHADOWDOG = reader.ReadBool();
+                internalAI[0] = reader.ReadInt32();
+                internalAI[1] = reader.ReadInt32();
+                internalAI[2] = reader.ReadInt32();
+                internalAI[3] = reader.ReadInt32();
+                internalAI[4] = reader.ReadInt32();
+                internalAI[5] = reader.ReadInt32();
+                internalAI[6] = reader.ReadInt32();
+                internalAI[7] = reader.ReadInt32();
+                internalAI[8] = reader.ReadInt32();
+                internalAI[9] = reader.ReadInt32();
+                ShadowNPC[0] = reader.ReadInt32();
+                ShadowNPC[1] = reader.ReadInt32();
+                ShadowNPC[2] = reader.ReadInt32();
+                SHADOWCONTER = reader.ReadInt32();
+                strikebackproj = reader.ReadInt32();
+                ProjectileShoot = reader.ReadInt32();
+                repeat = reader.ReadInt32();
+                isSlashing = reader.ReadBoolean();
+                SelectPoint = reader.ReadBoolean();
+                Invisible = reader.ReadBoolean();
+                SpawnClone = reader.ReadBoolean();
+                SHADOWDOG = reader.ReadBoolean();
             }
         }
 

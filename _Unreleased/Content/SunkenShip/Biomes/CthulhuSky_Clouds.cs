@@ -25,7 +25,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
 			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
 			Player player = Main.player[Main.myPlayer];
-            bool CthulhuTime = Main.player[Main.myPlayer].InZone("Ocean") && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
+            bool CthulhuTime = Main.player[Main.myPlayer].ZoneBeach && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
             if (!backgroundFog && (BasePlayer.HasAccessory(player, ModContent.ItemType<Lantern>(), true, false) || AAWorld_Unreleased.downedSoC)) CthulhuTime = false;
 
             fogOffsetX += 1;

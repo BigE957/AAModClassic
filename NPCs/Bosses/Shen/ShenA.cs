@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                FleeTimer[0] = reader.ReadFloat();
+                FleeTimer[0] = reader.ReadSingle();
             }
         }
 

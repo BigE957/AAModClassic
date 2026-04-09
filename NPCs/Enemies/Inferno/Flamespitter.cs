@@ -113,7 +113,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                         {
                             if ((tpY < playerTileY - 4 || tpY > playerTileY + 4 || tpTileX < playerTileX - 4 || tpTileX > playerTileX + 4) && (tpY < tileY - 1 || tpY > tileY + 1 || tpTileX < tileX - 1 || tpTileX > tileX + 1) && (!checkGround || Main.tile[tpTileX, tpY].HasUnactuatedTile))
                             {
-                                if ((CanTeleportTo != null && CanTeleportTo(tpTileX, tpY)) || (!Main.tile[tpTileX, tpY - 1].lava() && (!checkGround || Main.tileSolid[Main.tile[tpTileX, tpY].TileType]) && !Collision.SolidTiles(tpTileX - 1, tpTileX + 1, tpY - 4, tpY - 1)))
+                                if ((CanTeleportTo != null && CanTeleportTo(tpTileX, tpY)) || (Main.tile[tpTileX, tpY - 1].LiquidType != LiquidID.Lava && (!checkGround || Main.tileSolid[Main.tile[tpTileX, tpY].TileType]) && !Collision.SolidTiles(tpTileX - 1, tpTileX + 1, tpY - 4, tpY - 1)))
                                 {
                                     if (attackInterval != -1) { NPC.ai[1] = 20f; }
                                     NPC.ai[2] = tpTileX;

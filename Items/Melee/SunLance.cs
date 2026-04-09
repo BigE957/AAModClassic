@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Melee
             Item.autoReuse = true;
             Item.noUseGraphic = true;
             Item.noMelee = true;
-            Item.shoot = Mod.ProjType("SunLance");
+            Item.shoot = ModContent.ProjectileType<Projectiles.SunLance>();
             Item.shootSpeed = 4;			
         }
     }

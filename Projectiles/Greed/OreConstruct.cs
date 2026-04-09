@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic.Projectiles.Greed
@@ -65,7 +66,7 @@ namespace AAModClassic.Projectiles.Greed
 					{
 						Projectile.localAI[0] = 30;
 						Vector2 velocity = BaseUtility.RotateVector(default, new Vector2(5f, 0f), BaseUtility.RotationTo(Projectile.Center, target.Center));
-						int projID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.ProjType("Gold"), Projectile.damage, 0f, Projectile.owner, 0, 1);
+						int projID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, ModContent.ProjectileType<Gold>(), Projectile.damage, 0f, Projectile.owner, 0, 1);
 						((AAProjectile)Main.projectile[projID].ModProjectile).SetMaster(2, Projectile.identity, 1, 0f, 450f, false);	
 						Main.projectile[projID].velocity = velocity;
 						Main.projectile[projID].netUpdate = true;

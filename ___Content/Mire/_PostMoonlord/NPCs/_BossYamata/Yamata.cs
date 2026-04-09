@@ -6,6 +6,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -65,10 +66,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
             }
         }
 
@@ -916,7 +917,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             float standOnX = npc.Center.X + (limbType == 3 ? (-outerLegDefault - Hitbox.Width) : limbType == 2 ? (outerLegDefault + Hitbox.Width) : limbType == 1 ? (-innerLegDefault - Hitbox.Width) : (innerLegDefault + Hitbox.Width));
 
             int defaultTileY = (int)(npc.Bottom.Y / 16f);
-            int tileY = BaseWorldGen.GetFirstTileFloor((int)(standOnX / 16f), (int)(npc.Bottom.Y / 16f));
+            int tileY = WorldGenUtils.GetFirstTileFloor((int)(standOnX / 16f), (int)(npc.Bottom.Y / 16f));
             if (tileY - defaultTileY > Yamata.flyingTileCount) { return default; } //'flying' behavior
             if (!flying)
             {

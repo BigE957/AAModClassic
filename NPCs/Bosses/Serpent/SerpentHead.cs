@@ -7,6 +7,7 @@ using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -148,7 +149,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                     if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
@@ -924,7 +925,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                     if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
@@ -1362,7 +1363,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                     if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;

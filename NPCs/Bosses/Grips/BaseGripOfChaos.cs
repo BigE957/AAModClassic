@@ -110,9 +110,9 @@ namespace AAModClassic.NPCs.Bosses.Grips
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
             }
         }
 

@@ -55,7 +55,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-					int projType = !Main.dayTime ? Mod.ProjType("Moonray") : Mod.ProjType("Sunbeam");					
+					int projType = !Main.dayTime ? ModContent.ProjectileType<Moonray>() : ModContent.ProjectileType<Sunbeam>();					
 					if(Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
 						BaseAI.FireProjectile(player.Center, NPC, projType, (int)(NPC.damage * 0.25f), 0f, 2f);
 				}

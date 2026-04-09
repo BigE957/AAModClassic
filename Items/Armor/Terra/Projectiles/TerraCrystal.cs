@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                intAI = reader.ReadFloat();
+                intAI = reader.ReadSingle();
             }
         }
 

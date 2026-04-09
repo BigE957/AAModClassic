@@ -45,7 +45,8 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
 			{
 				for (int m = 0; m < 8; m++)
 				{
-                    BaseAI.FireProjectile(NPC.Center + new Vector2(velocitiesX[m], velocitiesY[m]), NPC.Center, Mod.ProjType("BugAcidShot"), 0, 0f, 5f);
+                    //TODO: Fake Projectile
+                    //BaseAI.FireProjectile(NPC.Center + new Vector2(velocitiesX[m], velocitiesY[m]), NPC.Center, ModContent.ProjectileType<BugAcidShot>(), 0, 0f, 5f);
 				}
 			}
             //TODO: Fake Item

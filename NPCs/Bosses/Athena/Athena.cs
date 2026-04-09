@@ -83,16 +83,16 @@ namespace AAModClassic.NPCs.Bosses.Athena
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                internalAI[4] = reader.ReadFloat();
-                FlyAI[0] = reader.ReadFloat();
-                FlyAI[1] = reader.ReadFloat();
-                MoveVector2.X = reader.ReadFloat();
-                MoveVector2.Y = reader.ReadFloat();
-                Seen = reader.ReadBool();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
+                internalAI[4] = reader.ReadSingle();
+                FlyAI[0] = reader.ReadSingle();
+                FlyAI[1] = reader.ReadSingle();
+                MoveVector2.X = reader.ReadSingle();
+                MoveVector2.Y = reader.ReadSingle();
+                Seen = reader.ReadBoolean();
             }
         }
         public override void AI()

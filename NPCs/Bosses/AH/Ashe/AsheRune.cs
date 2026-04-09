@@ -49,10 +49,10 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                count = reader.ReadInt();
-                Control = reader.ReadInt();
-                spinLeft = reader.ReadBool();
-                SpinCheck = reader.ReadBool();
+                count = reader.ReadInt32();
+                Control = reader.ReadInt32();
+                spinLeft = reader.ReadBoolean();
+                SpinCheck = reader.ReadBoolean();
             }
         }
 

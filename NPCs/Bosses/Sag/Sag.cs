@@ -65,11 +65,11 @@ namespace AAModClassic.NPCs.Bosses.Sag
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                targetPos.X = reader.ReadFloat();
-                targetPos.Y = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                targetPos.X = reader.ReadSingle();
+                targetPos.Y = reader.ReadSingle();
             }
         }
 

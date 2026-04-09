@@ -261,7 +261,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.Next(800) == 0 && j >= GenVars.worldSurfaceLow)
                 {
-                    if (Main.tile[i, j + 1].HasTile && Main.tileSolid[Main.tile[i, j].TileType] && !Main.tile[i, j - 1].lava())
+                    if (Main.tile[i, j + 1].HasTile && Main.tileSolid[Main.tile[i, j].TileType] && Main.tile[i, j - 1].LiquidType != LiquidID.Lava)
                     {
                         int style = WorldGen.genRand.Next(0, 4);
                         int tiletype = 0;

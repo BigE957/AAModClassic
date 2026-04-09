@@ -16,7 +16,7 @@ namespace AAModClassic.Base.BaseMod.Base
         //-------------------BASE TILE CLASS--------------------//
         //------------------------------------------------------//
         // Contains methods dealing with tiles, except          //
-        // generation. (for that, see BaseWorldGen/BaseGoreGen) //
+        // generation. (for that, see WorldGenUtils/BaseGoreGen) //
         //------------------------------------------------------//
         //  Author(s): Grox the Great                           //
         //------------------------------------------------------//

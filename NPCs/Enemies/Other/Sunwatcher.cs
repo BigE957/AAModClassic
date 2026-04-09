@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 using AAModClassic.Dusts;
+using AAModClassic.NPCs.Bosses.Equinox;
 
 namespace AAModClassic.NPCs.Enemies.Other
 {
@@ -57,7 +58,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-					int projType = Mod.ProjType("Sunbeam");					
+					int projType = ModContent.ProjectileType<Sunbeam>();					
 					if(Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
 						BaseAI.FireProjectile(player.Center, NPC, projType, (int)(NPC.damage * 0.25f), 0f, 2f);
 				}

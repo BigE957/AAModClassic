@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Projectiles.Anubis.Forsaken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +29,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
             Item.autoReuse = true;
             Item.noUseGraphic = true;
             Item.noMelee = true;
-            Item.shoot = Mod.ProjType("Crook");
+            Item.shoot = ModContent.ProjectileType<Crook>();
             Item.shootSpeed = 15;
             Item.rare = ItemRarityID.Purple;
         }

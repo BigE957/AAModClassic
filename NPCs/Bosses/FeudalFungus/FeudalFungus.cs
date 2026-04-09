@@ -41,11 +41,11 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
 			base.ReceiveExtraAI(reader);
 			if(Main.netMode == NetmodeID.MultiplayerClient)
 			{
-				internalAI[0] = reader.ReadFloat();
-				internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                internalAI[4] = reader.ReadFloat();
+                internalAI[0] = reader.ReadSingle();
+                internalAI[1] = reader.ReadSingle();
+                internalAI[2] = reader.ReadSingle();
+                internalAI[3] = reader.ReadSingle();
+                internalAI[4] = reader.ReadSingle();
             }	
 		}	
 
@@ -196,7 +196,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         public void FireMagic(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, Mod.ProjType("Mushshot"), ref shootAI[0], 5, damage, 8f, false, new Vector2(20f, 15f));
+            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<Mushshot>(), ref shootAI[0], 5, damage, 8f, false, new Vector2(20f, 15f));
         }
 
         public override void BossLoot(ref int potionType)

@@ -718,9 +718,9 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                pos = reader.ReadFloat();
-                Health = reader.ReadBool();
-                RuneCrash = reader.ReadBool();
+                pos = reader.ReadSingle();
+                Health = reader.ReadBoolean();
+                RuneCrash = reader.ReadBoolean();
             }
         }
 

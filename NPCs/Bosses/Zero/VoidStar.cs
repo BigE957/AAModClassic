@@ -127,7 +127,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                     Vector2 fireTarget = NPC.Center;
                     float rot = BaseUtility.RotationTo(NPC.Center, player.Center);
                     fireTarget = BaseUtility.RotateVector(NPC.Center, fireTarget, rot);
-                    BaseAI.FireProjectile(player.Center, fireTarget, Mod.ProjType("VoidStarP"), NPC.damage / 2, 0f, 4f);
+                    BaseAI.FireProjectile(player.Center, fireTarget, ModContent.ProjectileType<VoidStarP>(), NPC.damage / 2, 0f, 4f);
                 }
             }
 

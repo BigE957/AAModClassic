@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Blocks;
+using AAModClassic.NPCs.Bosses.Zero;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -68,7 +69,7 @@ namespace AAModClassic.NPCs.Enemies.Void
                 if (shootAI >= 90)
                 {
                     shootAI = 0;
-                    int projType = Mod.ProjType("DeathLaser");
+                    int projType = ModContent.ProjectileType<DeathLaser>();
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                         BaseAI.FireProjectile(player.Center, NPC, projType, (int)(NPC.damage * 0.25f), 0f, 2f);
                 }

@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Microsoft.Xna.Framework;
 using System.Linq;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.Base.BaseMod.Base
 {
@@ -4201,7 +4202,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 {
                     for (int tY = tileY; tY < tileCenterY; tY++)
                     {
-                        Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+                        Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                         if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                         {
                             Vector2 tPos;
