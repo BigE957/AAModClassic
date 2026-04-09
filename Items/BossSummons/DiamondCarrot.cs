@@ -5,6 +5,7 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -62,7 +63,7 @@ Non-consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (!AAWorld.downedRajahsRevenge)
+            if (!NPCExtensions.BeenKilled<SupremeRajah>())
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText1"), 107, 137, 179);
             }

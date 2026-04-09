@@ -26,31 +26,13 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAWorld.downedAkuma = true;
-            AAWorld.downedAllAncients = true;
             AAWorld.downedAshe = true;
-            AAWorld.downedBrood = true;
             AAWorld.downedDB = true;
             AAWorld.downedNC = true;
-            AAWorld.downedDjinn = true;
             AAWorld.downedEquinox = true;
-            AAWorld.downedFungus = true;
             AAWorld.downedGrips = true;
             AAWorld.downedHaruka = true;
-            AAWorld.downedHydra = true;
-            AAWorld.downedMonarch = true;
-            AAWorld.downedRajah = true;
-            AAWorld.downedSag = true;
-            AAWorld.downedSAncient = true;
-            AAWorld.downedSerpent = true;
-            AAWorld.downedShen = true;
             AAWorld.downedSisters = true;
-            AAWorld.downedYamata = true;
-            AAWorld.downedZero = true;
-            AAWorld.downedRajahsRevenge = true;
-            AAWorld.downedAthena = true;
-            AAWorld.downedAnubis = true;
-            AAWorld.downedGreed = true;
             return true;
         }
     }

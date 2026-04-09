@@ -5,6 +5,7 @@ using AAModClassic.___Content.Mire._Hardmode.NPCs.Snow;
 using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.Underground;
 using AAModClassic.___Content.Mire._PreHardmode.NPCs;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
@@ -19,6 +20,7 @@ using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Usable;
 using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Enemies.Cavern;
@@ -30,6 +32,7 @@ using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
 using AAModClassic.NPCs.Enemies.Terrarium.PostPlant;
 using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
 using AAModClassic.NPCs.Enemies.Void;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -224,7 +227,7 @@ namespace AAModClassic.Globals
 
         public override void PostAI(NPC npc)
         {
-            if (npc.CountsAsACritter && !npc.dontTakeDamage && AAWorld.downedRajahsRevenge && IsBunny(npc))
+            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<SupremeRajah>() && IsBunny(npc))
             {
                 npc.dontTakeDamage = true;
             }
@@ -1034,7 +1037,7 @@ namespace AAModClassic.Globals
                 if (NPC.downedMoonlord)
                     pool.Add(ModContent.NPCType<Soulsucker>(), .01f);
 
-                if (!AAWorld.downedSisters && AAWorld.downedHydra && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
+                if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<Hydra>() && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
                     pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
             }
 
@@ -1042,7 +1045,7 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                if (AAWorld.downedSag)
+                if (NPCExtensions.BeenKilled<Sag>())
                 {
                     pool.Add(ModContent.NPCType<SagittariusMini>(), .005f);
                 }
@@ -1323,7 +1326,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
-                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => AAWorld.downedRajah));
+                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<Rajah>()));
                     break;
                 case NPCID.Truffle:
                     shop.Add(ItemID.TruffleWorm, Condition.DownedPlantera);
@@ -1341,7 +1344,7 @@ namespace AAModClassic.Globals
         public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
         {
             int type = npc.type;
-            if (type == NPCID.Dryad && AAWorld.downedRajah)
+            if (type == NPCID.Dryad && NPCExtensions.BeenKilled<Rajah>())
             {
                 foreach(Item item in items)
                     if(item.type == ModContent.ItemType<GoldenCarrot>())

@@ -1,7 +1,10 @@
 using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
+using AAModClassic.NPCs.Bosses.Broodmother;
+using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -140,7 +143,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 nextSlot++;
                 items[nextSlot] = new Item(ModContent.ItemType<Sunpowder>());
                 nextSlot++;
-                if (AAWorld.downedBrood == true)
+                if (NPCExtensions.BeenKilled<Broodmother>() == true)
                 {
                     items[nextSlot] = new Item(ModContent.ItemType<DragonBell>());
                     items[nextSlot].value = 100000;
@@ -155,7 +158,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 nextSlot++;
                 items[nextSlot] = new Item(ModContent.ItemType<Moonpowder>());
                 nextSlot++;
-                if (AAWorld.downedHydra == true)
+                if (NPCExtensions.BeenKilled<Hydra>() == true)
                 {
                     items[nextSlot] = new Item(ModContent.ItemType<HydraChow>());
                     items[nextSlot].value = 100000;

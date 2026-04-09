@@ -1,4 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.FeudalFungus;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -114,7 +116,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.ZoneGlowshroom && AAWorld.downedFungus ? .3f : 0f;
+            return spawnInfo.Player.ZoneGlowshroom && NPCExtensions.BeenKilled<FeudalFungus>() ? .3f : 0f;
         }
 
         public override void OnKill()

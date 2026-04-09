@@ -1,4 +1,6 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.NPCs.Bosses.Broodmother;
+using AAModClassic.Utilities;
+using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAModClassic.Items.Misc
@@ -28,7 +30,7 @@ namespace AAModClassic.Items.Misc
 
         public override bool IsAnglerQuestAvailable()
         {
-            return AAWorld.downedBrood;
+            return NPCExtensions.BeenKilled<Broodmother>();
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)

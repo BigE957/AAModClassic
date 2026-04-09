@@ -125,7 +125,6 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
             if (NPC.ai[0] >= 2180)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SupremeRajahDefeat15"), 107, 137, 179, true);
-                AAWorld.downedRajahsRevenge = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SupremeRajahDefeat16"), Color.Green, true);
                 int p = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 0, 0, Main.myPlayer);
                 Main.projectile[p].position = NPC.position;

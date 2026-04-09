@@ -206,7 +206,6 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
 
         public override void OnKill()
         {
-            AAWorld.downedFungus = true;
             Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, NPC.velocity, ModContent.ProjectileType<FungusIGoNow>(), 0, 0, 255, NPC.scale);
         }
 

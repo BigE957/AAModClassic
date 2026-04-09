@@ -89,7 +89,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D tex2 = Mod.GetTexture("NPCs/Bosses/Hydra/HarukaShade_Glow");
+            Texture2D tex2 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, NPC.GetAlpha(drawColor));
             if (NPC.ai[1] >= 60 && NPC.ai[1] < 240)
             {

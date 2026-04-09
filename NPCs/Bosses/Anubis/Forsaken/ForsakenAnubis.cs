@@ -3,6 +3,7 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -570,12 +571,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
         {
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
 
-            if (!AAWorld.downedAnubisA)
+            if (!NPCExtensions.BeenKilled<ForsakenAnubis>(true))
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisWin"), Color.ForestGreen);
             }
-
-            AAWorld.downedAnubisA = true;
 
             if (Main.rand.Next(10) == 0)
             {

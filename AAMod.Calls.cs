@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Music;
 using AAModClassic.Projectiles;
+using AAModClassic.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,24 +37,13 @@ namespace AAModClassic
                         }
 
                         string name = (string)args[1];
-                        return name switch
+                        if (this.TryFind<ModNPC>(name, out var npc))
+                            return npc.BeenKilled();
+                        else
                         {
-                            "mushroommonarch" => AAWorld.downedMonarch,
-                            "broodmother" => AAWorld.downedBrood,
-                            "hydra" => AAWorld.downedHydra,
-                            "grips" or "gripsofchaos" => AAWorld.downedGrips,
-                            "tode" => AAWorld.downedToad,
-                            "daybringer" => AAWorld.downedDB,
-                            "nightcrawler" => AAWorld.downedNC,
-                            "equinox" => AAWorld.downedEquinox,
-                            "ancient" or "ancientany" => AAWorld.downedAncient,
-                            "sancient" or "sancientany" => AAWorld.downedSAncient,
-                            "gripsS" or "akuma" => AAWorld.downedAkuma,
-                            "yamata" => AAWorld.downedYamata,
-                            "zero" => AAWorld.downedZero,
-                            "shen" or "shendoragon" => AAWorld.downedShen,
-                            _ => false,
-                        };
+                            Logger.Error($"Ancients Awakened Call Error: An NPC named {name} could not be found.");
+                            return null;
+                        }
                     case "InZone": //returns a Func which will return a zone value based on player and name.
                         if (args.Length <= 2)
                         {

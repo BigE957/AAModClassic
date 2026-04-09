@@ -2,6 +2,7 @@
 using AAModClassic.Globals;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.NPCs.Bosses.Greed;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
@@ -62,7 +63,7 @@ namespace AAModClassic.Tiles.Boss
                     if (item != null && item.type == type && item.stack >= 1)
                     {
                         item.stack--;
-                        if (AAWorld.downedGreed)
+                        if (NPCExtensions.BeenKilled<Greed>())
                         {
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         }

@@ -1,3 +1,5 @@
+using AAModClassic.NPCs.Bosses.Core;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -69,7 +71,7 @@ public class CoreDoor_Tile : ModTile
 
 	public override void NearbyEffects(int i, int j, bool closer)
 	{
-		if (AAWorld.downedCore)
+		if (NPCExtensions.BeenKilled<Core>())
 		{
 			Main.tileSolid[Type] = false;
 			_activated = false;

@@ -175,7 +175,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     quarterHealth = true;
                 }
             }
-            if (AAWorld.downedYamata)
+            else
             {
                 if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
                 {
@@ -205,7 +205,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 NPC.DropLoot(ModContent.ItemType<YamataMask>(), 1f / 7f);
                 if (!Main.expertMode)
                 {
-                    AAWorld.downedYamata = true;
                     NPC.DropLoot(ModContent.ItemType<DreadScale>(), 20, 30);
                     string[] lootTable = { "Flairdra", "Crescent", "Hydraslayer", "AbyssArrow", "HydraStabber", "MidnightWrath", "YamataTerratool" };
                     int loot = Main.rand.Next(lootTable.Length);
@@ -213,7 +212,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     NPC.DropLoot(YamataTrophy.type, 1f / 10);
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata1"), new Color(45, 46, 70));
                     NPC.DropLoot(ModContent.ItemType<YamataMask>(), 1f / 7);
-                    if (!AAWorld.downedYamata)
+                    if (!NPC.BeenKilled(true))
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata2"), Color.Indigo);
                     }
@@ -224,8 +223,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     Main.npc[npcID].Center = NPC.Center;
                     Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
                 }
-                NPC.value = 0f;
-                NPC.boss = false;
+                //NPC.value = 0f;
+                //NPC.boss = false;
             }
 
         }

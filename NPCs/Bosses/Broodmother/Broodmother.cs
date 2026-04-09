@@ -7,6 +7,7 @@ using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -113,12 +114,6 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                 internalAI[4] = reader.ReadSingle();
                 internalAI[5] = reader.ReadSingle();
             }
-        }
-
-
-        public override void OnKill()
-        {
-            AAWorld.downedBrood = true;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

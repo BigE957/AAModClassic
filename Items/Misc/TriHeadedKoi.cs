@@ -1,4 +1,6 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+using AAModClassic.Utilities;
+using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAModClassic.Items.Misc
@@ -26,7 +28,7 @@ namespace AAModClassic.Items.Misc
 
         public override bool IsAnglerQuestAvailable()
         {
-            return AAWorld.downedHydra;
+            return NPCExtensions.BeenKilled<Hydra>();
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)

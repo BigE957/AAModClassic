@@ -57,8 +57,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
 
         public override void OnLoad()
         {
-            BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/InfinityZeroSky_Bolt");
-            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/InfinityZeroSky_Flash");
+            BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/Biomes/InfinityZeroSky_Bolt");
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/Biomes/InfinityZeroSky_Flash");
         }
 
         public override void Update(GameTime gameTime)

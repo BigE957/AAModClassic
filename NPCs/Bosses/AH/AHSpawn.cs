@@ -1,7 +1,9 @@
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -70,7 +72,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 300)
             {
-                if (AAWorld.downedBrood)
+                if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn2"), new Color(102, 20, 48));
                 }
@@ -82,9 +84,9 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 500)
             {
-                if (AAWorld.downedHydra)
+                if (NPCExtensions.BeenKilled<Hydra>())
                 {
-                    if (AAWorld.downedBrood)
+                    if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn4"), new Color(72, 78, 117));
                     }

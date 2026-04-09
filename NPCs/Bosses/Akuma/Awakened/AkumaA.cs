@@ -6,6 +6,7 @@ using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -607,12 +608,12 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
         {
             if (Main.expertMode)
             {
-                if (!AAWorld.downedAkuma)
+                if (!NPC.BeenKilled(true))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<DraconianRune>());
                 }
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA10") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
-                AAWorld.downedAkuma = true;
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(NPC.BeenKilled(true) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA10") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());

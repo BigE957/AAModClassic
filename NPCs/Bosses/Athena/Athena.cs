@@ -2,8 +2,10 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -171,7 +173,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
                         if (internalAI[3]++ < 420)
                         {
-                            if (!AAWorld.downedAthena)
+                            if (!NPCExtensions.BeenKilled<Athena>())
                             {
 
                                 if (internalAI[3] == 60)
@@ -211,7 +213,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                     NPC.netUpdate = true;
                                 }
                             }
-                            else if (AAWorld.AthenaHerald && !AAWorld.downedAthenaA)
+                            else if (AAWorld.AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
                             {
                                 if (internalAI[3] == 60)
                                 {
@@ -557,11 +559,9 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
         public override void OnKill()
         {
-            AAWorld.downedAthena = true;
-
             if (NPC.downedMoonlord)
             {
-                if (!AAWorld.downedAthenaA)
+                if (!NPCExtensions.BeenKilled<AthenaA>())
                 {
                     int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>());
                     Main.npc[a].Center = NPC.Center;

@@ -38,7 +38,6 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             Projectile.velocity.Y += 0.00f;
             if (Projectile.timeLeft >= 913)
             {
-                AAWorld.downedZero = true;
                 if (Projectile.timeLeft == 913)
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
             }

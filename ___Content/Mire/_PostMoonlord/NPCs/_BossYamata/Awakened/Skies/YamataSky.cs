@@ -46,13 +46,13 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.S
 
         public override void OnLoad()
         {
-            MoonTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon");
-            BeamTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam");
+            MoonTex = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/_PostMoonlord/NPCs/_BossYamata/Awakened/Skies/YamataSky_Moon");
+            BeamTex = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/_PostMoonlord/NPCs/_BossYamata/Awakened/Skies/YamataSky_Beam");
             for (int i = 0; i < RockTex.Length; i++)
             {
-                RockTex[i] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataRock" + i);
+                RockTex[i] = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/_PostMoonlord/NPCs/_BossYamata/Awakened/Skies/YamataSky_Rock" + i);
             }
-            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgounds/YamataSky_Sky");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/_PostMoonlord/NPCs/_BossYamata/Awakened/Skies/YamataSky_Sky");
         }
 
         public override void Update(GameTime gameTime)

@@ -6,6 +6,7 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -196,7 +197,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA5"), new Color(146, 30, 68));
             }
-            if (!AAWorld.downedYamata)
+            if (!NPC.BeenKilled(true))
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA2"), new Color(146, 30, 68));
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA3"), Color.Indigo);
@@ -208,7 +209,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 
             if (Main.expertMode)
             {
-                if (!AAWorld.downedYamata)
+                if (!NPC.BeenKilled(true))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<DreadRune>());
                 }
@@ -222,7 +223,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 }
                 
                 NPC.DropLoot(ModContent.ItemType<YamataBag>());
-                AAWorld.downedYamata = true;
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());

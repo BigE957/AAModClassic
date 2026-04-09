@@ -11,6 +11,8 @@ using Terraria.Localization;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
 using AAModClassic.Projectiles;
+using AAModClassic.Utilities;
+using AAModClassic.NPCs.Bosses.MushroomMonarch;
 
 namespace AAModClassic.NPCs.TownNPCs
 {
@@ -102,7 +104,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     Player player = Main.player[k];
                     if (player.active)
                     {
-                        if (AAWorld.downedMonarch == true)
+                        if (NPCExtensions.BeenKilled<MushroomMonarch>() == true)
                         {
                             return true;
                         }

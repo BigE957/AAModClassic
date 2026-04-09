@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;
@@ -100,7 +101,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald4"), Color.CadetBlue);
                 }
-                if (!AAWorld.downedGreed)
+                if (!NPCExtensions.BeenKilled<Greed.Greed>())
                 {
                     if (NPC.ai[0] >= 480)
                     {

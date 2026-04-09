@@ -7,6 +7,7 @@ using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Core.Projectiles;
 using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -87,7 +88,7 @@ public class Core : ModNPC
 		{
 			NPC.ai[3] = 1f;
 		}
-		if (internalAI[0] != 1f && !AAWorld.downedCore)
+		if (internalAI[0] != 1f && !NPCExtensions.BeenKilled<Core>())
 		{
 			NPC.dontTakeDamage = true;
 			NPC.Center = val2;
@@ -451,7 +452,6 @@ public class Core : ModNPC
 
     public override void OnKill()
     {
-        AAWorld.downedSag = true;
         Main.rand.Next(10);
         if (true)//!Main.expertMode)
         {

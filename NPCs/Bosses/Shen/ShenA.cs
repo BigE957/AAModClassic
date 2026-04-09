@@ -14,6 +14,7 @@ using Terraria.Localization;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -556,7 +557,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 if (Main.expertMode)
                 {
                     NPC.DropLoot(Items.Vanity.Mask.ShenAMask.type, 1f / 7);
-                    if (!AAWorld.downedShen)
+                    if (!NPC.BeenKilled(true))
                     {
                         NPC.DropLoot(ModContent.ItemType<Items.BossSummons.ChaosRune>());
                     }
@@ -715,7 +716,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (Health2)
             {
-               // music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
+               Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
         }
 

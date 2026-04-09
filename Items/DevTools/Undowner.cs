@@ -53,35 +53,13 @@ Non-Consumable"); */
             NPC.downedTowerSolar = false;
             NPC.downedTowerStardust = false;
             NPC.downedTowerVortex = false;
-            AAWorld.downedAkuma = false;
-            AAWorld.downedAllAncients = false;
             AAWorld.downedAshe = false;
-            AAWorld.downedBrood = false;
             AAWorld.downedDB = false;
             AAWorld.downedNC = false;
-            AAWorld.downedDjinn = false;
             AAWorld.downedEquinox = false;
-            AAWorld.downedFungus = false;
             AAWorld.downedGrips = false;
             AAWorld.downedHaruka = false;
-            AAWorld.downedHydra = false;
-            AAWorld.downedMonarch = false;
-            AAWorld.downedRajah = false;
-            AAWorld.downedSag = false;
-            AAWorld.downedSAncient = false;
-            AAWorld.downedSerpent = false;
-            AAWorld.downedShen = false;
             AAWorld.downedSisters = false;
-            AAWorld.downedToad = false;
-            AAWorld.downedYamata = false;
-            AAWorld.downedZero = false;
-            AAWorld.downedRajahsRevenge = false;
-            AAWorld.downedAthena = false;
-            AAWorld.downedAnubis = false;
-            AAWorld.downedGreed = false;
-            AAWorld.downedAthenaA = false;
-            AAWorld.downedAnubisA = false;
-            AAWorld.downedGreedA = false;
             return true;
         }
     }

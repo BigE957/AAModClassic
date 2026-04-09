@@ -14,6 +14,7 @@ using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
@@ -618,7 +619,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 
         public override void OnKill()
         {
-            if (!AAWorld.downedAthenaA)
+            if (!NPCExtensions.BeenKilled<AthenaA>(true))
             {
                 int p = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
                 Main.npc[p].Center = NPC.Center;
@@ -646,7 +647,6 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 NPC.DropLoot(ModContent.ItemType<StarChart>());
             }
-            AAWorld.downedAthenaA = true;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

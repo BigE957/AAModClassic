@@ -42,6 +42,15 @@ using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Dungeon.World.Tiles;
 using AAModClassic.Utilities;
+using AAModClassic.NPCs.Bosses.Broodmother;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.NPCs.Bosses.Shen;
 
 namespace AAModClassic
 {
@@ -94,50 +103,41 @@ namespace AAModClassic
         public static bool Empowered;
         //Boss Bools
         public static bool Ancients;
-        public static bool downedMonarch;
         public static bool downedGrips;
-        public static bool downedBrood;
-        public static bool downedHydra;
-        public static bool downedSerpent;
-        public static bool downedDjinn;
-        public static bool downedRajah;
+
         public static bool downedDB;
         public static bool downedNC;
         public static bool downedEquinox;
-        public static bool downedAncient;
-        public static bool downedSAncient;
-        public static bool downedAkuma;
-        public static bool downedYamata;
+
+        public static bool downedAncient => downedAkuma || downedYamata || downedZero;
+        public static bool downedSAncient => downedShen;
+        public static bool downedAkuma => (NPCExtensions.BeenKilled<Akuma>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
+        public static bool downedYamata => (NPCExtensions.BeenKilled<Yamata>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataA>();
         public static bool zeroUS;
-        public static bool downedZero;
-        public static bool downedAllAncients;
+        public static bool downedZero => (NPCExtensions.BeenKilled<Yamata>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataA>();
+        public static bool downedAllAncients => downedAkuma && downedYamata && downedZero;
+        private static bool previousDownedAllAncients = false;
         public static bool ShenSummoned;
-        public static bool downedShen;
-        public static bool downedToad;
-        public static bool downedFungus;
+        public static bool downedShen => (NPCExtensions.BeenKilled<Shen>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenA>();
+
         public static bool downedAshe;
-        public static bool downedHaruka;
+        public static bool downedHaruka;     
         public static bool downedSisters;
-        public static bool downedSag;
         public static bool SistersSummoned;
-        public static bool downedRajahsRevenge;
-        public static bool downedAnubis;
-        public static bool downedAthena;
-        public static bool downedAthenaA;
-        public static bool downedGreed;
-        public static bool downedGreedA;
+
         public static bool AthenaHerald;
-        public static bool downedAnubisA;
+
         public static bool downedAABoss;
+        /*
         public static bool downedLucifer;
-        public static bool downedCore;
         public static bool downedKraken;
+        */
         public static bool AnubisAwakened;
         public static bool WormActive;
         public static bool StarActive;
         public static bool GravActive;
 
-        public static bool Terra1 => downedBrood || downedHydra || NPC.downedBoss2;
+        public static bool Terra1 => NPCExtensions.BeenKilled<Broodmother>() || NPCExtensions.BeenKilled<Hydra>() || NPC.downedBoss2;
 		public static bool Terra2 => NPC.downedPlantBoss;
 		public static bool Terra3 => downedShen;
 
@@ -175,38 +175,17 @@ namespace AAModClassic
         public override void PreWorldGen()
         {
             //Bosses
-            downedAnubis = false;
-            downedAnubisA = false;
-            downedAthena = false;
-            downedAthenaA = false;
-            downedGreed = false;
-            downedGreedA = false;
-            downedMonarch = false;
             downedGrips = false;
             downedEquinox = false;
-            downedSAncient = false;
-            downedAkuma = false;
-            downedYamata = false;
             zeroUS = false;
-            downedZero = false;
-            downedShen = false;
-            downedAllAncients = false;
             ShenSummoned = false;
-            downedToad = false;
-            downedFungus = false;
-            downedDjinn = false;
-            downedSerpent = false;
-            downedBrood = false;
-            downedHydra = false;
             downedAshe = false ;
             downedHaruka = false;
             downedSisters = false;
-            downedSag = false;
             SistersSummoned = false;
-            downedRajah = false;
             AthenaHerald = false;
             downedAABoss = false;
-            downedLucifer = false;
+            //downedLucifer = false;
 
             AnubisAwakened = false;
             WormActive = false;
@@ -276,44 +255,21 @@ namespace AAModClassic
         public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
         {
             var downed = new List<string>();
-            if (downedMonarch) downed.Add("MUSHMAN");
             if (downedGrips) downed.Add("GrabbyHands");
-            if (downedHydra) downed.Add("Hydra");
-            if (downedBrood) downed.Add("Nacho");
             if (AMessage) downed.Add("AMessage");
             if (downedEquinox) downed.Add("Equinox");
             if (Ancients) downed.Add("AA");
-            if (downedAncient) downed.Add("A");
-            if (downedSAncient) downed.Add("SA");
-            if (downedAkuma) downed.Add("Akuma");
-            if (downedYamata) downed.Add("Yamata");
-            if (downedZero) downed.Add("0");
-            if (downedShen) downed.Add("Shen");
-            if (downedAllAncients) downed.Add("DAA");
             if (ShenSummoned) downed.Add("ShenS");
-            if (downedSerpent) downed.Add("Serpent");
-            if (downedDjinn) downed.Add("JojoReference");
-            if (downedToad) downed.Add("Toad");
-            if (downedFungus) downed.Add("Fungus");
             if (InfernoStripe) downed.Add("IStripe");
             if (MireStripe) downed.Add("MStripe");
             if (downedAshe) downed.Add("BetterDragonWaifu");
             if (downedHaruka) downed.Add("TrashDragonWaifu");
             if (downedSisters) downed.Add("Sisters");
-            if (downedSag) downed.Add("Sag");
             if (ModContentGenerated) downed.Add("WorldGenned");
             if (SistersSummoned) downed.Add("Summoned");
-            if (downedRajah) downed.Add("Rajah");
-            if (downedRajahsRevenge) downed.Add("Rajah2");
             if (zeroUS) downed.Add("ZUS");
-            if (downedAnubis) downed.Add("Doggo");
-            if (downedAnubisA) downed.Add("AngryDoggo");
-            if (downedAthena) downed.Add("BirdBitch");
-            if (downedAthenaA) downed.Add("BirdBitchA");
-            if (downedGreed) downed.Add("GimmeGimme");
-            if (downedGreedA) downed.Add("WOOOORMS");
             if (AthenaHerald) downed.Add("BitchBird");
-            if (downedLucifer) downed.Add("L");
+            //if (downedLucifer) downed.Add("L");
 
             if (AnubisAwakened) downed.Add("AnuA");
             if (WormActive) downed.Add("WormA");
@@ -353,46 +309,22 @@ namespace AAModClassic
         {
             var downed = tag.GetList<string>("downed");
             //bosses
-            downedMonarch = downed.Contains("MUSHMAN");
             downedGrips = downed.Contains("GrabbyHands");
-            downedBrood = downed.Contains("Nacho");
-            downedHydra = downed.Contains("Hydra");
             AMessage = downed.Contains("AMessage");
             downedEquinox = downed.Contains("Equinox");
-            downedAncient = downed.Contains("A");
-            downedSAncient = downed.Contains("SA");
-            downedAkuma = downed.Contains("Akuma");
-            downedYamata = downed.Contains("Yamata");
-            downedZero = downed.Contains("0");
-            downedShen = downed.Contains("Shen");
-            downedAllAncients = downed.Contains("DAA");
             Ancients = downed.Contains("AA");
             ShenSummoned = downed.Contains("ShenS");
-            downedSerpent = downed.Contains("Serpent");
-            downedDjinn = downed.Contains("JojoReference");
-            downedToad = downed.Contains("Toad");
-            downedFungus = downed.Contains("Fungus");
             downedAshe = downed.Contains("BetterDragonWaifu");
             downedHaruka = downed.Contains("TrashDragonWaifu");
             downedSisters = downed.Contains("Sisters");
-            downedSag = downed.Contains("Sag");
             SistersSummoned = downed.Contains("Summoned");
-            downedRajah = downed.Contains("Rajah");
-            downedRajahsRevenge = downed.Contains("Rajah2");
             zeroUS = downed.Contains("ZUS");
-            downedAnubis = downed.Contains("Doggo");
-            downedAnubisA = downed.Contains("AngryDoggo");
-            downedAthena = downed.Contains("BirdBitch");
-            downedAthenaA = downed.Contains("BirdBitchA");
-            downedGreed = downed.Contains("GimmeGimme");
-            downedGreedA = downed.Contains("WOOOORMS");
             AthenaHerald = downed.Contains("BitchBird");
-            downedLucifer = downed.Contains("L");
 
             AnubisAwakened = downed.Contains("AnuA");
             WormActive = downed.Contains("WormA");
-            WormActive = downed.Contains("StarA");
-            WormActive = downed.Contains("GravA");
+            StarActive = downed.Contains("StarA");
+            GravActive = downed.Contains("GravA");
 
             //World Changes
             ChaosOres = downedGrips;
@@ -437,15 +369,15 @@ namespace AAModClassic
             SmashDragonEgg = tag.GetInt("Egg");
             SmashHydraPod = tag.GetInt("Pod");
         }
-
+        //Idt this is actually needed
+        /*
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
-            flags[0] = downedMonarch;
             flags[1] = downedAncient;
             flags[2] = downedGrips;
-            flags[3] = downedBrood;
-            flags[4] = downedHydra;
+            flags[3] = NPCExtensions.BeenKilled<Broodmother>();
+            flags[4] = NPCExtensions.BeenKilled<Hydra>();
             flags[5] = ModContentGenerated;
             flags[6] = downedRajah;
             flags[7] = downedRajahsRevenge;
@@ -491,7 +423,7 @@ namespace AAModClassic
             flags5[1] = downedAthenaA;
             flags5[2] = downedGreedA;
             flags5[3] = AnubisAwakened;
-            flags5[4] = downedAnubisA;
+            flags5[4] = NPCExtensions.BeenKilled<ForsakenAnubis>();
             flags5[5] = WormActive;
             flags5[6] = StarActive;
             flags5[7] = GravActive;
@@ -532,8 +464,8 @@ namespace AAModClassic
             downedMonarch = flags[0];
             downedAncient = flags[1];
             downedGrips = flags[2];
-            downedBrood = flags[3];
-            downedHydra = flags[4];
+            NPCExtensions.BeenKilled<Broodmother>() = flags[3];
+            NPCExtensions.BeenKilled<Hydra>() = flags[4];
             ModContentGenerated = flags[5];
             downedRajah = flags[6];
             downedRajahsRevenge = flags[7];
@@ -573,7 +505,7 @@ namespace AAModClassic
             downedAthenaA = flags5[1];
             downedGreedA = flags5[2];
             AnubisAwakened = flags5[3];
-            downedAnubisA = flags5[4];
+            NPCExtensions.BeenKilled<ForsakenAnubis>() = flags5[4];
             WormActive = flags5[5];
             StarActive = flags5[6];
             GravActive = flags5[7];
@@ -601,7 +533,7 @@ namespace AAModClassic
             SmashHydraPod = reader.ReadInt32();
             SmashDragonEgg = reader.ReadInt32();
         }
-
+        */
         #endregion
 
         private string NumberRand(int size)
@@ -1252,7 +1184,7 @@ namespace AAModClassic
 
         public override void PostUpdateWorld()
         {
-            if (downedAnubisA && !AthenaHerald && !downedAthenaA)
+            if (NPCExtensions.BeenKilled<ForsakenAnubis>() && !AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
             {
                 if (HeraldTimer > 0)
                 {
@@ -1477,33 +1409,21 @@ namespace AAModClassic
                 }
             }       
 
-            if (downedAkuma || downedYamata || downedZero)
+            if (downedAllAncients && !previousDownedAllAncients)
             {
-                downedAncient = true;
-            }
-
-            if (downedShen)
-            {
-                downedSAncient = true;
-            }
-
-            if (downedAkuma && downedYamata && downedZero)
-            {
-                if (downedAllAncients == false)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                     {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                        {
-                            Main.NewText("You feel as if you are being watched by something...malicious...", new Color(158, 3, 32));
-                            Main.NewText("An otherworldly fog encompasses the ocean", Color.Cyan);
-                        }
+                        Main.NewText("You feel as if you are being watched by something...malicious...", new Color(158, 3, 32));
+                        Main.NewText("An otherworldly fog encompasses the ocean", Color.Cyan);
                     }
-                        
-                    downedAllAncients = true;
                 }
             }
+
+            previousDownedAllAncients = downedAllAncients;
+
             if (Main.hardMode)
             {
                 if (InfernoStripe == false)

@@ -19,6 +19,7 @@ using Terraria.Localization;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -176,7 +177,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
 
             if (isSupreme)
             {
-                if (NPC.ai[3] != 0 && !DefenseLine && !AAWorld.downedRajahsRevenge && Main.netMode != NetmodeID.MultiplayerClient)
+                if (NPC.ai[3] != 0 && !DefenseLine && !NPCExtensions.BeenKilled<SupremeRajah>() && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     DefenseLine = true;
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SupremeRajahChat"), Color.MediumPurple);
@@ -188,7 +189,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                     string Name;
 
                     int bunnyKills = NPC.killCount[Item.NPCtoBanner(NPCID.Bunny)];
-                    if (bunnyKills >= 100 && !AAWorld.downedRajahsRevenge)
+                    if (bunnyKills >= 100 && !NPCExtensions.BeenKilled<SupremeRajah>())
                     {
                         Name = "MUDERER";
                     }
@@ -198,7 +199,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         {
                             Name = "Terrarians";
                         }
-                        else if (!AAWorld.downedRajahsRevenge)
+                        else if (!NPCExtensions.BeenKilled<SupremeRajah>())
                         {
                             Name = "Terrarian";
                         }
@@ -1057,7 +1058,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet1").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet2").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet3").Type, 1f);
-                if (!AAWorld.downedRajahsRevenge)
+                if (!NPCExtensions.BeenKilled<SupremeRajah>(true))
                 {
                     int n = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SupremeRajahDefeat>());
                     Main.npc[n].Center = NPC.Center;
@@ -1113,9 +1114,8 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                     NPC.DropLoot(ModContent.ItemType<RajahBag>());
                 }
             }
-            AAWorld.downedRajah = true;
-            NPC.value = 0f;
-            NPC.boss = false;
+            //NPC.value = 0f;
+            //NPC.boss = false;
         }
 
         public override void BossLoot(ref int potionType)

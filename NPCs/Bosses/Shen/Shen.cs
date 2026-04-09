@@ -19,6 +19,7 @@ using AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH;
 using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -818,7 +819,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 NPC.DropLoot(Items.Vanity.Mask.ShenMask.type, 1f / 7);
                 if (!Main.expertMode)
                 {
-                    if (!AAWorld.downedShen)
+                    if (!NPC.BeenKilled(true))
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon16"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -826,7 +827,6 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon18"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
-                    AAWorld.downedShen = true;
                     NPC.DropLoot(ModContent.ItemType<ChaosScale>(), 20, 30);
                     string[] lootTable = { "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter" };
                     int loot = Main.rand.Next(lootTable.Length);
@@ -840,8 +840,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
                 if(Main.rand.NextBool(10))
                     NPC.DropLoot(ModContent.ItemType<ShenTrophy>());
-                NPC.value = 0f;
-                NPC.boss = false;
+                //NPC.value = 0f;
+                //NPC.boss = false;
             }
         }
 

@@ -4,6 +4,7 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -496,12 +497,11 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             NPC.DropLoot(Items.Vanity.Mask.AkumaMask.type, 1f / 7);
             if (!Main.expertMode)
             {
-                if (!AAWorld.downedAkuma)
+                if (!NPC.BeenKilled(true))
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma11"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 }
                 string[] lootTable = { "AkumaTerratool", "DayStorm", "LungStaff", "MorningGlory", "RadiantDawn", "Solar", "SunSpear", "ReignOfFire", "DaybreakArrow", "Daycrusher", "Dawnstrike", "SunStorm", "SunStaff", "DragonSlasher" };
-                AAWorld.downedAkuma = true;
 
                 NPC.DropLoot(ModContent.ItemType<AkumaTrophy>(), 1 / 10f);
 
@@ -525,21 +525,16 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
             }
-            NPC.value = 0f;
-            NPC.boss = false;
+            //NPC.value = 0f;
+            //NPC.boss = false;
         }
 
         public override void BossLoot(ref int potionType)
         {
             if (Main.expertMode)
-            {
                 potionType = 0;
-            }
             else
-            {
-                AAWorld.downedAkuma = true;
                 potionType = ItemID.SuperHealingPotion;
-            }
         }
 
         public override void HitEffect(NPC.HitInfo hit)

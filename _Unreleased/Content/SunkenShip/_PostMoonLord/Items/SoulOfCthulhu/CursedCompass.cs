@@ -17,7 +17,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             // Tooltip.SetDefault(@"An old Compass. Who knows what it's for?");
         }
 
-        private bool CthulhuFightable = AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
+        private static bool CthulhuFightable => AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
 
         public override void SetDefaults()
         {

@@ -9,6 +9,7 @@ using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -158,7 +159,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 NPC.DropLoot(ModContent.ItemType<ApocalyptitePlate>(), 2, 4);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
-                if (AAWorld.downedZero)
+                if (NPC.BeenKilled(true))
                 {
                     int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ZeroProtocol>(), 0, 0, 0, 0, 0, NPC.target);
                     Main.npc[z].Center = NPC.Center;
@@ -176,13 +177,13 @@ namespace AAModClassic.NPCs.Bosses.Zero
             }
             else
             {
-                if (!AAWorld.downedZero)
+                if (!NPC.BeenKilled(true))
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) 
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss3"), Color.PaleVioletRed);
                     VoidSky.Alpha = 0f;
                 }
-                AAWorld.downedZero = true;
+
                 NPC.DropLoot(ModContent.ItemType<ApocalyptitePlate>(), 2, 4);
                 NPC.DropLoot(ModContent.ItemType<UnstableSingularity>(), 25, 35);
                 string[] lootTable =
@@ -217,13 +218,9 @@ namespace AAModClassic.NPCs.Bosses.Zero
         public override void BossLoot(ref int potionType)
         {
             if (!Main.expertMode)
-            {
                 potionType = ItemID.SuperHealingPotion;   //boss drops
-            }
             else
-            {
                 potionType = 0;
-            }
         }
 
         public static Color GetGlowAlpha()

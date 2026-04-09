@@ -1,5 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.NPCs.Bosses.MushroomMonarch;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -114,7 +116,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && AAWorld.downedMonarch ? .3f : 0f;
+            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
         }
 
         public override void OnKill()

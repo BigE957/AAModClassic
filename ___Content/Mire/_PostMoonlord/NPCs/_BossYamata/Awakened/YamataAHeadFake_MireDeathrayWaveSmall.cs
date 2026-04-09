@@ -22,8 +22,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         {
             // DisplayName.SetDefault("Mire Deathray");
 
-            DeathrayBaseTex = ModContent.Request<Texture2D>(Texture + "2");
-            DeathrayTipTex = ModContent.Request<Texture2D>(Texture + "3");
+            DeathrayBaseTex = ModContent.Request<Texture2D>(ModContent.GetInstance<YamataAHeadFake_MireDeathrayWave>().Texture + "2");
+            DeathrayTipTex = ModContent.Request<Texture2D>(ModContent.GetInstance<YamataAHeadFake_MireDeathrayWave>().Texture + "3");
         }
 
         public override void SetDefaults()

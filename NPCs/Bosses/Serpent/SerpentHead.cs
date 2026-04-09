@@ -820,15 +820,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void OnKill()
         {
-            AAWorld.downedSerpent = true;
-
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SerpentMask>());
                 }
-                AAWorld.downedSerpent = true;
                 NPC.DropLoot(ModContent.ItemType<SnowMana>(), 10, 15);
                 string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
                 int loot = Main.rand.Next(lootTable.Length);
@@ -850,8 +847,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SerpentTrophy>());
             }
-            NPC.value = 0f;
-            NPC.boss = false;
+            //NPC.value = 0f;
+            //NPC.boss = false;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

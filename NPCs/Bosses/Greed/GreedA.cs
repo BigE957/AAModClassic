@@ -569,7 +569,6 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override void OnKill()
         {
-            AAWorld.downedGreedA = true;
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
@@ -591,8 +590,8 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<WKGTrophy>());
             }
-            NPC.value = 0f;
-            NPC.boss = false;
+            //NPC.value = 0f;
+            //NPC.boss = false;
         }
 
         public override void BossHeadRotation(ref float rotation)

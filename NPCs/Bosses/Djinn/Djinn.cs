@@ -532,7 +532,6 @@ namespace AAModClassic.NPCs.Bosses.Djinn
         public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.HealingPotion;
-            AAWorld.downedDjinn = true;
         }
 
         public override void OnKill()

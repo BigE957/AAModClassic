@@ -57,7 +57,7 @@ namespace AAModClassic.Backgrounds
             EchoTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Echo");
             BoltTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBolt");
             FlashTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidFlash");
-            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Void_Starfield");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Void_Starfield");
         }
 
         public override void Update(GameTime gameTime)

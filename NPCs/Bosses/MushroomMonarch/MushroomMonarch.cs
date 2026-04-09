@@ -365,7 +365,6 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
         public override void OnKill()
         {
-            AAWorld.downedMonarch = true;
             Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<MonarchRUNAWAY>(), 0, 0);
         }
 

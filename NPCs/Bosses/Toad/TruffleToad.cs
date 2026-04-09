@@ -596,11 +596,6 @@ namespace AAModClassic.NPCs.Bosses.Toad
             
         }
 
-        public override void OnKill()
-        {
-            AAWorld.downedToad = true;
-        }
-
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ToadBag>()));

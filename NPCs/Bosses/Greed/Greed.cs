@@ -448,7 +448,6 @@ namespace AAModClassic.NPCs.Bosses.Greed
         public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;   //boss drops
-            AAWorld.downedSerpent = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -484,7 +483,6 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override void OnKill()
         {
-            AAWorld.downedGreed = true;
             if (NPC.downedMoonlord)
             {
                 int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<GreedTransition>());
@@ -513,8 +511,8 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<GreedTrophy>());
             }
-            NPC.value = 0f;
-            NPC.boss = false;
+            //NPC.value = 0f;
+            //NPC.boss = false;
         }
 
         public override void BossHeadRotation(ref float rotation)

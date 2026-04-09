@@ -2,6 +2,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -275,7 +276,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             if (NPC.ai[1] > 240)
             {
-                int i = AAWorld.downedShen ? 1 : 0;
+                int i = NPCExtensions.BeenKilled<ShenA>(true) ? 1 : 0;
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ShenDeath>(), 0, i);
                 NPC.active = false;
                 NPC.netUpdate = true;
@@ -329,7 +330,6 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             if (AAConfigClient.Instance.NoBossDialogue)
             {
-                AAWorld.downedShen = true;
                 NPC.active = false;
                 NPC.netUpdate = true;
             }
@@ -369,7 +369,6 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
                 if (NPC.ai[1] >= 900)
                 {
-                    AAWorld.downedShen = true;
                     NPC.active = false;
                     NPC.netUpdate = true;
                 }

@@ -4,6 +4,7 @@ using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
@@ -441,7 +442,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override void OnKill()
         {
-            if (NPC.downedMoonlord && AAWorld.downedAnubis)
+            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
             {
                 if (!AAWorld.AnubisAwakened)
                 {
@@ -480,8 +481,6 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
             }
-
-            AAWorld.downedAnubis = true;
         }
 
         public override void FindFrame(int frameHeight)
@@ -682,7 +681,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 {
                     if (internalAI[1]++ < 420)
                     {
-                        if (!AAWorld.downedAnubis)
+                        if (!NPCExtensions.BeenKilled<Anubis>())
                         {
                             if (internalAI[1] == 60)
                             {

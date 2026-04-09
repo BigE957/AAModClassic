@@ -562,8 +562,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AsheDowned"), new Color(102, 20, 48));
-            NPC.value = 0f;
-            NPC.boss = false;
+            //NPC.value = 0f;
+            //NPC.boss = false;
         }
 
         public override void BossLoot(ref int potionType)
