@@ -1,6 +1,7 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
@@ -15,9 +16,15 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         private const float maxTime = 300;
         private float timer = 0;
 
+        public static Asset<Texture2D> DeathrayBaseTex;
+        public static Asset<Texture2D> DeathrayTipTex;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mire Deathray");
+
+            DeathrayBaseTex = ModContent.Request<Texture2D>(Texture + "2");
+            DeathrayTipTex = ModContent.Request<Texture2D>(Texture + "3");
         }
 
         public override void SetDefaults()
@@ -124,8 +131,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = ModContent.Request<Texture2D>(Texture + "2").Value;
-            Texture2D texture2D21 = ModContent.Request<Texture2D>(Texture + "3").Value;
+            Texture2D texture2D20 = DeathrayBaseTex.Value;
+            Texture2D texture2D21 = DeathrayTipTex.Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;
