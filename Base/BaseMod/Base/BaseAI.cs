@@ -896,7 +896,7 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        private static void AISpore(NPC npc, ref float[] ai, float moveIntervalX = 0.1f, float moveIntervalY = 0.02f, float maxSpeedX = 5f, float maxSpeedY = 1f)
+        public static void AISpore(NPC npc, ref float[] ai, float moveIntervalX = 0.1f, float moveIntervalY = 0.02f, float maxSpeedX = 5f, float maxSpeedY = 1f)
         {
             npc.TargetClosest();
             AISpore(npc, ref ai, Main.player[npc.target].Center, Main.player[npc.target].width, moveIntervalX, moveIntervalY, maxSpeedX, maxSpeedY);
@@ -2683,7 +2683,7 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        private static Vector2 TracePlayer(Vector2 start, float distance, float rotation, int ignorePlayer, bool npcCheck = true, bool tileCheck = true, bool playerCheck = true, bool ignorePlatforms = true)
+        public static Vector2 TracePlayer(Vector2 start, float distance, float rotation, int ignorePlayer, bool npcCheck = true, bool tileCheck = true, bool playerCheck = true, bool ignorePlatforms = true)
         {
             Vector2 end = BaseUtility.RotateVector(start, start + new Vector2(distance, 0f), rotation);
             return Trace(start, end, ignorePlayer, 0, npcCheck, tileCheck, playerCheck, 1F, ignorePlatforms);
