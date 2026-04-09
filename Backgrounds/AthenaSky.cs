@@ -3,6 +3,7 @@ using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.Graphics.Effects;
@@ -42,6 +43,17 @@ namespace AAModClassic.Backgrounds
         public bool Active;
         public int ticksUntilNextBolt;
         public float Intensity;
+
+        public static Asset<Texture2D> BoltTex;
+        public static Asset<Texture2D> FlashTex;
+        public static Asset<Texture2D> FogTex;
+
+        public override void OnLoad()
+        {
+            BoltTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt");
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash");
+            FogTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex");
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -108,13 +120,13 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D boltTexture = AAMod.GetTexture("Backgrounds/AthenaBolt");
-            Texture2D flashTexture = AAMod.GetTexture("Backgrounds/AthenaFlash");
+            Texture2D boltTexture = BoltTex.Value;
+            Texture2D flashTexture = FlashTex.Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                clouds.Update(AAMod.GetTexture("Backgrounds/FogTex"));
-                clouds.Draw(AAMod.GetTexture("Backgrounds/FogTex"), false, Color.CornflowerBlue, true);
+                clouds.Update(FogTex.Value);
+                clouds.Draw(FogTex.Value, false, Color.CornflowerBlue, true);
             }
             float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
             Vector2 value3 = Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);

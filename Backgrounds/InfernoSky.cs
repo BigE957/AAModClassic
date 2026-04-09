@@ -1,7 +1,8 @@
-﻿using System;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
@@ -31,6 +32,19 @@ namespace AAModClassic.Backgrounds
 
         private readonly UnifiedRandom _random = new UnifiedRandom();
 
+        public static Asset<Texture2D> SunTex;
+        public static Asset<Texture2D> DemonSunTex;
+        public static Asset<Texture2D> MeteorTex;
+        public static Asset<Texture2D> SkyTex;
+
+        public override void OnLoad()
+        {
+            SunTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun");
+            DemonSunTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/DemonSun");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex");
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Active)
@@ -49,17 +63,15 @@ namespace AAModClassic.Backgrounds
             return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
         }
 
-        readonly AAMod mod = AAMod.instance;
-
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
             if (AAMod.instance == null)
                 return;
 
-            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/Sun");
-            Texture2D demonSun = AAMod.GetTexture("Backgrounds/DemonSun");
-            Texture2D MeteorTexture = AAMod.GetTexture("Backgrounds/AkumaMeteor");
-            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/SkyTex");
+            Texture2D PlanetTexture = SunTex.Value;
+            Texture2D demonSun = DemonSunTex.Value;
+            Texture2D MeteorTexture = MeteorTex.Value;
+            Texture2D SkyTexture = SkyTex.Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
@@ -67,9 +79,9 @@ namespace AAModClassic.Backgrounds
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     if(Main.gameMenu)
-                        spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.OrangeRed * Intensity);
+                        spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.OrangeRed * Intensity);
                     else
-                        spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.OrangeRed * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
+                        spriteBatch.Draw(SkyTexture, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.OrangeRed * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
                     float num64 = 1f;
                     num64 -= Main.cloudAlpha * 1.5f;
                     if (num64 < 0f)

@@ -1,6 +1,7 @@
 ﻿using AAModClassic.NPCs.Bosses.Shen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -42,8 +43,13 @@ namespace AAModClassic.Backgrounds
         }
         private Meteor[] Meteors;
 
+        public static Asset<Texture2D> MeteorTex;
+        public static Asset<Texture2D> SkyTex;
+
         public override void OnLoad()
         {
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenBg");
         }
         public override void Update(GameTime gameTime)
         {
@@ -81,13 +87,13 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D MeteorTexture = AAMod.GetTexture("Backgrounds/ShenMeteor");
-            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/ShenBg");
+            Texture2D MeteorTexture = MeteorTex.Value;
+            Texture2D SkyTexture = SkyTex.Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+                spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
             }
 
             int num = -1;

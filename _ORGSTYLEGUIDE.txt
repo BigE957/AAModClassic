@@ -1,0 +1,20 @@
+//TODO: flesh this out and make it look pretty later
+
+we use theme priority, aka the theme is king
+ex the little demon eye alts are technically primarily night enemies, but they spawn in the mire and are
+mire themed, so they go under mire
+(only exception to this is biome chests which are under dungeon for convenience)
+
+after that is item and npc priority. everything suffixless is either an item or an npc, and anything that isnt 
+gets marked as what they are as a suffix
+anything only made by one item or npc gets prefixed with that item or npcs name(ex if Enchanted Sword shot a
+proj the proj would be named EnchantedSword_Proj)
+
+files are organized primarily based on world completion (_PreHarmode, _Hardmode, and _PostMoonlord)
+anything obtained then goes under there
+WITH THE EXCEPTION OF WORLDGEN, anything genned on worldgen that isnt an ore goes under World in the primary class
+anything used by multiple npcs/items goes under the root theme folder as well, tho u should avoid that and maybe
+rework shit so that this doesnt happen but thats up to u
+so yea. all biomes, worldgen, buffs, quest items go under the root class, and all items and npcs go under the
+progression points
+from there stuff is organized as usual, however bosses get their own folder for thier shit cuz they drop a ton
