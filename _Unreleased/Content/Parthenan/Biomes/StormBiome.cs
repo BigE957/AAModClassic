@@ -55,10 +55,10 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
         public bool Active;
         public int ticksUntilNextBolt;
         public float Intensity;
-        private bool _isLeaving = false;
-        private bool _isActive = false;
-        private readonly float fogOpacity1 = 0.5f;
-        private readonly float fogOpacity2 = 0.4f;
+        //private bool _isLeaving = false;
+        //private bool _isActive = false;
+        //private readonly float fogOpacity1 = 0.5f;
+        //private readonly float fogOpacity2 = 0.4f;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
 
@@ -191,7 +191,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 
     public class StormSkyData : ScreenShaderData
     {
-        private int DataIndex;
+        //private int DataIndex;
 
         public StormSkyData(string passName) : base(passName)
         {
@@ -204,7 +204,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
             {
                 return;
             }
-            DataIndex = -1;
+            //DataIndex = -1;
         }
 
         public override void Apply()

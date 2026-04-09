@@ -36,10 +36,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
             return false;
         }
 
-        //TODO: kill them
-        float Rotation1 = 0;
-        float Rotation2 = 0;
-
         public override bool PreDraw(int x, int y, SpriteBatch sb)
         {
             Main.instance.TilesRenderer.AddSpecialPoint(x, y, Terraria.GameContent.Drawing.TileDrawing.TileCounterType.CustomNonSolid);

@@ -33,7 +33,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public int f = 1;
         public float TargetDirection = (float)Math.PI / 2;
         public float s = 1;
-        private int CoreFrame;
+        //private int CoreFrame;
         private int CoreCounter;
 
         public override void AI()

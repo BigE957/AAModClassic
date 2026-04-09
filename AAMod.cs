@@ -34,7 +34,7 @@ using Terraria.Utilities;
 
 namespace AAModClassic
 {
-    public class AAMod : Mod
+    public partial class AAMod : Mod
     {
         // Miscellaneous
         public static int Coin = -1;
@@ -462,69 +462,6 @@ namespace AAModClassic
                 else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
                 if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
             }
-        }
-
-        public override object Call(params object[] args)
-        {
-            if (args.Length <= 0 || !(args[0] is string))
-                return new Exception("ANCIENTS AWAKENED CALL ERROR: NO METHOD NAME! First param MUST be a method name!");
-
-            string methodName = (string)args[0];
-
-            if (methodName.Equals("Downed")) //returns a Func which will return a downed value based on player and name.
-            {
-                Func<string, bool> downed = (name) =>
-                {
-                    name = name.ToLower();
-                    switch (name)
-                    {
-                        default: return false;
-                        case "mushroommonarch": return AAWorld.downedMonarch;
-                        case "broodmother": return AAWorld.downedBrood;
-                        case "hydra": return AAWorld.downedHydra;
-                        case "grips":
-                        case "gripsofchaos": return AAWorld.downedGrips;
-                        case "tode": return AAWorld.downedToad;
-                        case "daybringer": return AAWorld.downedDB;
-                        case "nightcrawler": return AAWorld.downedNC;
-                        case "equinox": return AAWorld.downedEquinox;
-                        case "ancient":
-                        case "ancientany": return AAWorld.downedAncient;
-                        case "sancient":
-                        case "sancientany": return AAWorld.downedSAncient;
-                        case "gripsS":
-                        case "akuma": return AAWorld.downedAkuma;
-                        case "yamata": return AAWorld.downedYamata;
-                        case "zero": return AAWorld.downedZero;
-                        case "shen":
-                        case "shendoragon": return AAWorld.downedShen;
-                    }
-                };
-                return downed;
-            }
-            else if (methodName.Equals("InZone")) //returns a Func which will return a zone value based on player and name.
-            {
-                Func<Player, string, bool> inZone = (p, name) =>
-                {
-                    name = name.ToLower();
-                    AAPlayer aap = p.GetModPlayer<AAPlayer>();
-                    switch (name)
-                    {
-                        default: return false;
-                        case "mire": return aap.ZoneMire;
-                        case "lake": return aap.ZoneRisingMoonLake;
-                        case "inferno": return aap.ZoneInferno;
-                        case "pagoda": return aap.ZoneRisingSunPagoda;
-                        case "ship": return aap.ZoneShip;
-                        case "storm": return aap.ZoneStorm;
-                        case "void": return aap.ZoneVoid;
-                        case "mush": return aap.ZoneMush;
-                        case "terrarium": return aap.Terrarium;
-                    }
-                };
-                return inZone;
-            }
-            return new Exception("ANCIENTS AWAKENED CALL ERROR: NO METHOD FOUND: " + methodName);
         }
 
         public override void HandlePacket(BinaryReader bb, int whoAmI)

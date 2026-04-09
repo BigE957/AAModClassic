@@ -17,6 +17,7 @@ namespace AAModClassic.Items.Boss
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
+        // this is an alphakip todo i think
         public override void SetDefaults()
         {
             Item refItem = new Item();
