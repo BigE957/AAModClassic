@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Projectiles.Rajah.Supreme;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -37,6 +39,22 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.S
 
         private readonly UnifiedRandom _random = new UnifiedRandom();
 
+        public static Asset<Texture2D> MoonTex;
+        public static Asset<Texture2D> BeamTex;
+        public static Asset<Texture2D>[] RockTex = new Asset<Texture2D>[3];
+        public static Asset<Texture2D> SkyTex;
+
+        public override void OnLoad()
+        {
+            MoonTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon");
+            BeamTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam");
+            for (int i = 0; i < RockTex.Length; i++)
+            {
+                RockTex[i] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataRock" + i);
+            }
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgounds/YamataSky_Sky");
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Active)
@@ -59,21 +77,21 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.S
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/YamataMoon");
-            Texture2D BeamTexture = AAMod.GetTexture("Backgrounds/YamataBeam");
+            Texture2D PlanetTexture = MoonTex.Value;
+            Texture2D BeamTexture = BeamTex.Value;
             Texture2D[] RockTextures = new Texture2D[3];
             for (int i = 0; i < RockTextures.Length; i++)
             {
-                RockTextures[i] = AAMod.GetTexture("Backgrounds/YamataRock" + i);
+                RockTextures[i] = RockTex[i].Value;
             }
 
-            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/YamataSky_Sky");
+            Texture2D SkyTexture = SkyTex.Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (!Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().YamataAltar)
                 {
-                    spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+                    spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
                     double bgTop = (int)(-Main.screenPosition.Y / (Main.worldSurface * 16.0 - 600.0) * 200.0);
                     Main.ColorOfTheSkies = Color.White;
                     if (Main.gameMenu || Main.netMode == NetmodeID.Server)

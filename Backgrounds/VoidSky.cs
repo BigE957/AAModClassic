@@ -3,11 +3,13 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 //using AAModClassic.NPCs.Bosses.Infinity;
@@ -34,6 +36,29 @@ namespace AAModClassic.Backgrounds
         public int ticksUntilNextBolt;
         public float Intensity;
         public static float Alpha = 1f;
+
+        public static Asset<Texture2D> BlackHoleTex;
+        public static Asset<Texture2D> BlackHoleLightningTex;
+        public static Asset<Texture2D> AsteroidTex0;
+        public static Asset<Texture2D> AsteroidTex1;
+        public static Asset<Texture2D> AsteroidTex2;
+        public static Asset<Texture2D> EchoTex;
+        public static Asset<Texture2D> BoltTex;
+        public static Asset<Texture2D> FlashTex;
+        public static Asset<Texture2D> SkyTex;
+
+        public override void OnLoad()
+        {
+            BlackHoleTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH");
+            BlackHoleLightningTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/LB");
+            AsteroidTex0 = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Asteroids0");
+            AsteroidTex1 = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Asteroids1");
+            AsteroidTex2 = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Asteroids2");
+            EchoTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Echo");
+            BoltTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBolt");
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidFlash");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Void_Starfield");
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -122,15 +147,15 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/VoidBH");
-            Texture2D Asteroids1 = AAMod.GetTexture("Backgrounds/Asteroids1");
-            Texture2D Asteroids2 = AAMod.GetTexture("Backgrounds/Asteroids2");
-            Texture2D Asteroids3 = AAMod.GetTexture("Backgrounds/Asteroids3");
-            Texture2D Echo = AAMod.GetTexture("Backgrounds/Echo");
-            Texture2D LB = AAMod.GetTexture("Backgrounds/LB");
-            Texture2D boltTexture = AAMod.GetTexture("Backgrounds/VoidBolt");
-            Texture2D flashTexture = AAMod.GetTexture("Backgrounds/VoidFlash");
-            Texture2D Stars = AAMod.GetTexture("Backgrounds/Void_Starfield");
+            Texture2D PlanetTexture = BlackHoleTex.Value;
+            Texture2D LB = BlackHoleLightningTex.Value;
+            Texture2D Asteroids1 = AsteroidTex0.Value;
+            Texture2D Asteroids2 = AsteroidTex1.Value;
+            Texture2D Asteroids3 = AsteroidTex2.Value;
+            Texture2D Echo = EchoTex.Value;
+            Texture2D boltTexture = BoltTex.Value;
+            Texture2D flashTexture = FlashTex.Value;
+            Texture2D Stars = SkyTex.Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {

@@ -6,6 +6,7 @@ using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
@@ -19,9 +20,13 @@ namespace AAModClassic.NPCs.Bosses.Athena
     [AutoloadBossHead]
     public class Athena : ModNPC
     {
+        public static Asset<Texture2D> SassyBitchTex;
+
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 7;
+
+            SassyBitchTex = ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Athena/SassyBitch");
         }
 
         public static Point CloudPoint = new Point((int)(Main.maxTilesX * 0.65f), 100);
@@ -598,7 +603,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D tex = internalAI[2] != 1 ? AAMod.GetTexture("NPCs/Bosses/Athena/SassyBitch") : TextureAssets.Npc[NPC.type].Value;
+            Texture2D tex = internalAI[2] != 1 ? SassyBitchTex.Value : TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
 
             if (NPC.ai[2] == 1)
