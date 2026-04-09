@@ -25,11 +25,13 @@ namespace AAModClassic.Music
             }
         }
 
-        //TODO: Make mod call which invokes this
-        public static void ReplaceTrack(string key, int musicSlot)
+        public static bool ReplaceTrack(string key, int musicSlot)
         {
-            if (MusicSlots.ContainsKey(key))
-                MusicSlots[key] = musicSlot;
+            if (!MusicSlots.ContainsKey(key))
+                return false;
+
+            MusicSlots[key] = musicSlot;
+            return true;
         }
 
         public override void PostSetupContent()
