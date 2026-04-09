@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 using System;
 using Terraria.ID;
-using AAModClassic.Dusts;
 using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.Projectiles

@@ -1,7 +1,3 @@
-using AAModClassic;
-using Terraria;
-using Terraria.ModLoader;
-
 namespace AAModClassic.Buffs
 {
 	//TODO: think this used to be fire orbiter minion buff but dunno

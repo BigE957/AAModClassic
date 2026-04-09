@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Summoning.Minions.Terra;
 using Microsoft.Xna.Framework;

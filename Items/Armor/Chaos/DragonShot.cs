@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 
 namespace AAModClassic.Items.Armor.Chaos

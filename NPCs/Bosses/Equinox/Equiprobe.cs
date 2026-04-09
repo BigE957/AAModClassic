@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.NPCs.Bosses.Equinox
 {

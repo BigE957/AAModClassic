@@ -8,7 +8,6 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.UI.WorldGen;
 using AAModClassic.NPCs.Bosses.Djinn;
 using AAModClassic.Items.Materials;
 

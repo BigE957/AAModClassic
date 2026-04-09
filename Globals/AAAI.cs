@@ -1,14 +1,12 @@
 
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Utilities;
 
 namespace AAModClassic.Globals

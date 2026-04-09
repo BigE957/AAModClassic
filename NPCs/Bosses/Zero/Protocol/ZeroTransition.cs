@@ -6,7 +6,6 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 using AAModClassic.Effects;
 using AAModClassic.Music;
 

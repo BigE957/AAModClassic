@@ -6,7 +6,6 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 
 namespace AAModClassic.NPCs.Bosses.Akuma.Awakened

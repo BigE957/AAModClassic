@@ -6,7 +6,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Walls;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Walls.Bricks
 {

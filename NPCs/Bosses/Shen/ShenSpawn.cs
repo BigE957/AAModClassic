@@ -1,6 +1,4 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;

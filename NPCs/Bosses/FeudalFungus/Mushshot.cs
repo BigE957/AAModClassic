@@ -1,5 +1,4 @@
-﻿using AAModClassic.Dusts;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;

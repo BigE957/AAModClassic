@@ -1,4 +1,3 @@
-using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

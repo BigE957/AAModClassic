@@ -4,7 +4,6 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Items.Summoning.Minions;
 
 namespace AAModClassic.Items.Summoning

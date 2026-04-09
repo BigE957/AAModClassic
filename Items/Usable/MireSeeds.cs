@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria;

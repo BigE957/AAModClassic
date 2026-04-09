@@ -1,5 +1,3 @@
-using AAModClassic;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;

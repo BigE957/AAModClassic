@@ -1,7 +1,6 @@
 using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic;
 
 namespace AAModClassic.Items.Materials
 {

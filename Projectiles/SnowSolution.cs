@@ -1,4 +1,3 @@
-using AAModClassic.Dusts;
 using AAModClassic.World.Conversions;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -1,5 +1,3 @@
-using AAModClassic;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Utilities;
 using Terraria;

@@ -6,7 +6,6 @@ using Terraria.Audio;
 using System;
 using ReLogic.Utilities;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {

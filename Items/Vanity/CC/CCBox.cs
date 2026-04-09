@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Accessories.Wings;
 using AAModClassic.Items.Dev.DevTile.Tiles;
 using AAModClassic.Items.Vanity.CC.Shiny;

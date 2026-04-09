@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;

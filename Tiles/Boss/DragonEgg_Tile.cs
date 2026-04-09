@@ -6,7 +6,6 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Pets;
-using AAModClassic;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Globals;
 using AAModClassic.Items.Ranged;

@@ -5,7 +5,6 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using System;

@@ -2,7 +2,6 @@ using AAModClassic.World.Conversions;
 using System;
 using System.Threading;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic

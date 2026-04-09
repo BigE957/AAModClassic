@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.EFish;
 using Terraria;
 using Terraria.ModLoader;

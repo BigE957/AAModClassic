@@ -1,5 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Blocks.Paintings;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

@@ -1,15 +1,12 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Unreleased.Content.Void.Dusts;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {

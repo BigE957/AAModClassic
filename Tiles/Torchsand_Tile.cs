@@ -3,8 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
-using AAModClassic.Tiles.Trees;
-using AAModClassic.Dusts;
 using AAModClassic.Tiles.Projectiles;
 
 namespace AAModClassic.Tiles

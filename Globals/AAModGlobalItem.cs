@@ -9,7 +9,6 @@ using AAModClassic.Items.Materials;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Dev.Invoker;

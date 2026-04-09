@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
 
 namespace AAModClassic.Items.Accessories

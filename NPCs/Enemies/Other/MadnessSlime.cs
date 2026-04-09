@@ -1,5 +1,4 @@
-﻿using AAModClassic.Dusts;
-using AAModClassic.Items.Materials;
+﻿using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

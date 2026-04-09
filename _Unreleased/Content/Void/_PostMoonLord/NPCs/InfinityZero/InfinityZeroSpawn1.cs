@@ -1,11 +1,8 @@
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.IO;
-using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using Terraria.ID;

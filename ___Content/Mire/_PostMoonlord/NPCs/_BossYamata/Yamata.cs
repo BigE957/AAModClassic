@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;

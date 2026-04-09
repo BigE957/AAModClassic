@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;

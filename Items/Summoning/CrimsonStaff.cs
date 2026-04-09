@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using System;

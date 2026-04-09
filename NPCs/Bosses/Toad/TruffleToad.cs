@@ -9,8 +9,6 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
-using AAModClassic;
 using AAModClassic.Globals;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.Toad;

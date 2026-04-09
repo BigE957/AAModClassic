@@ -1,6 +1,4 @@
-﻿using AAModClassic;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace AAModClassic.Backgrounds
 {

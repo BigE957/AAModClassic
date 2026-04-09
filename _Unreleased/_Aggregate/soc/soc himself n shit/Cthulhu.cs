@@ -1,10 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.IO;
-using Terraria;
-using Terraria.ModLoader;
-
 namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 {
     /*public class Cthulhu : ModNPC

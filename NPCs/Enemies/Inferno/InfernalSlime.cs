@@ -1,4 +1,3 @@
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Throwing;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

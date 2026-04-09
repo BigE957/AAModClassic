@@ -7,7 +7,6 @@ using System.Collections.Generic;
 
 using Terraria.ID;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Globals;

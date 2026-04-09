@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;

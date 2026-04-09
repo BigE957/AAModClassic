@@ -1,10 +1,6 @@
-﻿using AAModClassic._Unreleased.Content.Void.Dusts;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons

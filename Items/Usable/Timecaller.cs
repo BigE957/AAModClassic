@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
 using Terraria;
 using Terraria.ID;

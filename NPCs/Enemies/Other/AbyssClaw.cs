@@ -4,7 +4,6 @@ using Terraria.ModLoader;
 using System;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 

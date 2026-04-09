@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Projectiles.Athena;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Trophy;
 using Terraria.ID;
 using Terraria.ModLoader;

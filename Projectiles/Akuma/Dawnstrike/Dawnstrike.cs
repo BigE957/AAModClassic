@@ -7,7 +7,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Globals;
-using AAModClassic.Dusts;
 using AAModClassic.Base.BaseMod.Base;
 
 

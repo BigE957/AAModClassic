@@ -1,4 +1,3 @@
-using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

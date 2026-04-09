@@ -4,11 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using Terraria.Audio;
 using System.Collections.Generic;
 using System;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.Zero;
 using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons

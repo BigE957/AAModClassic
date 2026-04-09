@@ -4,7 +4,6 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
-using AAModClassic;
 using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Dev

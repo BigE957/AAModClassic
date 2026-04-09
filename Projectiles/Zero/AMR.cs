@@ -4,7 +4,6 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Projectiles.Zero
 {

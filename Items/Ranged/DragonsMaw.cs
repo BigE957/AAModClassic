@@ -3,7 +3,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Projectiles;
 using AAModClassic.Items.Materials;
 

@@ -4,8 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Buffs;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Melee;

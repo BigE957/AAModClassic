@@ -1,6 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Vanity.Mask;
@@ -16,7 +14,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace AAModClassic.NPCs.Bosses.Akuma
 {

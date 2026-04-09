@@ -1,4 +1,3 @@
-using AAModClassic.Dusts;
 using AAModClassic.Items.Blocks.Doom;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

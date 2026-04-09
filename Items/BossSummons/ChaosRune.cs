@@ -11,7 +11,6 @@ using Terraria.ID;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;

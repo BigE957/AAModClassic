@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Akuma;

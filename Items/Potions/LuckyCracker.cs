@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ID;

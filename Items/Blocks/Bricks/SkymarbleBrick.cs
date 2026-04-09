@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Tiles.Bricks;
 using Terraria;

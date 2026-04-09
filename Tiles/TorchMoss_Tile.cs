@@ -2,8 +2,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Tiles.Trees;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Plants;
 
 namespace AAModClassic.Tiles

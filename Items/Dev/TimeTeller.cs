@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.CrossMod;
 
 namespace AAModClassic.Items.Dev

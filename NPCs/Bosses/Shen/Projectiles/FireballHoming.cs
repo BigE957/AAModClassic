@@ -2,7 +2,6 @@ using System;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;

@@ -6,7 +6,6 @@ using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;

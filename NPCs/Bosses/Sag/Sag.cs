@@ -5,11 +5,9 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 
 using System.IO;
 using Terraria.Graphics.Shaders;
-using AAModClassic.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
 using AAModClassic.Items.Boss.Sagittarius;

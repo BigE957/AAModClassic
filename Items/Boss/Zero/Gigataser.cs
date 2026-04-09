@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Projectiles.Zero;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Materials;

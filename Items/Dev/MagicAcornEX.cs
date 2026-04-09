@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Dev.Minions;
 using Microsoft.Xna.Framework;

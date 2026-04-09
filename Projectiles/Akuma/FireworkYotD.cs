@@ -1,4 +1,3 @@
-using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;

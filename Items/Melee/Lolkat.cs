@@ -1,11 +1,9 @@
 using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 

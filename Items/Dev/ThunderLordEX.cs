@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
 using Terraria.Audio;
 using AAModClassic.Projectiles;
 using AAModClassic.Items.Boss;

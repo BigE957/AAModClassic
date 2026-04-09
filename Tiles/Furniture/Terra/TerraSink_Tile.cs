@@ -1,4 +1,3 @@
-using AAModClassic.Items.Blocks.Terra;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

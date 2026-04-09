@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Items.Magic;
+﻿using AAModClassic.Items.Magic;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;

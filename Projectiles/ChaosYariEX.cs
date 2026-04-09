@@ -1,5 +1,4 @@
-﻿using AAModClassic.Dusts;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using System;
 using Terraria;
 using Terraria.ID;

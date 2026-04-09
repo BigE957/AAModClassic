@@ -1,6 +1,5 @@
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic;
 
 namespace AAModClassic.Items.Vanity.Fargo
 {

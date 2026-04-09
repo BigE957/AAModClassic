@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Chests;
 using Terraria.ID;
 using Terraria.ModLoader;

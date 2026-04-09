@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Ore;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.UI;
 using Terraria;

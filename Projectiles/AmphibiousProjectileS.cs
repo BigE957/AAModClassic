@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

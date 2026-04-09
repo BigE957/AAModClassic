@@ -3,9 +3,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Terraria.ModLoader.Utilities;
-using AAModClassic;
-using AAModClassic.Dusts;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
 

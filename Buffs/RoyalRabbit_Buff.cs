@@ -1,4 +1,3 @@
-using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ModLoader;
 

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Armor.Kindled;
 using Terraria;
 using Terraria.ID;

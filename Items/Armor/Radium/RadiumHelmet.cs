@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Materials;

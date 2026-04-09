@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.EFish;
 using AAModClassic.Tiles.Crafters;
 using Terraria;

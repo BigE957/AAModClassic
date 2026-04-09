@@ -10,7 +10,6 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Decoration;
 using AAModClassic.Tiles.Furniture;
 using AAModClassic.Tiles.Keep;
-using AAModClassic.UI.WorldGen;
 using AAModClassic.Walls;
 using AAModClassic.World.Conversions;
 using Microsoft.Xna.Framework;

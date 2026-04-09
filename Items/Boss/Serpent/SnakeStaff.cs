@@ -1,5 +1,4 @@
 using System.Linq;
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Projectiles.Serpent;
 using Microsoft.Xna.Framework;

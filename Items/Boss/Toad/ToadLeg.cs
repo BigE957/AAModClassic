@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic;
 
 
 namespace AAModClassic.Items.Boss.Toad

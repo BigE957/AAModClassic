@@ -6,8 +6,6 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
-using AAModClassic.Items.BossSummons;
 
 
 namespace AAModClassic.Items.BossSummons.Swarm

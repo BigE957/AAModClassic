@@ -1,4 +1,3 @@
-using AAModClassic.Dusts;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using System;

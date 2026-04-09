@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Summoning.Minions;

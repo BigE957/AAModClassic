@@ -2,13 +2,10 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {

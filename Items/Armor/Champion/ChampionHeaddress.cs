@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Items.Armor.Champion.Baron;
 using AAModClassic.Tiles.Crafters;

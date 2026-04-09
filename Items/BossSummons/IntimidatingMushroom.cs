@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Globals;
 
 namespace AAModClassic.Items.BossSummons

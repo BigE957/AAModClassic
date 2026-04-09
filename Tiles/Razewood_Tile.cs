@@ -1,5 +1,4 @@
-﻿using AAModClassic.Items.Blocks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 

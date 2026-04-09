@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Projectiles;
-using AAModClassic;
 using AAModClassic.Globals;
 
 namespace AAModClassic.Items.Dev

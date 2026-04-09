@@ -1,19 +1,11 @@
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles;
-using AAModClassic.World;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent.Generation;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using Terraria.WorldBuilding;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.World

@@ -1,4 +1,3 @@
-using AAModClassic.Dusts;
 using AAModClassic.Items.Banners;
 using AAModClassic.Items.Throwing;
 using Terraria;

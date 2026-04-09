@@ -4,7 +4,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
-using AAModClassic.Dusts;
 using AAModClassic.NPCs.Bosses.Equinox;
 
 namespace AAModClassic.NPCs.Enemies.Other

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Furniture.Other;
 using Terraria;
 using Terraria.ID;

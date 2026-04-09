@@ -1,9 +1,7 @@
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Music;

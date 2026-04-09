@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Rajah.Supreme;
 using Microsoft.Xna.Framework;
 using Terraria;

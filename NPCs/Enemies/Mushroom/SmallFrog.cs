@@ -1,6 +1,4 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using Terraria;
 using Terraria.ID;

@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.NPCs.Bosses.Equinox;
 using AAModClassic.Tiles.Altar;
 using AAModClassic.Globals;

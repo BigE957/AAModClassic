@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 

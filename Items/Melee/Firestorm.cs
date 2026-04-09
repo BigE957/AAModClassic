@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;

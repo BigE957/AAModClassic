@@ -7,9 +7,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Globals;
-using AAModClassic.Dusts;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {

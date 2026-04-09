@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Akuma.Lung;
 using Terraria;
 using Terraria.ModLoader;

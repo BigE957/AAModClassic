@@ -9,7 +9,6 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Assassin;
@@ -54,12 +53,7 @@ using AAModClassic.Mounts;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Bosses.Toad;
-using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Enemies.Inferno;
 using AAModClassic.Projectiles.AH;
@@ -67,7 +61,6 @@ using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -84,7 +77,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
-using static Terraria.ModLoader.PlayerDrawLayer;
 
 namespace AAModClassic
 {

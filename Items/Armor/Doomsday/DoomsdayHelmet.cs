@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Zero;

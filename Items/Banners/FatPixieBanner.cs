@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Banners;
 using Terraria;
 using Terraria.ID;

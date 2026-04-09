@@ -6,7 +6,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {

@@ -3,8 +3,6 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Dusts;
 using AAModClassic.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.___Content.Mire.Buffs;

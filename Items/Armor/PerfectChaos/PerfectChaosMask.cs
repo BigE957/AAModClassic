@@ -4,7 +4,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;

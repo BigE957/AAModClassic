@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Walls.Bricks;
 using AAModClassic.Items.Blocks.Bricks;
 

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;

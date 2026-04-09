@@ -1,5 +1,3 @@
-using AAModClassic;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Torches;

@@ -1,13 +1,5 @@
-﻿using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
-using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard;
-using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Blocks.Boxes;
-using AAModClassic.Tiles.Boxes;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Music

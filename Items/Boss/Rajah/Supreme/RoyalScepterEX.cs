@@ -5,7 +5,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Projectiles.Rajah.Supreme;
-using AAModClassic;
 
 namespace AAModClassic.Items.Boss.Rajah.Supreme
 {

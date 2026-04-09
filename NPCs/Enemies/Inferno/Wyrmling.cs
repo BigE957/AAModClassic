@@ -7,8 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Materials;
-using AAModClassic.Dusts;
-using AAModClassic.Items.Banners;
 
 namespace AAModClassic.NPCs.Enemies.Inferno
 {

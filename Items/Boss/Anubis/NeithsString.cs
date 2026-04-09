@@ -3,7 +3,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Projectiles.Anubis;
 using AAModClassic.Items.Ranged;
 

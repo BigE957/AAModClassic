@@ -1,5 +1,4 @@
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using System;
 using Terraria;
 using Terraria.ID;

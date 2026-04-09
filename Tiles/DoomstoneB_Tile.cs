@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Tiles.Trees;
 using Terraria.ID;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.Items.Blocks;

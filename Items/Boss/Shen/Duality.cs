@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using AAModClassic;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Buffs;

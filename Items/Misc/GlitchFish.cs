@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAModClassic.Items.Misc

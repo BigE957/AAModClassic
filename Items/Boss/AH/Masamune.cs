@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.AH;

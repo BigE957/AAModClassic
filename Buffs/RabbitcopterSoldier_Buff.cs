@@ -1,5 +1,3 @@
-using AAModClassic;
-using AAModClassic.NPCs.Bosses.Rajah;
 using Terraria;
 using Terraria.ModLoader;
 

@@ -1,12 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
-using AAModClassic.Dusts;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Melee;

@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic;
 using AAModClassic.Items.Armor.Nights;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Armor.Fleshrend;

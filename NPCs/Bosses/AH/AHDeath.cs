@@ -1,9 +1,7 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;

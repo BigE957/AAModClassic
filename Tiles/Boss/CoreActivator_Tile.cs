@@ -2,7 +2,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
 //using AAModClassic.NPCs.Bosses.Core;
-using AAModClassic.Tiles.Boss;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

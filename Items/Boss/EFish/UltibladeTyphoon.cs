@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles.Ore;
-using AAModClassic;
 
 namespace AAModClassic.Items.Boss.Equinox
 {

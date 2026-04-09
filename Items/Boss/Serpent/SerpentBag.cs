@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;

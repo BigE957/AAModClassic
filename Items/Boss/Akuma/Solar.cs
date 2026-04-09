@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Materials;

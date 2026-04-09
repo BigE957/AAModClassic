@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Items.Vanity.Pluto.Shiny;
-using AAModClassic;
 
 namespace AAModClassic.Items.Vanity.Pluto
 {

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Dev.Minions;
 using AAModClassic.Tiles.Crafters;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Potions;

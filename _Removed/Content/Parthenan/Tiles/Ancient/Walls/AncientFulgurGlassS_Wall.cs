@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient.Walls

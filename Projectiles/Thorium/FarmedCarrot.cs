@@ -1,5 +1,4 @@
 using AAModClassic.CrossMod;
-using AAModClassic.Dusts;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

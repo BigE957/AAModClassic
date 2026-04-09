@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Blocks;
 using Terraria;
 using Terraria.ID;

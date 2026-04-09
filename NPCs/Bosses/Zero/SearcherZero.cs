@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-
-using Terraria.Audio;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 

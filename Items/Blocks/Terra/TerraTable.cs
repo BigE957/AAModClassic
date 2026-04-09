@@ -1,5 +1,4 @@
 using AAModClassic.Items.Materials;
-using AAModClassic.Tiles.Furniture.Terra;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

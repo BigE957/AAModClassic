@@ -11,7 +11,6 @@ using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Potions;
 using AAModClassic.NPCs.Bosses.Rajah.Supreme;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Rajah.Supreme;
 using AAModClassic.CrossMod;

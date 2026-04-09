@@ -1,6 +1,5 @@
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.Items.Banners;
-using AAModClassic.Items.Throwing;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

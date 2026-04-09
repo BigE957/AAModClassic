@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic;
 using AAModClassic.Items.Vanity.Cerberus;
 using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;

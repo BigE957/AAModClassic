@@ -6,7 +6,6 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
 using AAModClassic.Items.Blocks.Boxes;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Tiles.Boxes
 {

@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
-using Terraria.UI.Chat;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.UI;

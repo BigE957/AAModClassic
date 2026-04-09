@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 
 namespace AAModClassic.Items.Armor.Ocean
 {

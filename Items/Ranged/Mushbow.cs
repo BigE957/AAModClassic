@@ -1,7 +1,6 @@
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Items.Boss.MushroomMonarch;
 
 namespace AAModClassic.Items.Ranged

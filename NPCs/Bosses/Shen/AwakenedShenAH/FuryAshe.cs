@@ -6,13 +6,10 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
-using AAModClassic;
-using AAModClassic.NPCs.Bosses.Shen;
 using Terraria.Localization;
 using AAModClassic.Music;
 

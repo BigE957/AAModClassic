@@ -1,4 +1,3 @@
-using AAModClassic;
 using Terraria;
 
 namespace AAModClassic.Items.Boss.Sagittarius

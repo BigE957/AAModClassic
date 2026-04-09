@@ -1,4 +1,3 @@
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks.Oroboros;
 using Microsoft.Xna.Framework;

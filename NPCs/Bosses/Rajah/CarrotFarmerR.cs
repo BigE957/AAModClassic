@@ -1,5 +1,4 @@
 using System;
-using AAModClassic.Dusts;
 using AAModClassic.NPCs.Bosses.Rajah.Supreme;
 using Microsoft.Xna.Framework;
 using Terraria;

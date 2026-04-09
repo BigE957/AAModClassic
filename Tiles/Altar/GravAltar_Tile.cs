@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Greed.WKG;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Projectiles.Athena;
 using Terraria;

@@ -1,5 +1,4 @@
-﻿using AAModClassic.Base.BaseMod;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Blocks;
@@ -8,8 +7,6 @@ using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
-using AAModClassic.Projectiles;
-using AAModClassic.Tiles.Ore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

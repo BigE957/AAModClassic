@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Tiles.Crates;
+﻿using AAModClassic.Tiles.Crates;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

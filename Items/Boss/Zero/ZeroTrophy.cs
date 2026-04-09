@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Trophy;
 using System.Collections.Generic;

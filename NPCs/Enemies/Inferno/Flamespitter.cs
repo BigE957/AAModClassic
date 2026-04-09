@@ -1,5 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;

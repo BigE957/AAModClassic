@@ -1,8 +1,6 @@
 ﻿using System;
 using AAModClassic.Buffs;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 

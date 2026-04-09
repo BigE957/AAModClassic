@@ -3,13 +3,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
-using Terraria.Graphics;
 using Terraria.ModLoader;
 using ReLogic.Content;
 
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using Terraria.GameContent;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 
 namespace AAModClassic.Backgrounds

@@ -3,8 +3,6 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Buffs;
-using AAModClassic;
 
 namespace AAModClassic.Items.Dev.RuneBook
 {

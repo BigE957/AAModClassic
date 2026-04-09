@@ -2,7 +2,6 @@ using AAModClassic.Water;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire.World.Biomes.Water

@@ -1,8 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
-using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

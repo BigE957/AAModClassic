@@ -4,7 +4,6 @@ using Terraria;
 
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.Projectiles.Akuma
 {

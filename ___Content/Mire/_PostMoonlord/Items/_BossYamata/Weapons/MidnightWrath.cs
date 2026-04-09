@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
-using AAModClassic;
 using AAModClassic.Items.Throwing;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;

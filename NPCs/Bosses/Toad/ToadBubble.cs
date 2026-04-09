@@ -1,6 +1,5 @@
 ﻿using System;
 using AAModClassic.Buffs;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

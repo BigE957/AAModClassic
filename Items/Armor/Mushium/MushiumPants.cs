@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using Terraria;
 using Terraria.ID;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Rajah;
 using Terraria;
 using Terraria.ID;

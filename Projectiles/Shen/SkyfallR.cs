@@ -1,5 +1,4 @@
 using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;

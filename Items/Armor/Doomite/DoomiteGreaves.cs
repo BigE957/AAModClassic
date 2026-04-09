@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Armor.DoomiteU;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;

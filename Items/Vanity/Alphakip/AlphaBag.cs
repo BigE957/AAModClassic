@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Alphakip.Shiny;
-using AAModClassic;
 
 namespace AAModClassic.Items.Vanity.Alphakip
 {

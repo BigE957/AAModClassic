@@ -1,8 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Serpent;
-using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

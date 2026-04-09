@@ -1,7 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;

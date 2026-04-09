@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 using Terraria.Graphics.Shaders;
-using AAModClassic.Dusts;
 using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox

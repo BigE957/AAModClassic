@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
-using AAModClassic;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 

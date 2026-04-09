@@ -3,7 +3,6 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Blocks

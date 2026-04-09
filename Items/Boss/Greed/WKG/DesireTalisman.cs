@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {

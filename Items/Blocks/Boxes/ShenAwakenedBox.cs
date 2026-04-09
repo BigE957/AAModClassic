@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Tiles.Boxes;
 using AAModClassic.Items.Boss.Shen;
 

@@ -6,8 +6,6 @@ using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
-using AAModClassic.Items.Banners;
 
 namespace AAModClassic.NPCs.Enemies.Sky
 {

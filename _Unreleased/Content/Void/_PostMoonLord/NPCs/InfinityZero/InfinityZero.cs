@@ -9,7 +9,6 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Unreleased.Content.Void.Dusts;
 using AAModClassic.Items.Potions;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Boss;

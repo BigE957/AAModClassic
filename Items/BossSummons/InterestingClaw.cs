@@ -7,7 +7,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;

@@ -4,11 +4,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {

@@ -1,7 +1,6 @@
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Banners;
-using AAModClassic.Items.Throwing;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

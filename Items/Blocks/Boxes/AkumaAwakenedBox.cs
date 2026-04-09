@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
 using AAModClassic.Items.Boss.Akuma;

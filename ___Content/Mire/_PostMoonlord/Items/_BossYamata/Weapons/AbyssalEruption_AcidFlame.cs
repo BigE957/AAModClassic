@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
-using AAModClassic.Dusts;
 using Terraria.ID;
 using AAModClassic.Projectiles;
 

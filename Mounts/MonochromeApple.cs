@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
 
 namespace AAModClassic.Mounts
 {

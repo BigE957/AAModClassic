@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 
 namespace AAModClassic.Items.Ranged.Ammo
 {

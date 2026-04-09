@@ -7,8 +7,6 @@ using System.IO;
 using Terraria.ID;
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using Terraria.ModLoader.UI.ModBrowser;
 using Terraria.Localization;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened

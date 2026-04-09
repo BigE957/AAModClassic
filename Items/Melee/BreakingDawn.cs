@@ -1,11 +1,8 @@
-using AAModClassic;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 

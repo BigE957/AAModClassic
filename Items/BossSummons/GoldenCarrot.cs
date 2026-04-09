@@ -6,7 +6,6 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Items.Potions;
 using AAModClassic.NPCs.Bosses.Rajah;
 using Terraria.Audio;

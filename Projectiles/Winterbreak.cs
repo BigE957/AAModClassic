@@ -1,4 +1,3 @@
-using AAModClassic.Dusts;
 using Terraria;
 using Terraria.ModLoader;
 

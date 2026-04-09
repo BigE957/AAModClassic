@@ -1,5 +1,4 @@
 using AAModClassic.Items.Banners;
-using AAModClassic.Items.Throwing;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

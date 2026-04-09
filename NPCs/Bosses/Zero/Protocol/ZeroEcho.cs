@@ -2,8 +2,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Audio;
-
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;

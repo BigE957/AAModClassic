@@ -1,7 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Melee

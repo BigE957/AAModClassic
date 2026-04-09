@@ -1,8 +1,6 @@
-using AAModClassic.Items.Blocks.Bricks;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Tiles.Bricks;

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Crafters;

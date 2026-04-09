@@ -1,4 +1,3 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 

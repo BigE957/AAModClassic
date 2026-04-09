@@ -1,5 +1,4 @@
 ﻿using System;
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Zero;

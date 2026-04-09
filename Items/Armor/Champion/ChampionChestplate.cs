@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Items.Armor.Hoodlum;
 using AAModClassic.Items.Boss.Rajah.Supreme;

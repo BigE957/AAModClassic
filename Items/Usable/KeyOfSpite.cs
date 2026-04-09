@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Usable

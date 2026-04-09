@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.FishingItem;
 using AAModClassic.Items.Potions;
 using Terraria;

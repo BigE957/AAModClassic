@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic;
 
 namespace AAModClassic.Items.Boss.Rajah
 {

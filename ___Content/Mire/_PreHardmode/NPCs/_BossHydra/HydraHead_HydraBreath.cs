@@ -3,7 +3,6 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Dusts;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra

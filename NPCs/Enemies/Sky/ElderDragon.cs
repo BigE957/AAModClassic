@@ -1,6 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Armor.Chaos;
-using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

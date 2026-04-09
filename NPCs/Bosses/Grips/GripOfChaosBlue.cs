@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Vanity.Mask;

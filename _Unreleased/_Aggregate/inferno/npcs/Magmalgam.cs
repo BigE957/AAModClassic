@@ -1,13 +1,4 @@
-﻿using AAModClassic.Projectiles;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
-
-//TODOGENERAL holy shit what do i do with this thing
+﻿//TODOGENERAL holy shit what do i do with this thing
 namespace AAModClassic._Unreleased._Aggregate.inferno.npcs
 {
     /*public class Magmalgam : ModNPC

@@ -4,7 +4,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
-using AAModClassic;
 using Terraria.Audio;
 
 namespace AAModClassic.Items.Magic

@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Items.Materials;

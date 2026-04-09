@@ -5,7 +5,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using AAModClassic.Items.Mushrooms;
-using AAModClassic;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;

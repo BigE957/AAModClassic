@@ -4,7 +4,6 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 
 

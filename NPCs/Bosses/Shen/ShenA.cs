@@ -1,7 +1,5 @@
-﻿using AAModClassic;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,7 +10,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using Terraria.Audio;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss.Shen;

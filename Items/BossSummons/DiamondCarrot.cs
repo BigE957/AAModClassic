@@ -5,7 +5,6 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

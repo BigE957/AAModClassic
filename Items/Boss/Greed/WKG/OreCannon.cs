@@ -3,7 +3,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;

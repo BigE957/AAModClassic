@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.ID;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Tiles.Plants
 {

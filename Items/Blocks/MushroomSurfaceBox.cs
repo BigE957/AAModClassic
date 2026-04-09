@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Tiles.Boxes;
 
 namespace AAModClassic.Items.Blocks

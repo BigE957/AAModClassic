@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Armor.AncientGold;
 using AAModClassic.Items.Potions;
 using Terraria;

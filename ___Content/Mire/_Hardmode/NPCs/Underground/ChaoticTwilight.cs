@@ -1,5 +1,4 @@
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
-using AAModClassic.Dusts;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using System;

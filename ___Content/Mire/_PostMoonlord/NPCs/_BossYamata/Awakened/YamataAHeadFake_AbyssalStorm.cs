@@ -1,5 +1,4 @@
 ﻿using System;
-using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;

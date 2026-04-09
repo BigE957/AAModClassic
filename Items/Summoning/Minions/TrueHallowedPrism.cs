@@ -1,5 +1,3 @@
-using AAModClassic;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;

@@ -1,6 +1,4 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

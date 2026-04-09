@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Items.Boss;
+﻿using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

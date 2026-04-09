@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Athena;
 using Terraria;
 using Terraria.ID;

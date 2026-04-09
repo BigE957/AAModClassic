@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 using ReLogic.Content;
 using AAModClassic.Tiles.Crafters;

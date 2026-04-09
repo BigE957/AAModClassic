@@ -1,5 +1,3 @@
-using AAModClassic;
-using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;

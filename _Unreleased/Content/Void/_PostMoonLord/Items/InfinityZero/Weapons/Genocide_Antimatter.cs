@@ -1,8 +1,6 @@
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic._Unreleased.Content.Void.Dusts;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {

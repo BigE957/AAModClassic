@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Projectiles.Sag;
 using AAModClassic.Items.Materials;
 

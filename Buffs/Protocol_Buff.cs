@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Zero;
 using Terraria;
 using Terraria.ModLoader;

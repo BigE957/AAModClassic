@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Materials;
 

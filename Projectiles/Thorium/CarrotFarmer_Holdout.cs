@@ -1,6 +1,5 @@
 using System;
 using AAModClassic.CrossMod;
-using AAModClassic.Dusts;
 using AAModClassic.Projectiles.Rajah;
 using Microsoft.Xna.Framework;
 using Terraria;

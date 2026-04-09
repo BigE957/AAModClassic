@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Djinn;
 using Terraria;
 using Terraria.ModLoader;

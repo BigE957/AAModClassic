@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.Sag;
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;

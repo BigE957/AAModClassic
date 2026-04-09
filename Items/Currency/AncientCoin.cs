@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.ID;

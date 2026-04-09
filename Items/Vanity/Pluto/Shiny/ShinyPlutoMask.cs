@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic;
 
 namespace AAModClassic.Items.Vanity.Pluto.Shiny
 {

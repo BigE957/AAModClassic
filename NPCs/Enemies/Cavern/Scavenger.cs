@@ -8,7 +8,6 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Items.Materials;
 
 namespace AAModClassic.NPCs.Enemies.Cavern

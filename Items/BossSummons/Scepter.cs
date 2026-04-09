@@ -7,9 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Items.BossSummons
 {

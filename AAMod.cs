@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.Skies;
 using AAModClassic.___Content.Mire.World.Biomes;
 using AAModClassic.Backgrounds;
@@ -8,13 +7,11 @@ using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.NPCs.Enemies.Inferno;
 using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
-using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -22,7 +19,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -35,8 +31,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
-using Terraria.WorldBuilding;
-using static Terraria.GameContent.Bestiary.IL_BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions;
 
 namespace AAModClassic
 {

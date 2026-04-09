@@ -1,16 +1,12 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using System;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic._Unreleased.Content.Void.Dusts;
 using Terraria.ID;
-using AAModClassic.Projectiles.Zero;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Zero;
 

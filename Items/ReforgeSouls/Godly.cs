@@ -1,7 +1,5 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace AAModClassic.Items.ReforgeSouls
 {

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks.Bricks;

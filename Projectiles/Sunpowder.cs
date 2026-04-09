@@ -2,7 +2,6 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Dusts;
 using AAModClassic.___Content.Mire.World.Tiles;
 
 namespace AAModClassic.Projectiles

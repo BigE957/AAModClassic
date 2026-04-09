@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Blocks.Bricks;
 using AAModClassic.Walls.Bricks;
 using Terraria;

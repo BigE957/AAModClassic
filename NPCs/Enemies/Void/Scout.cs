@@ -6,7 +6,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Dusts;
 using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic.NPCs.Enemies.Void

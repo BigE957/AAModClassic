@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Rajah;
 
 namespace AAModClassic.Projectiles.Rajah.Supreme
 

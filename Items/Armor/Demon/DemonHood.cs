@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Armor.Imp;
 

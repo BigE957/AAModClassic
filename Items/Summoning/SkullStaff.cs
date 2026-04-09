@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Summoning.Minions;
 

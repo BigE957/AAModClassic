@@ -1,6 +1,4 @@
-﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
-using AAModClassic.Backgrounds;
+﻿using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Akuma;
@@ -8,13 +6,6 @@ using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.Water;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 

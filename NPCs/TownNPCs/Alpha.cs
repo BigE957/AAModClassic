@@ -9,7 +9,6 @@ using AAModClassic.Items.Vanity.Aves;
 using AAModClassic.Items.Vanity.Hallam;
 using AAModClassic.Items.Vanity.Fazer;
 using AAModClassic.Items.Vanity.Moon;
-using AAModClassic;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Shox;

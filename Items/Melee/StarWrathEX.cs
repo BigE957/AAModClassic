@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;

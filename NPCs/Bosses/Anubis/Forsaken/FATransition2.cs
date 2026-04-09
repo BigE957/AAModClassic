@@ -2,7 +2,6 @@
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 

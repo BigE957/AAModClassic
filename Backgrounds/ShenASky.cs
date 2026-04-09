@@ -1,5 +1,4 @@
-﻿using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.NPCs.Bosses.Shen;
+﻿using AAModClassic.NPCs.Bosses.Shen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

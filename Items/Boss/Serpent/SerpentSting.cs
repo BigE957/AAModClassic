@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Serpent;
 using Microsoft.Xna.Framework;
 using Terraria;

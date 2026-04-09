@@ -4,7 +4,6 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
 
 namespace AAModClassic.Items.Boss.Rajah
 {

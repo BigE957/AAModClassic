@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 
 namespace AAModClassic.NPCs.Bosses.Anubis
 {

@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Projectiles.Anubis;
 using Microsoft.Xna.Framework;

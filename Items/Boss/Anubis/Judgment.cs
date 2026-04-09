@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Projectiles.Anubis;
 using Microsoft.Xna.Framework;
 using Terraria;

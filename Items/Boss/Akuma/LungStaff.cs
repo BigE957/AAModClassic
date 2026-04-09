@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma.Lung;
 using AAModClassic.Buffs;

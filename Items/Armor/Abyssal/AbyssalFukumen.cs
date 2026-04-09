@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
 

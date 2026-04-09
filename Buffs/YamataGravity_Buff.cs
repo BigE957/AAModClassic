@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs

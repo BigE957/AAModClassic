@@ -4,7 +4,6 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using System;
-using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Enemies.Sky

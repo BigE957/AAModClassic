@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;

@@ -1,6 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Materials;
@@ -11,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;

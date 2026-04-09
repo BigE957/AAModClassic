@@ -1,11 +1,8 @@
 using System;
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;

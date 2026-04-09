@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;

@@ -1,5 +1,4 @@
 using System;
-using AAModClassic;
 using AAModClassic.Projectiles.Djinn;
 using Microsoft.Xna.Framework;
 using Terraria;

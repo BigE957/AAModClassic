@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss.Grips;
 using Terraria;
 using Terraria.ModLoader;

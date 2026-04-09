@@ -1,5 +1,4 @@
-﻿using AAModClassic.Dusts;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.NPCs.Bosses.Serpent;
 using Terraria;

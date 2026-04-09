@@ -1,5 +1,4 @@
 using System;
-using AAModClassic.Items.Blocks.Terra;
 using AAModClassic.Items.Usable;
 using Microsoft.Xna.Framework;
 using Terraria;

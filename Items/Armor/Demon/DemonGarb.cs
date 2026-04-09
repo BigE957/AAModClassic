@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Armor.Imp;
 using Terraria;
 using Terraria.ID;

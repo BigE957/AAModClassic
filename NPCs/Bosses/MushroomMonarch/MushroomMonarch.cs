@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Usable;

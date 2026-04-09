@@ -1,5 +1,4 @@
-﻿using AAModClassic.Tiles;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;

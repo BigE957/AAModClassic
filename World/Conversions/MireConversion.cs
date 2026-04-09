@@ -1,13 +1,6 @@
 ﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
-using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 

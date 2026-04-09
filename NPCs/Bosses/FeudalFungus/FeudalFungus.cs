@@ -8,7 +8,6 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Flasks;

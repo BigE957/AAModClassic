@@ -1,17 +1,8 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles;
-using AAModClassic.World;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent.Generation;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic._Removed.Content.Parthenan.Tiles;
 using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient.Walls;

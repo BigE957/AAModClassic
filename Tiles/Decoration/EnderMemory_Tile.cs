@@ -8,7 +8,6 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Tiles.Decoration

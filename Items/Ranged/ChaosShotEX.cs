@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss;

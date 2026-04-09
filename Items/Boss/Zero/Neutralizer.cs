@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;

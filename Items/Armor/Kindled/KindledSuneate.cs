@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;
 using Terraria;

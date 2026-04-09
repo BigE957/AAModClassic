@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Zero;

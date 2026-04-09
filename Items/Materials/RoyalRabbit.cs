@@ -5,9 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Critters;
 
 namespace AAModClassic.Items.Materials
 {

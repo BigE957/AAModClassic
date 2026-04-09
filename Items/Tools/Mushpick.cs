@@ -1,7 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic;
 using AAModClassic.Items.Boss.MushroomMonarch;
 
 namespace AAModClassic.Items.Tools

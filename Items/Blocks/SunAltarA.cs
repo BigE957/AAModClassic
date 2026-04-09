@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Decoration;

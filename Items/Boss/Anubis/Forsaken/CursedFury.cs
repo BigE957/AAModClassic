@@ -1,6 +1,4 @@
-using AAModClassic;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -1,9 +1,7 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.NPCs.Bosses.Toad;
-using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

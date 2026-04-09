@@ -3,9 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.AH;
 
 namespace AAModClassic.Items.Boss.AH
 {

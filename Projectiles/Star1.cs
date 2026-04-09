@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using System;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Projectiles
 {

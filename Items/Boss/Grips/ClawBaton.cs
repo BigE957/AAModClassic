@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
-using AAModClassic;
 
 namespace AAModClassic.Items.Boss.Grips
 {

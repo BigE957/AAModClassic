@@ -1,5 +1,4 @@
 using System;
-using AAModClassic;
 using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;

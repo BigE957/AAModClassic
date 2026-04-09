@@ -5,7 +5,6 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {

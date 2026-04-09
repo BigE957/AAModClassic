@@ -3,7 +3,6 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Projectiles.AH
 {
