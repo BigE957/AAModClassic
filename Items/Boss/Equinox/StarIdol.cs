@@ -25,7 +25,7 @@ Can only be used if there arent many radium stars in the world."); */
             Item.maxStack = 30;
             Item.rare = ItemRarityID.Lime;
 			Item.expert = true;
-            Item.value = BaseUtility.CalcValue(0, 15, 0, 0);
+            Item.value = Item.sellPrice(0, 15, 0, 0);
 
 			Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 45;

@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.AH
             Item.maxStack = 1;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
-            Item.value = BaseUtility.CalcValue(0, 20, 0, 0);
+            Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 35;
             Item.useTime = 35;

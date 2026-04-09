@@ -128,7 +128,7 @@ namespace AAModClassic.Utilities
                     if (width > 1 || height > 1)
                     {
                         int xs = x, ys = y;
-                        Vector2 newPos = BaseTile.FindTopLeft(xs, ys);
+                        Vector2 newPos = FindTopLeft(xs, ys);
                         for (int x1 = 0; x1 < width; x1++)
                         {
                             for (int y1 = 0; y1 < height; y1++)
@@ -228,6 +228,15 @@ namespace AAModClassic.Utilities
             }
         }
 
+        private static Vector2 FindTopLeft(int x, int y)
+        {
+            Tile tile = Framing.GetTileSafely(x, y); if (tile == null) return new Vector2(x, y);
+            TileObjectData data = TileObjectData.GetTileData(tile.TileType, 0);
+            if (data == null) return new Vector2(x, y);
+            x -= tile.TileFrameX / 18 % data.Width;
+            y -= tile.TileFrameY / 18 % data.Height;
+            return new Vector2(x, y);
+        }
         public static void SmoothTiles(int topX, int topY, int bottomX, int bottomY)
         {
             Main.tileSolid[137] = false;

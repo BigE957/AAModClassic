@@ -103,7 +103,7 @@ namespace AAModClassic
                     }
 
                     var data = new Color[16 * 16 * 3];
-                    BaseDrawing.GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData<Color>(data);
+                    GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData<Color>(data);
                     TextureAssets.Item[instance.Find<ModItem>(name + "Banner").Type].Value.SetData<Color>(data);
                     fx += 16;
                 }
@@ -113,6 +113,21 @@ namespace AAModClassic
                 instance.Logger.InfoFormat(e.Message);
                 instance.Logger.InfoFormat(e.StackTrace);
             }
+        }
+
+        public static Texture2D GetCroppedTex(Texture2D texture, Rectangle rect)
+        {
+            Rectangle newBounds = texture.Bounds;
+            newBounds.X += rect.X;
+            newBounds.Y += rect.Y;
+            newBounds.Width = rect.Width;
+            newBounds.Height = rect.Height;
+            Texture2D croppedTexture = new(Main.instance.GraphicsDevice, newBounds.Width, newBounds.Height);
+            // Copy the data from the cropped region into a buffer, then into the new texture
+            Color[] data = new Color[newBounds.Width * newBounds.Height];
+            texture.GetData(0, newBounds, data, 0, newBounds.Width * newBounds.Height);
+            croppedTexture.SetData(data);
+            return croppedTexture;
         }
 
         public static FieldInfo _bannerField = null;

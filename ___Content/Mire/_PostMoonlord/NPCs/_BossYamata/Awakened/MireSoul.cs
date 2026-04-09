@@ -24,7 +24,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             AIType = NPCID.ShadowFlameApparition;
             AnimationType = NPCID.ShadowFlameApparition;
             NPC.npcSlots = 0;
-            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.value = Item.sellPrice(0, 0, 0, 0);
             NPC.aiStyle = NPCAIStyleID.AncientVision;
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;

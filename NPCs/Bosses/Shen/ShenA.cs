@@ -561,7 +561,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.DropLoot(ModContent.ItemType<Items.BossSummons.ChaosRune>());
                     }
 
-                    BaseAI.DropItem(NPC, ModContent.ItemType<ShenATrophy>(), 1, 1, 15, true);
+                    if(Main.rand.NextBool(10))
+                        NPC.DropLoot(ModContent.ItemType<ShenATrophy>());
 
                     if (!NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
                     {

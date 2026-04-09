@@ -27,7 +27,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 			NPC.height = 30;
             NPC.aiStyle = -1;
             NPC.npcSlots = 1;
-            NPC.value = BaseUtility.CalcValue(0, 1, 25, 0);
+            NPC.value = Item.sellPrice(0, 1, 25, 0);
             NPC.lifeMax = 200;
             NPC.defense = 5;
             NPC.noGravity = true;

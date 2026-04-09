@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Usable
             Item.width = 30;
             Item.height = 38;
             Item.rare = ItemRarityID.Green;
-            Item.value = BaseUtility.CalcValue(0, 2, 0, 0);
+            Item.value = Item.sellPrice(0, 2, 0, 0);
 
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 50;

@@ -26,7 +26,7 @@ Cursed Sickle EX"); */
             Item.height = 40;
             Item.maxStack = 1;
             Item.rare = ItemRarityID.Cyan;
-            Item.value = BaseUtility.CalcValue(0, 5, 0, 0);
+            Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.UseSound = SoundID.Item71;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 25;

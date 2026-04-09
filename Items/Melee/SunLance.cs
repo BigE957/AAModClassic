@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Melee
             Item.height = 35;
             Item.maxStack = 1;
             Item.rare = ItemRarityID.Pink;
-            Item.value = BaseUtility.CalcValue(0, 15, 0, 0);
+            Item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
 
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 50;

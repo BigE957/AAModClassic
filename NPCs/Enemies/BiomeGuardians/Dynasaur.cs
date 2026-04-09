@@ -23,7 +23,7 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
         {
             NPC.width = 42;
             NPC.height = 38;
-            NPC.value = BaseUtility.CalcValue(0, 0, 39, 50);
+            NPC.value = Item.sellPrice(0, 0, 39, 50);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 180;
@@ -49,13 +49,13 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
                     //BaseAI.FireProjectile(NPC.Center + new Vector2(velocitiesX[m], velocitiesY[m]), NPC.Center, ModContent.ProjectileType<BugAcidShot>(), 0, 0f, 5f);
 				}
 			}
-            //TODO: Fake Item
+            //TODO: Figure this shit out, Acid Sac is fake
             //BaseAI.DropItem(NPC, ModContent.ItemType<AcidSac>(), 1 + Main.rand.Next(2) + (Main.expertMode ? 2 : 0), 2, 65, true);
-			if(ModSupport.GetMod("CalamityMod") != null)
-			{
-                BaseAI.DropItem(NPC, ModSupport.GetModItem("CalamityMod", "BeetleJuice").Item.type, 1, 1, 65, true);
-                BaseAI.DropItem(NPC, ModSupport.GetModItem("CalamityMod", "EssenceofCinder").Item.type, 1, 1, Main.expertMode ? 20 : 15, true);
-			}
+			//if(ModSupport.GetMod("CalamityMod") != null)
+			//{
+            //    BaseAI.DropItem(NPC, ModSupport.GetModItem("CalamityMod", "BeetleJuice").Item.type, 1, 1, 65, true);
+            //    BaseAI.DropItem(NPC, ModSupport.GetModItem("CalamityMod", "EssenceofCinder").Item.type, 1, 1, Main.expertMode ? 20 : 15, true);
+			//}
 		}
 
         public float moveSpeed = 14f;

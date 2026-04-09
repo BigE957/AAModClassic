@@ -35,7 +35,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes
             Item.maxStack = 99;
             Item.rare = ItemRarityID.Yellow;
 			Item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Item.type); 
-            Item.value = BaseUtility.CalcValue(0, 10, 0, 0);			
+            Item.value = Item.sellPrice(0, 10, 0, 0);			
         }
 
 

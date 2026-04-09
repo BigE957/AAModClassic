@@ -4659,7 +4659,7 @@ namespace AAModClassic
 
                 if (drawType == 2)
                 {
-                    BaseDrawing.DrawPlayerTexture(sb, tex, shader, drawPlayer, edi.Position, 1, -6f + vector.X, (drawPlayer.wings > 0 ? 0f : BaseDrawing.GetYOffset(drawPlayer)) + vector.Y, color, frame);
+                    BaseDrawing.DrawPlayerTexture(sb, tex, shader, drawPlayer, edi.Position, 1, -6f + vector.X, (drawPlayer.wings > 0 ? 0f : GetYOffset(drawPlayer)) + vector.Y, color, frame);
                 }
                 else
                 {
@@ -4702,6 +4702,16 @@ namespace AAModClassic
                     }
                 }
             }
+        }
+
+        public static float GetYOffset(Player player)
+        {
+            int frameID = (int)(player.bodyFrame.Y / player.bodyFrame.Height);
+            if (frameID == 7 || frameID == 8 || frameID == 9 || frameID == 14 || frameID == 15 || frameID == 16)
+            {
+                return player.gravDir < 0f ? 2f : -2f;
+            }
+            return 0f;
         }
     }
 }

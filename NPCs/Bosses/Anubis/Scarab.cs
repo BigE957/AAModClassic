@@ -21,7 +21,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         {
             NPC.width = 42;
             NPC.height = 38;
-            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.value = Item.sellPrice(0, 0, 0, 0);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 400;

@@ -831,14 +831,15 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     string[] lootTable = { "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter" };
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                    //BaseAI.DropItem(NPC, ModContent.ItemType<ShenTrophy>(), 1, 1, 15, true);
 
                 }
                 else
                 {
                     NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenTransition>());
                 }
-                BaseAI.DropItem(NPC, ModContent.ItemType<ShenTrophy>(), 1, 1, 15, true);
+
+                if(Main.rand.NextBool(10))
+                    NPC.DropLoot(ModContent.ItemType<ShenTrophy>());
                 NPC.value = 0f;
                 NPC.boss = false;
             }

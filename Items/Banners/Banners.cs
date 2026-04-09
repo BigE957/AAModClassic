@@ -50,7 +50,7 @@ namespace AAModClassic.Items.Banners
             Item.height = 16;
             Item.maxStack = 99;
             Item.rare = ItemRarityID.Blue;
-            Item.value = BaseUtility.CalcValue(0, 0, 10, 0);
+            Item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;

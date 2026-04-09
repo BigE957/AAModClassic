@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Usable
             Item.height = 16;
             Item.maxStack = 9999;
             Item.rare = ItemRarityID.Yellow;
-            Item.value = BaseUtility.CalcValue(0, 0, 0, 5);
+            Item.value = Item.sellPrice(0, 0, 0, 5);
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;

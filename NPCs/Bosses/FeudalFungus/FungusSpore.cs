@@ -43,7 +43,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         {
             NPC.width = 14;
             NPC.height = 14;
-            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.value = Item.sellPrice(0, 0, 0, 0);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 1;

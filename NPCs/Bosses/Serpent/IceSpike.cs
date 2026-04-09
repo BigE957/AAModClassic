@@ -26,7 +26,9 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void AI()
         {
-            BaseAI.AIArrow(Projectile, ref Projectile.ai, 50, 1, 16);
+            Projectile.ai[0]++;
+            if (Projectile.ai[0] >= 50) { Projectile.velocity.Y += 1; }
+            if (Projectile.velocity.Y > 16) { Projectile.velocity.Y = 16; }
 
             if (Projectile.frameCounter != 1)
             {
