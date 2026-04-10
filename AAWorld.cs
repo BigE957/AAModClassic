@@ -51,6 +51,8 @@ using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
 
 namespace AAModClassic
 {
@@ -114,7 +116,7 @@ namespace AAModClassic
         public static bool downedAkuma => (NPCExtensions.BeenKilled<Akuma>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
         public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool zeroUS;
-        public static bool downedZero => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
+        public static bool downedZero => (NPCExtensions.BeenKilled<Zero>() && !Main.expertMode) || NPCExtensions.BeenKilled<ZeroProtocol>();
         public static bool downedAllAncients => downedAkuma && downedYamata && downedZero;
         private static bool previousDownedAllAncients = false;
         public static bool ShenSummoned;
