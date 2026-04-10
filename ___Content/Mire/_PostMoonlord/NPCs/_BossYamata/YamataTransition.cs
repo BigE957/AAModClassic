@@ -230,7 +230,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     }
                     if (NPC.ai[0] >= 180) //after he says 'heh' on the server, change music on the client
                     {
-                        Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+                        Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
                     }
                     if (NPC.ai[0] >= 380)
                     {

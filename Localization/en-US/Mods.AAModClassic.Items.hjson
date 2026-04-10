@@ -1680,14 +1680,9 @@ RajahBox: {
 	Tooltip: Plays 'JUSTICE' by Spectral Aves
 }
 
-SagittariusBoxBox: {
+SagittariusBox: {
 	DisplayName: Music Box (Sagittarius)
 	Tooltip: Plays 'Event Horizon' by SpectralAves
-}
-
-SagittariusBox: {
-	DisplayName: Sagittarius Box
-	Tooltip: ""
 }
 
 ChaosPreShenBox: {
@@ -1737,7 +1732,7 @@ TruffleToadBox: {
 
 VoidBox: {
 	DisplayName: Music Box (Void)
-	Tooltip: Plays 'What Once Was'
+	Tooltip: Plays 'Inanis' by ProduceVGM
 }
 
 YamataAwakenedBox: {
@@ -1757,7 +1752,7 @@ ZeroAwakenedBox: {
 
 ZeroBox: {
 	DisplayName: Music Box (Zero)
-	Tooltip: Plays 'Clockwork Catastrophe'
+	Tooltip: Plays 'Clockwork Catastrophe' by Spectral Aves
 }
 
 AbyssiumBrick: {

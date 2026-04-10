@@ -9,7 +9,6 @@ using AAModClassic.Music;
 
 namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
 {
-    [AutoloadBossHead]
     public class SupremeRajahDefeat : ModNPC
     {
         public override void SetStaticDefaults()

@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.Music;
 
 namespace AAModClassic.Tiles.Altar
 {
@@ -21,8 +22,9 @@ namespace AAModClassic.Tiles.Altar
             NPC.width = 46;
             NPC.height = 46;
             NPC.alpha = 255;
-            //Music = MusicManagementSystem.MusicSlots["Prequinox"];
+            Music = MusicManagementSystem.MusicSlots["Equinox_Intro"];
             NPC.lifeMax = 1;
+            NPC.boss = true;
             NPC.dontTakeDamage = true; 
             NPC.noGravity = true;
             NPC.aiStyle = -1;
