@@ -10,7 +10,7 @@ using AAModClassic.Music;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 { 
-    public class HarukaShade : ModNPC
+    public class HarukaShadowPostHydra : ModNPC
     {
 		public override void SetStaticDefaults()
 		{

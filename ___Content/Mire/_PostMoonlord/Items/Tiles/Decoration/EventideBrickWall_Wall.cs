@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Tiles.Decoration
             DustType = ModContent.DustType<AbyssiumDust>();
 			AddMapEntry(new Color(33, 37, 96));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<EventideWall>());
+            RegisterItemDrop(ModContent.ItemType<EventideBrickWall>());
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

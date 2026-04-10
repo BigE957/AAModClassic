@@ -23,7 +23,7 @@ namespace AAModClassic.___Content.Mire.World.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            bool active = (AAWorld.mireTiles > 100) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Yamata>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataA>(), 5000) != -1;
+            bool active = (AAWorld.mireTiles > 100) || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataBody>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataABody>(), 5000) != -1;
             return player.GetModPlayer<AAPlayer>().ZoneMire = active;
         }
 
@@ -231,7 +231,7 @@ namespace AAModClassic.___Content.Mire.World.Biomes
             Color DefaultFog = new Color(120, 120, 200);
             Color YamataFog = new Color(200, 100, 100);
 
-            bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataA>());
+            bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataABody>());
 
             mireBGFog.Update(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value);
             mireBGFog.Draw(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
@@ -287,7 +287,7 @@ namespace AAModClassic.___Content.Mire.World.Biomes
             Color DefaultFog = new Color(120, 120, 200);
             Color YamataFog = new Color(200, 100, 100);
 
-            bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataA>());
+            bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataABody>());
 
             mireBGFog.Update(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value);
             mireBGFog.Draw(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);

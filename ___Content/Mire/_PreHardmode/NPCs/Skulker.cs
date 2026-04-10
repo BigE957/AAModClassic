@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
 {
 
-    public class MireSkulker : ModNPC
+    public class Skulker : ModNPC
     {
 
         public override void SetStaticDefaults()

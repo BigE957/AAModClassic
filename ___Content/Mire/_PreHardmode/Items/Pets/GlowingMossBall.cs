@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
 {
-    public class GlowmossBall : BaseAAItem
+    public class GlowingMossBall : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -18,7 +18,7 @@ Don?t ask what makes it glow, Trust me"); */
 		{
 			Item.damage = 0;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.shoot = ModContent.ProjectileType<GlowmossBall_Pet>();
+			Item.shoot = ModContent.ProjectileType<GlowingMossBall_Pet>();
 			Item.width = 16;
 			Item.height = 30;
 			Item.UseSound = SoundID.Item2;
@@ -27,7 +27,7 @@ Don?t ask what makes it glow, Trust me"); */
 			Item.rare = ItemRarityID.Yellow;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(0, 5, 50, 0);
-			Item.buffType = ModContent.BuffType<GlowmossBall_Buff>();
+			Item.buffType = ModContent.BuffType<GlowingMossBall_Buff>();
 		}
 
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

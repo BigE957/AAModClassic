@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Misc
 
         public override bool IsAnglerQuestAvailable()
         {
-            return NPCExtensions.BeenKilled<Hydra>();
+            return NPCExtensions.BeenKilled<HydraBody>();
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)

@@ -88,7 +88,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
         }
 
         public int Head = 0;
-        public Hydra Body => bodyNPC != null && bodyNPC.ModNPC is Hydra ? (Hydra)bodyNPC.ModNPC : null;
+        public HydraBody Body => bodyNPC != null && bodyNPC.ModNPC is HydraBody ? (HydraBody)bodyNPC.ModNPC : null;
         public NPC bodyNPC = null;
         public int damage = 0;
 
@@ -106,13 +106,13 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             if (bodyNPC == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<Hydra>())
+                if (npcBody.type == ModContent.NPCType<HydraBody>())
                 {
                     bodyNPC = npcBody;
                 }
             }
 
-            if (!NPC.AnyNPCs(ModContent.NPCType<Hydra>()))
+            if (!NPC.AnyNPCs(ModContent.NPCType<HydraBody>()))
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
@@ -357,7 +357,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 
         public override bool PreKill()
         {
-            if (bodyNPC != null || NPC.AnyNPCs(ModContent.NPCType<Hydra>()))
+            if (bodyNPC != null || NPC.AnyNPCs(ModContent.NPCType<HydraBody>()))
             {
                 if (NPC.type == ModContent.NPCType<HydraHead1>())
                 {

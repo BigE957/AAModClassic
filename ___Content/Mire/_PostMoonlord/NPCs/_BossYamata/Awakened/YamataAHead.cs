@@ -44,7 +44,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             }
         }
 
-        public YamataA Body = null;
+        public YamataABody Body = null;
 
         public float[] internalAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
@@ -83,9 +83,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             if (Body == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<YamataA>())
+                if (npcBody.type == ModContent.NPCType<YamataABody>())
                 {
-                    Body = (YamataA)npcBody.ModNPC;
+                    Body = (YamataABody)npcBody.ModNPC;
                 }
             }
             if (Body == null)
@@ -110,9 +110,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
 
-            if (Yamata.TeleportMeBitch)
+            if (YamataBody.TeleportMeBitch)
             {
-                YamataA.TeleportMeBitch = false;
+                YamataABody.TeleportMeBitch = false;
                 NPC.Center = Body.NPC.Center;
                 return;
             }
@@ -199,7 +199,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     {
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, ModContent.ProjectileType<YamataAVenom2>(), NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, ModContent.ProjectileType<YamataAHead_Venom2>(), NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 240)
                     {
@@ -253,7 +253,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -1; i <= 1; i++)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, ModContent.ProjectileType<YamataAVenom2>(), NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, ModContent.ProjectileType<YamataAHead_Venom2>(), NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 420)
                     {
@@ -305,9 +305,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     goto case 0;
             }
             
-            if (YamataA.TeleportMeBitch)
+            if (YamataABody.TeleportMeBitch)
             {
-                YamataA.TeleportMeBitch = false;
+                YamataABody.TeleportMeBitch = false;
                 NPC.Center = Body.NPC.Center;
                 return;
             }

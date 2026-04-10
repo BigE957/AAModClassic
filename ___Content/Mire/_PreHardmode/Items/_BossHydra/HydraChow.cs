@@ -48,7 +48,7 @@ Can only be used at night"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Hydra>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<HydraBody>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
 		}
@@ -62,7 +62,7 @@ Can only be used at night"); */
             }
             if (player.GetModPlayer<AAPlayer>().ZoneMire)
 			{
-				if (NPC.AnyNPCs(ModContent.NPCType<Hydra>()))
+				if (NPC.AnyNPCs(ModContent.NPCType<HydraBody>()))
 				{
 					if(player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.HydraChowFalse1"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
 					return false;

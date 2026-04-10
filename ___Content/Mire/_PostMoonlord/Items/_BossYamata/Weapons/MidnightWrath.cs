@@ -13,6 +13,12 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class MidnightWrath : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Midnight's Wrath");
+            // Tooltip.SetDefault("Non-consumable");
+        }
+
         public override void SetDefaults()
         {
 
@@ -33,13 +39,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.noMelee = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Midnight's Wrath");
-            // Tooltip.SetDefault("Non-consumable");
-        }
-
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

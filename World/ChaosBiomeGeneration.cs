@@ -202,7 +202,7 @@ namespace AAModClassic.World
                     {
                         if (Main.rand.Next(15) == 0)
                         {
-                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<MireAltarSafe_Tile>());
+                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<AbyssAltarSafe_Tile>());
                         }
                     }
                 }

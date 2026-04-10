@@ -84,7 +84,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 500)
             {
-                if (NPCExtensions.BeenKilled<Hydra>())
+                if (NPCExtensions.BeenKilled<HydraBody>())
                 {
                     if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
                     {

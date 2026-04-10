@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class MoonAltarA_Tile : ModTile
+    public class DreadMoonAltar_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -24,9 +24,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
             DustType = DustID.Stone;
             AnimationFrameHeight = 56;
             TileID.Sets.DisableSmartCursor[Type] = true;
-            DustType = ModContent.DustType<Dusts.YamataADust>();
+            DustType = ModContent.DustType<Dusts.YamataDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
-            RegisterItemDrop(ModContent.ItemType<MoonAltarA>());
+            RegisterItemDrop(ModContent.ItemType<DreadMoonAltar>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -34,7 +34,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
             if (Main.tile[i, j].TileFrameY >= 56)
             {
                 AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
-                modPlayer.YamataAltar = true;
+                modPlayer.MoonAltar = true;
             }
         }
 
@@ -75,7 +75,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<MoonAltarA>();
+            player.cursorItemIconID = ModContent.ItemType<DreadMoonAltar>();
         }
 
         public override void HitWire(int i, int j)

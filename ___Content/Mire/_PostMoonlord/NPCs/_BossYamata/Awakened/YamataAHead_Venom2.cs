@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
-    public class YamataAVenom2 : ModProjectile
+    public class YamataAHead_Venom2 : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
         public override void SetStaticDefaults()

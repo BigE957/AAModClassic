@@ -431,7 +431,7 @@ namespace AAModClassic.Globals
                                 item = ModContent.ItemType<Mossket>();
                                 break;
                             case 2:
-                                item = ModContent.ItemType<GlowmossBall>();
+                                item = ModContent.ItemType<GlowingMossBall>();
                                 break;
                             case 3:
                                 item = ModContent.ItemType<ShadowBand>();

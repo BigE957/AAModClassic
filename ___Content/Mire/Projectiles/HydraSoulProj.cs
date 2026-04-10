@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire.Projectiles
 {
-    public class HydraSoul : ModProjectile
+    public class HydraSoulProj : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{

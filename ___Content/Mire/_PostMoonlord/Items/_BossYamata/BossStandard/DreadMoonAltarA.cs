@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class MoonAltarA : BaseAAItem
+    public class DreadMoonAltarA : BaseAAItem
 	{
 
         public override void SetStaticDefaults()
@@ -27,7 +27,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Red;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.createTile = ModContent.TileType<MoonAltarA_Tile>();
+			Item.createTile = ModContent.TileType<DreadMoonAltarA_Tile>();
 		}
 
 		public override void AddRecipes()

@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
+    //TODO: this is used by multiple things. move it 
     public class Flairdra_Cyclone : ModProjectile
     {
 		public override void SetStaticDefaults()

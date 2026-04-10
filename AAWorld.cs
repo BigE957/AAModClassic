@@ -112,9 +112,9 @@ namespace AAModClassic
         public static bool downedAncient => downedAkuma || downedYamata || downedZero;
         public static bool downedSAncient => downedShen;
         public static bool downedAkuma => (NPCExtensions.BeenKilled<Akuma>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
-        public static bool downedYamata => (NPCExtensions.BeenKilled<Yamata>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataA>();
+        public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool zeroUS;
-        public static bool downedZero => (NPCExtensions.BeenKilled<Yamata>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataA>();
+        public static bool downedZero => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool downedAllAncients => downedAkuma && downedYamata && downedZero;
         private static bool previousDownedAllAncients = false;
         public static bool ShenSummoned;
@@ -137,7 +137,7 @@ namespace AAModClassic
         public static bool StarActive;
         public static bool GravActive;
 
-        public static bool Terra1 => NPCExtensions.BeenKilled<Broodmother>() || NPCExtensions.BeenKilled<Hydra>() || NPC.downedBoss2;
+        public static bool Terra1 => NPCExtensions.BeenKilled<Broodmother>() || NPCExtensions.BeenKilled<HydraBody>() || NPC.downedBoss2;
 		public static bool Terra2 => NPC.downedPlantBoss;
 		public static bool Terra3 => downedShen;
 
@@ -965,7 +965,7 @@ namespace AAModClassic
 
                         if (Altar == 0)
                         {
-                            Altar = ModContent.TileType<MireAltarSafe_Tile>();
+                            Altar = ModContent.TileType<AbyssAltarSafe_Tile>();
                         }
                         else
                         {
@@ -979,7 +979,7 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<Torchsandstone_Tile>() ||
                                 tile.TileType == ModContent.TileType<Torchsand_Tile>() ||
                                 tile.TileType == ModContent.TileType<InfernoGrass_Tile>())  
-                                && Altar == ModContent.TileType<MireAltarSafe_Tile>())
+                                && Altar == ModContent.TileType<AbyssAltarSafe_Tile>())
                             {
                                 Altar = ModContent.TileType<ChaosAltar2_Tile>();
                             }
@@ -991,7 +991,7 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<MireGrass_Tile>()) 
                                 && Altar == ModContent.TileType<ChaosAltar2_Tile>())
                             {
-                                Altar = ModContent.TileType<MireAltarSafe_Tile>();
+                                Altar = ModContent.TileType<AbyssAltarSafe_Tile>();
                             }
                             WorldGen.PlaceObject(AltarX, AltarY - 1, Altar);
                         }

@@ -136,9 +136,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 				{
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition4"), new Color(146, 30, 68));
 				}else
-				if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+				if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
 				{
-					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, NPC.Center, "", false);
+					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition6"), new Color(146, 30, 68));
                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
@@ -254,9 +254,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                         NPC.netUpdate = true;
                     }
                     else
-                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
                     {
-                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, NPC.Center, "", false);
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
                         if (Main.netMode != NetmodeID.MultiplayerClient) 
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
@@ -302,7 +302,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+            if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
                 return false;
             }

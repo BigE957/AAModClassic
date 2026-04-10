@@ -158,7 +158,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 nextSlot++;
                 items[nextSlot] = new Item(ModContent.ItemType<Moonpowder>());
                 nextSlot++;
-                if (NPCExtensions.BeenKilled<Hydra>() == true)
+                if (NPCExtensions.BeenKilled<HydraBody>() == true)
                 {
                     items[nextSlot] = new Item(ModContent.ItemType<HydraChow>());
                     items[nextSlot].value = 100000;

@@ -186,7 +186,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			foreach(int soul in CaligulaSoul)
 			{
 				if(soul == ModContent.NPCType<AkumaA>()) soulcount ++;
-				if(soul == ModContent.NPCType<YamataA>()) soulcount ++;
+				if(soul == ModContent.NPCType<YamataABody>()) soulcount ++;
 				if(soul == ModContent.NPCType<ZeroProtocol>()) soulcount ++;
 				if(soul == ModContent.NPCType<ShenA>()) soulcount ++;
 				if(soul == ModContent.NPCType<SupremeRajah>()) soulcount ++;

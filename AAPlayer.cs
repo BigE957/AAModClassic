@@ -1693,12 +1693,12 @@ namespace AAModClassic
                 Lighting.AddLight((int)(Player.position.X + Player.width / 2) / 16, (int)(Player.position.Y + Player.height / 2) / 16, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f);
             }
 
-            if (NPC.AnyNPCs(ModContent.NPCType<Yamata>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()))
             {
                 Player.AddBuff(ModContent.BuffType<YamataGravity_Buff>(), 10, true);
             }
 
-            if (NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
                 Player.AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
             }

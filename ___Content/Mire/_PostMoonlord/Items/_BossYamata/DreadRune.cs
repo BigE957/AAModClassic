@@ -54,7 +54,7 @@ Non-Consumable"); */
 		{
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadRuneTrue1"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadRuneTrue2"), new Color(146, 30, 68));
-            DreadSigil.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, new Vector2(player.Center.X, player.Center.Y - 100), Language.GetTextValue("Mods.AAModClassic.Common.YamataA"));
+            DreadSigil.SpawnBoss(player, ModContent.NPCType<YamataABody>(), false, new Vector2(player.Center.X, player.Center.Y - 100), Language.GetTextValue("Mods.AAModClassic.Common.YamataA"));
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), player.position);
             return true;
 		}
@@ -73,12 +73,12 @@ Non-Consumable"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse1"), Color.Indigo, false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<Yamata>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), new Color(45, 46, 70), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), new Color(146, 30, 68), false);
                     return false;

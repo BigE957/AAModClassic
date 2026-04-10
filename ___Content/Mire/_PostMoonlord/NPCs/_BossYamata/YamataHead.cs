@@ -52,7 +52,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public int damage = 0;
         public float moveSpeedBoost = .04f;
         public NPC Body;
-        public Yamata yamata = null;
+        public YamataBody yamata = null;
         public bool HoriSwitch = false;
         public int f = 1;
         public float TargetDirection = (float)Math.PI / 2;
@@ -119,10 +119,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 	        if (Body == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<Yamata>() || npcBody.type == ModContent.NPCType<YamataA>())
+                if (npcBody.type == ModContent.NPCType<YamataBody>() || npcBody.type == ModContent.NPCType<YamataABody>())
                 {
                     Body = npcBody;
-					yamata = (Yamata)npcBody.ModNPC;
+					yamata = (YamataBody)npcBody.ModNPC;
                 }
             }
 			if(Body == null)
@@ -278,9 +278,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             NPC.rotation = 0;
             NPC.position += Body.position - Body.oldPosition;
 
-            if (Yamata.TeleportMeBitch)
+            if (YamataBody.TeleportMeBitch)
             {
-                Yamata.TeleportMeBitch = false;
+                YamataBody.TeleportMeBitch = false;
                 NPC.Center = yamata.NPC.Center;
                 return;
             }
@@ -431,7 +431,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public override bool CheckActive()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Yamata>()) || NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()) || NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
                 return false;
             }
