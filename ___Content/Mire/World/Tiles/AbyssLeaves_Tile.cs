@@ -3,6 +3,7 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -39,7 +40,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("Tiles/AbyssLeaves_Tile");
+                if (glowTex == null) glowTex = TextureAssets.Tile[Type].Value;
                 BaseDrawing.DrawTileTexture(spriteBatch, glowTex, x, y, true, false, false, null, AAGlobalTile.GetYamataColorDim);
             }
         }
