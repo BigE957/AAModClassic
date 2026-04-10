@@ -9545,6 +9545,11 @@ BogtoxinTorch: {
 	Tooltip: ""
 }
 
+Bogtoxin: {
+	DisplayName: Bogtoxin
+	Tooltip: ""
+}
+
 GuardianOfTheDepths: {
 	DisplayName: Guardian Of The Depths
 	Tooltip: ""

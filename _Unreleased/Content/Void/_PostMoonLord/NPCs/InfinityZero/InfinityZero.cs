@@ -429,7 +429,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             if (core != null && core.active)
             {
-                BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture(coreTex), 0, NPC.Center, core.width, core.height, core.scale, core.rotation, core.spriteDirection, Main.npcFrameCount[core.type], core.frame, drawColor, false);
+                BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(coreTex).Value, 0, NPC.Center, core.width, core.height, core.scale, core.rotation, core.spriteDirection, Main.npcFrameCount[core.type], core.frame, drawColor, false);
             }
         }
 
@@ -479,11 +479,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 auraDirection = auraPercent <= 0f; 
             }
 
-            DrawCore(spriteBatch, "_Unreleased/NPCs/Bosses/Infinity/InfinityCore", Core, AAColor.Oblivion, false);
+            DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
 
             if (fifthHealth)
             {
-                Main.NewText("bluha");
+                //Main.NewText("bluha");
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
                 BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha());
                 BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetRedAlpha());
@@ -496,7 +496,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
 
 
-            string ZeroTex = "_Unreleased/NPCs/Bosses/Infinity/InfinityZeroHand1";
+            string ZeroTex = ModContent.GetInstance<InfinityZeroHand1>().Texture;
 
             //bottom arms
             DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero6, drawColor);
@@ -517,10 +517,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is InfinityZeroHand1 || Zero.ModNPC is InfinityZeroHand2))
             {
 				InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
-                string ArmTex = "_Unreleased/NPCs/Bosses/Infinity/IZArm";
-                Texture2D ArmTex2D = Mod.GetTexture(ArmTex);
-				Texture2D zeroTex = Mod.GetTexture(zeroTexture);
-                Texture2D glowTex = Mod.GetTexture(glowMaskTexture);				
+                string ArmTex = Texture + "_Arm";
+                Texture2D ArmTex2D = ModContent.Request<Texture2D>(ArmTex).Value;
+				Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
+                Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;				
                 Vector2 ArmOrigin = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.handType);
                 Vector2 connector = Zero.Center;
                 BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, ArmOrigin, connector, ArmTex2D.Height - 10f, null, 1f, false, null);

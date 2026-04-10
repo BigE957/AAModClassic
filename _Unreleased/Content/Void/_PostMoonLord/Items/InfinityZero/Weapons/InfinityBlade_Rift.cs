@@ -8,7 +8,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
     // to investigate: Projectile.Damage, (8843)
     class InfinityBlade_Rift : ModProjectile
 	{
-        public override string GlowTexture => "AAModClassic/_Unreleased/Glowmasks/" + GetType().Name + "_Glow";
+        public override string GlowTexture => Texture + "_Glow";
 
         public override void SetDefaults()
 		{

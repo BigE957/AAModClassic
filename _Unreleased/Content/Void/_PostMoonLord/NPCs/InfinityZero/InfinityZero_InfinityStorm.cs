@@ -163,7 +163,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (tex == null)
             {
                 tex = TextureAssets.Projectile[Projectile.type].Value;
-                glowTex =  Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/InfinityStorm_Glow");
+                glowTex =  ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             }
             Color lightColour = BaseDrawing.GetLightColor(Projectile.Center);
             for (int m = Projectile.oldPos.Length - 1; m > 0; m--) { Projectile.oldPos[m] = Projectile.oldPos[m - 1]; }

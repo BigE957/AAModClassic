@@ -238,19 +238,20 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
             }
         }
 
+        //TODO: Make these work
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/InfinityZeroSky_BG");
+            return 0;// BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/Biomes/InfinityZeroSky_BG");
         }
 
         public override int ChooseMiddleTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/InfinityZeroSky_BG");
+            return 0;// BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/Biomes/InfinityZeroSky_BG");
         }
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/InfinityZeroSky_BG");
+            return 0;// BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/Biomes/InfinityZeroSky_BG");
         }
     }
 }
