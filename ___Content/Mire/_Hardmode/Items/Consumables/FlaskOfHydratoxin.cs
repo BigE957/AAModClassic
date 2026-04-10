@@ -34,7 +34,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 2);
+			recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 2);
 			recipe.AddTile(TileID.ImbuingStation);
 			recipe.Register();
 		}

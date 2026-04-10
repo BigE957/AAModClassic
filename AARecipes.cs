@@ -806,7 +806,7 @@ namespace AAModClassic
 
             TransmuteRecipe((short)ModContent.ItemType<BroodScale>(), (short)ModContent.ItemType<HydraHide>());
             TransmuteRecipe((short)ModContent.ItemType<Hotshroom>(), (short)ModContent.ItemType<Darkshroom>());
-            TransmuteRecipe((short)ModContent.ItemType<DragonFire>(), (short)ModContent.ItemType<HydraToxin>());
+            TransmuteRecipe((short)ModContent.ItemType<DragonFire>(), (short)ModContent.ItemType<Bogtoxin>());
             TransmuteRecipe((short)ModContent.ItemType<SoulOfSmite>(), (short)ModContent.ItemType<SoulOfSpite>());
             TransmuteRecipe((short)ModContent.ItemType<InfernoKey>(), (short)ModContent.ItemType<MireKey>());
             #endregion

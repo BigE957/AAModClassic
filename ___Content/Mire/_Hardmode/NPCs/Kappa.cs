@@ -36,7 +36,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraToxin>()));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Bogtoxin>()));
         }
 
         public override void AI()

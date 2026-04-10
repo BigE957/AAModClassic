@@ -7,7 +7,13 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class AbyssalArc : BaseAAItem
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Abyssal Arc");
+            // Tooltip.SetDefault("");
+        }
+
+        public override void SetDefaults()
 		{
 
             Item.damage = 60;            
@@ -27,12 +33,6 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 			Item.autoReuse = true;
             Item.noMelee = true;
 		}
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Abyssal Arc");
-            // Tooltip.SetDefault("");
-        }
 
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
         {

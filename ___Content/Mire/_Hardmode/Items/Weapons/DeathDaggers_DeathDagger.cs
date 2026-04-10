@@ -93,7 +93,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 			}
 			Main.LocalPlayer.lifeSteal -= num;
 			int num2 = Projectile.owner;
-			Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, ModContent.ProjectileType<DeathDaggerHeal>(), 0, 0f, Projectile.owner, num2, num);
+			Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, ModContent.ProjectileType<DeathDaggers_DeathDaggerHeal>(), 0, 0f, Projectile.owner, num2, num);
         }
     }
 }

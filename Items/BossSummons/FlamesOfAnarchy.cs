@@ -85,7 +85,7 @@ Non-Consumable"); */
             recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 5);
             recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 5);
             recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 5);
             recipe.AddIngredient(ModContent.ItemType<SearingSpark>(), 3);

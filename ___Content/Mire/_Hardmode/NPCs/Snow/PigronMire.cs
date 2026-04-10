@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Snow
 {
-    public class Miregron : ModNPC
+    public class PigronMire : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{

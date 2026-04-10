@@ -2,7 +2,7 @@ using Terraria.ID;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
-    public class HydraToxin : BaseAAItem
+    public class Bogtoxin : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Desert
 {
-    public class MireGhoul : ModNPC
+    public class ShadowGhoul : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{

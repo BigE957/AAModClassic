@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class HydraSlash : ModProjectile
+    public class SwimmingHydra_HydraSlash : ModProjectile
 	{
 		public override void SetDefaults()
 		{

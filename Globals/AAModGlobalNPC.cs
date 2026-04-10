@@ -1024,12 +1024,12 @@ namespace AAModClassic.Globals
 
                         if (spawnInfo.Player.ZoneSnow)
                         {
-                            pool.Add(ModContent.NPCType<Miregron>(), .005f);
+                            pool.Add(ModContent.NPCType<PigronMire>(), .005f);
                         }
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
                         {
-                            pool.Add(ModContent.NPCType<MireGhoul>(), .025f);
+                            pool.Add(ModContent.NPCType<ShadowGhoul>(), .025f);
                         }
                     }
                 }

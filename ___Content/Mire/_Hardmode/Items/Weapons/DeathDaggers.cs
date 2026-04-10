@@ -57,7 +57,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 10);
 		    recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
 		}

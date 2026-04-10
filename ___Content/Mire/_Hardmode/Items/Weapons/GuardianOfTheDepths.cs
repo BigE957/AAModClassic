@@ -4,11 +4,15 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
-namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons   //where is located
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class GuardianOfTheDepths : BaseAAItem
     {
-        
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Guardian of the Depths");
+            // Tooltip.SetDefault("");
+        }
         public override void SetDefaults()
         {
 
@@ -29,12 +33,6 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons   //where is loca
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
             glowmaskDrawColor = Color.White;  //glowmask draw color
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Guardian of the Depths");
-            // Tooltip.SetDefault("");
         }
 
         public override void AddRecipes()  //How to craft this sword

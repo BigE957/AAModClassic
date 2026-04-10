@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
-    public class DeathDaggerHeal : ModProjectile
+    public class DeathDaggers_DeathDaggerHeal : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
         public override void SetStaticDefaults()

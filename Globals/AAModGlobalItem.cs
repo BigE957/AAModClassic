@@ -454,7 +454,7 @@ namespace AAModClassic.Globals
 
                 if (Main.hardMode && Main.rand.Next(2) == 0)
                 {
-                    int item = CrateType == 1 ? ModContent.ItemType<HydraToxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
+                    int item = CrateType == 1 ? ModContent.ItemType<Bogtoxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
             }

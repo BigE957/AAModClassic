@@ -43,7 +43,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 5);
             recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 3);
             recipe.AddTile(TileID.MythrilAnvil);

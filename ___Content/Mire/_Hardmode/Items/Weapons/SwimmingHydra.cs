@@ -31,7 +31,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 			Item.autoReuse = true;
 			Item.useTurn = true;
             Item.shootSpeed = 10;
-            Item.shoot = ModContent.ProjectileType<HydraSlash>();
+            Item.shoot = ModContent.ProjectileType<SwimmingHydra_HydraSlash>();
 		}
 
         int shoot = 0;

@@ -9,7 +9,13 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class AbyssalArc_Proj : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            //TODO: ??????
+            // DisplayName.SetDefault("AntimonBoomerangP");
+        }
+
+        public override void SetDefaults()
 		{
 
 			Projectile.width = 18;
@@ -24,11 +30,6 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 			
 			
 		}
-
-        public override void SetStaticDefaults()
-        {
-          // DisplayName.SetDefault("AntimonBoomerangP");
-        }
 
         public override void AI()
         {

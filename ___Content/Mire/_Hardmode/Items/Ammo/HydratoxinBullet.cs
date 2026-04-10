@@ -32,7 +32,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 		{
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ItemID.MusketBall, 100);
-			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

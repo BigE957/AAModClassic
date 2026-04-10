@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Magic
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpellTome);
-			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 20);
+			recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 20);
 			recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 15);
 			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();

@@ -30,7 +30,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(100);
-			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 1);
 			recipe.Register();
 		}
 	}
