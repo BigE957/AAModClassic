@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Furniture.Terra;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -90,7 +91,7 @@ public class KeepLantern_Tile : ModTile
 		{
 			float num5 = (float)Utils.RandomInt(ref seed, -10, 11) * 0.15f;
 			float num6 = (float)Utils.RandomInt(ref seed, -10, 1) * 0.35f;
-			Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Terra/TerraLantern_Flame"), new Vector2((float)(i * 16 - (int)Main.screenPosition.X + num4) - ((float)num - 16f) / 2f + num5, (float)(j * 16 - (int)Main.screenPosition.Y + num2) + num6) + zero, (Rectangle?)new Rectangle(frameX, frameY, num, num3), val, 0f, default(Vector2), 1f, (SpriteEffects)0, 0f);
+			Main.spriteBatch.Draw(ModContent.Request<Texture2D>(ModContent.GetInstance<TerraLantern_Tile>().Texture + "_Flame").Value, new Vector2((float)(i * 16 - (int)Main.screenPosition.X + num4) - ((float)num - 16f) / 2f + num5, (float)(j * 16 - (int)Main.screenPosition.Y + num2) + num6) + zero, (Rectangle?)new Rectangle(frameX, frameY, num, num3), val, 0f, default(Vector2), 1f, (SpriteEffects)0, 0f);
 		}
 	}
 }
