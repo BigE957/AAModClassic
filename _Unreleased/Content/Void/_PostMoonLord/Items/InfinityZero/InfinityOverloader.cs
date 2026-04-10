@@ -116,7 +116,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
                     player2.AddBuff(ModContent.BuffType<LockedOn_Buff>(), 60);
                 }
             }
-            SpawnBoss(player, "IZSpawn1", "Infinity Zero");
+            SpawnBoss(player, "InfinityZeroSpawn1", "Infinity Zero");
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
 		}
