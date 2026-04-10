@@ -22,23 +22,23 @@ namespace AAModClassic.Tiles.Trees
 
         public override Asset<Texture2D> GetTexture()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTree_Tile");
         }
 
         public override Asset<Texture2D> GetBranchTextures()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTreeBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTree_Tile_Branches");
         }
 
         public override Asset<Texture2D> GetTopTextures()
         {
-            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTreeTop");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTree_Tile_Top");
         }
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("MushroomTree").Type;
+            return TileID.MushroomPlants; //TODO: This was formerly trying to find "MushroomTree"...
         }
     }
 }
