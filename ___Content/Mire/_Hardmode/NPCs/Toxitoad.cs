@@ -212,8 +212,8 @@ namespace AAModClassic.___Content.Mire._Hardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D biteAni = Mod.GetTexture("NPCs/Enemies/Mire/Toxitoad/ToxitoadBite");
-            Texture2D tongueAni = Mod.GetTexture("NPCs/Enemies/Mire/Toxitoad/ToxitoadTongueAttack");
+            Texture2D biteAni = ModContent.Request<Texture2D>(Texture + "Bite").Value;
+            Texture2D tongueAni = ModContent.Request<Texture2D>(Texture + "TongueAttack").Value;
             var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (biteAttack == false && tongueAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {

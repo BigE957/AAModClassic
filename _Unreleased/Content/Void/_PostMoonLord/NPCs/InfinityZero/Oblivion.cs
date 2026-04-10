@@ -454,11 +454,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             if (glowTex == null)
             {
-                glowTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/Oblivion_Glow");
+                glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             }
             if (glitchTex == null)
             {
-                glitchTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/OblivionGlitch");
+                glitchTex = ModContent.Request<Texture2D>(Texture + "_Glitch").Value;
             }
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }

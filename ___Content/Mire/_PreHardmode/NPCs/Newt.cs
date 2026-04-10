@@ -161,7 +161,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D tongueAni = Mod.GetTexture("NPCs/Enemies/Mire/Newt_Shoot");
+            Texture2D tongueAni = ModContent.Request<Texture2D>(Texture + "_Shoot").Value;
             var effects = NPC.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (tongueAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {

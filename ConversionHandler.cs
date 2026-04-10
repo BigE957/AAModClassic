@@ -90,7 +90,7 @@ namespace AAModClassic
             {
                 Do_ConvertDownInferno(threadContext);
             }
-            catch (Exception)
+            catch (Exception e)
             {
             }
         }
@@ -104,14 +104,25 @@ namespace AAModClassic
         public static void Dodo_ConvertDown(int startX, int startY, int genWidth, ConversionType conversionType)
         {
             int centerX = startX, y = startY;
-            for (int x1 = 0; x1 < genWidth; x1++)
+            AAMod.instance.Logger.Info("Begining conversion of type: " + conversionType);
+            AAMod.instance.Logger.Info($"Start Position: ({startX}, {startY})");
+            AAMod.instance.Logger.Info("Width: " + genWidth);
+
+            int iterations = 0;
+            int x1;
+            for (x1 = 0; x1 < genWidth; x1++)
             {
                 while (y < (Main.maxTilesY - 50))
                 {
                     WorldGen.Convert(centerX + x1, y, conversionType == ConversionType.MIRE ? ModContent.GetInstance<MireConversion>().Type : ModContent.GetInstance<InfernoConversion>().Type, genWidth, true, true);
                     y += genWidth * 2;
+                    iterations++;
                 }
             }
+
+            AAMod.instance.Logger.Info("Begining conversion of type: " + conversionType);
+            AAMod.instance.Logger.Info($"End Position: ({x1}, {y})");
+            AAMod.instance.Logger.Info($"Iterations: " + iterations);
         }
     }
 }

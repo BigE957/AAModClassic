@@ -284,7 +284,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = Mod.GetTexture("_Unreleased/Glowmasks/DeitySkull_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
 

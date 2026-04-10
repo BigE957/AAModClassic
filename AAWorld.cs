@@ -1363,13 +1363,13 @@ namespace AAModClassic
                 {
                     InfernoStripe = true;
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-                    ConversionHandler.ConvertDown((int)InfernoCenter.X, 0, 120, ConversionType.INFERNO);
+                    ConversionHandler.ConvertDown((int)InfernoCenter.X, (int)InfernoCenter.Y, 120, ConversionType.INFERNO);
                 }
                 if (MireStripe == false)
                 {
                     MireStripe = true;
 
-                    ConversionHandler.ConvertDown((int)MireCenter.X, 0, 120, ConversionType.MIRE);
+                    ConversionHandler.ConvertDown((int)MireCenter.X, (int)MireCenter.Y, 120, ConversionType.MIRE);
                 }
             }
         }

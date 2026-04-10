@@ -91,8 +91,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D WheelTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/UDUNFUKED_Wheel");;
-            Texture2D Rift = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/Rift");
+            Texture2D WheelTex = Mod.GetTexture("_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Wheel");;
+            Texture2D Rift = Mod.GetTexture("_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Portal");
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
             int num214 = TextureAssets.Npc[NPC.type].Value.Height;
             int y6 = 0;

@@ -117,17 +117,17 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D SFrame1 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D SFrame2 = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZSpawn2");
-            Texture2D SFrame3 = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZSpawn3");
-            Texture2D SFrame4 = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZSpawn4");
-            Texture2D SFrame5 = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZSpawn5");
-            Texture2D SFrame6 = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZSpawn6");
+            Texture2D SFrame2 = ModContent.Request<Texture2D>(Texture.Replace('1', '2')).Value;
+            Texture2D SFrame3 = ModContent.Request<Texture2D>(Texture.Replace('1', '3')).Value;
+            Texture2D SFrame4 = ModContent.Request<Texture2D>(Texture.Replace('1', '4')).Value;
+            Texture2D SFrame5 = ModContent.Request<Texture2D>(Texture.Replace('1', '5')).Value;
+            Texture2D SFrame6 = ModContent.Request<Texture2D>(Texture.Replace('1', '6')).Value;
             
 
             NPC.frame = BaseDrawing.GetFrame(Frame, 171, 210, 0, 0);
 			Rectangle darkFrame = BaseDrawing.GetFrame(0, 171, 210, 0, 0);
 			Texture2D drawTexture = spawnState == 0 ? SFrame1 : spawnState == 1 ? SFrame2 : spawnState == 2 ? SFrame3 : spawnState == 3 ? SFrame4 : spawnState == 4 ? SFrame5 : SFrame6;
-			Texture2D infinityTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZShadow");		
+			Texture2D infinityTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/IInfinityZeroSpawn1_Shadow").Value;		
 			NPC.position.Y += 72;
             if (StartTimer <= 0)
             {

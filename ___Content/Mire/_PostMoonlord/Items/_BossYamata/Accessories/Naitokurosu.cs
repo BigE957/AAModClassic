@@ -2,6 +2,7 @@ using AAModClassic.___Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,9 +35,9 @@ At night, you move three times as fast and your ranged attacks & minions inflict
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Items/Boss/Yamata/Naitokurosu");
+            Texture2D texture = TextureAssets.Item[Type].Value;
+            Texture2D texture2 = ModContent.Request<Texture2D>(Texture + "_A").Value;
             Texture2D textureGlow = Mod.GetTexture("Glowmasks/Naitokurosu_Glow");
-            Texture2D texture2 = Mod.GetTexture("Items/Boss/Yamata/NaitokurosuA");
             Texture2D texture2Glow = Mod.GetTexture("Glowmasks/NaitokurosuA_Glow");
             if (Main.dayTime)
             {
@@ -113,8 +114,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = Mod.GetTexture("Items/Boss/Yamata/Naitokurosu");
-            Texture2D texture2 = Mod.GetTexture("Items/Boss/Yamata/NaitokurosuA");
+            Texture2D texture = TextureAssets.Item[Type].Value;
+            Texture2D texture2 = ModContent.Request<Texture2D>(Texture + "_A").Value;
             if (Main.dayTime)
             { 
                 spriteBatch.Draw(texture, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);

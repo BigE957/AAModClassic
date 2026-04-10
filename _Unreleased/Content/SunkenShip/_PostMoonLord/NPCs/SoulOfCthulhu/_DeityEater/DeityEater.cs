@@ -16,7 +16,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     [AutoloadBossHead]
     public class DeityEater : ModNPC
     {
-        //public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEater"; } }
+        //public override string Texture { get { return "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Bosses/DeityEater"; } }
         
         public int fireTimer = 0;
 
@@ -352,7 +352,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = Mod.GetTexture("_Unreleased/Glowmasks/DeityEater_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
 
@@ -366,7 +366,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     
     public class DeityEaterBody : DeityEater
     {
-        //public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEaterBody"; } }
+        //public override string Texture { get { return "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Bosses/DeityEaterBody"; } }
 
         public override void SetStaticDefaults()
         {
@@ -440,7 +440,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = Mod.GetTexture("_Unreleased/Glowmasks/DeityEaterBody_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
             
@@ -453,7 +453,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
     public class DeityEaterTail : DeityEater
     {
-        //public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEaterTail"; } }
+        //public override string Texture { get { return "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Bosses/DeityEaterTail"; } }
 
         public override void SetStaticDefaults()
         {
@@ -528,7 +528,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = Mod.GetTexture("_Unreleased/Glowmasks/DeityEaterTail_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
 

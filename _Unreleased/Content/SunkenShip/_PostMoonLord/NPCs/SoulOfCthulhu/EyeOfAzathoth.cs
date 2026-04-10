@@ -506,7 +506,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture8 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D texture2D30 = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/EoA_Pupil");
+            Texture2D texture2D30 = ModContent.Request<Texture2D>(Texture + "_Pupil").Value;
             Vector2 origin15 = new Vector2(40f, 40f);
             Vector2 value33 = new Vector2(30f, 30f);
             Vector2 arg_A019_0 = NPC.Center;

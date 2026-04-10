@@ -87,6 +87,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             NeckTexture = ModContent.Request<Texture2D>(texRoot + "Neck");
             NeckTexture = ModContent.Request<Texture2D>(texRoot + "Glow");
             TailTexture = ModContent.Request<Texture2D>(texRoot + "Tail");
+
+            Glow = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()

@@ -530,10 +530,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D WheelTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/SoC_Wheel");
-            Texture2D RingTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/DeityCircle");
-            Texture2D RitualTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/DeityRitual");
-            Texture2D Rift = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/Rift");
+            Texture2D WheelTex = ModContent.Request<Texture2D>(Texture + "_Wheel").Value;
+            Texture2D RingTex = ModContent.Request<Texture2D>(Texture + "_DeityCircle").Value;
+            Texture2D RitualTex = ModContent.Request<Texture2D>(Texture + "_DeityRitual").Value;
+            Texture2D Rift = Mod.GetTexture("_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Portal");
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
             Vector2 origin8 = new Vector2(RitualTex.Width, RitualTex.Height) / 2f;
             int num214 = TextureAssets.Npc[NPC.type].Value.Height;
