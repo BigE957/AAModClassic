@@ -226,7 +226,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.S
 
         private void UpdateYamataIndex()
         {
-            int YamataType = AAMod.instance.Find<ModNPC>("YamataA").Type;
+            int YamataType = ModContent.NPCType<YamataABody>();
             if (YamataIndex >= 0 && Main.npc[YamataIndex].active && Main.npc[YamataIndex].type == YamataType)
             {
                 return;

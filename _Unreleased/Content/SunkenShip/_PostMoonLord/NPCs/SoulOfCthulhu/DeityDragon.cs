@@ -495,7 +495,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -628,7 +628,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -761,7 +761,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -894,7 +894,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -1027,7 +1027,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }

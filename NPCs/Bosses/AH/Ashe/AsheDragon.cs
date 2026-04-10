@@ -504,7 +504,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -644,7 +644,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -784,7 +784,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -924,7 +924,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }
@@ -1071,7 +1071,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }

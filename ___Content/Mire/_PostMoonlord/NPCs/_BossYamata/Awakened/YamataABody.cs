@@ -85,10 +85,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 
             string texRoot = Texture + "_";
             NeckTexture = ModContent.Request<Texture2D>(texRoot + "Neck");
-            NeckTexture = ModContent.Request<Texture2D>(texRoot + "Glow");
+            Glow = ModContent.Request<Texture2D>(texRoot + "Glow");
             TailTexture = ModContent.Request<Texture2D>(texRoot + "Tail");
-
-            Glow = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -703,10 +701,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             if (legs == null || legs.Length < 4)
             {
                 legs = new LegInfo[4];
-                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0));
-                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0));
-                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0));
-                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0));
+                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0), true);
+                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0), true);
+                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0), true);
+                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0), true);
             }
             for (int m = 0; m < 4; m++)
             {
@@ -715,8 +713,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         }
 
         public Vector2 position, oldPosition;
-        private static float X(float t,
-    float x0, float x1, float x2)
+        private static float X(float t, float x0, float x1, float x2)
         {
             return (float)(
                 x0 * Math.Pow((1 - t), 2) +
@@ -724,8 +721,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 x2 * Math.Pow(t, 2)
             );
         }
-        private static float Y(float t,
-            float y0, float y1, float y2)
+        private static float Y(float t, float y0, float y1, float y2)
         {
             return (float)(
                  y0 * Math.Pow((1 - t), 2) +

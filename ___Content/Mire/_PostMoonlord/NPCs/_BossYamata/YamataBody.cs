@@ -682,10 +682,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             if (legs == null || legs.Length < 4)
             {
                 legs = new LegInfo[4];
-                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0));
-                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0));
-                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0));
-                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0));
+                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0), false);
+                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0), false);
+                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0), false);
+                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0), false);
             }
 
             for (int m = 0; m < 4; m++)
@@ -814,12 +814,12 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public static Asset<Texture2D>[] normalTextures = [];
         public static Asset<Texture2D>[] awakenedTextures = [];
 
-        public LegInfo(int lType, Vector2 initialPos)
+        public LegInfo(int lType, Vector2 initialPos, bool awakened)
         {
             position = initialPos;
             pointToStandOn = position;
             limbType = lType;
-            Hitbox = new Rectangle(0, 0, 70, 38);
+            Hitbox = awakened ? new Rectangle(0, 0, 140, 76) : new Rectangle(0, 0, 70, 38);
             legOrigin = new Vector2(limbType == 1 || limbType == 3 ? Hitbox.Width - 12 : 12, 12);
         }
 
@@ -884,7 +884,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public void UpdateLeg(NPC npc)
         {
             leftLeg = limbType == 1 || limbType == 3;
-            if (Vector2.Distance(Center, npc.Center) > 499 || YamataBody.TeleportMeBitch) position = npc.Center; //prevent issues when the legs are WAY off.
+            if (Vector2.Distance(Center, npc.Center) > 499 || ((npc.ModNPC is YamataBody && YamataBody.TeleportMeBitch) || (npc.ModNPC is YamataABody && YamataABody.TeleportMeBitch))) position = npc.Center; //prevent issues when the legs are WAY off.
             if (overrideAnimation != null)
             {
                 if (overrideAnimation.movementRatio >= 1f) overrideAnimation = null;
@@ -910,13 +910,13 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public Vector2 GetStandOnPoint(NPC npc)
         {
             float scalar = npc.velocity.Length();
-            float outerLegDefault = 70f + (0.5f * scalar);
-            float innerLegDefault = 50f + (0.5f * scalar);
-            float standOnX = npc.Center.X + (limbType == 3 ? (-outerLegDefault - Hitbox.Width) : limbType == 2 ? (outerLegDefault + Hitbox.Width) : limbType == 1 ? (-innerLegDefault - Hitbox.Width) : (innerLegDefault + Hitbox.Width));
+            float outerLegDefault = (npc.ModNPC is YamataABody ? 150f : 70f) + (0.5f * scalar);
+            float innerLegDefault = (npc.ModNPC is YamataABody ? 120f : 50f) + (0.5f * scalar);
+            float standOnX = npc.Center.X + (npc.ModNPC is YamataABody yamataA ? yamataA.topVisualOffset.X : 0) + (limbType == 3 ? (-outerLegDefault - Hitbox.Width) : limbType == 2 ? (outerLegDefault + Hitbox.Width) : limbType == 1 ? (-innerLegDefault - Hitbox.Width) : (innerLegDefault + Hitbox.Width));
 
             int defaultTileY = (int)(npc.Bottom.Y / 16f);
             int tileY = WorldGenUtils.GetFirstTileFloor((int)(standOnX / 16f), (int)(npc.Bottom.Y / 16f));
-            if (tileY - defaultTileY > YamataBody.flyingTileCount) { return default; } //'flying' behavior
+            if (tileY - defaultTileY > (npc.ModNPC is YamataABody ? YamataABody.flyingTileCount : YamataBody.flyingTileCount)) { return default; } //'flying' behavior
             if (!flying)
             {
                 tileY = (int)(tileY * 16f) / 16;
@@ -927,7 +927,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             return default;
         }
 
-        public Vector2 GetBodyConnector(NPC npc) => npc.Center + new Vector2(limbType == 3 || limbType == 1 ? -40f : 40f, 0f);
+        public Vector2 GetBodyConnector(NPC npc) => npc.Center + (npc.ModNPC is YamataABody yamataA ? yamataA.topVisualOffset : Vector2.Zero) + new Vector2(limbType == 3 || limbType == 1 ? -40f : 40f, 0f);
 
         public void DrawLeg(SpriteBatch sb, NPC npc)
         {

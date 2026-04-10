@@ -513,7 +513,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                modifiers.TargetDamageMultiplier *= 0.2f;
             }
@@ -644,7 +644,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
@@ -775,7 +775,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }

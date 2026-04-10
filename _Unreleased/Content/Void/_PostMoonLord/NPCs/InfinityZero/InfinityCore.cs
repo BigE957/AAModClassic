@@ -107,7 +107,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
             {
                 projectile.damage *= (int).2;
             }

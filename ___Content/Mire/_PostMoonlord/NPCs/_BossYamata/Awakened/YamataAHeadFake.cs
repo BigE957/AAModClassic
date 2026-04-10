@@ -384,7 +384,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: Was >= 1 but that seemed too strict
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
