@@ -370,69 +370,31 @@ namespace AAModClassic
             SmashHydraPod = tag.GetInt("Pod");
         }
         //Idt this is actually needed
-        /*
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
-            flags[1] = downedAncient;
-            flags[2] = downedGrips;
-            flags[3] = NPCExtensions.BeenKilled<Broodmother>();
-            flags[4] = NPCExtensions.BeenKilled<Hydra>();
-            flags[5] = ModContentGenerated;
-            flags[6] = downedRajah;
-            flags[7] = downedRajahsRevenge;
+            flags[0] = StarActive;
+            flags[1] = downedGrips;
+            flags[2] = ModContentGenerated;
+            flags[3] = zeroUS;
+            flags[4] = downedAshe;
+            flags[5] = downedHaruka;
+            flags[6] = SistersSummoned;
+            flags[7] = AnubisAwakened;
             writer.Write(flags);
 
             BitsByte flags2 = new BitsByte();
-            flags2[0] = zeroUS;
-            flags2[1] = downedAshe;
-            flags2[2] = downedHaruka;
-            flags2[3] = SistersSummoned;
-            flags2[4] = downedSisters;
-            flags2[5] = downedSag;
-            flags2[6] = downedEquinox;
-            flags2[7] = downedAkuma;
+            flags2[0] = downedSisters;
+            flags2[1] = downedEquinox;
+            flags2[2] = InfernoStripe;
+            flags2[3] = MireStripe;
+            flags2[4] = Ancients;
+            flags2[5] = ShenSummoned;
+            flags2[6] = AthenaHerald;
+            flags2[7] = WormActive;
             writer.Write(flags2);
 
-            BitsByte flags3 = new BitsByte();
-            flags3[0] = downedAllAncients;
-            flags3[1] = downedYamata;
-            flags3[2] = InfernoStripe;
-            flags3[3] = MireStripe;
-            flags3[4] = downedZero;
-            flags3[5] = downedSAncient;
-            flags3[6] = downedShen;
-            flags3[7] = downedFungus;
-            writer.Write(flags3);
-
-
-            BitsByte flags4 = new BitsByte();
-            flags4[0] = Ancients;
-            flags4[1] = ShenSummoned;
-            flags4[2] = downedSerpent;
-            flags4[3] = downedDjinn;
-            flags4[4] = downedToad;
-            flags4[5] = downedAnubis;
-            flags4[6] = downedAthena;
-            flags4[7] = downedGreed;
-            writer.Write(flags4);
-
-
-            BitsByte flags5 = new BitsByte();
-            flags5[0] = AthenaHerald;
-            flags5[1] = downedAthenaA;
-            flags5[2] = downedGreedA;
-            flags5[3] = AnubisAwakened;
-            flags5[4] = NPCExtensions.BeenKilled<ForsakenAnubis>();
-            flags5[5] = WormActive;
-            flags5[6] = StarActive;
-            flags5[7] = GravActive;
-            writer.Write(flags5);
-
-
-            BitsByte flags6 = new BitsByte();
-            flags6[0] = downedLucifer;
-            writer.Write(flags6);
+            writer.Write(GravActive);
 
             writer.WriteVector2(MireCenter);
             writer.WriteVector2(InfernoCenter);
@@ -461,54 +423,26 @@ namespace AAModClassic
         public override void NetReceive(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
-            downedMonarch = flags[0];
-            downedAncient = flags[1];
-            downedGrips = flags[2];
-            NPCExtensions.BeenKilled<Broodmother>() = flags[3];
-            NPCExtensions.BeenKilled<Hydra>() = flags[4];
-            ModContentGenerated = flags[5];
-            downedRajah = flags[6];
-            downedRajahsRevenge = flags[7];
+            StarActive = flags[0];
+            downedGrips = flags[1];
+            ModContentGenerated = flags[2];
+            zeroUS = flags[3];
+            downedAshe = flags[4];
+            downedHaruka = flags[5];
+            SistersSummoned = flags[6];
+            AnubisAwakened = flags[7];
 
             BitsByte flags2 = reader.ReadByte();
-            zeroUS = flags2[0];
-            downedAshe = flags2[1];
-            downedHaruka = flags2[2];
-            SistersSummoned = flags2[3];
-            downedSisters = flags2[4];
-            downedSag = flags2[5];
-            downedEquinox = flags2[6];
-            downedAkuma = flags2[7];
+            downedSisters = flags2[0];
+            downedEquinox = flags2[1];
+            InfernoStripe = flags2[2];
+            MireStripe = flags2[3];
+            Ancients = flags2[4];
+            ShenSummoned = flags2[5];
+            AthenaHerald = flags2[6];
+            WormActive = flags2[7];
 
-            BitsByte flags3 = reader.ReadByte();
-            downedAllAncients = flags3[0];
-            downedYamata = flags3[1];
-            InfernoStripe = flags3[2];
-            MireStripe = flags3[3];
-            downedZero = flags3[4];
-            downedSAncient = flags3[5];
-            downedShen = flags3[6];
-            downedFungus = flags3[7];
-
-            BitsByte flags4 = reader.ReadByte();
-            Ancients = flags4[0];
-            ShenSummoned = flags4[1];
-            downedSerpent = flags4[2];
-            downedDjinn = flags4[3];
-            downedToad = flags4[4];
-            downedAnubis = flags4[5];
-            downedAthena = flags4[6];
-            downedGreed = flags4[7];
-
-            BitsByte flags5 = reader.ReadByte();
-            AthenaHerald = flags5[0];
-            downedAthenaA = flags5[1];
-            downedGreedA = flags5[2];
-            AnubisAwakened = flags5[3];
-            NPCExtensions.BeenKilled<ForsakenAnubis>() = flags5[4];
-            WormActive = flags5[5];
-            StarActive = flags5[6];
-            GravActive = flags5[7];
+            GravActive = reader.ReadBoolean();
 
             MireCenter = reader.ReadVector2();
 			InfernoCenter = reader.ReadVector2();		
@@ -533,7 +467,6 @@ namespace AAModClassic
             SmashHydraPod = reader.ReadInt32();
             SmashDragonEgg = reader.ReadInt32();
         }
-        */
         #endregion
 
         private string NumberRand(int size)
