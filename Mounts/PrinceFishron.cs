@@ -56,12 +56,14 @@ namespace AAModClassic.Mounts
 			MountData.swimFrameCount = 8;
 			MountData.swimFrameDelay = 4;
 			MountData.swimFrameStart = 15;
-			if (Main.netMode != NetmodeID.Server)
+
+            //TODO: These guys are invisible atm.
+            if (Main.netMode != NetmodeID.Server)
 			{
 				MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron");
 				MountData.backTextureGlow = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron_Glow");
-				MountData.frontTexture = null;
-				MountData.frontTextureExtra = null;
+				MountData.frontTexture = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+				MountData.frontTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
 				MountData.textureWidth = MountData.backTexture.Width();
 				MountData.textureHeight = MountData.backTexture.Height();
 			}

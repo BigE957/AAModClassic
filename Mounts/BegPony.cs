@@ -62,12 +62,14 @@ namespace AAModClassic.Mounts
             MountData.swimFrameCount = MountData.inAirFrameCount;
             MountData.swimFrameDelay = MountData.inAirFrameDelay;
             MountData.swimFrameStart = MountData.inAirFrameStart;
+
+            //TODO: These guys are invisible atm.
             if (Main.netMode != NetmodeID.Server)
             {
                 MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/BegPony");
-                MountData.backTextureExtra = null;
-                MountData.frontTexture = null;
-                MountData.frontTextureExtra = null;
+                MountData.backTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                MountData.frontTexture = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                MountData.frontTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
                 MountData.textureWidth = MountData.backTexture.Width();
                 MountData.textureHeight = MountData.backTexture.Height();
             }
