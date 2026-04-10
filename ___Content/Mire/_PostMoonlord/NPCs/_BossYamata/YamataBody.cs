@@ -78,12 +78,12 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
             if (!Main.dedServ)
             {
-                HeadTex = ModContent.Request<Texture2D>(Texture + "Head");
-                HeadF1Texture = ModContent.Request<Texture2D>(Texture + "HeadFake1");
-                HeadF2Texture = ModContent.Request<Texture2D>(Texture + "HeadFake2");
-                HeadGlowTexture = ModContent.Request<Texture2D>(Texture + "Head_Glow");
-                HeadF1GlowTexture = ModContent.Request<Texture2D>(Texture + "HeadFake1_Glow");
-                HeadF2GlowTexture = ModContent.Request<Texture2D>(Texture + "HeadFake2_Glow");
+                HeadTex = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "Head");
+                HeadF1Texture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake1");
+                HeadF2Texture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake2");
+                HeadGlowTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "Head_Glow");
+                HeadF1GlowTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake1_Glow");
+                HeadF2GlowTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake2_Glow");
 
                 string texRoot = Texture + "_";
                 NeckTexture = ModContent.Request<Texture2D>(texRoot + "Neck");

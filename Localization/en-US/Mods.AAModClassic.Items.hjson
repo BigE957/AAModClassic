@@ -9734,3 +9734,38 @@ Masshroom: {
 	DisplayName: Masshroom
 	Tooltip: ""
 }
+
+DreadMoonAltar: {
+	DisplayName: Dread Moon Altar
+	Tooltip: ""
+}
+
+DreadMoonAltarA: {
+	DisplayName: Dread Moon Altar A
+	Tooltip: ""
+}
+
+YamataTreasureBag: {
+	DisplayName: Yamata Treasure Bag
+	Tooltip: ""
+}
+
+EventideBrickWall: {
+	DisplayName: Eventide Brick Wall
+	Tooltip: ""
+}
+
+HydraTreasureBag: {
+	DisplayName: Hydra Treasure Bag
+	Tooltip: ""
+}
+
+GlowingMossBall: {
+	DisplayName: Glowing Moss Ball
+	Tooltip: ""
+}
+
+AbyssAltarSafe: {
+	DisplayName: Abyss Altar Safe
+	Tooltip: ""
+}

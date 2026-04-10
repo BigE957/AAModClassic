@@ -14,14 +14,15 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 {
     public class HydraTreasureBag : BaseAAItem
 	{
-        public static Asset<Texture2D> Glowmask;
+        //TODO: Doesnt seem to exist
+        //public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
-            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+            //Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
 
         }
 
@@ -43,6 +44,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
         
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
+            /*
             Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
@@ -60,6 +62,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
                 SpriteEffects.None,
                 0f
             );
+            */
         }
 
         public override void RightClick(Player player)

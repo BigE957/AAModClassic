@@ -1298,3 +1298,8 @@ Cinematic_Buff: {
 	DisplayName: Cinematic_ Buff
 	Description: Mods.AAModClassic.Buffs.Cinematic_Buff.Description
 }
+
+GlowingMossBall_Buff: {
+	DisplayName: Glowing Moss Ball_ Buff
+	Description: Mods.AAModClassic.Buffs.GlowingMossBall_Buff.Description
+}

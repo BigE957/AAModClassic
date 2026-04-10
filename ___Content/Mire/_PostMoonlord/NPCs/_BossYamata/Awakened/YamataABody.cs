@@ -78,10 +78,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             //Main.npcFrameCount[npc.type] = 7;
 
 
-            HeadTex = ModContent.Request<Texture2D>(Texture + "Head");
-            HeadFTexture = ModContent.Request<Texture2D>(Texture + "HeadFake");
-            HeadGlowTexture = ModContent.Request<Texture2D>(Texture + "Head_Glow");
-            HeadFGlowTexture = ModContent.Request<Texture2D>(Texture + "HeadFake_Glow");
+            HeadTex = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "Head");
+            HeadFTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake");
+            HeadGlowTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "Head_Glow");
+            HeadFGlowTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake_Glow");
 
             string texRoot = Texture + "_";
             NeckTexture = ModContent.Request<Texture2D>(texRoot + "Neck");
