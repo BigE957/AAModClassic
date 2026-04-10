@@ -8,6 +8,11 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class TheSquirter_Squirt : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("sP");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -21,12 +26,6 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
             Projectile.ignoreWater = true;
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("sP");
-    }
-
- 
         public override void AI()
         {
                                                           //this make that the projectile faces the right way

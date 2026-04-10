@@ -4,6 +4,12 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
     public class AbyssiumOre : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Abyssium");
+            // Tooltip.SetDefault("It's all mushy. Nasty.");
+        }
+
         public override void SetDefaults()
         {
             Item.width = 16;
@@ -18,12 +24,6 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
             Item.value = Terraria.Item.sellPrice(0, 0, 8, 0);
             Item.consumable = true;
             Item.createTile = ModContent.TileType<AbyssiumOre_Tile>();
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Abyssium");
-            // Tooltip.SetDefault("It's all mushy. Nasty.");
         }
     }
 }

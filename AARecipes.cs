@@ -986,7 +986,7 @@ namespace AAModClassic
 
             RecipeGroup group17 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.altar"), new int[]
             {
-                ModContent.ItemType<MireAltarSafe>(),
+                ModContent.ItemType<AbyssAltarSafe>(),
                 ModContent.ItemType<CrimsonAltar>(),
                 ModContent.ItemType<CorruptAltar>(),
                 ModContent.ItemType<InfernoAltar>()

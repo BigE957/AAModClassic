@@ -90,7 +90,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D tex2 = ModContent.Request<Texture2D>(ModContent.GetInstance<HarukaShade>().Texture + "_Glow").Value;
+            Texture2D tex2 = ModContent.Request<Texture2D>(ModContent.GetInstance<HarukaShadowPostHydra>().Texture + "_Glow").Value;
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, NPC.GetAlpha(drawColor));
             if (NPC.ai[0] == 0)
             {

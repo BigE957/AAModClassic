@@ -76,12 +76,12 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<FuryAsheOrbiter>()) CalamityDR = 0.2f;
                 if(npc.type == ModContent.NPCType<Shenling>()) CalamityDR = 0.15f;
 
-                if(npc.type == ModContent.NPCType<YamataA>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<YamataABody>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataAHead>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataAHeadFake>()) CalamityDR = 0.5f;
                 //if(npc.type == ModContent.NPCType<YamataAHeadF1>()) CalamityDR = 0.5f;
                 //if(npc.type == ModContent.NPCType<YamataAHeadF2>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<Yamata>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<YamataBody>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataHead>()) CalamityDR = 0.5f;
                 //if(npc.type == ModContent.NPCType<YamataHeadF>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataHeadFake1>()) CalamityDR = 0.5f;

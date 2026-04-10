@@ -30,7 +30,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         const float dashTime = 90;
         public override void AI()
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+            if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
                 Projectile.Kill();
                 return;

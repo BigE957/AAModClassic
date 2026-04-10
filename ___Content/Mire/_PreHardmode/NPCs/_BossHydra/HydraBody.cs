@@ -20,7 +20,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
     [AutoloadBossHead]
-    public class Hydra : ModNPC
+    public class HydraBody : ModNPC
     {
         public NPC Head1;
         public NPC Head2;
@@ -66,8 +66,8 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 
         public override void OnKill()
         {
-            if (!NPCExtensions.BeenKilled<Hydra>(true))
-                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.Next(2) == 0 ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShade>());
+            if (!NPCExtensions.BeenKilled<HydraBody>(true))
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.Next(2) == 0 ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShadowPostHydra>());
 
             //NPC.value = 0f;
             //NPC.boss = false;
@@ -75,14 +75,14 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HydraBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HydraTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
             if (ContentReplacementSystem.NeedToReplaceContent)
-                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowmossBall>(), ModContent.ItemType<ShadowBand>()));
+                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowingMossBall>(), ModContent.ItemType<ShadowBand>()));
 
             //notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask(1-3)>(), 7)); Exists but doesn't drop...?
 

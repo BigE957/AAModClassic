@@ -6,6 +6,12 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
     public class AbyssiumBar : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Abyssium Bar");
+            // Tooltip.SetDefault("Solid Darkness");
+        }
+
         public override void SetDefaults()
         {
 
@@ -22,12 +28,6 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
             Item.consumable = true;
             Item.createTile = ModContent.TileType<AbyssiumBar_Tile>();
 			
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Abyssium Bar");
-            // Tooltip.SetDefault("Solid Darkness");
         }
 
 		public override void AddRecipes()

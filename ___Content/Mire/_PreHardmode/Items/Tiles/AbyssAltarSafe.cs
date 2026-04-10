@@ -6,7 +6,7 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tiles
 {
-    public class MireAltarSafe : BaseAAItem
+    public class AbyssAltarSafe : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

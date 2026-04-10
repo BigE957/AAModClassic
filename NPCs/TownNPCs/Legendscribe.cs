@@ -544,7 +544,7 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (Hydra)
             {
-                return NPCExtensions.BeenKilled<Hydra>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedHydraY") : 
+                return NPCExtensions.BeenKilled<HydraBody>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedHydraY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedHydraN");
             }
             else if (Djinn)

@@ -74,8 +74,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             return 0f;
         }
 
-		public Yamata Body = null;
-        public Yamata Head = null;
+		public YamataBody Body = null;
+        public YamataBody Head = null;
         public bool killedbyplayer = true;	
 		public bool leftHead = false;
         public bool fireAttack = false;
@@ -89,9 +89,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             if (Body == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<Yamata>() || npcBody.type == ModContent.NPCType<YamataA>())
+                if (npcBody.type == ModContent.NPCType<YamataBody>() || npcBody.type == ModContent.NPCType<YamataABody>())
                 {
-                    Body = (Yamata)npcBody.ModNPC;
+                    Body = (YamataBody)npcBody.ModNPC;
                 }
             }
             if (Body == null)
@@ -283,7 +283,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public override bool CheckActive()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Yamata>()) || NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()) || NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
                 return false;
             }

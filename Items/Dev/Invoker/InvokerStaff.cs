@@ -626,7 +626,7 @@ namespace AAModClassic.Items.Dev.Invoker
 					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) 
 						Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<InvokedDamage>(), npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
 				}
-				if(npc.GetGlobalNPC<InvokedGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroProtocol>() || npc.type == ModContent.NPCType<YamataA>() || npc.type == ModContent.NPCType<AkumaA>() || npc.type == ModContent.NPCType<ShenA>() || npc.type == ModContent.NPCType<SupremeRajah>()))
+				if(npc.GetGlobalNPC<InvokedGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroProtocol>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaA>() || npc.type == ModContent.NPCType<ShenA>() || npc.type == ModContent.NPCType<SupremeRajah>()))
 				{
 					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<InvokedDamage>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
 				}

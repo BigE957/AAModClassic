@@ -22,7 +22,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
     [AutoloadBossHead]
-    public class YamataA : YamataBoss
+    public class YamataABody : YamataBoss
     {
         public static Asset<Texture2D> HeadTex; //Different cause ModNPC has HeadTexture...
         public static Asset<Texture2D> HeadFTexture;
@@ -224,7 +224,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<YamataAMask>());
                 }
                 
-                NPC.DropLoot(ModContent.ItemType<YamataBag>());
+                NPC.DropLoot(ModContent.ItemType<YamataTreasureBag>());
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());

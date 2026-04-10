@@ -21,7 +21,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
     [AutoloadBossHead]
-    public class Yamata : YamataBoss
+    public class YamataBody : YamataBoss
     {
         public NPC TrueHead;
         public NPC Head2;
@@ -96,7 +96,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 LegInfo.normalTextures[3] = ModContent.Request<Texture2D>(texRoot + "LegSegmentR");
                 LegInfo.normalTextures[4] = ModContent.Request<Texture2D>(texRoot + "Foot");
 
-                texRoot = ModContent.GetInstance<YamataA>().Texture + "_";
+                texRoot = ModContent.GetInstance<YamataABody>().Texture + "_";
                 LegInfo.awakenedTextures = new Asset<Texture2D>[5];
                 LegInfo.awakenedTextures[0] = ModContent.Request<Texture2D>(texRoot + "LegCapL");
                 LegInfo.awakenedTextures[1] = ModContent.Request<Texture2D>(texRoot + "LegSegmentL");
@@ -403,7 +403,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     NoFlyCountDown = 0;
                     NoFly4U = true;
 
-                    if (NPC.type == ModContent.NPCType<Yamata>()) if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata6"), new Color(45, 46, 70));
+                    if (NPC.type == ModContent.NPCType<YamataBody>()) if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata6"), new Color(45, 46, 70));
                 }
 
                 float dist = NPC.Distance(playerTarget.Center);
@@ -491,12 +491,12 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public void AIMovementNormal(float playerDistance)
         {
             bool playerTooFar = playerDistance > playerTooFarDist;
-            YamataBody(NPC, ref NPC.ai, true, 0.2f, 3.5f, 8f, 0.07f, 1.5f, 4);
+            HandleYamataBody(NPC, ref NPC.ai, true, 0.2f, 3.5f, 8f, 0.07f, 1.5f, 4);
             if (playerTooFar) NPC.position += playerTarget.position - playerTarget.oldPosition;
             NPC.rotation = 0f;
         }
 
-        public static void YamataBody(NPC npc, ref float[] ai, bool ignoreWet = true, float moveInterval = 0.2f, float maxSpeedX = 2f, float maxSpeedY = 1.5f, float hoverInterval = 0.04f, float hoverMaxSpeed = 1.5f, int hoverHeight = 3)
+        public static void HandleYamataBody(NPC npc, ref float[] ai, bool ignoreWet = true, float moveInterval = 0.2f, float maxSpeedX = 2f, float maxSpeedY = 1.5f, float hoverInterval = 0.04f, float hoverMaxSpeed = 1.5f, int hoverHeight = 3)
         {
             bool flyUpward = false;
             if (npc.justHit) { ai[2] = 0f; }
@@ -884,7 +884,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public void UpdateLeg(NPC npc)
         {
             leftLeg = limbType == 1 || limbType == 3;
-            if (Vector2.Distance(Center, npc.Center) > 499 || Yamata.TeleportMeBitch) position = npc.Center; //prevent issues when the legs are WAY off.
+            if (Vector2.Distance(Center, npc.Center) > 499 || YamataBody.TeleportMeBitch) position = npc.Center; //prevent issues when the legs are WAY off.
             if (overrideAnimation != null)
             {
                 if (overrideAnimation.movementRatio >= 1f) overrideAnimation = null;
@@ -916,7 +916,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
             int defaultTileY = (int)(npc.Bottom.Y / 16f);
             int tileY = WorldGenUtils.GetFirstTileFloor((int)(standOnX / 16f), (int)(npc.Bottom.Y / 16f));
-            if (tileY - defaultTileY > Yamata.flyingTileCount) { return default; } //'flying' behavior
+            if (tileY - defaultTileY > YamataBody.flyingTileCount) { return default; } //'flying' behavior
             if (!flying)
             {
                 tileY = (int)(tileY * 16f) / 16;
@@ -933,7 +933,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         {
             Vector2 drawPos = position - new Vector2(0f, velOffsetY);
             Color lightColor = npc.GetAlpha(BaseDrawing.GetLightColor(Center));
-            bool awakened = npc.type == ModContent.NPCType<YamataA>();
+            bool awakened = npc.type == ModContent.NPCType<YamataABody>();
             Asset<Texture2D>[] textures = awakened ? awakenedTextures : normalTextures;
             if (!leftLeg)
             {

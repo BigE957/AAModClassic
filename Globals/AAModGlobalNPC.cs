@@ -990,8 +990,8 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
                         pool.Add(ModContent.NPCType<___Content.Mire._PreHardmode.NPCs.HydraClaw>(), .025f);
-                        pool.Add(ModContent.NPCType<MireSkulker>(), .02f);
-                        pool.Add(ModContent.NPCType<MireSlime>(), .025f);
+                        pool.Add(ModContent.NPCType<Skulker>(), .02f);
+                        pool.Add(ModContent.NPCType<MurkySlime>(), .025f);
                     }
 
                     if (Main.hardMode)
@@ -1013,7 +1013,7 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
                         pool.Add(ModContent.NPCType<___Content.Mire._PreHardmode.NPCs.HydraClaw>(), .025f);
-                        pool.Add(ModContent.NPCType<MireSkulker>(), .02f);
+                        pool.Add(ModContent.NPCType<Skulker>(), .02f);
                     }
 
                     if (Main.hardMode)
@@ -1037,7 +1037,7 @@ namespace AAModClassic.Globals
                 if (NPC.downedMoonlord)
                     pool.Add(ModContent.NPCType<Soulsucker>(), .01f);
 
-                if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<Hydra>() && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
+                if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
                     pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
             }
 

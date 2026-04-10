@@ -42,7 +42,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
             drop1 = ModContent.ItemType<HydrasSpear>();
             drop2 = ModContent.ItemType<Mossket>();
             drop3 = ModContent.ItemType<GunkWand>();
-            drop4 = ModContent.ItemType<GlowmossBall>();
+            drop4 = ModContent.ItemType<GlowingMossBall>();
             drop5 = ModContent.ItemType<ShadowBand>();
             AddMapEntry(new Color(17, 26, 41), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
@@ -96,7 +96,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
                 AAWorld.SmashHydraPod = 2;
                 if (!Main.dayTime)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Hydra>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"));
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<HydraBody>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"));
                 }
                 else
                 {

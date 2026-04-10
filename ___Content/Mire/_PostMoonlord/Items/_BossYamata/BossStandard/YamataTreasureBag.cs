@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataBag : BaseAAItem
+    public class YamataTreasureBag : BaseAAItem
     {
         public static Asset<Texture2D> Glowmask;
 

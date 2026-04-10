@@ -1,23 +1,22 @@
-using AAModClassic.___Content.Mire.Buffs;
-using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
+namespace AAModClassic.___Content.Mire.Projectiles
 {
-    public class SoulBoomY : ModProjectile
+    public class AcidBoomProj : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Soulsplosion");     
+            // DisplayName.SetDefault("Acid");     
             Main.projFrames[Projectile.type] = 7;     
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 176;
-            Projectile.height = 230;
-            Projectile.penetrate = -1;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = 1;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.tileCollide = false;
@@ -25,14 +24,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             Projectile.timeLeft = 600;
         }
 
-        public override Color? GetAlpha(Color lightColor)
-        {
-            return Color.White;
-        }
-
         public override void AI()
         {
-            if (++Projectile.frameCounter >= 6)
+            if (++Projectile.frameCounter >= 5)
             {
                 Projectile.frameCounter = 0;
                 if (++Projectile.frame >= 6)
@@ -46,14 +40,15 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 
         }
 
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.Poisoned, 600);
+        }
+
         public override void OnKill(int timeLeft)
         {
             Projectile.timeLeft = 0;
         }
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 600);
-        }
     }
 }

@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
-    public class HydraBag : BaseAAItem
+    public class HydraTreasureBag : BaseAAItem
 	{
         public static Asset<Texture2D> Glowmask;
 
@@ -87,7 +87,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 
             if (ContentReplacementSystem.NeedToReplaceContent)
             {
-                int[] podDrops = [ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowmossBall>(), ModContent.ItemType<ShadowBand>()];
+                int[] podDrops = [ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowingMossBall>(), ModContent.ItemType<ShadowBand>()];
                 int itemID = podDrops[Main.rand.Next(podDrops.Length)];
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), itemID);
             }

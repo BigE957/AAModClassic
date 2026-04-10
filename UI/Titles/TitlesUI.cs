@@ -568,8 +568,8 @@ namespace AAModClassic.UI.Titles
             IDtoTitle.Add(ModContent.NPCType<GreedA>(), Titles.WKGreed);
             IDtoTitle.Add(ModContent.NPCType<Akuma>(), Titles.Akuma);
             IDtoTitle.Add(ModContent.NPCType<AkumaA>(), Titles.AkumaA);
-            IDtoTitle.Add(ModContent.NPCType<Yamata>(), Titles.Yamata);
-            IDtoTitle.Add(ModContent.NPCType<YamataA>(), Titles.YamataA);
+            IDtoTitle.Add(ModContent.NPCType<YamataBody>(), Titles.Yamata);
+            IDtoTitle.Add(ModContent.NPCType<YamataABody>(), Titles.YamataA);
             IDtoTitle.Add(ModContent.NPCType<Zero>(), Titles.Zero);
             IDtoTitle.Add(ModContent.NPCType<ZeroProtocol>(), Titles.ZeroP);
             IDtoTitle.Add(ModContent.NPCType<SupremeRajah>(), Titles.CRajah);

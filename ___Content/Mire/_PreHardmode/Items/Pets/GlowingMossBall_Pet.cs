@@ -9,7 +9,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEM
     /// </summary>
-	public class GlowmossBall_Pet : ModProjectile
+	public class GlowingMossBall_Pet : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{

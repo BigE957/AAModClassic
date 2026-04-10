@@ -17,7 +17,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.S
 
     public class YamataSkyScene : ModSceneEffect
     {
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<YamataA>()) || player.GetModPlayer<AAPlayer>().YamataAltar;
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<YamataABody>()) || player.GetModPlayer<AAPlayer>().YamataAltar;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
