@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
 {
+	//TODO: Turn this into a ModSceneEffect and/or merge it into CthulhuSky
     public class CthulhuSky_Clouds
     {
 		public int fogOffsetX = 0;
@@ -24,9 +25,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
         {
 			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
-			Player player = Main.player[Main.myPlayer];
-            bool CthulhuTime = Main.player[Main.myPlayer].ZoneBeach && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
-            if (!backgroundFog && (BasePlayer.HasAccessory(player, ModContent.ItemType<Lantern>(), true, false) || AAWorld_Unreleased.downedSoC)) CthulhuTime = false;
+            bool CthulhuTime = Main.LocalPlayer.ZoneBeach && !Main.LocalPlayer.ZoneSkyHeight && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
+            if (!backgroundFog && (BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false) || AAWorld_Unreleased.downedSoC)) CthulhuTime = false;
 
             fogOffsetX += 1;
 			if(fogOffsetX >= texture.Width) fogOffsetX = 0;
