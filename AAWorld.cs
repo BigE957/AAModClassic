@@ -1568,9 +1568,10 @@ namespace AAModClassic
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildLostKeep");
-            Point val = new ((int)((float)Main.maxTilesX * 0.3f), (int)((float)Main.maxTilesY * 0.38f));
+            Point val = new((int)((float)Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
             if (Main.dungeonX < Main.maxTilesX / 2)
-                val = new((int)((float)Main.maxTilesX * 0.7f), (int)((float)Main.maxTilesY * 0.38f));
+                val = new((int)((float)Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
+
             new Keep().Place(val, GenVars.structures);
         }
 
