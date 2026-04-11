@@ -116,10 +116,6 @@ namespace AAModClassic.UI
 
             for (int i = 0; i < buttonList.Count; i++)
             {
-                Main.NewText("Element " + i + " Position: (" + buttonList[i].Left.Pixels + ", " + buttonList[i].Top.Pixels + ")");
-                Main.NewText("Element " + i + " Hovering: " + buttonList[i].IsMouseHovering);
-                Main.NewText("Element " + i + " Contains Mouse: " + buttonList[i].ContainsPoint(Main.MouseScreen));
-
                 if (buttonList[i].IsMouseHovering || buttonImageList[i].IsMouseHovering)
                 {
                     Main.LocalPlayer.mouseInterface = true;
