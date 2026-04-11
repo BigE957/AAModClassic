@@ -25,7 +25,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
             player.ManageSpecialBiomeVisuals("AAModClassic:InfinityZeroSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
 
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
 
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<IZSurfaceBgStyle>();
     }

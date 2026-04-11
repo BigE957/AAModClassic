@@ -149,8 +149,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Player player = Main.player[NPC.target];
             if (player != null)
             {
-                float dist = NPC.Distance(player.Center);
-                if (dist > 1200) //trigger teleporting stuff
+                if (NPC.DistanceSQ(player.Center) > 1440000) //trigger teleporting stuff
                 {
                     NPC.dontTakeDamage = true;
                     NPC.alpha += 10;
