@@ -14,7 +14,7 @@ namespace AAModClassic.World.Conversions
             {
                 Func<int[]> tileType = () => [ModContent.TileType<MireGrass_Tile>()];
 
-                (bool success, int type) = ((bool success, int type))spirit.Call("AddSavannaTree", "AAModClassic/Tiles/Trees/", "BogwoodAcaciaTree", tileType, Mod);
+                (bool success, int type) = ((bool success, int type))spirit.Call("AddSavannaTree", "AAModClassic/___Content/_PLACEHOLDER/crossmod/", "BogwoodAcaciaTree_Tile", tileType, Mod);
                 if (success)
                 {
                     spirit.Call("RegisterConversionSet", "AcaciaTree", ModContent.TileType<MireGrass_Tile>(), type);

@@ -22,6 +22,8 @@ SpawnYamata: Use the {0} in the Mire at night.
 SpawnZero: Use the {0} in the Void.
 SpawnRajahR: Use the {0} or kill 100 rabbits after having killed at least 1000.
 SpawnShen: Use the {0}.
+SpawnInfinityZero: Use the {0}.
+SpawnSoulOfCthulhu: Use the {0}.
 #Despawn Messages
 DespawnMonarch: The Mushroom Monarch escapes into the sky
 DespawnFungus: The Feudal Fungus vanishes
@@ -33,30 +35,32 @@ DespawnDjinn: The Desert Djinn flexes upon you triumphantly
 DespawnSag: Sagittarius gallops off into the endless darkness...
 DespawnToad: The Truffle Toad croaks, then vanishes
 #ChecklistTitles
-MonarchTitle: The Mushroom Monarch
-FungusTitle: The Feudal Fungus
-GripsTitle: The Grips of Chaos
+MonarchTitle: Mushroom Monarch
+FungusTitle: Feudal Fungus
+GripsTitle: Grips of Chaos
 ToadTitle: Truffle Toad
-BroodmotherTitle: The Broodmother
-HydraTitle: The Hydra
+BroodmotherTitle: Broodmother
+HydraTitle: Hydra
 SubzeroTitle: Subzero Serpent
 DjinnTitle: Desert Djinn
 SagTitle: Sagittarius
-AnubisTitle: Anubis, Legendscribe
-AthenaTitle: Athena, Seraph Queen
-GreedTitle: Greed, Gilded Glutton
-RajahTitle: Pouncing Punisher, Rajah Rabbit
-AnubisATitle: Forsaken Judge, Anubis
+AnubisTitle: Anubis
+AthenaTitle: Athena
+GreedTitle: Greed
+RajahTitle: Rajah Rabbit
+AnubisATitle: Forsaken Anubis
 AthenaATitle: Olympian Athena
-GreedATitle: Worm King, Greed
-EquinoxTitle: The Equinox Worms
-AHTitle: The Sisters of Discord
-YamataTitle: Dread Nightmare, Yamata
-YamataATitle: Yamata No Orochi, Abyssal Wrath Incarnate
-AkumaTitle: Draconian Demon, Akuma
-AkumaATitle: Oni Akuma, Blazing Fury Incarnate
-ZeroTitle: Zero, Doomsday Construct
-ZeroPTitle: Dark Cipher, Zero Protocol
-RajahRTitle: Rajah Rabbit, Champion of the Innocent
-ShenTitle: Discordian Doomsayer, Shen Doragon
-ShenATitle: Awakened Shen Doragon, Unyielding Discord Incarnate
+GreedATitle: Worm King Greed
+EquinoxTitle: Daybringer & Nightcrawler
+AHTitle: Sisters of Discord
+YamataTitle: Yamata
+YamataATitle: Yamata No Orochi
+AkumaTitle: Akuma
+AkumaATitle: Oni Akuma
+ZeroTitle: Zero
+ZeroPTitle: Zero Protocol
+RajahRTitle: Rajah Rabbit's Revenge
+ShenTitle: Shen Doragon
+ShenATitle: Awakened Shen Doragon
+InfinityZeroTitle: Infinity Zero
+SoulOfCthulhuTitle: Soul of Cthulhu

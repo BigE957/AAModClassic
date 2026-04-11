@@ -596,7 +596,7 @@ NCPortal.DisplayName: Black Void
 WormSpawn.DisplayName: Heavenly Voice
 
 Legendscribe: {
-	Census.SpawnCondition: ""
+	Census.SpawnCondition: Always Available
 	DisplayName: Legendscribe
 
 	TownNPCMood: {
@@ -687,7 +687,7 @@ Alpha: {
 		Princess_LovesNPC: I like {NPCName}.
 	}
 
-	Census.SpawnCondition: Conditions unknown
+	Census.SpawnCondition: Always available in Expert Mode
 }
 
 Core.DisplayName: Biomite Core

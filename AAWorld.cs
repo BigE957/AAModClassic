@@ -520,7 +520,7 @@ namespace AAModClassic
 
             if (ModLoader.HasMod("CalamityMod"))
             {
-                tasks.Add(new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(tasks.Count - 3, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     ThePit(progress);
                 }));

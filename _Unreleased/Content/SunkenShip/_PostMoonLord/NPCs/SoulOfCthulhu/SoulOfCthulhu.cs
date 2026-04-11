@@ -536,7 +536,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D Rift = Mod.GetTexture("_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift");
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
             Vector2 origin8 = new Vector2(RitualTex.Width, RitualTex.Height) / 2f;
-            int num214 = TextureAssets.Npc[NPC.type].Value.Height;
             int y6 = 0;
             Color color25 = Lighting.GetColor((int)(NPC.position.X + NPC.width * 0.5) / 16, (int)((NPC.position.Y + NPC.height * 0.5) / 16.0));
             Color? alpha4 = GetAlpha(color25);
