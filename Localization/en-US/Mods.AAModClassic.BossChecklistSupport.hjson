@@ -24,6 +24,7 @@ SpawnRajahR: Use the {0} or kill 100 rabbits after having killed at least 1000.
 SpawnShen: Use the {0}.
 SpawnInfinityZero: Use the {0}.
 SpawnSoulOfCthulhu: Use the {0}.
+
 #Despawn Messages
 DespawnMonarch: The Mushroom Monarch escapes into the sky
 DespawnFungus: The Feudal Fungus vanishes
@@ -34,6 +35,7 @@ DespawnSubzero: The Subzero Serpent burrows back down into the snow
 DespawnDjinn: The Desert Djinn flexes upon you triumphantly
 DespawnSag: Sagittarius gallops off into the endless darkness...
 DespawnToad: The Truffle Toad croaks, then vanishes
+
 #ChecklistTitles
 MonarchTitle: Mushroom Monarch
 FungusTitle: Feudal Fungus
