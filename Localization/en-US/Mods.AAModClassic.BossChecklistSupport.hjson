@@ -121,7 +121,7 @@ Akuma: {
 AkumaA: {
 	Name: Oni Akuma
 	Spawn: Defeat Akuma in Expert Mode or use the {0}.
-	Despawn: "[c/00BFFF:The Demon returns to his Pagoda unamused with his battle.]"
+	Despawn: "[c/00BFFF:The Demon crawls back to his Pagoda seething from his battle.]"
 }
 
 Yamata: {
@@ -133,7 +133,7 @@ Yamata: {
 YamataA: {
 	Name: Yamata No Orochi
 	Spawn: Defeat Yamata in Expert Mode or use the {0}.
-	Despawn: "[c/921E44:The Fiend trails into the Lake of Souls to bask in his victory.]"
+	Despawn: "[c/921E44:The Fiend slips back into the Lake of Souls to lick its wounds.]"
 }
 
 Zero: {
@@ -145,7 +145,7 @@ Zero: {
 ZeroP: {
 	Name: Zero Protocol
 	Spawn: Defeat Zero in Expert Mode or use the {0}.
-	Despawn: "[c/FF0000:The machine executes return protocol and resumes its silent vigil.]"
+	Despawn: "[c/FF0000:The machine executes repair protocol before resuming its silent vigil.]"
 }
 
 RajahRabbitR: {
@@ -163,7 +163,7 @@ Shen: {
 ShenA: {
 	Name: Awakened Shen Doragon
 	Spawn: Defeat Shen Doragon in Expert Mode or use the {0}.
-	Despawn: "[c/FF4500:Chaos reigns all the same, the discordian doomsayer continues its discord.]"
+	Despawn: "[c/FF4500:Despite you best efforts, Chaos reigns all the same.]"
 }
 
 InfinityZero: {
