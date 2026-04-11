@@ -21,6 +21,7 @@ using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Utilities;
+using AAModClassic.CrossMod;
 
 namespace AAModClassic._Unreleased
 {
@@ -98,10 +99,11 @@ namespace AAModClassic._Unreleased
                     ParthenanIsland(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2, new PassLegacy("Mush", delegate (GenerationProgress progress, GameConfiguration config)
-                {
-                    Mush_Refactored(progress);
-                }));
+                if(!ContentReplacementSystem.NeedToReplaceContent)
+                    tasks.Insert(shiniesIndex2, new PassLegacy("Mush", delegate (GenerationProgress progress, GameConfiguration config)
+                    {
+                        Mush_Refactored(progress);
+                    }));
 
                 tasks.Insert(shiniesIndex2, new PassLegacy("Ship", delegate (GenerationProgress progress, GameConfiguration config)
                 {

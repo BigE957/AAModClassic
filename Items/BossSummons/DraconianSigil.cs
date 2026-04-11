@@ -13,6 +13,8 @@ using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.CrossMod;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -60,9 +62,9 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianDayTimeFalse"), new Color(180, 41, 32), false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (player.ZoneAnyInferno())
             {
-                if (!AAWorld.downedAkuma && !player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedAkuma && !player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), new Color(180, 41, 32), false);
                     return false;

@@ -269,7 +269,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                 NPC.active = false;
             }
 
-            if (!Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneInferno)
+            if (!Main.player[NPC.target].ZoneAnyInferno())
             {
                 NPC.dontTakeDamage = true;
                 NPC.damage = 130;

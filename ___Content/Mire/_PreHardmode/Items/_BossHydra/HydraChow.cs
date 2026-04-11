@@ -1,16 +1,15 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Usable;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
-
 using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
-using AAModClassic.Items.Usable;
+using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra
 {
@@ -60,7 +59,7 @@ Can only be used at night"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.HydraChowTimeFalse"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.ZoneAnyMire())
 			{
 				if (NPC.AnyNPCs(ModContent.NPCType<HydraBody>()))
 				{

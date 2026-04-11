@@ -10,6 +10,7 @@ using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Usable;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -52,7 +53,7 @@ Only useable during the day"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DragonBellDayTimeFalse"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (player.ZoneAnyInferno())
             {
                 if (NPC.AnyNPCs(ModContent.NPCType<Broodmother>()))
                 {

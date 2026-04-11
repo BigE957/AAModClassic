@@ -168,7 +168,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             if (playerTarget != null)
             {
                 float dist = NPC.Distance(playerTarget.Center);
-                if (!playerTarget.GetModPlayer<AAPlayer>().ZoneMire)
+                if (!playerTarget.ZoneAnyMire())
                 {
                     NPC.alpha += 3;
                     if (NPC.alpha >= 255)

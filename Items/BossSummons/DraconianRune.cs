@@ -11,6 +11,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using AAModClassic.CrossMod;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -56,9 +58,9 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianDayTimeFalse"), new Color(180, 41, 32), false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (player.ZoneAnyInferno())
             {
-                if (!player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda && !AAWorld.downedYamata)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda && !AAWorld.downedYamata)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse1"), Color.Indigo, false);
                     return false;

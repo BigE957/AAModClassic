@@ -1,6 +1,7 @@
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -146,7 +147,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 
             if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
             
-            if (!targetPlayer.GetModPlayer<AAPlayer>().ZoneMire)
+            if (!targetPlayer.ZoneAnyMire())
             {
                 NPC.damage = 80;
                 NPC.defense = 100;

@@ -2,10 +2,12 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -84,9 +86,9 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadTimeFalse"), new Color(45, 46, 70), false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.ZoneAnyMire())
 			{
-                if (!AAWorld.downedYamata && !player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedYamata && !player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilMireFalse"), new Color(45, 46, 70), false);
                     return false;

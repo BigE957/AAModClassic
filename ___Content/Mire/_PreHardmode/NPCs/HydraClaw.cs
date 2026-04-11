@@ -1,10 +1,11 @@
-using Terraria;
-using Terraria.ID;
-using System;
-using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
+using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
 {
@@ -64,7 +65,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
+            return ContentReplacementSystem.NeedToReplaceContent ? 0 : SpawnCondition.OverworldNightMonster.Chance * 0.04f;
         }
         public override void HitEffect(NPC.HitInfo hit)
         {

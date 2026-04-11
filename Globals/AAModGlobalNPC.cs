@@ -531,7 +531,7 @@ namespace AAModClassic.Globals
             if (Main.hardMode)
             {
                 Player player = Main.player[Player.FindClosest(npc.position, npc.width, npc.height)];
-                if (player.GetModPlayer<AAPlayer>().ZoneMire && player.position.Y > (Main.worldSurface * 16.0))
+                if (player.ZoneAnyMire() && player.position.Y > (Main.worldSurface * 16.0))
                 {
                     if (Main.rand.NextBool(5))
                     {
@@ -539,21 +539,21 @@ namespace AAModClassic.Globals
                     }
                 }
 
-                if (player.GetModPlayer<AAPlayer>().ZoneInferno && player.position.Y > (Main.worldSurface * 16.0))
+                if (player.ZoneAnyInferno() && player.position.Y > (Main.worldSurface * 16.0))
                 {
                     if (Main.rand.NextBool(5))
                     {
                         npc.DropLoot(ModContent.ItemType<SoulOfSmite>());
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().ZoneMire)
+                if (player.ZoneAnyMire())
                 {
                     if (Main.rand.NextBool(2500))
                     {
                         npc.DropLoot(ModContent.ItemType<MireKey>());
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+                if (player.ZoneAnyInferno())
                 {
                     if (Main.rand.NextBool(2500))
                     {
@@ -575,7 +575,7 @@ namespace AAModClassic.Globals
                     }
                 }
 
-                if ((player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire) && NPC.downedPlantBoss)
+                if ((player.ZoneAnyInferno() || player.ZoneAnyMire()) && NPC.downedPlantBoss)
                 {
                     if (Main.rand.NextBool(100))
                     {
@@ -921,7 +921,7 @@ namespace AAModClassic.Globals
                 pool.Add(Main.dayTime ? ModContent.NPCType<Sunwatcher>() : ModContent.NPCType<Nightguard>(), .2f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno || ContentReplacementSystem.InNewInferno(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyInferno())
             {
                 ClearPoolWithExceptions(pool);
                 if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AAWorld.downedAkuma))
@@ -980,7 +980,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyMire())
             {
                 ClearPoolWithExceptions(pool);
                 if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AAWorld.downedYamata))

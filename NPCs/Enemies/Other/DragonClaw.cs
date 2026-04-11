@@ -1,3 +1,4 @@
+using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using System;
 using Terraria;
@@ -61,7 +62,7 @@ namespace AAModClassic.NPCs.Enemies.Other
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.OverworldNightMonster.Chance * 0.05f;
+            return ContentReplacementSystem.NeedToReplaceContent ? 0 : SpawnCondition.OverworldNightMonster.Chance * 0.05f;
         }
         public override void HitEffect(NPC.HitInfo hit)
         {

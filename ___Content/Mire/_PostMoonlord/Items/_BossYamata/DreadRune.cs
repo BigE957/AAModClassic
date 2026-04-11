@@ -13,6 +13,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+using AAModClassic.Utilities;
+using AAModClassic.CrossMod;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata
 {
@@ -66,9 +68,9 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadTimeFalse"), new Color(45, 46, 70), false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.ZoneAnyMire())
             {
-                if (!player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake && !AAWorld.downedYamata)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake && !AAWorld.downedYamata)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse1"), Color.Indigo, false);
                     return false;
