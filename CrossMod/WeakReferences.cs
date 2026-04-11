@@ -47,6 +47,7 @@ using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.TownNPCs;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
@@ -1044,7 +1045,8 @@ namespace AAModClassic.CrossMod
                         Rectangle frame = texture.Frame(1, 4, 0, 0);
                         Vector2 centered = new(rect.Center.X, rect.Center.Y);
                         sb.Draw(texture, centered, frame, color, 0, frame.Size() * 0.5f, 0.75f, 0, 0);
-                    }
+                    },
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 });
 
                 AddBoss(bossChecklist, mod, "SoulOfCthulhu", 24.12f, (Func<bool>)(() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<SoulOfCthulhu>(), new Dictionary<string, object>()
@@ -1067,7 +1069,8 @@ namespace AAModClassic.CrossMod
                         Vector2 centered = new(rect.Center.X, rect.Center.Y);
                         Main.spriteBatch.Draw(WheelTex, centered, null, color, 0, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), 1.5f, SpriteEffects.None, 0f);
                         Main.spriteBatch.Draw(texture2D13, centered, null, color, 0, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), 1.5f, SpriteEffects.None, 0f);
-                    }
+                    },
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 });
             }
         }
