@@ -52,7 +52,7 @@ Terra Blade EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.TerraBlade);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }

@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddIngredient(ItemID.SoulofFlight, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

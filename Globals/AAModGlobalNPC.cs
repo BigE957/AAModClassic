@@ -571,7 +571,7 @@ namespace AAModClassic.Globals
                 {
                     if (Main.rand.NextBool(100))
                     {
-                        npc.DropLoot(ModContent.ItemType<TerraCrystal>());
+                        npc.DropLoot(ModContent.ItemType<TerraPrism>());
                     }
                 }
 
@@ -579,7 +579,7 @@ namespace AAModClassic.Globals
                 {
                     if (Main.rand.NextBool(100))
                     {
-                        npc.DropLoot(ModContent.ItemType<ChaosCrystal>());
+                        npc.DropLoot(ModContent.ItemType<ChaosPrism>());
                     }
                 }
             }

@@ -136,7 +136,7 @@ public class Core : ModNPC
 			player = Main.player[NPC.target];
 			if (player.dead || !((Entity)player).active || NPC.position.X - Main.player[NPC.target].position.X > 6000f || NPC.position.X - Main.player[NPC.target].position.X < -6000f || NPC.position.Y - Main.player[NPC.target].position.Y > 6000f || NPC.position.Y - Main.player[NPC.target].position.Y < -6000f)
 			{
-				Item.NewItem(NPC.GetSource_GiftOrReward(), new Vector2(val.X + 144f, val.Y + 134f), ModContent.ItemType<TerraCrystal>(), 1, false, 0, false, false);
+				Item.NewItem(NPC.GetSource_GiftOrReward(), new Vector2(val.X + 144f, val.Y + 134f), ModContent.ItemType<TerraPrism>(), 1, false, 0, false, false);
 				((Entity)NPC).active = false;
 			}
 		}
@@ -456,7 +456,7 @@ public class Core : ModNPC
         if (true)//!Main.expertMode)
         {
             //Main.rand.Next(7); ?????????????
-            Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<TerraCrystal>(), Main.rand.Next(1, 4), false, 0, false, false);
+            Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<TerraPrism>(), Main.rand.Next(1, 4), false, 0, false, false);
         }
         else
         {

@@ -188,7 +188,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraPrism>());
             }
             if (Main.rand.Next(20) == 0)
             {

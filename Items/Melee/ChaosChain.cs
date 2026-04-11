@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Melee
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<Ryusei>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

@@ -59,7 +59,7 @@ Allows you to breath underwater"); */
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AtlanteanHelm>());
-			recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

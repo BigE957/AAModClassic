@@ -2472,6 +2472,11 @@ TerraPrismStation: {
 		'''
 }
 
+TerraPrism: {
+	DisplayName: Terra Prism
+	Tooltip: ""
+}
+
 TorchAsh: {
 	DisplayName: Volcanic Ash
 	Tooltip: ""
@@ -9767,5 +9772,15 @@ GlowingMossBall: {
 
 AbyssAltarSafe: {
 	DisplayName: Abyss Altar Safe
+	Tooltip: ""
+}
+
+BiomePrism: {
+	DisplayName: Biome Prism
+	Tooltip: ""
+}
+
+ChaosPrism: {
+	DisplayName: Chaos Prism
 	Tooltip: ""
 }

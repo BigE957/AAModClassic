@@ -55,10 +55,10 @@ public class CoreActivator_Tile : ModTile
 	public override bool RightClick(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;
-		int num = ModContent.ItemType<Crystal>();
+		int num = ModContent.ItemType<BiomePrism>();
 		if (CoreWorld.PrismCharged)
 		{
-			localPlayer.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<AAModClassic.Items.Materials.TerraCrystal>(), 1);
+			localPlayer.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<AAModClassic.Items.Materials.TerraPrism>(), 1);
 			CoreWorld.PrismCharged = false;
 			return true;
 		}
@@ -127,6 +127,6 @@ public class CoreActivator_Tile : ModTile
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
 		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<Crystal>();
+		localPlayer.cursorItemIconID = ModContent.ItemType<BiomePrism>();
 	}
 }

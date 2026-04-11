@@ -53,7 +53,7 @@ namespace AAModClassic.Items.Armor.Terra
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DemonHood>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Items.Materials.TerraCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Items.Materials.TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

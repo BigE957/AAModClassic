@@ -103,7 +103,7 @@ Right Clicking fires a piercing rose"); */
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<TrueManaRose>(), 1);
             recipe.AddIngredient(ItemID.RainbowRod, 1);
-            recipe.AddIngredient(ModContent.ItemType<Materials.TerraCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Materials.TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

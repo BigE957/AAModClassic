@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Armor.Chaos
         {
             Recipe recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAModClassic:ChaosPlates");
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

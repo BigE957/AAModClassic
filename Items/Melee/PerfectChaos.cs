@@ -52,7 +52,7 @@ namespace AAModClassic.Items.Melee
 			recipe.AddIngredient(ModContent.ItemType<Masamune>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Chaos>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}

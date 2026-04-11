@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Ranged
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<PrimevalJavelin>());
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

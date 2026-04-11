@@ -87,7 +87,7 @@ namespace AAModClassic.Items.Summoning
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<TrueHallowStaff>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DevilStaff>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

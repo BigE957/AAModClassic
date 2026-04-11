@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Materials
 {
-    public class Crystal : BaseAAItem
+    public class BiomePrism : BaseAAItem
     {
         public override string Texture => "AAModClassic/Items/Materials/Crystal";
 
@@ -48,7 +48,7 @@ namespace AAModClassic.Items.Materials
         }
     }
 
-    public class TerraCrystal : BaseAAItem
+    public class TerraPrism : BaseAAItem
     {
         public override string Texture => "AAModClassic/Items/Materials/Crystal";
 
@@ -84,7 +84,7 @@ namespace AAModClassic.Items.Materials
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 5);
-                recipe.AddIngredient(ModContent.ItemType<Crystal>());
+                recipe.AddIngredient(ModContent.ItemType<BiomePrism>());
                 recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
                 recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
@@ -92,7 +92,7 @@ namespace AAModClassic.Items.Materials
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 5);
-                recipe.AddIngredient(ModContent.ItemType<Crystal>());
+                recipe.AddIngredient(ModContent.ItemType<BiomePrism>());
                 recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
                 recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
@@ -100,7 +100,7 @@ namespace AAModClassic.Items.Materials
         }
     }
 
-    public class ChaosCrystal : BaseAAItem
+    public class ChaosPrism : BaseAAItem
     {
         public override string Texture => "AAModClassic/Items/Materials/Crystal";
 

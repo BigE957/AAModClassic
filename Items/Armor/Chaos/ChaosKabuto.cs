@@ -50,12 +50,12 @@ namespace AAModClassic.Items.Armor.Chaos
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<BlazingKabuto>());
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RaiderHelm>());
-            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

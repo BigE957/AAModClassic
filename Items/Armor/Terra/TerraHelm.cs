@@ -52,12 +52,12 @@ namespace AAModClassic.Items.Armor.Terra
 			Recipe recipe;
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<NightsHelm>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<FleshrendHelm>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
