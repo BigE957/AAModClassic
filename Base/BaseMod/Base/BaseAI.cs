@@ -241,7 +241,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 moveRot += rotAmount;
                 Vector2 rotVec = BaseUtility.RotateVector(default, new Vector2(rotDistance, 0f), moveRot) + rotateCenter;
                 codable.Center = rotVec;
-                rotVec.Normalize();
+                rotVec = rotVec.SafeNormalize(Vector2.Zero);
                 rotation = BaseUtility.RotationTo(codable.Center, rotateCenter) - 1.57f;
                 codable.velocity *= 0f;
             }
@@ -661,17 +661,17 @@ namespace AAModClassic.Base.BaseMod.Base
             }
             else if (dist < 40f)
             {
-                wantedVelocity.Normalize();
+                wantedVelocity = wantedVelocity.SafeNormalize(Vector2.Zero);
                 wantedVelocity *= velMax * 0.35f;
             }
             else if (dist < 80f)
             {
-                wantedVelocity.Normalize();
+                wantedVelocity = wantedVelocity.SafeNormalize(Vector2.Zero);
                 wantedVelocity *= velMax * 0.65f;
             }
             else
             {
-                wantedVelocity.Normalize();
+                wantedVelocity = wantedVelocity.SafeNormalize(Vector2.Zero);
                 wantedVelocity *= velMax;
             }
             npc.SimpleFlyMovement(wantedVelocity, moveSpeed);
@@ -786,7 +786,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 if (ai[0] == 0f)
                 {
                     npc.localAI[0] = 0f;
-                    centerDiff.Normalize();
+                    centerDiff = centerDiff.SafeNormalize(Vector2.Zero);
                     centerDiff *= 0.5f;
                     npc.velocity += centerDiff;
                     ai[0] = 4f;
@@ -799,7 +799,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 float distLength = distDiff.Length();
                 float velSpeed2 = velSpeed; velSpeed2 += distLength / 200f;
                 float speedAdjuster = 50f;
-                distDiff.Normalize();
+                distDiff = distDiff.SafeNormalize(Vector2.Zero);
                 distDiff *= velSpeed2;
                 npc.velocity = (npc.velocity * (speedAdjuster - 1) + distDiff) / speedAdjuster;
                 if (!Collision.CanHit(npc.Center, 1, 1, playerCenter, 1, 1))
@@ -815,7 +815,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 float distLength = distDiff.Length();
                 float velSpeedPhase = velSpeed;
                 float speedAdjusterPhase = 4f;
-                distDiff.Normalize();
+                distDiff = distDiff.SafeNormalize(Vector2.Zero);
                 distDiff *= velSpeedPhase;
                 npc.velocity = (npc.velocity * (speedAdjusterPhase - 1) + distDiff) / speedAdjusterPhase;
                 if (distLength < stopPhaseDist && !Collision.SolidCollision(npc.position, npc.width, npc.height))
@@ -830,7 +830,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 float targetLength = targetDiff.Length();
                 float velSpeedHorizontal = velSpeed < 1f ? velSpeed * 0.5f : Math.Max(0.1f, velSpeed - 1f);
                 float speedAdjusterHorizontal = 3f;
-                targetDiff.Normalize();
+                targetDiff = targetDiff.SafeNormalize(Vector2.Zero);
                 targetDiff *= velSpeedHorizontal;
                 npc.velocity = (npc.velocity * (speedAdjusterHorizontal - 1f) + targetDiff) / speedAdjusterHorizontal;
                 if (npc.collideX || npc.collideY)
@@ -852,13 +852,13 @@ namespace AAModClassic.Base.BaseMod.Base
                 {
                     velVec = playerCenter - npc.Center;
                     velVec.Y -= targetPlayer.height / 4;
-                    velVec.Normalize();
+                    velVec = velVec.SafeNormalize(Vector2.Zero);
                     npc.velocity = velVec * 0.1f;
                 }
                 float velSpeedIdle = velSpeed < 1f ? velSpeed * 0.75f : Math.Max(0.1f, velSpeed - 0.5f);
                 float speedAdjusterIdle = 20f;
                 velVec = npc.velocity;
-                velVec.Normalize();
+                velVec = velVec.SafeNormalize(Vector2.Zero);
                 velVec *= velSpeedIdle;
                 npc.velocity = (npc.velocity * (speedAdjusterIdle - 1f) + velVec) / speedAdjusterIdle;
                 ai[1] += 1f;
@@ -2729,7 +2729,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 Vector2 pstart = start;
                 Vector2 pend = end;
                 Vector2 dir = pend - pstart;
-                dir.Normalize();
+                dir = dir.SafeNormalize(Vector2.Zero);
                 float length = Vector2.Distance(pstart, pend);
                 float way = 0f;
                 while (way < length)
