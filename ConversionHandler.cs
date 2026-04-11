@@ -2,127 +2,77 @@ using AAModClassic.World.Conversions;
 using System;
 using System.Threading;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic
 {
-    internal enum ConversionType
+    public enum ConversionType
     {
         MIRE,
         INFERNO,
     }
 
-    class ConversionHandler
+    public static class ConversionHandler
     {
-        public static int startMireX = -1;
-        public static int startMireY = -1;
-        public static int genMireWidth = -1;
-
-        public static int startInfernoX = -1;
-        public static int startInfernoY = -1;
-        public static int genInfernoWidth = -1;
-
         public static void ConvertDown(int centerX, int y, int width, ConversionType convertType)
         {
-            int worldSize = GetWorldSize();
-            int biomeRadius = worldSize == 3 ? 220 : worldSize == 2 ? 180 : 150;
-            biomeRadius /= 2;
-            switch (convertType)
+            var args = (centerX, y, width, convertType);
+            ThreadPool.QueueUserWorkItem(_ =>
             {
-                case ConversionType.MIRE:
-                    {
-                        startMireX = centerX;
-                        startMireY = y;
-                        genMireWidth = width;
-                        ThreadPool.QueueUserWorkItem(new WaitCallback(ConvertDownMireCallback), null);
-                        break;
-                    }
-
-                case ConversionType.INFERNO:
-                    {
-                        startInfernoX = centerX;
-                        startInfernoY = y;
-                        genInfernoWidth = width;
-                        ThreadPool.QueueUserWorkItem(new WaitCallback(ConvertDownInfernoCallback), null);
-                        break;
-                    }
-            }
+                try { Dodo_ConvertDown(args.centerX, args.y, args.width, args.convertType); }
+                catch (Exception e) { AAMod.instance.Logger.Error("Conversion thread error: " + e); }
+            });
         }
 
-        public static int GetWorldSize()
+        public static void ConvertDownBoth(int mireX, int infernoX, int y, int width)
         {
-            switch (Main.maxTilesX)
+            var args = (mireX, infernoX, y, width);
+            ThreadPool.QueueUserWorkItem(_ =>
             {
-                case 4200:
-                    return 1;
-
-                case 6400:
-                    return 2;
-
-                case 8400:
-                    return 3;
-
-                default:
-                    return 1;
-            }
+                try
+                {
+                    Dodo_ConvertDown(args.mireX, args.y, args.width, ConversionType.MIRE);
+                    Dodo_ConvertDown(args.infernoX, args.y, args.width, ConversionType.INFERNO);
+                }
+                catch (Exception e) { AAMod.instance.Logger.Error("Conversion thread error: " + e); }
+            });
         }
-
-        #region Thread Callback Stuff
-        public static void ConvertDownMireCallback(object threadContext)
-        {
-            try
-            {
-                Do_ConvertDownMire(threadContext);
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        public static void Do_ConvertDownMire(object threadContext)
-        {
-            Dodo_ConvertDown(startMireX, startMireY, genMireWidth, ConversionType.MIRE);
-        }
-
-        public static void ConvertDownInfernoCallback(object threadContext)
-        {
-            try
-            {
-                Do_ConvertDownInferno(threadContext);
-            }
-            catch (Exception e)
-            {
-            }
-        }
-
-        public static void Do_ConvertDownInferno(object threadContext)
-        {
-            Dodo_ConvertDown(startInfernoX, startInfernoY, genInfernoWidth, ConversionType.INFERNO);
-        }
-        #endregion
 
         public static void Dodo_ConvertDown(int startX, int startY, int genWidth, ConversionType conversionType)
         {
-            int centerX = startX, y = startY;
-            AAMod.instance.Logger.Info("Begining conversion of type: " + conversionType);
+            AAMod.instance.Logger.Info("Beginning conversion of type: " + conversionType);
             AAMod.instance.Logger.Info($"Start Position: ({startX}, {startY})");
             AAMod.instance.Logger.Info("Width: " + genWidth);
 
+            int convType = conversionType == ConversionType.MIRE
+                ? ModContent.GetInstance<MireConversion>().Type
+                : ModContent.GetInstance<InfernoConversion>().Type;
+
             int iterations = 0;
-            int x1;
-            for (x1 = 0; x1 < genWidth; x1++)
+            int finalY = startY;
+            for (int x1 = -genWidth; x1 < genWidth; x1++)
             {
-                while (y < (Main.maxTilesY - 50))
+                int y = startY;
+                while (y < Main.maxTilesY - 50)
                 {
-                    WorldGen.Convert(centerX + x1, y, conversionType == ConversionType.MIRE ? ModContent.GetInstance<MireConversion>().Type : ModContent.GetInstance<InfernoConversion>().Type, genWidth, true, true);
-                    y += genWidth * 2;
-                    iterations++;
+                    if (WorldGen.InWorld(startX + x1, y))
+                    {
+                        Tile tile = Main.tile[startX + x1, y];
+                        if (tile != null && (tile.HasTile || tile.WallType != WallID.None))
+                        {
+                            WorldGen.Convert(startX + x1, y, convType, 1, true, true);
+                            iterations++;
+                        }
+                    }
+                    y++;
                 }
+                finalY = y;
             }
 
-            AAMod.instance.Logger.Info("Begining conversion of type: " + conversionType);
-            AAMod.instance.Logger.Info($"End Position: ({x1}, {y})");
-            AAMod.instance.Logger.Info($"Iterations: " + iterations);
+            AAMod.instance.Logger.Info("Ending conversion of type: " + conversionType);
+            AAMod.instance.Logger.Info($"End Position: ({startX + genWidth}, {finalY})");
+            AAMod.instance.Logger.Info("Convert Calls: " + iterations);
         }
     }
 }

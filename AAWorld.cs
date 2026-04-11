@@ -89,8 +89,7 @@ namespace AAModClassic
         public static int ChaosAltarsSmashed;
         public static int OreCount;
         public static bool DiscordOres;
-        public static bool InfernoStripe;
-        public static bool MireStripe;
+        public static bool ChaosStripes;
         private int infernoSide = 0;
         private Vector2 infernoPos = new Vector2(0, 0);
         private Vector2 mirePos = new Vector2(0, 0);
@@ -204,8 +203,7 @@ namespace AAModClassic
             Luminite = NPC.downedMoonlord;
             RadiumOre = downedEquinox;
             DiscordOres = downedSisters;
-            InfernoStripe = Main.hardMode;
-            MireStripe = Main.hardMode;
+            ChaosStripes = Main.hardMode;
             ModContentGenerated = false;
             Empowered = downedShen;
             mirePos = new Vector2(0, 0);
@@ -262,8 +260,7 @@ namespace AAModClassic
             if (downedEquinox) downed.Add("Equinox");
             if (Ancients) downed.Add("AA");
             if (ShenSummoned) downed.Add("ShenS");
-            if (InfernoStripe) downed.Add("IStripe");
-            if (MireStripe) downed.Add("MStripe");
+            if (ChaosStripes) downed.Add("IStripe");
             if (downedAshe) downed.Add("BetterDragonWaifu");
             if (downedHaruka) downed.Add("TrashDragonWaifu");
             if (downedSisters) downed.Add("Sisters");
@@ -336,8 +333,7 @@ namespace AAModClassic
             Luminite = NPC.downedMoonlord;
             RadiumOre = downedEquinox;
             DiscordOres = downedSisters;
-            InfernoStripe = downed.Contains("IStripe");
-            MireStripe = downed.Contains("MStripe");
+            ChaosStripes = downed.Contains("IStripe");
             ModContentGenerated = downed.Contains("WorldGenned");
 
             if (tag.ContainsKey("MCenter")) // check if the altar coordinates exist in the save file
@@ -388,15 +384,13 @@ namespace AAModClassic
             BitsByte flags2 = new BitsByte();
             flags2[0] = downedSisters;
             flags2[1] = downedEquinox;
-            flags2[2] = InfernoStripe;
-            flags2[3] = MireStripe;
+            flags2[2] = ChaosStripes;
+            flags2[3] = GravActive;
             flags2[4] = Ancients;
             flags2[5] = ShenSummoned;
             flags2[6] = AthenaHerald;
             flags2[7] = WormActive;
             writer.Write(flags2);
-
-            writer.Write(GravActive);
 
             writer.WriteVector2(MireCenter);
             writer.WriteVector2(InfernoCenter);
@@ -437,14 +431,12 @@ namespace AAModClassic
             BitsByte flags2 = reader.ReadByte();
             downedSisters = flags2[0];
             downedEquinox = flags2[1];
-            InfernoStripe = flags2[2];
-            MireStripe = flags2[3];
+            ChaosStripes = flags2[2];
+            GravActive = flags2[3];
             Ancients = flags2[4];
             ShenSummoned = flags2[5];
             AthenaHerald = flags2[6];
             WormActive = flags2[7];
-
-            GravActive = reader.ReadBoolean();
 
             MireCenter = reader.ReadVector2();
 			InfernoCenter = reader.ReadVector2();		
@@ -1361,17 +1353,11 @@ namespace AAModClassic
 
             if (Main.hardMode)
             {
-                if (InfernoStripe == false)
+                if (ChaosStripes == false)
                 {
-                    InfernoStripe = true;
+                    ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-                    ConversionHandler.ConvertDown((int)InfernoCenter.X, (int)InfernoCenter.Y, 120, ConversionType.INFERNO);
-                }
-                if (MireStripe == false)
-                {
-                    MireStripe = true;
-
-                    ConversionHandler.ConvertDown((int)MireCenter.X, (int)MireCenter.Y, 120, ConversionType.MIRE);
+                    ChaosStripes = true;
                 }
             }
         }
