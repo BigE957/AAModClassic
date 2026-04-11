@@ -1342,7 +1342,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void AI()
         {
-            if (!Main.npc[NPC.realLife].active)
+            if (NPC.realLife == -1 || !Main.npc[NPC.realLife].active)
             {
                 NPC.active = false;
                 return;
