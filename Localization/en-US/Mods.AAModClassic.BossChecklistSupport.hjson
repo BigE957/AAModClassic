@@ -163,7 +163,7 @@ Shen: {
 ShenA: {
 	Name: Awakened Shen Doragon
 	Spawn: Defeat Shen Doragon in Expert Mode or use the {0}.
-	Despawn: "[c/FF4500:Despite you best efforts, Chaos reigns all the same.]"
+	Despawn: "[c/FF00FF:Despite your best efforts, Chaos reigns all the same.]"
 }
 
 InfinityZero: {
