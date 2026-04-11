@@ -18,7 +18,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 
         public override Asset<Texture2D> GetTexture()
 		{
-			return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/Bogtus");
+			return ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Tiles/Trees/Bogtus_Tile");
 		}
     }
 }

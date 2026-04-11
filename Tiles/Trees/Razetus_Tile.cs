@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override Asset<Texture2D> GetTexture()
 		{
-			return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/Razetus");
+			return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/Razetus_Tile");
 		}
 
         public override Asset<Texture2D> GetFruitTexture()
