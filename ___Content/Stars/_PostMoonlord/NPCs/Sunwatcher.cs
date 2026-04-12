@@ -32,7 +32,7 @@ namespace AAModClassic.___Content.Stars._PostMoonlord.NPCs
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.SunWatcherBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SunWatcherBanner>();
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)

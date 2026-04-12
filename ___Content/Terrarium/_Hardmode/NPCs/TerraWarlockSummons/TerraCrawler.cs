@@ -27,7 +27,7 @@ namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons
             NPC.knockBackResist = 0.4f;
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.TerraCrawlerBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
         }
 
         public override void AI()

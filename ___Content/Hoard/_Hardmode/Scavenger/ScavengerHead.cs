@@ -41,7 +41,7 @@ namespace AAModClassic.___Content.Hoard._Hardmode.Scavenger
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.ScavengerBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ScavengerBanner>();
         }
 
         public override void AI()

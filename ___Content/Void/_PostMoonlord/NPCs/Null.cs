@@ -36,7 +36,7 @@ namespace AAModClassic.___Content.Void._PostMoonlord.NPCs
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.NullBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
         }
 
 		public int frameCount = 0;

@@ -32,7 +32,7 @@ namespace AAModClassic.___Content.Acropolis._Hardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.SeraphBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SeraphBanner>();
             NPC.dontTakeDamage = true;
         }
 

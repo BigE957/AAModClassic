@@ -30,7 +30,7 @@ namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.PuritySquidBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
         }
         
         public override Color? GetAlpha(Color drawColor)

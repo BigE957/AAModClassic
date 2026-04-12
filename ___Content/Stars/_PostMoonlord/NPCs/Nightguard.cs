@@ -33,7 +33,7 @@ namespace AAModClassic.___Content.Stars._PostMoonlord.NPCs
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.NightGuardBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NightGuardBanner>();
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)

@@ -38,7 +38,7 @@ namespace AAModClassic.___Content.Acropolis._Hardmode.NPCs
                 NPC.alpha = 255;
             }
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.SeraphBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SeraphBanner>();
         }
 
         public override bool PreAI()
