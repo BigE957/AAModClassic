@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;
 using Terraria;

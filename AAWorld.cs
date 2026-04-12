@@ -43,16 +43,19 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Dungeon.World.Tiles;
 using AAModClassic.Utilities;
 using AAModClassic.NPCs.Bosses.Broodmother;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 
 namespace AAModClassic
 {

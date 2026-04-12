@@ -11,9 +11,10 @@ using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
-using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

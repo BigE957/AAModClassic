@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

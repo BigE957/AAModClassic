@@ -8,9 +8,9 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Broodmother;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Usable;
 using AAModClassic.Utilities;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

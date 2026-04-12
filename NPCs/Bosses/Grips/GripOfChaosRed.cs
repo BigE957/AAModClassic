@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;

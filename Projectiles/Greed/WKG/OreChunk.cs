@@ -14,8 +14,10 @@ using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Boss.Greed.WKG;
-using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.Acropolis.Projectiles;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Projectiles.Greed.WKG
 {

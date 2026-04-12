@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;

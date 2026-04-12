@@ -1,10 +1,10 @@
+using AAModClassic.___Content.Terrarium._Hardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Core.Projectiles;
-using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;

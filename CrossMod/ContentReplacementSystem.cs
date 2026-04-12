@@ -1,4 +1,5 @@
-﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+﻿using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
@@ -12,7 +13,6 @@ using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Throwing;
@@ -53,7 +53,7 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<IncineriteBar>(),
             ModContent.ItemType<MirePod>(),
             ModContent.ItemType<DragonScale>(),
-            ModContent.ItemType<AAModClassic.Items.Materials.DragonClaw>(),
+            ModContent.ItemType<___Content.Inferno._PreHardmode.Items.Materials.DragonClaw>(),
             ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(),
             ModContent.ItemType<Hotshroom>(),
             ModContent.ItemType<Darkshroom>(),
@@ -167,7 +167,7 @@ namespace AAModClassic.CrossMod
 
                 OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<AAModClassic.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<___Content.Inferno._PreHardmode.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
                 OldToNewItems.Add(ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
 
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);

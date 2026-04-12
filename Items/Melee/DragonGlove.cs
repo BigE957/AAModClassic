@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Melee
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<Materials.DragonClaw>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DragonClaw>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;

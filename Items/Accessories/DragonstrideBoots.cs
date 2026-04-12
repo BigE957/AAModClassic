@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
-using AAModClassic.Items.Materials;
 using System;
 using Terraria;
 using Terraria.ID;

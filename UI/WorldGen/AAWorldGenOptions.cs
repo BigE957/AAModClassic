@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

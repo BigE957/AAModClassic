@@ -11,10 +11,10 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.Utilities;
 using AAModClassic.CrossMod;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata
 {

@@ -9,6 +9,8 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Projectiles.Greed.WKG;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 
 namespace AAModClassic.Items.Boss.Greed.WKG

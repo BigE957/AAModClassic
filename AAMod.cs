@@ -1,5 +1,5 @@
-using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground;
-using AAModClassic.___Content.Inferno._PreHardmode.NPCs;
+using AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground.Wyrm;
+using AAModClassic.___Content.Inferno._PreHardmode.NPCs.Wyrmling;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.Skies;
 using AAModClassic.___Content.Mire.World.Biomes;
 using AAModClassic.Backgrounds;

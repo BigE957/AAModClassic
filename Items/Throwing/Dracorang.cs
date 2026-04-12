@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;

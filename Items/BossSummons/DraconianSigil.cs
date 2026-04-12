@@ -15,6 +15,7 @@ using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.CrossMod;
 using AAModClassic.Utilities;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

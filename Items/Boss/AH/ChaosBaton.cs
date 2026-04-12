@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.AH;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;

@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.AH.Ashe;

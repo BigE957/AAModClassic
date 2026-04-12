@@ -1,11 +1,11 @@
-﻿using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground;
+﻿using AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire._Hardmode.Items.Tiles;
 using AAModClassic.___Content.Mire._Hardmode.Items.Weapons;
-using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
+using AAModClassic.___Content.Mire._Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;

@@ -13,8 +13,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 
 namespace AAModClassic.Items.BossSummons
 {

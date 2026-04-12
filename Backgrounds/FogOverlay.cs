@@ -8,7 +8,7 @@ using ReLogic.Content;
 
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 
 namespace AAModClassic.Backgrounds
 {

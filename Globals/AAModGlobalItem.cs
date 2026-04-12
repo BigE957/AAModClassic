@@ -26,6 +26,8 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {
@@ -454,7 +456,7 @@ namespace AAModClassic.Globals
 
                 if (Main.hardMode && Main.rand.NextBool(2))
                 {
-                    int item = CrateType == 1 ? ModContent.ItemType<Bogtoxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
+                    int item = CrateType == 1 ? ModContent.ItemType<Bogtoxin>() : ModContent.ItemType<DragonFire>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
             }

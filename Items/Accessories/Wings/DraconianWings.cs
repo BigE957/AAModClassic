@@ -1,6 +1,5 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
