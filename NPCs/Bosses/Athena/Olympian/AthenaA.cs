@@ -15,6 +15,7 @@ using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using Terraria.GameContent.ItemDropRules;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
@@ -630,23 +631,28 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                 int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                 Main.npc[p].Center = NPC.Center;
             }
-            if(Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<AthenaABag>());
-            }
-            else
-            {
-                if (Main.rand.NextBool(7))
-                {
-                    NPC.DropLoot(ModContent.ItemType<AthenaAMask>());
-                }
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<GoddessFeather>(), Main.rand.Next(20, 25));
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SkyCrystal>(), Main.rand.Next(25, 40));
-                string[] lootTable = { "HurricaneStone", "Olympia", "Windfury", "GaleForce" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(ModContent.ItemType<StarChart>());
-            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaABag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarChart>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaATrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AthenaAMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoddessFeather>(), 1, 20, 25));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SkyCrystal>(), 1, 25, 40));
+
+            int[] lootTable = { ModContent.ItemType<HurricaneStone>(), ModContent.ItemType<Olympia>(), ModContent.ItemType<Windfury>(), ModContent.ItemType<GaleForce>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

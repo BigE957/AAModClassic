@@ -9,6 +9,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -575,27 +576,25 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisWin"), Color.ForestGreen);
             }
+        }
 
-            if (Main.rand.NextBool(10))
-            {
-                NPC.DropLoot(ModContent.ItemType<FAnubisTrophy>());
-            }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FAnubisBag>()));
 
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<FAnubisBag>());
-            }
-            else
-            {
-                if (Main.rand.NextBool(7))
-                {
-                    NPC.DropLoot(ModContent.ItemType<FAnubisMask>());
-                }
-                NPC.DropLoot(ModContent.ItemType<SoulFragment>(), Main.rand.Next(8, 16));
-                string[] lootTable = { "Verdict", "Lifeline", "ForsakenStaff", "Soulsplitter", "CursedFury", "HorusCane" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FAnubisTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FAnubisMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulFragment>(), 1, 8, 16));
+
+            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<Items.Boss.Anubis.Forsaken.ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFury>(), ModContent.ItemType<HorusCane>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         int deathtimer = 0;

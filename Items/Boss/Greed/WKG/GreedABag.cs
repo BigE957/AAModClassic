@@ -1,5 +1,6 @@
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,22 +32,25 @@ namespace AAModClassic.Items.Boss.Greed.WKG
 
 		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StoneShell>(), Main.rand.Next(25, 30));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CovetiteOre>(), Main.rand.Next(30, 50));
-            if (Main.rand.NextBool(7))
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<WKGreedMask>());
-            }
             if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            string[] lootTable = { "OreCannon", "Unearther", "OreStaff", "Earthbreaker" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GravitySphere>());
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DesireTalisman>());
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<WKGreedMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DesireTalisman>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<StoneShell>(), 1, 25, 30));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CovetiteOre>(), 1, 30, 50));
+
+            int[] lootTable = { ModContent.ItemType<OreCannon>(), ModContent.ItemType<Unearther>(), ModContent.ItemType<Earthbreaker>(), ModContent.ItemType<OreStaff>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
 	}
 }

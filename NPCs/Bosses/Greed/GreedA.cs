@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -567,31 +568,26 @@ namespace AAModClassic.NPCs.Bosses.Greed
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (!Main.expertMode)
-            {
-                if (Main.rand.NextBool(7))
-                {
-                    NPC.DropLoot(ModContent.ItemType<WKGreedMask>());
-                }
-                string[] lootTable = { "OreCannon", "Unearther", "Earthbreaker", "OreStaff" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<StoneShell>(), Main.rand.Next(20, 25));
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<CovetiteOre>(), Main.rand.Next(25, 40));
-                NPC.DropLoot(ModContent.ItemType<GravitySphere>());
-            }
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<GreedABag>());
-            }
-            if (Main.rand.NextBool(10))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<WKGTrophy>());
-            }
-            //NPC.value = 0f;
-            //NPC.boss = false;
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedABag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GravitySphere>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WKGTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<WKGreedMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<StoneShell>(), 1, 20, 25));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CovetiteOre>(), 1, 25, 40));
+
+            int[] lootTable = { ModContent.ItemType<OreCannon>(), ModContent.ItemType<Unearther>(), ModContent.ItemType<Earthbreaker>(), ModContent.ItemType<OreStaff>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void BossHeadRotation(ref float rotation)

@@ -1,5 +1,6 @@
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,22 +34,24 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.NextBool(7))
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AthenaAMask>());
-            }
             if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GoddessHarp>());
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GoddessFeather>(), Main.rand.Next(25, 30));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SkyCrystal>(), Main.rand.Next(30, 50));
-            string[] lootTable = { "HurricaneStone", "Olympia", "Windfury", "GaleForce" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StarChart>());
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaAMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoddessFeather>(), 1, 20, 30));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SkyCrystal>(), 1, 30, 50));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoddessHarp>()));
+
+            int[] lootTable = { ModContent.ItemType<HurricaneStone>(), ModContent.ItemType<Olympia>(), ModContent.ItemType<Windfury>(), ModContent.ItemType<GaleForce>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }

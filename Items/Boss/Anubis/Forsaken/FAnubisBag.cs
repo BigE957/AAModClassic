@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -60,20 +61,24 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.NextBool(7))
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<FAnubisMask>());
-            }
             if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SoulFragment>(), Main.rand.Next(10, 20));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ArtifactOfGuilt>());
-            string[] lootTable = { "Verdict", "Lifeline", "ForsakenStaff", "Soulsplitter", "CursedFury", "HorusCane" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<FAnubisMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ArtifactOfGuilt>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulFragment>(), 1, 10, 20));
+
+            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<Items.Boss.Anubis.Forsaken.ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFury>(), ModContent.ItemType<HorusCane>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }
