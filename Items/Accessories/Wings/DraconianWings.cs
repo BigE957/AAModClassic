@@ -59,7 +59,7 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

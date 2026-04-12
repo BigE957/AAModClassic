@@ -218,13 +218,13 @@ public class Core : ModNPC
 			switch ((int)NPC.ai[3])
 			{
 			default:
-				if (NPC.ai[0] > 120f && NPC.CountNPCS(ModContent.NPCType<TerraProbe>()) + NPC.CountNPCS(ModContent.NPCType<TerraWatcher>()) < 5 && Main.netMode != NetmodeID.MultiplayerClient)
+				if (NPC.ai[0] > 120f && NPC.CountNPCS(ModContent.NPCType<UnityProbe>()) + NPC.CountNPCS(ModContent.NPCType<UnityWatcher>()) < 5 && Main.netMode != NetmodeID.MultiplayerClient)
 				{
-					int num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<TerraProbe>() : ModContent.NPCType<TerraWatcher>());
+					int num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
 					int num9 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
 					Main.npc[num9].Center = new Vector2(NPC.Center.X + 100f, NPC.Center.Y);
 
-					num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<TerraProbe>() : ModContent.NPCType<TerraWatcher>());
+					num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
 					int num10 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
 					Main.npc[num10].Center = new Vector2(NPC.Center.X - 100f, NPC.Center.Y);
 

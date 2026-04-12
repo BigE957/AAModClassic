@@ -1,4 +1,5 @@
-﻿using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
+﻿using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground;
+using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire._Hardmode.Items.Tiles;
 using AAModClassic.___Content.Mire._Hardmode.Items.Weapons;
 using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
@@ -55,7 +56,6 @@ using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Enemies.Inferno;
 using AAModClassic.Projectiles.AH;
 using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;

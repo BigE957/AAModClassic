@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Blocks
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
 			recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}

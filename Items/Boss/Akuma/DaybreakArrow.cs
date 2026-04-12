@@ -72,7 +72,7 @@ Non-consumable"); */
 		{
 			Recipe recipe = CreateRecipe(1);
 			recipe.AddIngredient(ItemID.MoonlordArrow, 999);
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 1);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 1);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();

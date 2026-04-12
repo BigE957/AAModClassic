@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.Torch, 50);
-			recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>());
+			recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>());
 			recipe.Register();
 		}
 	}

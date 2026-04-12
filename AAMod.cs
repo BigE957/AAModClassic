@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground;
+using AAModClassic.___Content.Inferno._PreHardmode.NPCs;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.Skies;
 using AAModClassic.___Content.Mire.World.Biomes;
 using AAModClassic.Backgrounds;
@@ -8,7 +10,6 @@ using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Dev.Invoker;
-using AAModClassic.NPCs.Enemies.Inferno;
 using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
@@ -175,7 +176,7 @@ namespace AAModClassic
                             ModNPC npc = GetNPC(m == 0 ? "Wyrmling" : (m == 1 ? "WyrmlingBody" : (m == 2 ? "WyrmlingTail1" : "WyrmlingTail2")));
                             if (npc != null)
                             {
-                                npc.Banner = ModContent.NPCType<Wyrmling>();
+                                npc.Banner = ModContent.NPCType<WyrmlingHead>();
                                 npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
@@ -188,7 +189,7 @@ namespace AAModClassic
                             ModNPC npc = GetNPC(m == 0 ? "Wyrm" : (m == 1 ? "WyrmBody1" : (m == 2 ? "WyrmBody2" : (m == 3 ? "WyrmBody3" : "WyrmBody4"))));
                             if (npc != null)
                             {
-                                npc.Banner = ModContent.NPCType<Wyrm>();
+                                npc.Banner = ModContent.NPCType<WyrmHead>();
                                 npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }

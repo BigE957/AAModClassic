@@ -74,7 +74,7 @@ namespace AAModClassic.Items.Blocks
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 15);
+                recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
                 recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 15);
                 recipe.Register();
             }

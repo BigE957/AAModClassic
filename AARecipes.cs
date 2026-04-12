@@ -822,7 +822,7 @@ namespace AAModClassic
 
             TransmuteRecipe((short)ModContent.ItemType<AbyssiumBar>(), (short)ModContent.ItemType<IncineriteBar>());
             TransmuteRecipe((short)ModContent.ItemType<DeepAbyssiumBar>(), (short)ModContent.ItemType<RadiantIncineriteBar>());
-            TransmuteRecipe((short)ModContent.ItemType<DaybreakIncinerite>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
+            TransmuteRecipe((short)ModContent.ItemType<DaybreakIncineriteBar>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
             #endregion
 
             #region Ores

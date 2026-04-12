@@ -1,11 +1,23 @@
+using AAModClassic.___Content.Inferno._Hardmode.NPCs;
+using AAModClassic.___Content.Inferno._Hardmode.NPCs.Surface;
+using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground;
+using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground.Desert;
+using AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground.Snow;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.Surface;
+using AAModClassic.___Content.Inferno._PreHardmode.NPCs;
+using AAModClassic.___Content.Inferno._PreHardmode.NPCs.Surface;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._Hardmode.NPCs;
-using AAModClassic.___Content.Mire._Hardmode.NPCs.Desert;
-using AAModClassic.___Content.Mire._Hardmode.NPCs.Snow;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Surface;
 using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.Underground;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground.Desert;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground.Snow;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.Surface;
 using AAModClassic.___Content.Mire._PreHardmode.NPCs;
 using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs.Surface;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
@@ -24,7 +36,6 @@ using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Enemies.Cavern;
-using AAModClassic.NPCs.Enemies.Inferno;
 using AAModClassic.NPCs.Enemies.Other;
 using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.NPCs.Enemies.Snow;
@@ -44,7 +55,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using DragonClaw = AAModClassic.NPCs.Enemies.Other.DragonClaw;
+using DragonClaw = AAModClassic.___Content.Inferno._PreHardmode.NPCs.DragonClaw;
 
 namespace AAModClassic.Globals
 {
@@ -928,11 +939,11 @@ namespace AAModClassic.Globals
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        pool.Add(ModContent.NPCType<Wyrmling>(), .25f);
+                        pool.Add(ModContent.NPCType<WyrmlingHead>(), .25f);
                         pool.Add(ModContent.NPCType<InfernalSlime>(), .05f);
-                        pool.Add(ModContent.NPCType<Flamebrute>(), .25f);
-                        pool.Add(ModContent.NPCType<InfernoSalamander>(), .5f);
-                        pool.Add(ModContent.NPCType<NPCs.Enemies.Other.DragonClaw>(), .05f);
+                        pool.Add(ModContent.NPCType<FlameBrute>(), .25f);
+                        pool.Add(ModContent.NPCType<Singemander>(), .5f);
+                        pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
                     }
 
                     if (Main.hardMode)
@@ -950,33 +961,33 @@ namespace AAModClassic.Globals
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        pool.Add(ModContent.NPCType<Wyrmling>(), .25f);
-                        pool.Add(ModContent.NPCType<Flamebrute>(), .25f);
-                        pool.Add(ModContent.NPCType<InfernoSalamander>(), .5f);
+                        pool.Add(ModContent.NPCType<WyrmlingHead>(), .25f);
+                        pool.Add(ModContent.NPCType<FlameBrute>(), .25f);
+                        pool.Add(ModContent.NPCType<Singemander>(), .5f);
                         pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
                     }
 
                     if (Main.hardMode)
                     {
                         pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * 0.2f);
-                        pool.Add(ModContent.NPCType<Wyrm>(), .008f);
+                        pool.Add(ModContent.NPCType<WyrmHead>(), .008f);
                         pool.Add(ModContent.NPCType<ChaoticDawn>(), .01f);
 
                         if (spawnInfo.Player.ZoneSnow)
                         {
-                            pool.Add(ModContent.NPCType<Dragron>(), .01f);
+                            pool.Add(ModContent.NPCType<PigronInferno>(), .01f);
                         }
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
                         {
-                            pool.Add(ModContent.NPCType<InfernoGhoul>(), .1f);
+                            pool.Add(ModContent.NPCType<InfernalGhoul>(), .1f);
                         }
                     }
                 }
 
                 if (NPC.downedMoonlord)
                 {
-                    pool.Add(ModContent.NPCType<Lung>(), .01f);
+                    pool.Add(ModContent.NPCType<AncientLungHead>(), .01f);
                 }
             }
 
@@ -1053,7 +1064,7 @@ namespace AAModClassic.Globals
                 if (NPC.downedPlantBoss)
                 {
                     pool.Add(ModContent.NPCType<Vortex>(), 0.002f);
-                    pool.Add(ModContent.NPCType<Scout>(), .005f);
+                    pool.Add(ModContent.NPCType<VoidScout>(), .005f);
                 }
 
                 if (NPC.downedMoonlord)
@@ -1067,7 +1078,7 @@ namespace AAModClassic.Globals
                 }
                 else
                 {
-                    pool.Add(ModContent.NPCType<Searcher1>(), .005f);
+                    pool.Add(ModContent.NPCType<StoneSearcher>(), .005f);
                 }
             }
 
@@ -1077,25 +1088,28 @@ namespace AAModClassic.Globals
 
                 if (NPC.downedPlantBoss)
                 {
-                    pool.Add(ModContent.NPCType<Bladon>(), .05f);
-                    pool.Add(ModContent.NPCType<TerraDeadshot>(), .05f);
-                    pool.Add(ModContent.NPCType<TerraWizard>(), .05f);
-                    pool.Add(ModContent.NPCType<TerraWarlock>(), .05f);
                     pool.Add(ModContent.NPCType<PurityWeaver>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .03f);
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
+
+                    pool.Add(ModContent.NPCType<TerraKnight>(), .05f);
+                    pool.Add(ModContent.NPCType<TerraDeadshot>(), .05f);
+                    pool.Add(ModContent.NPCType<TerraWizard>(), .05f);
+                    pool.Add(ModContent.NPCType<TerraWarlock>(), .05f);
+
                     return;
                 }
                 else if (Main.hardMode)
                 {
-                    pool.Add(ModContent.NPCType<TerraProbe>(), .07f);
-                    pool.Add(ModContent.NPCType<TerraWatcher>(), .07f);
-                    pool.Add(ModContent.NPCType<TerraSquire>(), .07f);
                     pool.Add(ModContent.NPCType<PurityWeaver>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .03f);
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
+
+                    pool.Add(ModContent.NPCType<UnityProbe>(), .07f);
+                    pool.Add(ModContent.NPCType<UnityWatcher>(), .07f);
+                    pool.Add(ModContent.NPCType<TerraSquire>(), .07f);
                 }
                 else if (AAWorld.Terra1)
                 {
@@ -1126,9 +1140,10 @@ namespace AAModClassic.Globals
 
                 if (NPC.downedPlantBoss)
                 {
-                    pool.Add(ModContent.NPCType<Scavenger>(), .03f);
+                    pool.Add(ModContent.NPCType<ScavengerHead>(), .03f);
                 }
             }
+
             if(spawnInfo.Player.GetModPlayer<AAPlayer>().StripeManSpawn)
             {
                 if(NPC.goldCritterChance >= 30) NPC.goldCritterChance = 30;
@@ -1143,10 +1158,12 @@ namespace AAModClassic.Globals
                     }
                 }
             }
+
             else if(spawnInfo.Player.GetModPlayer<AAPlayer>().AncientGoldLeg)
             {
                 if(NPC.goldCritterChance >= 40) NPC.goldCritterChance = 40;
             }
+
             else
             {
                 NPC.goldCritterChance = 150;

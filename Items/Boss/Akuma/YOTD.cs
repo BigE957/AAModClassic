@@ -93,7 +93,7 @@ namespace AAModClassic.Items.Boss.Akuma
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ItemID.FireworksLauncher);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

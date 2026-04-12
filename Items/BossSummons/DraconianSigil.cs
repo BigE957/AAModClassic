@@ -125,7 +125,7 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
