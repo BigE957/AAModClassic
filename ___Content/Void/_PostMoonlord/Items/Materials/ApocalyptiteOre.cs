@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Blocks
 {
-    public class Apocalyptite : BaseAAItem
+    public class ApocalyptiteOre : BaseAAItem
     {
         public override void SetStaticDefaults()
 		{

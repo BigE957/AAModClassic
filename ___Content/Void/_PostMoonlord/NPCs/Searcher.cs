@@ -89,7 +89,7 @@ namespace AAModClassic.___Content.Void._PostMoonlord.NPCs
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Apocalyptite>());
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ApocalyptiteOre>());
         }
     }
 }

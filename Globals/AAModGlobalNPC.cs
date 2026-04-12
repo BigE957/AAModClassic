@@ -1,5 +1,4 @@
 using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
-using AAModClassic.___Content.Hoard._Hardmode;
 using AAModClassic.___Content.Hoard._Hardmode.Scavenger;
 using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._Hardmode.NPCs;

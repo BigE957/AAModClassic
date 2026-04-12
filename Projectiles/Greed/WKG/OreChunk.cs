@@ -298,7 +298,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == ModContent.ItemType<Apocalyptite>())
+            else if(k == ModContent.ItemType<ApocalyptiteOre>())
             {
                 if((Projectile.ai[0] ++) % 40 == 20 && Projectile.localAI[0] < 3)
                 {
@@ -484,7 +484,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
             }
-            else if (Projectile.ai[1] == ModContent.ItemType<Apocalyptite>())
+            else if (Projectile.ai[1] == ModContent.ItemType<ApocalyptiteOre>())
             {
                 for (int v = 0; v < 4; v++)
                 {
@@ -1420,7 +1420,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 return ModContent.DustType<Dusts.YamataDust>();
             }
-            else if (k == ModContent.ItemType<Apocalyptite>())
+            else if (k == ModContent.ItemType<ApocalyptiteOre>())
             {
                 return ModContent.DustType<Dusts.VoidDust>();
             }
