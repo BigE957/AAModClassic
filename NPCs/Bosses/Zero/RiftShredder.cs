@@ -104,6 +104,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void AI()
         {
+            NPC.TargetClosest();
             if (body == -1)
             {
                 int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Zero>(), 1000, null);
@@ -146,10 +147,8 @@ namespace AAModClassic.NPCs.Bosses.Zero
             }
             else
             {
-                Vector2 vector2 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height * 0.5f));
-                float num1 = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) - vector2.X;
-                float num2 = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - vector2.Y;
-                NPC.rotation = (float)Math.Atan2(num2, num1) - 1.57f;
+                float NewRotation = NPC.AngleTo(Main.player[NPC.target].Center) - 1.57f;
+                NPC.rotation = NewRotation;
             }
         }
 

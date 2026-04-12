@@ -1435,7 +1435,7 @@ Abyssium: {
 	Tooltip: It's all mushy. Nasty.
 }
 
-Apocalyptite: {
+ApocalyptiteOre: {
 	DisplayName: Apocalyptite
 	Tooltip: ""
 }

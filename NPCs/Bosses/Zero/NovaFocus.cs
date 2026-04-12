@@ -78,6 +78,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void AI()
         {
+            NPC.TargetClosest();
             if (body == -1)
             {
                 int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Zero>(), 1000, null);
@@ -108,12 +109,8 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
             int aiTimerFire = Main.expertMode ? 230 : 280;
 
-            Vector2 vector2 = new Vector2(NPC.position.X + (NPC.width * 0.5f), NPC.position.Y + (NPC.height * 0.5f));
-            float num1 = Main.player[NPC.target].position.X + (player.width / 2) - vector2.X;
-            float num2 = Main.player[NPC.target].position.Y + (player.height / 2) - vector2.Y;
-            float NewRotation = (float)Math.Atan2(num2, num1);
-
-            NPC.rotation = MathHelper.Lerp(NPC.rotation, NewRotation, 1f / 25f);
+            float NewRotation = NPC.AngleTo(Main.player[NPC.target].Center);
+            NPC.rotation = NPC.rotation.AngleLerp(NewRotation, 1f / 25f);
 
             if (NPC.ai[2] >= aiTimerFire)
             {
