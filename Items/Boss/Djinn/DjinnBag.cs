@@ -27,6 +27,11 @@ namespace AAModClassic.Items.Boss.Djinn
             Item.height = 32;
             Item.expert = true; Item.expertOnly = true;
         }
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
         //public override int BossBagNPC => ModContent.NPCType<Djinn>();
 
         public override bool CanRightClick()

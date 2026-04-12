@@ -28,6 +28,11 @@ namespace AAModClassic.Items.Boss.Grips
 			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true; Item.expertOnly = true;
         }
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
         //public override int BossBagNPC => ModContent.NPCType<GripOfChaosBlue>();
 
         public override bool CanRightClick()

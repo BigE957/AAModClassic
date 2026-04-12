@@ -44,6 +44,11 @@ Contained loot depends on the time of day"); */
 			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
         }
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
         //public override int BossBagNPC => ModContent.NPCType<DaybringerHead>();
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)

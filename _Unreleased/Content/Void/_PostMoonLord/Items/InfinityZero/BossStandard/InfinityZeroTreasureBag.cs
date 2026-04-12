@@ -29,6 +29,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.expert = true;
 		}
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

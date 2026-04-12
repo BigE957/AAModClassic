@@ -37,6 +37,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
             Item.expert = true; Item.expertOnly = true;
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
         //public override int BossBagNPC => ModContent.NPCType<YamataA>();
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

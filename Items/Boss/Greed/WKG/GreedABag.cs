@@ -26,6 +26,11 @@ namespace AAModClassic.Items.Boss.Greed.WKG
 			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
         }
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
         //public override int BossBagNPC => ModContent.NPCType<GreedA>();
 
         public override bool CanRightClick()

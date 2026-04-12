@@ -28,6 +28,10 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             Item.rare = ItemRarityID.Red;
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
         //public override int BossBagNPC => ModContent.NPCType<AthenaA>();
 
         public override bool CanRightClick()

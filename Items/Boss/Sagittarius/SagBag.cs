@@ -27,6 +27,11 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.expert = true; Item.expertOnly = true;
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
+
         //public override int BossBagNPC => ModContent.NPCType<Sag>();
 
         public override bool CanRightClick()

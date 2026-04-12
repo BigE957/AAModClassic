@@ -24,10 +24,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 			Item.width = 36;
 			Item.height = 32;
 			Item.expert = true;
-			//TODOSOC
-            //bossBagNPC = ModContent.NPCType<SoC>();
 		}
-        
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
+
         public override bool CanRightClick()
 		{
 			return true;

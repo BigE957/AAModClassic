@@ -28,6 +28,11 @@ namespace AAModClassic.Items.Boss.Toad
 			Item.expert = true; Item.expertOnly = true;
 		}
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
+
         //public override int BossBagNPC => ModContent.NPCType<TruffleToad>();
 
         public override bool CanRightClick()

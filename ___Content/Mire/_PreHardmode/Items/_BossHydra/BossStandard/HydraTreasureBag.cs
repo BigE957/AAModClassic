@@ -39,6 +39,11 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 			Item.expert = true; Item.expertOnly = true;
 		}
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
+
         //public override int BossBagNPC => ModContent.NPCType<Hydra>();
 
         public override bool CanRightClick()

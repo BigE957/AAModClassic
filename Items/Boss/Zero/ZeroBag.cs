@@ -36,6 +36,11 @@ namespace AAModClassic.Items.Boss.Zero
             Item.rare = ItemRarityID.Red;
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
+
         //public override int BossBagNPC => ModContent.NPCType<ZeroProtocol>();
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

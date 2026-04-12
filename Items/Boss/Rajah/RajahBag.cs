@@ -30,6 +30,11 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.expert = true; Item.expertOnly = true;
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.BossBags;
+        }
+
         //public override int BossBagNPC => ModContent.NPCType<Rajah>();
 
         public override bool CanRightClick()
