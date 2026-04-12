@@ -1092,7 +1092,7 @@ namespace AAModClassic.Globals
 
                 if (NPC.downedPlantBoss)
                 {
-                    pool.Add(ModContent.NPCType<PurityWeaver>(), .03f);
+                    pool.Add(ModContent.NPCType<PurityWeaverHead>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .03f);
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
@@ -1106,7 +1106,7 @@ namespace AAModClassic.Globals
                 }
                 else if (Main.hardMode)
                 {
-                    pool.Add(ModContent.NPCType<PurityWeaver>(), .03f);
+                    pool.Add(ModContent.NPCType<PurityWeaverHead>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .03f);
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
@@ -1117,7 +1117,7 @@ namespace AAModClassic.Globals
                 }
                 else if (AAWorld.Terra1)
                 {
-                    pool.Add(ModContent.NPCType<PurityWeaver>(), .05f);
+                    pool.Add(ModContent.NPCType<PurityWeaverHead>(), .05f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .05f);
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .05f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .05f);
