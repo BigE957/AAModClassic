@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground.Desert
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs._Underground._Desert
 {
     public class ShadowGhoul : ModNPC
 	{

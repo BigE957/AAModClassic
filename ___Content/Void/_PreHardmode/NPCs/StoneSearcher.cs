@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Void
+namespace AAModClassic.___Content.Void._PreHardmode.NPCs
 {
     public class StoneSearcher : ModNPC
 	{
@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             BaseAI.AIEater(NPC, ref NPC.ai, .022f, 4, .6f, false, true);
             Player player = Main.player[NPC.target];
             bool playerActive = player != null && player.active && !player.dead;
-            BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);         
+            BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);         
         }
 
         public override void OnKill()

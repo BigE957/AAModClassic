@@ -1,11 +1,10 @@
-﻿using AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons
 {
     public class TerraWeaverTail : TerraWeaverHead
     {

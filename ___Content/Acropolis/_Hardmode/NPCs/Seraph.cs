@@ -7,8 +7,9 @@ using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Terraria.Localization;
+using AAModClassic.___Content.Acropolis.Projectiles;
 
-namespace AAModClassic.NPCs.Enemies.Sky
+namespace AAModClassic.___Content.Acropolis._Hardmode.NPCs
 {
 	public class Seraph : ModNPC
 	{
@@ -79,12 +80,12 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 float spread = 30f * 0.0174f;
                 Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                 dir *= 14f;
-                float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
+                float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                 double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
                 double deltaAngle = spread / 6f;
                 for (int i = 0; i < 3; i++)
                 {
-                    double offsetAngle = startAngle + (deltaAngle * i);
+                    double offsetAngle = startAngle + deltaAngle * i;
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 4, 2, Main.myPlayer);
                 }
                 NPC.ai[3] = 0;

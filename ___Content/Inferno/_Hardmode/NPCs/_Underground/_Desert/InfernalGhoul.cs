@@ -1,8 +1,9 @@
+using AAModClassic.Items.Banners;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground.Desert
+namespace AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground._Desert
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
     public class InfernalGhoul : ModNPC
@@ -20,7 +21,7 @@ namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground.Desert
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.InfernoGhoulBanner>();
+			BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

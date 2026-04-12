@@ -8,7 +8,7 @@ using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Banners;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.Surface
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface
 {
     public class AbyssClaw : ModNPC
     {

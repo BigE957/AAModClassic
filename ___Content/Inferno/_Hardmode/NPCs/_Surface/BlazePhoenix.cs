@@ -1,6 +1,7 @@
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -11,7 +12,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Surface
+namespace AAModClassic.___Content.Inferno._Hardmode.NPCs._Surface
 {
     public class BlazePhoenix : ModNPC
     {
@@ -39,7 +40,7 @@ namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Surface
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.damage = 70;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.BlazePhoenixBanner>();
+			BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
         }
 
         public override void AI()

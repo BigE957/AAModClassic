@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     internal class YamataAHeadFake_AbyssalWrath : ModProjectile
     {

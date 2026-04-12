@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.Audio;
 using AAModClassic.Music;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     [AutoloadBossHead]
     public class YamataAHead : ModNPC

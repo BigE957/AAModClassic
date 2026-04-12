@@ -7,7 +7,7 @@ using Terraria.Audio;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Vanity.Ohno;
 
-namespace AAModClassic.NPCs.Enemies.Void
+namespace AAModClassic.___Content.Void._PostMoonlord.NPCs
 {
     public class Null : ModNPC
 	{

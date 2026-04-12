@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.NPCs.Enemies.Void
+namespace AAModClassic.___Content.Void._Hardmode.NPCs
 {
     public class Vortex : ModNPC
     {

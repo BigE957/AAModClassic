@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra
 { 
     public class HarukaShadowPostHydra : ModNPC
     {

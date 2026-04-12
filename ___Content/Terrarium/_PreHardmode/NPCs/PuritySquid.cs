@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
+namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
 {
     public class PuritySquid : ModNPC
 	{
@@ -66,7 +66,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += 36;
-                if (NPC.frame.Y > (36 * 3))
+                if (NPC.frame.Y > 36 * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

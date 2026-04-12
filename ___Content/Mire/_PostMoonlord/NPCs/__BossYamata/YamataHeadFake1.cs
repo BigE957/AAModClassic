@@ -9,9 +9,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
     [AutoloadBossHead]
     public class YamataHeadFake1 : ModNPC

@@ -3,7 +3,6 @@ using System;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.NPCs.Enemies.Terrarium.PostPlant;
 
 namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons
 {

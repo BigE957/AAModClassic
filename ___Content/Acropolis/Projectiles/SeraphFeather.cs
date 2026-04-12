@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic.NPCs.Enemies.Sky
+namespace AAModClassic.___Content.Acropolis.Projectiles
 {
     public class SeraphFeather : ModProjectile
     {

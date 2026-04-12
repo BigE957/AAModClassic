@@ -1,4 +1,5 @@
 using System.IO;
+using AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
@@ -7,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs
 {
     public class TerraWarlock : ModNPC
     {
@@ -67,7 +68,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 				{
 					NPC.frameCounter = 0;
 					NPC.frame.Y += 60;
-					if (NPC.frame.Y > (60 * 7))
+					if (NPC.frame.Y > 60 * 7)
 					{
 						NPC.frameCounter = 0;
 						NPC.frame.Y = 0;
@@ -84,7 +85,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y += 60;
-                    if (NPC.frame.Y > (60 * 14))
+                    if (NPC.frame.Y > 60 * 14)
                     {
 
                         Vector2 spawnAt = NPC.Center + new Vector2(0f, NPC.height / 2f);
@@ -111,7 +112,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                         }
                         internalAI[1] = AISTATE_WALK;
                     }
-                    if (NPC.frame.Y > (60 * 14) || NPC.frame.Y < (60 * 8))
+                    if (NPC.frame.Y > 60 * 14 || NPC.frame.Y < 60 * 8)
                     {
                         NPC.frameCounter = 0;
                         NPC.frame.Y = 60 * 8;

@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs
 {
     public class TerraWizard : ModNPC
 	{
@@ -57,7 +57,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += 58;
-                if (NPC.frame.Y > (58 * 5))
+                if (NPC.frame.Y > 58 * 5)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

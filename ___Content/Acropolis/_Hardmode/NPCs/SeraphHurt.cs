@@ -7,7 +7,7 @@ using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic.NPCs.Enemies.Sky
+namespace AAModClassic.___Content.Acropolis._Hardmode.NPCs
 {
     public class SeraphHurt : ModNPC
 	{
@@ -89,7 +89,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                     NPC.spriteDirection = -1;
                 }
 
-                Vector2 Acropolis = new Vector2(Origin.X + (80 * 16), Origin.Y + (79 * 16));
+                Vector2 Acropolis = new Vector2(Origin.X + 80 * 16, Origin.Y + 79 * 16);
 
                 if (Vector2.Distance(NPC.Center, Acropolis) > 90 * 16 && Main.netMode != NetmodeID.MultiplayerClient)
                 {

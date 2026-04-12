@@ -8,10 +8,10 @@ using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Music;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
     [AutoloadBossHead]
     public class YamataHead : ModNPC
@@ -159,8 +159,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
             Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
             float num433 = 6f;
-            float PlayerPosX = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) - PlayerDistance.X;
-            float PlayerPosY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - PlayerDistance.Y;
+            float PlayerPosX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - PlayerDistance.X;
+            float PlayerPosY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - PlayerDistance.Y;
             float PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
             PlayerPos = num433 / PlayerPos;
             PlayerPosX *= PlayerPos;
@@ -302,7 +302,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote1) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead1") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead2"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote1 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead1") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead2"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote1 = true;
                 }
@@ -313,7 +313,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead3") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead4"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead3") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead4"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -324,7 +324,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead5") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead6"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead5") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead6"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -335,7 +335,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote4) ? (Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead7") + (player.Male ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.male2") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.fimale2")) + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead8")) : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead9"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote4 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead7") + (player.Male ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.male2") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.fimale2")) + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead8") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead9"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote4 = true;
                 }

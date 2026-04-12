@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -31,7 +32,7 @@ namespace AAModClassic.___Content.Inferno._Hardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.MagmalgamBanner>();
+			BannerItem = ModContent.ItemType<MagmalgamBanner>();
         }
 
         public override void AI()

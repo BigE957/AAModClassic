@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.NPCs.Enemies.Other
+namespace AAModClassic.___Content.Madness._PreHM.NPCs
 {
     public class MadnessBat : ModNPC
     {
@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += frameHeight;
-                if (NPC.frame.Y > (frameHeight * 3))
+                if (NPC.frame.Y > frameHeight * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

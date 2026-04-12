@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Tiles.Bars;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Inferno._Hardmode.Items.Materials
 {
     public class RadiantIncineriteBar : BaseAAItem
     {

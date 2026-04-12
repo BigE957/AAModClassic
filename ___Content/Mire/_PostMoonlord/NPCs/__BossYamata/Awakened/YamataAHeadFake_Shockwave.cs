@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     public class YamataAHeadFake_Shockwave : ModProjectile
     {

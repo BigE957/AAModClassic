@@ -3,7 +3,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Music;
@@ -22,7 +22,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
     [AutoloadBossHead]
     public class YamataBody : YamataBoss
@@ -163,7 +163,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
             if (!AAWorld.downedYamata)
             {
-                if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
+                if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata10"), new Color(45, 46, 70));
                     threeQuarterHealth = true;
@@ -181,7 +181,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             }
             else
             {
-                if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
+                if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata13"), new Color(45, 46, 70));
                     threeQuarterHealth = true;
@@ -470,8 +470,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 }
                 NPC.timeLeft = 300;
                 float playerDistance = Vector2.Distance(playerTarget.Center, NPC.Center);
-                if ((playerDistance < playerTooFarDist - 100f) && Math.Abs(NPC.velocity.X) > 12f) NPC.velocity.X *= 0.8f;
-                if ((playerDistance < playerTooFarDist - 100f) && Math.Abs(NPC.velocity.Y) > 12f) NPC.velocity.Y *= 0.8f;
+                if (playerDistance < playerTooFarDist - 100f && Math.Abs(NPC.velocity.X) > 12f) NPC.velocity.X *= 0.8f;
+                if (playerDistance < playerTooFarDist - 100f && Math.Abs(NPC.velocity.Y) > 12f) NPC.velocity.Y *= 0.8f;
                 if (NPC.velocity.Y > 7f) NPC.velocity.Y *= 0.75f;
                 AIMovementNormal(playerDistance);
             }
@@ -485,7 +485,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public void AIMovementRunAway()
         {
-            if ((Main.netMode != NetmodeID.MultiplayerClient) && !loludide)
+            if (Main.netMode != NetmodeID.MultiplayerClient && !loludide)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata9"), new Color(45, 46, 70));
                 loludide = true;
@@ -517,7 +517,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 bool inRangeY = false;
                 if (npc.position.X > ai[0] - tileDist && npc.position.X < ai[0] + tileDist) { inRangeX = true; }
                 else
-                    if ((npc.velocity.X < 0f && npc.direction > 0) || (npc.velocity.X > 0f && npc.direction < 0)) { inRangeX = true; }
+                    if (npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0) { inRangeX = true; }
                 tileDist += 24;
                 if (npc.position.Y > ai[1] - tileDist && npc.position.Y < ai[1] + tileDist)
                 {
@@ -564,7 +564,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             {
                 if (Main.tile[tileX, tY] == null)
                     continue;
-                if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
+                if (Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType] || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     tileBelowEmpty = false;
                     break;
@@ -709,8 +709,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
     float x0, float x1, float x2)
         {
             return (float)(
-                x0 * Math.Pow((1 - t), 2) +
-                x1 * 2 * t * Math.Pow((1 - t), 1) +
+                x0 * Math.Pow(1 - t, 2) +
+                x1 * 2 * t * Math.Pow(1 - t, 1) +
                 x2 * Math.Pow(t, 2)
             );
         }
@@ -718,8 +718,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             float y0, float y1, float y2)
         {
             return (float)(
-                 y0 * Math.Pow((1 - t), 2) +
-                 y1 * 2 * t * Math.Pow((1 - t), 1) +
+                 y0 * Math.Pow(1 - t, 2) +
+                 y1 * 2 * t * Math.Pow(1 - t, 1) +
                  y2 * Math.Pow(t, 2)
              );
         }
@@ -741,10 +741,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                     {
                         distBetween = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) -
                         X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X),
-                        Y(i, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y) -
-                        Y(i - chainsPerUse, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y));
+                        Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) -
+                        Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, connector.Y));
                         projTrueRotation = distBetween.ToRotation() - (float)Math.PI / 2;
-                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y) - Main.screenPosition.Y),
+                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) - Main.screenPosition.Y),
                         new Rectangle(0, 0, neckTex2D.Width, neckTex2D.Height), drawColor, projTrueRotation,
                         new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                     }
@@ -803,8 +803,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public Vector2 position, oldPosition;
         public Vector2 Center
         {
-            get { return new Vector2(position.X + (Hitbox.Width * 0.5f), position.Y + (Hitbox.Height * 0.5f)); }
-            set { position = new Vector2(value.X - (Hitbox.Width * 0.5f), value.Y - (Hitbox.Height * 0.5f)); }
+            get { return new Vector2(position.X + Hitbox.Width * 0.5f, position.Y + Hitbox.Height * 0.5f); }
+            set { position = new Vector2(value.X - Hitbox.Width * 0.5f, value.Y - Hitbox.Height * 0.5f); }
         }
         public Rectangle Hitbox;
         public float rotation = 0f, movementRatio = 0f;
@@ -835,7 +835,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public void MoveLegFlying(NPC npc)
         {
-            Vector2 movementSpot = GetBodyConnector(npc) + new Vector2(limbType == 3 ? (-35f - Hitbox.Width) : limbType == 2 ? 35f : limbType == 1 ? (-15f - Hitbox.Width) : 15f, limbType == 1 || limbType == 0 ? 40f : 50f);
+            Vector2 movementSpot = GetBodyConnector(npc) + new Vector2(limbType == 3 ? -35f - Hitbox.Width : limbType == 2 ? 35f : limbType == 1 ? -15f - Hitbox.Width : 15f, limbType == 1 || limbType == 0 ? 40f : 50f);
             float velLength = (npc.position - npc.oldPos[1]).Length();
             if (velLength > 8f)
             {
@@ -843,9 +843,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 velocity = default;
             }
             else
-            if (Vector2.Distance(movementSpot, position) > (40 + (int)npc.velocity.Length()))
+            if (Vector2.Distance(movementSpot, position) > 40 + (int)npc.velocity.Length())
             {
-                Vector2 velAddon = movementSpot - position; velAddon.Normalize(); velAddon *= 2f + (velLength * 0.25f);
+                Vector2 velAddon = movementSpot - position; velAddon.Normalize(); velAddon *= 2f + velLength * 0.25f;
                 velocity += velAddon;
                 float velMax = 4f + velLength;
                 if (velocity.Length() > velMax) { velocity.Normalize(); velocity *= velMax; }
@@ -870,7 +870,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             UpdateVelOffsetY();
             if (pointToStandOn != default)
             {
-                Vector2 velAddon = pointToStandOn - position; velAddon.Normalize(); velAddon *= 1.6f + (npc.velocity.Length() * 0.5f);
+                Vector2 velAddon = pointToStandOn - position; velAddon.Normalize(); velAddon *= 1.6f + npc.velocity.Length() * 0.5f;
                 velocity += velAddon;
                 float velMax = 4f + npc.velocity.Length();
                 if (velocity.Length() > velMax) { velocity.Normalize(); velocity *= velMax; }
@@ -894,7 +894,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public void UpdateLeg(NPC npc)
         {
             leftLeg = limbType == 1 || limbType == 3;
-            if (Vector2.Distance(Center, npc.Center) > 499 || ((npc.ModNPC is YamataBody && YamataBody.TeleportMeBitch) || (npc.ModNPC is YamataABody && YamataABody.TeleportMeBitch))) position = npc.Center; //prevent issues when the legs are WAY off.
+            if (Vector2.Distance(Center, npc.Center) > 499 || npc.ModNPC is YamataBody && YamataBody.TeleportMeBitch || npc.ModNPC is YamataABody && YamataABody.TeleportMeBitch) position = npc.Center; //prevent issues when the legs are WAY off.
             if (overrideAnimation != null)
             {
                 if (overrideAnimation.movementRatio >= 1f) overrideAnimation = null;
@@ -920,9 +920,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public Vector2 GetStandOnPoint(NPC npc)
         {
             float scalar = npc.velocity.Length();
-            float outerLegDefault = (npc.ModNPC is YamataABody ? 150f : 70f) + (0.5f * scalar);
-            float innerLegDefault = (npc.ModNPC is YamataABody ? 120f : 50f) + (0.5f * scalar);
-            float standOnX = npc.Center.X + (npc.ModNPC is YamataABody yamataA ? yamataA.topVisualOffset.X : 0) + (limbType == 3 ? (-outerLegDefault - Hitbox.Width) : limbType == 2 ? (outerLegDefault + Hitbox.Width) : limbType == 1 ? (-innerLegDefault - Hitbox.Width) : (innerLegDefault + Hitbox.Width));
+            float outerLegDefault = (npc.ModNPC is YamataABody ? 150f : 70f) + 0.5f * scalar;
+            float innerLegDefault = (npc.ModNPC is YamataABody ? 120f : 50f) + 0.5f * scalar;
+            float standOnX = npc.Center.X + (npc.ModNPC is YamataABody yamataA ? yamataA.topVisualOffset.X : 0) + (limbType == 3 ? -outerLegDefault - Hitbox.Width : limbType == 2 ? outerLegDefault + Hitbox.Width : limbType == 1 ? -innerLegDefault - Hitbox.Width : innerLegDefault + Hitbox.Width);
 
             int defaultTileY = (int)(npc.Bottom.Y / 16f);
             int tileY = WorldGenUtils.GetFirstTileFloor((int)(standOnX / 16f), (int)(npc.Bottom.Y / 16f));
@@ -932,7 +932,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 tileY = (int)(tileY * 16f) / 16;
                 float tilePosY = tileY * 16f;
                 if (Main.tile[(int)(standOnX / 16f), tileY] == null || !Main.tile[(int)(standOnX / 16f), tileY].HasUnactuatedTile || !Main.tileSolid[Main.tile[(int)(standOnX / 16f), tileY].TileType]) tilePosY += 16f;
-                return new Vector2(standOnX - (Hitbox.Width * 0.5f), tilePosY - Hitbox.Height);
+                return new Vector2(standOnX - Hitbox.Width * 0.5f, tilePosY - Hitbox.Height);
             }
             return default;
         }

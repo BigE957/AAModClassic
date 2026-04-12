@@ -1,5 +1,6 @@
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -32,7 +33,7 @@ namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.DragonClawBanner>();
+			BannerItem = ModContent.ItemType<DragonClawBanner>();
         }
 
         public override void AI()

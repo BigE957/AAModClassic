@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs._Underground
 {
     public class MireMimic : ModNPC
 	{

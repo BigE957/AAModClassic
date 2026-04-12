@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
+namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
 {
     public class PurityCrawler : ModNPC
     {

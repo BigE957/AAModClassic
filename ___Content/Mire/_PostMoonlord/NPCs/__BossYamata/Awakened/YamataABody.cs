@@ -20,7 +20,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     [AutoloadBossHead]
     public class YamataABody : YamataBoss
@@ -148,7 +148,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             }
             if (!AAWorld.downedYamata)
             {
-                if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
+                if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA6"), new Color(146, 30, 68));
                     threeQuarterHealth = true;
@@ -166,7 +166,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             }
             if (AAWorld.downedYamata)
             {
-                if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
+                if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA9"), new Color(146, 30, 68));
                     threeQuarterHealth = true;
@@ -481,8 +481,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 }
                 NPC.timeLeft = 300;
                 float playerDistance = Vector2.Distance(playerTarget.Center, NPC.Center);
-                if ((playerDistance < playerTooFarDist - 100f) && Math.Abs(NPC.velocity.X) > 12f) NPC.velocity.X *= 0.8f;
-                if ((playerDistance < playerTooFarDist - 100f) && Math.Abs(NPC.velocity.Y) > 12f) NPC.velocity.Y *= 0.8f;
+                if (playerDistance < playerTooFarDist - 100f && Math.Abs(NPC.velocity.X) > 12f) NPC.velocity.X *= 0.8f;
+                if (playerDistance < playerTooFarDist - 100f && Math.Abs(NPC.velocity.Y) > 12f) NPC.velocity.Y *= 0.8f;
                 if (NPC.velocity.Y > 7f) NPC.velocity.Y *= 0.75f;
                 AIMovementNormal(playerDistance);
             }
@@ -496,7 +496,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 
         public void AIMovementRunAway()
         {
-            if ((Main.netMode != NetmodeID.MultiplayerClient) && !loludide)
+            if (Main.netMode != NetmodeID.MultiplayerClient && !loludide)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata9"), new Color(146, 30, 68));
                 loludide = true;
@@ -528,7 +528,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 bool inRangeY = false;
                 if (npc.position.X > ai[0] - tileDist && npc.position.X < ai[0] + tileDist) { inRangeX = true; }
                 else
-                    if ((npc.velocity.X < 0f && npc.direction > 0) || (npc.velocity.X > 0f && npc.direction < 0)) { inRangeX = true; }
+                    if (npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0) { inRangeX = true; }
                 tileDist += 24;
                 if (npc.position.Y > ai[1] - tileDist && npc.position.Y < ai[1] + tileDist)
                 {
@@ -578,7 +578,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             {
                 if (Main.tile[tileX, tY] == null)
                     continue;
-                if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
+                if (Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType] || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     tileBelowEmpty = false;
                     break;
@@ -720,16 +720,16 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         private static float X(float t, float x0, float x1, float x2)
         {
             return (float)(
-                x0 * Math.Pow((1 - t), 2) +
-                x1 * 2 * t * Math.Pow((1 - t), 1) +
+                x0 * Math.Pow(1 - t, 2) +
+                x1 * 2 * t * Math.Pow(1 - t, 1) +
                 x2 * Math.Pow(t, 2)
             );
         }
         private static float Y(float t, float y0, float y1, float y2)
         {
             return (float)(
-                 y0 * Math.Pow((1 - t), 2) +
-                 y1 * 2 * t * Math.Pow((1 - t), 1) +
+                 y0 * Math.Pow(1 - t, 2) +
+                 y1 * 2 * t * Math.Pow(1 - t, 1) +
                  y2 * Math.Pow(t, 2)
              );
         }
@@ -751,10 +751,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     {
                         distBetween = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) -
                         X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X),
-                        Y(i, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y) -
-                        Y(i - chainsPerUse, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y));
+                        Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) -
+                        Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, connector.Y));
                         projTrueRotation = distBetween.ToRotation() + (float)Math.PI / 2;
-                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, (neckOrigin.Y + 50), connector.Y) - Main.screenPosition.Y),
+                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) - Main.screenPosition.Y),
                         new Rectangle(0, 0, neckTex2D.Width, neckTex2D.Height), drawColor, projTrueRotation,
                         new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                     }

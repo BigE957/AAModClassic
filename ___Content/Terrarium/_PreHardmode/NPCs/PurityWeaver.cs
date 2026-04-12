@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
+namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
 {
     public class PurityWeaver : ModNPC
 	{
@@ -128,8 +128,8 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 			float acceleration = 0.1f;
 
 			Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-			float targetXPos = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2);
-			float targetYPos = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2);
+			float targetXPos = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
+			float targetYPos = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
 
 			float targetRoundedPosX = (int)(targetXPos / 16.0) * 16;
 			float targetRoundedPosY = (int)(targetYPos / 16.0) * 16;

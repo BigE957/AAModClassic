@@ -3,10 +3,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Tiles.Bars;
-using AAModClassic.Items.Blocks;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Inferno._PreHardmode.Items.Materials
 {
     public class IncineriteBar : BaseAAItem
     {

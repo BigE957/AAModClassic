@@ -1,4 +1,5 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -40,7 +41,7 @@ namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.InfernoSalamanderBanner>();
+			BannerItem = ModContent.ItemType<InfernoSalamanderBanner>();
 
         }
 

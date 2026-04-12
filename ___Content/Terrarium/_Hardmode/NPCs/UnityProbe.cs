@@ -1,11 +1,11 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
+﻿using AAModClassic.___Content.Terrarium.Projectiles;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs
 {
     public class UnityProbe : ModNPC
 	{
@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
             BaseAI.AISkull(NPC, ref NPC.ai, false, 6f, 350f, 0.1f, 0.15f);
             Player player = Main.player[NPC.target];
             bool playerActive = player != null && player.active && !player.dead;
-            BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);
+            BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);
             if (Main.netMode != NetmodeID.MultiplayerClient && playerActive)
             {
                 NPC.ai[2]++;

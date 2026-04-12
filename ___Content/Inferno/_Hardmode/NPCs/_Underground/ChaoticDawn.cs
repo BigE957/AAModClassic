@@ -1,3 +1,4 @@
+using AAModClassic.Items.Banners;
 using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using System;
@@ -6,7 +7,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground
+namespace AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground
 {
     public class ChaoticDawn : ModNPC
 	{
@@ -33,7 +34,7 @@ namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.ChaoticDawnBanner>();
+			BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
         }
 
         public override void AI()

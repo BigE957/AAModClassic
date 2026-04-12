@@ -7,7 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Equinox;
 
-namespace AAModClassic.NPCs.Enemies.Other
+namespace AAModClassic.___Content.Stars._PostMoonlord.NPCs
 {
     public class Nightguard : ModNPC
 	{
@@ -51,7 +51,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 			BaseAI.AISkull(NPC, ref NPC.ai, false, 6f, 350f, 0.1f, 0.15f);
 			Player player = Main.player[NPC.target];
 			bool playerActive = player != null && player.active && !player.dead;
-			BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);		
+			BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);		
 			if(Main.netMode != NetmodeID.MultiplayerClient && playerActive)
 			{
 				shootAI++;

@@ -1,6 +1,7 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +10,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs
+namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung
 {
     public class AncientLungHead
         : ModNPC
@@ -50,7 +51,7 @@ namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.LungBanner>();
+			BannerItem = ModContent.ItemType<LungBanner>();
         }
         public override bool PreAI()
         {

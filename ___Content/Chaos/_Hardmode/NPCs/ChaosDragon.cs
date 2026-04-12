@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Other
+namespace AAModClassic.___Content.Chaos._Hardmode.NPCs
 {
     public class ChaosDragon : ModNPC
 	{
@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += 96;
-                if (NPC.frame.Y > (96 * 3))
+                if (NPC.frame.Y > 96 * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

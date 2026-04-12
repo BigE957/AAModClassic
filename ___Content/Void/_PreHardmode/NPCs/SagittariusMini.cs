@@ -7,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Void
+namespace AAModClassic.___Content.Void._PreHardmode.NPCs
 {
     public class SagittariusMini : ModNPC
 	{

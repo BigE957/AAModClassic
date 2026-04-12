@@ -1,11 +1,10 @@
-using AAModClassic.Items.Blocks;
-using AAModClassic.Tiles.Bars;
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials
 {
     public class DaybreakIncineriteBar : BaseAAItem
     {
@@ -27,7 +26,7 @@ namespace AAModClassic.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<DaybreakIncineriteBar_Tile>();
-            Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            Item.value = Item.sellPrice(0, 3, 0, 0);
         }
         public override void AddRecipes()
         {                                                   

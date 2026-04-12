@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Terrarium.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
@@ -5,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
+namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
 {
     public class PuritySphere : ModNPC
 	{

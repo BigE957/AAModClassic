@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Void
+namespace AAModClassic.___Content.Void._PostMoonlord.NPCs
 {
     public class Searcher : ModNPC
 	{
@@ -61,7 +61,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             BaseAI.AISkull(NPC, ref NPC.ai, true, 6f, 350f, 0.1f, 0.15f);
             Player player = Main.player[NPC.target];
             bool playerActive = player != null && player.active && !player.dead;
-            BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);
+            BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);
             if (Main.netMode != NetmodeID.MultiplayerClient && playerActive)
             {
                 shootAI++;

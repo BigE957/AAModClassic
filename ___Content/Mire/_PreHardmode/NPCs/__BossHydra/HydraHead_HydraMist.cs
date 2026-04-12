@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra
 {
     internal class HydraHead_HydraMist : ModProjectile
     {

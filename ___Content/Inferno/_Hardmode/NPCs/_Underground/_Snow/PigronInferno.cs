@@ -1,3 +1,4 @@
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -5,7 +6,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground.Snow
+namespace AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground._Snow
 {
     public class PigronInferno : ModNPC
 	{
@@ -32,7 +33,7 @@ namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground.Snow
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.DragronBanner>();
+			BannerItem = ModContent.ItemType<DragronBanner>();
         }
 
 

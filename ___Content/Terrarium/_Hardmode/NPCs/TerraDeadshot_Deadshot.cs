@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs
 {
     public class TerraDeadshot_Deadshot : ModProjectile
     {

@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.NPCs.Enemies.Sky
+namespace AAModClassic.___Content.Sky._Hardmode.NPCs
 {
     public class ElderDragon : ModNPC
     {
@@ -50,7 +50,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += 96;
-                if (NPC.frame.Y > (96 * 3))
+                if (NPC.frame.Y > 96 * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

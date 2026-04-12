@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Ore;
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Inferno._PreHardmode.Items.Materials
 {
     public class IncineriteOre : BaseAAItem
     {

@@ -14,6 +14,7 @@ using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.Tiles.Altar;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {

@@ -1,4 +1,5 @@
-﻿using AAModClassic.Items.Materials;
+﻿using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,7 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground
+namespace AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground.Wyrm
 {
     public class WyrmHead : ModNPC
 	{
@@ -41,7 +42,7 @@ namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground
             NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.WyrmBanner>();
+			BannerItem = ModContent.ItemType<WyrmBanner>();
         }
         public override bool PreAI()
         {

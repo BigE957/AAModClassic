@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
     public class YamataHead_Soulsplosion : ModProjectile
     {

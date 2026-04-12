@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.NPCs.Enemies.Other
+namespace AAModClassic.___Content.Madness._PreHM.NPCs
 {
     public class MadnessSlime : ModNPC
 	{

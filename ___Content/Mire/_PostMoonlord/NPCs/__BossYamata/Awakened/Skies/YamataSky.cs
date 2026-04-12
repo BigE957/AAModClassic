@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.Skies
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies
 {
     
 

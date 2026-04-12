@@ -8,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.NPCs.Enemies.Hallow
+namespace AAModClassic.___Content.Hallow._Hardmode.NPCs
 {
     public class FatPixie : ModNPC
     {

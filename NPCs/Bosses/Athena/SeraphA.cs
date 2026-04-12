@@ -1,4 +1,4 @@
-using AAModClassic.NPCs.Enemies.Sky;
+using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
 
 namespace AAModClassic.NPCs.Bosses.Athena
 {

@@ -1,5 +1,6 @@
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -31,7 +32,7 @@ namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;		
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.FlamebruteBanner>();
+			BannerItem = ModContent.ItemType<FlamebruteBanner>();
         }
 
 		const int frameHeightPlusFluff = 78; //the 2 pixels per frame

@@ -7,8 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Banners;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
+namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs.Wyrmling
 {
     public class WyrmlingTail1 : WyrmlingHead
     {
@@ -23,7 +24,7 @@ namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = ModContent.NPCType<WyrmlingHead>();
-            BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
+            BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

@@ -7,7 +7,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs._Underground
 {
     public class ChaoticTwilight : ModNPC
 	{

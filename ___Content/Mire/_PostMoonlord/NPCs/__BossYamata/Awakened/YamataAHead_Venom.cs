@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     public class YamataAHead_Venom : ModProjectile
     {

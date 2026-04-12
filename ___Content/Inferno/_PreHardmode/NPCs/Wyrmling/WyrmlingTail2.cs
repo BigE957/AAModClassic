@@ -7,8 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Banners;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
+namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs.Wyrmling
 {
     public class WyrmlingTail2 : WyrmlingHead
     {
@@ -24,7 +25,7 @@ namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
 
             NPC.alpha = 255;
             Banner = ModContent.NPCType<WyrmlingHead>();
-            BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
+            BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

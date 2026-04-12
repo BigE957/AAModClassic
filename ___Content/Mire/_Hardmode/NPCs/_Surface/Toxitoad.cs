@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 
-namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Surface
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs._Surface
 {
     public class Toxitoad : ModNPC
     {

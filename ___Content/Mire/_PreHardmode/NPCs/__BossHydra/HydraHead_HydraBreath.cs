@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra
 {
     internal class HydraHead_HydraBreath : ModProjectile
     {

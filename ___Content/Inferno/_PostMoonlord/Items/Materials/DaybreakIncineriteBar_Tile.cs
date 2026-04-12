@@ -1,11 +1,10 @@
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials
 {
     public class DaybreakIncineriteBar_Tile : ModTile
     {

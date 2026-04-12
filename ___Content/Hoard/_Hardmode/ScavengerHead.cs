@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 
-namespace AAModClassic.NPCs.Enemies.Cavern
+namespace AAModClassic.___Content.Hoard._Hardmode
 {
     public class ScavengerHead : ModNPC
     {
@@ -64,11 +64,11 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                     int a;
                     if (num36 >= 0 && num36 < 5)
                     {
-                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), ModContent.NPCType<ScavengerBody>(), NPC.whoAmI);
+                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + NPC.width / 2, (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<ScavengerBody>(), NPC.whoAmI);
                     }
                     else
                     {
-                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), ModContent.NPCType<ScavengerTail>(), NPC.whoAmI);
+                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + NPC.width / 2, (int)NPC.position.Y + NPC.height / 2, ModContent.NPCType<ScavengerTail>(), NPC.whoAmI);
                     }
                     Main.npc[a].realLife = NPC.whoAmI;
                     Main.npc[a].ai[2] = NPC.whoAmI;
@@ -106,7 +106,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                 {
                     for (int num953 = num52; num953 < num53; num953++)
                     {
-                        if (Main.tile[num952, num953] != null && ((Main.tile[num952, num953].HasUnactuatedTile && (Main.tileSolid[Main.tile[num952, num953].TileType] || (Main.tileSolidTop[Main.tile[num952, num953].TileType] && Main.tile[num952, num953].TileFrameY == 0))) || Main.tile[num952, num953].LiquidAmount > 64))
+                        if (Main.tile[num952, num953] != null && (Main.tile[num952, num953].HasUnactuatedTile && (Main.tileSolid[Main.tile[num952, num953].TileType] || Main.tileSolidTop[Main.tile[num952, num953].TileType] && Main.tile[num952, num953].TileFrameY == 0) || Main.tile[num952, num953].LiquidAmount > 64))
                         {
                             Vector2 vector105;
                             vector105.X = num952 * 16;
@@ -208,7 +208,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                 if (!flies)
                 {
                     NPC.TargetClosest(true);
-                    NPC.velocity.Y = NPC.velocity.Y + (turnSpeed * 0.75f);
+                    NPC.velocity.Y = NPC.velocity.Y + turnSpeed * 0.75f;
                     if (NPC.velocity.Y > num58)
                     {
                         NPC.velocity.Y = num58;
@@ -272,7 +272,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                     bool flag21 = false;
                     if (!flag21)
                     {
-                        if ((NPC.velocity.X > 0f && num61 > 0f) || (NPC.velocity.X < 0f && num61 < 0f) || (NPC.velocity.Y > 0f && num62 > 0f) || (NPC.velocity.Y < 0f && num62 < 0f))
+                        if (NPC.velocity.X > 0f && num61 > 0f || NPC.velocity.X < 0f && num61 < 0f || NPC.velocity.Y > 0f && num62 > 0f || NPC.velocity.Y < 0f && num62 < 0f)
                         {
                             if (NPC.velocity.X < num61)
                             {
@@ -296,7 +296,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                                     NPC.velocity.Y = NPC.velocity.Y - num59;
                                 }
                             }
-                            if (System.Math.Abs(num62) < num58 * 0.2 && ((NPC.velocity.X > 0f && num61 < 0f) || (NPC.velocity.X < 0f && num61 > 0f)))
+                            if (System.Math.Abs(num62) < num58 * 0.2 && (NPC.velocity.X > 0f && num61 < 0f || NPC.velocity.X < 0f && num61 > 0f))
                             {
                                 if (NPC.velocity.Y > 0f)
                                 {
@@ -307,7 +307,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                                     NPC.velocity.Y = NPC.velocity.Y - num59 * 2f;
                                 }
                             }
-                            if (System.Math.Abs(num61) < num58 * 0.2 && ((NPC.velocity.Y > 0f && num62 < 0f) || (NPC.velocity.Y < 0f && num62 > 0f)))
+                            if (System.Math.Abs(num61) < num58 * 0.2 && (NPC.velocity.Y > 0f && num62 < 0f || NPC.velocity.Y < 0f && num62 > 0f))
                             {
                                 if (NPC.velocity.X > 0f)
                                 {
@@ -385,7 +385,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                     }
                     NPC.localAI[0] = 0f;
                 }
-                if (((NPC.velocity.X > 0f && NPC.oldVelocity.X < 0f) || (NPC.velocity.X < 0f && NPC.oldVelocity.X > 0f) || (NPC.velocity.Y > 0f && NPC.oldVelocity.Y < 0f) || (NPC.velocity.Y < 0f && NPC.oldVelocity.Y > 0f)) && !NPC.justHit)
+                if ((NPC.velocity.X > 0f && NPC.oldVelocity.X < 0f || NPC.velocity.X < 0f && NPC.oldVelocity.X > 0f || NPC.velocity.Y > 0f && NPC.oldVelocity.Y < 0f || NPC.velocity.Y < 0f && NPC.oldVelocity.Y > 0f) && !NPC.justHit)
                 {
                     NPC.netUpdate = true;
                     return;

@@ -8,7 +8,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Zero;
 
-namespace AAModClassic.NPCs.Enemies.Void
+namespace AAModClassic.___Content.Void._Hardmode.NPCs
 {
     public class VoidScout : ModNPC
 	{

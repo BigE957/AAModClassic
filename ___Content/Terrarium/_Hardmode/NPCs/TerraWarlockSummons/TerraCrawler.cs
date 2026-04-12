@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons
 {
     public class TerraCrawler : ModNPC
 	{
@@ -51,7 +51,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += 20;
-                if (NPC.frame.Y > (20 * 4))
+                if (NPC.frame.Y > 20 * 4)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

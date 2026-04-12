@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.___Content.Inferno._Hardmode.NPCs.Underground
+namespace AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground
 {
     public class InfernoMimic : ModNPC
 	{

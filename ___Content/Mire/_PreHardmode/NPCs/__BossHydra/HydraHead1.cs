@@ -11,7 +11,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra
 {
     [AutoloadBossHead]
     public class HydraHead1 : ModNPC

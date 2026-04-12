@@ -6,7 +6,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground.Snow
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs._Underground._Snow
 {
     public class PigronMire : ModNPC
 	{

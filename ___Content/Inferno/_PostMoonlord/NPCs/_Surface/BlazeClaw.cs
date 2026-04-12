@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 using System;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Items.Banners;
 
-namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs.Surface
+namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface
 {
     public class BlazeClaw : ModNPC
     {
@@ -31,7 +32,7 @@ namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs.Surface
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.BlazeClawBanner>();
+			BannerItem = ModContent.ItemType<BlazeClawBanner>();
         }
 
         public override void AI()
