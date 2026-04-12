@@ -1,7 +1,9 @@
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Shen
@@ -62,15 +64,18 @@ namespace AAModClassic.Items.Boss.Shen
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ChaosScale>(), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ChaosSoul>());
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<EXSoul>());
-            string[] lootTable = 
-            {
-                "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter"
-            };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenAMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosSoul>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosScale>(), 1, 30, 40));
+
+            int[] lootTable = { ModContent.ItemType<ChaosSlayer>(), ModContent.ItemType<MeteorStrike>(), ModContent.ItemType<Skyfall>(), ModContent.ItemType<Astroid>(), ModContent.ItemType<DraconicRipper>(), ModContent.ItemType<FlamingTwilight>(), ModContent.ItemType<ShenTerratool>(), ModContent.ItemType<Timesplitter>() };
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
 	}
 }

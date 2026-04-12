@@ -15,6 +15,9 @@ using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Items.BossSummons;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -556,7 +559,6 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 if (Main.expertMode)
                 {
-                    NPC.DropLoot(Items.Vanity.Mask.ShenAMask.type, 1f / 7);
                     if (!NPC.BeenKilled(true))
                     {
                         NPC.DropLoot(ModContent.ItemType<Items.BossSummons.ChaosRune>());
@@ -576,7 +578,29 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 
         }
 
-            bool Dashing = false;
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ShenCache>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenATrophy>(), 10));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+
+            LeadingConditionRule firstKill = new(new FirstTimeKillingShenA());
+
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosRune>()));
+
+            npcLoot.Add(firstKill);
+        }
+
+        public class FirstTimeKillingShenA : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !NPCExtensions.BeenKilled<ShenA>(true);
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
+        }
+
+        bool Dashing = false;
 
         public override void FindFrame(int frameHeight)
         {

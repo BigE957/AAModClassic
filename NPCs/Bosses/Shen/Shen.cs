@@ -20,6 +20,8 @@ using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -812,11 +814,17 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
         }
 
+        public override bool PreKill()
+        {
+            if (Main.expertMode)
+                NPC.boss = false;
+            return true;
+        }
+
         public override void OnKill()
         {
             if (NPC.type != ModContent.NPCType<ShenA>())
             {
-                NPC.DropLoot(Items.Vanity.Mask.ShenMask.type, 1f / 7);
                 if (!Main.expertMode)
                 {
                     if (!NPC.BeenKilled(true))
@@ -826,23 +834,30 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     else
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon18"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                    }
-                    NPC.DropLoot(ModContent.ItemType<ChaosScale>(), 20, 30);
-                    string[] lootTable = { "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter" };
-                    int loot = Main.rand.Next(lootTable.Length);
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
+                    };
 
                 }
                 else
                 {
                     NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenTransition>());
                 }
-
-                if(Main.rand.NextBool(10))
-                    NPC.DropLoot(ModContent.ItemType<ShenTrophy>());
-                //NPC.value = 0f;
-                //NPC.boss = false;
             }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosScale>(), 1, 20, 30));
+
+            int[] lootTable = { ModContent.ItemType<ChaosSlayer>(), ModContent.ItemType<MeteorStrike>(), ModContent.ItemType<Skyfall>(), ModContent.ItemType<Astroid>(), ModContent.ItemType<DraconicRipper>(), ModContent.ItemType<FlamingTwilight>(), ModContent.ItemType<ShenTerratool>(), ModContent.ItemType<Timesplitter>() };
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

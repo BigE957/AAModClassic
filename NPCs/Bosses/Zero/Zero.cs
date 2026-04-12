@@ -154,6 +154,13 @@ namespace AAModClassic.NPCs.Bosses.Zero
             }
         }
 
+        public override bool PreKill()
+        {
+            if (Main.expertMode)
+                NPC.boss = false;
+            return true;
+        }
+
         public override void OnKill()
         {
             if (Main.expertMode)
