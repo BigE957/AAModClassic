@@ -16,6 +16,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.UI;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 {
@@ -84,7 +85,9 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
             if (ContentReplacementSystem.NeedToReplaceContent)
                 notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowingMossBall>(), ModContent.ItemType<ShadowBand>()));
 
-            //notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask(1-3)>(), 7)); Exists but doesn't drop...?
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask1>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask2>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask3>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 30, 50));
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 40, 90));

@@ -1,5 +1,7 @@
+using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Sagittarius
@@ -30,20 +32,24 @@ namespace AAModClassic.Items.Boss.Sagittarius
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SagMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
-            }
-            string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Items.Materials.DoomiteBar>(), Main.rand.Next(35, 45));
-			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SagShield>());			
+            }		
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SagMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SagShield>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DoomiteBar>(), 1, 35, 45));
+
+            int[] lootTable = { ModContent.ItemType<SagCore>(), ModContent.ItemType<NeutronStaff>(), ModContent.ItemType<Legg>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }

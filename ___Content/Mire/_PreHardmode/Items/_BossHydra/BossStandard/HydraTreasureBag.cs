@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
@@ -67,33 +68,26 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 
         public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraMask1>());
-            }
-            else if (Main.rand.Next(7) == 1)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraMask2>());
-            }
-            else if(Main.rand.Next(7) == 2)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraMask3>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AbyssiumOre>(), Main.rand.Next(75, 125));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraHide>(), Main.rand.Next(50, 100));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraPendant>());
+        }
 
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
             if (ContentReplacementSystem.NeedToReplaceContent)
-            {
-                int[] podDrops = [ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowingMossBall>(), ModContent.ItemType<ShadowBand>()];
-                int itemID = podDrops[Main.rand.Next(podDrops.Length)];
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), itemID);
-            }
+                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowingMossBall>(), ModContent.ItemType<ShadowBand>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraMask1>(), 7));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraMask2>(), 7));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraMask3>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraPendant>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 50, 100));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 75, 125));
         }
 	}
 }

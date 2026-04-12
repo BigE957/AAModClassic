@@ -2,6 +2,7 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,26 +34,23 @@ namespace AAModClassic.Items.Boss.Grips
 
 		public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GripMaskBlue>());
-            }
-            else if (Main.rand.Next(7) == 1)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GripMaskRed>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            if (Main.rand.Next(3) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ClawBaton>());
-            }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AbyssiumOre>(), Main.rand.Next(25, 56));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<IncineriteOre>(), Main.rand.Next(25, 56));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ClawOfChaos>());
 		}
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GripMaskBlue>(), 7).OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<GripMaskRed>(), 7)));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClawBaton>(), 3));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 25, 56));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 25, 56));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClawOfChaos>()));
+        }
 	}
 }

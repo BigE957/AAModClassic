@@ -3,10 +3,12 @@ using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -62,30 +64,26 @@ namespace AAModClassic.Items.Boss.Broodmother
 
 		public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(7) == 0)
-            {
-                //player.QuickSpawnItem(mod.ItemType("ZeroMask"));
-            }
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<BroodEgg>());
-            }
             if (Main.rand.Next(10) == 0)
             {
 
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<IncineriteOre>(), Main.rand.Next(75, 125));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<BroodScale>(), Main.rand.Next(50, 100));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DragonCape>());
+        }
 
-            if(ContentReplacementSystem.NeedToReplaceContent)
-            {
-                int[] eggDrops = [ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonsSoul>(), ModContent.ItemType<DragonsGuard>()];
-                int itemID = eggDrops[Main.rand.Next(eggDrops.Length)];
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), itemID);
-            }
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
+
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonsSoul>(), ModContent.ItemType<DragonsGuard>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AAModClassic.Items.Pets.BroodEgg>(), 7));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonCape>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 50, 100));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 75, 125));
         }
 	}
 }

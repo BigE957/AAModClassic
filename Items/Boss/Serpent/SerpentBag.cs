@@ -1,6 +1,7 @@
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Serpent
@@ -32,27 +33,24 @@ namespace AAModClassic.Items.Boss.Serpent
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SerpentMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SnowMana>(), Main.rand.Next(15, 20));
-            string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
-            int loot = Main.rand.Next(lootTable.Length);
-            if (Main.rand.Next(9) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SnowflakeShuriken>(), Main.rand.Next(100, 130));
-            }
-            else
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
-			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ArcticMedallion>());			
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SerpentMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 1, 15, 20));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ArcticMedallion>()));
+
+            int[] lootTable = { ModContent.ItemType<BlizzardBuster>(), ModContent.ItemType<SerpentSpike>(), ModContent.ItemType<Icepick>(), ModContent.ItemType<SerpentSting>(), ModContent.ItemType<Sickle>(), ModContent.ItemType<SickleShot>(), ModContent.ItemType<SnakeStaff>(), ModContent.ItemType<SubzeroSlasher>() };
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 9, 100, 130).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
         }
     }
 }

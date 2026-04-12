@@ -13,6 +13,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -534,37 +535,25 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             potionType = ItemID.HealingPotion;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Sandstorm.TimeLeft = 0;
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DjinnTrophy>());
-            }
-            if (!Main.expertMode)
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DjinnMask>());
-                }
-                NPC.DropLoot(ModContent.ItemType<DesertMana>(), 10, 15);
-                string[] lootTable = { "Djinnerang", "SandLamp", "SandScepter", "SandstormCrossbow", "SultanScimitar" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Items.Vanity.Mask.DjinnMask.type, 1f / 7);
-                if (Main.rand.Next(6) == 0)
-                {
-                    NPC.DropLoot(ModContent.ItemType<Sandagger>(), 90, 120);
-                }
-                else
-                {
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                }
-            }
-            else
-            {
-                NPC.DropLoot(ModContent.ItemType<DjinnBag>());
-            }
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DjinnBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DjinnTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DjinnMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DesertMana>(), 1, 10, 15));
+
+            int[] lootTable = { ModContent.ItemType<Djinnerang>(), ModContent.ItemType<SandLamp>(), ModContent.ItemType<SandScepter>(), ModContent.ItemType<SandstormCrossbow>(), ModContent.ItemType<SultanScimitar>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 90, 120).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
+
+            npcLoot.Add(notExpertRule);
         }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D CurrentTex;

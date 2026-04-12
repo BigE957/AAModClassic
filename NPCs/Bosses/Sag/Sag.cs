@@ -1,18 +1,19 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Sagittarius;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-using System.IO;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Items.Boss.Sagittarius;
-using AAModClassic.Items.Vanity.Mask;
-using AAModClassic.Music;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {
@@ -467,27 +468,23 @@ namespace AAModClassic.NPCs.Bosses.Sag
             return false;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SagTrophy>());
-            }
-            if (!Main.expertMode)
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    NPC.DropLoot(ModContent.ItemType<SagMask>());
-                }
-                string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                Item.NewItem(NPC.GetSource_Loot(), NPC.Center, ModContent.ItemType<Items.Materials.DoomiteBar>(), Main.rand.Next(20, 30));
-            }
-            else
-            {
-                NPC.DropLoot(ModContent.ItemType<SagBag>());
-            }
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SagBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SagTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SagMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DoomiteBar>(), 1, 20, 30));
+
+            int[] lootTable = { ModContent.ItemType<SagCore>(), ModContent.ItemType<NeutronStaff>(), ModContent.ItemType<Legg>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public void MoveToPoint(Vector2 point)

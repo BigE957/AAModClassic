@@ -1,6 +1,7 @@
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Djinn
@@ -31,27 +32,24 @@ namespace AAModClassic.Items.Boss.Djinn
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DjinnMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
-            }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DesertMana>(), Main.rand.Next(15, 20));
-            string[] lootTable = { "Djinnerang", "SandLamp", "SandScepter", "SandstormCrossbow", "SultanScimitar" };
-            int loot = Main.rand.Next(lootTable.Length);
-            if (Main.rand.Next(9) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Sandagger>(), Main.rand.Next(100, 130));
-            }
-            else
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
-			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SandstormMedallion>());		
+            }		
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DjinnMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DesertMana>(), 1, 15, 20));
+
+            int[] lootTable = { ModContent.ItemType<Djinnerang>(), ModContent.ItemType<SandLamp>(), ModContent.ItemType<SandScepter>(), ModContent.ItemType<SandstormCrossbow>(), ModContent.ItemType<SultanScimitar>() };
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 100, 130).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandstormMedallion>()));
         }
     }
 }

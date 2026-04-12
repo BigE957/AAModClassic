@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -440,47 +441,43 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             potionType = ItemID.GreaterHealingPotion;
         }
 
-        public override void OnKill()
+        public override bool PreKill()
         {
             if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
             {
                 if (!AAWorld.AnubisAwakened)
-                {
                     AAWorld.AnubisAwakened = true;
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
-                }
-                else
-                {
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
-                }
-                return;
+
+                NPC.boss = false;
             }
+            return true;
+        }
+
+        public override void OnKill()
+        {
+            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
             else
-            {
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
-            }
+        }
 
-            if (Main.rand.Next(10) == 0)
-            {
-                NPC.DropLoot(ModContent.ItemType<AnubisTrophy>());
-            }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisBag>()));
 
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<AnubisBag>());
-            }
-            else
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    NPC.DropLoot(ModContent.ItemType<AnubisMask>());
-                }
-                NPC.DropLoot(ModContent.ItemType<ForsakenFragment>(), Main.rand.Next(8, 16));
-                NPC.DropLoot(ModContent.ItemType<ArtifactOfJudgement>());
-                string[] lootTable = { "Judgment", "NeithsString", "DesertStaff", "JackalsWrath", "Sandthrower", "SentryOfTheEye" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AnubisTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ForsakenFragment>(), 1, 8, 16));
+
+            int[] lootTable = { ModContent.ItemType<Judgment>(), ModContent.ItemType<NeithsString>(), ModContent.ItemType<DesertStaff>(), ModContent.ItemType<JackalsWrath>(), ModContent.ItemType<SandstormThrower>(), ModContent.ItemType<SentryOfTheEye>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void FindFrame(int frameHeight)

@@ -1,5 +1,6 @@
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,19 +34,20 @@ namespace AAModClassic.Items.Boss.Toad
 
 		public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ToadMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            string[] lootTable = { "MushrockStaff", "ToadTongue", "Todegun" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ToadLeg>());
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ToadMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ToadLeg>()));
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<MushrockStaff>(), ModContent.ItemType<ToadTongue>(), ModContent.ItemType<Todegun>()));
         }
 	}
 }

@@ -1,4 +1,6 @@
+using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,17 +32,20 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<Vanity.Mask.MonarchMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Mushium>(), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HeartyTruffle>());
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MonarchMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartyTruffle>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 1, 30, 40));
         }
     }
 }

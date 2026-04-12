@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Serpent;
 using AAModClassic.Items.Materials;
@@ -10,9 +8,12 @@ using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -818,37 +819,23 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (!Main.expertMode)
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SerpentMask>());
-                }
-                NPC.DropLoot(ModContent.ItemType<SnowMana>(), 10, 15);
-                string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Items.Vanity.Mask.SerpentMask.type, 1f / 7);
-                if (Main.rand.Next(9) == 0)
-                {
-                    NPC.DropLoot(ModContent.ItemType<SnowflakeShuriken>(), 90, 120);
-                }
-                else
-                {
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                }
-            }
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<Items.Boss.Serpent.SerpentBag>());
-            }
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SerpentTrophy>());
-            }
-            //NPC.value = 0f;
-            //NPC.boss = false;
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SerpentBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SerpentTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SerpentMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 1, 10, 15));
+
+            int[] lootTable = { ModContent.ItemType<BlizzardBuster>(), ModContent.ItemType<SerpentSpike>(), ModContent.ItemType<Icepick>(), ModContent.ItemType<SerpentSting>(), ModContent.ItemType<Sickle>(), ModContent.ItemType<SickleShot>(), ModContent.ItemType<SnakeStaff>(), ModContent.ItemType<SubzeroSlasher>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 9, 90, 120).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

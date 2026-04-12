@@ -771,7 +771,11 @@ namespace AAModClassic.CrossMod
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Items.BossSummons.Scepter>() + "]"),
-                    ["despawnMessage"] = Language.GetOrRegister(path + "Anubis.Despawn"),
+                    ["despawnMessage"] = (Func<NPC, LocalizedText>)((NPC npc) => {
+                        if (NPC.AnyNPCs(ModContent.NPCType<FATransition>()))
+                            return null;
+                        return Language.GetOrRegister(path + "Anubis.Despawn");
+                    }),
                     ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
