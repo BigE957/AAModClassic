@@ -1,9 +1,11 @@
+using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -63,39 +65,38 @@ namespace AAModClassic.Items.Boss.Zero
         {
             if (Main.rand.NextBool(10))
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ZeroCore>());
-            }
-            if (Main.rand.NextBool(7))
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ZeroMask>());
-            }
-            if (Main.rand.NextBool(10))
-            {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<UnstableSingularity>(), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<BrokenCode>());
-            string[] lootTable = 
-            {
-                "Battery",
-                "ZeroArrow",
-                "Vortex",
-                "EventHorizon",
-                "RealityCannon",
-                "RiftShredder",
-                "VoidStar",
-                "TeslaHand",
-                "Neutralizer",
-                "ZeroTerratool",
-                "DoomPortal",
-                "Gigataser",
-                "OmegaVolley",
-                "GenocideCannon"
+        }
 
-            };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroCore>(), 10));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BrokenCode>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnstableSingularity>(), 1, 30, 40));
+
+            int[] lootTable =
+            {
+                ModContent.ItemType<Battery>(),
+                ModContent.ItemType<ZeroArrow>(),
+                ModContent.ItemType<Vortex>(),
+                ModContent.ItemType<EventHorizon>(),
+                ModContent.ItemType<Items.Boss.Zero.RealityCannon>(),
+                ModContent.ItemType<Items.Boss.Zero.RiftShredder>(),
+                ModContent.ItemType<Items.Boss.Zero.VoidStar>(),
+                ModContent.ItemType<Items.Boss.Zero.TeslaHand>(),
+                ModContent.ItemType<ZeroStar>(),
+                ModContent.ItemType<ZeroTerratool>(),
+                ModContent.ItemType<DoomPortal>(),
+                ModContent.ItemType<Gigataser>(),
+                ModContent.ItemType<Items.Boss.Zero.OmegaVolley>(),
+                ModContent.ItemType<Items.Boss.Zero.GenocideCannon>() };
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
 	}
 }

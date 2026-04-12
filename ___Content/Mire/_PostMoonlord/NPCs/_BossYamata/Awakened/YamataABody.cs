@@ -15,6 +15,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -206,28 +207,31 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA4"), new Color(146, 30, 68));
             }
+        }
 
-            if (Main.expertMode)
-            {
-                if (!NPC.BeenKilled(true))
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<DreadRune>());
-                }
-                if (Main.rand.NextBool(10))
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<YamataATrophy>());
-                }
-                if (Main.rand.NextBool(7))
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<YamataAMask>());
-                }
-                
-                NPC.DropLoot(ModContent.ItemType<YamataTreasureBag>());
-                if (Main.rand.NextBool(50) && AAWorld.downedShen)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());
-                }
-            }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<YamataTreasureBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<YamataATrophy>(), 10));
+
+            LeadingConditionRule firstKill = new(new FirstTimeKillingYamataA());
+
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadRune>()));
+
+            LeadingConditionRule shenDefeated = new(new AAModClassic.NPCs.Bosses.Akuma.Awakened.AkumaA.ShenDefeated());
+
+            shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
+
+            npcLoot.Add(firstKill);
+            npcLoot.Add(shenDefeated);
+        }
+
+        public class FirstTimeKillingYamataA : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !NPCExtensions.BeenKilled<YamataABody>(true);
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
         }
 
 

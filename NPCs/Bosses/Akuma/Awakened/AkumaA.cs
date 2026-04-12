@@ -617,17 +617,16 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaTrophy>(), 10));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaMask>(), 7));
-
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrucibleScale>(), 1, 20, 30));
-
             LeadingConditionRule firstKill = new(new FirstTimeKillingAkumaA());
 
             firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraconianRune>()));
 
-            LeadingConditionRule shenDefeated = new(new FirstTimeKillingAkumaA());
+            LeadingConditionRule shenDefeated = new(new ShenDefeated());
 
             shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
+
+            npcLoot.Add(firstKill);
+            npcLoot.Add(shenDefeated);
         }
 
         public class FirstTimeKillingAkumaA : IItemDropRuleCondition, IProvideItemConditionDescription
@@ -636,6 +635,8 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             public bool CanShowItemDropInUI() => true;
             public string GetConditionDescription() => null;
         }
+
+        //TODO: Organize the various conditions lying around
 
         public class ShenDefeated : IItemDropRuleCondition, IProvideItemConditionDescription
         {

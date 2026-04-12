@@ -1,4 +1,7 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
@@ -14,6 +17,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -197,36 +201,48 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public bool Dead = false;
 
+        public override bool PreKill()
+        {
+            if (Main.expertMode)
+                NPC.boss = false;
+            return true;
+        }
+
         public override void OnKill()
         {
             Dead = true;
-            if (!Tag)
-            {
-                NPC.DropLoot(ModContent.ItemType<YamataMask>(), 1f / 7f);
-                if (!Main.expertMode)
-                {
-                    NPC.DropLoot(ModContent.ItemType<DreadScale>(), 20, 30);
-                    string[] lootTable = { "Flairdra", "Crescent", "Hydraslayer", "AbyssArrow", "HydraStabber", "MidnightWrath", "YamataTerratool" };
-                    int loot = Main.rand.Next(lootTable.Length);
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                    NPC.DropLoot(YamataTrophy.type, 1f / 10);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata1"), new Color(45, 46, 70));
-                    NPC.DropLoot(ModContent.ItemType<YamataMask>(), 1f / 7);
-                    if (!NPC.BeenKilled(true))
-                    {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata2"), Color.Indigo);
-                    }
-                }
-                if (Main.expertMode)
-                {
-                    int npcID = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataTransition>(), 0, 0, 0, 0, 0, NPC.target);
-                    Main.npc[npcID].Center = NPC.Center;
-                    Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
-                }
-                //NPC.value = 0f;
-                //NPC.boss = false;
-            }
 
+            if (!Main.expertMode)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata1"), new Color(45, 46, 70));
+                if (!NPC.BeenKilled(true))
+                {
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata2"), Color.Indigo);
+                }
+            }
+            if (Main.expertMode)
+            {
+                int npcID = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataTransition>(), 0, 0, 0, 0, 0, NPC.target);
+                Main.npc[npcID].Center = NPC.Center;
+                Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
+            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<YamataTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<YamataMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadScale>(), 1, 20, 30));
+
+            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<YamataTerratool>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public int playerTooFarDist = 800;
@@ -240,7 +256,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public Vector2 bottomVisualOffset = default;
         public LegInfo[] legs = null;
         public bool[] headsSaidOw = new bool[7];
-        public bool Tag = false;
         public bool TeleportMe1 = false;
         public bool TeleportMe2 = false;
         public bool TeleportMe3 = false;
@@ -350,11 +365,6 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             TargetClosest();
             HandleHeads();
 
-            if (Tag)
-            {
-                NPC.life = 0;
-                NPC.netUpdate = true;
-            }
             if (SayTheLineYamata <= 0)
             {
                 SayTheLineYamata = 300;

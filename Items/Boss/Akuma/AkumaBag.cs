@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -61,20 +62,24 @@ namespace AAModClassic.Items.Boss.Akuma
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.NextBool(7))
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AkumaMask>());
-            }
             if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CrucibleScale>(), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<TaiyangBaolei>());
-            string[] lootTable = { "AkumaTerratool", "DayStorm", "LungStaff", "MorningGlory", "RadiantDawn", "Solar", "SunSpear", "ReignOfFire", "DaybreakArrow", "Daycrusher", "Dawnstrike", "SunStorm", "SunStaff", "DragonSlasher" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrucibleScale>(), 1, 30, 40));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TaiyangBaolei>()));
+
+            int[] lootTable = { ModContent.ItemType<AkumaTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<LungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunSpear>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<SunStorm>(), ModContent.ItemType<SunStaff>(), ModContent.ItemType<DragonSlasher>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }

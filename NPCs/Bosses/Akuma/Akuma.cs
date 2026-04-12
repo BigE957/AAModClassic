@@ -494,6 +494,13 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             return false;
         }
 
+        public override bool PreKill()
+        {
+            if (Main.expertMode)
+                NPC.boss = false;
+            return true;
+        }
+
         public override void OnKill()
         {
             if (!Main.expertMode)
@@ -523,9 +530,9 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaTrophy>(), 10));
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AkumaTrophy>(), 10));
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AkumaMask>(), 7));
 

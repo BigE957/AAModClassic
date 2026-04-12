@@ -2,6 +2,7 @@ using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Pets;
@@ -17,6 +18,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -156,8 +158,6 @@ namespace AAModClassic.NPCs.Bosses.Zero
         {
             if (Main.expertMode)
             {
-                NPC.DropLoot(ModContent.ItemType<ApocalyptitePlate>(), 2, 4);
-
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (NPC.BeenKilled(true))
                 {
@@ -183,36 +183,46 @@ namespace AAModClassic.NPCs.Bosses.Zero
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss3"), Color.PaleVioletRed);
                     VoidSky.Alpha = 0f;
                 }
-
-                NPC.DropLoot(ModContent.ItemType<ApocalyptitePlate>(), 2, 4);
-                NPC.DropLoot(ModContent.ItemType<UnstableSingularity>(), 25, 35);
-                string[] lootTable =
-                {
-                    "Battery",
-                    "ZeroArrow",
-                    "Vortex",
-                    "EventHorizon",
-                    "RealityCannon",
-                    "RiftShredder",
-                    "VoidStar",
-                    "TeslaHand",
-                    "ZeroStar",
-                    "Neutralizer",
-                    "ZeroTerratool",
-                    "DoomPortal",
-                    "Gigataser",
-                    "OmegaVolley",
-                    "GenocideCannon"
-                };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(ModContent.ItemType<ZeroCore>(), 1f / 10f);
-                NPC.DropLoot(ModContent.ItemType<ZeroMask>(), 1f / 7f);
-                NPC.DropLoot(ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(), 1f / 10f);
-                //TODO: BRING HIM BACK PLEASEEEEEEE
-                //if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
-                //    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RealityStone>());
             }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ApocalyptitePlate>(), 1, 2, 4));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroCore>(), 10));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<UnstableSingularity>(), 1, 25, 35));
+
+            int[] lootTable = 
+            { 
+                ModContent.ItemType<Battery>(), 
+                ModContent.ItemType<ZeroArrow>(), 
+                ModContent.ItemType<Vortex>(), 
+                ModContent.ItemType<EventHorizon>(), 
+                ModContent.ItemType<Items.Boss.Zero.RealityCannon>(), 
+                ModContent.ItemType<Items.Boss.Zero.RiftShredder>(), 
+                ModContent.ItemType<Items.Boss.Zero.VoidStar>(), 
+                ModContent.ItemType<Items.Boss.Zero.TeslaHand>(), 
+                ModContent.ItemType<ZeroStar>(), 
+                ModContent.ItemType<ZeroTerratool>(), 
+                ModContent.ItemType<DoomPortal>(), 
+                ModContent.ItemType<Gigataser>(), 
+                ModContent.ItemType<Items.Boss.Zero.OmegaVolley>(), 
+                ModContent.ItemType<Items.Boss.Zero.GenocideCannon>() };
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            //TODO: BRING HIM BACK PLEASEEEEEEE
+            //if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
+            //    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RealityStone>());
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void BossLoot(ref int potionType)

@@ -17,6 +17,8 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using AAModClassic.Music;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -120,30 +122,39 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroAwakened1"), Color.PaleVioletRed);
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroRune>());
-
                     VoidSky.Alpha = 0f;
                 }
 
                 //AAWorld.downedZero = true;
-                //Death animation guy handles this
-
-                if (Main.rand.NextBool(10))
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroTrophy>());
-                }
-                if (Main.rand.NextBool(7))
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroMask>());
-                }
-                if (Main.rand.NextBool(50) && AAWorld.downedShen)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());
-                }
-                NPC.DropLoot(ModContent.ItemType<ZeroBag>());
                 return;
             }
         }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ZeroBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroTrophy>(), 10));
+
+            LeadingConditionRule firstKill = new(new FirstTimeKillingZeroP());
+
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroRune>()));
+
+            LeadingConditionRule shenDefeated = new(new Akuma.Awakened.AkumaA.ShenDefeated());
+
+            shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
+
+            npcLoot.Add(firstKill);
+            npcLoot.Add(shenDefeated);
+        }
+
+        public class FirstTimeKillingZeroP : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !NPCExtensions.BeenKilled<ZeroProtocol>(true);
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
+        }
+
         public override void BossLoot(ref int potionType)
         {
             if (Main.expertMode)

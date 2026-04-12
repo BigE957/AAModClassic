@@ -1,9 +1,12 @@
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -61,20 +64,24 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.NextBool(7))
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<YamataMask>());
-            }
             if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DreadScale>(), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Naitokurosu>());
-            string[] lootTable = { "Flairdra", "Crescent", "Hydraslayer", "AbyssArrow", "HydraStabber", "MidnightWrath", "YamataTerratool", "Sevenshot"};
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<YamataMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DreadScale>(), 1, 30, 40));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Naitokurosu>()));
+
+            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<YamataTerratool>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }
