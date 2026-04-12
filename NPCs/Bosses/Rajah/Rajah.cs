@@ -20,6 +20,9 @@ using AAModClassic.UI.Titles;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using Terraria.GameContent.ItemDropRules;
+using System.Collections.Generic;
+using AAModClassic.Items.Thorium.Healer;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -1049,10 +1052,6 @@ namespace AAModClassic.NPCs.Bosses.Rajah
 
         public override void OnKill()
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RajahTrophy>());
-            }
             if (isSupreme)
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet1").Type, 1f);
@@ -1078,17 +1077,6 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                     int p = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 100, 0, Main.myPlayer);
                     Main.projectile[p].Center = NPC.Center;
                 }
-                if (Main.expertMode)
-                {
-                    NPC.DropLoot(ModContent.ItemType<RajahCache>());
-                }
-                else
-                {
-                    NPC.DropLoot(ModContent.ItemType<ChampionPlate>(), Main.rand.Next(15, 31));
-                    string[] lootTable = { "Excalihare", "FluffyFury", "RabbitsWrath" };
-                    int loot = Main.rand.Next(lootTable.Length);
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                }
             }
             else
             {
@@ -1098,24 +1086,30 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah4"), 107, 137, 179, true);
                 }
                 Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), 100, 0, Main.myPlayer);
-                if (!Main.expertMode)
-                {
-                    if (Main.rand.Next(7) == 0)
-                    {
-                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RajahMask>());
-                    }
-                    NPC.DropLoot(ModContent.ItemType<RajahPelt>(), Main.rand.Next(10, 26));
-                    string[] lootTableA = { "BaneOfTheBunny", "Bunnyzooka", "RoyalScepter", "Punisher", "RabbitcopterEars" };
-                    int lootA = Main.rand.Next(lootTableA.Length);
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTableA[lootA]).Type);
-                }
-                else
-                {
-                    NPC.DropLoot(ModContent.ItemType<RajahBag>());
-                }
             }
             //NPC.value = 0f;
             //NPC.boss = false;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahPelt>(), 1, 10, 26));
+
+            List<int> lootTable = [ ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<Punisher>(), ModContent.ItemType<RabbitcopterEars>() ];
+            if (ModSupport.GetMod("ThoriumMod") != null)
+                lootTable.Add(ModContent.ItemType<CarrotFarmer>());
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable.ToArray()));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void BossLoot(ref int potionType)
@@ -1256,5 +1250,24 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.value = Item.sellPrice(3, 0, 0, 0);
         }
         public override string BossHeadTexture => "AAModClassic/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss";
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahCache>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChampionPlate>(), 1, 15, 31));
+
+            int[] lootTable = { ModContent.ItemType<Excalihare>(), ModContent.ItemType<FluffyFury>(), ModContent.ItemType<RabbitsWrath>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
+        }
     }
 }

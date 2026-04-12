@@ -1,5 +1,6 @@
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Rajah.Supreme
@@ -30,20 +31,24 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<ChampionPlate>(), Main.rand.Next(15, 31));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahCape>());
-            string[] lootTable = { "Excalihare", "FluffyFury", "RabbitsWrath", "BaneOfTheBunnyEX", "CottonCaneEX", "PunisherEX", "RoyalScepterEX", "BunzookaEX"};
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahCape>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChampionPlate>(), 1, 15, 31));
+
+            int[] lootTable = { ModContent.ItemType<Excalihare>(), ModContent.ItemType<FluffyFury>(), ModContent.ItemType<RabbitsWrath>(), ModContent.ItemType<BaneOfTheBunnyEX>(), ModContent.ItemType<BunzookaEX>(), ModContent.ItemType<RoyalScepterEX>(), ModContent.ItemType<PunisherEX>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }

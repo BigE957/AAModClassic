@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
@@ -11,6 +12,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -481,38 +483,40 @@ namespace AAModClassic.NPCs.Bosses.Greed
             }
         }
 
+        public override bool PreKill()
+        {
+            if(NPC.downedMoonlord)
+                NPC.boss = false;
+
+            return true;
+        }
+
         public override void OnKill()
         {
             if (NPC.downedMoonlord)
             {
                 int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<GreedTransition>());
                 Main.npc[a].Center = NPC.Center;
-                return;
             }
-            else
-            {
-                if (!Main.expertMode)
-                {
-                    if (Main.rand.Next(7) == 0)
-                    {
-                        NPC.DropLoot(ModContent.ItemType<GreedMask>());
-                    }
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<StoneShell>(), Main.rand.Next(20, 25));
-                    string[] lootTable = { "GildedGlock", "GoldDigger", "Miner" };
-                    int loot = Main.rand.Next(lootTable.Length);
-                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                }
-                if (Main.expertMode)
-                {
-                    NPC.DropLoot(ModContent.ItemType<GreedBag>());
-                }
-            }
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<GreedTrophy>());
-            }
-            //NPC.value = 0f;
-            //NPC.boss = false;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreedTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GreedMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<StoneShell>(), 1, 20, 25));
+
+            int[] lootTable = { ModContent.ItemType<GildedGlock>(), ModContent.ItemType<GoldDigger>(), ModContent.ItemType<Miner>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void BossHeadRotation(ref float rotation)

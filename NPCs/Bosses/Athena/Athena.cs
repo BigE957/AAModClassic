@@ -1,5 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
+using AAModClassic.Items.Accessories.Wings;
+using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
@@ -13,6 +15,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -557,6 +560,14 @@ namespace AAModClassic.NPCs.Bosses.Athena
             potionType = ItemID.GreaterHealingPotion;
         }
 
+        public override bool PreKill()
+        {
+            if (NPC.downedMoonlord)
+                NPC.boss = false;
+
+            return true;
+        }
+
         public override void OnKill()
         {
             if (NPC.downedMoonlord)
@@ -576,29 +587,32 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
                     Main.projectile[b].netUpdate = true;
                 }
-                return;
-            }
-
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<AthenaBag>());       
             }
             else
             {
-                if (Main.rand.Next(7) == 0)
-                {
-                    NPC.DropLoot(ModContent.ItemType<AthenaMask>());
-                }
-                NPC.DropLoot(ModContent.ItemType<GoddessFeather>(), Main.rand.Next(20, 25));
-                string[] lootTable = { "DivineWindCharm", "GaleOfWings", "RazorwindLongbow", "SkycutterKopis", "OlympianWings"};
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
+                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena11"));
+                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                Main.npc[p].Center = NPC.Center;
             }
+        }
 
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaBag>()));
 
-            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena11"));
-            int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
-            Main.npc[p].Center = NPC.Center;
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AthenaMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoddessFeather>(), 1, 20, 25));
+
+            int[] lootTable = { ModContent.ItemType<DivineWindCharm>(), ModContent.ItemType<GaleOfWings>(), ModContent.ItemType<RazorwindLongbow>(), ModContent.ItemType<SkycutterKopis>(), ModContent.ItemType<OlympianWings>() };
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

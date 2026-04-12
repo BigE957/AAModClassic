@@ -1,5 +1,7 @@
+using AAModClassic.Items.Accessories.Wings;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,20 +35,24 @@ namespace AAModClassic.Items.Boss.Athena
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AthenaMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PPDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SeraphHarp>());
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GoddessFeather>(), Main.rand.Next(25, 30));
-            string[] lootTable = { "DivineWindCharm", "GaleOfWings", "RazorwindLongbow", "SkycutterKopis", "OlympianWings" };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SeraphHarp>()));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GoddessFeather>(), 1, 25, 30));
+
+            int[] lootTable = { ModContent.ItemType<DivineWindCharm>(), ModContent.ItemType<GaleOfWings>(), ModContent.ItemType<RazorwindLongbow>(), ModContent.ItemType<SkycutterKopis>(), ModContent.ItemType<OlympianWings>() };
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
     }
 }

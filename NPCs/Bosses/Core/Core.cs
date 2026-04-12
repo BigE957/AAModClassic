@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
@@ -10,9 +8,13 @@ using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -450,18 +452,9 @@ public class Core : ModNPC
 		}
 	}
 
-    public override void OnKill()
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        Main.rand.Next(10);
-        if (true)//!Main.expertMode)
-        {
-            //Main.rand.Next(7); ?????????????
-            Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<TerraPrism>(), Main.rand.Next(1, 4), false, 0, false, false);
-        }
-        else
-        {
-            //NPC.DropBossBags(); bagless...
-        }
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 1, 1, 4));
     }
 
 	public override void FindFrame(int frameHeight)

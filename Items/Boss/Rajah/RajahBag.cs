@@ -1,7 +1,9 @@
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Thorium.Healer;
 using AAModClassic.Items.Vanity.Mask;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Rajah
@@ -33,28 +35,26 @@ namespace AAModClassic.Items.Boss.Rajah
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahMask>());
-            }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<RajahPelt>(), Main.rand.Next(15, 31));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahPelt>(), Main.rand.Next(20, 25));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahSash>());
-            string[] lootTable = { "BaneOfTheBunny", "Bunzooka", "Punisher", "RabbitcopterEars", "RoyalScepter" };
-            int loot = Main.rand.Next(lootTable.Length);
-            if (Main.rand.Next(6) == 1 && ModSupport.GetMod("ThoriumMod") != null)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CarrotFarmer>());
-            }
-            else
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
+        }
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahMask>(), 7));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahPelt>(), 1, 15, 31));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahSash>()));
+
+            List<int> lootTable = [ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<Punisher>(), ModContent.ItemType<RabbitcopterEars>()];
+            if (ModSupport.GetMod("ThoriumMod") != null)
+                lootTable.Add(ModContent.ItemType<CarrotFarmer>());
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable.ToArray()));
         }
     }
 }
