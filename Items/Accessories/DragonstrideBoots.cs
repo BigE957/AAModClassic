@@ -48,8 +48,7 @@ Allows the ability to climb walls"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.FrostsparkBoots, 1);
-            recipe.AddIngredient(ItemID.LavaWaders, 1);
+            recipe.AddIngredient(ItemID.TerrasparkBoots, 1);
             recipe.AddIngredient(ItemID.TigerClimbingGear, 1);
             recipe.AddIngredient(ItemID.Flipper, 1);
             recipe.AddIngredient(ModContent.ItemType<ShadowBand>(), 1);
