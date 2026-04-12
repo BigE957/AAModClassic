@@ -2,7 +2,9 @@
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,7 +12,9 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Equinox
@@ -759,37 +763,40 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             {
                 AAWorld.downedEquinox = true;
             }
-			string wormType = nightcrawler ? "NC" : "DB";
-			if (Main.rand.NextBool(10))
-			{
-				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>(wormType + "Trophy").Type);
-			}
-			if (Main.expertMode)
-			{
-                NPC.DropLoot(ModContent.ItemType<EquinoxBag>());
-			}
-			else
-			{
-				if (Main.rand.NextBool(7))
-				{
-					Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>(wormType + "Mask").Type);
-				}
-                if (!nightcrawler)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Stardust>(), Main.rand.Next(30, 75));
-                }
-                else
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DarkEnergy>(), Main.rand.Next(30, 75));
-                }
-                if (AAWorld.RadiumOre)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<StarIdol>());
-                }
-			}
         }
 
-		public static Color GetAuraAlpha()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DBTrophy>(), 10));
+
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxBag>()));
+
+            LeadingConditionRule notExpert = new(new Conditions.NotExpert());
+
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Stardust>(), 1, 30, 75));
+
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DaybringerMask>(), 7));
+
+            LeadingConditionRule starGenned = new(new RadiumStarsGenerated());
+
+            starGenned.OnSuccess(ItemDropRule.Common(ModContent.ItemType<StarIdol>(), 4));
+
+            npcLoot.Add(starGenned);
+            npcLoot.Add(notExpert);
+        }
+
+        public class RadiumStarsGenerated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                return AAWorld.RadiumOre;
+            }
+
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
+        }
+
+        public static Color GetAuraAlpha()
 		{
 			Color c = Color.White * (Main.mouseTextColor / 255f);
 			//c.A = 255;

@@ -1,18 +1,20 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.AH;
+using AAModClassic.Items.Boss.Anubis;
+using AAModClassic.Music;
+using AAModClassic.NPCs.Bosses.Grips;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-using Terraria.Graphics.Shaders;
 using System;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.UI.Titles;
-using AAModClassic.Items.Boss.AH;
-using AAModClassic.Music;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
@@ -544,26 +546,41 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             if (Haruka == 0)
             {
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
-                if (Main.expertMode)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
-                }
             }
-            if (!Main.expertMode)
-            {
-                string[] lootTableA = { "AshRain", "FuryFlame", "FireSpiritStaff", "AsheSatchel" };
-                int lootA = Main.rand.Next(lootTableA.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTableA[lootA]).Type);
-            }
-            if (Main.rand.NextBool(10))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<AsheTrophy>());
-            }
+
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AsheDowned"), new Color(102, 20, 48));
-            //NPC.value = 0f;
-            //NPC.boss = false;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<AHBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AsheTrophy>(), 10));
+
+            LeadingConditionRule notExpert = new(new Conditions.NotExpert());
+
+            int[] lootTable = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FireSpiritStaff>(), ModContent.ItemType<AsheSatchel>() };
+
+            notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpert);
+        }
+
+        public class MissingSister : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                int type = ModContent.NPCType<Ashe>();
+                if (info.npc.type == ModContent.NPCType<Ashe>())
+                    type = ModContent.NPCType<Haruka.Haruka>();
+
+                return !NPC.AnyNPCs(type);
+            }
+
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
         }
 
         public override void BossLoot(ref int potionType)

@@ -1,15 +1,17 @@
-using Terraria;
-using System;
-using Terraria.GameContent;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
 using AAModClassic.Base.BaseMod.Base;
-using Terraria.Localization;
 using AAModClassic.Items.Boss.AH;
 using AAModClassic.Music;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using static AAModClassic.NPCs.Bosses.AH.Ashe.Ashe;
 
 
 namespace AAModClassic.NPCs.Bosses.AH.Haruka
@@ -161,25 +163,28 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             if (ashe == 0)
             {
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
-                if (Main.expertMode)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
-                }
             }
-            if (!Main.expertMode)
-            {
-                string[] lootTableH = { "HarukaKunai", "Masamune", "MizuArashi", "HarukaBox" };
-                int lootH = Main.rand.Next(lootTableH.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTableH[lootH]).Type);
-            }
-            if (Main.rand.NextBool(10))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<HarukaTrophy>());
-            }
+
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.HarukaDowned"), new Color(72, 78, 117));
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>());
 
         }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<AHBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HarukaTrophy>(), 10));
+
+            LeadingConditionRule notExpert = new(new Conditions.NotExpert());
+
+            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<Items.Boss.AH.HarukaKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<HarukaBox>() };
+
+            notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpert);
+        }
+
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
             NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);

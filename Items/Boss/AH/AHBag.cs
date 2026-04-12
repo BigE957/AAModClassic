@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -104,18 +105,18 @@ namespace AAModClassic.Items.Boss.AH
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
+        }
 
-            string[] lootTableA = { "AshRain", "FuryFlame", "FireSpiritStaff", "AsheSatchel" };
-            int lootA = Main.rand.Next(lootTableA.Length);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableA[lootA]).Type);
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            int[] lootTableA = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FireSpiritStaff>(), ModContent.ItemType<AsheSatchel>() };
+            int[] lootTableH = { ModContent.ItemType<Masamune>(), ModContent.ItemType<HarukaKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<HarukaBox>() };
 
-            string[] lootTableH = { "HarukaKunai", "Masamune", "MizuArashi", "HarukaBox" };
-            int lootH = Main.rand.Next(lootTableH.Length);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableH[lootH]).Type);
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTableA));
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTableH));
 
-
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HeartOfPassion>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HeartOfSorrow>());
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartOfPassion>()));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartOfSorrow>()));
         }
 	}
 }

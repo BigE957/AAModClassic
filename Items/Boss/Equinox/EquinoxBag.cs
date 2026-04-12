@@ -4,8 +4,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.NPCs.Bosses.Equinox.DaybringerHead;
 
 namespace AAModClassic.Items.Boss.Equinox
 {
@@ -143,38 +145,56 @@ Contained loot depends on the time of day"); */
 
 		public override void RightClick(Player player)
 		{
-            if (!Main.dayTime)
+            if (Main.rand.NextBool(20))
             {
-                if (Main.rand.NextBool(7))
-                {
-                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<NightcrawlerMask>());
-                }
-                if (Main.rand.NextBool(20))
-                {
-                    AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-                    modPlayer.PMLDevArmor();
-                }
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DarkEnergy>(), Main.rand.Next(40, 90));
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DarkVoid>());
-            }
-            else
-            {
-                if (Main.rand.NextBool(7))
-                {
-                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DaybringerMask>());
-                }
-                if (Main.rand.NextBool(20))
-                {
-                    AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-                    modPlayer.PMLDevArmor();
-                }
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Stardust>(), Main.rand.Next(40, 90));
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RadiantStar>());
-            }
-            if (AAWorld.RadiumOre)
-            {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StarIdol>());
+                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                modPlayer.PMLDevArmor();
             }
         }
-	}
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            LeadingConditionRule dayTime = new(new Daytime());
+
+            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Stardust>(), 1, 40, 90));
+
+            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DaybringerMask>(), 7));
+
+            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantStar>(), 7));
+
+            LeadingConditionRule nightTime = new(new Nighttime());
+
+            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkEnergy>(), 1, 40, 90));
+
+            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<NightcrawlerMask>(), 7));
+
+            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkVoid>(), 7));
+
+            itemLoot.Add(dayTime);
+            itemLoot.Add(nightTime);
+        }
+
+        //TODO: Localize these descriptons
+        public class Daytime : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                return Main.dayTime;
+            }
+
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => "If opened during the Day";
+        }
+
+        public class Nighttime : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                return !Main.dayTime;
+            }
+
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => "If opened during the Night";
+        }
+    }
 }
