@@ -1,5 +1,6 @@
 using System.IO;
 using AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons;
+using AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;

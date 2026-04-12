@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
+namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs.PurityWeaver
 {
     public class PurityWeaverTail : PurityWeaverHead
     {

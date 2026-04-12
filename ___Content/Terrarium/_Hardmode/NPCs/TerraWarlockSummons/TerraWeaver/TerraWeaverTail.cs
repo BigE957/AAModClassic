@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons
+namespace AAModClassic.___Content.Terrarium._Hardmode.NPCs.TerraWarlockSummons.TerraWeaver
 {
     public class TerraWeaverTail : TerraWeaverHead
     {
