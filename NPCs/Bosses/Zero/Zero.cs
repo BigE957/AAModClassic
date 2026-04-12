@@ -1,10 +1,10 @@
+using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;

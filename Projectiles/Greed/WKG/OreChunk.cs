@@ -18,6 +18,7 @@ using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Acropolis.Projectiles;
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Projectiles.Greed.WKG
 {

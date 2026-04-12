@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;

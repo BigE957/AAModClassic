@@ -15,8 +15,8 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Boss.Zero;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {

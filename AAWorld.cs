@@ -56,6 +56,7 @@ using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic
 {

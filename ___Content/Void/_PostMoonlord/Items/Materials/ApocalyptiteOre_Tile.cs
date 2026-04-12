@@ -6,9 +6,9 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks;
+using AAModClassic.Tiles;
 
-namespace AAModClassic.Tiles.Ore
+namespace AAModClassic.___Content.Void._PostMoonlord.Items.Materials
 {
     public class ApocalyptiteOre_Tile : ModTile
     {

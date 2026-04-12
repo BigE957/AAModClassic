@@ -1,10 +1,9 @@
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Ore;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Void._PostMoonlord.Items.Materials
 {
     public class ApocalyptiteOre : BaseAAItem
     {

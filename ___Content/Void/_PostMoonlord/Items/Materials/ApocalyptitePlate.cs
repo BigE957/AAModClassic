@@ -1,11 +1,10 @@
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Void._PostMoonlord.Items.Materials
 {
     public class ApocalyptitePlate : BaseAAItem
     {

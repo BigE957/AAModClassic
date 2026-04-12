@@ -8,7 +8,7 @@ using AAModClassic.Globals;
 using Terraria.Audio;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Zero
 {
