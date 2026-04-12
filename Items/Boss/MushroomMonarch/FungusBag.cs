@@ -12,6 +12,9 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
         {
             // DisplayName.SetDefault("Treasure Bag");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
         }
 
         public override void SetDefaults()

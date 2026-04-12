@@ -1,9 +1,11 @@
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
+using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,6 +30,9 @@ Contained loot depends on the time of day"); */
             DaybringerTreasureBagGlowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DBBag_Glow");
             NightcrawlerTreasureBagTex = ModContent.Request<Texture2D>("AAModClassic/Items/Boss/Equinox/NCBag");
             NightcrawlerTreasureBagGlowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NCBag_Glow");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
         }
 
 		public override void SetDefaults()
@@ -62,6 +67,40 @@ Contained loot depends on the time of day"); */
             Texture2D textureGlow = DaybringerTreasureBagGlowmask.Value;
             Texture2D texture2 = NightcrawlerTreasureBagTex.Value;
             Texture2D texture2Glow = NightcrawlerTreasureBagGlowmask.Value;
+
+            Texture2D mainTexture = Main.dayTime ? texture : texture2;
+            Rectangle frame = mainTexture.Frame();
+
+            // Use special item animations if applicable.
+            if (Main.itemAnimations[Item.type] != null)
+                frame = Main.itemAnimations[Item.type].GetFrame(mainTexture, Main.itemFrameCounter[whoAmI]);
+
+            Vector2 frameOrigin = frame.Size() * 0.5f;
+            Vector2 offset = new Vector2(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
+            Vector2 drawPos = Item.position - Main.screenPosition + frameOrigin + offset;
+
+            float localTime = Item.timeSinceItemSpawned / 240f + Main.GlobalTimeWrappedHourly * 0.04f;
+
+            // Transform the global time value's incremental form into a unit-interval triangle wave.
+            float time = Main.GlobalTimeWrappedHourly % 4f / 2f;
+            if (time >= 1f)
+                time = 2f - time;
+            time = time * 0.5f + 0.5f;
+
+            // Draw the outer pulse effect.
+            for (int i = 0; i < 4; i++)
+            {
+                Vector2 pulseOffset = Vector2.UnitY.RotatedBy((i / 4f + localTime) * MathHelper.TwoPi) * time * 8f;
+                spriteBatch.Draw(mainTexture, drawPos + pulseOffset, frame, new Color(90, 70, 255, 50), rotation, frameOrigin, scale, 0, 0);
+            }
+
+            // Draw the inner pulse effect.
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 pulseOffset = Vector2.UnitY.RotatedBy((i / 3f + localTime) * MathHelper.TwoPi) * time * 4f;
+                spriteBatch.Draw(mainTexture, drawPos + pulseOffset, frame, new Color(140, 120, 255, 77), rotation, frameOrigin, scale, 0, 0);
+            }
+
             if (Main.dayTime)
             {
                 spriteBatch.Draw
@@ -140,7 +179,7 @@ Contained loot depends on the time of day"); */
 
         public override bool CanRightClick()
 		{
-			return true;
+            return true;
 		}
 
 		public override void RightClick(Player player)

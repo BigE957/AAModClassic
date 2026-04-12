@@ -12,9 +12,12 @@ namespace AAModClassic.Items.Boss.Grips
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Treasure Bag");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-		}
+            // DisplayName.SetDefault("Treasure Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{

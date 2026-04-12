@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
@@ -25,6 +26,8 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 
             //Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
 
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
         }
 
 		public override void SetDefaults()

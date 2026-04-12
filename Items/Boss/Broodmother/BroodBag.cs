@@ -24,6 +24,9 @@ namespace AAModClassic.Items.Boss.Broodmother
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
         }
 
 		public override void SetDefaults()

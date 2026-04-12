@@ -11,8 +11,11 @@ namespace AAModClassic.Items.Boss.Greed.WKG
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-		}
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{

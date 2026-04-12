@@ -22,6 +22,9 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
         }
 
         public override void SetDefaults()
