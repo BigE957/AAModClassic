@@ -533,6 +533,8 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
             int[] lootTable = { ModContent.ItemType<AkumaTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<LungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunSpear>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<SunStorm>(), ModContent.ItemType<SunStaff>(), ModContent.ItemType<DragonSlasher>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void HitEffect(NPC.HitInfo hit)
