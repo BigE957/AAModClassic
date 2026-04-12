@@ -199,6 +199,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void AI()
         {
+            NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             if (Main.expertMode)
             {

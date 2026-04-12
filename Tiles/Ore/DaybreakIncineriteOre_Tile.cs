@@ -39,7 +39,7 @@ namespace AAModClassic.Tiles.Ore
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("Glowmasks/DaybreakIncineriteOre_Glow");
+                if (glowTex == null) glowTex = Mod.GetTexture("Glowmasks/DaybreakIncineriteOre_Tile_Glow");
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetAkumaColorBright);
             }
         }

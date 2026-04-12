@@ -1379,7 +1379,8 @@ namespace AAModClassic.Globals
                 overrideDirectionY = -1;
             }
 
-            Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, 800f * overrideDirectionY);
+            Vector2 npcCenter = player.Center + new Vector2(Main.rand.NextFloat(500, 800) * overrideDirection, 800f * overrideDirectionY);
+
             SpawnBoss(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
         }
 
@@ -1403,16 +1404,15 @@ namespace AAModClassic.Globals
                 if (NPC.AnyNPCs(bossType))
                     return;
 
-                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType);
-                Main.npc[npcID].Center = npcCenter;
-                Main.npc[npcID].netUpdate2 = true;
+                NPC npc = NPC.NewNPCDirect(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType);
+                npc.netUpdate = true;
 
                 if (spawnMessage)
                 {
-                    string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : overrideDisplayName;
-                    if ((npcName == null || npcName.Equals("")) && Main.npc[npcID].ModNPC != null)
+                    string npcName = !string.IsNullOrEmpty(npc.GivenName) ? npc.GivenName : overrideDisplayName;
+                    if ((npcName == null || npcName.Equals("")) && npc.ModNPC != null)
                     {
-                        npcName = Main.npc[npcID].ModNPC.DisplayName.ToString();
+                        npcName = npc.ModNPC.DisplayName.ToString();
                     }
 
                     if (namePlural)

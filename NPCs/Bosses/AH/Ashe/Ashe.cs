@@ -61,6 +61,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         {
             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
+            NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
 
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 250);
@@ -457,9 +458,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         private bool AliveCheck(Player player)
         {
-            if (player.dead || !player.active || (NPC.position.X - Main.player[NPC.target].position.X) > 6000f || (NPC.position.X - Main.player[NPC.target].position.X) < -6000f || (NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f || (NPC.position.Y - Main.player[NPC.target].position.Y) < -6000f)
+            if (player.dead || !player.active || NPC.Distance(player.Center) > 6000f)
             {
-                NPC.TargetClosest(true);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);

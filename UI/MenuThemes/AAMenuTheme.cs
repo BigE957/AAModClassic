@@ -76,7 +76,7 @@ namespace AAModClassic.UI.MenuThemes
                 };
             }
         }
-        public override int Music => MusicID.ConsoleMenu;
+        public override int Music => MusicID.Title;
         public override void Update(bool isOnTitleScreen)
         {
             if (isOnTitleScreen)

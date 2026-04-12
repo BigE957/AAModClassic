@@ -607,6 +607,8 @@ namespace AAModClassic.NPCs.Bosses.Toad
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ToadMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<MushrockStaff>(), ModContent.ItemType<ToadTongue>(), ModContent.ItemType<Todegun>()));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
