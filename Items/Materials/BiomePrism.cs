@@ -81,22 +81,19 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {
             //Dropped by Biomite Core in Mixed and Beta
-            {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 5);
                 recipe.AddIngredient(ModContent.ItemType<BiomePrism>());
                 recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
                 recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
+
+                recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 5);
                 recipe.AddIngredient(ModContent.ItemType<BiomePrism>());
                 recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
                 recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
-            }
         }
     }
 
