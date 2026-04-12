@@ -91,7 +91,7 @@ Certain ores have special effects when shot"); */
             ModContent.ItemType<RadiumOre>(),
             ModContent.ItemType<DaybreakIncineriteOre>(),
             ModContent.ItemType<EventideAbyssiumOre>(),
-            ModContent.ItemType<Apocalyptite>(),
+            ModContent.ItemType<ApocalyptiteOre>(),
         };
         public int projType = -1;
 
@@ -131,7 +131,7 @@ Certain ores have special effects when shot"); */
                     if (itemFired.type == ModContent.ItemType<RadiumOre>()) projType = 24;
                     if (itemFired.type == ModContent.ItemType<DaybreakIncineriteOre>()) projType = 25;
                     if (itemFired.type == ModContent.ItemType<EventideAbyssiumOre>()) projType = 26;
-                    if (itemFired.type == ModContent.ItemType<Apocalyptite>()) projType = 27;
+                    if (itemFired.type == ModContent.ItemType<ApocalyptiteOre>()) projType = 27;
                     return true;
  				}
  			}

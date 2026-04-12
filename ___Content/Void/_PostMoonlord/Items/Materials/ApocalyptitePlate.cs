@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Materials
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Apocalyptite>(), 5);              //example of how to craft with a modded item
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptiteOre>(), 5);              //example of how to craft with a modded item
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

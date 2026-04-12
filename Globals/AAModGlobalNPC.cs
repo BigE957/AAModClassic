@@ -1,5 +1,5 @@
 using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
-using AAModClassic.___Content.Hoard._Hardmode;
+using AAModClassic.___Content.Hoard._Hardmode.Scavenger;
 using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._Hardmode.NPCs;
 using AAModClassic.___Content.Inferno._Hardmode.NPCs._Surface;
@@ -26,6 +26,7 @@ using AAModClassic.___Content.Mire._PreHardmode.NPCs._Surface;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium._Hardmode.NPCs;
 using AAModClassic.___Content.Terrarium._PreHardmode.NPCs;
+using AAModClassic.___Content.Terrarium._PreHardmode.NPCs.PurityWeaver;
 using AAModClassic.___Content.Void._Hardmode.NPCs;
 using AAModClassic.___Content.Void._PostMoonlord.NPCs;
 using AAModClassic.___Content.Void._PreHardmode.NPCs;

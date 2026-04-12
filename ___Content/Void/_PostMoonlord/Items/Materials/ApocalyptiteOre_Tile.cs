@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileOreFinderPriority[Type] = 860;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<Apocalyptite>());
+            RegisterItemDrop(ModContent.ItemType<ApocalyptiteOre>());
             DustType = ModContent.DustType<Dusts.DoomDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Apocalyptite Ore");
