@@ -1,5 +1,6 @@
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
 using AAModClassic.NPCs.Bosses.Akuma;
@@ -15,7 +16,6 @@ using AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH;
 using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Enemies.Sky;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

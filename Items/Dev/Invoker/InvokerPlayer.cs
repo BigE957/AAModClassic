@@ -8,11 +8,11 @@ using Terraria.ID;
 using Terraria.ModLoader.IO;
 using Terraria.GameInput;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Buffs;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 
 namespace AAModClassic.Items.Dev.Invoker
 {

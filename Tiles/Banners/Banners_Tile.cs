@@ -9,7 +9,6 @@ using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.NPCs.Enemies.Mushroom;
 
 namespace AAModClassic.Tiles.Banners
 {
@@ -271,7 +270,9 @@ namespace AAModClassic.Tiles.Banners
 
                 Player player = Main.LocalPlayer;	
 				player.HasNPCBannerBuff(Mod.Find<ModNPC>(name).Type);
-				if(name == "MushroomZombie") player.HasNPCBannerBuff(ModContent.NPCType<MushroomZombie2>());
+				//TODO: readd him when the time is right. and when the time is right, remove this line of code
+				// bcuz this only exists due to names being similar so when name is changed itll be fiine
+				//if(name == "MushroomZombie") player.HasNPCBannerBuff(ModContent.NPCType<MushroomZombie2>());
             }
         }
 

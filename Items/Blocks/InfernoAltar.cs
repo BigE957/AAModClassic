@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Broodmother;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {

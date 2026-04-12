@@ -9,7 +9,7 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

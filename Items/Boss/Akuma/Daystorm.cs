@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
@@ -77,7 +77,7 @@ namespace AAModClassic.Items.Boss.Akuma
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ItemID.LaserMachinegun);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

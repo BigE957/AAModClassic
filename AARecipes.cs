@@ -1,4 +1,7 @@
-﻿using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+﻿using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
@@ -19,7 +22,6 @@ using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Raider;
 using AAModClassic.Items.Armor.Tribal;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Shen;
@@ -822,7 +824,7 @@ namespace AAModClassic
 
             TransmuteRecipe((short)ModContent.ItemType<AbyssiumBar>(), (short)ModContent.ItemType<IncineriteBar>());
             TransmuteRecipe((short)ModContent.ItemType<DeepAbyssiumBar>(), (short)ModContent.ItemType<RadiantIncineriteBar>());
-            TransmuteRecipe((short)ModContent.ItemType<DaybreakIncinerite>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
+            TransmuteRecipe((short)ModContent.ItemType<DaybreakIncineriteBar>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
             #endregion
 
             #region Ores

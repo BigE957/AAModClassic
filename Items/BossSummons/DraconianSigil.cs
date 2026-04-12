@@ -15,6 +15,7 @@ using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.CrossMod;
 using AAModClassic.Utilities;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -125,7 +126,7 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

@@ -23,10 +23,10 @@ using AAModClassic.NPCs.Bosses.Djinn;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.NPCs.Bosses.Serpent;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

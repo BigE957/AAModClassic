@@ -9784,3 +9784,8 @@ ChaosPrism: {
 	DisplayName: Chaos Prism
 	Tooltip: ""
 }
+
+DaybreakIncineriteBar: {
+	DisplayName: Daybreak Incinerite Bar
+	Tooltip: ""
+}

@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Tiles.Crafters;

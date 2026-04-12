@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.AH;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
@@ -92,7 +92,7 @@ namespace AAModClassic.Items.Boss.AH
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Items.Boss.Grips.ClawBaton>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

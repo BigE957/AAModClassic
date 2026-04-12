@@ -40,7 +40,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Tiles.Decoration
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(20, 120, 160), name);
-			DustType = ModContent.DustType<DragonflameDust>();
+			DustType = ModContent.DustType<DragonflameDust>(); //TODO: lol?
 			RegisterItemDrop(ModContent.ItemType<BogtoxinTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };

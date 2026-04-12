@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Vanity.Mask;

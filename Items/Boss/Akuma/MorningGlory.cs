@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -78,7 +78,7 @@ namespace AAModClassic.Items.Boss.Akuma
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.DayBreak);
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

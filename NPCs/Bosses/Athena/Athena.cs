@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Acropolis.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Items.Accessories.Wings;
@@ -5,7 +6,6 @@ using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

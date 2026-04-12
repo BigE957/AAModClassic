@@ -7,7 +7,7 @@ using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Melee;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma   //where is located
 {
@@ -92,7 +92,7 @@ Inflicts Daybroken"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<TrueCopperShortsword>());
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

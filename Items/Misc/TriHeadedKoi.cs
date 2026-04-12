@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra;
+﻿using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Utilities;
 using Terraria.ID;
 using Terraria.Localization;

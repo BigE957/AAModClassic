@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

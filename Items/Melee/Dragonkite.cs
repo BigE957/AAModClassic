@@ -2,7 +2,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Melee   //where is located
 {

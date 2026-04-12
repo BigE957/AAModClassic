@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
@@ -119,7 +119,7 @@ Inflicts Daybroken"); */
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ItemID.StarWrath);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

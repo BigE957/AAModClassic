@@ -4,9 +4,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Accessories
 {
