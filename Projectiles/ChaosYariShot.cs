@@ -45,7 +45,7 @@ namespace AAModClassic.Projectiles
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.Next(2) == 0 ? Terraria.ModLoader.ModContent.DustType<Dusts.AkumaDust>() : Terraria.ModLoader.ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+                    Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.NextBool(2) ? Terraria.ModLoader.ModContent.DustType<Dusts.AkumaDust>() : Terraria.ModLoader.ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
                 }
             }
         }

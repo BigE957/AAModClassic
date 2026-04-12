@@ -600,7 +600,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             {
                 Sandstorm.IntendedSeverity = 0.4f + Main.rand.NextFloat();
             }
-            else if (Main.rand.Next(3) == 0)
+            else if (Main.rand.NextBool(3))
             {
                 Sandstorm.IntendedSeverity = 0f;
             }

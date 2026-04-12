@@ -53,7 +53,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 				var_2_69C3_cp_0_cp_0.position.Y -= num155;
 				num3 = num153;
 			}
-			if (Main.rand.Next(8) == 0)
+			if (Main.rand.NextBool(8))
 			{
 				int num158 = 16;
 				int num159 = Dust.NewDust(new Vector2(Projectile.position.X + num158, Projectile.position.Y + num158), Projectile.width - num158 * 2, Projectile.height - num158 * 2, ModContent.DustType<Dusts.HydraDust>(), 0f, 0f, 100, default, 0.5f);

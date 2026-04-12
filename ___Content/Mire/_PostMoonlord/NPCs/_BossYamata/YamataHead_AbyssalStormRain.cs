@@ -47,7 +47,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
                 Dust expr_6A1F_cp_0 = Main.dust[num155];
                 expr_6A1F_cp_0.position.Y -= num153;
             }
-            if (Main.rand.Next(8) == 0)
+            if (Main.rand.NextBool(8))
             {
                 int num156 = 16;
                 int num157 = Dust.NewDust(new Vector2(Projectile.position.X + num156, Projectile.position.Y + num156), Projectile.width - num156 * 2, Projectile.height - num156 * 2, ModContent.DustType<Dusts.YamataAuraDust>(), 0f, 0f, 0, default, 0.5f);

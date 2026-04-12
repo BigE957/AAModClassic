@@ -95,7 +95,7 @@ namespace AAModClassic.Projectiles.Thorium
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 target.AddBuff(BuffID.Frostburn, 200, false);
             }

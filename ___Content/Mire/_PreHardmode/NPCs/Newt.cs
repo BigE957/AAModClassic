@@ -106,7 +106,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
             float distance = NPC.Distance(Main.player[NPC.target].Center);
             if (distance >= 100) // distance until it does the tongue attack
             {
-                if (Main.rand.Next(30) == 0) // so it wont do it repeatedly when the player is near. increase to lower the chance of it doing it
+                if (Main.rand.NextBool(30)) // so it wont do it repeatedly when the player is near. increase to lower the chance of it doing it
                 {
                     if (tongueAttack == false)
                     {

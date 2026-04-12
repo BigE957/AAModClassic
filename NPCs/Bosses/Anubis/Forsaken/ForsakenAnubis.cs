@@ -201,7 +201,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                         return;
                     }
 
-                    int proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<ForsakenBlast>() : ModContent.ProjectileType<ForsakenSkull>();
+                    int proj = Main.rand.NextBool(2) ? ModContent.ProjectileType<ForsakenBlast>() : ModContent.ProjectileType<ForsakenSkull>();
 
                     int damage = NPC.damage / 2;
 
@@ -246,7 +246,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
                     if (NPC.ai[1] == 10)
                     {
-                        if (Main.rand.Next(2) == 0 && NPC.life < NPC.lifeMax * (2/3))
+                        if (Main.rand.NextBool(2) && NPC.life < NPC.lifeMax * (2/3))
                         {
                             if (NPC.life < NPC.lifeMax / 3)
                             {
@@ -462,7 +462,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                         }
                         if (NPC.ai[1] % 30 == 0 && NPC.ai[1] <= 240)
                         {
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.NextBool(2))
                             {
                                 int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<BlockF>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
                                 int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<BlockF>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
@@ -576,7 +576,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisWin"), Color.ForestGreen);
             }
 
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 NPC.DropLoot(ModContent.ItemType<FAnubisTrophy>());
             }
@@ -587,7 +587,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             }
             else
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     NPC.DropLoot(ModContent.ItemType<FAnubisMask>());
                 }

@@ -29,15 +29,15 @@ namespace AAModClassic.___Content.Mire.World.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(500) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(500))
             {
                 PlaceObject(i, j - 1, ModContent.TileType<Darkshroom_Tile>());
                 NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Darkshroom_Tile>(), 0, 0, -1, -1);
 
             }
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(40) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
-                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(20) == 0)
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(20))
                 {
                     int style = Main.rand.Next(23);
                     if (PlaceObject(i, j - 1, MireFoliage_Tile._type, false, style))

@@ -72,7 +72,7 @@ namespace AAModClassic.Items.Ranged
 			NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
 			NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
 			int num90 = 5;
-			if (Main.rand.Next(2) == 0)
+			if (Main.rand.NextBool(2))
 			{
 				num90++;
 			}

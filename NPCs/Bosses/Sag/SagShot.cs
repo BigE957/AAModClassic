@@ -49,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
 			}
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
 
-            if (Main.rand.Next(1) == 0)
+            if (Main.rand.NextBool(1))
             {
                 int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustnumber].velocity *= 0.3f;

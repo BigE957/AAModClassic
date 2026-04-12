@@ -181,7 +181,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             if (internalAI[4] ++ > 90 && Main.expertMode && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[4] = 0;
-                Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1));
+                Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.NextBool(2) ? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.NextBool(2) ? 1: -1));
                 Vector2 velocity = Vector2.Normalize(player.Center - pos) * .1f;
                 int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), pos.X, pos.Y, velocity.X, velocity.Y, ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].timeLeft = 720;

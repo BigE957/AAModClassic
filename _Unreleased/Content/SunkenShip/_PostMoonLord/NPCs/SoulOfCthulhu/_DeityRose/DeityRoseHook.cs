@@ -115,7 +115,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         num739 += (int)(100f * (num736 / 1000f));
                         int num740 = num737 + Main.rand.Next(-num739, num739 + 1);
                         int num741 = num738 + Main.rand.Next(-num739, num739 + 1);
-                        if (Main.npc[AAModGlobalNPC.Rose].life < Main.npc[AAModGlobalNPC.Rose].lifeMax / 2 && Main.rand.Next(6) == 0)
+                        if (Main.npc[AAModGlobalNPC.Rose].life < Main.npc[AAModGlobalNPC.Rose].lifeMax / 2 && Main.rand.NextBool(6))
                         {
                             NPC.TargetClosest(true);
                             int num742 = (int)(Main.player[NPC.target].Center.X / 16f);

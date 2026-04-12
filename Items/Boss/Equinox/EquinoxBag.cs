@@ -145,11 +145,11 @@ Contained loot depends on the time of day"); */
 		{
             if (!Main.dayTime)
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<NightcrawlerMask>());
                 }
-                if (Main.rand.Next(20) == 0)
+                if (Main.rand.NextBool(20))
                 {
                     AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                     modPlayer.PMLDevArmor();
@@ -159,11 +159,11 @@ Contained loot depends on the time of day"); */
             }
             else
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DaybringerMask>());
                 }
-                if (Main.rand.Next(20) == 0)
+                if (Main.rand.NextBool(20))
                 {
                     AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                     modPlayer.PMLDevArmor();

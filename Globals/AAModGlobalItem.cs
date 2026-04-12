@@ -323,18 +323,18 @@ namespace AAModClassic.Globals
             bool noRareItem = true;
             while (noRareItem)
             {
-                if (Main.rand.Next(4) == 0)
+                if (Main.rand.NextBool(4))
                 {
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.GoldCoin, Main.rand.Next(5, 13));
                     noRareItem = false;
                 }
 
-                if (Main.rand.Next(4) == 0)
+                if (Main.rand.NextBool(4))
                 {
                     int item = 0;
                     int amount = 0;
 
-                    if (!Main.hardMode || Main.rand.Next(3) == 0)
+                    if (!Main.hardMode || Main.rand.NextBool(3))
                     {
                         int[] items = new int[]
                         {
@@ -364,7 +364,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.NextBool(4))
             {
                 int[] items = new int[]
                 {
@@ -375,14 +375,14 @@ namespace AAModClassic.Globals
                 player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Main.rand.Next(items), Main.rand.Next(2, 5));
             }
 
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Main.rand.Next(188, 190), Main.rand.Next(5, 18));
             }
 
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
-                int item = Main.rand.Next(2) == 0 ? ItemID.MasterBait : ItemID.JourneymanBait;
+                int item = Main.rand.NextBool(2) ? ItemID.MasterBait : ItemID.JourneymanBait;
                 player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 7));
             }
 
@@ -390,7 +390,7 @@ namespace AAModClassic.Globals
 
             if (CrateType < 2)
             {
-                if (Main.rand.Next(6) == 0)
+                if (Main.rand.NextBool(6))
                 {
                     if (CrateType == 0)
                     {
@@ -446,13 +446,13 @@ namespace AAModClassic.Globals
 
                     }
                 }
-                if (Main.hardMode && Main.rand.Next(2) == 0)
+                if (Main.hardMode && Main.rand.NextBool(2))
                 {
                     int item = CrateType == 1 ? ModContent.ItemType<SoulOfSpite>() : ModContent.ItemType<SoulOfSmite>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
 
-                if (Main.hardMode && Main.rand.Next(2) == 0)
+                if (Main.hardMode && Main.rand.NextBool(2))
                 {
                     int item = CrateType == 1 ? ModContent.ItemType<Bogtoxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
@@ -509,18 +509,18 @@ namespace AAModClassic.Globals
             int stack = 1;
             if(extractType == ItemID.EbonsandBlock)
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
                     result = 56;
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -528,18 +528,18 @@ namespace AAModClassic.Globals
             }
             else if(extractType == ItemID.CrimsandBlock)
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
                     result = 880;
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -547,18 +547,18 @@ namespace AAModClassic.Globals
             }
             else if(extractType == ModContent.ItemType<Depthsand>())
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
                     result = ModContent.ItemType<AbyssiumOre>();
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -566,18 +566,18 @@ namespace AAModClassic.Globals
             }
             else if(extractType == ModContent.ItemType<Torchsand>())
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
                     result = ModContent.ItemType<IncineriteOre>();
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -585,51 +585,51 @@ namespace AAModClassic.Globals
             }
             else if(extractType == ItemID.PearlsandBlock)
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
-                    result = Main.rand.Next(2) == 0? 1104 : 364;
+                    result = Main.rand.NextBool(2) ? 1104 : 364;
 
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
                 }
-                else if(Main.rand.Next(10) == 0)
+                else if(Main.rand.NextBool(10))
                 {
-                    result = Main.rand.Next(2) == 0? 1105 : 365;
-                    if (Main.rand.Next(5) == 0)
+                    result = Main.rand.NextBool(2) ? 1105 : 365;
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
                 }
-                else if(Main.rand.Next(10) == 0)
+                else if(Main.rand.NextBool(10))
                 {
-                    result = Main.rand.Next(2) == 0? 1106 : 366;
-                    if (Main.rand.Next(5) == 0)
+                    result = Main.rand.NextBool(2) ? 1106 : 366;
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -637,80 +637,80 @@ namespace AAModClassic.Globals
             }
             if(result == 0)
             {
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     result = 3380;
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
                 }
-                else if (Main.rand.Next(2) == 0)
+                else if (Main.rand.NextBool(2))
                 {
-                    if (Main.rand.Next(12000) == 0)
+                    if (Main.rand.NextBool(12000))
                     {
                         result = 74;
-                        if (Main.rand.Next(14) == 0)
+                        if (Main.rand.NextBool(14))
                         {
                             stack += Main.rand.Next(0, 2);
                         }
-                        if (Main.rand.Next(14) == 0)
+                        if (Main.rand.NextBool(14))
                         {
                             stack += Main.rand.Next(0, 2);
                         }
-                        if (Main.rand.Next(14) == 0)
+                        if (Main.rand.NextBool(14))
                         {
                             stack += Main.rand.Next(0, 2);
                         }
                     }
-                    else if (Main.rand.Next(800) == 0)
+                    else if (Main.rand.NextBool(800))
                     {
                         result = 73;
-                        if (Main.rand.Next(6) == 0)
+                        if (Main.rand.NextBool(6))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(6) == 0)
+                        if (Main.rand.NextBool(6))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(6) == 0)
+                        if (Main.rand.NextBool(6))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(6) == 0)
+                        if (Main.rand.NextBool(6))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(6) == 0)
+                        if (Main.rand.NextBool(6))
                         {
                             stack += Main.rand.Next(1, 20);
                         }
                     }
-                    else if (Main.rand.Next(60) == 0)
+                    else if (Main.rand.NextBool(60))
                     {
                         result = 72;
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             stack += Main.rand.Next(5, 26);
                         }
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             stack += Main.rand.Next(5, 26);
                         }
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             stack += Main.rand.Next(5, 26);
                         }
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             stack += Main.rand.Next(5, 25);
                         }
@@ -718,29 +718,29 @@ namespace AAModClassic.Globals
                     else
                     {
                         result = 71;
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(10, 26);
                         }
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(10, 26);
                         }
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(10, 26);
                         }
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(10, 25);
                         }
                     }
                 }
-                else if (Main.rand.Next(4000) == 0)
+                else if (Main.rand.NextBool(4000))
                 {
                     result = 1242;
                 }
-                else if (Main.rand.Next(25) == 0)
+                else if (Main.rand.NextBool(25))
                 {
                     result = Main.rand.Next(6);
                     if (result == 0)
@@ -767,117 +767,117 @@ namespace AAModClassic.Globals
                     {
                         result = 182;
                     }
-                    if (Main.rand.Next(20) == 0)
+                    if (Main.rand.NextBool(20))
                     {
                         stack += Main.rand.Next(0, 2);
                     }
-                    if (Main.rand.Next(30) == 0)
+                    if (Main.rand.NextBool(30))
                     {
                         stack += Main.rand.Next(0, 3);
                     }
-                    if (Main.rand.Next(40) == 0)
+                    if (Main.rand.NextBool(40))
                     {
                         stack += Main.rand.Next(0, 4);
                     }
-                    if (Main.rand.Next(50) == 0)
+                    if (Main.rand.NextBool(50))
                     {
                         stack += Main.rand.Next(0, 5);
                     }
-                    if (Main.rand.Next(60) == 0)
+                    if (Main.rand.NextBool(60))
                     {
                         stack += Main.rand.Next(0, 6);
                     }
                 }
-                else if (Main.rand.Next(50) == 0)
+                else if (Main.rand.NextBool(50))
                 {
                     result = 999;
-                    if (Main.rand.Next(20) == 0)
+                    if (Main.rand.NextBool(20))
                     {
                         stack += Main.rand.Next(0, 2);
                     }
-                    if (Main.rand.Next(30) == 0)
+                    if (Main.rand.NextBool(30))
                     {
                         stack += Main.rand.Next(0, 3);
                     }
-                    if (Main.rand.Next(40) == 0)
+                    if (Main.rand.NextBool(40))
                     {
                         stack += Main.rand.Next(0, 4);
                     }
-                    if (Main.rand.Next(50) == 0)
+                    if (Main.rand.NextBool(50))
                     {
                         stack += Main.rand.Next(0, 5);
                     }
-                    if (Main.rand.Next(60) == 0)
+                    if (Main.rand.NextBool(60))
                     {
                         stack += Main.rand.Next(0, 6);
                     }
                 }
-                else if (Main.rand.Next(3) == 0)
+                else if (Main.rand.NextBool(3))
                 {
-                    if (Main.rand.Next(5000) == 0)
+                    if (Main.rand.NextBool(5000))
                     {
                         result = 74;
-                        if (Main.rand.Next(10) == 0)
+                        if (Main.rand.NextBool(10))
                         {
                             stack += Main.rand.Next(0, 3);
                         }
-                        if (Main.rand.Next(10) == 0)
+                        if (Main.rand.NextBool(10))
                         {
                             stack += Main.rand.Next(0, 3);
                         }
-                        if (Main.rand.Next(10) == 0)
+                        if (Main.rand.NextBool(10))
                         {
                             stack += Main.rand.Next(0, 3);
                         }
-                        if (Main.rand.Next(10) == 0)
+                        if (Main.rand.NextBool(10))
                         {
                             stack += Main.rand.Next(0, 3);
                         }
-                        if (Main.rand.Next(10) == 0)
+                        if (Main.rand.NextBool(10))
                         {
                             stack += Main.rand.Next(0, 3);
                         }
                     }
-                    else if (Main.rand.Next(400) == 0)
+                    else if (Main.rand.NextBool(400))
                     {
                         result = 73;
-                        if (Main.rand.Next(5) == 0)
+                        if (Main.rand.NextBool(5))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(5) == 0)
+                        if (Main.rand.NextBool(5))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(5) == 0)
+                        if (Main.rand.NextBool(5))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(5) == 0)
+                        if (Main.rand.NextBool(5))
                         {
                             stack += Main.rand.Next(1, 21);
                         }
-                        if (Main.rand.Next(5) == 0)
+                        if (Main.rand.NextBool(5))
                         {
                             stack += Main.rand.Next(1, 20);
                         }
                     }
-                    else if (Main.rand.Next(30) == 0)
+                    else if (Main.rand.NextBool(30))
                     {
                         result = 72;
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(5, 26);
                         }
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(5, 26);
                         }
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(5, 26);
                         }
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             stack += Main.rand.Next(5, 25);
                         }
@@ -885,19 +885,19 @@ namespace AAModClassic.Globals
                     else
                     {
                         result = 71;
-                        if (Main.rand.Next(2) == 0)
+                        if (Main.rand.NextBool(2))
                         {
                             stack += Main.rand.Next(10, 26);
                         }
-                        if (Main.rand.Next(2) == 0)
+                        if (Main.rand.NextBool(2))
                         {
                             stack += Main.rand.Next(10, 26);
                         }
-                        if (Main.rand.Next(2) == 0)
+                        if (Main.rand.NextBool(2))
                         {
                             stack += Main.rand.Next(10, 26);
                         }
-                        if (Main.rand.Next(2) == 0)
+                        if (Main.rand.NextBool(2))
                         {
                             stack += Main.rand.Next(10, 25);
                         }
@@ -938,23 +938,23 @@ namespace AAModClassic.Globals
                     {
                         result = 702;
                     }
-                    if (Main.rand.Next(20) == 0)
+                    if (Main.rand.NextBool(20))
                     {
                         stack += Main.rand.Next(0, 2);
                     }
-                    if (Main.rand.Next(30) == 0)
+                    if (Main.rand.NextBool(30))
                     {
                         stack += Main.rand.Next(0, 3);
                     }
-                    if (Main.rand.Next(40) == 0)
+                    if (Main.rand.NextBool(40))
                     {
                         stack += Main.rand.Next(0, 4);
                     }
-                    if (Main.rand.Next(50) == 0)
+                    if (Main.rand.NextBool(50))
                     {
                         stack += Main.rand.Next(0, 5);
                     }
-                    if (Main.rand.Next(60) == 0)
+                    if (Main.rand.NextBool(60))
                     {
                         stack += Main.rand.Next(0, 6);
                     }
@@ -976,18 +976,18 @@ namespace AAModClassic.Globals
             int stack = 1;
             if(extractType == ItemID.SlushBlock)
             {
-                if(Main.rand.Next(50) == 0)
+                if(Main.rand.NextBool(50))
                 {
                     result = ModContent.ItemType<VikingRelic>();
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -995,18 +995,18 @@ namespace AAModClassic.Globals
             }
             else if(extractType == ItemID.DesertFossil)
             {
-                if(Main.rand.Next(50) == 0)
+                if(Main.rand.NextBool(50))
                 {
                     result = ModContent.ItemType<DynaskullOre>();
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         stack += Main.rand.Next(3);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         stack += Main.rand.Next(4);
                     }
@@ -1017,19 +1017,19 @@ namespace AAModClassic.Globals
             {
                 if(extractType == ItemID.DesertFossil || extractType == ItemID.SlushBlock || extractType == ItemID.SiltBlock)
                 {
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         result = 3380;
                         stack += 6;
                     }
-                    else if (Main.rand.Next(10) == 0)
+                    else if (Main.rand.NextBool(10))
                     {
-                        if (Main.rand.Next(500) == 0)
+                        if (Main.rand.NextBool(500))
                         {
                             result = 74;
                             stack += 3;
                         }
-                        else if (Main.rand.Next(200) == 0)
+                        else if (Main.rand.NextBool(200))
                         {
                             result = 73;
                             stack += 99;
@@ -1040,25 +1040,25 @@ namespace AAModClassic.Globals
                             stack += 99;
                         }
                     }
-                    else if (Main.rand.Next(100) == 0)
+                    else if (Main.rand.NextBool(100))
                     {
                         result = 1242;
                     }
-                    else if (Main.rand.Next(30) == 0)
+                    else if (Main.rand.NextBool(30))
                     {
-                        if(Main.rand.Next(2) == 0)
+                        if(Main.rand.NextBool(2))
                         {
                             result = ModContent.ItemType<DynaskullOre>();
                             stack += 1;
-                            if (Main.rand.Next(5) == 0)
+                            if (Main.rand.NextBool(5))
                             {
                                 stack += Main.rand.Next(2);
                             }
-                            if (Main.rand.Next(10) == 0)
+                            if (Main.rand.NextBool(10))
                             {
                                 stack += Main.rand.Next(3);
                             }
-                            if (Main.rand.Next(15) == 0)
+                            if (Main.rand.NextBool(15))
                             {
                                 stack += Main.rand.Next(4);
                             }
@@ -1067,21 +1067,21 @@ namespace AAModClassic.Globals
                         {
                             result = ModContent.ItemType<VikingRelic>();
                             stack += 1;
-                            if (Main.rand.Next(5) == 0)
+                            if (Main.rand.NextBool(5))
                             {
                                 stack += Main.rand.Next(2);
                             }
-                            if (Main.rand.Next(10) == 0)
+                            if (Main.rand.NextBool(10))
                             {
                                 stack += Main.rand.Next(3);
                             }
-                            if (Main.rand.Next(15) == 0)
+                            if (Main.rand.NextBool(15))
                             {
                                 stack += Main.rand.Next(4);
                             }
                         }
                     }
-                    else if (Main.rand.Next(300) == 0)
+                    else if (Main.rand.NextBool(300))
                     {
                         switch(Main.rand.Next(8))
                         {
@@ -1095,15 +1095,15 @@ namespace AAModClassic.Globals
                             default: result=702; return;
                         }
                     }
-                    else if (Main.rand.Next(20) == 0)
+                    else if (Main.rand.NextBool(20))
                     {
                         result = 999;
                         stack += 5;
-                        if (Main.rand.Next(10) == 0)
+                        if (Main.rand.NextBool(10))
                         {
                             stack += 5;
                         }
-                        if (Main.rand.Next(20) == 0)
+                        if (Main.rand.NextBool(20))
                         {
                             stack += 5;
                         }

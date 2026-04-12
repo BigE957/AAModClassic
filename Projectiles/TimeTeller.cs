@@ -33,7 +33,7 @@ namespace AAModClassic.Projectiles   //The directory for your .cs and .png; Exam
                 Vector2 vector2 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                 vector2.Normalize();
                 vector2 *= Main.rand.Next(10, 41) * 0.1f;
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     vector2 *= 2f;
                 }

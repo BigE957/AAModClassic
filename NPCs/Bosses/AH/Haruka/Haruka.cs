@@ -172,7 +172,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                 int lootH = Main.rand.Next(lootTableH.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTableH[lootH]).Type);
             }
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<HarukaTrophy>());
             }
@@ -446,7 +446,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                             Shadowkill = true;
                             Invisible = true;
                         }
-                        else if(Main.rand.Next(4) == 0 && internalAI[6] >= 500)
+                        else if(Main.rand.NextBool(4) && internalAI[6] >= 500)
                         {
                             internalAI[0] = AISTATE_SPIN;
                             internalAI[6] -= 500;
@@ -600,7 +600,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                             internalAI[2] = 0;
                             internalAI[3] = 0;
                             internalAI[4] = 0;
-                            if(internalAI[6] >= 500 && Main.rand.Next(2) == 0)
+                            if(internalAI[6] >= 500 && Main.rand.NextBool(2))
                             {
                                 internalAI[0] = AISTATE_SPIN;
                                 internalAI[6] -= 500;
@@ -699,7 +699,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                         Shadowkill = true;
                         Invisible = true;
                     }
-                    else if(Main.rand.Next(2) == 0)
+                    else if(Main.rand.NextBool(2))
                     {
                         internalAI[0] = AISTATE_PROJ;
                     }

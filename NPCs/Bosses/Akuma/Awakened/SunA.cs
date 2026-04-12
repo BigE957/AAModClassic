@@ -103,7 +103,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             NPC.rotation -= NPC.direction * 6.28318548f / 120f;
             NPC.scale = NPC.Opacity;
             Lighting.AddLight(NPC.Center, new Vector3(0.9f, 0.6f, 0f) * NPC.Opacity);
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Vector2 vector135 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
                 Dust dust31 = Main.dust[Dust.NewDust(NPC.Center - vector135 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0, default, 1f)];
@@ -114,7 +114,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 dust31.fadeIn = 0.5f;
                 dust31.customData = NPC.Center;
             }
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Vector2 vector136 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
                 Dust dust32 = Main.dust[Dust.NewDust(NPC.Center - vector136 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0, default, 1f)];

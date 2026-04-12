@@ -113,7 +113,7 @@ namespace AAModClassic.Globals
                 {
                     Rectangle rectangle = new Rectangle((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height);
                     Rectangle value = new Rectangle((int)Main.player[projectile.owner].position.X, (int)Main.player[projectile.owner].position.Y, Main.player[projectile.owner].width, Main.player[projectile.owner].height);
-                    if(projectile.ai[0] != 1 && Main.rand.Next(2000) == 0)
+                    if(projectile.ai[0] != 1 && Main.rand.NextBool(2000))
                     {
                         for(int i = 0; i < 200; i++)
                         {
@@ -171,63 +171,63 @@ namespace AAModClassic.Globals
                         }
                         if (Main.rand.Next(100) < 20f)
                         {
-                            if (Main.rand.Next(3) == 0)
+                            if (Main.rand.NextBool(3))
                             {
                                 itemtype = 2336;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneCorrupt)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneCorrupt)
                             {
                                 itemtype = 3203;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneCrimson)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneCrimson)
                             {
                                 itemtype = 3204;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneHallow)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneHallow)
                             {
                                 itemtype = 3207;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneDungeon)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneDungeon)
                             {
                                 itemtype = 3205;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneJungle)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneJungle)
                             {
                                 itemtype = 3208;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneSnow)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneSnow)
                             {
                                 itemtype = ModContent.ItemType<IceCrate>();
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneDesert)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneDesert)
                             {
                                 itemtype = ModContent.ItemType<DesertCrate>();
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneInferno)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneInferno)
                             {
                                 itemtype = ModContent.ItemType<InfernoCrate>();
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneMire)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneMire)
                             {
                                 itemtype = ModContent.ItemType<MireCrate>();
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneVoid)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneVoid)
                             {
                                 itemtype = ModContent.ItemType<VoidCrate>();
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneHoard)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneHoard)
                             {
                                 itemtype = ItemID.GoldenCrate;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneUnderworldHeight)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneUnderworldHeight)
                             {
                                 itemtype = ModContent.ItemType<HellCrate>();
                             }
-                            else if (Main.rand.Next(3) == 0 && WorldHeightType == 0)
+                            else if (Main.rand.NextBool(3) && WorldHeightType == 0)
                             {
                                 itemtype = 3206;
                             }
-                            else if (Main.rand.Next(2) == 0)
+                            else if (Main.rand.NextBool(2))
                             {
                                 itemtype = 2335;
                             }

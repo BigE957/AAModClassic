@@ -200,7 +200,7 @@ namespace AAModClassic.World
                 {
                     for (int AltarY = yAxis - 45; AltarY < yAxis + 45; AltarY++)
                     {
-                        if (Main.rand.Next(15) == 0)
+                        if (Main.rand.NextBool(15))
                         {
                             WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<AbyssAltarSafe_Tile>());
                         }
@@ -503,7 +503,7 @@ namespace AAModClassic.World
                 {
                     for (int AltarY = yAxis - 45; AltarY < yAxis + 45; AltarY++)
                     {
-                        if (Main.rand.Next(15) == 0)
+                        if (Main.rand.NextBool(15))
                         {
                             WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar2_Tile>());
                         }

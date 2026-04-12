@@ -80,7 +80,7 @@ Non-consumable"); */
                 }
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText2") + Name + "!", 107, 137, 179);
             }
-            int overrideDirection = Main.rand.Next(2) == 0 ? -1 : 1;
+            int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SupremeRajah>(), false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.SupremeRajah"));
             return true;
         }

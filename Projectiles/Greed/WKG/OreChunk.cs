@@ -324,7 +324,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     {
                         Projectile.Kill();
                     }
-                    if (Main.rand.Next(30) == 0)
+                    if (Main.rand.NextBool(30))
                     {
                         int projtype = ModSupport.GetModProjectile("CalamityMod", "LavaChunk").Projectile.type;
                         int p = NewProjectile(Projectile.Center.X + Projectile.velocity.X, Projectile.Center.Y + Projectile.velocity.Y, 0f, 0.1f, projtype, Projectile.damage, 2f, Projectile.owner, 0f, 0f);
@@ -339,7 +339,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     {
                         Projectile.Kill();
                     }
-                    if (Main.rand.Next(40) == 0)
+                    if (Main.rand.NextBool(40))
                     {
                         for (int j = 0; j < 3; j++)
                         {
@@ -668,7 +668,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 {
                     modifiers.FlatBonusDamage += (int)(target.defense * (Main.expertMode? 0.75f : 0.5f));
                 }
-                if(k == ItemID.PlatinumOre && Main.rand.Next(5) == 0)
+                if(k == ItemID.PlatinumOre && Main.rand.NextBool(5))
                 {
                     int itemcreat = 0;
                     itemcreat = Item.NewItem(Projectile.GetSource_DropAsItem(), (int)target.position.X, (int)target.position.Y, 16, 16, ItemID.SilverCoin, Main.rand.Next(15, 20), false, 0, false, false);
@@ -681,7 +681,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             else if(k == ItemID.DemoniteOre)
             {
                 modifiers.FlatBonusDamage += 50;
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.NextBool(5))
                 {
                     target.AddBuff(BuffID.ShadowFlame, 180);
                 }
@@ -694,7 +694,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 }
                 Main.player[Main.myPlayer].lifeSteal -= (float)(modifiers.FinalDamage.Flat * 0.02);
                 Projectile.NewProjectile(Projectile.GetSource_Death(), target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, Projectile.owner, Projectile.owner, (float)(modifiers.FinalDamage.Flat * 0.02));
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.NextBool(5))
                 {
                     target.AddBuff(BuffID.Confused, 180);
                 }
@@ -702,7 +702,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             else if(k == ModContent.ItemType<IncineriteOre>())
             {
                 target.AddBuff(BuffID.OnFire, 240);
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.NextBool(5))
                 {
                     for(int shoot = 0; shoot < 3; shoot ++)
                     {
@@ -845,7 +845,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             else if(k == ModContent.ItemType<SkyCrystal>())
             {
                 int num90 = 3;
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     num90 ++;
                 }
@@ -1005,7 +1005,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                         int id = NewProjectile(Main.player[Projectile.owner].position.X, Main.player[Projectile.owner].position.Y, num5, num6, 206, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         Main.projectile[id].DamageType = DamageClass.Ranged;
                     }
-                    if(!target.SpawnedFromStatue && (target.damage > 5 || target.boss) && target.lifeMax > 100 && Main.rand.Next(5) == 0)
+                    if(!target.SpawnedFromStatue && (target.damage > 5 || target.boss) && target.lifeMax > 100 && Main.rand.NextBool(5))
                     {
                         int itemcreat = 0;
                         itemcreat = Item.NewItem(Projectile.GetSource_DropAsItem(), (int)target.position.X, (int)target.position.Y, 16, 16, 58, 1, false, 0, false, false);

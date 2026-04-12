@@ -44,7 +44,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void AI()
         {
 
-            if (Main.rand.Next(420) == 0)
+            if (Main.rand.NextBool(420))
             {
                 //SoundEngine.PlaySound(29, (int)NPC.Center.X, (int)NPC.Center.Y, Main.rand.Next(100, 101), 1f, 0f);
                 SoundEngine.PlaySound(SoundID.Zombie100, NPC.Center, null);
@@ -369,7 +369,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     }
                     if (num1198 == 45f)
                     {
-                        NPC.ai[2] = (Main.rand.Next(2) == 0).ToDirectionInt() * 6.28318548f / 40f;
+                        NPC.ai[2] = (Main.rand.NextBool(2)).ToDirectionInt() * 6.28318548f / 40f;
                         NPC.netUpdate = true;
                     }
                     if ((num1198 - 15f - 30f) % 40f == 0f)

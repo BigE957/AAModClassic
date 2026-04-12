@@ -206,7 +206,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 			{
 				Vector2 dir = endPos - currentPoint; dir.Normalize();
 				Vector2 vstart = currentPoint;
-				Vector2 vend = currentPoint + dir * Jump; vend = BaseUtility.RotateVector(vstart, vend, (float)(Math.PI / (5f + Main.rand.Next(5))) * 0.35f * (Main.rand.Next(2) == 0 ? -1f : 1f));
+				Vector2 vend = currentPoint + dir * Jump; vend = BaseUtility.RotateVector(vstart, vend, (float)(Math.PI / (5f + Main.rand.Next(5))) * 0.35f * (Main.rand.NextBool(2) ? -1f : 1f));
 				if (targetPosStart.Length > 0 && subJump > 32f)
 				{
 					for (int m = nextID; m < targetPosStart.Length; m++)
@@ -270,7 +270,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 					Color lightColor = (Color)overrideColor;						
 					if (drawEndsUnder) { drawEnds(); }
 					sb.Draw(textures[1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0f);
-					if (Main.rand.Next(15) == 0)
+					if (Main.rand.NextBool(15))
 					{
 						v += Main.screenPosition;
                         int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuDust>(), Projectile.velocity.X, Projectile.velocity.Y, 80, default);

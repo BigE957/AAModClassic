@@ -77,7 +77,7 @@ namespace AAModClassic.Projectiles.AH
 			}
 			Vector2 vector14 = Projectile.Center + Projectile.velocity * 3f;
 			Lighting.AddLight(vector14, 1f, 0.2f, 2f);
-			if (Main.rand.Next(3) == 0)
+			if (Main.rand.NextBool(3))
 			{
 				int num30 = Dust.NewDust(vector14 - Projectile.Size / 2f, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X, Projectile.velocity.Y, 100);
 				Main.dust[num30].noGravity = true;

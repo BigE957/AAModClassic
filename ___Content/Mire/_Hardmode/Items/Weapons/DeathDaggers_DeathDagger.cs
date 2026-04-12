@@ -58,7 +58,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 				Projectile.velocity.Y = (Projectile.velocity.Y * 20f + num485) / 21f;
 				return;
 			}
-            if (Main.rand.Next(6) == 0)
+            if (Main.rand.NextBool(6))
             {
             	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }

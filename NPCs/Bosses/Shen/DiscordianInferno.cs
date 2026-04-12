@@ -45,7 +45,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     Projectile.alpha = 0;
                 }
             }
-			if(Main.rand.Next(3) == 0)
+			if(Main.rand.NextBool(3))
 			{
 				for(int m = 0; m < 3; m++)
 				{

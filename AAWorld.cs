@@ -965,7 +965,7 @@ namespace AAModClassic
                         {
                             Altar = ModContent.TileType<ChaosAltar2_Tile>();
                         }
-                        if (Main.rand.Next(15) == 0)
+                        if (Main.rand.NextBool(15))
                         {
                             if ((tile.TileType == ModContent.TileType<Torchstone_Tile>() ||
                                 tile.TileType == ModContent.TileType<Torchsand_Tile>() ||
@@ -1090,7 +1090,7 @@ namespace AAModClassic
                 Chest chest = Main.chest[chestIndex];
                 if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == 2 * 36)
                 {
-                    if (Main.rand.Next(3) == 0)
+                    if (Main.rand.NextBool(3))
                     {
                         for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                         {
@@ -1148,7 +1148,7 @@ namespace AAModClassic
                                     break;
                                 }
                             }
-                            if (flag3 && Main.rand.Next(3) == 0)
+                            if (flag3 && Main.rand.NextBool(3))
                             {
                                 int num8 = 0;
                                 for (int num9 = 0; num9 < 200; num9++)

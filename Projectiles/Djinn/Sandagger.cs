@@ -37,7 +37,7 @@ namespace AAModClassic.Projectiles.Djinn
 
         public override void OnKill(int timeLeft)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<Items.Boss.Djinn.Sandagger>());
             }

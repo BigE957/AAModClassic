@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Vanity.Hallam
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyHalHat>());
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyHalTux>());
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyHalTux>());
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.GoldBunny);
                 }
@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Vanity.Hallam
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HalTux>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HalTrousers>());
 
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Bunny);
             }

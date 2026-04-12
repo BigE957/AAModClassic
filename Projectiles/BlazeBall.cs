@@ -48,12 +48,12 @@ namespace AAModClassic.Projectiles
             }
             for (int i = 0; i < num; i++)
             {
-                if (Main.rand.Next(2) != 0)
+                if (Main.rand.NextBool(2))
                 {
                     Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 2f);
                     dust.noGravity = true;
                     dust.velocity *= 0.3f;
-                    if (Main.rand.Next(1) == 0)
+                    if (Main.rand.NextBool(1))
                     {
                         Dust expr_131_cp_0 = dust;
                         expr_131_cp_0.velocity.Y += Math.Sign(dust.velocity.Y) * 1.2f;
@@ -142,7 +142,7 @@ namespace AAModClassic.Projectiles
                 int num38 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
                 Main.gore[num38].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * Projectile.width / 2f;
                 Main.gore[num38].position -= Vector2.One * 16f;
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     Gore expr_13A4_cp_0 = Main.gore[num38];
                     expr_13A4_cp_0.position.Y -= 30f;

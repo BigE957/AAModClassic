@@ -43,7 +43,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Accessories
                 player.buffImmune[ModContent.BuffType<BurningAsh_Buff>()] = true;
                 if (player.GetModPlayer<AAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
                 {
-                    if (Main.rand.Next(3600) == 0)
+                    if (Main.rand.NextBool(3600))
                     {
                         if (Item.type == ModContent.ItemType<AshProofVest3>())
                         {

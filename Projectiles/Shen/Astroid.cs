@@ -130,7 +130,7 @@ namespace AAModClassic.Projectiles.Shen
 
             }
             //Spew eyes
-            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer && Main.rand.Next(50) == 0) //higher # means later on in the attack
+            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer && Main.rand.NextBool(50)) //higher # means later on in the attack
             {
                 Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
                 Vector2 vector55 = vector54 * -1f;

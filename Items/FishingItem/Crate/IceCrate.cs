@@ -35,7 +35,7 @@ namespace AAModClassic.Items.FishingItem.Crate
 
         public override void RightClick(Player player)
         {
-            if(Main.rand.Next(3) == 0)
+            if(Main.rand.NextBool(3))
             {
                 int item = Main.rand.Next(8);
 

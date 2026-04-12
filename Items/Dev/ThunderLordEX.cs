@@ -51,7 +51,7 @@ Storm Rifle EX"); */
             {
                 position += muzzleOffset;
             }
-            type = Main.rand.Next(20) == 0 ? ModContent.ProjectileType<SThunderBullet>() : ModContent.ProjectileType<ThunderBullet>();
+            type = Main.rand.NextBool(20) ? ModContent.ProjectileType<SThunderBullet>() : ModContent.ProjectileType<ThunderBullet>();
             Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 2f, 2f);
             return false;
         }

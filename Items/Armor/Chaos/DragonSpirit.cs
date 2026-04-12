@@ -236,7 +236,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>(Main.rand.Next(2) == 0 ? "DragonFire" : "HydraToxin").Type, 180);
+            target.AddBuff(Mod.Find<ModBuff>(Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin").Type, 180);
         }
 
         public override bool PreDraw(ref Color lightColor)

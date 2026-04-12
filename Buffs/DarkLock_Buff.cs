@@ -42,7 +42,7 @@ namespace AAModClassic.Buffs
                         int i = x + y * npc.width;
                         if (Math.Abs(x* ratio - y) < 5 || Math.Abs((npc.width - x) * ratio - y) < 5)
                         {
-                            dataColors[i] = Main.rand.Next(10) == 0 ? new Color(0, 255, 181) : new Color(9, 0, 44);
+                            dataColors[i] = Main.rand.NextBool(10) ? new Color(0, 255, 181) : new Color(9, 0, 44);
                         }
                     }
                 }

@@ -158,7 +158,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -509,7 +509,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void FindFrame(int frameHeight)
         {
-            if (Main.netMode != NetmodeID.Server && !tongueFlick && Main.rand.Next(20) == 0)
+            if (Main.netMode != NetmodeID.Server && !tongueFlick && Main.rand.NextBool(20))
             {
                 tongueFlick = true;
             }
@@ -600,44 +600,44 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     int num = 86400;
                     int num5 = num / 24;
                     Main.rainTime = Main.rand.Next(num5 * 8, num);
-                    if (Main.rand.Next(3) == 0)
+                    if (Main.rand.NextBool(3))
                     {
                         Main.rainTime += Main.rand.Next(0, num5);
                     }
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.rainTime += Main.rand.Next(0, num5 * 2);
                     }
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         Main.rainTime += Main.rand.Next(0, num5 * 2);
                     }
-                    if (Main.rand.Next(6) == 0)
+                    if (Main.rand.NextBool(6))
                     {
                         Main.rainTime += Main.rand.Next(0, num5 * 3);
                     }
-                    if (Main.rand.Next(7) == 0)
+                    if (Main.rand.NextBool(7))
                     {
                         Main.rainTime += Main.rand.Next(0, num5 * 4);
                     }
-                    if (Main.rand.Next(8) == 0)
+                    if (Main.rand.NextBool(8))
                     {
                         Main.rainTime += Main.rand.Next(0, num5 * 5);
                     }
                     float num1 = 1f;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         num1 += 0.05f;
                     }
-                    if (Main.rand.Next(3) == 0)
+                    if (Main.rand.NextBool(3))
                     {
                         num1 += 0.1f;
                     }
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         num1 += 0.15f;
                     }
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         num1 += 0.2f;
                     }
@@ -917,7 +917,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -1355,7 +1355,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }

@@ -143,7 +143,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16.0 && NPC.position.Y + NPC.height > (double)vector2.Y && NPC.position.Y < vector2.Y + 16.0)
                         {
                             collision = true;
-                            if (Main.rand.Next(100) == 0 && Main.tile[i, j].HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && Main.tile[i, j].HasUnactuatedTile)
                                 WorldGen.KillTile(i, j, true, true, false);
                         }
                     }
@@ -277,28 +277,28 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 int num121 = 0;
                 while (num121 < hit.Damage / (double)NPC.lifeMax * 3.0)
                 {
-                    if (Main.rand.Next(3) == 0)
+                    if (Main.rand.NextBool(3))
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, Color.Transparent, 0.75f);
                     }
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         Dust dust39 = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default, 1f)];
                         dust39.noGravity = true;
                     }
                     for (int num122 = 0; num122 < NPC.oldPos.Length; num122++)
                     {
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             if (NPC.oldPos[num122] == Vector2.Zero)
                             {
                                 break;
                             }
-                            if (Main.rand.Next(3) == 0)
+                            if (Main.rand.NextBool(3))
                             {
                                 Dust.NewDust(NPC.oldPos[num122], NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, Color.Transparent, 0.75f);
                             }
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.NextBool(2))
                             {
                                 Dust dust40 = Main.dust[Dust.NewDust(NPC.oldPos[num122], NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default, 1f)];
                                 dust40.noGravity = true;

@@ -56,7 +56,7 @@ namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png
             Player player = Main.player[Projectile.owner];
             if (Main.myPlayer == Projectile.owner)
             {
-                if (Main.rand.Next(35) == 0)
+                if (Main.rand.NextBool(35))
                 {
                     float num78 = Main.mouseX + Main.screenPosition.X - Projectile.Center.X;
                     float num79 = Main.mouseY + Main.screenPosition.Y - Projectile.Center.Y;
@@ -68,12 +68,12 @@ namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png
                     value2.Normalize();
                     value2 *= 10f;
                     float num91 = Main.rand.Next(10, 50) * 0.001f;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         num91 *= -1f;
                     }
                     float num92 = Main.rand.Next(10, 50) * 0.001f;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         num92 *= -1f;
                     }

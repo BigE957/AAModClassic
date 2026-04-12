@@ -173,7 +173,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                         {
                             if(NPC.life < NPC.lifeMax / 3)
                             {
-                                NPC.ai[0] = Main.rand.Next(4) == 0? 4:9;
+                                NPC.ai[0] = Main.rand.NextBool(4) ? 4:9;
                             }
                             else
                             {
@@ -226,7 +226,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                                 shoot *= 8f;
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<FuryAsheFire>(), NPC.damage / 4, 5, Main.myPlayer);
                             }
-                            if(Main.rand.Next(3) == 0) 
+                            if(Main.rand.NextBool(3)) 
                             {
                                 NPC.netUpdate = true;
                                 goto case 5;
@@ -279,7 +279,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
             if (NPC.ai[0] == 2 || NPC.ai[0] == 3 || NPC.ai[0] == 8)
             {
-                if((NPC.ai[1] == 0 && (Main.rand.Next(6) == 0 || NPC.life < NPC.lifeMax * 0.66f && Main.rand.Next(3) == 0)) || NPC.life < NPC.lifeMax * 0.33f) RuneCrash = true;
+                if((NPC.ai[1] == 0 && (Main.rand.NextBool(6) || NPC.life < NPC.lifeMax * 0.66f && Main.rand.NextBool(3))) || NPC.life < NPC.lifeMax * 0.33f) RuneCrash = true;
             }
             else
             {

@@ -33,11 +33,11 @@ namespace AAModClassic.Items.Boss.Greed.WKG
         {
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StoneShell>(), Main.rand.Next(25, 30));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CovetiteOre>(), Main.rand.Next(30, 50));
-            if (Main.rand.Next(7) == 0)
+            if (Main.rand.NextBool(7))
             {
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<WKGreedMask>());
             }
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();

@@ -30,14 +30,14 @@ namespace AAModClassic.Items.Vanity.Tied
         {
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.GoldBunny);
                 }
             }
             else
             {
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Bunny);
                 }

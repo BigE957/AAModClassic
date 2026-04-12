@@ -233,7 +233,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 					customAI[1] = movementVector.X;
 					customAI[2] = movementVector.Y;
 					NPC.netUpdate = true;
-					customAI[3] = Main.rand.Next(3) == 0 ? 1 : 0; //wether or not to charge
+					customAI[3] = Main.rand.NextBool(3) ? 1 : 0; //wether or not to charge
                 }else
 				if(targetPlayer != null && customAI[0] >= aiTimerFire) //get ready to charge player
 				{

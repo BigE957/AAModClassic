@@ -93,12 +93,12 @@ namespace AAModClassic.NPCs.TownNPCs
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int Goblin = NPC.FindFirstNPC(NPCID.GoblinTinkerer);
-			if (Goblin >= 0 && Main.rand.Next(4) == 0)
+			if (Goblin >= 0 && Main.rand.NextBool(4))
 			{
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat1") + Main.npc[Goblin].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat2"));
             }
             int DD2Bartender = NPC.FindFirstNPC(NPCID.DD2Bartender);
-            if (DD2Bartender >= 0 && Main.rand.Next(4) == 0)
+            if (DD2Bartender >= 0 && Main.rand.NextBool(4))
             {
                 return Main.npc[DD2Bartender].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat3");
             }

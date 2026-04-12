@@ -779,7 +779,7 @@ namespace AAModClassic
 
             if (StoneSoldier)
             {
-                if (target.life <= 0 && Main.rand.Next(80) == 0)
+                if (target.life <= 0 && Main.rand.NextBool(80))
                 {
                     Projectile.NewProjectile(target.GetSource_GiftOrReward(), target.Center, Vector2.Zero, ProjectileID.CoinPortal, 0, 0, Main.myPlayer);
                 }
@@ -788,14 +788,14 @@ namespace AAModClassic
 
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)/* tModPorter If you don't need the Projectile, consider using OnHitNPC instead */
         {
-            if (TerraRa && proj.CountsAsClass(DamageClass.Ranged) && Main.rand.Next(3) == 0)
+            if (TerraRa && proj.CountsAsClass(DamageClass.Ranged) && Main.rand.NextBool(3))
             {
                 float screenX;
                 float screenY;
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     screenX = Main.screenPosition.X;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         screenX += Main.screenWidth;
                     }
@@ -805,7 +805,7 @@ namespace AAModClassic
                 else
                 {
                     screenY = Main.screenPosition.Y;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         screenY += Main.screenHeight;
                     }
@@ -832,7 +832,7 @@ namespace AAModClassic
             if (StoneSoldier)
             {
                 target.AddBuff(BuffID.Midas, 600);
-                if (target.life <= 0 && Main.rand.Next(80) == 0)
+                if (target.life <= 0 && Main.rand.NextBool(80))
                 {
                     Projectile.NewProjectile(target.GetSource_OnHurt(Player), target.Center, Vector2.Zero, ProjectileID.CoinPortal, 0, 0, Main.myPlayer);
                 }
@@ -903,7 +903,7 @@ namespace AAModClassic
                 artifactGuiltCharge += hurtInfo.Damage;
             }
 
-            if (fleshrendSet && Main.rand.Next(2) == 0)
+            if (fleshrendSet && Main.rand.NextBool(2))
             {
                 if (Player.whoAmI == Main.myPlayer)
                 {
@@ -1083,7 +1083,7 @@ namespace AAModClassic
 
             if (ChampionMa)
             {
-                if (Main.rand.Next(30) == 0)
+                if (Main.rand.NextBool(30))
                 {
                     int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<CarrotBooster>(), 1, false, 0, true);
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
@@ -1119,7 +1119,7 @@ namespace AAModClassic
 
                 if (ChaosMe || ChaosMe1)
                 {
-                    string buffName = Main.rand.Next(2) == 0 ? "DragonFire" : "HydraToxin";
+                    string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
                     target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
                 }
 
@@ -1152,7 +1152,7 @@ namespace AAModClassic
                     target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
                 }
 
-                if (DynaskullSet && Main.rand.Next(4) == 0)
+                if (DynaskullSet && Main.rand.NextBool(4))
                 {
                     target.AddBuff(BuffID.Confused, 180);
                 }
@@ -1169,7 +1169,7 @@ namespace AAModClassic
 
                 if (ChaosRa || ChaosRa2)
                 {
-                    string buffName = Main.rand.Next(2) == 0 ? "DragonFire" : "HydraToxin";
+                    string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
                     target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
                 }
             }
@@ -1198,7 +1198,7 @@ namespace AAModClassic
 
                 if (ChaosMa)
                 {
-                    string buffName = Main.rand.Next(2) == 0 ? "DragonFire" : "HydraToxin";
+                    string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
                     target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
                 }
 
@@ -1238,7 +1238,7 @@ namespace AAModClassic
                     target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
 
-                if (Alpha && Main.rand.Next(2) == 0 && !target.boss)
+                if (Alpha && Main.rand.NextBool(2) && !target.boss)
                 {
                     target.AddBuff(BuffID.Wet, 500);
                 }
@@ -1246,7 +1246,7 @@ namespace AAModClassic
 
             if (ChampionMa)
             {
-                if (Main.rand.Next(30) == 0)
+                if (Main.rand.NextBool(30))
                 {
                     int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<CarrotBooster>(), 1, false, 0, true);
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
@@ -1353,11 +1353,11 @@ namespace AAModClassic
 
             if (Player.GetModPlayer<AAPlayer>().ZoneInferno)
             {
-                if(Main.rand.Next(50) == 0 && Main.hardMode)
+                if(Main.rand.NextBool(50) && Main.hardMode)
                 {
                     itemDrop = ModContent.ItemType<ScorchShark>();
                 }
-                else if(Main.rand.Next(49) == 0)
+                else if(Main.rand.NextBool(49))
                 {
                     itemDrop = ModContent.ItemType<SharpeningLavaFish>();
                 }
@@ -1365,17 +1365,17 @@ namespace AAModClassic
 
             if (Player.GetModPlayer<AAPlayer>().ZoneMire && Main.hardMode)
             {
-                if(Main.rand.Next(50) == 0 && Main.hardMode)
+                if(Main.rand.NextBool(50) && Main.hardMode)
                 {
                     itemDrop = ModContent.ItemType<SwimmingHydra>();
                 }
-                else if(Main.rand.Next(49) == 0)
+                else if(Main.rand.NextBool(49))
                 {
                     itemDrop = ModContent.ItemType<ToxinMonkfish>();
                 }
             }
 
-            if ((Main.rand.Next(4096) == 0 && liquidType == 0 && Player.fishingSkill >= 100)|| (Main.rand.Next(2048) == 0 && Player.accFishingLine && Player.accTackleBox))
+            if ((Main.rand.NextBool(4096) && liquidType == 0 && Player.fishingSkill >= 100)|| (Main.rand.NextBool(2048) && Player.accFishingLine && Player.accTackleBox))
             {
                 itemDrop = ModContent.ItemType<ShinyCharmFish>();
             }
@@ -1751,7 +1751,7 @@ namespace AAModClassic
                 float RandomX = 50f;
                 float RandomY = 25f;
                 bool flag = Player.itemAnimation > 0;
-                if (flag && Player.inventory[Player.selectedItem].CountsAsClass(DamageClass.Melee) && Main.rand.Next(200) == 0 && Player.whoAmI == Main.myPlayer)
+                if (flag && Player.inventory[Player.selectedItem].CountsAsClass(DamageClass.Melee) && Main.rand.NextBool(200) && Player.whoAmI == Main.myPlayer)
                 {
                     Vector2 SpeedVector = Main.MouseWorld - Player.RotatedRelativePoint(Player.MountedCenter, true);
                     SpeedVector.Normalize();
@@ -2142,7 +2142,7 @@ namespace AAModClassic
             if(item.CountsAsClass(DamageClass.Ranged) && Assassin)
             {
                 velocity *= 1.3f;
-                if(Main.rand.Next(10) == 0 && Player.whoAmI == Main.myPlayer)
+                if(Main.rand.NextBool(10) && Player.whoAmI == Main.myPlayer)
                 {
                     float RandomX = 50f;
                     float RandomY = 25f;
@@ -2180,7 +2180,7 @@ namespace AAModClassic
             {
                 if (Player.velocity.X < -runSpeed && Player.velocity.Y == 0f && !Player.mount.Active)
                 {
-                    if (AADash == 1 && Main.rand.Next(50) == 0)
+                    if (AADash == 1 && Main.rand.NextBool(50))
                     {
                         int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
@@ -2193,7 +2193,7 @@ namespace AAModClassic
             {
                 if (Player.velocity.X > runSpeed && Player.velocity.Y == 0f && !Player.mount.Active)
                 {
-                    if (AADash == 1 && Main.rand.Next(50) == 0)
+                    if (AADash == 1 && Main.rand.NextBool(50))
                     {
                         int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
@@ -2400,11 +2400,11 @@ namespace AAModClassic
                 {
                     Vector2 vector = new Vector2(Main.rand.NextFloat() * num11 - 500f, Main.rand.NextFloat() * -50f);
 
-                    if (Main.rand.Next(3) == 0 && num == 1)
+                    if (Main.rand.NextBool(3) && num == 1)
                     {
                         vector.X = Main.rand.Next(500) - 500;
                     }
-                    else if (Main.rand.Next(3) == 0 && num == -1)
+                    else if (Main.rand.NextBool(3) && num == -1)
                     {
                         vector.X = Main.rand.Next(500) + Main.screenWidth;
                     }
@@ -2504,11 +2504,11 @@ namespace AAModClassic
                                     num6 -= (int)Main.LocalPlayer.velocity.Y;
                                 }
 
-                                if (Main.rand.Next(5) == 0)
+                                if (Main.rand.NextBool(5))
                                 {
                                     num5 = Main.rand.Next(500) - 500;
                                 }
-                                else if (Main.rand.Next(5) == 0)
+                                else if (Main.rand.NextBool(5))
                                 {
                                     num5 = Main.rand.Next(500) + Main.screenWidth;
                                 }
@@ -2601,11 +2601,11 @@ namespace AAModClassic
                                     num6 -= (int)Main.LocalPlayer.velocity.Y;
                                 }
 
-                                if (Main.rand.Next(5) == 0)
+                                if (Main.rand.NextBool(5))
                                 {
                                     num5 = Main.rand.Next(500) - 500;
                                 }
-                                else if (Main.rand.Next(5) == 0)
+                                else if (Main.rand.NextBool(5))
                                 {
                                     num5 = Main.rand.Next(500) + Main.screenWidth;
                                 }
@@ -2864,7 +2864,7 @@ namespace AAModClassic
 
                         if (dropType >= 3)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.Next(2) == 0 ? ModContent.ItemType<Skullshot>() : ModContent.ItemType<GibsFemur>());
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.NextBool(2) ? ModContent.ItemType<Skullshot>() : ModContent.ItemType<GibsFemur>());
                         }
 
                         spawnedDevItems = true;
@@ -2899,7 +2899,7 @@ namespace AAModClassic
 
                         if (dropType >= 3)
                         {
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.NextBool(2))
                             {
                                 Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("MagicAcorn" + addonEX).Type);
                             }
@@ -3037,7 +3037,7 @@ namespace AAModClassic
             {
                 if (Main.raining)
                 {
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         Main.rainTime++;
                     }
@@ -3212,7 +3212,7 @@ namespace AAModClassic
                 Item item = Player.inventory[i];
                 if (item.type == ModContent.ItemType<ShinyCharm>())
                 {
-                    if (Main.rand.Next(2048) == 0)
+                    if (Main.rand.NextBool(2048))
                     {
                         return true;
                     }
@@ -3223,7 +3223,7 @@ namespace AAModClassic
                 }
 
             }
-            if (Main.rand.Next(4096) == 0)
+            if (Main.rand.NextBool(4096))
                 return true;
 
             return false;
@@ -3563,7 +3563,7 @@ namespace AAModClassic
         {
             if (FFlames)
             {
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.ForsakenDust>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100, default, 1.5f);
 
@@ -3580,7 +3580,7 @@ namespace AAModClassic
 
             if (infinityOverload)
             {
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadB>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3595,7 +3595,7 @@ namespace AAModClassic
                 g *= 0.3f;
                 b *= 0.7f;
 
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadR>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3610,7 +3610,7 @@ namespace AAModClassic
                 g *= 0.2f;
                 b *= 0.2f;
 
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadG>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3625,7 +3625,7 @@ namespace AAModClassic
                 g *= 0.7f;
                 b *= 0.1f;
 
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadY>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3640,7 +3640,7 @@ namespace AAModClassic
                 g *= 0.5f;
                 b *= 0.1f;
 
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadP>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3655,7 +3655,7 @@ namespace AAModClassic
                 g *= 0.1f;
                 b *= 0.6f;
 
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadO>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3675,7 +3675,7 @@ namespace AAModClassic
 
             if (terraBlaze)
             {
-                if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+                if (Main.rand.NextBool(4) && drawInfo.shadow == 0f)
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, DustID.Terra, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3695,7 +3695,7 @@ namespace AAModClassic
 
             if (CursedHellfire)
             {
-                if (Main.rand.Next(4) == 0)
+                if (Main.rand.NextBool(4))
                 {
                     int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, DustID.CursedTorch, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
@@ -3754,7 +3754,7 @@ namespace AAModClassic
 
         public override bool CanConsumeAmmo(Item weapon, Item ammo)
         {
-            if (ammo20percentdown && Main.rand.Next(5) == 0)
+            if (ammo20percentdown && Main.rand.NextBool(5))
             {
                 return false;
             }

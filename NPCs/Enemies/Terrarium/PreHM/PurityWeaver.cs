@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 
         public override void OnKill()
         {
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.NextBool(4))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
             }
@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 						if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16.0 && NPC.position.Y + NPC.height > (double)vector2.Y && NPC.position.Y < vector2.Y + 16.0)
 						{
 							collision = true;
-							if (Main.rand.Next(100) == 0 && Main.tile[i, j].HasUnactuatedTile)
+							if (Main.rand.NextBool(100) && Main.tile[i, j].HasUnactuatedTile)
 								WorldGen.KillTile(i, j, true, true, false);
 						}
 					}

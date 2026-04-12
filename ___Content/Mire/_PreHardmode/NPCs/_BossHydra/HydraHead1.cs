@@ -261,15 +261,15 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
 
                 if (Green)
                 {
-                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraHead_HydraBomb>();
+                    proj = Main.rand.NextBool(2) ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraHead_HydraBomb>();
                 }
                 if (Orange)
                 {
-                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraHead_HydraBreath>();
+                    proj = Main.rand.NextBool(2) ? ModContent.ProjectileType<AcidProj>() : ModContent.ProjectileType<HydraHead_HydraBreath>();
                 }
                 if (Purple)
                 {
-                    proj = Main.rand.Next(2) == 0 ? ModContent.ProjectileType<HydraHead_HydraBomb>() : ModContent.ProjectileType<HydraHead_HydraBreath>();
+                    proj = Main.rand.NextBool(2) ? ModContent.ProjectileType<HydraHead_HydraBomb>() : ModContent.ProjectileType<HydraHead_HydraBreath>();
                 }
 
                 if (Shoot == Interval)

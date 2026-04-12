@@ -116,7 +116,7 @@ OreCannonEX"); */
             else if (Main.projectile[p].ai[1] == ItemID.Meteorite)
             {
                 int num90 = 3;
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     num90 ++;
                 }

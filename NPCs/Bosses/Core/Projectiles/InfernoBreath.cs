@@ -52,7 +52,7 @@ internal class InfernoBreath : ModProjectile
 			for (int i = 0; i < 1; i++)
 			{
 				int num2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
-				if (Main.rand.Next(3) != 0)
+				if (Main.rand.NextBool(3))
 				{
 					Main.dust[num2].noGravity = true;
 					Main.dust[num2].scale *= 3f;

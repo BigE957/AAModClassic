@@ -351,7 +351,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     vector7.X += num21 * num23 / 2f;
                     vector7.Y += num22 * num23 / 2f;
                 }
-                else if (Main.rand.Next(2) == 0)
+                else if (Main.rand.NextBool(2))
                 {
 
                     vector7.X += num21 * num23 - 16f;

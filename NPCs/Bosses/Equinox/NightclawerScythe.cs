@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             }
             Lighting.AddLight((int)(Projectile.Center.X / 16f), (int)(Projectile.Center.Y / 16f), .37f, .8f, .89f);
 
-            if(Main.rand.Next(10) == 0)
+            if(Main.rand.NextBool(10))
             {
                 int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.NightcrawlerDust>(), Projectile.velocity.X,
                     Projectile.velocity.Y, 100, new Color(), 2f);

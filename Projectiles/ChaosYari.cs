@@ -37,9 +37,9 @@ namespace AAModClassic.Projectiles
         	Projectile.position.X = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - Projectile.width / 2;
         	Projectile.position.Y = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - Projectile.height / 2;
         	Projectile.position += Projectile.velocity * Projectile.ai[0];
-        	if (Main.rand.Next(5) == 0)
+        	if (Main.rand.NextBool(5))
             {
-            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.AkumaDust>() : ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.AkumaDust>() : ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
         	if(Projectile.ai[0] == 0f)
         	{

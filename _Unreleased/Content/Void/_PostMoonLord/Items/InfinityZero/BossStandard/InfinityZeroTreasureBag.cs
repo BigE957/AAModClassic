@@ -54,7 +54,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
 		public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(7) == 0)
+            if (Main.rand.NextBool(7))
             {
                 //TODOIZ erm, maskless bozo alert
                 player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<ZeroMask>());

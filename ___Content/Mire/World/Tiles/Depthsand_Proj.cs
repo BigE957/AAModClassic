@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles
 
         public override void AI()
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.BogwoodDust>(), 0f, 0f, 0);
                 Main.dust[dust].velocity.X *= 0.4f;

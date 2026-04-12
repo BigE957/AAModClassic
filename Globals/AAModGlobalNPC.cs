@@ -268,7 +268,7 @@ namespace AAModClassic.Globals
                 npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(2, 3));
             }
 
-            if (npc.type == NPCID.RedDevil && Main.rand.Next(3) == 0)
+            if (npc.type == NPCID.RedDevil && Main.rand.NextBool(3))
             {
                 npc.DropLoot(ModContent.ItemType<PureEvil>());
             }
@@ -471,7 +471,7 @@ namespace AAModClassic.Globals
 
             if (npc.type == NPCID.TacticalSkeleton || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.SkeletonCommando)
             {
-                if (Main.rand.Next(50) == 0)
+                if (Main.rand.NextBool(50))
                 {
                     npc.DropLoot(ModContent.ItemType<M79Parts>());
                 }
@@ -502,7 +502,7 @@ namespace AAModClassic.Globals
                 npc.DropLoot(ItemID.Bone, Main.rand.Next(30, 45));
             }
 
-            if ((npc.type == NPCID.ArmoredViking || npc.type == NPCID.UndeadViking) && NPC.downedBoss3 && Main.rand.Next(3) == 0)
+            if ((npc.type == NPCID.ArmoredViking || npc.type == NPCID.UndeadViking) && NPC.downedBoss3 && Main.rand.NextBool(3))
             {
                 npc.DropLoot(ModContent.ItemType<VikingRelic>(), Main.rand.Next(1, 3));
             }
@@ -624,12 +624,12 @@ namespace AAModClassic.Globals
 
             if (Main.bloodMoon)
             {
-                if (Main.rand.Next(8) == 0) npc.DropLoot(ModContent.ItemType<BloodRune>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<BloodRune>());
             }
 
             if ((npc.type >= NPCID.PirateDeckhand && npc.type <= NPCID.PirateCaptain) || npc.type == NPCID.Parrot || npc.type == NPCID.PirateShip)
             {
-                if (Main.rand.Next(8) == 0) npc.DropLoot(ModContent.ItemType<PirateBooty>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<PirateBooty>());
             }
 
             if (npc.type == NPCID.Frankenstein || npc.type == NPCID.Vampire || npc.type == NPCID.VampireBat || npc.type == NPCID.SwampThing ||
@@ -637,27 +637,27 @@ namespace AAModClassic.Globals
                 npc.type == NPCID.Mothron || npc.type == NPCID.Butcher || npc.type == NPCID.DeadlySphere || npc.type == NPCID.DrManFly ||
                 npc.type == NPCID.Nailhead || npc.type == NPCID.Psycho || npc.type == NPCID.Eyezor)
             {
-                if (Main.rand.Next(8) == 0) npc.DropLoot(ModContent.ItemType<MonsterSoul>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<MonsterSoul>());
             }
 
             if ((npc.type >= NPCID.PirateDeckhand && npc.type <= NPCID.PirateCaptain) || npc.type == NPCID.Parrot || npc.type == NPCID.PirateShip)
             {
-                if (Main.rand.Next(8) == 0) npc.DropLoot(ModContent.ItemType<PirateBooty>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<PirateBooty>());
             }
 
             if ((npc.type >= NPCID.Scarecrow1 && npc.type <= NPCID.HeadlessHorseman) || (npc.type >= NPCID.MourningWood && npc.type <= NPCID.Poltergeist && npc.type != NPCID.PumpkingBlade))
             {
-                if (Main.rand.Next(8)== 0) npc.DropLoot(ModContent.ItemType<HalloweenTreat>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<HalloweenTreat>());
             }
 
             if (npc.type >= NPCID.ZombieElf && npc.type <= NPCID.Krampus)
             {
-                if (Main.rand.Next(8) == 0) npc.DropLoot(ModContent.ItemType<ChristmasCheer>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<ChristmasCheer>());
             }
 
             if (npc.type >= NPCID.BrainScrambler && npc.type <= NPCID.MartianSaucer && npc.type != NPCID.ForceBubble)
             {
-                if (Main.rand.Next(8) == 0) npc.DropLoot(ModContent.ItemType<MartianCredit>());
+                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<MartianCredit>());
             }
         }
 
@@ -672,7 +672,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -688,7 +688,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -704,7 +704,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -719,7 +719,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -732,7 +732,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -745,7 +745,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -758,7 +758,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -771,7 +771,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -784,7 +784,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -824,7 +824,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -843,7 +843,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -860,7 +860,7 @@ namespace AAModClassic.Globals
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
-                    if (Main.rand.Next(4) == 0)
+                    if (Main.rand.NextBool(4))
                     {
                         Main.dust[dust].noGravity = false;
                         Main.dust[dust].scale *= 0.5f;
@@ -1169,18 +1169,18 @@ namespace AAModClassic.Globals
             {
                 if (Sandstorm.Happening && player.ZoneSandstorm && TileID.Sets.Conversion.Sand[Main.tile[x, y].TileType] && NPC.Spawning_SandstoneCheck(x, y))
                 {
-                    if (Main.hardMode && Main.rand.Next(15) == 0)
+                    if (Main.hardMode && Main.rand.NextBool(15))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.SandElemental, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (player.ZoneDungeon && NPC.downedPlantBoss)
                 {
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BoneLee, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         int Skeletontype = 0;
                         switch (Main.rand.Next(3))
@@ -1191,7 +1191,7 @@ namespace AAModClassic.Globals
                         }
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, Skeletontype, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (Main.rand.Next(15) == 0)
+                    if (Main.rand.NextBool(15))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Paladin, 0, 0f, 0f, 0f, 0f, 255);
                     }
@@ -1203,58 +1203,58 @@ namespace AAModClassic.Globals
                     {
                         flag = true;
                     }
-                    if (flag && Main.rand.Next(40) == 0)
+                    if (flag && Main.rand.NextBool(40))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mothron, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (y <= Main.worldSurface)
                 {
-                    if (player.ZoneSnow && Main.hardMode && Main.cloudAlpha > 0f && Main.rand.Next(15) == 0)
+                    if (player.ZoneSnow && Main.hardMode && Main.cloudAlpha > 0f && Main.rand.NextBool(15))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.IceGolem, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (player.ZoneHallow && Main.hardMode && Main.rand.Next(30) == 0)
+                    if (player.ZoneHallow && Main.hardMode && Main.rand.NextBool(30))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.RainbowSlime, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (y <= Main.worldSurface/2 && NPC.AnyDanger() && Main.hardMode && NPC.downedGolemBoss && Main.rand.Next(100) == 0 && !NPC.AnyNPCs(399))
+                    if (y <= Main.worldSurface/2 && NPC.AnyDanger() && Main.hardMode && NPC.downedGolemBoss && Main.rand.NextBool(100) && !NPC.AnyNPCs(399))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.MartianProbe, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (Main.hardMode && Main.rand.Next(25) == 0 && Main.bloodMoon)
+                    if (Main.hardMode && Main.rand.NextBool(25) && Main.bloodMoon)
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Clown, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (Main.rand.Next(100) == 0 && Main.bloodMoon)
+                    if (Main.rand.NextBool(100) && Main.bloodMoon)
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.TheGroom, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (Main.rand.Next(100) == 0 && Main.bloodMoon)
+                    if (Main.rand.NextBool(100) && Main.bloodMoon)
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.TheBride, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     
                     if (Main.dayTime)
                     {
-                        if (Main.rand.Next(50) == 0)
+                        if (Main.rand.NextBool(50))
                         {
                             npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BlueSlime, 0, 0f, 0f, 0f, 0f, 255);
                             Main.npc[npcid].SetDefaults(-4);
                         }
                     }
                 }
-                else if (Main.hardMode && y > Main.worldSurface && Main.rand.Next(40) == 0)
+                else if (Main.hardMode && y > Main.worldSurface && Main.rand.NextBool(40))
                 {
-                    if (Main.rand.Next(2) == 0 && player.ZoneCorrupt)
+                    if (Main.rand.NextBool(2) && player.ZoneCorrupt)
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicCorruption, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    else if (Main.rand.Next(2) == 0 && player.ZoneCrimson)
+                    else if (Main.rand.NextBool(2) && player.ZoneCrimson)
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicCrimson, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    else if (Main.rand.Next(2) == 0 && player.ZoneHallow)
+                    else if (Main.rand.NextBool(2) && player.ZoneHallow)
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicHallow, 0, 0f, 0f, 0f, 0f, 255);
                     }
@@ -1263,32 +1263,32 @@ namespace AAModClassic.Globals
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mimic, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
-                else if (Main.hardMode && Main.tile[x, y - 1].WallType == WallID.DirtUnsafe && Main.rand.Next(10) == 0)
+                else if (Main.hardMode && Main.tile[x, y - 1].WallType == WallID.DirtUnsafe && Main.rand.NextBool(10))
                 {
                     npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mimic, 0, 0f, 0f, 0f, 0f, 255);
                 }
-                else if (Main.tile[x, y].TileType == TileID.JungleGrass && Main.rand.Next(100) == 0 && !Main.dayTime)
+                else if (Main.tile[x, y].TileType == TileID.JungleGrass && Main.rand.NextBool(100) && !Main.dayTime)
                 {
                     npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.DoctorBones, 0, 0f, 0f, 0f, 0f, 255);
                 }
-                else if (Main.tile[x, y].TileType == TileID.JungleGrass && Main.hardMode && Main.rand.Next(45) == 0 && !Main.dayTime)
+                else if (Main.tile[x, y].TileType == TileID.JungleGrass && Main.hardMode && Main.rand.NextBool(45) && !Main.dayTime)
                 {
                     npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Moth, 0, 0f, 0f, 0f, 0f, 255);
                 }
                 else if (y > Main.maxTilesY - 190)
                 {
-                    if (Main.hardMode && !NPC.savedTaxCollector && Main.rand.Next(10) == 0 && !NPC.AnyNPCs(534))
+                    if (Main.hardMode && !NPC.savedTaxCollector && Main.rand.NextBool(10) && !NPC.AnyNPCs(534))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.DemonTaxCollector, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (y <= Main.maxTilesY - 190 && y > Main.rockLayer)
                 {
-                    if (Main.rand.Next(50) == 0)
+                    if (Main.rand.NextBool(50))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.LostGirl, 0, 0f, 0f, 0f, 0f, 255);
                     }
-                    if (y > (Main.rockLayer + Main.maxTilesY) / 2.0 && Main.rand.Next(50) == 0)
+                    if (y > (Main.rockLayer + Main.maxTilesY) / 2.0 && Main.rand.NextBool(50))
                     {
                         npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Tim, 0, 0f, 0f, 0f, 0f, 255);
                     }
@@ -1371,7 +1371,7 @@ namespace AAModClassic.Globals
         {
             if (overrideDirection == 0)
             {
-                overrideDirection = Main.rand.Next(2) == 0 ? -1 : 1;
+                overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
             }
 
             if (overrideDirectionY == 0)

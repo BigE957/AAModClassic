@@ -124,12 +124,12 @@ namespace AAModClassic.NPCs.TownNPCs
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int Truffle = NPC.FindFirstNPC(NPCID.Truffle);
-            if (Truffle >= 0 && Main.rand.Next(4) == 0)
+            if (Truffle >= 0 && Main.rand.NextBool(4))
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat1"));
             }
             int WitchDoctor = NPC.FindFirstNPC(NPCID.WitchDoctor);
-            if (WitchDoctor >= 0 && Main.rand.Next(4) == 0)
+            if (WitchDoctor >= 0 && Main.rand.NextBool(4))
             {
                 return Main.npc[WitchDoctor].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat2");
             }
@@ -137,7 +137,7 @@ namespace AAModClassic.NPCs.TownNPCs
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat4"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat5"));
             int Clothier = NPC.FindFirstNPC(NPCID.Clothier);
-            if (Clothier >= 0 && Main.rand.Next(4) == 0)
+            if (Clothier >= 0 && Main.rand.NextBool(4))
             {
                 return Main.npc[Clothier].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat6");
             }

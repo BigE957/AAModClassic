@@ -43,7 +43,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 
             Projectile.velocity *= .99f;
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 for (int m = 0; m < 3; m++)
                 {

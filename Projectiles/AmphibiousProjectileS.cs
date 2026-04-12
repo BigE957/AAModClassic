@@ -40,7 +40,7 @@ namespace AAModClassic.Projectiles
                 Projectile.spriteDirection = 1;
                 Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
             }
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.RedsWingsRun, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }

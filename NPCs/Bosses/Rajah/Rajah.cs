@@ -395,7 +395,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             }
             else if (NPC.ai[3] == 0 && NPC.ai[2] >= ChangeRate())
             {
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.NextBool(5))
                 {
                     Roar(roarTimerMax);
                 }
@@ -403,7 +403,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 {
                     internalAI[3] = 0;
                     NPC.ai[2] = 0;
-                    if (ModSupport.GetMod("ThoriumMod") != null && Main.rand.Next(7) == 0)
+                    if (ModSupport.GetMod("ThoriumMod") != null && Main.rand.NextBool(7))
                     {
                         NPC.ai[3] = 7;
                     }

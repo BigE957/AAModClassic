@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
         public override void OnKill(int timeLeft)
         {
             SpawnDust();
-            if(Main.rand.Next(2) == 0)
+            if(Main.rand.NextBool(2))
             {
                 int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, -12f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
                 int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, 12f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);

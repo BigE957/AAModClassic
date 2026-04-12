@@ -61,11 +61,11 @@ namespace AAModClassic.Items.Boss.Akuma
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
+            if (Main.rand.NextBool(7))
             {
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AkumaMask>());
             }
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();

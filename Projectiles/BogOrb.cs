@@ -29,7 +29,7 @@ namespace AAModClassic.Projectiles
         {
             Projectile.rotation = ((float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f);
             Lighting.AddLight(Projectile.Center, 0.1f, 0.1f, 1f);
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
                 }

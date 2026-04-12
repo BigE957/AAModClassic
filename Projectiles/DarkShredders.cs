@@ -56,7 +56,7 @@ namespace AAModClassic.Projectiles     //We need this to basically indicate the 
             player.itemTime = 2;
             player.itemAnimation = 2;
             player.itemRotation = Projectile.rotation;
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.NextBool(4))
             {
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0, 0, 0, default, .1f);
                 Main.dust[dust].velocity /= 2f;

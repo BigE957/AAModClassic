@@ -98,7 +98,7 @@ namespace AAModClassic.NPCs.Enemies.Snow
         }
         public override void OnKill()
         {
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.NextBool(4))
             {
                 NPC.DropLoot(ModContent.ItemType<SubzeroCrystal>());
             }

@@ -66,7 +66,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            if (Main.rand.Next(2) == 0 || (Main.expertMode && Main.rand.Next(0) == 0))       //Chances for it to inflict the debuff
+            if (Main.rand.NextBool(2) || (Main.expertMode && Main.rand.Next(0) == 0))       //Chances for it to inflict the debuff
             {
                 target.AddBuff(BuffID.Poisoned, Main.rand.Next(180, 250));       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
             }

@@ -285,7 +285,7 @@ namespace AAModClassic.Projectiles.Akuma
                     expr_15CE9_cp_0.velocity.X += num675;
                     Dust expr_15D08_cp_0 = Main.dust[num674];
                     expr_15D08_cp_0.velocity.Y += num676;
-                    if (Main.rand.Next(3) != 0)
+                    if (Main.rand.NextBool(3))
                     {
                         Main.dust[num674].scale = 1.3f;
                         Main.dust[num674].noGravity = true;

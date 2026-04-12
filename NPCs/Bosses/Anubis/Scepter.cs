@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             if (master == -1) { return; }
 			if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { Projectile.Kill(); return; }
 
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GoldCoin, 0f, 0f, 200, default, 0.5f);
                 Main.dust[dustnumber].velocity *= 0.3f;

@@ -26,7 +26,7 @@ public class HellFireball : ModProjectile
 	{
 		Projectile.velocity.X = Projectile.velocity.X * 0.98f;
 		Projectile.velocity.Y = Projectile.velocity.Y + 0.35f;
-		if (Main.rand.Next(2) == 0)
+		if (Main.rand.NextBool(2))
 		{
 			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 200, default(Color), 0.5f);
 			Dust obj = Main.dust[num];

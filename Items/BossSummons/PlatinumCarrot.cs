@@ -44,7 +44,7 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            int overrideDirection = Main.rand.Next(2) == 0 ? -1 : 1;
+            int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
             SpawnBoss(player, ModContent.NPCType<Rajah>(), true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
             return true;
         }

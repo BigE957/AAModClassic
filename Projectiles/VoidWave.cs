@@ -46,7 +46,7 @@ namespace AAModClassic.Projectiles
             Projectile.velocity.ToRotation() +
             MathHelper.ToRadians(90f);
 
-            if (Main.rand.Next(1) == 0)
+            if (Main.rand.NextBool(1))
             {
                 int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 200);
                 Main.dust[dustnumber].velocity *= 0.3f;

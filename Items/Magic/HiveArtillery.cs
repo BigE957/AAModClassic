@@ -58,15 +58,15 @@ namespace AAModClassic.Items.Magic
 			num82 *= num84;
 			num83 *= num84;
 			int num163 = Main.rand.Next(1, 3);
-			if (Main.rand.Next(4) == 0)
+			if (Main.rand.NextBool(4))
 			{
 				num163++;
 			}
-			if (Main.rand.Next(4) == 0)
+			if (Main.rand.NextBool(4))
 			{
 				num163++;
 			}
-			if (player.strongBees && Main.rand.Next(2) == 0)
+			if (player.strongBees && Main.rand.NextBool(2))
 			{
 				num163++;
 			}
@@ -88,7 +88,7 @@ namespace AAModClassic.Items.Magic
 
         public int BeeType(Player player)
         {
-            if (player.strongBees && Main.rand.Next(2) == 0)
+            if (player.strongBees && Main.rand.NextBool(2))
             {
                 makeStrongBee = true;
                 return ModContent.ProjectileType<BeeStrong>();

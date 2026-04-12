@@ -349,7 +349,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                     {
                         if (NPC.ai[1] == 300)
                         {
-                            if (Main.rand.Next(5) == 0)
+                            if (Main.rand.NextBool(5))
                             {
                                 internalAI[1] = 0;
                                 NPC.ai[0] = 0;

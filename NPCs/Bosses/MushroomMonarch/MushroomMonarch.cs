@@ -292,9 +292,9 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            if(Main.rand.Next(5) == 0)
+            if(Main.rand.NextBool(5))
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
                     int i = Item.NewItem(NPC.GetSource_OnHurt(projectile), (int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && i > 0)
@@ -311,9 +311,9 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
         {
-            if(Main.rand.Next(5) == 0)
+            if(Main.rand.NextBool(5))
             {
-                if(Main.rand.Next(10) == 0)
+                if(Main.rand.NextBool(10))
                 {
                     int i = Item.NewItem(NPC.GetSource_OnHurt(player), (int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && i > 0)

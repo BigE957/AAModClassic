@@ -232,7 +232,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             if (NPC.ai[3] == 1)
             {
                 attackTimer++;
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     if (attackTimer == 40)
                     {
@@ -296,7 +296,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         {
             Player player = Main.player[NPC.target];
 
-            bool sayQuote = Main.rand.Next(3) == 0;
+            bool sayQuote = Main.rand.NextBool(3);
             if (AttackType == 0f)
             {
                 if (!QuoteSaid && sayQuote)

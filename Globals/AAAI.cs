@@ -771,7 +771,7 @@ namespace AAModClassic.Globals
                             if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
                             {
                                 canMove = true;
-                                if (spawnTileDust && Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                                if (spawnTileDust && Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                                 {
                                     WorldGen.KillTile(tX, tY, true, true, false);
                                 }

@@ -157,15 +157,15 @@ namespace AAModClassic.___Content._PLACEHOLDER
             if (Projectile.owner == Main.myPlayer)
             {
                 int num626 = 2;
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     num626++;
                 }
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     num626++;
                 }
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     num626++;
                 }

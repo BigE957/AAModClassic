@@ -37,7 +37,7 @@ namespace AAModClassic.Projectiles
 		public override void AI()
 		{
 			AIArcStabSpear(Projectile, ref Projectile.ai, false);
-			if (Main.rand.Next(3) != 0)
+			if (Main.rand.NextBool(3))
 			{
 				int dustID = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0);
 				Main.dust[dustID].noGravity = true;

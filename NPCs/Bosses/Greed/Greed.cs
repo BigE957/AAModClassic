@@ -154,7 +154,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 }
             }
 
-            if (!Main.gamePaused && Main.rand.Next(60) == 0 && Main.LocalPlayer.findTreasure)
+            if (!Main.gamePaused && Main.rand.NextBool(60) && Main.LocalPlayer.findTreasure)
             {
                 int num52 = Dust.NewDust(NPC.Center, 16, 16, DustID.TreasureSparkle, 0f, 0f, 150, default, 0.3f);
                 Main.dust[num52].fadeIn = 1f;
@@ -339,7 +339,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -780,7 +780,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }

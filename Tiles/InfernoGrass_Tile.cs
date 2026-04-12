@@ -26,13 +26,13 @@ namespace AAModClassic.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(40) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
                 int style = Main.rand.Next(23);
                 if (PlaceObject(i, j - 1, InfernoFoliage_Tile._type, false, style))
                     NetMessage.SendObjectPlacement(-1, i, j - 1, InfernoFoliage_Tile._type, style, 0, -1, -1);
             }
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1500) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1500))
             {
                 PlaceObject(i, j - 1, ModContent.TileType<Hotshroom_Tile>());
                 NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Hotshroom_Tile>(), 0, 0, -1, -1);

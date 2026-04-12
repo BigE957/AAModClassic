@@ -55,7 +55,7 @@ Small chance to fire an awakened bomb that explodes into abyss souls"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 type = ModContent.ProjectileType<AbyssalBomb_SoulBomb>();
             }

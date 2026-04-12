@@ -660,7 +660,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.YamataGuideChat"));
             }
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.BroodMotherGuideChat"));
             }
@@ -700,7 +700,7 @@ namespace AAModClassic.NPCs.TownNPCs
             Player player = Main.LocalPlayer;
             AAPlayer mPlayer = player.GetModPlayer<AAPlayer>();
 
-            if (player.head == ModContent.ItemType<Items.Vanity.Mask.AnubisMask>() && Main.rand.Next(5) == 0)
+            if (player.head == ModContent.ItemType<Items.Vanity.Mask.AnubisMask>() && Main.rand.NextBool(5))
             {
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatMask");
             }

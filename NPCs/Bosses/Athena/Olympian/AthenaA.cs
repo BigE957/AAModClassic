@@ -636,7 +636,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             }
             else
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     NPC.DropLoot(ModContent.ItemType<AthenaAMask>());
                 }

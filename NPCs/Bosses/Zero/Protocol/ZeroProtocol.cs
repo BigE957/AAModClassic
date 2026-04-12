@@ -128,15 +128,15 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 //AAWorld.downedZero = true;
                 //Death animation guy handles this
 
-                if (Main.rand.Next(10) == 0)
+                if (Main.rand.NextBool(10))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroTrophy>());
                 }
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroMask>());
                 }
-                if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
+                if (Main.rand.NextBool(50) && AAWorld.downedShen)
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());
                 }
@@ -168,7 +168,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Teleport(Main.rand.Next(2) == 0? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1:2);
                     NPC.ai[0] = 4;
                     NPC.ai[1] = 0;
                     NPC.ai[2] = 0;
@@ -320,7 +320,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                         {
                             for (int i = 0; i < 3; i++)
                             {
-                                if (NPC.ai[2] % Main.rand.Next(10) == 0 && Main.rand.Next(2) == 0)
+                                if (NPC.ai[2] % Main.rand.Next(10) == 0 && Main.rand.NextBool(2))
                                 {
                                     double offsetAngle = startAngle + (deltaAngle * i);
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<StaticSphere>(), NPC.damage / 4, 5, Main.myPlayer);
@@ -367,7 +367,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                             {
                                 if(Main.netMode != NetmodeID.MultiplayerClient)
                                 {
-                                    if (Main.rand.Next(2) == 0)
+                                    if (Main.rand.NextBool(2))
                                     {
                                         int dirY = player.velocity.Y > 0? 1:-1;
 
@@ -541,7 +541,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                             if(NPC.ai[2] % (NPC.life < NPC.lifeMax / 2? 40:60) == 10)
                             {
                                 Teleport(3);
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), ModContent.NPCType<ZeroMini>());
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), ModContent.NPCType<ZeroMini>());
                             }
                             NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI/2;
                             ShootDir = NPC.DirectionTo(player.Center);
@@ -584,7 +584,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 if(NPC.ai[2] % (NPC.life < NPC.lifeMax / 2? 60:80) == 20)
                 {
                     Teleport(3);
-                    if(Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), ModContent.NPCType<ZeroMini>());
+                    if(Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), ModContent.NPCType<ZeroMini>());
                 }
                 Counterattack = false;
                 NPC.ai[1] = 0f;
@@ -640,7 +640,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 {
                     Frequency = Main.rand.Next(10, 40);
                 }
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GlitchBomb>(), ref NPC.ai[3], Frequency, NPC.damage / 3, 10, true);
                 }
@@ -671,19 +671,19 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 NPC.ai[2] = 0;
                 if (NPC.ai[0] == 2 || NPC.ai[0] == 4)
                 {
-                    Teleport(Main.rand.Next(2) == 0? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1:2);
                 }
-                else if ((NPC.life < NPC.lifeMax * (3 / 4)) && Main.rand.Next(3) == 0)
+                else if ((NPC.life < NPC.lifeMax * (3 / 4)) && Main.rand.NextBool(3))
                 {
-                    Teleport(Main.rand.Next(2) == 0? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1:2);
                 }
-                else if ((NPC.life < NPC.lifeMax / 2) && Main.rand.Next(2) == 0)
+                else if ((NPC.life < NPC.lifeMax / 2) && Main.rand.NextBool(2))
                 {
-                    Teleport(Main.rand.Next(2) == 0? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1:2);
                 }
                 if (NPC.life < NPC.lifeMax / 4)
                 {
-                    Teleport(Main.rand.Next(2) == 0? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1:2);
                 }
             }
             NPC.netUpdate = true;

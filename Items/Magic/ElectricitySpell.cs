@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Magic
     {
         public override void OnKill(NPC npc)
         {
-            if (npc.type == NPCID.AngryNimbus && Main.rand.Next(6) == 0)
+            if (npc.type == NPCID.AngryNimbus && Main.rand.NextBool(6))
             {
                 npc.DropLoot(ModContent.ItemType<ElectricitySpell>());
             }

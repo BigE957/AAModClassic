@@ -66,7 +66,7 @@ namespace AAModClassic.Projectiles
 			}
 			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 0.785f;
 			
-			if (Main.rand.Next(30) == 0)
+			if (Main.rand.NextBool(30))
 			{
 				for (int num627 = 0; num627 < 2; num627++)
 				{
@@ -111,15 +111,15 @@ namespace AAModClassic.Projectiles
 			if (Projectile.owner == Main.myPlayer)
 			{
 				int num626 = 2;
-				if (Main.rand.Next(10) == 0)
+				if (Main.rand.NextBool(10))
 				{
 					num626++;
 				}
-				if (Main.rand.Next(10) == 0)
+				if (Main.rand.NextBool(10))
 				{
 					num626++;
 				}
-				if (Main.rand.Next(10) == 0)
+				if (Main.rand.NextBool(10))
 				{
 					num626++;
 				}

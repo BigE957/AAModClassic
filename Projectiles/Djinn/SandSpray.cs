@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles.Djinn
 				Dust sand2 = Main.dust[dustIndex];
 				sand2.position.Y -= yPos;
 			}
-			if (Main.rand.Next(8) == 0)
+			if (Main.rand.NextBool(8))
 			{
 				int eggplant = 16;
 				int dustIndex2 = Dust.NewDust(new Vector2(Projectile.position.X + eggplant, Projectile.position.Y + eggplant), Projectile.width - eggplant * 2, Projectile.height - eggplant * 2, DustID.Sandnado, 0f, 0f, 100, default, 0.5f);

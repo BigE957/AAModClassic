@@ -97,7 +97,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(2) == 0)
+            if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(2))
             {
             target.immune[Projectile.owner] = 1;
                 SoundEngine.PlaySound(SoundID.Item124);

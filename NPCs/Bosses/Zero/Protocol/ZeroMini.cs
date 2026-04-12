@@ -125,7 +125,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             }
             else
             {
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GlitchBomb>(), ref NPC.ai[3], 50, NPC.damage / 3, 10, true);
                 }
@@ -139,7 +139,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
             if(NPC.ai[2] > 360 && NPC.ai[0] != 2)
             {
-                NPC.ai[0] = Main.rand.Next(2) == 0? 1:3;
+                NPC.ai[0] = Main.rand.NextBool(2) ? 1:3;
                 NPC.netUpdate = true;
             }
 
@@ -150,7 +150,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             }
             else if((NPC.ai[2] > 360 && NPC.ai[0] != 2) || NPC.ai[0] == 2)
             {
-                NPC.ai[0] = Main.rand.Next(2) == 0? 1:3;
+                NPC.ai[0] = Main.rand.NextBool(2) ? 1:3;
                 NPC.ai[1] = 0;
                 NPC.netUpdate = true;
                 NPC.ai[2] = 0;

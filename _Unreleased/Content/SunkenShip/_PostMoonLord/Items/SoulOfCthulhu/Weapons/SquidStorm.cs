@@ -53,12 +53,12 @@ public class SquidStorm : ModItem
 		value2.Normalize();
 		value2 *= Item.shootSpeed;
 		float num91 = Main.rand.Next(10, 80) * 0.001f;
-		if (Main.rand.Next(2) == 0)
+		if (Main.rand.NextBool(2))
 		{
 			num91 *= -1f;
 		}
 		float num92 = Main.rand.Next(10, 80) * 0.001f;
-		if (Main.rand.Next(2) == 0)
+		if (Main.rand.NextBool(2))
 		{
 			num92 *= -1f;
 		}

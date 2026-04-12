@@ -84,10 +84,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             {
                 float screenX;
                 float screenY;
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     screenX = Main.screenPosition.X;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         screenX += Main.screenWidth;
                     }
@@ -97,7 +97,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 else
                 {
                     screenY = Main.screenPosition.Y;
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         screenY += Main.screenHeight;
                     }

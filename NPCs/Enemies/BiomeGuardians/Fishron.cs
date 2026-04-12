@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
 
         public override void AI()
         {
-            if (Main.rand.Next(1000) == 0)
+            if (Main.rand.NextBool(1000))
             {
                 SoundEngine.PlaySound(SoundID.Zombie9, NPC.position);
             }
@@ -261,7 +261,7 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
 
 		public override void OnKill()
 		{
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.OceanWhisper>(), 1, false, 0, false, false);
             }

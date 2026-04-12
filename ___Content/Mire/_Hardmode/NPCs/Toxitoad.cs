@@ -60,15 +60,15 @@ namespace AAModClassic.___Content.Mire._Hardmode.NPCs
         {
             for (int Money = 0; Money < 5; Money++)
             {
-                if (Main.rand.Next(7) == 0 || Main.rand.Next(7) == 1 || Main.rand.Next(7) == 2 || Main.rand.Next(7) == 3)
+                if (Main.rand.NextBool(7) || Main.rand.NextBool(7) || Main.rand.NextBool(7) || Main.rand.NextBool(7))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.CopperCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
-                if (Main.rand.Next(7) == 4 || Main.rand.Next(7) == 5)
+                if (Main.rand.NextBool(7) || Main.rand.NextBool(7))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.SilverCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
-                if (Main.rand.Next(7) == 6)
+                if (Main.rand.NextBool(7))
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.GoldCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
@@ -169,7 +169,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.NPCs
             }
             if (distance <= 150) // distance until it does the tongue attack
             {
-                if (Main.rand.Next(60) == 0) // so it wont do it repeatedly when the player is near. increase to lower the chance of it doing it
+                if (Main.rand.NextBool(60)) // so it wont do it repeatedly when the player is near. increase to lower the chance of it doing it
                 {
                     if (tongueAttack == false && biteAttack == false)
                     {

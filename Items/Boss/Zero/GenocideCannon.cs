@@ -64,7 +64,7 @@ namespace AAModClassic.Items.Boss.Zero
             {
                 position += muzzleOffset;
             }
-            type = Main.rand.Next(4) == 0 ? ModContent.ProjectileType<GRocket2>() : ModContent.ProjectileType<GRocket>();
+            type = Main.rand.NextBool(4) ? ModContent.ProjectileType<GRocket2>() : ModContent.ProjectileType<GRocket>();
             Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
             return false;
         }

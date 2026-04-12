@@ -56,7 +56,7 @@ namespace AAModClassic.Projectiles
                 int Shoot = ProjectileID.Meowmere;
                 if (Main.myPlayer == Projectile.owner)
                 {
-                    if (Main.rand.Next(3) == 0)
+                    if (Main.rand.NextBool(3))
                     {
                         int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
 						Main.projectile[proj].usesLocalNPCImmunity = true;
@@ -69,7 +69,7 @@ namespace AAModClassic.Projectiles
 						//Main.projectile[proj1].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 						Main.projectile[proj1].DamageType = DamageClass.Magic;
                     }
-                    if (Main.rand.Next(50) == 0)
+                    if (Main.rand.NextBool(50))
                     {
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), ProjectileID.RainbowRodBullet, Projectile.damage, 3, Main.myPlayer);
                     }

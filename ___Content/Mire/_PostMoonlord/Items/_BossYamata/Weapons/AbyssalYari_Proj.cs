@@ -54,7 +54,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 			for (int i = 0; i < 3; i++)
 			{
 				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
-				if (Main.rand.Next(6) != 0)
+				if (Main.rand.NextBool(6))
 				{
 					Main.dust[d].noGravity = true;
 					Main.dust[d].velocity.X *= 2f;

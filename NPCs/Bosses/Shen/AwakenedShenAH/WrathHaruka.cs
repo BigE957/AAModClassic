@@ -414,7 +414,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                             Shadowkill = true;
                             Invisible = true;
                         }
-                        else if(Main.rand.Next(4) == 0 && internalAI[6] >= 500)
+                        else if(Main.rand.NextBool(4) && internalAI[6] >= 500)
                         {
                             internalAI[0] = AISTATE_SPIN;
                             internalAI[6] -= 500;
@@ -572,7 +572,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                             internalAI[2] = 0;
                             internalAI[3] = 0;
                             internalAI[4] = 0;
-                            if(internalAI[6] >= 500 && Main.rand.Next(2) == 0)
+                            if(internalAI[6] >= 500 && Main.rand.NextBool(2))
                             {
                                 internalAI[0] = AISTATE_SPIN;
                                 internalAI[6] -= 500;
@@ -650,7 +650,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                             Invisible = true;
                             NPC.netUpdate = true;
                         }
-                        else if(Main.rand.Next(2) == 0)
+                        else if(Main.rand.NextBool(2))
                         {
                             internalAI[0] = AISTATE_PROJ;
                             NPC.netUpdate = true;

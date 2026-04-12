@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         {
             if (!SpinCheck && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     spinLeft = true;
                 }

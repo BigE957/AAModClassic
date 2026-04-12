@@ -145,7 +145,7 @@ namespace AAModClassic.Projectiles.Djinn
             }
             for (int l = 0; l < 1; l++)
             {
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.NextBool(5))
                 {
                     Gore gore = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
@@ -161,7 +161,7 @@ namespace AAModClassic.Projectiles.Djinn
             }
             for (int m = 0; m < 1; m++)
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     Gore gore2 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
@@ -175,7 +175,7 @@ namespace AAModClassic.Projectiles.Djinn
             }
             for (int n = 0; n < 1; n++)
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     Gore gore3 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {

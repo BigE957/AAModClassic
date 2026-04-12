@@ -209,7 +209,7 @@ namespace AAModClassic.Projectiles
 				float x = Main.rgbToHsl(new Color(255, 250, 205)).X;
 				for (int num843 = 0; num843 < 2; num843++) 
 				{
-					float num844 = Projectile.velocity.ToRotation() + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
+					float num844 = Projectile.velocity.ToRotation() + ((Main.rand.NextBool(2)) ? -1f : 1f) * 1.57079637f;
 					float num845 = (float)Main.rand.NextDouble() * 0.8f + 1f;
 					Vector2 vector81 = new Vector2((float)Math.Cos(num844) * num845, (float)Math.Sin(num844) * num845);
 					int num846 = Dust.NewDust(vector80, 0, 0, DustID.AncientLight, vector81.X, vector81.Y, 0, new Color(255, 250, 205), 1f);
@@ -230,7 +230,7 @@ namespace AAModClassic.Projectiles
 					float hue = (x + Main.rand.NextFloat() * 0.4f) % 1f;
 					Main.dust[num846].color = Color.Lerp(color, Main.hslToRgb(0.54f, 1f, 0.902f), Projectile.scale / 1.4f);
 				}
-				if (Main.rand.Next(5) == 0) 
+				if (Main.rand.NextBool(5)) 
 				{
 					Vector2 value42 = Projectile.velocity.RotatedBy(1.5707963705062866, default) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
 					int num847 = Dust.NewDust(vector80 + value42 - Vector2.One * 4f, 8, 8, DustID.AncientLight, 0f, 0f, 100, new Color(255, 250, 205), 1f);

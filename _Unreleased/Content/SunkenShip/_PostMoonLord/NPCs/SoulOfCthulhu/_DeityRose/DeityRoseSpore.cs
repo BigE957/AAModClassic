@@ -91,7 +91,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 int num440 = 0;
                 while (num440 < hit.Damage / (double)NPC.lifeMax * 100.0)
                 {
-                    if (Main.rand.Next(3) != 0)
+                    if (Main.rand.NextBool(3))
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, default, 1f);
                     }
@@ -101,7 +101,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             for (int num441 = 0; num441 < 150; num441++)
             {
-                if  (Main.rand.Next(3) != 0)
+                if  (Main.rand.NextBool(3))
                 {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 }

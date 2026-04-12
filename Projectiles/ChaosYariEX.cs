@@ -37,14 +37,14 @@ namespace AAModClassic.Projectiles
         	Projectile.position.X = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - Projectile.width / 2;
         	Projectile.position.Y = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - Projectile.height / 2;
         	Projectile.position += Projectile.velocity * Projectile.ai[0];
-        	if (Main.rand.Next(5) == 0)
+        	if (Main.rand.NextBool(5))
             {
                 int DustType = ModContent.DustType<Dusts.AkumaADust>();
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     DustType = ModContent.DustType<Dusts.YamataADust>();
                 }
-                if (Main.rand.Next(3) == 1)
+                if (Main.rand.NextBool(3))
                 {
                     DustType = ModContent.DustType<Dusts.Discord_Dust>();
                 }

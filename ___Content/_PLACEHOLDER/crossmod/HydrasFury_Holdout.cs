@@ -96,7 +96,7 @@ namespace AAModClassic.___Content._PLACEHOLDER.crossmod
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 target.AddBuff(BuffID.Poisoned, 200, false);
             }

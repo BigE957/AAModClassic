@@ -45,7 +45,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 Projectile.alpha = 255;
                 if (Projectile.ai[0] == 0)
                 {
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         int A = Main.rand.Next(-50, 50);
                         int B = Main.rand.Next(-200, 200) - 1000;
@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 }
                 else
                 {
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         int A = Main.rand.Next(-80, 80);
                         int B = Main.rand.Next(-200, 200) - 1000;

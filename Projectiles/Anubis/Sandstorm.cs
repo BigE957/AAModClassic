@@ -49,12 +49,12 @@ namespace AAModClassic.Projectiles.Anubis
                 }
                 Projectile.ai[0] += 1f;
                 int num297 = DustID.Sandnado;
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     for (int num298 = 0; num298 < 3; num298++)
                     {
                         int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, num297, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             Main.dust[num299].noGravity = true;
                             Main.dust[num299].scale *= 1.5f;

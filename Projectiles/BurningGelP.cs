@@ -45,7 +45,7 @@ namespace AAModClassic.Projectiles
 		public override void AI()
 		{
 			Projectile.alpha = 0;
-			if (Main.rand.Next(2) == 0)
+			if (Main.rand.NextBool(2))
 			{
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.Torch,
 				Projectile.velocity.X * .2f, Projectile.velocity.Y * .2f, 200, Scale: 1.2f);

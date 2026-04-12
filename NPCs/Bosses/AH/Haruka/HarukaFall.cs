@@ -89,7 +89,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                         NPC.DropLoot(Mod.Find<ModItem>(lootTableH[lootH]).Type);
                     }
 
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.NextBool(10))
                     {
                         Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<HarukaTrophy>());
                     }

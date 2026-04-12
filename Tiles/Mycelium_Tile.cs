@@ -24,12 +24,12 @@ namespace AAModClassic.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(30) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(30))
             {
                 PlaceObject(i, j - 1, ModContent.TileType<Mushroom_Tile>());
                 NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Mushroom_Tile>(), Main.rand.Next(5), 0, -1, -1);
             }
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1000) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1000))
             {
                 int style = Main.rand.Next(5);
                 if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), false, style))

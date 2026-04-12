@@ -37,7 +37,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Snow
 
         public override void AI()
         {
-            if (Main.rand.Next(1000) == 0)
+            if (Main.rand.NextBool(1000))
             {
                 SoundEngine.PlaySound(SoundID.Zombie9, NPC.position);
             }

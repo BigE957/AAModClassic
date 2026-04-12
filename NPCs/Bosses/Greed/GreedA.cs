@@ -188,7 +188,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     internalAI[1]++;
                     if (internalAI[1] > 80 && internalAI[1] <= 160)
                     {
-                        if (Main.rand.Next(40) == 0)
+                        if (Main.rand.NextBool(40))
                         {
 
                             int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + Main.rand.Next(-200, 200), player.Center.Y + Main.rand.Next(200, 350), 0f, -4f, ModContent.ProjectileType<TreasurePro>(), 32, 0, Main.myPlayer);
@@ -221,7 +221,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
             if (NPC.life <= (int)(NPC.lifeMax * 0.5f))
             {
-                if (Main.rand.Next(60) == 0)
+                if (Main.rand.NextBool(60))
                 {
                     int A = Main.rand.Next(-200, 200) * 6;
                     int B = Main.rand.Next(-200, 200) - 1000;
@@ -231,7 +231,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 }
             }
 
-            if (!Main.gamePaused && Main.rand.Next(60) == 0 && Main.LocalPlayer.findTreasure)
+            if (!Main.gamePaused && Main.rand.NextBool(60) && Main.LocalPlayer.findTreasure)
             {
                 int num52 = Dust.NewDust(NPC.Center, 16, 16, DustID.TreasureSparkle, 0f, 0f, 150, default, 0.3f);
                 Main.dust[num52].fadeIn = 1f;
@@ -427,7 +427,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -571,7 +571,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
         {
             if (!Main.expertMode)
             {
-                if (Main.rand.Next(7) == 0)
+                if (Main.rand.NextBool(7))
                 {
                     NPC.DropLoot(ModContent.ItemType<WKGreedMask>());
                 }
@@ -586,7 +586,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 NPC.DropLoot(ModContent.ItemType<GreedABag>());
             }
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<WKGTrophy>());
             }
@@ -899,7 +899,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         tPos.Y = tY * 16;
                         if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                            if (Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }

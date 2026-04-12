@@ -31,7 +31,7 @@ namespace AAModClassic.Projectiles
 			if (Main.myPlayer == Projectile.owner)
             {
                 //Do net updatey thing. Syncs this projectile.
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.NextBool(3))
                 {
                  int num30 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
                     Main.dust[num30].noGravity = true;

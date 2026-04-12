@@ -47,7 +47,7 @@ namespace AAModClassic.Projectiles.Akuma
             Projectile.rotation -= Projectile.direction * 6.28318548f / 120f;
             Projectile.scale = Projectile.Opacity;
             Lighting.AddLight(Projectile.Center, new Vector3(0.3f, 0.9f, 0.7f) * Projectile.Opacity);
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Vector2 vector135 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
                 Dust dust31 = Main.dust[Dust.NewDust(Projectile.Center - vector135 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
@@ -58,7 +58,7 @@ namespace AAModClassic.Projectiles.Akuma
                 dust31.fadeIn = 0.5f;
                 dust31.customData = Projectile.Center;
             }
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Vector2 vector136 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
                 Dust dust32 = Main.dust[Dust.NewDust(Projectile.Center - vector136 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];

@@ -64,7 +64,7 @@ namespace AAModClassic.Items.Boss.Broodmother
 
 		public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
 
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();

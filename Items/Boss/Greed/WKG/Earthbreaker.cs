@@ -45,7 +45,7 @@ If the enemy hits the ground after being hit, they will take damage"); */
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 target.AddBuff(BuffID.Confused, 300);
             }

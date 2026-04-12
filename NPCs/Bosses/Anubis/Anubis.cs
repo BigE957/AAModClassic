@@ -185,7 +185,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 case 0:
                     if (!AliveCheck(player))
                         break;
-                    int proj = Main.rand.Next(50) == 0 ? ModContent.ProjectileType<Pumpkin>() : ModContent.ProjectileType<Runeblast>();
+                    int proj = Main.rand.NextBool(50) ? ModContent.ProjectileType<Pumpkin>() : ModContent.ProjectileType<Runeblast>();
 
                     int damage = NPC.damage / 2;
                     if (NPC.ai[3] == 0 && proj == ModContent.ProjectileType<Pumpkin>())
@@ -222,7 +222,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     {
                         CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisCombat3"), true);
 
-                        if (Main.rand.Next(2) == 0 && NPC.life < NPC.lifeMax * (2/3))
+                        if (Main.rand.NextBool(2) && NPC.life < NPC.lifeMax * (2/3))
                         {
                             if (NPC.life < NPC.lifeMax / 3)
                             {
@@ -310,7 +310,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     {
                         if (NPC.ai[1] == 60)
                         {
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.NextBool(2))
                             {
                                 int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
                                 int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
@@ -372,7 +372,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     {
                         if (NPC.ai[1] % 40 == 0)
                         {
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.NextBool(2))
                             {
                                 int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
                                 int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);

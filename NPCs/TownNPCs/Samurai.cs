@@ -88,12 +88,12 @@ namespace AAModClassic.NPCs.TownNPCs
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int TravellingMerchant = NPC.FindFirstNPC(NPCID.TravellingMerchant);
-			if (TravellingMerchant >= 0 && Main.rand.Next(4) == 0)
+			if (TravellingMerchant >= 0 && Main.rand.NextBool(4))
 			{
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat1") + Main.npc[TravellingMerchant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat2"));
             }
             int DD2Bartender = NPC.FindFirstNPC(NPCID.DD2Bartender);
-            if (DD2Bartender >= 0 && Main.rand.Next(4) == 0)
+            if (DD2Bartender >= 0 && Main.rand.NextBool(4))
             {
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat3") + Main.npc[DD2Bartender].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat4");
             }

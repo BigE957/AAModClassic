@@ -68,7 +68,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 
         public override void RightClick(Player player)
 		{
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();

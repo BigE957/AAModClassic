@@ -204,7 +204,7 @@ namespace AAModClassic.Items.Armor.Demon
             if (Projectile.ai[1] > 0f)
             {
                 Projectile.ai[1] += 1f;
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     Projectile.ai[1] += 1f;
                 }
@@ -259,7 +259,7 @@ namespace AAModClassic.Items.Armor.Demon
             {
                 Projectile.frame += 4;
             }
-            if (Main.rand.Next(6) == 0)
+            if (Main.rand.NextBool(6))
             {
                 int num25 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 2f);
                 Main.dust[num25].velocity *= 0.3f;

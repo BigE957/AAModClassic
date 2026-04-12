@@ -92,7 +92,7 @@ namespace AAModClassic.Projectiles.Shen
 
 			for (int num826 = 0; num826 < 2; num826++)
 			{
-				float num827 = Projectile.velocity.ToRotation() + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
+				float num827 = Projectile.velocity.ToRotation() + ((Main.rand.NextBool(2)) ? -1f : 1f) * 1.57079637f;
 				float num828 = (float)Main.rand.NextDouble() * 2f + 2f;
 				Vector2 vector73 = new Vector2((float)Math.Cos(num827) * num828, (float)Math.Sin(num827) * num828);
 				int num829 = Dust.NewDust(vector72, 0, 0, DustID.UnusedWhiteBluePurple, vector73.X, vector73.Y, 0);
@@ -100,7 +100,7 @@ namespace AAModClassic.Projectiles.Shen
 				Main.dust[num829].scale = 1.7f;
 			}
 
-			if (Main.rand.Next(5) == 0)
+			if (Main.rand.NextBool(5))
 			{
 				Vector2 value40 = Projectile.velocity.RotatedBy(Math.PI / 2, default) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
 				int num830 = Dust.NewDust(vector72 + value40 - Vector2.One * 4f, 8, 8, DustID.Smoke, 0f, 0f, 100, default, 1.5f);

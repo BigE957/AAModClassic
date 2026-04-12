@@ -53,7 +53,7 @@ namespace AAModClassic.Projectiles
 
         public override void PostAI()
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0, 0, 100, default, 1.5f);
             }

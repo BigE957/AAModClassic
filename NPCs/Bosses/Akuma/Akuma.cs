@@ -162,7 +162,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 internalAI[0] = 0;
             }
 
-            if (dist > 300 & Main.rand.Next(20) == 1 && fireAttack == false && internalAI[0] < 500)
+            if (dist > 300 & Main.rand.NextBool(20) && fireAttack == false && internalAI[0] < 500)
             {
                 fireAttack = true;
             }
@@ -417,7 +417,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public void Attack(NPC npc)
         {
-            bool sayQuote = Main.rand.Next(4) == 0;
+            bool sayQuote = Main.rand.NextBool(4);
             if (internalAI[1] == 0)
             {
                 if (!QuoteSaid && sayQuote)
@@ -440,7 +440,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (!QuoteSaid && sayQuote)
                 {
-                    if (!Quote3 || Main.rand.Next(4) == 0)
+                    if (!Quote3 || Main.rand.NextBool(4))
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma7") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma8"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote3 = true;
@@ -454,7 +454,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (!QuoteSaid && sayQuote)
                 {
-                    if (!Quote5 || Main.rand.Next(4) == 0)
+                    if (!Quote5 || Main.rand.NextBool(4))
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote5) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma13") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma14"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote5 = true;

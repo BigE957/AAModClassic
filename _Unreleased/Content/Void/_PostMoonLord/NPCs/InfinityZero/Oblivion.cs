@@ -364,7 +364,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.frameCounter++;
             if (NPC.frameCounter < 5)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 7 * frameHeight;
                 }
@@ -375,7 +375,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (NPC.frameCounter < 10)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 8 * frameHeight;
                 }
@@ -386,7 +386,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (NPC.frameCounter < 15)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 9 * frameHeight;
                 }
@@ -397,7 +397,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (NPC.frameCounter < 20)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 10 * frameHeight;
                 }
@@ -408,7 +408,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (NPC.frameCounter < 25)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 11 * frameHeight;
                 }
@@ -419,7 +419,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (NPC.frameCounter < 30)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 12 * frameHeight;
                 }
@@ -430,7 +430,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (NPC.frameCounter < 35)
             {
-                if (Main.rand.Next(9) == 0)
+                if (Main.rand.NextBool(9))
                 {
                     NPC.frame.Y = 13 * frameHeight;
                 }

@@ -39,7 +39,7 @@ namespace AAModClassic.Projectiles
             {
                 Explode();
             }
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.NextBool(4))
             {
                 Dust dyeMe = Dust.NewDustPerfect(Projectile.Center, useDust);
                 if (shader != 0)

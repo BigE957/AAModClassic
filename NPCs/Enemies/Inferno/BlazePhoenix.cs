@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 int num1281 = 0;
                 while (num1281 < num1280)
                 {
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         int num1282 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DragonflameDust>(), 0f, 0f, 0);
                         Main.dust[num1282].alpha = 100;

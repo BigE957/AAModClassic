@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         Projectile.oldPos[num31] = Projectile.oldPos[num31 - 1];
                     }
                     Projectile.oldPos[0] = Projectile.position;
-                    float num32 = Projectile.rotation + 1.57079637f + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
+                    float num32 = Projectile.rotation + 1.57079637f + ((Main.rand.NextBool(2)) ? -1f : 1f) * 1.57079637f;
                     float num33 = (float)Main.rand.NextDouble() * 2f + 2f;
                     Vector2 vector2 = new Vector2((float)Math.Cos(num32) * num33, (float)Math.Sin(num32) * num33);
                     int num34 = Dust.NewDust(Projectile.oldPos[Projectile.oldPos.Length - 1], 0, 0, ModContent.DustType<Dusts.Discord_Dust>(), vector2.X, vector2.Y, 0);
@@ -101,7 +101,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 {
                     for (int num850 = 0; num850 < 2; num850++)
                     {
-                        float num851 = Projectile.rotation + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
+                        float num851 = Projectile.rotation + ((Main.rand.NextBool(2)) ? -1f : 1f) * 1.57079637f;
                         float num852 = (float)Main.rand.NextDouble() * 0.8f + 1f;
                         Vector2 vector84 = new Vector2((float)Math.Cos(num851) * num852, (float)Math.Sin(num851) * num852);
                         int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.Discord_Dust>(), vector84.X, vector84.Y, 0);
@@ -109,7 +109,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         Main.dust[num853].scale = 1.2f;
                     }
 					
-                    if (Main.rand.Next(5) == 0)
+                    if (Main.rand.NextBool(5))
                     {
                         Vector2 value49 = Projectile.velocity.RotatedBy(1.5707963705062866) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
                         int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, DustID.Smoke, 0f, 0f, 100, default, 1.5f);

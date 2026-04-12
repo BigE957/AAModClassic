@@ -146,7 +146,7 @@ namespace AAModClassic.Backgrounds
                 float num = i / (float)Meteors.Length;
                 Meteors[i].Position.X = num * (Main.maxTilesX * 16f) + _random.NextFloat() * 40f - 20f;
                 Meteors[i].Position.Y = _random.NextFloat() * -((float)Main.worldSurface * 16f + 10000f) - 10000f;
-                if (_random.Next(3) != 0)
+                if (_random.NextBool(3))
                 {
                     Meteors[i].Depth = _random.NextFloat() * 3f + 1.8f;
                 }

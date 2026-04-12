@@ -139,7 +139,7 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
                 {
                     if (player.statLife < player.statLifeMax2)
                     {
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             Vector2 Vel = (player.Center - player.Center) * 0.05f;
                             int dustID = Dust.NewDust(Projectile.Center, 0, 0, DustID.GoldFlame, Vel.X, Vel.Y, 50);

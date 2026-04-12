@@ -77,7 +77,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            if (Main.rand.Next(2) == 0 || (Main.expertMode && Main.rand.Next(0) == 0))
+            if (Main.rand.NextBool(2) || (Main.expertMode && Main.rand.Next(0) == 0))
             {
                 target.AddBuff(BuffID.OnFire, Main.rand.Next(180, 250));
             }

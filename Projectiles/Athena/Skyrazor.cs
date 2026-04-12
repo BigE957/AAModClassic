@@ -36,7 +36,7 @@ namespace AAModClassic.Projectiles.Athena
         public override void AI()
         {
             Projectile.localAI[1] += 1f;
-            if (Projectile.localAI[1] > 10f && Main.rand.Next(3) == 0)
+            if (Projectile.localAI[1] > 10f && Main.rand.NextBool(3))
             {
                 for (int num694 = 0; num694 < 3; num694++)
                 {

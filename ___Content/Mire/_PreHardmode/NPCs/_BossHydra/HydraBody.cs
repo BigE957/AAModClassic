@@ -68,7 +68,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
         public override void OnKill()
         {
             if (!NPCExtensions.BeenKilled<HydraBody>(true))
-                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.Next(2) == 0 ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShadowPostHydra>());
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.NextBool(2) ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShadowPostHydra>());
 
             //NPC.value = 0f;
             //NPC.boss = false;
@@ -183,7 +183,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
                         NPC.alpha += 3;
                         if (NPC.alpha >= 255)
                         {
-                            Vector2 tele = new Vector2(playerTarget.Center.X + (Main.rand.Next(2) == 0 ? 120 : -120), playerTarget.Center.Y - 16);
+                            Vector2 tele = new Vector2(playerTarget.Center.X + (Main.rand.NextBool(2) ? 120 : -120), playerTarget.Center.Y - 16);
                             TeleportMe1 = true;
                             TeleportMe2 = true;
                             TeleportMe3 = true;
@@ -199,7 +199,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs._BossHydra
                         NPC.alpha += 3;
                         if (NPC.alpha >= 255)
                         {
-                            Vector2 tele = new Vector2(playerTarget.Center.X + (Main.rand.Next(2) == 0 ? 120 : -120), playerTarget.Center.Y - 16);
+                            Vector2 tele = new Vector2(playerTarget.Center.X + (Main.rand.NextBool(2) ? 120 : -120), playerTarget.Center.Y - 16);
                             TeleportMe1 = true;
                             TeleportMe2 = true;
                             TeleportMe3 = true;

@@ -125,7 +125,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 						if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16.0 && NPC.position.Y + NPC.height > (double)vector2.Y && NPC.position.Y < vector2.Y + 16.0)
 						{
 							collision = true;
-							if (Main.rand.Next(100) == 0 && Main.tile[i, j].HasUnactuatedTile)
+							if (Main.rand.NextBool(100) && Main.tile[i, j].HasUnactuatedTile)
 								WorldGen.KillTile(i, j, true, true, false);
 						}
 					}

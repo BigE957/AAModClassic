@@ -39,7 +39,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         public override void AI()
         {
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
-            if (Main.rand.Next(1000) == 0)
+            if (Main.rand.NextBool(1000))
             {
                 SoundEngine.PlaySound(SoundID.Zombie9, NPC.position);
             }

@@ -31,7 +31,7 @@ namespace AAModClassic.Tiles.Decoration
                 frameCounter ++;
                 if (frameCounter > Main.rand.Next(30, 900))
                 {
-                    if (Main.rand.Next(3) != 0)
+                    if (Main.rand.NextBool(3))
                     {
                         int k = Main.rand.Next(7);
                         if (k == 0)
@@ -86,13 +86,13 @@ namespace AAModClassic.Tiles.Decoration
                 frameCounter ++;
                 if (frameCounter > Main.rand.Next(30, 900))
                 {
-                    if (Main.rand.Next(3) != 0)
+                    if (Main.rand.NextBool(3))
                     {
-                        if (Main.rand.Next(7) == 0)
+                        if (Main.rand.NextBool(7))
                         {
                             frame = 17;
                         }
-                        else if(Main.rand.Next(12) == 0)
+                        else if(Main.rand.NextBool(12))
                         {
                             frame = 13;
                         }
@@ -127,9 +127,9 @@ namespace AAModClassic.Tiles.Decoration
                 frameCounter ++;
                 if (frameCounter > 20)
                 {
-                    if (Main.rand.Next(3) != 0)
+                    if (Main.rand.NextBool(3))
                     {
-                        if (Main.rand.Next(3) == 0)
+                        if (Main.rand.NextBool(3))
                         {
                             frame = 16;
                         }

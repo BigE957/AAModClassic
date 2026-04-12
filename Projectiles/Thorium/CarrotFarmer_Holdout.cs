@@ -110,11 +110,11 @@ namespace AAModClassic.Projectiles.Thorium
                     for (i = 0; i < 30; i++)
                     {
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        if (Main.rand.Next(15) == 0)
+                        if (Main.rand.NextBool(15))
                         {
                             int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<Carrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         }
-                        if (Main.rand.Next(15) == 0)
+                        if (Main.rand.NextBool(15))
                         {
                             int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<Carrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         }

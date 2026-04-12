@@ -60,7 +60,7 @@ namespace AAModClassic.Items.Boss.Akuma
                 Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Daystormbullet>(), damage, knockback, player.whoAmI);
             }
 
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 //Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(5));
                 //Projectile.NewProjectile(position, velocity, mod.ProjectileType("Dayser"), damage * 2, knockback, player.whoAmI);

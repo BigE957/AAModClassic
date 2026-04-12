@@ -106,7 +106,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 Main.dust[num733].velocity *= 2f;
                 Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
                 Main.dust[num733].velocity = Main.dust[num733].velocity / 2f + Vector2.Normalize(Main.dust[num733].position - Projectile.Center);
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.9f);
                     Main.dust[num733].noGravity = true;
@@ -114,7 +114,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                     Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
                     Main.dust[num733].velocity = Main.dust[num733].velocity / 2f + Vector2.Normalize(Main.dust[num733].position - Projectile.Center);
                 }
-                if (Main.rand.Next(4) == 0)
+                if (Main.rand.NextBool(4))
                 {
                     num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.7f);
                     Main.dust[num733].noGravity = true;

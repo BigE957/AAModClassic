@@ -53,7 +53,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.NextBool(2))
             {
                 Item.NewItem(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<DarkmatterKunai>());
             }

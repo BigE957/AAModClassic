@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         {
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             int dustType = ModContent.DustType<Dusts.JudgementDust>();
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
                 Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;

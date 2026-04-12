@@ -60,11 +60,11 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 
         public override void RightClick(Player player)
         {
-            if (Main.rand.Next(7) == 0)
+            if (Main.rand.NextBool(7))
             {
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<FAnubisMask>());
             }
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();

@@ -103,11 +103,11 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 
         public override void OnKill()
         {
-            if (Main.rand.Next(40) == 0)
+            if (Main.rand.NextBool(40))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraPrism>());
             }
-            if (Main.rand.Next(20) == 0)
+            if (Main.rand.NextBool(20))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraFocus>());
             }

@@ -120,7 +120,7 @@ namespace AAModClassic.Projectiles
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 300);
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 if (target.type == NPCID.TargetDummy)
                 {

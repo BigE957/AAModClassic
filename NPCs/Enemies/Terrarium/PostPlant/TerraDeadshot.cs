@@ -162,7 +162,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                         NPC.velocity.Y = NPC.velocity.Y + 0.3f;
                     }
                 }
-                if (Main.rand.Next(3) == 0)
+                if (Main.rand.NextBool(3))
                 {
                     Vector2 position = NPC.Center + new Vector2(NPC.direction * -14, -8f) - Vector2.One * 4f;
                     Vector2 velocity = new Vector2(NPC.direction * -6, 12f) * 0.2f + Utils.RandomVector2(Main.rand, -1f, 1f) * 0.1f;
@@ -422,7 +422,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 
         public override void OnKill()
         {
-            if (Main.rand.Next(40) == 0)
+            if (Main.rand.NextBool(40))
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraPrism>());
             }

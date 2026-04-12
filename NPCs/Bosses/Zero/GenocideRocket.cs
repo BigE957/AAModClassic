@@ -81,14 +81,14 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 }
                 if (Projectile.localAI[1] > 9f)
                 {
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         int num233 = Dust.NewDust(new Vector2(Projectile.position.X + 3f + num231, Projectile.position.Y + 3f + num232) - Projectile.velocity * 0.5f, Projectile.width - 8, Projectile.height - 8, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 1f);
                         Main.dust[num233].scale *= 1.4f + Main.rand.Next(10) * 0.1f;
                         Main.dust[num233].velocity *= 0.2f;
                         Main.dust[num233].noGravity = true;
                     }
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         int num234 = Dust.NewDust(new Vector2(Projectile.position.X + 3f + num231, Projectile.position.Y + 3f + num232) - Projectile.velocity * 0.5f, Projectile.width - 8, Projectile.height - 8, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.5f);
                         Main.dust[num234].fadeIn = 0.5f + Main.rand.Next(5) * 0.1f;

@@ -26,7 +26,7 @@ namespace AAModClassic.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(500) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(500))
             {
                 PlaceObject(i, j - 1, ModContent.TileType<Hotshroom_Tile>());
                 NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Hotshroom_Tile>(), 0, 0, -1, -1);

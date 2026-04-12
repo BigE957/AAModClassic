@@ -61,15 +61,15 @@ namespace AAModClassic.Items.Boss.Zero
 
 		public override void RightClick(Player player)
         {
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ZeroCore>());
             }
-            if (Main.rand.Next(7) == 0)
+            if (Main.rand.NextBool(7))
             {
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ZeroMask>());
             }
-            if (Main.rand.Next(10) == 0)
+            if (Main.rand.NextBool(10))
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();

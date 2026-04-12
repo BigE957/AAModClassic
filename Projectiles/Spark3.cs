@@ -42,7 +42,7 @@ namespace AAModClassic.Projectiles
             }
 
             int dustType = DustID.Torch;
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.NextBool(3))
             {
                 for (int m = 0; m < 3; m++)
                 {

@@ -237,7 +237,7 @@ namespace AAModClassic.Items.Armor.Witch
             if (Projectile.ai[1] > 0f)
             {
                 Projectile.ai[1] += 1f;
-                if (Main.rand.Next(3) != 0)
+                if (Main.rand.NextBool(3))
                 {
                     Projectile.ai[1] += 1f;
                 }

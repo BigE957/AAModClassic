@@ -36,7 +36,7 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
                 Projectile.localAI[0] = 1f;
                 SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, Projectile.Center);
             }
-			if(Main.rand.Next(3) == 0)
+			if(Main.rand.NextBool(3))
 			{
 				int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.Magenta, 2f);
 				Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;

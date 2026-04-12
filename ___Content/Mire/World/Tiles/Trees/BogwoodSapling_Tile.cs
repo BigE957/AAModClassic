@@ -42,7 +42,7 @@ namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 
         public override void RandomUpdate(int i, int j)
         {
-            if(WorldGen.genRand.Next(20) == 0)
+            if(WorldGen.genRand.NextBool(20))
             {
                 bool isPlayerNear = WorldGen.PlayerLOS(i, j);
                 bool success = WorldGen.GrowTree(i, j);

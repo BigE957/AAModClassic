@@ -101,7 +101,7 @@ public class SandstormProj : ModProjectile
 		}
 		for (int j = 0; j < 2; j++)
 		{
-			if (Main.rand.Next(10) == 0)
+			if (Main.rand.NextBool(10))
 			{
 				Vector2 val4 = Vector2.UnitY.RotatedBy((float)j * (float)Math.PI).RotatedBy(Projectile.rotation);
 				Dust obj = Main.dust[Dust.NewDust(Projectile.Center, 0, 0, DustID.RainbowMk2, 0f, 0f, 225, newColor, 1.5f)];
@@ -114,7 +114,7 @@ public class SandstormProj : ModProjectile
 		}
 		for (int k = 0; k < 2; k++)
 		{
-			if (Main.rand.Next(10) == 0)
+			if (Main.rand.NextBool(10))
 			{
 				Vector2 val5 = Vector2.UnitY.RotatedBy((float)k * (float)Math.PI);
 				Dust obj2 = Main.dust[Dust.NewDust(Projectile.Center, 0, 0, DustID.RainbowMk2, 0f, 0f, 225, newColor, 1.5f)];
