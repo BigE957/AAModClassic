@@ -34,14 +34,11 @@ namespace AAModClassic.Tiles.Ore
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
+            noItem = true;
             if (Main.dayTime)
-            {
-                RegisterItemDrop(ModContent.ItemType<RadiumOre>());
-            }
+                Item.NewItem(Item.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<RadiumOre>());
             else
-            {
-                RegisterItemDrop(ModContent.ItemType<DarkmatterOre>());
-            }
+                Item.NewItem(Item.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<DarkmatterOre>());
         }
 
         public override bool PreDraw(int x, int y, SpriteBatch spriteBatch)
@@ -56,7 +53,7 @@ namespace AAModClassic.Tiles.Ore
             else
             {
                 glowtex = Mod.GetTexture("Glowmasks/DarkmatterOre_Glow");
-                BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/Ore/DarkmatterOre"), x, y, true, false, false);
+                BaseDrawing.DrawTileTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Darkmatter").Value, x, y, true, false, false);
                 BaseDrawing.DrawTileTexture(spriteBatch, glowtex, x, y, true, false, false, null, AAGlobalTile.GetDarkmatterColorBright);
             }
             Tile tile = Main.tile[x, y];
