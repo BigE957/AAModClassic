@@ -137,7 +137,7 @@ namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D biteAni = Mod.GetTexture("NPCs/Enemies/Inferno/Singemander_Nom");
+            Texture2D biteAni = ModContent.Request<Texture2D>(Texture + "_Nom").Value;
             var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (biteAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {
