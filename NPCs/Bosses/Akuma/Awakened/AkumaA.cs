@@ -14,6 +14,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
@@ -606,31 +607,41 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void OnKill()
         {
-            if (Main.expertMode)
-            {
-                if (!NPC.BeenKilled(true))
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<DraconianRune>());
-                }
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(NPC.BeenKilled(true) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA10") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+        }
 
-                if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());
-                }
-                if (Main.rand.Next(10) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<AkumaATrophy>());
-                }
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<AkumaAMask>());
-                }
-                NPC.DropLoot(ModContent.ItemType<AkumaBag>());
-                return;
-            }
-            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
-            return;
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AkumaBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaTrophy>(), 10));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaMask>(), 7));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrucibleScale>(), 1, 20, 30));
+
+            LeadingConditionRule firstKill = new(new FirstTimeKillingAkumaA());
+
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraconianRune>()));
+
+            LeadingConditionRule shenDefeated = new(new FirstTimeKillingAkumaA());
+
+            shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
+        }
+
+        public class FirstTimeKillingAkumaA : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !NPCExtensions.BeenKilled<AkumaA>(true);
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
+        }
+
+        public class ShenDefeated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => AAWorld.downedShen;
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
         }
 
         public bool Quote1;
