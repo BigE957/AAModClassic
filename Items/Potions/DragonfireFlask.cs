@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ID;

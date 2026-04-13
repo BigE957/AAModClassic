@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
+using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
 
 namespace AAModClassic.NPCs.Bosses.Athena
 {

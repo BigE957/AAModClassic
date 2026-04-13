@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {

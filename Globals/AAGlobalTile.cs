@@ -8,13 +8,13 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Items.Potions.LuckyPotions;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Tiles;
 using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
 using AAModClassic.Tiles.Altar;
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {

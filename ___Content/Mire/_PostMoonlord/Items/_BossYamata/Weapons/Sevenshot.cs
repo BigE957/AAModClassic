@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {

@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

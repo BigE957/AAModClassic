@@ -1,10 +1,10 @@
-﻿using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
+﻿using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
+using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra;
-using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;

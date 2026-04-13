@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

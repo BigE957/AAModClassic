@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using AAModClassic.___Content.Mire._Hardmode.Items.Weapons;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;

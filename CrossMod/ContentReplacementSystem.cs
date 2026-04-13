@@ -1,8 +1,8 @@
 ﻿using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.GlowingMushium;
@@ -54,7 +54,7 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<MirePod>(),
             ModContent.ItemType<DragonScale>(),
             ModContent.ItemType<___Content.Inferno._PreHardmode.Items.Materials.DragonClaw>(),
-            ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(),
+            ModContent.ItemType<___Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(),
             ModContent.ItemType<Hotshroom>(),
             ModContent.ItemType<Darkshroom>(),
             #endregion
@@ -168,7 +168,7 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<___Content.Inferno._PreHardmode.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
-                OldToNewItems.Add(ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<___Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
 
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);

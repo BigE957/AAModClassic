@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Tiles.Plants;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Mire.World.Tiles
 {

@@ -26,7 +26,7 @@ using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

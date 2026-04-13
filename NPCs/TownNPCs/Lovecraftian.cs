@@ -1,5 +1,5 @@
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;

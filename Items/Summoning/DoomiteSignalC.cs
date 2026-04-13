@@ -8,7 +8,7 @@ using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Items.Boss.Serpent;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Summoning
 {

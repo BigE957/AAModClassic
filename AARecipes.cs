@@ -1,11 +1,11 @@
-﻿using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Abyssal;

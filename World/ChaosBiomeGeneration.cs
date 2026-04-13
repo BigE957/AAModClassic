@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire._PreHardmode.Items.Tiles;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Ranged;

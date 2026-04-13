@@ -9,7 +9,6 @@ using System;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.Buffs;
 using AAModClassic.CrossMod;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Boss.Athena.Olympian;
@@ -17,8 +16,9 @@ using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Acropolis.Projectiles;
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Projectiles.Greed.WKG
 {

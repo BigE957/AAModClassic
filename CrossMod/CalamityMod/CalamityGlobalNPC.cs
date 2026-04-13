@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
+using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.NPCs.Bosses.AH.Ashe;

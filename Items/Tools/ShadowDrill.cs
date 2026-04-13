@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire._PreHardmode.Items.Tools;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tools;
 using AAModClassic.Items.Boss.Serpent;
 using Terraria;
 using Terraria.ID;

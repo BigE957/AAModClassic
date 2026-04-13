@@ -4,8 +4,8 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Armor

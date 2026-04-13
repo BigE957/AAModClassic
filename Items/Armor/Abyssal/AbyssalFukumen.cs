@@ -3,7 +3,7 @@ using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Abyssal
 {

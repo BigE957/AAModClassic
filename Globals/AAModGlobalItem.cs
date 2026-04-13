@@ -12,8 +12,6 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Dev.Invoker;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Melee;
@@ -21,13 +19,15 @@ using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Accessories;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Pets;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {

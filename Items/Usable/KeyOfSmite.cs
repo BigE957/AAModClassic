@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Usable
 {

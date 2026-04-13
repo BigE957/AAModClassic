@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using Terraria;

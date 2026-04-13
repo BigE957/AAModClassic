@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Terrarium._Hardmode.NPCs;
+using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;

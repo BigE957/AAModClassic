@@ -4,9 +4,9 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Armor.Ocean;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Atlantean
 {

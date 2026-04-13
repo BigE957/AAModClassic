@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Armor.Viking;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Raider
 {

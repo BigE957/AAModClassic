@@ -15,9 +15,9 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

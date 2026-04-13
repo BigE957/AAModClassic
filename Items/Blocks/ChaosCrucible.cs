@@ -7,7 +7,7 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {
