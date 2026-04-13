@@ -36,7 +36,6 @@ using AAModClassic.Items.Melee;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.___Content.Dungeon.World.Tiles;
 using AAModClassic.Utilities;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
@@ -57,6 +56,7 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire.World.BiomeChest.Tiles;
 
 namespace AAModClassic
 {

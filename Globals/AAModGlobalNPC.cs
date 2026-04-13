@@ -1,35 +1,35 @@
-using AAModClassic.___Content.Acropolis._Hardmode.NPCs;
-using AAModClassic.___Content.Hoard._Hardmode.Scavenger;
-using AAModClassic.___Content.Inferno._Hardmode.Items.Materials;
-using AAModClassic.___Content.Inferno._Hardmode.NPCs;
-using AAModClassic.___Content.Inferno._Hardmode.NPCs._Surface;
-using AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground;
-using AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground._Desert;
-using AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground._Snow;
-using AAModClassic.___Content.Inferno._Hardmode.NPCs._Underground.Wyrm;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
+using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic.___Content.Hoard.__Hardmode.Scavenger;
+using AAModClassic.___Content.Inferno.___PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Inferno.___PostMoonlord.NPCs.AncientLung;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic.___Content.Inferno._PreHardmode.NPCs;
 using AAModClassic.___Content.Inferno._PreHardmode.NPCs._Surface;
 using AAModClassic.___Content.Inferno._PreHardmode.NPCs.Wyrmling;
-using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
-using AAModClassic.___Content.Mire._Hardmode.NPCs;
-using AAModClassic.___Content.Mire._Hardmode.NPCs._Surface;
-using AAModClassic.___Content.Mire._Hardmode.NPCs._Underground;
-using AAModClassic.___Content.Mire._Hardmode.NPCs._Underground._Desert;
-using AAModClassic.___Content.Mire._Hardmode.NPCs._Underground._Snow;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs.__BossHydra;
-using AAModClassic.___Content.Mire._PreHardmode.NPCs._Surface;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
-using AAModClassic.___Content.Terrarium._Hardmode.NPCs;
+using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic.___Content.Terrarium._PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium._PreHardmode.NPCs.PurityWeaver;
-using AAModClassic.___Content.Void._Hardmode.NPCs;
+using AAModClassic.___Content.Void.___PreHardmode.NPCs;
+using AAModClassic.___Content.Void.__Hardmode.NPCs;
 using AAModClassic.___Content.Void._PostMoonlord.NPCs;
-using AAModClassic.___Content.Void._PreHardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
@@ -1005,7 +1005,7 @@ namespace AAModClassic.Globals
                     {
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<___Content.Mire._PreHardmode.NPCs.HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
                         pool.Add(ModContent.NPCType<Skulker>(), .02f);
                         pool.Add(ModContent.NPCType<MurkySlime>(), .025f);
                     }
@@ -1028,7 +1028,7 @@ namespace AAModClassic.Globals
                     { 
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<___Content.Mire._PreHardmode.NPCs.HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
                         pool.Add(ModContent.NPCType<Skulker>(), .02f);
                     }
 

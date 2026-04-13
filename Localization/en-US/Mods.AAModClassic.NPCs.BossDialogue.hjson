@@ -9,31 +9,39 @@ FatPixie: YEET
 SistersOfDiscord: {
 	Spawn: {
 		1: Well hello there, what a surprise to see YOU here~!
+
 		2: {
 			Broodmother: Oh yes, I've heard PLENTY about you, kid...you've been stirring up quite a bit of trouble in these parts...
 			None: Oh yes, I've heard PLENTY about you, kid...you're the little warm-blood who thrashed my mother..!
 		}
+
 		3: {
 			Both: And mine...
 			Hydra: ...and you also hurt my mom...
 			None: You're a pretty annoying wretch, you know...
 		}
+
 		4: So now..! Heh...
 		5: We're gonna give you something to absolutely SCREAM about..! Come on, Hakie, let's torch this little warm-blood~!
 		6: Please don't call me Hakie again...ever.
 	}
+
 	AsheDowned: OW..! THAT HURT, YOU MEANIE!
 	HarukaDowned: Rgh..! Ow...
+
 	Defeat: {
 		First: {
 			1: You see Ashe? I told you this was a stupid idea, but YOU didn't listen...
+
 			2: {
 				Front: "Shut up! I thought if we ganged up on "
 				Back: ", we could just beat the daylights out of 'em!"
 			}
+
 			3: Whatever...I'm going back home. SOMEONE has to tell dad about this kid.
 			4: Hmpf..! Fine! Be that way! I'm going back to the inferno!
 		}
+
 		1: RRRRRRRRRGH! NOT AGAIN!!!
 		2: Why do I keep going with you..? I should honestly just let you fight them yourself.
 		3: Rgh..! Shut up..!
@@ -46,16 +54,20 @@ Akuma: {
 			A: Hey kid! Sky's fallin', watch out!
 			B: Down comes fire and fury!
 		}
+
 		BigShot: {
 			A: Hey kid! Watch out!
 			B: Incoming!
 		}
+
 		SeekingFlames: {
 			A: Face the flames of despair, kid!
 			B: Heads up, kid!
 		}
 	}
+
 	WaterHit: Water?! ACK..! I CAN'T BREATHE!
+
 	Despawn: {
 		Night: Yaaaaaaaaawn. I'm bushed kid, I'm gonna have to take a rain check. Come back tomorrow.
 		Escape: I thought you terrarians put up more of a fight. Guess not.
@@ -81,6 +93,7 @@ Akuma: {
 				Ashe: Hey! Hands off my papa!
 				Akuma: Atta-girl..!
 			}
+
 			Ashe: You got it, daddy..!
 			Akuma: Ashe? Help your dear old dad with this kid again!
 		}
@@ -365,7 +378,7 @@ ShenASpirit: Now that I think about it, though, you cracking open that overseer 
 ShenAStarsAbove: Though after you put down that rogue Starfarer, you really got my attention.
 ShenALunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
 ShenAAbaddon: Dousing that abyssal pumpkin? Now that was a sight to see!
-ShenACatalyst: You really did wipe the floor with the purple pile of sludge. 
+ShenACatalyst: You really did wipe the floor with the purple pile of sludge.
 ShenAHunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
 ShenASplit: I'll admit, putting down that sword-slinging hothead was quite the show to see.
 ShenAMacrocosm: You even took your fury to the Moon! Now that's something I can get behind.
