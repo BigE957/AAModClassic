@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

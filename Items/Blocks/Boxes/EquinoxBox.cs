@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

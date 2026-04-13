@@ -12,12 +12,12 @@ using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

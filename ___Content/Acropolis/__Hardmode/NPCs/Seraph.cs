@@ -8,6 +8,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Terraria.Localization;
 using AAModClassic.___Content.Acropolis.Projectiles;
+using AAModClassic.Items.Banners;
 
 namespace AAModClassic.___Content.Acropolis.__Hardmode.NPCs
 {
@@ -38,7 +39,7 @@ namespace AAModClassic.___Content.Acropolis.__Hardmode.NPCs
                 NPC.alpha = 255;
             }
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.SeraphBanner>();
+			BannerItem = ModContent.ItemType<SeraphBanner>();
         }
 
         public override bool PreAI()

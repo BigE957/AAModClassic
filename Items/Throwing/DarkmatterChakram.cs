@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.Throwing
 {

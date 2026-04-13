@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;

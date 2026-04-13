@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
+namespace AAModClassic.___Content.Inferno.___PreHardmode.NPCs
 {
     public class DragonClaw : ModNPC
     {

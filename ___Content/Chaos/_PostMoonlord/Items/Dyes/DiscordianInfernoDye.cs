@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Dyes;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -8,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Dyes
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Dyes
 {
     public class DiscordianInfernoDye : BaseAAItem
     {
@@ -44,7 +45,7 @@ namespace AAModClassic.Items.Dyes
             Recipe recipe = CreateRecipe(2);
             recipe.AddIngredient(ModContent.ItemType<BlazingFuryDye>(), 1);
             recipe.AddIngredient(ModContent.ItemType<AbyssalWrathDye>(), 1);
-            recipe.AddTile(Terraria.ID.TileID.DyeVat);
+            recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }
     }

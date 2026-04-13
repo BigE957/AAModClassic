@@ -11,10 +11,9 @@ using AAModClassic.Items.Potions.LuckyPotions;
 using AAModClassic.Tiles;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Tiles.Altar;
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {

@@ -6,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials
 {
     public class SearingSpark : BaseAAItem
     {

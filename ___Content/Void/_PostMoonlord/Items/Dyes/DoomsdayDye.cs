@@ -9,7 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Zero;
 
-namespace AAModClassic.Items.Dyes
+namespace AAModClassic.___Content.Void._PostMoonlord.Items.Dyes
 {
     public class DoomsdayDye : BaseAAItem
     {
@@ -46,8 +46,8 @@ namespace AAModClassic.Items.Dyes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 3);
-            recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
-            recipe.AddTile(Terraria.ID.TileID.DyeVat);
+            recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }
     }

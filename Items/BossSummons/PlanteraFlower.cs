@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Jungle.__Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

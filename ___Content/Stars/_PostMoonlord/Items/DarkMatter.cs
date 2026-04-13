@@ -3,11 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Bars;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Crafters;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items
 {
     public class DarkMatter : BaseAAItem
     {

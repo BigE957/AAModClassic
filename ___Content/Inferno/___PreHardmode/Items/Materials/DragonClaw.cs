@@ -1,4 +1,4 @@
-namespace AAModClassic.___Content.Inferno._PreHardmode.Items.Materials
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials
 {
     public class DragonClaw : BaseAAItem
     {

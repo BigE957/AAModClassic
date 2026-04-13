@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Materials
 {

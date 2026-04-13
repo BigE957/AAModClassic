@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Madness.___PreHardmode.Items.Materials
 {
     public class MadnessFragment : BaseAAItem
     {

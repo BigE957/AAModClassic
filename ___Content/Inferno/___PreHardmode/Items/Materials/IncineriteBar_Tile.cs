@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.Items.Materials
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials
 {
     public class IncineriteBar_Tile : ModTile
     {

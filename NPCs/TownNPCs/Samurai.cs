@@ -1,8 +1,12 @@
+using AAModClassic.___Content.Chaos.__Hardmode.Items.Consumables;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Potions;
-using AAModClassic.Items.Usable;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.Utilities;
 using System.Collections.Generic;

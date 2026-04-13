@@ -1,11 +1,9 @@
-using AAModClassic.Items.Blocks;
-using AAModClassic.Tiles.Bars;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items
 {
     public class RadiumBar : BaseAAItem
     {
@@ -27,7 +25,7 @@ namespace AAModClassic.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<RadiumBar_Tile>();
-            Item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            Item.value = Item.sellPrice(0, 2, 0, 0);
         }
         public override void AddRecipes()
         {                                                   

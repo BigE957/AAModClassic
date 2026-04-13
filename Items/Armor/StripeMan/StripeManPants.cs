@@ -1,4 +1,4 @@
-using AAModClassic.Items.FishingItem;
+using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.Items.Potions;
 using Terraria;
 using Terraria.ID;

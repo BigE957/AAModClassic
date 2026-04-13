@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Crates
+namespace AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables
 {
     public class DesertCrate_Tile : ModTile
     {

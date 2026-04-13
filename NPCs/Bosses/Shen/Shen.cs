@@ -22,6 +22,7 @@ using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {

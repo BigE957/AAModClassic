@@ -8,10 +8,12 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Projectiles.Greed.WKG;
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Hoard._PostMoonlord.Items.Materials;
 
 
 namespace AAModClassic.Items.Boss.Greed.WKG

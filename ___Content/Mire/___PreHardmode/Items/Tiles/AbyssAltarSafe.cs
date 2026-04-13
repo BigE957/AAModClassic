@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Chaos.World.Tiles;
 
 namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles
 {

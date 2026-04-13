@@ -5,10 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Boss.Shen;
-using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.Items.Armor.Draco;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {

@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Crates
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Consumables
 {
     public class IceCrate_Tile : ModTile
     {

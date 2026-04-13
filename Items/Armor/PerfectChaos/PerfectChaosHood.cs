@@ -7,9 +7,8 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Boss.Shen;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Armor.Doomsday;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {

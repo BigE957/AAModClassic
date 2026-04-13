@@ -25,7 +25,6 @@ using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Tiles.Chests;
-using AAModClassic.Items.Potions;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles.Trees;
@@ -45,11 +44,8 @@ using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
@@ -57,6 +53,13 @@ using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Mire.World.BiomeChest.Tiles;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Hallow.__Hardmode.Items.Materials;
 
 namespace AAModClassic
 {

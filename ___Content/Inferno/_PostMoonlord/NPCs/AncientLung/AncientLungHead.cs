@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+﻿using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -10,7 +10,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno.___PostMoonlord.NPCs.AncientLung
+namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung
 {
     public class AncientLungHead
         : ModNPC

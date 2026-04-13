@@ -1,5 +1,5 @@
+using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

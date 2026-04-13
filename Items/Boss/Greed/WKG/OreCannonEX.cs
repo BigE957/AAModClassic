@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Projectiles.Greed.WKG;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {

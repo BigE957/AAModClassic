@@ -1,6 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,7 +8,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Ore
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items
 {
     public class RadiumOre_Tile : ModTile
     {
@@ -36,9 +35,9 @@ namespace AAModClassic.Tiles.Ore
         {
             noItem = true;
             if (Main.dayTime)
-                Item.NewItem(Item.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<RadiumOre>());
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<RadiumOre>());
             else
-                Item.NewItem(Item.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<DarkmatterOre>());
+                Item.NewItem(Entity.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<DarkmatterOre>());
         }
 
         public override bool PreDraw(int x, int y, SpriteBatch spriteBatch)
@@ -63,7 +62,7 @@ namespace AAModClassic.Tiles.Ore
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(glowtex, new Vector2((x * 16) - (int)Main.screenPosition.X, (y * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Main.dayTime ? Color.Yellow : Color.DeepSkyBlue, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(glowtex, new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Main.dayTime ? Color.Yellow : Color.DeepSkyBlue, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
             return false;
         }

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Deathly

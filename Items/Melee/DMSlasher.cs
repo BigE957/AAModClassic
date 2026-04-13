@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using AAModClassic.CrossMod.Overhaul;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.Melee
 {

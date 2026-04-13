@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

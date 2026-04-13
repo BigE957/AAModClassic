@@ -3,7 +3,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Void.__Hardmode.Items.Consumables
 {
     public class VoidKey : BaseAAItem
     {

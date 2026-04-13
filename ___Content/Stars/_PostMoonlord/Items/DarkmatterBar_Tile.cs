@@ -1,11 +1,10 @@
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items
 {
     public class DarkmatterBar_Tile : ModTile
     {

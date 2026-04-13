@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables
 {
     public class KeyOfSmite : BaseAAItem
     {

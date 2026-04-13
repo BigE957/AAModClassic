@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Dungeon.__Hardmode.Items.Materials
 {
     public class M79Parts : BaseAAItem
 	{

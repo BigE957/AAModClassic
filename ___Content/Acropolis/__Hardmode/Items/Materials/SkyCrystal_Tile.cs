@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Ore
+namespace AAModClassic.___Content.Acropolis.__Hardmode.Items.Materials
 {
     public class SkyCrystal_Tile : ModTile
     {

@@ -9,7 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Banners;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs.Wyrmling
+namespace AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
     public class WyrmlingTail1 : WyrmlingHead
     {

@@ -3,8 +3,9 @@ using System;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs.PurityWeaver
+namespace AAModClassic.___Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 {
     public class PurityWeaverHead : ModNPC
 	{
@@ -28,7 +29,7 @@ namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs.PurityWeaver
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PurityWeaverBanner>();
         }
 
         public override Color? GetAlpha(Color drawColor)
@@ -40,7 +41,7 @@ namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs.PurityWeaver
         {
             if (Main.rand.NextBool(4))
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraShard>());
             }
         }
 

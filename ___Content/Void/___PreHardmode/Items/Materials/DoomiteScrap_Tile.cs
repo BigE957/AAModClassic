@@ -1,10 +1,9 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Materials
 {
     public class DoomiteScrap_Tile : ModTile
     {

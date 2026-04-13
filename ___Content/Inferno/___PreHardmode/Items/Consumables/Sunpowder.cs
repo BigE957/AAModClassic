@@ -1,9 +1,9 @@
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables
 {
     public class Sunpowder : BaseAAItem
     {

@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using AAModClassic.Items.FishingItem;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Tiles;
 
 namespace AAModClassic.Tiles.Crafters
 {

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.Ranged
 {

@@ -4,8 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Equinox;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.___Content.Stars._PostMoonlord.NPCs
 {

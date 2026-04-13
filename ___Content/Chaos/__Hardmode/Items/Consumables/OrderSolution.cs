@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Chaos.__Hardmode.Items.Consumables
 {
     public class OrderSolution : BaseAAItem
 	{

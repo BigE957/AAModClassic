@@ -4,8 +4,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.Tools
 {

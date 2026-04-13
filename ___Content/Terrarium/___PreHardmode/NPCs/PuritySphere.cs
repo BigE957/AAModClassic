@@ -1,12 +1,12 @@
+using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Terrarium.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
+namespace AAModClassic.___Content.Terrarium.___PreHardmode.NPCs
 {
     public class PuritySphere : ModNPC
 	{
@@ -29,7 +29,7 @@ namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
             NPC.noGravity = true;
             NPC.noTileCollide = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PuritySphereBanner>();
         }
 
         public override Color? GetAlpha(Color drawColor)

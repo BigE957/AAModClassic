@@ -1,9 +1,8 @@
-﻿using AAModClassic.Tiles.Crates;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.FishingItem.Crate
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Consumables
 {
     public class IceCrate : BaseAAItem
     {

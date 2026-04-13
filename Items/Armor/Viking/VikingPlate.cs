@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Viking
 {

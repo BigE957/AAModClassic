@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.Items.Materials
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials
 {
     public class IncineriteOre_Tile : ModTile
     {

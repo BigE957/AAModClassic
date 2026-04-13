@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables
 {
     public class InfernoKey : BaseAAItem
     {

@@ -1,11 +1,10 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Materials
 {
     public class DoomiteBar_Tile : ModTile
     {

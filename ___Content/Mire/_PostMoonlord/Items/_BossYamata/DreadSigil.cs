@@ -1,10 +1,10 @@
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities;

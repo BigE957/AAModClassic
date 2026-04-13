@@ -1,9 +1,8 @@
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Plants
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials
 {
     public class Hotshroom_Tile : ModTile
 	{

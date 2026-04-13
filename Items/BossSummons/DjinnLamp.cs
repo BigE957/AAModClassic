@@ -9,7 +9,7 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Djinn;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

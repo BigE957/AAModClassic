@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Dyes
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Dyes
 {
     public class BlazingFuryDye : BaseAAItem
     {
@@ -42,7 +42,7 @@ namespace AAModClassic.Items.Dyes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<BlazingDye>(), 2);
-            recipe.AddTile(Terraria.ID.TileID.DyeVat);
+            recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }
     }

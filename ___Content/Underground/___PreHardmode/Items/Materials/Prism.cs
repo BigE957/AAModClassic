@@ -2,7 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Underground.___PreHardmode.Items.Materials
 {
     public class Prism : BaseAAItem
     {

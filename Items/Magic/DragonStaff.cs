@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Sky.__Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

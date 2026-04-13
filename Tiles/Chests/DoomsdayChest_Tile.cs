@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Usable;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

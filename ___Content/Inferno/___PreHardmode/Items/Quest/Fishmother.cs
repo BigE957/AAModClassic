@@ -3,7 +3,7 @@ using AAModClassic.Utilities;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAModClassic.Items.Misc
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Quest
 {
     public class Fishmother : BaseAAItem
     {

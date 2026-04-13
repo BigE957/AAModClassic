@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.FishingItem
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Tools
 {
     public class ScorchShark : BaseAAItem
 	{

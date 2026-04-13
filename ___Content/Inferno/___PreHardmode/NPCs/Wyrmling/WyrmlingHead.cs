@@ -6,10 +6,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.Items.Banners;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs.Wyrmling
+namespace AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
     public class WyrmlingHead : ModNPC
 	{

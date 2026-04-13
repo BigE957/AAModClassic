@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
@@ -71,7 +72,7 @@ namespace AAModClassic.___Content.Sky.__Hardmode.NPCs
         }
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.DragonSpirit>());
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DragonSpirit>());
         }
     }
 }

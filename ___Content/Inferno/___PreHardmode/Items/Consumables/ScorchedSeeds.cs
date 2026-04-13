@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables
 {
     public class ScorchedSeeds : BaseAAItem
 	{

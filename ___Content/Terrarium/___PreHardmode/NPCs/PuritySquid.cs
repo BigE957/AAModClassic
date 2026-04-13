@@ -1,11 +1,11 @@
+using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
+namespace AAModClassic.___Content.Terrarium.___PreHardmode.NPCs
 {
     public class PuritySquid : ModNPC
 	{
@@ -30,7 +30,7 @@ namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PuritySquidBanner>();
         }
         
         public override Color? GetAlpha(Color drawColor)

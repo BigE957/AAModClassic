@@ -1,10 +1,9 @@
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Potions
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables
 {
     public class FlaskOfDragonfire : BaseAAItem
 	{

@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
 using AAModClassic.NPCs.Bosses.Serpent;
 using Microsoft.Xna.Framework;
 using Terraria;

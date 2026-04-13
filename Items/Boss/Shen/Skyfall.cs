@@ -8,9 +8,9 @@ using System;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Shen
 {

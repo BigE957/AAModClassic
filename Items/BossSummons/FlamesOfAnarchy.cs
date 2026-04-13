@@ -13,8 +13,8 @@ using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {

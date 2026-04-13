@@ -1,7 +1,7 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Serpent;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;

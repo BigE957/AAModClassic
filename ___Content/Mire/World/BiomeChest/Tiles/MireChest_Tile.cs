@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -163,7 +164,7 @@ namespace AAModClassic.___Content.Mire.World.BiomeChest.Tiles
             {
                 if (isLocked)
                 {
-                    int key = ModContent.ItemType<Items.Usable.MireKey>();
+                    int key = ModContent.ItemType<MireKey>();
                     if (player.ConsumeItem(key) && Chest.Unlock(left, top))
                     {
                         if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -226,7 +227,7 @@ namespace AAModClassic.___Content.Mire.World.BiomeChest.Tiles
                 {
                     player.cursorItemIconID = ModContent.ItemType<MireChest>();
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
-                        player.cursorItemIconID = ModContent.ItemType<Items.Usable.MireKey>();
+                        player.cursorItemIconID = ModContent.ItemType<MireKey>();
                     player.cursorItemIconText = "";
                 }
             }

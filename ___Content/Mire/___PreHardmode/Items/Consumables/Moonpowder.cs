@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables
 {
     public class Moonpowder : BaseAAItem
 	{

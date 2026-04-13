@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Crates
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables
 {
     public class InfernoCrate_Tile : ModTile
     {

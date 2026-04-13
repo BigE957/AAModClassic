@@ -7,7 +7,7 @@ using Terraria.Localization;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Armor.Kindled;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Draco

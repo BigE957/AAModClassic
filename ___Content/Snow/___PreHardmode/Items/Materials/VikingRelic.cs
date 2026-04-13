@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Materials
 {
     public class VikingRelic : BaseAAItem
 	{

@@ -1,10 +1,9 @@
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Bars;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Greed.WKG
+namespace AAModClassic.___Content.Hoard._PostMoonlord.Items.Materials
 {
     public class CovetiteBar : BaseAAItem
     {

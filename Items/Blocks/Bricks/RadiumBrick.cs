@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;

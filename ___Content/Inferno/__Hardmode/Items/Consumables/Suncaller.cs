@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables
 {
     public class Suncaller : BaseAAItem
     {

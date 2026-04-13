@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Abyssal
 {

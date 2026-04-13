@@ -3,12 +3,11 @@ using AAModClassic.Items.Magic;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Summoning;
-using AAModClassic.Tiles.Crates;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.FishingItem.Crate
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Consumables
 {
     public class VoidCrate : BaseAAItem
     {

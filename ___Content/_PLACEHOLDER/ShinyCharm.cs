@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content._PLACEHOLDER
 {
     public class ShinyCharm : BaseAAItem
     {

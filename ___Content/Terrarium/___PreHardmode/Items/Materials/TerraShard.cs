@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials
 {
     public class TerraShard : BaseAAItem
     {

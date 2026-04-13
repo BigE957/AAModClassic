@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

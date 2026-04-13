@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials
 {
     public class CrucibleScale : BaseAAItem
     {

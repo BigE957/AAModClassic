@@ -9,7 +9,7 @@ using AAModClassic.Projectiles.Akuma.Lung;
 using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Summoning;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {

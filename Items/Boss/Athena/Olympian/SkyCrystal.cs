@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Ore;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

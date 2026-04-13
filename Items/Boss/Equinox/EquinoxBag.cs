@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;

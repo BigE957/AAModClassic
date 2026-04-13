@@ -1,10 +1,11 @@
+using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
+namespace AAModClassic.___Content.Terrarium.___PreHardmode.NPCs
 {
     public class PurityCrawler : ModNPC
     {
@@ -31,14 +32,14 @@ namespace AAModClassic.___Content.Terrarium._PreHardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PurityCrawlerBanner>();
         }
 
         public override void OnKill()
         {
             if (Main.rand.NextBool(4))
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraShard>());
             }
         }
 

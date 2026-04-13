@@ -5,9 +5,9 @@ using System;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.___Content.Inferno.___PostMoonlord.NPCs._Surface
+namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface
 {
     public class BlazeClaw : ModNPC
     {

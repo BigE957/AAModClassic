@@ -1,5 +1,6 @@
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
@@ -157,7 +158,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
                 int Mushman = NPC.FindFirstNPC(ModContent.NPCType<Mushman>());
 
-                int Item1 = player.FindItem(ModContent.ItemType<Items.Materials.TerraShard>());
+                int Item1 = player.FindItem(ModContent.ItemType<TerraShard>());
                 int Item2 = player.FindItem(ModContent.ItemType<DragonScale>());
                 int Item3 = player.FindItem(ModContent.ItemType<MirePod>());
                 int Item4 = player.FindItem(ItemID.RottenChunk);
@@ -173,7 +174,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
                 if (Item1 >= 0 && AAWorld.squid1 < 5) //Item 1: 3 Blueberries
                 {
-                    Main.npcChatCornerItem = ModContent.ItemType<Items.Materials.TerraShard>();
+                    Main.npcChatCornerItem = ModContent.ItemType<TerraShard>();
                     player.inventory[Item1].stack--;
                     if (player.inventory[Item1].stack <= 0)
                     {

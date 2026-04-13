@@ -11,9 +11,9 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Bosses.Zero;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.BossSummons
 {

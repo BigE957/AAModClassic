@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables
 {
     public class FlaskOfDragonfire_Buff : ModBuff
 	{

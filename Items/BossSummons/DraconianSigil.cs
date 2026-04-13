@@ -11,11 +11,11 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.CrossMod;
 using AAModClassic.Utilities;
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Items.BossSummons
 {

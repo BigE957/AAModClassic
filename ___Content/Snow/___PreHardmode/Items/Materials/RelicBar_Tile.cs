@@ -1,11 +1,10 @@
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Materials
 {
     public class RelicBar_Tile : ModTile
     {
@@ -23,7 +22,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            DustType = Terraria.ID.DustID.Ice;
+            DustType = DustID.Ice;
             RegisterItemDrop(ModContent.ItemType<RelicBar>());   
             AddMapEntry(new Color(0, 0, 255));
 			MinPick = 0;

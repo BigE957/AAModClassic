@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Jungle.__Hardmode.Items.Materials;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials
 {
     public class DaybreakIncineriteOre_Tile : ModTile
     {

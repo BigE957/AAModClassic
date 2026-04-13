@@ -1,8 +1,8 @@
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Usable;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;

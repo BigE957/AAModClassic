@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Materials
 {
     public class DevilSilk : BaseAAItem
     {

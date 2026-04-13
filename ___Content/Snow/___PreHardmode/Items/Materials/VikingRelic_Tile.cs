@@ -1,10 +1,9 @@
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Ore
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Materials
 {
     public class VikingRelic_Tile : ModTile
     {

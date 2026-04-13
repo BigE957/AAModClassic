@@ -1,9 +1,8 @@
-﻿using AAModClassic.Tiles.Crates;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.FishingItem.Crate
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Consumables
 {
     public class HellCrate : BaseAAItem
     {

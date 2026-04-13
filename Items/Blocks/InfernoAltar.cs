@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Broodmother;
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Chaos.World.Tiles;
 
 namespace AAModClassic.Items.Blocks
 {

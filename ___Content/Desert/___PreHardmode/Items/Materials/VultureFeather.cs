@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Desert.___PreHardmode.Items.Materials
 {
     public class VultureFeather : BaseAAItem
 	{

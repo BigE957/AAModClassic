@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Bars;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Materials
 {
     public class RelicBar : BaseAAItem
     {
@@ -26,7 +25,7 @@ namespace AAModClassic.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<RelicBar_Tile>();
-            Item.value = Terraria.Item.sellPrice(0, 0, 32, 0);
+            Item.value = Item.sellPrice(0, 0, 32, 0);
         }
 
         public override void AddRecipes()

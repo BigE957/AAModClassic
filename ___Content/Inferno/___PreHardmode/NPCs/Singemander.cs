@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,7 +8,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno._PreHardmode.NPCs
+namespace AAModClassic.___Content.Inferno.___PreHardmode.NPCs
 {
 
     public class Singemander : ModNPC

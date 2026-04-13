@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Ore;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {

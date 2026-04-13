@@ -9,7 +9,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Shen
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials
 {
     public class ChaosScale : BaseAAItem
     {

@@ -10,7 +10,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Inferno.___PostMoonlord.NPCs.AncientLung
+namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung
 {
     public class AncientLungBody : AncientLungHead
     {

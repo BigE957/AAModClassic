@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class AbyssAltarUnsafe_Tile : ModTile
 	{

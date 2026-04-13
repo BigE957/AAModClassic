@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Accessories;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;

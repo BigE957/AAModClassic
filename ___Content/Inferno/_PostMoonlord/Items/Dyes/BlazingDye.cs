@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Inferno.___PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Dyes
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Dyes
 {
     public class BlazingDye : BaseAAItem
     {
@@ -43,8 +43,8 @@ namespace AAModClassic.Items.Dyes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
-            recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
-            recipe.AddTile(Terraria.ID.TileID.DyeVat);
+            recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }
     }

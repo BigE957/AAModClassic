@@ -1,7 +1,7 @@
 ﻿using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAModClassic.Items.Misc
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Quest
 {
     public class GlitchFish : BaseAAItem
     {

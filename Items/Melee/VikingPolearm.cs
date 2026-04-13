@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Melee
 {

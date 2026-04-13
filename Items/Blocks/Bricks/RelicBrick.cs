@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;

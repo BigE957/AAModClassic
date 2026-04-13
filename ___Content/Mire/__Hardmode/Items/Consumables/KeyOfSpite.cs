@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic.___Content.Mire.__Hardmode.Items.Consumables
 {
     public class KeyOfSpite : BaseAAItem
     {
