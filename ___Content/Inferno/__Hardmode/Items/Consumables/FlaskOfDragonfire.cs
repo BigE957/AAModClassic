@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Potions
 {
-    public class DragonfireFlask : BaseAAItem
+    public class FlaskOfDragonfire : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Potions
 			Item.height = 30;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
 			Item.rare = ItemRarityID.Orange;
-			Item.buffType = ModContent.BuffType<DragonfireFlask_Buff>();
+			Item.buffType = ModContent.BuffType<FlaskOfDragonfire_Buff>();
 			Item.buffTime = 52000;
 		}
 

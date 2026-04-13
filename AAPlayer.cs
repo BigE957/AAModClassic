@@ -1067,7 +1067,7 @@ namespace AAModClassic
                 target.AddBuff(BuffID.Wet, 600);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<DragonfireFlask_Buff>()))
+            if (Player.HasBuff(ModContent.BuffType<FlaskOfDragonfire_Buff>()))
             {
                 target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
             }
@@ -1129,7 +1129,7 @@ namespace AAModClassic
                     target.AddBuff(buff, 180);
                 }
 
-                if (Player.HasBuff(ModContent.BuffType<DragonfireFlask_Buff>()))
+                if (Player.HasBuff(ModContent.BuffType<FlaskOfDragonfire_Buff>()))
                 {
                     target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
                 }

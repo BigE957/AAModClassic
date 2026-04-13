@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
 {
-    public class DragonfireFlask_Buff : ModBuff
+    public class FlaskOfDragonfire_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

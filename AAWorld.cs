@@ -619,7 +619,7 @@ namespace AAModClassic
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
                                         int[] array = new int[]
-                                        { ModContent.ItemType<DragonfireFlask>() };
+                                        { ModContent.ItemType<FlaskOfDragonfire>() };
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];

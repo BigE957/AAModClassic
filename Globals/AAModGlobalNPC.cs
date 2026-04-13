@@ -580,7 +580,7 @@ namespace AAModClassic.Globals
                 {
                     if (Main.rand.NextBool(1250))
                     {
-                        npc.DropLoot(ModContent.ItemType<DoomstopperKey>());
+                        npc.DropLoot(ModContent.ItemType<VoidKey>());
                     }
                 }
                 if (player.GetModPlayer<AAPlayer>().Terrarium && NPC.downedPlantBoss)

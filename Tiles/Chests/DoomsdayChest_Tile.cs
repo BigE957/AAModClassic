@@ -168,7 +168,7 @@ namespace AAModClassic.Tiles.Chests
             {
                 if (isLocked)
                 {
-                    int key = ModContent.ItemType<DoomstopperKey>();
+                    int key = ModContent.ItemType<VoidKey>();
                     if (player.ConsumeItem(key) && Chest.Unlock(left, top))
                     {
                         if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -231,7 +231,7 @@ namespace AAModClassic.Tiles.Chests
                 {
                     player.cursorItemIconID = ModContent.ItemType<DoomsdayChest>();
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
-                        player.cursorItemIconID = ModContent.ItemType<DoomstopperKey>();
+                        player.cursorItemIconID = ModContent.ItemType<VoidKey>();
                     player.cursorItemIconText = "";
                 }
             }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 namespace AAModClassic.Items.Usable
 {
-    public class DoomstopperKey : BaseAAItem
+    public class VoidKey : BaseAAItem
     {
         
         public override void SetStaticDefaults()
