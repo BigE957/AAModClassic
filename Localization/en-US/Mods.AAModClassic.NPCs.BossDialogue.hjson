@@ -40,50 +40,82 @@ SistersOfDiscord: {
 	}
 }
 
-Akuma1: Water?! ACK..! I CAN'T BREATHE!
-Akuma2: Yaaaaaaaaawn. I'm bushed kid, I'm gonna have to take a rain check. Come back tomorrow.
-Akuma3: I thought you terrarians put up more of a fight. Guess not.
-Akuma4: Hey kid! Sky's fallin', watch out!
-Akuma5: Down comes fire and fury!
-Akuma6: Spirits of the volcano! help me crush this kid!
-Akuma7: Hey kid! Watch out!
-Akuma8: Incoming!
-Akuma9: Sun's shining, and there's no shade to be seen, kid!
-Akuma10: Getting hotter, ain't it?
-Akuma11: The volcanoes of the inferno are finally quelled...
-Akuma12: Hmpf...you’re pretty good kid, but not good enough. Come back once you’ve gotten a bit better.
-Akuma13: Face the flames of despair, kid!
-Akuma14: Heads up, kid!
-AkumaA1: Ashe? Help your dear old dad with this kid again!
-AkumaA2: You got it, daddy..!
-AkumaA3: Hey! Hands off my papa!
-AkumaA4: Atta-girl..!
-AkumaA5: Still got it, do you? Ya got fire in your spirit! I like that about you, kid!
-AkumaA6: What?! How have you lasted this long?! Why you little... I refuse to be bested by a terrarian again! Have at it!
-AkumaA7: ACK..! WATER! I LOATHE WATER!!!
-AkumaA8: Nighttime won't save you from me this time, kid! The day is born anew!
-AkumaA9: You just got burned, kid.
-AkumaA10: Heh, not too shabby this time kid. I'm impressed. Here. Take your prize.
-AkumaA11: GRAH..! HOW!? HOW COULD I LOSE TO A MERE MORTAL TERRARIAN?! Hmpf...fine kid, you win, fair and square. Here's your reward.
-AkumaA12: Nice. You cheated. Now come fight me in expert mode like a real man.
-AkumaA13: Sky's fallin' again! On your toes!
-AkumaA14: Down comes the flames of fury again!
-AkumaA15: You underestimate the artillery of a dragon, kid!
-AkumaA16: Flames don't give in till the end, kid!
-AkumaA17: Heads up! Volcano's eruptin' kid!
-AkumaA18: INCOMING!
-AkumaA19: Hey Kid? Like Fireworks? No? Too Bad!
-AkumaA20: Here comes the grand finale, kid!
-AkumaA21: The Sun won't quit 'til the day is done, kid!
-AkumaA22: Face the fury of the sun!
-AkumaAAshe1: Papa, NO! HEY! YOU! I'm gonna bake you alive next time we meet..!
-AkumaAAshe2: OW, you Jerk..! I'm out!
-AkumaTransition1: Heh...
-AkumaTransition2: You know, kid...
-AkumaTransition3: fanning the flames doesn't put them out...
-AkumaTransition4: Akuma has been Awakened!
-AkumaTransition5: IT ONLY MAKES THEM STRONGER!
-AkumaTransition6: The air around you begins to heat up...
+Akuma: {
+	Attack: {
+		Skyfall: {
+			A: Hey kid! Sky's fallin', watch out!
+			B: Down comes fire and fury!
+		}
+		BigShot: {
+			A: Hey kid! Watch out!
+			B: Incoming!
+		}
+		SeekingFlames: {
+			A: Face the flames of despair, kid!
+			B: Heads up, kid!
+		}
+	}
+	WaterHit: Water?! ACK..! I CAN'T BREATHE!
+	Despawn: {
+		Night: Yaaaaaaaaawn. I'm bushed kid, I'm gonna have to take a rain check. Come back tomorrow.
+		Escape: I thought you terrarians put up more of a fight. Guess not.
+	}
+
+	Defeat: {
+		Status: The volcanoes of the inferno are finally quelled...
+		NotExpert: Hmpf...you’re pretty good kid, but not good enough. Come back once you’ve gotten a bit better.
+	}
+
+	Transition: {
+		1: Heh...
+		2: You know, kid...
+		3: fanning the flames doesn't put them out...
+		4: Akuma has been Awakened!
+		5: IT ONLY MAKES THEM STRONGER!
+		6: The air around you begins to heat up...
+	}
+
+	Awakened: {
+		AsheAppear: {
+			First: {
+				Ashe: Hey! Hands off my papa!
+				Akuma: Atta-girl..!
+			}
+			Ashe: You got it, daddy..!
+			Akuma: Ashe? Help your dear old dad with this kid again!
+		}
+
+		Defeat: {
+			Repeat: Heh, not too shabby this time kid. I'm impressed. Here. Take your prize.
+			First: GRAH..! HOW!? HOW COULD I LOSE TO A MERE MORTAL TERRARIAN?! Hmpf...fine kid, you win, fair and square. Here's your reward.
+			Cheat: Nice. You cheated. Now come fight me in expert mode like a real man.
+		}
+
+		DayReset: Nighttime won't save you from me this time, kid! The day is born anew!
+		Kill: You just got burned, kid.
+	}
+
+	#Unused
+	Akuma6: Spirits of the volcano! help me crush this kid!
+	Akuma9: Sun's shining, and there's no shade to be seen, kid!
+	Akuma10: Getting hotter, ain't it?
+	AkumaA5: Still got it, do you? Ya got fire in your spirit! I like that about you, kid!
+	AkumaA6: What?! How have you lasted this long?! Why you little... I refuse to be bested by a terrarian again! Have at it!
+	AkumaA7: ACK..! WATER! I LOATHE WATER!!!
+	AkumaA13: Sky's fallin' again! On your toes!
+	AkumaA14: Down comes the flames of fury again!
+	AkumaA15: You underestimate the artillery of a dragon, kid!
+	AkumaA16: Flames don't give in till the end, kid!
+	AkumaA17: Heads up! Volcano's eruptin' kid!
+	AkumaA18: INCOMING!
+	AkumaA19: Hey Kid? Like Fireworks? No? Too Bad!
+	AkumaA20: Here comes the grand finale, kid!
+	AkumaA21: The Sun won't quit 'til the day is done, kid!
+	AkumaA22: Face the fury of the sun!
+	AkumaAAshe1: Papa, NO! HEY! YOU! I'm gonna bake you alive next time we meet..!
+	AkumaAAshe2: OW, you Jerk..! I'm out!
+}
+
 AnubisFalse: HAH! Get hosed-- er, sanded.
 AnubisGuys: guys
 Anubisbud: bud

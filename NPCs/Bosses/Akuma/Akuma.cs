@@ -182,7 +182,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     if (weakness == false)
                     {
                         weakness = true;
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma1"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.WaterHit"), new Color(180, 41, 32));
                     }
                 }
                 else if (!NPC.HasBuff(BuffID.Wet))
@@ -360,7 +360,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma2"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Despawn.Night"), new Color(180, 41, 32));
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -371,7 +371,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma3"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Despawn.Escape"), new Color(180, 41, 32));
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y - 1f;
@@ -423,7 +423,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (!QuoteSaid && sayQuote)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote1) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma4") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma5"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote1) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.Skyfall.A") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.Skyfall.B"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote1 = true;
                 }
@@ -442,7 +442,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 if (!QuoteSaid && sayQuote)
                 {
                     if (!Quote3 || Main.rand.NextBool(4))
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma7") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma8"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.Bigshot.A") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.Bigshot.B"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -508,10 +508,10 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (!NPC.BeenKilled(true))
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma11"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Defeat.Status"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 }
                 
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma12"), new Color(180, 41, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Defeat.NotExpert"), new Color(180, 41, 32));
             }
             if (Main.expertMode)
             {
