@@ -139,7 +139,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 items[nextSlot] = new Item(ItemID.RedDynastyShingles);
                 nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<InfernoSeeds>());
+                items[nextSlot] = new Item(ModContent.ItemType<ScorchedSeeds>());
                 nextSlot++;
                 items[nextSlot] = new Item(ModContent.ItemType<Sunpowder>());
                 nextSlot++;
@@ -154,7 +154,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 items[nextSlot] = new Item(ItemID.BlueDynastyShingles);
                 nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<MireSeeds>());
+                items[nextSlot] = new Item(ModContent.ItemType<DankSeeds>());
                 nextSlot++;
                 items[nextSlot] = new Item(ModContent.ItemType<Moonpowder>());
                 nextSlot++;

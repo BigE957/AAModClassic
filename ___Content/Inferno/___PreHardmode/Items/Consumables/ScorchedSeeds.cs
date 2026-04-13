@@ -1,18 +1,17 @@
-using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace AAModClassic.Items.Usable
 {
-    public class MireSeeds : BaseAAItem
+    public class ScorchedSeeds : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Dank Seeds");
-            // Tooltip.SetDefault("Plants Mire grass"); ;	
+            // DisplayName.SetDefault("Scorched Seeds");
+            // Tooltip.SetDefault("Plants Inferno grass"); ;	
 		}		
 		
         public override void SetDefaults()
@@ -28,17 +27,17 @@ namespace AAModClassic.Items.Usable
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.createTile = ModContent.TileType<MireGrass_Tile>();
+            Item.createTile = ModContent.TileType<InfernoGrass_Tile>();
             Item.consumable = true;		
         }
 
 		public override bool CanUseItem(Player p)
 		{
 			Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
-			if(tile != null && tile.HasTile && tile.TileType == TileID.Mud)
+			if(tile != null && tile.HasTile && tile.TileType == TileID.Dirt)
 			{
 				WorldGen.destroyObject = true;
-				TileID.Sets.BreakableWhenPlacing[TileID.Mud] = true;
+				TileID.Sets.BreakableWhenPlacing[TileID.Dirt] = true;
 				return base.CanUseItem(p);				
 			}
 			return false;
@@ -47,7 +46,7 @@ namespace AAModClassic.Items.Usable
 		public override bool? UseItem(Player p)/* tModPorter Suggestion: Return null instead of false */
 		{
 			WorldGen.destroyObject = false;
-			TileID.Sets.BreakableWhenPlacing[TileID.Mud] = false;		
+			TileID.Sets.BreakableWhenPlacing[TileID.Dirt] = false;		
 			return base.UseItem(p);
 		}
 	}
