@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<ChaosAltar_Tile>();
+            Item.createTile = ModContent.TileType<ChaosAltarSafe_Tile>();
             Item.placeStyle = 1;
             Item.width = 28;
             Item.height = 22;

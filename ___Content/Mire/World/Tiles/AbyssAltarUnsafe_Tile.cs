@@ -9,7 +9,7 @@ using AAModClassic.Dusts;
 
 namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles
 {
-    public class AbyssAltarSafe_Tile : ModTile
+    public class AbyssAltarUnsafe_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

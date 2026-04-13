@@ -8,7 +8,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Crafters
 {
-    public class ChaosAltar_Tile : ModTile
+    public class ChaosAltarSafe_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

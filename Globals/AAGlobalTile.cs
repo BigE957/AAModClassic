@@ -200,7 +200,7 @@ namespace AAModClassic.Globals
             if(!t.HasTile)
                 return base.CanKillTile(i, j, type, ref blockDamaged);
 
-            if ((t.TileType == ModContent.TileType<AbyssAltarSafe_Tile>() || t.TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarSafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
+            if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
                 return false;
 
             if ((t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
@@ -215,7 +215,7 @@ namespace AAModClassic.Globals
         public override bool CanExplode(int i, int j, int type)
         {
             Tile t = Main.tile[i, j - 1];
-            if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarSafe_Tile>() || t.TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (t.TileType != ModContent.TileType<AbyssAltarSafe_Tile>() || t.TileType != ModContent.TileType<ChaosAltar2_Tile>()))
+            if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (t.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType != ModContent.TileType<ChaosAltar2_Tile>()))
                 return false;
 
             return base.CanExplode(i, j, type);
@@ -223,7 +223,7 @@ namespace AAModClassic.Globals
 
         public override bool Slope(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<AbyssAltarSafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarSafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }

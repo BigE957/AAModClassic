@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Crafters
 {
-    public class EvilAltar_Tile : ModTile
+    public class EvilAltarSafe_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
