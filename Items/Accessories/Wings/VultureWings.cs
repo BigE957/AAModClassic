@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<vulture_feather>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<VultureFeather>(), 15);
             recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 5);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();

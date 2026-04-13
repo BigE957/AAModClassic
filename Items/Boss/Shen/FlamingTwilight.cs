@@ -123,7 +123,7 @@ Consumes gel as ammo
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<Dawnstrike>());
             recipe.AddIngredient(ModContent.ItemType<Darksprayer>());

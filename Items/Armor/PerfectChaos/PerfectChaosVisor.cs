@@ -72,7 +72,7 @@ The power of discordian rage radiates from this hood"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DreadHelmet>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 6);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

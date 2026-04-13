@@ -773,7 +773,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Stardust>(), 1, 30, 75));
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantPhoton>(), 1, 30, 75));
 
             notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DaybringerMask>(), 7));
 

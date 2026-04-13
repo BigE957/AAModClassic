@@ -79,7 +79,7 @@ Gives immensely increased stats
             recipe.AddIngredient(ItemID.CelestialShell, 1);
             recipe.AddIngredient(ModContent.ItemType<RadiantStar>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DarkVoid>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 20);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 20);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

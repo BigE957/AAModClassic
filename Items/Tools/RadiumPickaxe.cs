@@ -48,7 +48,7 @@ namespace AAModClassic.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 20);
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }

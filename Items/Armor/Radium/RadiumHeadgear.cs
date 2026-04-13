@@ -66,7 +66,7 @@ Shines with the light of a starry night sky"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 25);
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 10);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }

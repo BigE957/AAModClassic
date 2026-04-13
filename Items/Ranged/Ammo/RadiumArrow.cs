@@ -46,7 +46,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(400);
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 1);
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 3);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();

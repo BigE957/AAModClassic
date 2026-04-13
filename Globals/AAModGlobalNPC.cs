@@ -474,7 +474,7 @@ namespace AAModClassic.Globals
 
             if (npc.type == NPCID.Vulture)
             {
-                npc.DropLoot(ModContent.ItemType<vulture_feather>(), Main.rand.Next(1, 3));
+                npc.DropLoot(ModContent.ItemType<VultureFeather>(), Main.rand.Next(1, 3));
             }
 
             if (npc.type == NPCID.Drippler)

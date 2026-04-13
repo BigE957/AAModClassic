@@ -61,7 +61,7 @@ namespace AAModClassic.Items.Blocks.Boxes
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.MusicBox);
                 recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
-                recipe.AddIngredient(ModContent.ItemType<Stardust>(), 5);
+                recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 5);
                 recipe.AddTile(TileID.Sawmill);
                 recipe.Register();
             }

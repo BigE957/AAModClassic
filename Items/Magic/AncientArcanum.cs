@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Magic
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.NebulaArcanum);
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 10);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();

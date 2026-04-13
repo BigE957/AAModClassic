@@ -77,7 +77,7 @@ namespace AAModClassic.Items.DevTools
                 int tilesY = WorldGen.genRand.Next(0, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.IceBlock)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<RelicOre_Tile>());
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<VikingRelic_Tile>());
                 }
             }
 

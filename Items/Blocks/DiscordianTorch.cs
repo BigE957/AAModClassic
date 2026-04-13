@@ -70,7 +70,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.Torch, 50);
-			recipe.AddIngredient(ModContent.ItemType<Discordium>());
+			recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>());
 			recipe.Register();
 		}
 	}

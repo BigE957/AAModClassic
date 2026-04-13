@@ -115,7 +115,7 @@ Inflicts Discordian Inferno"); */
             recipe.AddIngredient(ModContent.ItemType<SunStorm>(), 1);
             recipe.AddIngredient(ModContent.ItemType<AbyssalBomb>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

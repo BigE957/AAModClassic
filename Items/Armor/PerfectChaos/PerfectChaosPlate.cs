@@ -58,7 +58,7 @@ The power of discordian rage radiates from this armor"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DracoPlate>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DreadChestplate>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 10);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

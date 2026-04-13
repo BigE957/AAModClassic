@@ -92,7 +92,7 @@ blades go through tiles
             recipe.AddIngredient(ModContent.ItemType<ReignOfFire>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Amenomuraku>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

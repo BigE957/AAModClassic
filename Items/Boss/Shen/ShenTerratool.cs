@@ -86,7 +86,7 @@ You may only have a maximum of 2 tool types active"); */
             recipe.AddIngredient(ModContent.ItemType<AkumaTerratool>(), 1);
             recipe.AddIngredient(ModContent.ItemType<YamataTerratool>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<Discordium>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

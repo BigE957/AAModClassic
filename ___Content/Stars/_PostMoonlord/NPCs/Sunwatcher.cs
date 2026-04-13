@@ -70,7 +70,7 @@ namespace AAModClassic.___Content.Stars._PostMoonlord.NPCs
 			{
 				for (int Ammount = 0; Ammount < Main.rand.Next(3); Ammount++)
 				{
-					NPC.DropLoot(ModContent.ItemType<Stardust>());
+					NPC.DropLoot(ModContent.ItemType<RadiantPhoton>());
 				}
 			}
         }

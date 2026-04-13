@@ -200,7 +200,7 @@ Contained loot depends on the time of day"); */
         {
             LeadingConditionRule dayTime = new(new Daytime());
 
-            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Stardust>(), 1, 40, 90));
+            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantPhoton>(), 1, 40, 90));
 
             dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DaybringerMask>(), 7));
 

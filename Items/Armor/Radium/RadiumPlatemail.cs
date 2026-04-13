@@ -49,7 +49,7 @@ namespace AAModClassic.Items.Armor.Radium
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 30);
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 20);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}

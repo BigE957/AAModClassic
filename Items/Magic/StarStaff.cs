@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Magic
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Stardust>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 5);
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 10);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

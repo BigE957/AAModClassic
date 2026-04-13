@@ -64,7 +64,7 @@ Allows you to work with Dark Matter and Radium"); */
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.LunarCraftingStation, 1);
                 recipe.AddIngredient(ModContent.ItemType<RadiumOre>(), 30);
-                recipe.AddIngredient(ModContent.ItemType<Stardust>(), 15);
+                recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 15);
                 recipe.Register();
             }
         }

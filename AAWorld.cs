@@ -822,7 +822,7 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next(0, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.IceBlock)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<RelicOre_Tile>());
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<VikingRelic_Tile>());
                 }
             }
         }
@@ -903,7 +903,7 @@ namespace AAModClassic
                 Point position = posIslands[j];
                 position.X -= 4;
                 position.Y -= 11;
-                VoidHouses(position.X, position.Y, (ushort)ModContent.TileType<DoomitePlate_Tile>(), 10, 7);
+                VoidHouses(position.X, position.Y, (ushort)ModContent.TileType<DoomiteScrap_Tile>(), 10, 7);
             }
             progress.Set(1f);
         }
@@ -1027,15 +1027,15 @@ namespace AAModClassic
             for (int i = Y; i < Y + sizeY - 1; ++i)
             {
                 WorldGen.PlaceTile(X, i, type);
-                WorldGen.PlaceTile(X + (sizeX - 2), i, (ushort)ModContent.TileType<DoomitePlate_Tile>());
+                WorldGen.PlaceTile(X + (sizeX - 2), i, (ushort)ModContent.TileType<DoomiteScrap_Tile>());
             }
             //Roof-floor placements
             for (int i = X; i < X + sizeX - 2; ++i)
             {
                 WorldGen.PlaceTile(i, Y, type);
-                WorldGen.PlaceTile(i, Y + (sizeY - 1), (ushort)ModContent.TileType<DoomitePlate_Tile>());
+                WorldGen.PlaceTile(i, Y + (sizeY - 1), (ushort)ModContent.TileType<DoomiteScrap_Tile>());
             }
-            WorldGen.PlaceTile(X + sizeX - 2, Y + sizeY - 1, (ushort)ModContent.TileType<DoomitePlate_Tile>());
+            WorldGen.PlaceTile(X + sizeX - 2, Y + sizeY - 1, (ushort)ModContent.TileType<DoomiteScrap_Tile>());
 
             int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)ModContent.TileType<OroborosChest_Tile>(), true);
             if (PlacementSuccess >= 0)

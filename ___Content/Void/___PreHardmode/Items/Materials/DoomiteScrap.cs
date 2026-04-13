@@ -23,7 +23,7 @@ namespace AAModClassic.___Content.Void.___PreHardmode.Items.Materials
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<DoomitePlate_Tile>();
+            Item.createTile = ModContent.TileType<DoomiteScrap_Tile>();
         }
     }
 }
