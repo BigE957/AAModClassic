@@ -5,25 +5,41 @@ fimale2: HER
 boy: ", BOY"
 girl: ", GIRL"
 FatPixie: YEET
-AHDeath1: RRRRRRRRRGH! NOT AGAIN!!!
-AHDeath2: You see Ashe? I told you this was a stupid idea, but YOU didn't listen...
-AHDeath3: Why do I keep going with you..? I should honestly just let you fight them yourself.
-AHDeath4: "Shut up! I thought if we ganged up on "
-AHDeath5: ", we could just beat the daylights out of 'em!"
-AHDeath6: Rgh..! Shut up..!
-AHDeath7: Whatever...I'm going back home. SOMEONE has to tell dad about this kid.
-AHDeath8: Hmpf..! Fine! Be that way! I'm going back to the inferno!
-AHSpawn1: Well hello there, what a surprise to see YOU here~!
-AHSpawn2: Oh yes, I've heard PLENTY about you, kid...you're the little warm-blood who thrashed my mother..!
-AHSpawn3: Oh yes, I've heard PLENTY about you, kid...you've been stirring up quite a bit of trouble in these parts...
-AHSpawn4: And mine...
-AHSpawn5: ...and you also hurt my mom...
-AHSpawn6: You're a pretty annoying wretch, you know...
-AHSpawn7: So now..! Heh...
-AHSpawn8: We're gonna give you something to absolutely SCREAM about..! Come on, Hakie, let's torch this little warm-blood~!
-AHSpawn9: Please don't call me Hakie again...ever.
-AsheDowned: OW..! THAT HURT, YOU MEANIE!
-HarukaDowned: Rgh..! Ow...
+
+SistersOfDiscord: {
+	Spawn: {
+		1: Well hello there, what a surprise to see YOU here~!
+		2: {
+			Broodmother: Oh yes, I've heard PLENTY about you, kid...you've been stirring up quite a bit of trouble in these parts...
+			None: Oh yes, I've heard PLENTY about you, kid...you're the little warm-blood who thrashed my mother..!
+		}
+		3: {
+			Both: And mine...
+			Hydra: ...and you also hurt my mom...
+			None: You're a pretty annoying wretch, you know...
+		}
+		4: So now..! Heh...
+		5: We're gonna give you something to absolutely SCREAM about..! Come on, Hakie, let's torch this little warm-blood~!
+		6: Please don't call me Hakie again...ever.
+	}
+	AsheDowned: OW..! THAT HURT, YOU MEANIE!
+	HarukaDowned: Rgh..! Ow...
+	Defeat: {
+		First: {
+			1: You see Ashe? I told you this was a stupid idea, but YOU didn't listen...
+			2: {
+				Front: "Shut up! I thought if we ganged up on "
+				Back: ", we could just beat the daylights out of 'em!"
+			}
+			3: Whatever...I'm going back home. SOMEONE has to tell dad about this kid.
+			4: Hmpf..! Fine! Be that way! I'm going back to the inferno!
+		}
+		1: RRRRRRRRRGH! NOT AGAIN!!!
+		2: Why do I keep going with you..? I should honestly just let you fight them yourself.
+		3: Rgh..! Shut up..!
+	}
+}
+
 Akuma1: Water?! ACK..! I CAN'T BREATHE!
 Akuma2: Yaaaaaaaaawn. I'm bushed kid, I'm gonna have to take a rain check. Come back tomorrow.
 Akuma3: I thought you terrarians put up more of a fight. Guess not.
@@ -313,6 +329,17 @@ ShenACalamity: Considering you put that angsty witch in her place, gotta hand it
 ShenAGRealm: Seeing you squashed that oversided insect in the jungle, that's quite a head-turner.
 ShenARedemption: However, after you walloped that cosmic prude, even I was taken aback by that level of skill.
 ShenASpirit: Now that I think about it, though, you cracking open that overseer like an egg? Quite the strength that had to have needed.
+#New Additions
+ShenAStarsAbove: Though after you put down that rogue Starfarer, you really got my attention.
+ShenALunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
+ShenAAbaddon: Dousing that abyssal pumpkin? Now that was a sight to see!
+ShenACatalyst: You really did wipe the floor with the purple pile of sludge. 
+ShenAHunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
+ShenASplit: I'll admit, putting down that sword-slinging hothead was quite the show to see.
+ShenAMacrocosm: You even took your fury to the Moon! Now that's something I can get behind.
+ShenASpooky: Tearing through those catacombs like you own the place. That takes some skill.
+ShenAUltranium: Watching you whallop that star slinging hobo? That was a treat!
+#
 ShenANoMod: Everything you've torn down, gods and monsters alike, I respect that.
 ShenDeath1: Split again...
 ShenDeath2: This is YOUR fault you insolent worm..! I knew we should have been more aggressive but NOOOOOOOOO..! YOU said we could squash them without even trying!

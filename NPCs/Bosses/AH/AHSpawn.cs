@@ -66,7 +66,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 60)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn1"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.1"), new Color(102, 20, 48));
                 Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
             }
 
@@ -74,11 +74,11 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn2"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.2.Broodmother"), new Color(102, 20, 48));
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn3"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.2.None"), new Color(102, 20, 48));
                 }
             }
 
@@ -88,16 +88,16 @@ namespace AAModClassic.NPCs.Bosses.AH
                 {
                     if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn4"), new Color(72, 78, 117));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.3.Both"), new Color(72, 78, 117));
                     }
                     else
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn5"), new Color(72, 78, 117));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.3.Hydra"), new Color(72, 78, 117));
                     }
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn6"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.3.None"), new Color(72, 78, 117));
                 }
             }
 
@@ -108,7 +108,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 700)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn7"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.4"), new Color(102, 20, 48));
             }
 
             if (NPC.ai[1] == 550)
@@ -120,13 +120,13 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 Music = MusicManagementSystem.MusicSlots["Sisters"];
                 Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AsheSpawn>(), -1)].Transform(ModContent.NPCType<Ashe.Ashe>());
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn8"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.5"), new Color(102, 20, 48));
                 SpawnBoss(player, "Ashe");
             }
 
             if (NPC.ai[1] >= 960)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHSpawn9"), new Color(72, 78, 117));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.6"), new Color(72, 78, 117));
                 Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<HarukaSpawn>(), -1)].Transform(ModContent.NPCType<Haruka.Haruka>());
                 SpawnBoss(player, "Haruka");
                 NPC.active = false;
