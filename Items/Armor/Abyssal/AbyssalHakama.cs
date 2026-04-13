@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;

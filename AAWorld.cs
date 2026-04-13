@@ -25,7 +25,6 @@ using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Tiles.Chests;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Ranged;
@@ -57,6 +56,7 @@ using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Mire.World.BiomeChest.Tiles;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic
 {
@@ -732,7 +732,7 @@ namespace AAModClassic
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
                                         int[] array = new int[]
-                                        { ModContent.ItemType<Items.Materials.DoomiteBar>() };
+                                        { ModContent.ItemType<DoomiteBar>() };
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];

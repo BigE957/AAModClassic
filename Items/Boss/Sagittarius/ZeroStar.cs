@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Projectiles.Sag;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Sagittarius
 {

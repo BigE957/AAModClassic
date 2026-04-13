@@ -1,7 +1,7 @@
 using AAModClassic.Tiles.Bars;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Materials
 {
     public class DoomiteBar : BaseAAItem
     {

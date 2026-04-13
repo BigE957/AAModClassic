@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Armor.Kindled;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Blazing
@@ -50,7 +51,7 @@ Forged in the flames of the blazing sun"); */
             recipe.AddIngredient(ModContent.ItemType<KindledKabuto>());
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(ModContent.ItemType<Items.Materials.DoomiteBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

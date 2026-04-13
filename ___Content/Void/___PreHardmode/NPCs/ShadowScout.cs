@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Void.___PreHardmode.NPCs
 {
-    public class SagittariusMini : ModNPC
+    public class ShadowScout : ModNPC
 	{
 		
 		public override void SetStaticDefaults()
@@ -35,7 +36,7 @@ namespace AAModClassic.___Content.Void.___PreHardmode.NPCs
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.ShadowScoutBanner>();
+			BannerItem = ModContent.ItemType<ShadowScoutBanner>();
         }
 
 		public int frameCount = 0;

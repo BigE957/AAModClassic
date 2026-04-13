@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Sagittarius;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;

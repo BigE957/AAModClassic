@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Hoard.__Hardmode.Items.Materials
 {
     public class CovetiteCrystal : BaseAAItem
     {

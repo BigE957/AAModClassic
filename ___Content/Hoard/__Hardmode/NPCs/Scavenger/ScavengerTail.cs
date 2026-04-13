@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
 
-namespace AAModClassic.___Content.Hoard.__Hardmode.Scavenger
+namespace AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger
 {
     public class ScavengerTail : ScavengerHead
     {

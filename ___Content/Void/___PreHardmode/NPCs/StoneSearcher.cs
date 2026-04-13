@@ -1,5 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
+﻿using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -31,7 +32,7 @@ namespace AAModClassic.___Content.Void.___PreHardmode.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.StoneSearcherBanner>();
+			BannerItem = ModContent.ItemType<StoneSearcherBanner>();
 
         }
 

@@ -1,5 +1,5 @@
-﻿using AAModClassic.Items.Magic;
-using AAModClassic.Items.Materials;
+﻿using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Items.Magic;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Summoning;

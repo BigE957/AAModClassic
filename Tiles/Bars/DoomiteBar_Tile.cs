@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +24,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.DoomDust>();
-            RegisterItemDrop(ModContent.ItemType<Items.Materials.DoomiteBar>());   
+            RegisterItemDrop(ModContent.ItemType<DoomiteBar>());   
             AddMapEntry(new Color(100, 90, 90));
 			MinPick = 0;
         }

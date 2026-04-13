@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Summoning
 {

@@ -1,10 +1,10 @@
 using AAModClassic.___Content.Inferno._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Flasks;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Usable;
 using System.Collections.Generic;
 using Terraria;
@@ -163,7 +163,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 int Item4 = player.FindItem(ItemID.RottenChunk);
                 int Item5 = player.FindItem(ItemID.Vertebrae);
                 int Item6 = player.FindItem(ItemID.PixieDust);
-                int Item7 = player.FindItem(ModContent.ItemType<Items.Materials.DoomiteScrap>());
+                int Item7 = player.FindItem(ModContent.ItemType<DoomiteScrap>());
                 int Item8 = player.FindItem(ItemID.JungleSpores);
                 int Item9 = player.FindItem(ModContent.ItemType<Items.Boss.MushroomMonarch.Mushium>());
                 int Item10 = player.FindItem(ModContent.ItemType<Items.Boss.MushroomMonarch.GlowingMushium>());

@@ -1,5 +1,5 @@
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
-using AAModClassic.___Content.Hoard.__Hardmode.Scavenger;
+using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
 using AAModClassic.___Content.Inferno.___PostMoonlord.NPCs._Surface;
 using AAModClassic.___Content.Inferno.___PostMoonlord.NPCs.AncientLung;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
@@ -1063,7 +1063,7 @@ namespace AAModClassic.Globals
 
                 if (NPCExtensions.BeenKilled<Sag>())
                 {
-                    pool.Add(ModContent.NPCType<SagittariusMini>(), .005f);
+                    pool.Add(ModContent.NPCType<ShadowScout>(), .005f);
                 }
 
                 if (NPC.downedPlantBoss)

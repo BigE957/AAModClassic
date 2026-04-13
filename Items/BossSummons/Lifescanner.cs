@@ -7,7 +7,7 @@ using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.Items.BossSummons

@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Armor.Viking;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Raider
 {
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Armor.Raider
             recipe.AddIngredient(ModContent.ItemType<VikingHelm>());
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<Items.Materials.DoomiteBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

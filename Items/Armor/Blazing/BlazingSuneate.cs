@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Items.Armor.Kindled;
 using Terraria;
 using Terraria.ID;
@@ -37,7 +38,7 @@ Forged in the flames of the blazing sun"); */
             recipe.AddIngredient(ModContent.ItemType<KindledSuneate>());
             recipe.AddIngredient(ItemID.Coral, 6);
             recipe.AddIngredient(ItemID.FossilOre, 6);
-            recipe.AddIngredient(ModContent.ItemType<Items.Materials.DoomiteBar>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

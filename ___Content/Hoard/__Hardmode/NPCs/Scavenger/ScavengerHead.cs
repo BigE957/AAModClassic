@@ -8,9 +8,11 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Items.Banners;
+using AAModClassic.Items.Usable;
 
-namespace AAModClassic.___Content.Hoard.__Hardmode.Scavenger
+namespace AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger
 {
     public class ScavengerHead : ModNPC
     {
@@ -41,7 +43,7 @@ namespace AAModClassic.___Content.Hoard.__Hardmode.Scavenger
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.ScavengerBanner>();
+			BannerItem = ModContent.ItemType<ScavengerBanner>();
         }
 
         public override void AI()
@@ -415,7 +417,7 @@ namespace AAModClassic.___Content.Hoard.__Hardmode.Scavenger
             else
                 DropItem(NPC, ModContent.ItemType<CovetiteCrystal>(), 1, 5, 30, true);
 
-            NPC.DropLoot(ModContent.ItemType<Items.Usable.GreedKey>(), .05f);
+            NPC.DropLoot(ModContent.ItemType<GreedKey>(), .05f);
         }
 
         /*
