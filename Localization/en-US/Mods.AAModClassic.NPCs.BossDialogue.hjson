@@ -253,46 +253,90 @@ EquinoxDialogue: {
 	WormSpawn12: "Do not expect us to go easy on you, "
 }
 
-GreedFalse1: EEEEEEEEEEEEEEEGH THE LIGHT OF THE SURFACE! TOO BRIGHT! TOO BRIGHT!
-GreedFalse2: AND STAY AWAY FROM MY GLORIOUS RICHES YOU LITTLE THIEF!
-Greed1: Who disturbs me from my coin-counting?! I'm busy--
-Greed2: ...Oooooh...is that...?
-Greed3: You brought me my favorite dish..!
-Greed4: Now, if you don't mind...
-Greed5: BEGONE FROM MY HOARD!!!
-GreedName: Greed
-GreedTransition1: YOU..! YOU LITTLE--
-GreedTransition2: WHY DO YOU REFUSE TO LEAVE ME BE?!
-GreedTransition3: YOU TRY TO STEAL MY SHINIES, AND NOW...!
-GreedTransition4: I WILL STEAL YOUR LIFE!
-GreedAName: Worm King Greed
-Rajah1: JUSTICE CANNOT BE CHEATED
-Rajah2: Justice has been served...
-Rajah3: Coward.
-Rajah4: You win this time, murderer...but I will avenge those you've mercilessly slain...
-Rajah5: "THIS ISN'T THE END, "
-Rajah6: ! RIVALS CLASH TILL THE VERY END!
-Rajah7: And stay down.
-Rajah8: "Well fought, "
-Rajah9: . Take your reward.
-SupremeRajahChat: Rajah glows with furious energy as he attacks, strengthening his defenses
-SupremeRajahDefeat1: Rgh...
-SupremeRajahDefeat2: ...so...
-SupremeRajahDefeat3: Even when I'm at my most powerful...
-SupremeRajahDefeat4: ...I still can't beat you.
-SupremeRajahDefeat5: ...Terrarian...maybe...
-SupremeRajahDefeat6: Perhaps this is all just a sign that...maybe my time as protector...
-SupremeRajahDefeat7: ...is finally up. It might be time to pass on the baton.
-SupremeRajahDefeat8: ...I forgive you for every rabbit you've killed, but in return...I want you to take my place...
-SupremeRajahDefeat9: ...as their champion. Their protector.
-SupremeRajahDefeat10: I only want the best for the creatures of this world...and if you're stronger than I am...
-SupremeRajahDefeat11: "Who better to take my place than you, "
-SupremeRajahDefeat12: Be the one the innocent can look to in their time of need.
-SupremeRajahDefeat13: Think about it.
-SupremeRajahDefeat14: And if you ever want to spar...use one of those special carrots. I'd be glad to earn my honor back.
-SupremeRajahDefeat15: ...See ya, kiddo.
-SupremeRajahDefeat16: Rajah Rabbit's speech warms your heart. You no longer have the will to harm rabbits. Do him proud.
-SagChat: EXTENSIVE BODY DAMAGE DETECTED. PROCEED WITH CAUTION!
+Greed : {
+	Spawn: {
+		1: Who disturbs me from my coin-counting?! I'm busy--
+		2: ...Oooooh...is that...?
+		3: You brought me my favorite dish..!
+		4: Now, if you don't mind...
+		5: BEGONE FROM MY HOARD!!!
+	}
+
+	Transition: {
+		1: YOU..! YOU LITTLE--
+		2: WHY DO YOU REFUSE TO LEAVE ME BE?!
+		3: YOU TRY TO STEAL MY SHINIES, AND NOW...!
+		4: I WILL STEAL YOUR LIFE!
+	}
+
+	Despawn: EEEEEEEEEEEEEEEGH THE LIGHT OF THE SURFACE! TOO BRIGHT! TOO BRIGHT!
+	Kill: AND STAY AWAY FROM MY GLORIOUS RICHES YOU LITTLE THIEF!
+}
+
+Rajah: {
+	#Anitcheat Unused
+	Cheat: JUSTICE CANNOT BE CHEATED
+	Kill: Justice has been served...
+	Despawn: Coward.
+	Defeat.Murderer: You win this time, murderer...but I will avenge those you've mercilessly slain...
+
+	Awakened: {
+		PowerUp: Rajah glows with furious energy as he attacks, strengthening his defenses
+		LastStand: {
+			Singleplayer: {
+				Murderer: THIS ISN'T THE END, MURDERER! RIVALS CLASH TILL THE VERY END!
+				Normal: THIS ISN'T THE END, TERRARIAN! RIVALS CLASH TILL THE VERY END!
+				Repeat: THIS ISN'T THE END, {0}! RIVALS CLASH TILL THE VERY END!
+			}
+			Multiplayer: {
+				Murderer: THIS ISN'T THE END, MURDERERS! RIVALS CLASH TILL THE VERY END!
+				Normal: THIS ISN'T THE END, TERRARIANS! RIVALS CLASH TILL THE VERY END!
+			}
+		}
+		Kill: And stay down.
+		Defeat: {
+			First: {
+				1: Rgh...
+				2: ...so...
+				3: Even when I'm at my most powerful...
+				4: ...I still can't beat you.
+				5: ...Terrarian...maybe...
+				6: Perhaps this is all just a sign that...maybe my time as protector...
+				7: ...is finally up. It might be time to pass on the baton.
+				8: ...I forgive you for every rabbit you've killed, but in return...I want you to take my place...
+				9: ...as their champion. Their protector.
+				10: I only want the best for the creatures of this world...and if you're stronger than I am...
+				11: {
+					Singleplayer: Who better to take my place than you, {0}?
+					Multiplayer: Who better to take my place than you, Terrarians?
+				}
+				12: Be the one the innocent can look to in their time of need.
+				13: Think about it.
+				14: And if you ever want to spar...use one of those special carrots. I'd be glad to earn my honor back.
+				15: ...See ya, kiddo.
+				Status: Rajah Rabbit's speech warms your heart. You no longer have the will to harm rabbits. Do him proud.
+			}
+			Repeat: {
+				Singleplayer: Well fought, {0}. Take your reward.
+				Multiplayer: Well fought, Terrarians. Take your reward.
+			}
+		}
+	}
+}
+
+
+Sagittarius: {
+	LowHealth: EXTENSIVE BODY DAMAGE DETECTED. PROCEED WITH CAUTION!
+
+	#Unused
+	Sagittarius1: target(s) neutralized. returning to stealth mode.
+	Sagittarius2: target(s) lost. returning to stealth mode.
+	SagittariusFree1: target(s) neutralized. returning to stealth mode.
+	SagittariusFree2: target(s) lost. returning to stealth mode.
+	SagittariusFree3: initializing repair program.
+}
+
+
 YamataAHead: OWIE!!!
 Yamata1: HAH! I went easy on ya! Come back when you're actually good and we can have a real fight!
 Yamata2: The defeat of Yamata causes the fog in the mire to lift.
@@ -357,11 +401,7 @@ YamataHead18: NGAAAAAAAAAAAAAH STAAAAAAAHP MOOOOOOOOVIIIIIIING!!!!!
 YamataHead19: HAVE A HEALTHY TASTE OF ACID!
 YamataHead20: I'M GONNA RIP YOU TO PIECES YOU LITTLE WRETCH!!!
 YamataHead21: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!
-Sagittarius1: target(s) neutralized. returning to stealth mode.
-Sagittarius2: target(s) lost. returning to stealth mode.
-SagittariusFree1: target(s) neutralized. returning to stealth mode.
-SagittariusFree2: target(s) lost. returning to stealth mode.
-SagittariusFree3: initializing repair program.
+
 ZeroBoss1: PHYSICAL ZER0 UNIT IN CRITICAL C0NDITI0N. DISCARDING AND ENGAGING D00MSDAY PR0T0C0L.
 ZeroBoss2: D00MSDAY PR0T0CALL MALFUNCTI0N. MAIN.EXPERT M0DE = FALSE.
 ZeroBoss3: Zero's dark influence over the void has been lifted. The doomstone here is now minable.

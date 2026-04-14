@@ -214,7 +214,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
 
                 if (!lowHealth && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SagChat"), true, true);
+                    CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Sagittarius.LowHealth"), true, true);
                     lowHealth = true;
                 }
             }

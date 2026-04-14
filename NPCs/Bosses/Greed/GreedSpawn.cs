@@ -64,26 +64,26 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
 				if (NPC.ai[0] == 175)    
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed1"), Color.Goldenrod);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.1"), Color.Goldenrod);
 					NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 350)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed2"), Color.Goldenrod);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.2"), Color.Goldenrod);
 				}else
 				if (NPC.ai[0] == 500)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed3"), Color.Goldenrod);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.3"), Color.Goldenrod);
                     NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 610)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed4"), Color.Goldenrod);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.4"), Color.Goldenrod);
 				}else
 				if (NPC.ai[0] >= 755 && !NPC.AnyNPCs(ModContent.NPCType<Greed>()))
 				{
-					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), true, NPC.Center, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.GreedName"), false);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed5"), Color.Goldenrod);
+					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), true, NPC.Center, ModContent.GetInstance<Greed>().DisplayName.Value, false);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.5"), Color.Goldenrod);
 
                     NPC.netUpdate = true;
 					NPC.active = false;				
