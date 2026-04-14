@@ -129,65 +129,102 @@ Akuma: {
 	AkumaAAshe2: OW, you Jerk..! I'm out!
 }
 
-AnubisFalse: HAH! Get hosed-- er, sanded.
-AnubisGuys: guys
-Anubisbud: bud
-Anubis1: "Well, "
-Anubis2: . Here we are.
-Anubis3: I hope you're ready for a real fight.
-Anubis4: Especially since I'm in my superior form.
-Anubis5: You ready? I won't hesitate to slap you silly!
-Anubis6: Let's go!
-Anubis7: A rematch eh? Alright, this should be fun!
-AnubisCombat1: YEET
-AnubisCombat2: Careful! Projectiles hurt.
-AnubisCombat3: Let me grab some friends
-AnubisCombat4: Catch!
-AnubisCombat5: Smashing, Init?
-AnubisTransition1: ...hrgh...
-AnubisTransition2: ...alright.
-AnubisTransition3: I think...it's time.
-AnubisTransition4: No more stops being pulled.
-AnubisTransition5: If you're gonna be taking on the dark forces of the world...
-AnubisTransition6: I need to make sure you're ready, because...unless you're ready...
-AnubisTransition7: ...Some things should stay locked away for your own good.
-FAnubis: ...Sorry, but you aren't ready yet.
-FAnubisCombat: No Warnings this time.
-FAnubisWin: ...You done good, bud. Let's make a game plan moving forward. Come talk to me when you're ready.
-Athena1: Hmpf..!
-Athena2: s
-Athena3: You! Earthwalker
-Athena4: My seraphs tell me you've been attacking them! Why?!
-Athena5: I'm gonna teach you a lesson, you little brat!
-Athena6: En Garde!
-Athena7: Sigh...
-Athena8: Lets just get this overwith. I don't have all day.
-Athena9: And stay away...idiot.
-Athena10: No more kidding around, the storms are calling, and they're coming for you!
-Athena11: OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you.
-Athena12: ...So. You came.
-Athena13: It's high time I won my honor back..!
-Athena14: En Garde!
-AthenaA1: And stay away...idiot.
-AthenaA2: OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you.
-AthenaDefeat1: ...hah...hah...
-AthenaDefeat2: ...I still lost.
-AthenaDefeat3: No.
-AthenaDefeat4: I'm not giving up that easilly.
-AthenaDefeat5: There's a phrase my people live by, earthwalker.
-AthenaDefeat6: Brightest of dawn...
-AthenaDefeat7: Darkest of night...
-AthenaDefeat8: Even in defeat...
-AthenaDefeat9: A VARIAN ALWAYS PUTS UP ONE LAST FIGHT!!!
-Athena2Defeat1: ...WHY?!
-Athena2Defeat2: ...Why can't I win?!
-Athena2Defeat3: "...You haven't heard the end of me, earthwalker "
-Athena2Defeat4: s
-Athena2Defeat5: I will win back my honor eventually...
-Athena2Defeat6: ...until then, watch your back.
-Athena2Defeat7: Dark, chaotic forces are waking up as of late.
-Athena2Defeat8: Hopefully HE doesn't come back...
-Athena2Defeat9: Stay safe.
+Anubis: {
+	Kill: HAH! Get hosed-- er, sanded.
+	Intro: {
+		1: {
+			Singleplayer: Well, bud. Here we are.
+			Multiplayer: Well guys, Here we are.
+		}
+		2: I hope you're ready for a real fight.
+		3: Especially since I'm in my superior form.
+		4: You ready? I won't hesitate to slap you silly!
+		5: Let's go!
+		Rematch: A rematch eh? Alright, this should be fun!
+	}
+
+	Combat: {
+		PumpkinThrow: YEET
+		Runeblast: Careful! Projectiles hurt.
+		Summons: Let me grab some friends
+		ScepterThrow: Catch!
+		BlockCrush: Smashing, Init?
+	}
+
+	Transition: {
+		1: ...hrgh...
+		2: ...alright.
+		3: I think...it's time.
+		4: No more stops being pulled.
+		5: If you're gonna be taking on the dark forces of the world...
+		6: I need to make sure you're ready, because...unless you're ready...
+		7: ...Some things should stay locked away for your own good.
+	}
+
+	Forsaken: {
+		Warning: No Warnings this time.
+		Kill: ...Sorry, but you aren't ready yet.
+		Defeat: ...You done good, bud. Let's make a game plan moving forward. Come talk to me when you're ready.
+	}
+}
+
+Athena: { 
+	Intro {
+		First: {
+			1: Hmpf..!
+			2: {
+				Singleplayer: You! Earthwalker!
+				Multiplayer: You! Earthwalkers!
+			}
+			3: My seraphs tell me you've been attacking them! Why?!
+			4: I'm gonna teach you a lesson, you little brat!
+			5: En Garde!
+		}
+		PreAthenaA: {
+			1: ...So. You came.
+			2: It's high time I won my honor back..!
+			3: En Garde!
+		}
+		Repeat: {
+			1: Sigh...
+			2: Lets just get this overwith. I don't have all day.
+		}
+	}
+	Kill: And stay away...idiot.
+	Defeat: OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you.
+
+	Transition: {
+		1: ...hah...hah...
+		2: ...I still lost.
+		3: No.
+		4: I'm not giving up that easilly.
+		5: There's a phrase my people live by, earthwalker.
+		6: Brightest of dawn...
+		7: Darkest of night...
+		8: Even in defeat...
+		9: A VARIAN ALWAYS PUTS UP ONE LAST FIGHT!!!
+		Repeat: No more kidding around, the storms are calling, and they're coming for you!
+	}
+
+	Awakened: {
+		Kill: And stay away, idiot.
+		Defeat: {
+			1: ...WHY?!
+			2: ...Why can't I win?!
+			3: {
+				Singleplayer: ...You haven't heard the end of me, earthwalker...
+				Multiplayer: ...You haven't heard the end of me, earthwalkers...
+			}
+			4: I will win back my honor eventually...
+			5: ...until then, watch your back.
+			6: Dark, chaotic forces are waking up as of late.
+			7: Hopefully HE doesn't come back...
+			8: Stay safe.
+			Repeat: OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you.
+		}
+	}
+}
+
 SeraphHerald1: HEY! EARTHWALKER! YEAH YOU, YA STUPID APE!
 SeraphHerald2: Queen Athena requests your presence at the acropolis again immediately!
 SeraphHerald3: She demands a rematch, and this time, she won't let you tear her down so easily!

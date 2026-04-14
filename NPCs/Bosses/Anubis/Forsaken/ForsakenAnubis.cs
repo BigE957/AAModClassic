@@ -242,7 +242,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     if (!text)
                     {
                         text = true;
-                        CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisCombat"), true);
+                        CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Warning"), true);
                     }
 
                     if (NPC.ai[1] == 10)
@@ -574,7 +574,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             if (!NPCExtensions.BeenKilled<ForsakenAnubis>(true))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisWin"), Color.ForestGreen);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
             }
         }
 
@@ -604,12 +604,12 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
             {
                 NPC.TargetClosest();
-                if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
+                if (!Main.player[NPC.target].active || Main.player[NPC.target].dead || Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 5000f || !Main.player[NPC.target].ZoneDesert)
                 {
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubis"), Color.ForestGreen);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
                         int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;

@@ -67,13 +67,13 @@ namespace AAModClassic.NPCs.Bosses.Athena
                         {
                             if (NPC.ai[0] == 120)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat1"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.1"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] == 240)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat2"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.2"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
@@ -86,43 +86,43 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             if (NPC.ai[0] == 480)
                             {
                                 Music = MusicManagementSystem.MusicSlots["Athena_Awakened"];
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat3"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.3"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] == 600)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat4"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.4"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] == 720)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat5"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.5"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] == 840)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat6"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.6"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] == 960)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat7"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.7"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] == 1080)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat8"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.8"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else
                             if (NPC.ai[0] >= 1200)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat9"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.9"), Color.CornflowerBlue);
                                 AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
                                 NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
@@ -142,12 +142,12 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             }
                             else if (NPC.ai[0] == 240)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat1"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.1"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] == 360)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat2"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.2"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] == 480)
@@ -157,40 +157,36 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             }
                             else if (NPC.ai[0] == 600)
                             {
-                                string s = "";
                                 int pCount = 0;
                                 foreach (var p in Main.ActivePlayers)
                                     pCount++;
-                                if (pCount > 1)
-                                {
-                                    s = Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat4");
-                                }
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat3") + s + "...", Color.CornflowerBlue);
+
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.3." + (pCount > 1 ? "Multiplayer" : "Singleplayer")), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] == 720)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat5"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.4"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] == 840)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat6"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.5"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] == 960)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat7"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.6"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] == 1080)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat8"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.7"), Color.CornflowerBlue);
                                 NPC.netUpdate = true;
                             }
                             else if (NPC.ai[0] >= 1200)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena2Defeat9"), Color.CornflowerBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.8"), Color.CornflowerBlue);
                                 AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
                                 NPC.active = false;
                                 NPC.netUpdate = true;
