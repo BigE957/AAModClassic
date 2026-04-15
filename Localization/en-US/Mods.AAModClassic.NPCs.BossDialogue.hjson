@@ -549,29 +549,20 @@ ShenDoragon: {
 	}
 
 	Awakened: {
-		Sisters: {
-			Ashe: {
-				Flee: AGH! Sorry papa..! I gotta bail!
-			}
-			Haruka: {
-				Flee: Ngh...sorry father...I can't carry on...
-			}
-		}
-
 		Summon: {
 			First: {
-				Shen:
-				Ashe:
-				Haruka:
+				Shen: Girls..? Help your father with this insignificant mortal.
+				Ashe: With pleasure, Papa~!
+				Haruka: Yes, father.
 			}
 			Repeat: {
-				Shen:
-				Ashe:
-				Haruka:
+				Shen: Ashe? Haruka? I need your assistance again..!
+				Ashe: On it, Papa~!
+				Haruka: Again..?
 			}
 			Flee: {
 				Ashe: AGH! Sorry papa..! I gotta bail!
-				Haruka:
+				Haruka: Ngh...sorry father...I can't carry on...
 			}
 		}
 
@@ -659,12 +650,6 @@ ShenDoragon: {
 	FuryAshe1: "Papa, NO! You'll PAY for this, "
 	WrathHaruka1: Father! Rrgh..! Next time we meet, I'll strike you down!
 	ShenDoragon1: TERRA MAGIC?! NO! I THOUGHT IT WAS WIPED FROM THE EARTH!
-	ShenDoragon3: Ashe? Haruka? I need your assistance again..!
-	ShenDoragon4: On it, Papa~!
-	ShenDoragon5: Again..?
-	ShenDoragon6: Girls..? Help your father with this insignificant mortal.
-	ShenDoragon7: With pleasure, Papa~!
-	ShenDoragon8: Yes, father.
 	ShenDoragon9: You are quite persistent, Child. I like that.
 	ShenDoragon10: What's this? Competence? I would have never expected...
 	ShenDoragon11: True warriors don't show mercy! I won't and I doubt you will either..!
