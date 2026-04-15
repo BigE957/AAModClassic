@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Music;
+using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic
@@ -97,6 +99,29 @@ namespace AAModClassic
                         string key = (string)args[1];
                         int slot = (int)args[2];
                         return MusicManagementSystem.ReplaceTrack(key, slot);
+                    case "AddShenDialogue":
+                        if (args.Length <= 4)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args.Length} is invalid for {methodName}. Must be at least 1");
+                            return null;
+                        }
+                        if (args[1] is not string dKey)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[1].GetType().Name} is invalid for the first argument of {methodName}. Must be a string");
+                            return null;
+                        }
+                        if (args[2] is not LocalizedText text)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[2].GetType().Name} is invalid for the first argument of {methodName}. Must be a LocalizedText");
+                            return null;
+                        }
+                        if (args[1] is not Func<bool> condition)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[3].GetType().Name} is invalid for the first argument of {methodName}. Must be a Func<bool>");
+                            return null;
+                        }
+                        
+                        return ShenA.AddShenCrossmodDialogue(dKey, text, condition);
                     default:
                         Logger.Error($"Ancients Awakened Call Error: {methodName} does not exist.");
                         return null;

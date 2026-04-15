@@ -128,6 +128,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
             //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
         }
 
+        public static bool AddShenCrossmodDialogue(string key, LocalizedText text, Func<bool> condition) => CrossModDialogue.TryAdd(key, new(text, condition));
+
         public static string GetCrossModDialogue()
         {
             List<LocalizedText> crossModText = [];
