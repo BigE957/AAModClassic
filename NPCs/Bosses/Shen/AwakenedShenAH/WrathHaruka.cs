@@ -150,8 +150,6 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             return null;
         }
 
-        private bool DontSayDeathLine = true;
-
         public override void OnKill()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Flee.Haruka"), new Color(72, 78, 117));

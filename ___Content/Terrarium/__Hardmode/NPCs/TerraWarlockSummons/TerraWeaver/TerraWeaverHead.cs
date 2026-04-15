@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.TerraWeaverBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
         }
         public override bool PreAI()
         {

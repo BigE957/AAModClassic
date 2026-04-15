@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             AnimationType = NPCID.SolarSolenian;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.BladonBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.BladonBanner>();
         }
         public override void AI()
         {

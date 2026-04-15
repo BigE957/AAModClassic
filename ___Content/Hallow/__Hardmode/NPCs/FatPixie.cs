@@ -38,7 +38,7 @@ namespace AAModClassic.___Content.Hallow.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.FatPixieBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FatPixieBanner>();
 
         }
 

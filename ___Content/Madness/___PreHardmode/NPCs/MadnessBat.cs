@@ -32,7 +32,7 @@ namespace AAModClassic.___Content.Madness.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.CaveBat;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.MadnessBatBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
         }
 
         public override void FindFrame(int frameHeight)

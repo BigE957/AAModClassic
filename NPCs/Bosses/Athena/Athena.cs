@@ -186,7 +186,6 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
                                 if (internalAI[3] == 180)
                                 {
-                                    string s = "";
                                     int activePlayers = 0;
                                     foreach (Player p in Main.ActivePlayers)
                                         activePlayers++;

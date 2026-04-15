@@ -29,7 +29,7 @@ namespace AAModClassic.___Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.PurityWeaverBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
         }
 
         public override Color? GetAlpha(Color drawColor)

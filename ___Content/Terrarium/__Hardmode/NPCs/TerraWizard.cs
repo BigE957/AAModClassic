@@ -31,7 +31,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.TerraWizardBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
         }
 
         public float[] shootAI = new float[4];

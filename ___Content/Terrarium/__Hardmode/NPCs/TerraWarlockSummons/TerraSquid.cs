@@ -29,7 +29,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.TerraSquidBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquidBanner>();
         }
 
         public override void AI()

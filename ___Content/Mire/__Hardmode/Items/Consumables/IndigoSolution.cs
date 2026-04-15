@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire.__Hardmode.Items.Consumables
 
 		public override void SetDefaults()
 		{
-			Item.shoot = ModContent.ProjectileType<Projectiles.IndigoSolution>() - ProjectileID.PureSpray;
+			Item.shoot = ModContent.ProjectileType<AAModClassic.Projectiles.IndigoSolution>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

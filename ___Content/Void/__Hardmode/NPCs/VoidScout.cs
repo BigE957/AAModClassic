@@ -34,7 +34,7 @@ namespace AAModClassic.___Content.Void.__Hardmode.NPCs
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.VoidScoutBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VoidScoutBanner>();
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)

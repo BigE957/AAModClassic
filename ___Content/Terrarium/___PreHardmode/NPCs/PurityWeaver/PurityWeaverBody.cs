@@ -20,7 +20,7 @@ namespace AAModClassic.___Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 
             NPC.alpha = 255;
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<Items.Banners.PurityWeaverBanner>();
+            BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

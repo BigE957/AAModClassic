@@ -31,7 +31,7 @@ namespace AAModClassic.___Content.Sky.__Hardmode.NPCs
             NPC.lavaImmune = true;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<Items.Banners.ElderDragonBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
         }
 
         public override void AI()
