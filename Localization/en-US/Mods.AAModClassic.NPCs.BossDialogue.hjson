@@ -49,7 +49,7 @@ SistersOfDiscord: {
 }
 
 Akuma: {
-	Attack: {
+	Attacks: {
 		Skyfall: {
 			A: Hey kid! Sky's fallin', watch out!
 			B: Down comes fire and fury!
