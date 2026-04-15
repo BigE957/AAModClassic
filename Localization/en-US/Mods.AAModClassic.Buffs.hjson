@@ -1303,3 +1303,8 @@ GlowingMossBall_Buff: {
 	DisplayName: Glowing Moss Ball_ Buff
 	Description: Mods.AAModClassic.Buffs.GlowingMossBall_Buff.Description
 }
+
+FlaskOfDragonfire_Buff: {
+	DisplayName: Flask Of Dragonfire_ Buff
+	Description: Mods.AAModClassic.Buffs.FlaskOfDragonfire_Buff.Description
+}

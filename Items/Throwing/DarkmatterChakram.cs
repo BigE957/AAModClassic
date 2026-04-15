@@ -105,7 +105,7 @@ namespace AAModClassic.Items.Throwing
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 15);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
 		}

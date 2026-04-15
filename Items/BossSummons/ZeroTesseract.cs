@@ -130,7 +130,7 @@ N0N-C0NSUMABLE"); */
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 20);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }

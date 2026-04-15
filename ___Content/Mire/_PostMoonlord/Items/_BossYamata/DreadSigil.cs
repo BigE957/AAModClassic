@@ -58,7 +58,7 @@ Non-Consumable"); */
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }

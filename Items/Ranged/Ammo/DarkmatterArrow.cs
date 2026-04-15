@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		{
 			Recipe recipe = CreateRecipe(400);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 3);
 			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
 			recipe.Register();
 		}

@@ -7,7 +7,7 @@ using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.___Content.Stars._PostMoonlord.Items
 {
-    public class DarkMatter : BaseAAItem
+    public class DarkmatterBar : BaseAAItem
     {
         
         public override void SetStaticDefaults()

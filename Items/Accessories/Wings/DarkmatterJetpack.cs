@@ -85,7 +85,7 @@ namespace AAModClassic.Items.Accessories.Wings
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 15);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

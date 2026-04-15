@@ -222,13 +222,13 @@ namespace AAModClassic
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.FragmentStardust);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 1);
             recipe.AddIngredient(ItemID.LunarOre, 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
 
             recipe = GetNewRecipe(ItemID.FragmentVortex);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 1);
             recipe.AddIngredient(ItemID.LunarOre, 3);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();

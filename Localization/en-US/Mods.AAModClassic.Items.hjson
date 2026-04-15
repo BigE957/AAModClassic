@@ -9789,3 +9789,43 @@ DaybreakIncineriteBar: {
 	DisplayName: Daybreak Incinerite Bar
 	Tooltip: ""
 }
+
+DiscordiumBar: {
+	DisplayName: Discordium Bar
+	Tooltip: ""
+}
+
+VultureFeather: {
+	DisplayName: Vulture Feather
+	Tooltip: ""
+}
+
+ScorchedSeeds: {
+	DisplayName: Scorched Seeds
+	Tooltip: ""
+}
+
+FlaskOfDragonfire: {
+	DisplayName: Flask Of Dragonfire
+	Tooltip: ""
+}
+
+DankSeeds: {
+	DisplayName: Dank Seeds
+	Tooltip: ""
+}
+
+DarkmatterBar: {
+	DisplayName: Darkmatter Bar
+	Tooltip: ""
+}
+
+RadiantPhoton: {
+	DisplayName: Radiant Photon
+	Tooltip: ""
+}
+
+VoidKey: {
+	DisplayName: Void Key
+	Tooltip: ""
+}

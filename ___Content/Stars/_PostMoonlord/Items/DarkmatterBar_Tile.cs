@@ -23,7 +23,7 @@ namespace AAModClassic.___Content.Stars._PostMoonlord.Items
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.DarkmatterDust>();
-            RegisterItemDrop(ModContent.ItemType<DarkMatter>());   
+            RegisterItemDrop(ModContent.ItemType<DarkmatterBar>());   
             AddMapEntry(new Color(0, 0, 255));
 			MinPick = 0;
         }

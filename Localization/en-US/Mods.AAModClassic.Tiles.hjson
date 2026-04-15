@@ -574,3 +574,7 @@ VoidPreIZBox_Tile.MapEntry: Void Pre I Z Box_ Tile
 ZeroAwakenedBox_Tile.MapEntry: Zero Awakened Box_ Tile
 AnubisAwakenedBox_Tile.MapEntry: Anubis Awakened Box_ Tile
 AbyssAltarSafe_Tile.MapEntry: Abyss Altar Safe_ Tile
+ChaosAltarSafe_Tile.MapEntry: Chaos Altar Safe_ Tile
+AbyssAltarUnsafe_Tile.MapEntry: Abyss Altar Unsafe_ Tile
+VikingRelic_Tile.MapEntry: Viking Relic_ Tile
+EvilAltarSafe_Tile.MapEntry: Evil Altar Safe_ Tile

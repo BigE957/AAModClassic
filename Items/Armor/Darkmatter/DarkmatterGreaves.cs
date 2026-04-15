@@ -73,7 +73,7 @@ Dark, yet still barely visible"); */
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 27);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 27);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 15);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

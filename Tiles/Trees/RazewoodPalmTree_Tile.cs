@@ -16,11 +16,11 @@ namespace AAModClassic.Tiles.Trees
 
         public override int DropWood() => AAMod.instance.Find<ModItem>("Razewood").Type;
 
-        public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazePalmTree_Tile");
+        public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazewoodPalmTree_Tile");
 
-        public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazePalmTree_Tile_Top");
+        public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazewoodPalmTree_Tile_Top");
 
-        public override Asset<Texture2D> GetOasisTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazePalmTree_Tile_Top_Oasis");
+        public override Asset<Texture2D> GetOasisTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazewoodPalmTree_Tile_Top_Oasis");
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {

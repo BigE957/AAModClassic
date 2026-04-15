@@ -72,7 +72,7 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 20);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

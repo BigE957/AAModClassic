@@ -131,11 +131,13 @@ Akuma: {
 
 Anubis: {
 	Kill: HAH! Get hosed-- er, sanded.
+
 	Intro: {
 		1: {
 			Singleplayer: Well, bud. Here we are.
 			Multiplayer: Well guys, Here we are.
 		}
+
 		2: I hope you're ready for a real fight.
 		3: Especially since I'm in my superior form.
 		4: You ready? I won't hesitate to slap you silly!
@@ -168,28 +170,33 @@ Anubis: {
 	}
 }
 
-Athena: { 
+Athena: {
 	Intro: {
 		First: {
 			1: Hmpf..!
+
 			2: {
 				Singleplayer: You! Earthwalker!
 				Multiplayer: You! Earthwalkers!
 			}
+
 			3: My seraphs tell me you've been attacking them! Why?!
 			4: I'm gonna teach you a lesson, you little brat!
 			5: En Garde!
 		}
+
 		PreAthenaA: {
 			1: ...So. You came.
 			2: It's high time I won my honor back..!
 			3: En Garde!
 		}
+
 		Repeat: {
 			1: Sigh...
 			2: Lets just get this overwith. I don't have all day.
 		}
 	}
+
 	Kill: And stay away...idiot.
 	Defeat: OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you.
 
@@ -208,13 +215,16 @@ Athena: {
 
 	Awakened: {
 		Kill: And stay away, idiot.
+
 		Defeat: {
 			1: ...WHY?!
 			2: ...Why can't I win?!
+
 			3: {
 				Singleplayer: ...You haven't heard the end of me, earthwalker...
 				Multiplayer: ...You haven't heard the end of me, earthwalkers...
 			}
+
 			4: I will win back my honor eventually...
 			5: ...until then, watch your back.
 			6: Dark, chaotic forces are waking up as of late.
@@ -253,7 +263,7 @@ EquinoxDialogue: {
 	WormSpawn12: "Do not expect us to go easy on you, "
 }
 
-Greed : {
+Greed: {
 	Spawn: {
 		1: Who disturbs me from my coin-counting?! I'm busy--
 		2: ...Oooooh...is that...?
@@ -282,18 +292,22 @@ Rajah: {
 
 	Awakened: {
 		PowerUp: Rajah glows with furious energy as he attacks, strengthening his defenses
+
 		LastStand: {
 			Singleplayer: {
 				Murderer: THIS ISN'T THE END, MURDERER! RIVALS CLASH TILL THE VERY END!
 				Normal: THIS ISN'T THE END, TERRARIAN! RIVALS CLASH TILL THE VERY END!
 				Repeat: THIS ISN'T THE END, {0}! RIVALS CLASH TILL THE VERY END!
 			}
+
 			Multiplayer: {
 				Murderer: THIS ISN'T THE END, MURDERERS! RIVALS CLASH TILL THE VERY END!
 				Normal: THIS ISN'T THE END, TERRARIANS! RIVALS CLASH TILL THE VERY END!
 			}
 		}
+
 		Kill: And stay down.
+
 		Defeat: {
 			First: {
 				1: Rgh...
@@ -306,16 +320,19 @@ Rajah: {
 				8: ...I forgive you for every rabbit you've killed, but in return...I want you to take my place...
 				9: ...as their champion. Their protector.
 				10: I only want the best for the creatures of this world...and if you're stronger than I am...
+
 				11: {
 					Singleplayer: Who better to take my place than you, {0}?
 					Multiplayer: Who better to take my place than you, Terrarians?
 				}
+
 				12: Be the one the innocent can look to in their time of need.
 				13: Think about it.
 				14: And if you ever want to spar...use one of those special carrots. I'd be glad to earn my honor back.
 				15: ...See ya, kiddo.
 				Status: Rajah Rabbit's speech warms your heart. You no longer have the will to harm rabbits. Do him proud.
 			}
+
 			Repeat: {
 				Singleplayer: Well fought, {0}. Take your reward.
 				Multiplayer: Well fought, Terrarians. Take your reward.
@@ -324,10 +341,8 @@ Rajah: {
 	}
 }
 
-
 Sagittarius: {
 	LowHealth: EXTENSIVE BODY DAMAGE DETECTED. PROCEED WITH CAUTION!
-
 	#Unused
 	Sagittarius1: target(s) neutralized. returning to stealth mode.
 	Sagittarius2: target(s) lost. returning to stealth mode.
@@ -346,6 +361,7 @@ Yamata: {
 			Half: STOP SQUIRMING AND LET ME SQUASH YOU!!!
 			Quarter: NGAAAAAAAAAAAAAH YOU'RE REALLY ANNOYING YOU KNOW..!
 		}
+
 		Repeat: {
 			ThreeQuarters: I don't understand why you keep fighting me! I'm superior to you in every single way!
 			Half: I'M GETTING FRUSTRATED AGAIN!
@@ -355,24 +371,29 @@ Yamata: {
 
 	Heads: {
 		Killed: OWIE!!!
+
 		Attacks: {
 			AcidSpit: {
 				First: TASTE ACID YOU UNBEARABLE MAGGOT!!!
 				Repeat: STOP MOVING AND LET ME MELT YOU!!!
 			}
+
 			AcidStorm: {
 				First: Down Down DOWN THE VENOM GOES!!! When it will it stop? WHO KNOWS?! NYEHEHEHEHEHEH!!!
 				Repeat: DIEDIEDIEDIEDIEDIEDIEDIIIIIIIIIIIIIIIE!!!
 			}
+
 			AcidBlast: {
 				First: BAM! BOOM! I'LL BLOW YOU INTO NEXT SUNDAY!!!
 				Repeat: NGAAAAAAAAAAAAAAAAAH!!!
 			}
+
 			Bite: {
 				First: {
 					Male: GET THEM! EAT THEM! JUST GET HIM OUT OF MY FACE!!!
 					Female: GET THEM! EAT THEM! JUST GET HER OUT OF MY FACE!!!
 				}
+
 				Repeat: I HAVE EATEN RABBITS MORE INTIMIDATING THAN YOU!
 			}
 		}
@@ -383,9 +404,7 @@ Yamata: {
 		Status: The defeat of Yamata causes the fog in the mire to lift.
 	}
 
-	Despawn: {
-		Daytime: HISSSSSSSSSSSSSSS!!! THE SUNNNNNNNNNN! I'M OUT!
-	}
+	Despawn.Daytime: HISSSSSSSSSSSSSSS!!! THE SUNNNNNNNNNN! I'M OUT!
 
 	Transition: {
 		1: NYEHEHEHEHEHEHEHEH~!
@@ -407,17 +426,15 @@ Yamata: {
 				Half: I'VE HAD IT UP TO HERE WITH YOUR SHENANIGANS!!! EAT VENOM YOU LITTLE HELLSPAWN!!!
 				Tenth: STOP IT STOP IT STOP IT!!! I'M NOT GONNA LET YOU WIN!!!
 			}
+
 			Repeat: {
 				ThreeQuarters: You're an annoying little bugger, you know!
 				Half: DIE! WHY WON'T YOU JUST DIE ALREADY?!
 				Tenth: STOP IT!!! I'M NOT GONNA LOSE AGAIN!!!
 			}
 		}
-		
-		Heads: {
-			Killed: OWIE!!!
-		}
-		
+
+		Heads.Killed: OWIE!!!
 		Kill: NYEHEHEHEHEHEHEH..! And don't come back!
 
 		Defeat: {
@@ -478,6 +495,7 @@ Zero: {
 				2: SENDING...
 				3: DISTRESS SIGNAL RECIEVED.
 			}
+
 			Cheat: CHEATER ALERT CHEATER ALERT. N0 DR0PS 4 U
 		}
 	}
@@ -520,10 +538,12 @@ ShenDoragon: {
 			First: What's this? Competence? Impressive.
 			Repeat: Quite the skill, kid.
 		}
+
 		66: {
 			First: Chaos always reigns, kid. You terrarians never seem to learn that.
 			Repeat: You're a real fighter, you know. Now stand still and let me grill you.
 		}
+
 		30: {
 			First: Hmm...still fighting, eh?
 			Repeat: Looks like you're turning tide, but not for long!
@@ -555,11 +575,13 @@ ShenDoragon: {
 				Ashe: With pleasure, Papa~!
 				Haruka: Yes, father.
 			}
+
 			Repeat: {
 				Shen: Ashe? Haruka? I need your assistance again..!
 				Ashe: On it, Papa~!
 				Haruka: Again..?
 			}
+
 			Flee: {
 				Ashe: AGH! Sorry papa..! I gotta bail!
 				Haruka: Ngh...sorry father...I can't carry on...
@@ -571,14 +593,17 @@ ShenDoragon: {
 				First: Look at where you are, terrarian. This is your own doing. The ritual, the rune? All you.
 				Repeat: You put up a real fight, kid.
 			}
+
 			80: {
 				First: Why do you instigate all these fights? Power? Glory?
 				Repeat: Brawlin' till the very end.
 			}
+
 			70: {
 				First: Either way, I'll personally make sure this is your last one!
 				Repeat: You remind me of myself quite a bit...
 			}
+
 			60: {
 				First: How many times will you fight to tear me down? Or will you give up?
 				Repeat: You're strong, too. Takes guts to fight most of what you have.
@@ -599,25 +624,30 @@ ShenDoragon: {
 				SacredTools: Dousing that abyssal pumpkin? Now that was a sight to see!
 				Catalyst: You really did wipe the floor with the purple pile of sludge.
 				Hunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
+
 				Split: {
 					Seth: I'll admit, putting down that sword-slinging hothead was quite the show to witness.
 					SethUltimate: I'll admit, putting down that sword-slinging hothead, with his true power unleashed, was quite the show to witness.
 				}
+
 				Macrocosm: You even took your fury to the Moon! Now that's something I can get behind.
 				Spooky: Tearing through those catacombs like you own the place. That takes some skill.
 				Ultranium: Watching you whallop that star slinging hobo? That was a treat!
 				You: I mean, shattering your own reflection come alive? That's impressive stuff.
 				Radiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was a spectacle indeed!
+				CalamityMod: Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.CalamityMod
 			}
 
 			30: {
 				First: Hm..?! You haven't kicked the bucket yet? Well then...Let's change that!
 				Repeat: Hmpf..! Here we are again, gettin' close to the end of the line. I'm not holding back!
 			}
+
 			20: {
 				First: You little..! Die already!
 				Repeat: The end of a game is the most stressful, keep that in mind, kid!
 			}
+
 			10: {
 				First: This can't be--! How?!
 				Repeat: This is it! The end is near, so don't you dare hold back!
@@ -628,23 +658,29 @@ ShenDoragon: {
 			First: {
 				1: Split again...
 				2: This is YOUR fault you insolent worm..! I knew we should have been more aggressive but NOOOOOOOOO..! YOU said we could squash them without even trying!
+
 				3: {
 					Singleplayer: "{0}, you will face our fury again one day...either when we gain enough power again..."
 					Multiplayer: Warriors, you will face our fury again one day...either when we gain enough power again...
 				}
+
 				4: ...or you decide to use that Sigil again..!
 				5: Your choice, child.
 			}
+
 			Repeat: {
 				1: YOU IMBECILE! WE LOST! AGAAAAAAAAAAAAIN!!!
 				2: Rgh, my head...
+
 				3: {
 					Singleplayer: {
 						Male: AND YOU, BOY! NEXT TIME I'M GONNA TEAR YOUR HEAD OFF!!!
 						Female: AND YOU, GIRL! NEXT TIME I'M GONNA TEAR YOUR HEAD OFF!!!
 					}
+
 					Multiplayer: AND YOU BUNCH OF CLOWNS! NEXT TIME I'M GONNA TEAR YOUR HEADS OFF!!!
 				}
+
 				4: And trust us, kid.
 				5: There's always a next time.
 			}

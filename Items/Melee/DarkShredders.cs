@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Melee
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 12);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 12);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
