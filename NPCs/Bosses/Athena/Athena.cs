@@ -218,17 +218,17 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             {
                                 if (internalAI[3] == 60)
                                 {
-                                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena12"));
+                                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.1"));
                                 }
 
                                 if (internalAI[3] == 180)
                                 {
-                                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena13"));
+                                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.2"));
                                 }
 
                                 if (internalAI[3] == 300)
                                 {
-                                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena14"));
+                                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.3"));
                                     NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                                     internalAI[2] = 1;
                                     NPC.netUpdate = true;
