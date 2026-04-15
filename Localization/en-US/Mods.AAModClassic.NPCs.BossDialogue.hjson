@@ -169,7 +169,7 @@ Anubis: {
 }
 
 Athena: { 
-	Intro {
+	Intro: {
 		First: {
 			1: Hmpf..!
 			2: {
@@ -585,24 +585,29 @@ ShenDoragon: {
 			}
 
 			50: {
-				ShenAThorium: You know, I was watching you beat down that god-sphere and its 3 goons. Gotta admit, pretty impressive.
-				ShenACalamity: Considering you put that angsty witch in her place, gotta hand it to ya.
-				ShenAGRealm: Seeing you squashed that oversided insect in the jungle, that's quite a head-turner.
-				ShenARedemption: However, after you walloped that cosmic prude, even I was taken aback by that level of skill.
-				ShenASpirit: Now that I think about it, though, you cracking open that overseer like an egg? Quite the strength that had to have needed.
-				ShenANoMod: Everything you've torn down, gods and monsters alike, I respect that.
+				Thorium: You know, I was watching you beat down that god-sphere and its 3 goons. Gotta admit, pretty impressive.
+				Calamity: Considering you put that angsty witch in her place, gotta hand it to ya.
+				GRealm: Seeing you squashed that oversided insect in the jungle, that's quite a head-turner.
+				Redemption: However, after you walloped that cosmic prude, even I was taken aback by that level of skill.
+				Jetshift: But slaying those two meteor-squatting crystal things? That's quite an eye-catcher.
+				SpiritOld: Now that I think about it, though, you cracking open that overseer like an egg? Quite the strength that had to have needed.
+				NoMod: Everything you've torn down, gods and monsters alike, I respect that.
 				#New Additions
-				ShenAStarsAbove: Though after you put down that rogue Starfarer, you really got my attention.
-				ShenALunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
-				ShenAAbaddon: Dousing that abyssal pumpkin? Now that was a sight to see!
-				ShenACatalyst: You really did wipe the floor with the purple pile of sludge.
-				ShenAHunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
-				ShenASplit: I'll admit, putting down that sword-slinging hothead was quite the show to see.
-				ShenAMacrocosm: You even took your fury to the Moon! Now that's something I can get behind.
-				ShenASpooky: Tearing through those catacombs like you own the place. That takes some skill.
-				ShenAUltranium: Watching you whallop that star slinging hobo? That was a treat!
-				ShenAYou: I mean, shattering your own reflection come alive? That's impressive stuff.
-				ShenARadiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was something else.
+				SpiritClassic: Now that I think about it, though, you making that old sentinel crumble to pebbles? Quite the strength that had to have needed.
+				StarsAbove: Though after you put down that rogue Starfarer, you really got my attention.
+				LunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
+				SacredTools: Dousing that abyssal pumpkin? Now that was a sight to see!
+				Catalyst: You really did wipe the floor with the purple pile of sludge.
+				Hunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
+				Split: {
+					Seth: I'll admit, putting down that sword-slinging hothead was quite the show to witness.
+					SethUltimate: I'll admit, putting down that sword-slinging hothead, with his true power unleashed, was quite the show to witness.
+				}
+				Macrocosm: You even took your fury to the Moon! Now that's something I can get behind.
+				Spooky: Tearing through those catacombs like you own the place. That takes some skill.
+				Ultranium: Watching you whallop that star slinging hobo? That was a treat!
+				You: I mean, shattering your own reflection come alive? That's impressive stuff.
+				Radiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was a spectacle indeed!
 			}
 
 			30: {
@@ -624,7 +629,7 @@ ShenDoragon: {
 				1: Split again...
 				2: This is YOUR fault you insolent worm..! I knew we should have been more aggressive but NOOOOOOOOO..! YOU said we could squash them without even trying!
 				3: {
-					Singleplayer: {0}, you will face our fury again one day...either when we gain enough power again...
+					Singleplayer: "{0}, you will face our fury again one day...either when we gain enough power again..."
 					Multiplayer: Warriors, you will face our fury again one day...either when we gain enough power again...
 				}
 				4: ...or you decide to use that Sigil again..!
