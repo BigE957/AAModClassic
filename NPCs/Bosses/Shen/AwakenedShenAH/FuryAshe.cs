@@ -536,18 +536,10 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             potionType = 0;
         }
 
-        private readonly bool DontSayDeathLine = false;
 
         public override void OnKill()
         {
-            if (DontSayDeathLine)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FuryAshe1") + Main.LocalPlayer.name + "!", new Color(102, 20, 48));
-            }
-            else
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FuryAshe2"), new Color(102, 20, 48));
-            }
+            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Flee.Ashe"), new Color(102, 20, 48));
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FuryAsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;
             NPC.value = 0f;

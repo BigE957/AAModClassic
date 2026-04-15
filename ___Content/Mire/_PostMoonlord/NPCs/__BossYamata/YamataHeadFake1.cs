@@ -243,7 +243,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             if (NPC.life <= 0)
             {
-                CombatText.NewText(NPC.getRect(), new Color(45, 46, 70), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead"), true, true);
+                CombatText.NewText(NPC.getRect(), new Color(45, 46, 70), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Killed"), true, true);
             }
         }
 

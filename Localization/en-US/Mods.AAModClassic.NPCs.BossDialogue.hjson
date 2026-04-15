@@ -336,188 +336,341 @@ Sagittarius: {
 	SagittariusFree3: initializing repair program.
 }
 
+Yamata: {
+	NoFly: Oh and don't even think about flying! My ego is so massive it has a gravitational pull all of it's own! NYEHEHEHEHEHEHEHEHEHEHEHEH!!!
+	Teleport: Running away?! I DON'T THINK SO!
 
-YamataAHead: OWIE!!!
-Yamata1: HAH! I went easy on ya! Come back when you're actually good and we can have a real fight!
-Yamata2: The defeat of Yamata causes the fog in the mire to lift.
-Yamata3: THE SUN DOESN'T SHINE IN THE DEPTHS!!! NYEHEHEHEHEHEHEHEH!!!
-Yamata4: HISSSSSSSSSSSSSSS!!! THE SUNNNNNNNNNN! I'M OUT!
-Yamata5: YOU THINK I'M DONE YET?! I DON'T THINK SO!!!!
-Yamata6: Oh and don't even think about flying! My ego is so massive it has a gravitational pull all of it's own! NYEHEHEHEHEHEHEHEHEHEHEHEH!!!
-Yamata7: THERE IS NO ESCAPE FROM THE ABYSS!
-Yamata8: Running away?! I DON'T THINK SO!
-Yamata9: NYEHEHEHEHEHEHEH..! And don't come back!
-Yamata10: Resistance isn't gonna save you here! Now stop being a little brat and let me destroy you!
-Yamata11: STOP SQUIRMING AND LET ME SQUASH YOU!!!
-Yamata12: NGAAAAAAAAAAAAAH YOU'RE REALLY ANNOYING YOU KNOW..!
-Yamata13: I don't understand why you keep fighting me! I'm superior to you in every single way!
-Yamata14: I'M GETTING FRUSTRATED AGAIN!
-Yamata15: I HATE FIGHTING YOU! I HATE IT I HATE IT I HATE IT!!!
-YamataHead: OWIE!!!
-YamataTransition1: NYEHEHEHEHEHEHEHEH~!
-YamataTransition2: You thought I was DONE..?!
-YamataTransition3: HAH! AS IF!
-YamataTransition4: The abyss hungers...
-YamataTransition5: Yamata has been Awakened!
-YamataTransition6: AND IT'S GOT 7 HEADS! NYEHEHEHEHEHEHEHEHEHEHEHEH!!!
-YamataTransition7: You begin to feel as if your soul is weighing you down...
-YamataA1: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-YamataA2: NO...! IMPOSSIBLE! EVEN IN MY AWAKENED FORM?! YOU MUST HAVE CHEATED! GYAAAAAAH..! FINE! TAKE YOUR LOOT! I'M OUTTA HERE..!
-YamataA3: The defeat of Yamata causes the fog in the mire to lift.
-YamataA4: NOOOOOOOOOOOOOO!!! YOU LITTLE BRAT!!! I ALMOST HAD YOU THIS TIME!!! FINE, take your stuff, See if I care!
-YamataA5: HAH! Nice try! Come back in Expert mode when you don't have to cheat to beat me! All your loot is MINE still!
-YamataA6: YOU'RE STILL FIGHTING?! WHAT THE HELL IS WRONG WITH YOU?!
-YamataA7: I'VE HAD IT UP TO HERE WITH YOUR SHENANIGANS!!! EAT VENOM YOU LITTLE HELLSPAWN!!!
-YamataA8: STOP IT STOP IT STOP IT!!! I'M NOT GONNA LET YOU WIN!!!
-YamataA9: You're an annoying little bugger, you know!
-YamataA10: DIE! WHY WON'T YOU JUST DIE ALREADY?!
-YamataA11: STOP IT!!! I'M NOT GONNA LOSE AGAIN!!!
-YamataA12: Wh-WHA?! DIE! DIE YOU LITTLE TWERP! DIEDIEDIEDIEDIEDIEDIE!!!!
-YamataA13: NO NO NO!!! NOT AGAIN!!! THIS TIME IMMA STOMP YOU RIGHT INTO THE GROUND!!!
-YamataA14: Looks like I gotta come in and save your rear end again, dad.
-YamataA15: That's my girl..!
-YamataA16: Oh, sweetie..! Care to help daddy thrash this little worm?!
-YamataA17: Sigh...yes dad.
-HarukaY1: Dad, you moron..! Whatever, Can't really say I didn't see it coming.
-HarukaY2: That's it. I'm done, YOU deal with them, dad.
-YamataHead1: TASTE ACID YOU UNBEARABLE MAGGOT!!!
-YamataHead2: STOP MOVING AND LET ME MELT YOU!!!
-YamataHead3: Down Down DOWN THE VENOM GOES!!! When it will it stop? WHO KNOWS?! NYEHEHEHEHEHEH!!!
-YamataHead4: DIEDIEDIEDIEDIEDIEDIEDIIIIIIIIIIIIIIIE!!!
-YamataHead5: BAM! BOOM! I'LL BLOW YOU INTO NEXT SUNDAY!!!
-YamataHead6: NGAAAAAAAAAAAAAAAAAH!!!
-YamataHead7: "GET THEM! EAT THEM! JUST GET "
-YamataHead8: " OUT OF MY FACE!!!"
-YamataHead9: I HAVE EATEN RABBITS MORE INTIMIDATING THAN YOU!
-YamataHead10: HOPE YOU BROUGHT YOUR UMBRELLA! BECAUSE IT'S RAINING PAIN!!! NYEHEHEHEHEHEHEHEH!!!
-YamataHead11: DOWN COMES THE VENOM!!!NYEHEHEHEHEHEHEHEH!
-YamataHead12: EAT ECTOPLASM YOU LITTLE WRETCH
-YamataHead13: NYAAAAAAAAAAAH!!!
-YamataHead14: WHOOPS! DROPPED ACID! Hope you're not degradable..!
-YamataHead15: WHOOPS! DROPPED ACID AGAIN! NYEHEHEHEHEHEHEHEHEHEHEHEH
-YamataHead16: NYAAAAAAAH! YOU WON'T LIVE THROUGH THIS ONE!
-YamataHead17: COME ON!!! STAND STILL SO I CAN BLOW YOU TO MARS!
-YamataHead18: NGAAAAAAAAAAAAAH STAAAAAAAHP MOOOOOOOOVIIIIIIING!!!!!
-YamataHead19: HAVE A HEALTHY TASTE OF ACID!
-YamataHead20: I'M GONNA RIP YOU TO PIECES YOU LITTLE WRETCH!!!
-YamataHead21: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!
+	Health: {
+		First: {
+			ThreeQuarters: Resistance isn't gonna save you here! Now stop being a little brat and let me destroy you!
+			Half: STOP SQUIRMING AND LET ME SQUASH YOU!!!
+			Quarter: NGAAAAAAAAAAAAAH YOU'RE REALLY ANNOYING YOU KNOW..!
+		}
+		Repeat: {
+			ThreeQuarters: I don't understand why you keep fighting me! I'm superior to you in every single way!
+			Half: I'M GETTING FRUSTRATED AGAIN!
+			Quarter: I HATE FIGHTING YOU! I HATE IT I HATE IT I HATE IT!!!
+		}
+	}
 
-ZeroBoss1: PHYSICAL ZER0 UNIT IN CRITICAL C0NDITI0N. DISCARDING AND ENGAGING D00MSDAY PR0T0C0L.
-ZeroBoss2: D00MSDAY PR0T0CALL MALFUNCTI0N. MAIN.EXPERT M0DE = FALSE.
-ZeroBoss3: Zero's dark influence over the void has been lifted. The doomstone here is now minable.
-ZeroBoss4: INITIALIZING BACKUP WEAPON PR0T0C0L.
-ZeroBoss5: CRITICAL ERR0R: ARM UNITS NOT FOUND. RER0UTING RES0URCES TO OFFENSIVE PR0T0C0LS. SHIELD L0WERED.
-ZeroBoss6: TARGET NEUTRALIZED. RETURNING T0 0RBIT.
-ZeroBoss7: TARGET L0ST. RETURNING T0 0RBIT.
-ZeroBoss8: INITIATING PR0BE CREATI0N SYSTEM.
-ZeroBoss9: CYCLONE PROTOCOL ENGAGED
-ZeroBoss10: RE-ESTABLISHING WEAP0N UNITS
-ZeroBoss11: RE-wiogn WEAP0N UNITS
-ZeroAwakened1: Doomstone stops glowing. You can now mine it.
-ZeroAwakened2: WARNING. DRASTIC DAMAGE DETECTED, FAILURE IMMINENT. ENGAGE T0TAL 0FFENCE PR0T0C0L
-ZeroAwakened3: WARNING. DRASTIC DAMAGE DETECTED, FAILURE IMMINENT AGAIN. ENGAGE T0TAL 0FFENCE PR0T0C0L 0MEGA
-ZeroAwakened4: CHEATER ALERT CHEATER ALERT. N0 DR0PS 4 U
-ZeroAwakened5: Y0UR CHEAT SHEET BUTCHER T00L WILL N0T SAVE Y0U HERE
-ZeroAwakened6: TARGET NEUTRALIZED. RETURNING T0 0RBIT.
-ZeroAwakened7: TARGET L0ST. RETURNING T0 0RBIT.
-ZeroAwakened8: SELF-ORGNAZATION CHARGING COMPLETED...
-ZeroAwakened9: BOOTING IN SELF ORGNAZATION MODE...
-ZeroAwakened10: ALLOW {0}\M0DS\AAM0D\ZER0\PR0T0C0L\SELF-ORGNAZATION.EXE ? <Y/N>...
-ZeroAwakened11: ===C A R N A G E===
-ZeroDeath1: MISSI0N FAILED. SENDING DISTRESS SIGNAL T0 H0ME BASE.
-ZeroDeath2: MISSI0N FAILED. ATTEMPTING DISTRESS SIGNAL AGAIN.
-ZeroDeath3: SENDING...
-ZeroDeath4: DISTRESS SIGNAL RECIEVED.
-FuryAshe1: "Papa, NO! You'll PAY for this, "
-FuryAshe2: AGH! Sorry papa..! I gotta bail!
-WrathHaruka1: Father! Rrgh..! Next time we meet, I'll strike you down!
-WrathHaruka2: Ngh...sorry father...I can't carry on...
-ShenA1: You put up a real fight, kid.
-ShenA2: Look at where you are, terrarian. This is your own doing. The ritual, the rune? All you.
-ShenA3: Brawlin' till the very end.
-ShenA4: Why do you instigate all these fights? Power? Glory?
-ShenA5: You remind me of myself quite a bit...
-ShenA6: Either way, I'll personally make sure this is your last one!
-ShenA7: You're strong, too. Takes guts to fight most of what you have.
-ShenA8: How many times will you fight to tear me down? Or will you give up?
-ShenA11: Hmpf..! Here we are again, gettin' close to the end of the line. I'm not holding back!
-ShenA12: Hm..?! You haven't kicked the bucket yet? Well then...Let's change that!
-ShenA13: The end of a game is the most stressful, keep that in mind, kid!
-ShenA14: You little..! Die already!
-ShenA15: This is it! The end is near, so don't you dare hold back!
-ShenA16: This can't be--! How?!
-ShenAThorium: You know, I was watching you beat down that god-sphere and its 3 goons. Gotta admit, pretty impressive.
-ShenACalamity: Considering you put that angsty witch in her place, gotta hand it to ya.
-ShenAGRealm: Seeing you squashed that oversided insect in the jungle, that's quite a head-turner.
-ShenARedemption: However, after you walloped that cosmic prude, even I was taken aback by that level of skill.
-ShenASpirit: Now that I think about it, though, you cracking open that overseer like an egg? Quite the strength that had to have needed.
-#New Additions
-ShenAStarsAbove: Though after you put down that rogue Starfarer, you really got my attention.
-ShenALunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
-ShenAAbaddon: Dousing that abyssal pumpkin? Now that was a sight to see!
-ShenACatalyst: You really did wipe the floor with the purple pile of sludge.
-ShenAHunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
-ShenASplit: I'll admit, putting down that sword-slinging hothead was quite the show to see.
-ShenAMacrocosm: You even took your fury to the Moon! Now that's something I can get behind.
-ShenASpooky: Tearing through those catacombs like you own the place. That takes some skill.
-ShenAUltranium: Watching you whallop that star slinging hobo? That was a treat!
-ShenAYou: I mean, shattering your own reflection come alive? That's impressive stuff.
-ShenARadiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was something else.
-#
-ShenANoMod: Everything you've torn down, gods and monsters alike, I respect that.
-ShenDeath1: Split again...
-ShenDeath2: This is YOUR fault you insolent worm..! I knew we should have been more aggressive but NOOOOOOOOO..! YOU said we could squash them without even trying!
-ShenDeath3: Warriors
-ShenDeath4: ", you will face our fury again one day...either when we gain enough power again..."
-ShenDeath5: ...or you decide to use that Sigil again..!
-ShenDeath6: Your choice, child.
-ShenDeath7: YOU IMBECILE! WE LOST! AGAAAAAAAAAAAAIN!!!
-ShenDeath8: Rgh, my head...
-ShenDeath9: BUNCH OF CLOWNS
-ShenDeath10: And YOU
-ShenDeath11: ! NEXT TIME I'M GONNA TEAR YOUR HEADS OFF!!!
-ShenDeath12: And trust us, kid.
-ShenDeath13: There's always a next time.
-ShenDoragon1: TERRA MAGIC?! NO! I THOUGHT IT WAS WIPED FROM THE EARTH!
-ShenDoragon2: Grips! Assist me!
-ShenDoragon3: Ashe? Haruka? I need your assistance again..!
-ShenDoragon4: On it, Papa~!
-ShenDoragon5: Again..?
-ShenDoragon6: Girls..? Help your father with this insignificant mortal.
-ShenDoragon7: With pleasure, Papa~!
-ShenDoragon8: Yes, father.
-ShenDoragon9: You are quite persistent, Child. I like that.
-ShenDoragon10: What's this? Competence? I would have never expected...
-ShenDoragon11: True warriors don't show mercy! I won't and I doubt you will either..!
-ShenDoragon12: Give up, child. The world will always fall into chaos!
-ShenDoragon13: SHOW NO MERCY!
-ShenDoragon14: What? You're still fighting? Why?!
-ShenDoragon15: The defeat of a superancient empowers the stonekeepers.
-ShenDoragon16: Heh, alright. I’ll leave you alone I guess. But if you come back stronger, I’ll show you the power of true unyielding chaos...
-ShenDoragon17: The defeat of a superancient empowers the stonekeepers.
-ShenDoragon18: Good show, child, good show. Your combat prowess still impresses me! Maybe some day I'll show you my true power.
-ShenDoragon19: Quite the skill, kid.
-ShenDoragon20: What's this? Competence? Impressive.
-ShenDoragon21: You're a real fighter, you know. Now stand still and let me grill you.
-ShenDoragon22: Chaos always reigns, kid. You terrarians never seem to learn that.
-ShenDoragon23: Looks like you're turning tide, but not for long!
-ShenDoragon24: Hmm...still fighting, eh?
-ShenSpawn1: Surprised to see us again, Kid?
-ShenSpawn2: NYEHEHEHEHEH..! Yes..! Must be shocking to see us here..! But this time, we have a little tricksie up our sleeves..!
-ShenSpawn3: That Sigil you just used gave us back our full power, which will let us reach our true, powerful form..!
-ShenSpawn4: We used to be the same being..! But then a Terrarian wretch like you split our soul in half..! But now...heheheh...
-ShenSpawn5: WE ARE COMPLETE AGAIN
-ShenSpawn6: Heh....heheh...
-ShenSpawn7: You've made a grave mistake, child...
-ShenSpawn8: For you see....
-ShenSpawn9: I AM SHEN DORAGON, EMPEROR OF CHAOS AND ANARCHY!
-ShenSpawn10: And you, my child...
-ShenSpawn11: WILL PERISH!!!
-ShenTransition1: Heh...
-ShenTransition2: Heheheh...
-ShenTransition3: HAHAHAHAHAHAHA!!!
-ShenTransition4: Have you forgotten about our last battles...?
-ShenTransition5: There's always a last stand, kiddo...
-ShenTransition6: But now, you stand in my path...
-ShenTransition7: Shen Doragon has been Awakened!
-ShenTransition8: YOU WILL BURN IN THE FLAMES OF DISCORDIAN HELL!!!
+	Heads: {
+		Killed: OWIE!!!
+		Attacks: {
+			AcidSpit: {
+				First: TASTE ACID YOU UNBEARABLE MAGGOT!!!
+				Repeat: STOP MOVING AND LET ME MELT YOU!!!
+			}
+			AcidStorm: {
+				First: Down Down DOWN THE VENOM GOES!!! When it will it stop? WHO KNOWS?! NYEHEHEHEHEHEH!!!
+				Repeat: DIEDIEDIEDIEDIEDIEDIEDIIIIIIIIIIIIIIIE!!!
+			}
+			AcidBlast: {
+				First: BAM! BOOM! I'LL BLOW YOU INTO NEXT SUNDAY!!!
+				Repeat: NGAAAAAAAAAAAAAAAAAH!!!
+			}
+			Bite: {
+				First: {
+					Male: GET THEM! EAT THEM! JUST GET HIM OUT OF MY FACE!!!
+					Female: GET THEM! EAT THEM! JUST GET HER OUT OF MY FACE!!!
+				}
+				Repeat: I HAVE EATEN RABBITS MORE INTIMIDATING THAN YOU!
+			}
+		}
+	}
+
+	Defeat: {
+		NotExpert: HAH! I went easy on ya! Come back when you're actually good and we can have a real fight!
+		Status: The defeat of Yamata causes the fog in the mire to lift.
+	}
+
+	Despawn: {
+		Daytime: HISSSSSSSSSSSSSSS!!! THE SUNNNNNNNNNN! I'M OUT!
+	}
+
+	Transition: {
+		1: NYEHEHEHEHEHEHEHEH~!
+		2: You thought I was DONE..?!
+		3: HAH! AS IF!
+		4: The abyss hungers...
+		5: AND IT'S GOT 7 HEADS! NYEHEHEHEHEHEHEHEHEHEHEHEH!!!
+		PlayerStatus: You begin to feel as if your soul is weighing you down...
+		AwakenStatus: Yamata has been Awakened!
+	}
+
+	Awakened: {
+		NightReset: THE SUN DOESN'T SHINE IN THE DEPTHS!!! NYEHEHEHEHEHEHEHEH!!!
+		Teleport: THERE IS NO ESCAPE FROM THE ABYSS!
+
+		Health: {
+			First: {
+				ThreeQuarters: YOU'RE STILL FIGHTING?! WHAT THE HELL IS WRONG WITH YOU?!
+				Half: I'VE HAD IT UP TO HERE WITH YOUR SHENANIGANS!!! EAT VENOM YOU LITTLE HELLSPAWN!!!
+				Tenth: STOP IT STOP IT STOP IT!!! I'M NOT GONNA LET YOU WIN!!!
+			}
+			Repeat: {
+				ThreeQuarters: You're an annoying little bugger, you know!
+				Half: DIE! WHY WON'T YOU JUST DIE ALREADY?!
+				Tenth: STOP IT!!! I'M NOT GONNA LOSE AGAIN!!!
+			}
+		}
+		
+		Heads: {
+			Killed: OWIE!!!
+		}
+		
+		Kill: NYEHEHEHEHEHEHEH..! And don't come back!
+
+		Defeat: {
+			First: NO...! IMPOSSIBLE! EVEN IN MY AWAKENED FORM?! YOU MUST HAVE CHEATED! GYAAAAAAH..! FINE! TAKE YOUR LOOT! I'M OUTTA HERE..!
+			Repeat: NOOOOOOOOOOOOOO!!! YOU LITTLE BRAT!!! I ALMOST HAD YOU THIS TIME!!! FINE, take your stuff, See if I care!
+			Cheat: HAH! Nice try! Come back in Expert mode when you don't have to cheat to beat me! All your loot is MINE still!
+		}
+	}
+
+	#Unused
+	Yamata5: YOU THINK I'M DONE YET?! I DON'T THINK SO!!!!
+	YamataA1: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+	YamataA12: Wh-WHA?! DIE! DIE YOU LITTLE TWERP! DIEDIEDIEDIEDIEDIEDIE!!!!
+	YamataA13: NO NO NO!!! NOT AGAIN!!! THIS TIME IMMA STOMP YOU RIGHT INTO THE GROUND!!!
+	YamataA14: Looks like I gotta come in and save your rear end again, dad.
+	YamataA15: That's my girl..!
+	YamataA16: Oh, sweetie..! Care to help daddy thrash this little worm?!
+	YamataA17: Sigh...yes dad.
+	HarukaY1: Dad, you moron..! Whatever, Can't really say I didn't see it coming.
+	HarukaY2: That's it. I'm done, YOU deal with them, dad.
+	YamataHead10: HOPE YOU BROUGHT YOUR UMBRELLA! BECAUSE IT'S RAINING PAIN!!! NYEHEHEHEHEHEHEHEH!!!
+	YamataHead11: DOWN COMES THE VENOM!!!NYEHEHEHEHEHEHEHEH!
+	YamataHead12: EAT ECTOPLASM YOU LITTLE WRETCH
+	YamataHead13: NYAAAAAAAAAAAH!!!
+	YamataHead14: WHOOPS! DROPPED ACID! Hope you're not degradable..!
+	YamataHead15: WHOOPS! DROPPED ACID AGAIN! NYEHEHEHEHEHEHEHEHEHEHEHEH
+	YamataHead16: NYAAAAAAAH! YOU WON'T LIVE THROUGH THIS ONE!
+	YamataHead17: COME ON!!! STAND STILL SO I CAN BLOW YOU TO MARS!
+	YamataHead18: NGAAAAAAAAAAAAAH STAAAAAAAHP MOOOOOOOOVIIIIIIING!!!!!
+	YamataHead19: HAVE A HEALTHY TASTE OF ACID!
+	YamataHead20: I'M GONNA RIP YOU TO PIECES YOU LITTLE WRETCH!!!
+	YamataHead21: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!
+}
+
+Zero: {
+	Rearm: RE-ESTABLISHING WEAP0N UNITS
+
+	Defeat: {
+		Expert: PHYSICAL ZER0 UNIT IN CRITICAL C0NDITI0N. DISCARDING AND ENGAGING D00MSDAY PR0T0C0L.
+		NotExpert: D00MSDAY PR0T0CALL MALFUNCTI0N. MAIN.EXPERTM0DE = FALSE.
+		Status: Zero's dark influence over the void has been lifted. The doomstone here is now minable.
+	}
+
+	Awakened: {
+		Kill: TARGET NEUTRALIZED. RETURNING T0 0RBIT.
+		Despawn: TARGET L0ST. RETURNING T0 0RBIT.
+
+		Self-Organization: {
+			1: SELF-ORGNAZATION CHARGING COMPLETED...
+			2: BOOTING IN SELF ORGNAZATION MODE...
+			3: ALLOW {0}\M0DS\AAM0D\ZER0\PR0T0C0L\SELF-ORGNAZATION.EXE ? <Y/N>...
+			4: ===C A R N A G E===
+		}
+
+		Defeat: {
+			First: {
+				1: MISSI0N FAILED. SENDING DISTRESS SIGNAL T0 H0ME BASE.
+				2: SENDING...
+				3: DISTRESS SIGNAL RECIEVED.
+			}
+			Cheat: CHEATER ALERT CHEATER ALERT. N0 DR0PS 4 U
+		}
+	}
+
+	#Unused
+	ZeroBoss4: INITIALIZING BACKUP WEAPON PR0T0C0L.
+	ZeroBoss5: CRITICAL ERR0R: ARM UNITS NOT FOUND. RER0UTING RES0URCES TO OFFENSIVE PR0T0C0LS. SHIELD L0WERED.
+	ZeroBoss6: TARGET NEUTRALIZED. RETURNING T0 0RBIT.
+	ZeroBoss7: TARGET L0ST. RETURNING T0 0RBIT.
+	ZeroBoss8: INITIATING PR0BE CREATI0N SYSTEM.
+	ZeroBoss9: CYCLONE PROTOCOL ENGAGED
+	ZeroBoss11: RE-wiogn WEAP0N UNITS
+	ZeroAwakened2: WARNING. DRASTIC DAMAGE DETECTED, FAILURE IMMINENT. ENGAGE T0TAL 0FFENCE PR0T0C0L
+	ZeroAwakened3: WARNING. DRASTIC DAMAGE DETECTED, FAILURE IMMINENT AGAIN. ENGAGE T0TAL 0FFENCE PR0T0C0L 0MEGA
+	ZeroAwakened5: Y0UR CHEAT SHEET BUTCHER T00L WILL N0T SAVE Y0U HERE
+	ZeroDeath2: MISSI0N FAILED. ATTEMPTING DISTRESS SIGNAL AGAIN.
+}
+
+ShenDoragon: {
+	Spawn: {
+		First: {
+			1: Surprised to see us again, Kid?
+			2: NYEHEHEHEHEH..! Yes..! Must be shocking to see us here..! But this time, we have a little tricksie up our sleeves..!
+			3: That Sigil you just used gave us back our full power, which will let us reach our true, powerful form..!
+			4: We used to be the same being..! But then a Terrarian wretch like you split our soul in half..! But now...heheheh...
+			5: WE ARE COMPLETE AGAIN
+			6: Heh....heheh...
+			7: You've made a grave mistake, child...
+			8: For you see....
+			9: I AM SHEN DORAGON, EMPEROR OF CHAOS AND ANARCHY!
+			10: And you, my child...
+			11: WILL PERISH!!!
+		}
+	}
+
+	Summon: Grips! Assist me!
+
+	Health: {
+		80: {
+			First: What's this? Competence? Impressive.
+			Repeat: Quite the skill, kid.
+		}
+		66: {
+			First: Chaos always reigns, kid. You terrarians never seem to learn that.
+			Repeat: You're a real fighter, you know. Now stand still and let me grill you.
+		}
+		30: {
+			First: Hmm...still fighting, eh?
+			Repeat: Looks like you're turning tide, but not for long!
+		}
+	}
+
+	Defeat: {
+		NotExpert: {
+			First: Heh, alright. I’ll leave you alone I guess. But if you come back stronger, I’ll show you the power of true unyielding chaos...
+			Repeat: Good show, child, good show. Your combat prowess still impresses me! Maybe some day I'll show you my true power.
+		}
+	}
+
+	Transition: {
+		1: Heh...
+		2: Heheheh...
+		3: HAHAHAHAHAHAHA!!!
+		4: Have you forgotten about our last battles...?
+		5: There's always a last stand, kiddo...
+		6: But now, you stand in my path...
+		7: Shen Doragon has been Awakened!
+		8: YOU WILL BURN IN THE FLAMES OF DISCORDIAN HELL!!!
+	}
+
+	Awakened: {
+		Sisters: {
+			Ashe: {
+				Flee: AGH! Sorry papa..! I gotta bail!
+			}
+			Haruka: {
+				Flee: Ngh...sorry father...I can't carry on...
+			}
+		}
+
+		Summon: {
+			First: {
+				Shen:
+				Ashe:
+				Haruka:
+			}
+			Repeat: {
+				Shen:
+				Ashe:
+				Haruka:
+			}
+			Flee: {
+				Ashe: AGH! Sorry papa..! I gotta bail!
+				Haruka:
+			}
+		}
+
+		Health: {
+			90: {
+				First: Look at where you are, terrarian. This is your own doing. The ritual, the rune? All you.
+				Repeat: You put up a real fight, kid.
+			}
+			80: {
+				First: Why do you instigate all these fights? Power? Glory?
+				Repeat: Brawlin' till the very end.
+			}
+			70: {
+				First: Either way, I'll personally make sure this is your last one!
+				Repeat: You remind me of myself quite a bit...
+			}
+			60: {
+				First: How many times will you fight to tear me down? Or will you give up?
+				Repeat: You're strong, too. Takes guts to fight most of what you have.
+			}
+
+			50: {
+				ShenAThorium: You know, I was watching you beat down that god-sphere and its 3 goons. Gotta admit, pretty impressive.
+				ShenACalamity: Considering you put that angsty witch in her place, gotta hand it to ya.
+				ShenAGRealm: Seeing you squashed that oversided insect in the jungle, that's quite a head-turner.
+				ShenARedemption: However, after you walloped that cosmic prude, even I was taken aback by that level of skill.
+				ShenASpirit: Now that I think about it, though, you cracking open that overseer like an egg? Quite the strength that had to have needed.
+				ShenANoMod: Everything you've torn down, gods and monsters alike, I respect that.
+				#New Additions
+				ShenAStarsAbove: Though after you put down that rogue Starfarer, you really got my attention.
+				ShenALunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
+				ShenAAbaddon: Dousing that abyssal pumpkin? Now that was a sight to see!
+				ShenACatalyst: You really did wipe the floor with the purple pile of sludge.
+				ShenAHunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
+				ShenASplit: I'll admit, putting down that sword-slinging hothead was quite the show to see.
+				ShenAMacrocosm: You even took your fury to the Moon! Now that's something I can get behind.
+				ShenASpooky: Tearing through those catacombs like you own the place. That takes some skill.
+				ShenAUltranium: Watching you whallop that star slinging hobo? That was a treat!
+				ShenAYou: I mean, shattering your own reflection come alive? That's impressive stuff.
+				ShenARadiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was something else.
+			}
+
+			30: {
+				First: Hm..?! You haven't kicked the bucket yet? Well then...Let's change that!
+				Repeat: Hmpf..! Here we are again, gettin' close to the end of the line. I'm not holding back!
+			}
+			20: {
+				First: You little..! Die already!
+				Repeat: The end of a game is the most stressful, keep that in mind, kid!
+			}
+			10: {
+				First: This can't be--! How?!
+				Repeat: This is it! The end is near, so don't you dare hold back!
+			}
+		}
+
+		Defeat: {
+			First: {
+				1: Split again...
+				2: This is YOUR fault you insolent worm..! I knew we should have been more aggressive but NOOOOOOOOO..! YOU said we could squash them without even trying!
+				3: {
+					Singleplayer: {0}, you will face our fury again one day...either when we gain enough power again...
+					Multiplayer: Warriors, you will face our fury again one day...either when we gain enough power again...
+				}
+				4: ...or you decide to use that Sigil again..!
+				5: Your choice, child.
+			}
+			Repeat: {
+				1: YOU IMBECILE! WE LOST! AGAAAAAAAAAAAAIN!!!
+				2: Rgh, my head...
+				3: {
+					Singleplayer: {
+						Male: AND YOU, BOY! NEXT TIME I'M GONNA TEAR YOUR HEAD OFF!!!
+						Female: AND YOU, GIRL! NEXT TIME I'M GONNA TEAR YOUR HEAD OFF!!!
+					}
+					Multiplayer: AND YOU BUNCH OF CLOWNS! NEXT TIME I'M GONNA TEAR YOUR HEADS OFF!!!
+				}
+				4: And trust us, kid.
+				5: There's always a next time.
+			}
+		}
+	}
+
+	#Unused
+	FuryAshe1: "Papa, NO! You'll PAY for this, "
+	WrathHaruka1: Father! Rrgh..! Next time we meet, I'll strike you down!
+	ShenDoragon1: TERRA MAGIC?! NO! I THOUGHT IT WAS WIPED FROM THE EARTH!
+	ShenDoragon3: Ashe? Haruka? I need your assistance again..!
+	ShenDoragon4: On it, Papa~!
+	ShenDoragon5: Again..?
+	ShenDoragon6: Girls..? Help your father with this insignificant mortal.
+	ShenDoragon7: With pleasure, Papa~!
+	ShenDoragon8: Yes, father.
+	ShenDoragon9: You are quite persistent, Child. I like that.
+	ShenDoragon10: What's this? Competence? I would have never expected...
+	ShenDoragon11: True warriors don't show mercy! I won't and I doubt you will either..!
+	ShenDoragon12: Give up, child. The world will always fall into chaos!
+	ShenDoragon13: SHOW NO MERCY!
+	ShenDoragon14: What? You're still fighting? Why?!
+	ShenDoragon15: The defeat of a superancient empowers the stonekeepers.
+	ShenDoragon17: The defeat of a superancient empowers the stonekeepers.
+}

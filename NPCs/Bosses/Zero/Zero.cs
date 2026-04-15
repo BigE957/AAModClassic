@@ -92,7 +92,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 RespawnArms1 = true;
 
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss10"), Color.Red, false);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
                 NPC.netUpdate = true;
             }
             if (NPC.life <= (int)(NPC.lifeMax * .33f) && !RespawnArms2 && Main.netMode != NetmodeID.MultiplayerClient)
@@ -101,7 +101,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 NPC.ai[1] = 0;
                 RespawnArms2 = true;
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss10"), Color.Red, false);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
                 NPC.netUpdate = true;
             }
 
@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
                 if (!Main.expertMode)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss2"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.NotExpert"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
             }
         }
@@ -165,7 +165,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
         {
             if (Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.ExpertMode"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (NPC.BeenKilled(true))
                 {
                     int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ZeroProtocol>(), 0, 0, 0, 0, 0, NPC.target);
@@ -187,7 +187,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 if (!NPC.BeenKilled(true))
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) 
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss3"), Color.PaleVioletRed);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Status"), Color.PaleVioletRed);
                     VoidSky.Alpha = 0f;
                 }
             }

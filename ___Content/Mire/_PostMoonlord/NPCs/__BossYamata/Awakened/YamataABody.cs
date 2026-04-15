@@ -150,17 +150,17 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA6"), new Color(146, 30, 68));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Health.First.ThreeQuarters"), new Color(146, 30, 68));
                     threeQuarterHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA7"), new Color(146, 30, 68));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Health.First.Half"), new Color(146, 30, 68));
                     HalfHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 10 && tenthHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA8"), new Color(146, 30, 68));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Health.First.Tenth"), new Color(146, 30, 68));
                     tenthHealth = true;
                 }
             }
@@ -168,17 +168,17 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA9"), new Color(146, 30, 68));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Health.Repeat.ThreeQuarters"), new Color(146, 30, 68));
                     threeQuarterHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA10"), new Color(146, 30, 68));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Health.Repeat.Half"), new Color(146, 30, 68));
                     HalfHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 10 && tenthHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA11"), new Color(146, 30, 68));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Health.Repeat.Tenth"), new Color(146, 30, 68));
                     tenthHealth = true;
                 }
             }
@@ -196,16 +196,16 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             if (!Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA5"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.Cheat"), new Color(146, 30, 68));
             }
             if (!NPC.BeenKilled(true))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA2"), new Color(146, 30, 68));
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA3"), Color.Indigo);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.First"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Defeat.Status"), Color.Indigo);
             }
             else
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataA4"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.Repeat"), new Color(146, 30, 68));
             }
         }
 
@@ -394,7 +394,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient && !flag)
                 {
                     flag = true;
-                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata3"), new Color(146, 30, 68));
+                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NightReset"), new Color(146, 30, 68));
                 }
                 Main.dayTime = false;
                 Main.time = 0;
@@ -434,7 +434,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     {
                         if (!FirstLine)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata7"), new Color(146, 30, 68));
+                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Teleport"), new Color(146, 30, 68));
                             FirstLine = true;
                         }
                     }
@@ -498,7 +498,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             if (Main.netMode != NetmodeID.MultiplayerClient && !loludide)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata9"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Kill"), new Color(146, 30, 68));
                 loludide = true;
             }
 

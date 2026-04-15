@@ -30,7 +30,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath1"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.1"), Color.Red.R, Color.Red.G, Color.Red.B);
                     linesaid = true;
                 }
             }
@@ -51,7 +51,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         {
             if (!AAWorld.downedZero && Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath3"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.2"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
             int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath2>(), 0, 0);
             Main.projectile[p].Center = Projectile.Center;

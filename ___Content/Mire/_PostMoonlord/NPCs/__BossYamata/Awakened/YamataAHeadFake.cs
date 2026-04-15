@@ -362,7 +362,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             if (NPC.life <= 0)
             {
-                CombatText.NewText(NPC.getRect(), new Color(146, 30, 68), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataAHead"), false, false);
+                CombatText.NewText(NPC.getRect(), new Color(146, 30, 68), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Heads.Killed"), false, false);
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<MireSoul>());
             }
         }

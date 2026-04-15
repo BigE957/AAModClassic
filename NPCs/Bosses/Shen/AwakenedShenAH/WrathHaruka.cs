@@ -141,10 +141,6 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
         public override void HitEffect(NPC.HitInfo hit)
         {
             Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
-            if (NPC.life <= 0)
-            {
-                DontSayDeathLine = false;
-            }
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -158,14 +154,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void OnKill()
         {
-            if (DontSayDeathLine)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.WrathHaruka1"), new Color(72, 78, 117));
-            }
-            else
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.WrathHaruka2"), new Color(72, 78, 117));
-            }
+            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Flee.Haruka"), new Color(72, 78, 117));
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WrathHarukaVanish>());
             NPC.value = 0f;
             NPC.boss = false;

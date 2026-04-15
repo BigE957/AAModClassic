@@ -39,7 +39,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             if (Projectile.timeLeft >= 913)
             {
                 if (Projectile.timeLeft == 913)
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.3"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
         }
     }
