@@ -158,6 +158,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             SceneEffectPriority = (SceneEffectPriority)11;
             isAwakened = true;
             NPC.alpha = 255;
+            NPC.boss = true;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -676,20 +677,14 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 if (Main.expertMode)
                 {
-                    if (!NPC.BeenKilled(true))
-                    {
-                        NPC.DropLoot(ModContent.ItemType<Items.BossSummons.ChaosRune>());
-                    }
-
-                    if(Main.rand.NextBool(10))
-                        NPC.DropLoot(ModContent.ItemType<ShenATrophy>());
-
                     if (!NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
                     {
+                        int previousMusic = Main.curMusic;
+                        Main.musicFade[previousMusic] = 0f;
+                        Main.newMusic = Main.curMusic = MusicManagementSystem.MusicSlots["Shen_Outro"];
+                        Main.musicFade[Main.curMusic] = 1f;
                         NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDefeat>());
                     }
-
-                    NPC.DropLoot(ModContent.ItemType<ShenCache>());
                 }
             }
                 
@@ -857,7 +852,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (Health2)
             {
-               Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
+               //Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
         }
 

@@ -1,0 +1,13 @@
+PromptDialogue: {
+	Seen: {
+		MushroomMonarch: {
+			Asphodene: Woah! Big Mushroom!
+			Eridani: Wow... Big mushroom...
+		}
+
+		FeudalFungus: {
+			Asphodene: Woah! Big Mushroom!
+			Eridani: Wow... Big mushroom...
+		}
+	}
+}

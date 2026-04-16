@@ -28,6 +28,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.height = 100;
             NPC.alpha = 255;
             Music = MusicManagementSystem.MusicSlots["Shen_Intro"];
+            SceneEffectPriority = SceneEffectPriority.BossMedium;
             NPC.lifeMax = 1000000000;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
@@ -37,6 +38,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 NPC.buffImmune[k] = true;
             }
+            NPC.boss = true;
         }
 
         int dustx = 50;
@@ -81,27 +83,27 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
             if (NPC.ai[0] == 180)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.1"), new Color(180, 41, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.1"), new Color(180, 41, 32));
             }
 
             if (NPC.ai[0] == 360)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.2"), new Color(45, 46, 70));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.2"), new Color(45, 46, 70));
             }
 
             if (NPC.ai[0] == 540)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.3"), new Color(180, 41, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.3"), new Color(180, 41, 32));
             }
 
             if (NPC.ai[0] == 720)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.4"), new Color(45, 46, 70));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.4"), new Color(45, 46, 70));
             }
             if (NPC.ai[0] == 900)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.5"), new Color(180, 41, 32));
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.5"), new Color(45, 46, 70));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.5"), new Color(180, 41, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.5"), new Color(45, 46, 70));
             }
 
             if (dustx > 0 && NPC.ai[0] >= 900)
@@ -115,17 +117,17 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
             if (NPC.ai[0] == 960)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.6"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.6"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
             }
 
             if (NPC.ai[0] == 1140)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.7"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.7"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
             }
 
             if (NPC.ai[0] == 1320)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
             }
 
             if (NPC.ai[0] >= 1500)
@@ -135,19 +137,19 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
             if (NPC.ai[0] == 1520)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.9"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.9"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
             }
 
             if (NPC.ai[0] == 1700)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.10"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.10"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
             }
 
             if (NPC.ai[0] >= 1880)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Spawn.First.11"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.11"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 SummonShen();
                 NPC.active = false;
             }
@@ -265,7 +267,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.alpha = 255;
-            Music = MusicManagementSystem.MusicSlots["Silence"];
+            Music = MusicManagementSystem.MusicSlots["Shen_Outro"];
+            NPC.boss = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -319,7 +322,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.alpha = 255;
-            Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
+            Music = MusicManagementSystem.MusicSlots["Shen_Outro"];
+            NPC.boss = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -395,9 +399,9 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     else
                     {
                         if(Main.LocalPlayer.Male)
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Boy"), new Color(180, 41, 32), false);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Male"), new Color(45, 46, 70), false);
                         else
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Girl"), new Color(180, 41, 32), false);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Female"), new Color(45, 46, 70), false);
                     }
                 }
 
@@ -443,6 +447,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
+            Music = MusicManagementSystem.MusicSlots["Silence"];
+            NPC.boss = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -461,7 +467,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (NPC.ai[0] > 350)
             {
-                Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
+                Music = MusicManagementSystem.MusicSlots["Shen_Transition"];
                 for (int LOOP = 0; LOOP < 8; LOOP++)
                 {
                     Dust dust1;
@@ -477,27 +483,27 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 if (NPC.ai[0] == 375)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.1"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.1"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
                 if (NPC.ai[0] == 475)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
                 if (NPC.ai[0] == 600)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.3"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.3"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
                 if (NPC.ai[0] == 820)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.4"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.4"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
                 if (NPC.ai[0] == 960)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.5"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.5"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
                 if (NPC.ai[0] >= 1100)
@@ -506,7 +512,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 }
                 if (NPC.ai[0] == 1100)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.6"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.6"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
                 if (NPC.ai[0] >= 1400)
@@ -559,8 +565,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
         public void SummonShen()
         {
             Player player = Main.player[NPC.target];
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.7"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Shen.Transition.8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.7"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
             int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
             Main.projectile[b].Center = NPC.Center;

@@ -762,7 +762,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Repeat.Shen"), Color.DarkMagenta);
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Repeat.Ashe"), new Color(102, 20, 48));
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Repeat.Harkua"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Repeat.Haruka"), new Color(72, 78, 117));
                 }
                 else
                 {
@@ -819,7 +819,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override bool PreKill()
         {
-            if (Main.expertMode)
+            if (Main.expertMode && !isAwakened)
                 NPC.boss = false;
             return true;
         }
