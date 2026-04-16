@@ -1,15 +1,10 @@
 ﻿using AAModClassic.NPCs.Bosses.MushroomMonarch;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace AAModClassic.CrossMod
@@ -23,6 +18,14 @@ namespace AAModClassic.CrossMod
         private static Dictionary<string, MethodInfo> tsaPlayerVoicelines = [];
 
         public static bool Initialized = false;
+
+        public enum Starfarer
+        {
+            Error = -1,
+            None = 0,
+            Asphodene = 1,
+            Eridani = 2
+        }
 
         public override void PostSetupContent()
         {
@@ -126,7 +129,7 @@ namespace AAModClassic.CrossMod
             return null;
         }
 
-        public static int SelectedStarfarer(Player player) => !Initialized ? -1 : (int)tsaPlayerFieldInfo["chosenStarfarer"].GetValue(GetTsaPlayer(player));
+        public static Starfarer SelectedStarfarer(Player player) => (Starfarer)(!Initialized ? -1 : (int)tsaPlayerFieldInfo["chosenStarfarer"].GetValue(GetTsaPlayer(player)));
 
         public static void StarfarerPromptActive(string key, Player player, bool force = false)
         {
@@ -192,7 +195,7 @@ namespace AAModClassic.CrossMod
                 if(npc.type == ModContent.NPCType<MushroomMonarch>() && !SeenMushMon)
                 {
                     StarsAbove.StarfarerPromptActive("Seen.MushroomMonarch", Main.LocalPlayer, true);
-                    if (StarsAbove.SelectedStarfarer(Main.LocalPlayer) == 1)
+                    if (StarsAbove.SelectedStarfarer(Main.LocalPlayer) == StarsAbove.Starfarer.Asphodene)
                         StarsAbove.PlayVoiceline("BossVoiceNeutral", Main.LocalPlayer);
                     else
                         StarsAbove.PlayVoiceline("BossVoiceSuprise", Main.LocalPlayer);
