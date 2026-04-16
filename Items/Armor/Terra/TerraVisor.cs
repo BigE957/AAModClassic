@@ -55,7 +55,7 @@ Grants hunter & night vision"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DeathlySkull>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DeathlyHelmet>(), 1);
             recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

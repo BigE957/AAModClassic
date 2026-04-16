@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Armor.Terra
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 			recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<FleshrendHelm>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<FleshrendHelmet>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

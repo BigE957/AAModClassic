@@ -53,7 +53,7 @@ Increases magic crit by 15%"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<TribalHat>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TribalHelmet>(), 1);
             recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

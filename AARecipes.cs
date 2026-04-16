@@ -1000,23 +1000,23 @@ namespace AAModClassic
 
             RecipeGroup group18 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ChaosLeggings"), new int[]
             {
-                ModContent.ItemType<BlazingSuneate>(),
-                ModContent.ItemType<AbyssalHakama>(),
-                ModContent.ItemType<AtlanteanGreaves>(),
+                ModContent.ItemType<BlazingLeggings>(),
+                ModContent.ItemType<AbyssalLeggings>(),
+                ModContent.ItemType<AtlanteanLeggings>(),
                 ModContent.ItemType<DoomiteGreaves>(),
-                ModContent.ItemType<RaiderLegs>(),
-                ModContent.ItemType<DynaskullGreaves>()
+                ModContent.ItemType<RaiderLeggings>(),
+                ModContent.ItemType<DynaskullLeggings>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosBoots", group18);
 
             RecipeGroup group19 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ChaosChestpiece"), new int[]
             {
-                ModContent.ItemType<BlazingDou>(),
-                ModContent.ItemType<AbyssalGi>(),
-                ModContent.ItemType<AtlanteanPlate>(),
+                ModContent.ItemType<BlazingChestplate>(),
+                ModContent.ItemType<AbyssalChestplate>(),
+                ModContent.ItemType<AtlanteanChestplate>(),
                 ModContent.ItemType<DoomiteBreastplate>(),
-                ModContent.ItemType<RaiderChest>(),
-                ModContent.ItemType<DynaskullRibguard>()
+                ModContent.ItemType<RaiderChestplate>(),
+                ModContent.ItemType<DynaskullChestplate>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosPlates", group19);
 
@@ -1069,10 +1069,10 @@ namespace AAModClassic
 
             RecipeGroup group24 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Boots", new int[]
             {
-                ModContent.ItemType<FleshrendGreaves>(),
+                ModContent.ItemType<FleshrendLeggings>(),
                 ModContent.ItemType<NightsGreaves>(),
-                ModContent.ItemType<TribalKilt>(),
-                ModContent.ItemType<DeathlyGreaves>(),
+                ModContent.ItemType<TribalLeggings>(),
+                ModContent.ItemType<DeathlyLeggings>(),
                 ModContent.ItemType<DemonBoots>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraBoots", group24);
@@ -1080,9 +1080,9 @@ namespace AAModClassic
             RecipeGroup group25 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Chestplate", new int[]
             {
                 ModContent.ItemType<NightsPlate>(),
-                ModContent.ItemType<FleshrendPlate>(),
-                ModContent.ItemType<TribalCloak>(),
-                ModContent.ItemType<DeathlyRibguard>(),
+                ModContent.ItemType<FleshrendChestplate>(),
+                ModContent.ItemType<TribalChestplate>(),
+                ModContent.ItemType<DeathlyChestplate>(),
                 ModContent.ItemType<DemonGarb>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraPlates", group25);

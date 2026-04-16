@@ -4023,7 +4023,7 @@ namespace AAModClassic
                 Vector2 position = drawInfo.Position;
                 int dyeHead = drawInfo.cHead;
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoHelm>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconainSunHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4283,7 +4283,7 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoPlate>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4340,7 +4340,7 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoPlate>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4393,7 +4393,7 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoLeggings>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
