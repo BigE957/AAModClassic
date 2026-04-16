@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Atlantean;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Chaos
 {

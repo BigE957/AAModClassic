@@ -3,10 +3,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.DoomiteU
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class DoomiteUPlate : BaseAAItem
+	public class DarkDoomiteChestplate : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

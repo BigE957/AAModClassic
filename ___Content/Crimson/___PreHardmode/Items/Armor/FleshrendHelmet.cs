@@ -5,7 +5,7 @@ using Terraria.Localization;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
 
 
-namespace AAModClassic.Items.Armor.Fleshrend
+namespace AAModClassic.___Content.Crimson.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class FleshrendHelmet : BaseAAItem

@@ -17,7 +17,6 @@ using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Pets;
-using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
@@ -28,6 +27,7 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Globals
 {

@@ -1,11 +1,10 @@
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.Abyssal
+namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
 	public class AbyssalChestplate : BaseAAItem

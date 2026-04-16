@@ -7,8 +7,8 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Armor.Draco;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {

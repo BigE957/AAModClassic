@@ -1,4 +1,4 @@
-using AAModClassic.Items.Armor.AncientGold;
+using AAModClassic.___Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Items.Potions;
 using Terraria;
 using Terraria.ID;
@@ -96,8 +96,8 @@ Have the effect of Arctic Diving Gear"); */
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.AncientGoldHelmet, 1);
-			recipe.AddIngredient(ModContent.ItemType<AncientGoldBody>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<AncientGoldLeg>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<AncientGoldChestplate>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<AncientGoldLeggings>(), 1);
 			recipe.AddIngredient(ItemID.ArcticDivingGear, 1);
 			recipe.AddIngredient(ItemID.PDA, 1);
 			recipe.AddIngredient(ModContent.ItemType<LuckyCracker>(), 1);

@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Blocks;
 
-namespace AAModClassic.Items.Armor.Oroboros
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     public class OroborosHelmet : BaseAAItem

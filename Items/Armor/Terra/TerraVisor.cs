@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Deathly;
 using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor;
 
 
 namespace AAModClassic.Items.Armor.Terra

@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Deathly
+namespace AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DeathlyLeggings : BaseAAItem

@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Materials;
-using AAModClassic.Items.Armor.Tribal;
+using AAModClassic.___Content.Jungle.___PreHardmode.Items.Armor;
 
 
 namespace AAModClassic.Items.Armor.Terra

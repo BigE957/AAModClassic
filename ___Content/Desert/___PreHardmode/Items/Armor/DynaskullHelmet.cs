@@ -6,8 +6,7 @@ using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
-
-namespace AAModClassic.Items.Armor.Dynaskull
+namespace AAModClassic.___Content.Desert.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DynaskullHelmet : BaseAAItem

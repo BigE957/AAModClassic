@@ -6,12 +6,12 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Pets;
-using AAModClassic.Items.Accessories;
 using AAModClassic.Globals;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Magic;
 using AAModClassic.NPCs.Bosses.Broodmother;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Tiles.Boss
 {

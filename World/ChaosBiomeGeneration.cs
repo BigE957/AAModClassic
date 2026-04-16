@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.___Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles;
@@ -870,8 +871,8 @@ namespace AAModClassic.World
 
             int[] Loot2 = new int[]
             {
-                ModContent.ItemType<Items.Armor.AncientGold.AncientGoldBody>(),
-                ModContent.ItemType<Items.Armor.AncientGold.AncientGoldLeg>(),
+                ModContent.ItemType<AncientGoldChestplate>(),
+                ModContent.ItemType<AncientGoldLeggings>(),
             };
 
             if (PlacementSuccess >= 0)

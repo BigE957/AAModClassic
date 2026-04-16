@@ -3,8 +3,10 @@ using Terraria.ID;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Accessories;
+using AAModClassic.Items.Accessories;
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Tinkers._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Face)]
     public class CursedEyeofSoulBinder : BaseAAItem

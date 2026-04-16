@@ -4,10 +4,10 @@ using Terraria.ID;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 
-namespace AAModClassic.Items.Armor.DoomiteU
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DoomiteUGreaves : BaseAAItem
+	public class DarkDoomiteLeggings : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

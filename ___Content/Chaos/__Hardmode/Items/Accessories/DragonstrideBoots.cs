@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Chaos.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shoes)]
     public class DragonstrideBoots : BaseAAItem

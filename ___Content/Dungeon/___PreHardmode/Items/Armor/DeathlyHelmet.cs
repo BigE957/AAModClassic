@@ -5,7 +5,7 @@ using Terraria.Localization;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
 
 
-namespace AAModClassic.Items.Armor.Deathly
+namespace AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     public class DeathlyHelmet : BaseAAItem

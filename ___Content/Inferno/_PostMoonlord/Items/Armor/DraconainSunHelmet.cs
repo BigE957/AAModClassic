@@ -10,7 +10,7 @@ using AAModClassic.Items.Armor.Kindled;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
 
-namespace AAModClassic.Items.Armor.Draco
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DraconainSunHelmet : BaseAAItem

@@ -6,7 +6,7 @@ using AAModClassic.Items.Armor.Kindled;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 
-namespace AAModClassic.Items.Armor.Blazing
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class BlazingHelmet : BaseAAItem

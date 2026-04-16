@@ -9,7 +9,7 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.Armor.Atlantean
+namespace AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class AtlanteanHelmet : BaseAAItem

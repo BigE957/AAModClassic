@@ -380,7 +380,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextBool(20) && Main.expertMode)
                 {
-                    npc.DropLoot(ModContent.ItemType<AncientGoldLeg>());
+                    npc.DropLoot(ModContent.ItemType<AncientGoldLeggings>());
                 }
             }
 
@@ -388,7 +388,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextBool(20) && Main.expertMode)
                 {
-                    npc.DropLoot(ModContent.ItemType<AncientGoldBody>());
+                    npc.DropLoot(ModContent.ItemType<AncientGoldChestplate>());
                 }
             }
 

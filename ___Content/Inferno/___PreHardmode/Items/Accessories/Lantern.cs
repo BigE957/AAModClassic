@@ -8,7 +8,7 @@ using AAModClassic.Globals;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories
 {
     public class Lantern : BaseAAItem
     {

@@ -7,7 +7,7 @@ using Terraria.ID;
 using AAModClassic.Globals;
 
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Tinkers.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]

@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Dynaskull
+namespace AAModClassic.___Content.Desert.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
 	public class DynaskullChestplate : BaseAAItem

@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Blazing
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class BlazingLeggings : BaseAAItem

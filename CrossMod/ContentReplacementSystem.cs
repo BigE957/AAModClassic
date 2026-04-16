@@ -1,10 +1,10 @@
-﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.GlowingMushium;
 using AAModClassic.Items.Armor.Mushium;
 using AAModClassic.Items.Armor.Razewood;

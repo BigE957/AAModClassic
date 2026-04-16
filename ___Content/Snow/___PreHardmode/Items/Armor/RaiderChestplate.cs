@@ -6,7 +6,7 @@ using AAModClassic.Items.Armor.Viking;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.Armor.Raider
+namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
 	public class RaiderChestplate : BaseAAItem
@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Armor.Raider
 		{
             player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RaiderChestBonus");
             player.noKnockback = true;
-            player.endurance += (1 - (player.statLife / player.statLifeMax)) * .1f;
+            player.endurance += (1 - player.statLife / player.statLifeMax) * .1f;
         }
 		
 		public override void AddRecipes()

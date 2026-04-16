@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Abyssal;
 using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -55,7 +56,7 @@ namespace AAModClassic.Items.Armor.Chaos
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Armor.Dynaskull.DynaskullHelmet>());
+            recipe.AddIngredient(ModContent.ItemType<DynaskullHelmet>());
             recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

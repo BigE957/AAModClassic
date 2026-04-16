@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Biomite
+namespace AAModClassic.___Content.Terrarium.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class BiomiteHelmet : BaseAAItem

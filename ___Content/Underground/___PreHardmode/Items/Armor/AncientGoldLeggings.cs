@@ -2,10 +2,10 @@ using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.AncientGold
+namespace AAModClassic.___Content.Underground.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AncientGoldLeg : BaseAAItem
+	public class AncientGoldLeggings : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
     public class DragonsGuard : BaseAAItem

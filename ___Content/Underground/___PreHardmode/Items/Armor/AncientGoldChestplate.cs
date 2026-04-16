@@ -3,10 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAModClassic.Items.Armor.AncientGold
+namespace AAModClassic.___Content.Underground.___PreHardmode.Items.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	public class AncientGoldBody : BaseAAItem
+	public class AncientGoldChestplate : BaseAAItem
 	{
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Armor.AncientGold
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return head.type == ItemID.AncientGoldHelmet && legs.type == ModContent.ItemType<AncientGoldLeg>();
+			return head.type == ItemID.AncientGoldHelmet && legs.type == ModContent.ItemType<AncientGoldLeggings>();
         }
 
         public override void UpdateArmorSet(Player player)

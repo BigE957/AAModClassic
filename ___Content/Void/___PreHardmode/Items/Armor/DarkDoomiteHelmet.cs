@@ -5,10 +5,10 @@ using Terraria.Localization;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 
-namespace AAModClassic.Items.Armor.DoomiteU
+namespace AAModClassic.___Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DoomiteUHelm : BaseAAItem
+	public class DarkDoomiteHelmet : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Armor.DoomiteU
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<DoomiteUPlate>() && legs.type == ModContent.ItemType<DoomiteUGreaves>();
+			return body.type == ModContent.ItemType<DarkDoomiteChestplate>() && legs.type == ModContent.ItemType<DarkDoomiteLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)

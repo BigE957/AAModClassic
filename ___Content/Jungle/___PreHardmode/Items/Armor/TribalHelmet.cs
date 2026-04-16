@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.Tribal
+namespace AAModClassic.___Content.Jungle.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     public class TribalHelmet : BaseAAItem
