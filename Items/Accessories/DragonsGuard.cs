@@ -7,6 +7,12 @@ namespace AAModClassic.Items.Accessories
     [AutoloadEquip(EquipType.Shield)]
     public class DragonsGuard : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dragon's Guard");
+            // Tooltip.SetDefault(@"Enemies that strike you are set ablaze");
+        }
+
         public override void SetDefaults()
         {
             Item.width = 30;
@@ -20,12 +26,6 @@ namespace AAModClassic.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetModPlayer<AAPlayer>().DragonsGuard = true;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Dragon's Guard");
-            // Tooltip.SetDefault(@"Enemies that strike you are set ablaze");
         }
     }
 }
