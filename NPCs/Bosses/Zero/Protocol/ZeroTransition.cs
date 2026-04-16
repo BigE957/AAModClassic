@@ -32,6 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.timeLeft = 10;
             NPC.alpha = 255;
             Music = MusicManagementSystem.MusicSlots["Silence"];
+            NPC.boss = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

@@ -34,6 +34,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             NPC.damage = 0;
             NPC.value = 0;
             Music = MusicManagementSystem.MusicSlots["Silence"];
+            NPC.boss = true;
         }
 
         public override void AI()

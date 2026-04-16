@@ -19,6 +19,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.height = 100;
             NPC.alpha = 255;
             NPC.damage = 0;
+            NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["SoC"];
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;

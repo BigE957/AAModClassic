@@ -1,12 +1,13 @@
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
+using AAModClassic._Unreleased.Content.Void.Buffs;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Content.Void.Buffs;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
-using AAModClassic.Music;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -35,6 +36,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.behindTiles = true;
             //TODOIZ what is he even talking abt here
             //Music = Mod.GetSoundSlot(SoundType.Music, "Lulspooky");
+            Music = MusicManagementSystem.MusicSlots["Silence"]; //Temp Replacement
+            NPC.boss = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

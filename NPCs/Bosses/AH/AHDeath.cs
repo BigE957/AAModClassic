@@ -29,6 +29,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
             Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
+            NPC.boss = true;
 
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

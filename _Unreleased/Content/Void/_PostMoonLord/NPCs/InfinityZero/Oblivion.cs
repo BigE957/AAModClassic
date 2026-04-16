@@ -31,7 +31,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = MusicManagementSystem.MusicSlots["IZDeath"]; //TODOIZ why doesnt this work????
+            Music = MusicManagementSystem.MusicSlots["IZDeath"];
+            NPC.boss = true;
         }
 
         public int OblivionSpeech = 0;

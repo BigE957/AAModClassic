@@ -34,6 +34,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 NPC.buffImmune[k] = true;
             }
             Music = MusicManagementSystem.MusicSlots["Silence"];
+            NPC.boss = true;
         }
 
         public override void AI()

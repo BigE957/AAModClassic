@@ -37,6 +37,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             NPC.value = 0;
             NPC.noTileCollide = true;
             Music = MusicManagementSystem.MusicSlots["Silence"];
+            NPC.boss = true;
         }
 
         public override void AI()

@@ -98,6 +98,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
 				if (NPC.ai[0] >= 375) //after he says 'nyeh' on the server, change music on the client
 				{
 					Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
+                    NPC.boss = true;
 				}
 				if (NPC.ai[0] >= 900) //after he says 'as if' on the server, transition color
 				{

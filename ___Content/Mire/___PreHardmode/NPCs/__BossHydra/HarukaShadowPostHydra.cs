@@ -31,7 +31,8 @@ namespace AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.damage = 0;
             NPC.value = 0;
             NPC.alpha = 255;
-            Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
+            //TODO: Just marking this cause like, why would you feel the need to do this?
+            //Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
             NPC.width = 38;
             NPC.height = 58;
         }

@@ -68,6 +68,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.1"), new Color(102, 20, 48));
                 Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
+                NPC.boss = true;
             }
 
             if (NPC.ai[1] == 300)
