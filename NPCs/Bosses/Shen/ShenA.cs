@@ -852,7 +852,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             if (Health2)
             {
-               //Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
+                if(!AAConfigClient.Instance.DisablePinchThemes)
+                    Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
         }
 

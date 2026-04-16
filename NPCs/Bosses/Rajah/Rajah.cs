@@ -205,9 +205,9 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         else
                         {
                             if (evilMaxxing)
-                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.SinglePlayer.Murderer"), 107, 137, 179);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Murderer"), 107, 137, 179);
                             else if(!NPCExtensions.BeenKilled<SupremeRajah>())
-                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.SinglePlayer.Normal"), 107, 137, 179);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Normal"), 107, 137, 179);
                             else
                                 BaseUtility.Chat(Language.GetOrRegister("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Repeat").Format(Main.LocalPlayer.name.ToUpper()), 107, 137, 179);
                         }

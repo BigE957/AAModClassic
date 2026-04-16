@@ -284,7 +284,7 @@ Greed: {
 }
 
 Rajah: {
-	#Anitcheat Unused
+	#Anticheat Unused
 	Cheat: JUSTICE CANNOT BE CHEATED
 	Kill: Justice has been served...
 	Despawn: Coward.
@@ -355,23 +355,7 @@ Yamata: {
 	NoFly: Oh and don't even think about flying! My ego is so massive it has a gravitational pull all of it's own! NYEHEHEHEHEHEHEHEHEHEHEHEH!!!
 	Teleport: Running away?! I DON'T THINK SO!
 
-	Health: {
-		First: {
-			ThreeQuarters: Resistance isn't gonna save you here! Now stop being a little brat and let me destroy you!
-			Half: STOP SQUIRMING AND LET ME SQUASH YOU!!!
-			Quarter: NGAAAAAAAAAAAAAH YOU'RE REALLY ANNOYING YOU KNOW..!
-		}
-
-		Repeat: {
-			ThreeQuarters: I don't understand why you keep fighting me! I'm superior to you in every single way!
-			Half: I'M GETTING FRUSTRATED AGAIN!
-			Quarter: I HATE FIGHTING YOU! I HATE IT I HATE IT I HATE IT!!!
-		}
-	}
-
 	Heads: {
-		Killed: OWIE!!!
-
 		Attacks: {
 			AcidSpit: {
 				First: TASTE ACID YOU UNBEARABLE MAGGOT!!!
@@ -396,6 +380,21 @@ Yamata: {
 
 				Repeat: I HAVE EATEN RABBITS MORE INTIMIDATING THAN YOU!
 			}
+		}
+		Killed: OWIE!!!
+	}
+
+	Health: {
+		First: {
+			ThreeQuarters: Resistance isn't gonna save you here! Now stop being a little brat and let me destroy you!
+			Half: STOP SQUIRMING AND LET ME SQUASH YOU!!!
+			Quarter: NGAAAAAAAAAAAAAH YOU'RE REALLY ANNOYING YOU KNOW..!
+		}
+
+		Repeat: {
+			ThreeQuarters: I don't understand why you keep fighting me! I'm superior to you in every single way!
+			Half: I'M GETTING FRUSTRATED AGAIN!
+			Quarter: I HATE FIGHTING YOU! I HATE IT I HATE IT I HATE IT!!!
 		}
 	}
 

@@ -442,7 +442,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 if (!QuoteSaid && sayQuote)
                 {
                     if (!Quote3 || Main.rand.NextBool(4))
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.Bigshot.A") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.Bigshot.B"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.BigShot.A") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.BigShot.B"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -456,7 +456,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 if (!QuoteSaid && sayQuote)
                 {
                     if (!Quote5 || Main.rand.NextBool(4))
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote5) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma13") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma14"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote5) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.SeekingFlames.A") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Attacks.SeekingFlames.B"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote5 = true;
                 }

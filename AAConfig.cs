@@ -29,6 +29,9 @@ namespace AAModClassic
 
         [DefaultValue(false)]
         public bool DisableAnticheat;
+
+        [DefaultValue(false)]
+        public bool DisablePinchThemes;
     }
 
     public static class Config

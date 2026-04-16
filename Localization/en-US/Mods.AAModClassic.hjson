@@ -54,6 +54,11 @@ Configs: {
 			Label: Disable Anticheat
 			Tooltip: ""
 		}
+
+		DisablePinchThemes: {
+			Label: Disable Pinch Themes
+			Tooltip: ""
+		}
 	}
 }
 
