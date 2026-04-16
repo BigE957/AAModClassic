@@ -1,4 +1,5 @@
-using AAModClassic.Items.Accessories.Wings;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Accessories;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic.Items.Dev.DevTile.Tiles;
 using AAModClassic.Items.Vanity.CC.Shiny;
 using Terraria;

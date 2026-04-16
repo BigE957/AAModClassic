@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Accessories;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Accessories;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
@@ -8,12 +9,17 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories.Wings
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
 	public class WingsofChaos : BaseAAItem
 	{
-		public override void SetStaticDefaults()
+        public override void Load()
+        {
+            EquipLoader.AddEquipTexture(Mod, Texture + "_Wings_Alt", EquipType.Wings, name: "WingsOfChaos_Wings_Alt");
+        }
+
+        public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wings of Chaos");
             // Tooltip.SetDefault("Allows flight and slow fall");
@@ -35,6 +41,17 @@ namespace AAModClassic.Items.Accessories.Wings
 		{
 			player.wingTimeMax = 250;
 		}
+
+        public override void UpdateVisibleAccessory(Player player, bool hideVisual)
+        {
+            int blue = EquipLoader.GetEquipSlot(Mod, "WingsofChaos", EquipType.Wings);
+            int red = EquipLoader.GetEquipSlot(Mod, "WingsOfChaos_Wings_Alt", EquipType.Wings);
+            
+            if (player.wings == blue && player.direction == -1)
+                player.wings = red;
+            else if(player.wings == red && player.direction == 1)
+                player.wings = blue;
+        }
 
 		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{

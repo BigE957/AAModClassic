@@ -8,7 +8,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories.Wings
+namespace AAModClassic.___Content.Void._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
 	public class ZeroWings : BaseAAItem

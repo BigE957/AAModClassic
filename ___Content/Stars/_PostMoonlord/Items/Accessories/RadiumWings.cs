@@ -1,11 +1,11 @@
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories.Wings
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
 	public class RadiumWings : BaseAAItem

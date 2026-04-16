@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Stars._PostMoonlord.Items
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Materials
 {
     public class RadiumBar_Tile : ModTile
     {

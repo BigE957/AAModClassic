@@ -8,7 +8,7 @@ using System;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Throwing
 {

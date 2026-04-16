@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using AAModClassic.Globals;
 
-namespace AAModClassic.___Content.Stars._PostMoonlord.Items
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Materials
 {
     public class RadiantPhoton : BaseAAItem
     {

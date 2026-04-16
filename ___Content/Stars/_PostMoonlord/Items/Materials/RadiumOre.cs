@@ -1,6 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.___Content.Stars._PostMoonlord.Items
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Materials
 {
     public class RadiumOre : BaseAAItem
     {

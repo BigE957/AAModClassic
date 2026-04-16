@@ -3,6 +3,7 @@ using AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Summoning;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -194,7 +195,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs
             }
             if (Main.rand.NextBool(20))
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Summoning.TerraGauntlet>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraGauntlet>());
             }
         }
 

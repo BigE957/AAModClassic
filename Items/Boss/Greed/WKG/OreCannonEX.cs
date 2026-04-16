@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Greed.WKG;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {

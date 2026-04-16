@@ -56,11 +56,11 @@ using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Hallow.__Hardmode.Items.Materials;
 using AAModClassic.Backgrounds;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic
 {

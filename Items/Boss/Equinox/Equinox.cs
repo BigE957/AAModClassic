@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Equinox
 {

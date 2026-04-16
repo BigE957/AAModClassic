@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic.___Content.Acropolis.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
-using AAModClassic.Items.Accessories.Wings;
 using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Items.Vanity.Mask;

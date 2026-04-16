@@ -1,4 +1,4 @@
-using AAModClassic.Items.Accessories.Wings;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic.Items.Vanity.Mask;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

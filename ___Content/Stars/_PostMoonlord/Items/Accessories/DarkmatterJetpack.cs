@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,7 +7,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories.Wings
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
 	public class DarkmatterJetpack : BaseAAItem

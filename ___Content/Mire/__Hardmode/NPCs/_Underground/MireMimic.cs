@@ -1,4 +1,4 @@
-using AAModClassic.Items.Accessories;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;

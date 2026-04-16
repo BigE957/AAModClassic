@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Crafters;
 
-namespace AAModClassic.___Content.Stars._PostMoonlord.Items
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Materials
 {
     public class DarkmatterBar : BaseAAItem
     {

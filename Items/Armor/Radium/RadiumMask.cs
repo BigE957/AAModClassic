@@ -7,7 +7,7 @@ using Terraria.ID;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Radium
 {

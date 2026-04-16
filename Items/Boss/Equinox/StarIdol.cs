@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Equinox
 {

@@ -7,7 +7,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories.Wings
+namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
 	public class DraconianWings : BaseAAItem

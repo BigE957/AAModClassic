@@ -3,7 +3,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAModClassic.___Content.Stars._PostMoonlord.Items
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Materials
 {
     public class DarkEnergy : BaseAAItem
     {
