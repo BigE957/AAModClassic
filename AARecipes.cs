@@ -1,5 +1,6 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Crimson.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor;
@@ -26,7 +27,6 @@ using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Demon;
 using AAModClassic.Items.Armor.Doomite;
-using AAModClassic.Items.Armor.Nights;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
@@ -1070,7 +1070,7 @@ namespace AAModClassic
             RecipeGroup group24 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Boots", new int[]
             {
                 ModContent.ItemType<FleshrendLeggings>(),
-                ModContent.ItemType<NightsGreaves>(),
+                ModContent.ItemType<NightsLeggings>(),
                 ModContent.ItemType<TribalLeggings>(),
                 ModContent.ItemType<DeathlyLeggings>(),
                 ModContent.ItemType<DemonBoots>()
@@ -1079,7 +1079,7 @@ namespace AAModClassic
 
             RecipeGroup group25 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Chestplate", new int[]
             {
-                ModContent.ItemType<NightsPlate>(),
+                ModContent.ItemType<NightsChestplate>(),
                 ModContent.ItemType<FleshrendChestplate>(),
                 ModContent.ItemType<TribalChestplate>(),
                 ModContent.ItemType<DeathlyChestplate>(),

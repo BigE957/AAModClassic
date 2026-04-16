@@ -1,5 +1,4 @@
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Armor.Kindled;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,7 +34,7 @@ Forged in the flames of the blazing sun"); */
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<KindledDou>());
+            recipe.AddIngredient(ModContent.ItemType<KindledChestplate>());
             recipe.AddIngredient(ItemID.Coral, 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);

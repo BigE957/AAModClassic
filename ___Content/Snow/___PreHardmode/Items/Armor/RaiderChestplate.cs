@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Viking;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
@@ -42,7 +41,7 @@ namespace AAModClassic.___Content.Snow.___PreHardmode.Items.Armor
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<VikingPlate>());
+			recipe.AddIngredient(ModContent.ItemType<VikingChestplate>());
             recipe.AddIngredient(ItemID.Coral, 8);
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 8);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);

@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Armor.Ocean;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
@@ -38,14 +37,14 @@ It vibrates with the powers of Atlantis"); */
 		{
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<OceanShirt>());
+            recipe.AddIngredient(ModContent.ItemType<OceanChestplate>());
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 8);
             recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 8);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<OceanShirt>());
+            recipe.AddIngredient(ModContent.ItemType<OceanChestplate>());
             recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);

@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Armor.Kindled;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor
 {
@@ -80,7 +80,7 @@ The blazing fury of the Inferno rests in this armor"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 18);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<KindledSuneate>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<KindledLeggings>(), 1);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

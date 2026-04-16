@@ -1,13 +1,13 @@
-﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+﻿using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.Items.Armor.GlowingMushium;
-using AAModClassic.Items.Armor.Mushium;
-using AAModClassic.Items.Armor.Razewood;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.MushroomMonarch;
@@ -89,19 +89,19 @@ namespace AAModClassic.CrossMod
             #region Armor
             ModContent.ItemType<RazewoodHelmet>(),
             ModContent.ItemType<RazewoodChestplate>(),
-            ModContent.ItemType<RazewoodBoots>(),
+            ModContent.ItemType<RazewoodLeggings>(),
 
             ModContent.ItemType<BogwoodHelmet>(),
             ModContent.ItemType<BogwoodChestplate>(),
             ModContent.ItemType<BogwoodLeggings>(),
 
-            ModContent.ItemType<MushiumHat>(),
-            ModContent.ItemType<MushiumShirt>(),
-            ModContent.ItemType<MushiumPants>(),
+            ModContent.ItemType<MushiumHelmet>(),
+            ModContent.ItemType<MushiumChestplate>(),
+            ModContent.ItemType<MushiumLeggings>(),
 
-            ModContent.ItemType<ShroomHat>(),
-            ModContent.ItemType<ShroomShirt>(),
-            ModContent.ItemType<ShroomPants>(),
+            ModContent.ItemType<GlowingMushiumHelmet>(),
+            ModContent.ItemType<GlowingMushiumChestplate>(),
+            ModContent.ItemType<GlowingMushiumLeggings>(),
             #endregion
 
             #region Useless Items

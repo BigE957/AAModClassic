@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Boss.Broodmother;
-using AAModClassic.Items.Armor.Ocean;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
@@ -40,14 +39,14 @@ Allows to freely move in liquids"); */
 		{
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<OceanBoots>());
+            recipe.AddIngredient(ModContent.ItemType<OceanLeggings>());
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 6);
             recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 6);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);
             recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<OceanBoots>());
+            recipe.AddIngredient(ModContent.ItemType<OceanLeggings>());
             recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 6);
             recipe.AddIngredient(ItemID.FossilOre, 6);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);

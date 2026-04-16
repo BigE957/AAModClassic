@@ -5,7 +5,7 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Boss.Rajah.Supreme;
-using AAModClassic.Items.Armor.Hoodlum;
+using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Champion
 {
@@ -65,7 +65,7 @@ The armor of a champion feared across the land"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<HoodlumHood>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HoppingHoodlumHelmet>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChampionPlate>(), 10);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

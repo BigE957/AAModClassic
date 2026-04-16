@@ -9829,3 +9829,363 @@ VoidKey: {
 	DisplayName: Void Key
 	Tooltip: ""
 }
+
+OlympianChestplate: {
+	DisplayName: Olympian Chestplate
+	Tooltip: ""
+}
+
+OlympianHelmet: {
+	DisplayName: Olympian Helmet
+	Tooltip: ""
+}
+
+OlympianLeggings: {
+	DisplayName: Olympian Leggings
+	Tooltip: ""
+}
+
+HoppingHoodlumChestplate: {
+	DisplayName: Hopping Hoodlum Chestplate
+	Tooltip: ""
+}
+
+HoppingHoodlumHelmet: {
+	DisplayName: Hopping Hoodlum Helmet
+	Tooltip: ""
+}
+
+HoppingHoodlumLeggings: {
+	DisplayName: Hopping Hoodlum Leggings
+	Tooltip: ""
+}
+
+NightsChestplate: {
+	DisplayName: Nights Chestplate
+	Tooltip: ""
+}
+
+NightsHelmet: {
+	DisplayName: Nights Helmet
+	Tooltip: ""
+}
+
+NightsLeggings: {
+	DisplayName: Nights Leggings
+	Tooltip: ""
+}
+
+FleshrendChestplate: {
+	DisplayName: Fleshrend Chestplate
+	Tooltip: ""
+}
+
+FleshrendHelmet: {
+	DisplayName: Fleshrend Helmet
+	Tooltip: ""
+}
+
+FleshrendLeggings: {
+	DisplayName: Fleshrend Leggings
+	Tooltip: ""
+}
+
+DynaskullChestplate: {
+	DisplayName: Dynaskull Chestplate
+	Tooltip: ""
+}
+
+DynaskullHelmet: {
+	DisplayName: Dynaskull Helmet
+	Tooltip: ""
+}
+
+DynaskullLeggings: {
+	DisplayName: Dynaskull Leggings
+	Tooltip: ""
+}
+
+DeathlyChestplate: {
+	DisplayName: Deathly Chestplate
+	Tooltip: ""
+}
+
+DeathlyHelmet: {
+	DisplayName: Deathly Helmet
+	Tooltip: ""
+}
+
+DeathlyLeggings: {
+	DisplayName: Deathly Leggings
+	Tooltip: ""
+}
+
+GlowingMushiumChestplate: {
+	DisplayName: Glowing Mushium Chestplate
+	Tooltip: ""
+}
+
+GlowingMushiumHelmet: {
+	DisplayName: Glowing Mushium Helmet
+	Tooltip: ""
+}
+
+GlowingMushiumLeggings: {
+	DisplayName: Glowing Mushium Leggings
+	Tooltip: ""
+}
+
+ImpChestplate: {
+	DisplayName: Imp Chestplate
+	Tooltip: ""
+}
+
+ImpHelmet: {
+	DisplayName: Imp Helmet
+	Tooltip: ""
+}
+
+ImpLeggings: {
+	DisplayName: Imp Leggings
+	Tooltip: ""
+}
+
+StoneSoldierChestplate: {
+	DisplayName: Stone Soldier Chestplate
+	Tooltip: ""
+}
+
+StoneSoldierHelmet: {
+	DisplayName: Stone Soldier Helmet
+	Tooltip: ""
+}
+
+StoneSoldierLeggings: {
+	DisplayName: Stone Soldier Leggings
+	Tooltip: ""
+}
+
+BlazingChestplate: {
+	DisplayName: Blazing Chestplate
+	Tooltip: ""
+}
+
+BlazingHelmet: {
+	DisplayName: Blazing Helmet
+	Tooltip: ""
+}
+
+BlazingLeggings: {
+	DisplayName: Blazing Leggings
+	Tooltip: ""
+}
+
+KindledChestplate: {
+	DisplayName: Kindled Chestplate
+	Tooltip: ""
+}
+
+KindledHelmet: {
+	DisplayName: Kindled Helmet
+	Tooltip: ""
+}
+
+KindledLeggings: {
+	DisplayName: Kindled Leggings
+	Tooltip: ""
+}
+
+RazewoodLeggings: {
+	DisplayName: Razewood Leggings
+	Tooltip: ""
+}
+
+DraconainSunHelmet: {
+	DisplayName: Draconain Sun Helmet
+	Tooltip: ""
+}
+
+DraconianSunChestplate: {
+	DisplayName: Draconian Sun Chestplate
+	Tooltip: ""
+}
+
+DraconianSunLeggings: {
+	DisplayName: Draconian Sun Leggings
+	Tooltip: ""
+}
+
+TribalChestplate: {
+	DisplayName: Tribal Chestplate
+	Tooltip: ""
+}
+
+TribalHelmet: {
+	DisplayName: Tribal Helmet
+	Tooltip: ""
+}
+
+TribalLeggings: {
+	DisplayName: Tribal Leggings
+	Tooltip: ""
+}
+
+AbyssalChestplate: {
+	DisplayName: Abyssal Chestplate
+	Tooltip: ""
+}
+
+AbyssalHelmet: {
+	DisplayName: Abyssal Helmet
+	Tooltip: ""
+}
+
+AbyssalLeggings: {
+	DisplayName: Abyssal Leggings
+	Tooltip: ""
+}
+
+DreadMoonChestplate: {
+	DisplayName: Dread Moon Chestplate
+	Tooltip: ""
+}
+
+DreadMoonHelmet: {
+	DisplayName: Dread Moon Helmet
+	Tooltip: ""
+}
+
+DreadMoonLeggings: {
+	DisplayName: Dread Moon Leggings
+	Tooltip: ""
+}
+
+AtlanteanChestplate: {
+	DisplayName: Atlantean Chestplate
+	Tooltip: ""
+}
+
+AtlanteanHelmet: {
+	DisplayName: Atlantean Helmet
+	Tooltip: ""
+}
+
+AtlanteanLeggings: {
+	DisplayName: Atlantean Leggings
+	Tooltip: ""
+}
+
+OceanChestplate: {
+	DisplayName: Ocean Chestplate
+	Tooltip: ""
+}
+
+OceanHelmet: {
+	DisplayName: Ocean Helmet
+	Tooltip: ""
+}
+
+OceanLeggings: {
+	DisplayName: Ocean Leggings
+	Tooltip: ""
+}
+
+MushiumChestplate: {
+	DisplayName: Mushium Chestplate
+	Tooltip: ""
+}
+
+MushiumHelmet: {
+	DisplayName: Mushium Helmet
+	Tooltip: ""
+}
+
+MushiumLeggings: {
+	DisplayName: Mushium Leggings
+	Tooltip: ""
+}
+
+RaiderChestplate: {
+	DisplayName: Raider Chestplate
+	Tooltip: ""
+}
+
+RaiderHelmet: {
+	DisplayName: Raider Helmet
+	Tooltip: ""
+}
+
+RaiderLeggings: {
+	DisplayName: Raider Leggings
+	Tooltip: ""
+}
+
+VikingChestplate: {
+	DisplayName: Viking Chestplate
+	Tooltip: ""
+}
+
+VikingHelmet: {
+	DisplayName: Viking Helmet
+	Tooltip: ""
+}
+
+VikingLeggings: {
+	DisplayName: Viking Leggings
+	Tooltip: ""
+}
+
+BiomiteChestplate: {
+	DisplayName: Biomite Chestplate
+	Tooltip: ""
+}
+
+BiomiteLeggings: {
+	DisplayName: Biomite Leggings
+	Tooltip: ""
+}
+
+StripemansLuckyChestplate: {
+	DisplayName: Stripemans Lucky Chestplate
+	Tooltip: ""
+}
+
+StripemansLuckyHelmet: {
+	DisplayName: Stripemans Lucky Helmet
+	Tooltip: ""
+}
+
+StripemansLuckyLeggings: {
+	DisplayName: Stripemans Lucky Leggings
+	Tooltip: ""
+}
+
+AncientGoldChestplate: {
+	DisplayName: Ancient Gold Chestplate
+	Tooltip: ""
+}
+
+AncientGoldLeggings: {
+	DisplayName: Ancient Gold Leggings
+	Tooltip: ""
+}
+
+DarkDoomiteChestplate: {
+	DisplayName: Dark Doomite Chestplate
+	Tooltip: ""
+}
+
+DarkDoomiteHelmet: {
+	DisplayName: Dark Doomite Helmet
+	Tooltip: ""
+}
+
+DarkDoomiteLeggings: {
+	DisplayName: Dark Doomite Leggings
+	Tooltip: ""
+}
+
+OroborosLeggings: {
+	DisplayName: Oroboros Leggings
+	Tooltip: ""
+}
