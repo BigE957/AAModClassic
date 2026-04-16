@@ -118,14 +118,6 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(NPC.GetSource_Death(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath1>(), 0, 0);
 
-                if (!AAWorld.downedZero)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Status"), Color.PaleVioletRed);
-                    VoidSky.Alpha = 0f;
-                }
-
-                //AAWorld.downedZero = true;
                 return;
             }
         }

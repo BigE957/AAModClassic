@@ -1,3 +1,5 @@
+using AAModClassic.Backgrounds;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -26,7 +28,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         public bool linesaid = false;
         public override void AI()
         {
-            if (Main.expertMode && !AAWorld.downedZero && !linesaid)
+            if (Main.expertMode && !NPCExtensions.BeenKilled<ZeroProtocol>(true) && !linesaid)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -49,7 +51,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         }
         public override void OnKill(int timeLeft)
         {
-            if (!AAWorld.downedZero && Main.expertMode)
+            if (!NPCExtensions.BeenKilled<ZeroProtocol>(true) && Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.2"), Color.Red.R, Color.Red.G, Color.Red.B);
             }

@@ -35,7 +35,7 @@ namespace AAModClassic.Backgrounds
         public bool Active;
         public int ticksUntilNextBolt;
         public float Intensity;
-        public static float Alpha = 1f;
+        public static float Alpha = -1f;
 
         public static Asset<Texture2D> BlackHoleTex;
         public static Asset<Texture2D> BlackHoleLightningTex;
@@ -62,7 +62,7 @@ namespace AAModClassic.Backgrounds
 
         public override void Update(GameTime gameTime)
         {
-            if (AAWorld.downedZero)
+            if (AAWorld.downedZero && Alpha != -1)
             {
                 Alpha += 0.05f;
                 if (Alpha > 1f) Alpha = 1f;
@@ -175,13 +175,13 @@ namespace AAModClassic.Backgrounds
                 Asteroidpos1.Y += (float)Math.Sin(asteroidPercent1) * 16f;
                 Asteroidpos2.Y += (float)Math.Sin(asteroidPercent2) * -30f;
                 Asteroidpos3.Y += (float)Math.Sin(asteroidPercent3) * 20f;
-                if (!AAWorld.downedZero)
+                if (!AAWorld.downedZero || Alpha <= 0)
                 {
                     spriteBatch.Draw(Stars, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                 }
-                else
+                else if(Alpha > 0)
                 {
-                    spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity * Alpha);
+                    spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
                     spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);

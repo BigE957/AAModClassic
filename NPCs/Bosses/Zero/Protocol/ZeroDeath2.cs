@@ -1,3 +1,6 @@
+using AAModClassic.Backgrounds;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -39,7 +42,15 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             if (Projectile.timeLeft >= 913)
             {
                 if (Projectile.timeLeft == 913)
+                {
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.3"), Color.Red.R, Color.Red.G, Color.Red.B);
+                }
+            }
+            else if (!NPCExtensions.BeenKilled<ZeroProtocol>(true) && Projectile.timeLeft == 800)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Status"), Color.PaleVioletRed);
+                VoidSky.Alpha = 0f;
             }
         }
     }

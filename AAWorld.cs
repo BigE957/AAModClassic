@@ -60,6 +60,7 @@ using AAModClassic.___Content.Stars._PostMoonlord.Items;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Hallow.__Hardmode.Items.Materials;
+using AAModClassic.Backgrounds;
 
 namespace AAModClassic
 {
@@ -1111,6 +1112,12 @@ namespace AAModClassic
                     }
                 }
             }
+        }
+
+        public override void OnWorldLoad()
+        {
+            if (downedZero)
+                VoidSky.Alpha = 0f;
         }
 
         public Vector2 Origin = new Vector2((int)(Main.maxTilesX * 0.65f), 100) * 16;

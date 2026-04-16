@@ -165,7 +165,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
         {
             if (Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.ExpertMode"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Expert"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (NPC.BeenKilled(true))
                 {
                     int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ZeroProtocol>(), 0, 0, 0, 0, 0, NPC.target);
