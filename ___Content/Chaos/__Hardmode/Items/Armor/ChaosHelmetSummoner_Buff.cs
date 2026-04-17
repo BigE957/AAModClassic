@@ -1,15 +1,14 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Chaos.__Hardmode.Items.Armor
 {
-    public class Searcher_Buff : ModBuff
+    public class ChaosHelmetSummoner_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Searcher Scout");
-            // Description.SetDefault("Summons a searcher to fight for you");
+            // DisplayName.SetDefault("Dragon Spirit");
+            // Description.SetDefault("Summons a Dragon Spirit to fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
@@ -17,19 +16,18 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<DoomiteHelmet_Searcher>()] > 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<ChaosHelmetSummoner_DragonSpirit>()] > 0)
             {
-                modPlayer.Searcher = true;
+                modPlayer.DragonSpirit = true;
             }
-            if (!modPlayer.doomite)
+            if (!modPlayer.ChaosSu)
             {
-                modPlayer.Searcher = false;
                 player.DelBuff(buffIndex);
                 buffIndex--;
             }
             else
             {
-                player.buffTime[buffIndex] = 2;
+                player.buffTime[buffIndex] = 18000;
             }
         }
     }

@@ -7,8 +7,8 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Armor.Doomsday;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {
@@ -69,7 +69,7 @@ The power of discordian rage radiates from this hood"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayMask>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetSummoner>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 6);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

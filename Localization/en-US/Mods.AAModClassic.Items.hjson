@@ -10189,3 +10189,73 @@ OroborosLeggings: {
 	DisplayName: Oroboros Leggings
 	Tooltip: ""
 }
+
+ChaosChestplate: {
+	DisplayName: Chaos Chestplate
+	Tooltip: ""
+}
+
+ChaosHelmetMage: {
+	DisplayName: Chaos Helmet Mage
+	Tooltip: ""
+}
+
+ChaosHelmetMelee: {
+	DisplayName: Chaos Helmet Melee
+	Tooltip: ""
+}
+
+ChaosHelmetRanged: {
+	DisplayName: Chaos Helmet Ranged
+	Tooltip: ""
+}
+
+ChaosHelmetSummoner: {
+	DisplayName: Chaos Helmet Summoner
+	Tooltip: ""
+}
+
+ChaosLeggings: {
+	DisplayName: Chaos Leggings
+	Tooltip: ""
+}
+
+FuryWitchsChestplate: {
+	DisplayName: Fury Witchs Chestplate
+	Tooltip: ""
+}
+
+FuryWitchsHelmet: {
+	DisplayName: Fury Witchs Helmet
+	Tooltip: ""
+}
+
+FuryWitchsLeggings: {
+	DisplayName: Fury Witchs Leggings
+	Tooltip: ""
+}
+
+DoomiteChestplate: {
+	DisplayName: Doomite Chestplate
+	Tooltip: ""
+}
+
+DoomiteHelmet: {
+	DisplayName: Doomite Helmet
+	Tooltip: ""
+}
+
+DoomiteLeggings: {
+	DisplayName: Doomite Leggings
+	Tooltip: ""
+}
+
+DoomsdayHelmetMage: {
+	DisplayName: Doomsday Helmet Mage
+	Tooltip: ""
+}
+
+DoomsdayHelmetSummoner: {
+	DisplayName: Doomsday Helmet Summoner
+	Tooltip: ""
+}

@@ -22,11 +22,11 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Demon;
-using AAModClassic.Items.Armor.Doomite;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
@@ -1003,7 +1003,7 @@ namespace AAModClassic
                 ModContent.ItemType<BlazingLeggings>(),
                 ModContent.ItemType<AbyssalLeggings>(),
                 ModContent.ItemType<AtlanteanLeggings>(),
-                ModContent.ItemType<DoomiteGreaves>(),
+                ModContent.ItemType<DoomiteLeggings>(),
                 ModContent.ItemType<RaiderLeggings>(),
                 ModContent.ItemType<DynaskullLeggings>()
             });
@@ -1014,7 +1014,7 @@ namespace AAModClassic
                 ModContent.ItemType<BlazingChestplate>(),
                 ModContent.ItemType<AbyssalChestplate>(),
                 ModContent.ItemType<AtlanteanChestplate>(),
-                ModContent.ItemType<DoomiteBreastplate>(),
+                ModContent.ItemType<DoomiteChestplate>(),
                 ModContent.ItemType<RaiderChestplate>(),
                 ModContent.ItemType<DynaskullChestplate>()
             });

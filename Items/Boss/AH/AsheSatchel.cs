@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossAshe.Armor;
 using AAModClassic.Globals;
-using AAModClassic.Items.Armor.Witch;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -43,9 +43,9 @@ Contains a set of Fury Witch's robes"); */
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<WitchHood>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<WitchRobe>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<WitchBoots>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FuryWitchsHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FuryWitchsChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FuryWitchsLeggings>());
         }
     }
 }
