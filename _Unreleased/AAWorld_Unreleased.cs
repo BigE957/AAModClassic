@@ -207,8 +207,8 @@ namespace AAModClassic._Unreleased
                     attempts = 0;
                     SurfaceMushroomGen_Refactored biome = new SurfaceMushroomGen_Refactored();
                     biome.Place(origin, GenVars.structures);
-                    Main.spawnTileX = biomeCenter.X;
-                    Main.spawnTileY = biomeCenter.Y;
+                    //Main.spawnTileX = biomeCenter.X;
+                    //Main.spawnTileY = biomeCenter.Y;
                 }
                 attempts--;
             }
