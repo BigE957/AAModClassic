@@ -1,14 +1,39 @@
-﻿using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
+﻿using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic.___Content.Chaos.__Hardmode.NPCs;
+using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
+using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
+using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
+using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
+using AAModClassic.___Content.Madness.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
+using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
+using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
+using AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -48,15 +73,18 @@ using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -102,9 +130,16 @@ namespace AAModClassic.CrossMod
         public static void PerformModSupport()
         {
             PerformHealthBarSupport();
+
             PerformBossChecklistSupport();
+
             PerformFargosSupport();
+
+            PopulateCrossModDialogue();
+
             PerformReforgedSupport();
+
+            PerformRedemptionSupport();
         }
 
         private static void PerformHealthBarSupport()
@@ -1180,6 +1215,100 @@ namespace AAModClassic.CrossMod
             }
         }
 
+        private static void PopulateCrossModDialogue()
+        {
+            string locPath = "Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.";
+            if (ModLoader.TryGetMod("Redemption", out var mor) && mor.TryFind<ModSystem>("RedeBossDowned", out ModSystem downed))
+            {
+                var field = downed.GetType().GetField("downedNebuleus", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("Redemption", (Language.GetOrRegister(locPath + "Redemption"), () => (bool)field.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("Thorium", out Mod thorium))
+                ShenA.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(locPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
+
+            if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
+                ShenA.CrossModDialogue.Add("CalamityMod", (Language.GetOrRegister(locPath + "CalamityMod"), () => (bool)cal.Call("GetBossDowned", "scal")));
+
+            if (ModLoader.TryGetMod("SpiritMod", out Mod spiritClassic))
+                ShenA.CrossModDialogue.Add("SpiritMod", (Language.GetOrRegister(locPath + "SpiritMod"), () => (bool)spiritClassic.Call(0, "Atlas")));
+
+            if (ModLoader.TryGetMod("CalamityHunt", out var hunt) && hunt.TryFind<ModSystem>("BossDownedSystem", out downed))
+            {
+                var field = downed.GetType().GetProperty("GoozmaDowned", BindingFlags.Instance | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("CalamityHunt", (Language.GetOrRegister(locPath + "CalamityHunt"), () => (bool)field.GetValue(downed)));
+            }
+
+            if (ModLoader.TryGetMod("StarsAbove", out Mod tsa))
+                ShenA.CrossModDialogue.Add("StarsAbove", (Language.GetOrRegister(locPath + "StarsAbove"), () => (bool)tsa.Call("downedTsukiyomi")));
+
+            if (ModLoader.TryGetMod("LunarVeilLegacy", out var lunarVeil) && lunarVeil.TryFind<ModSystem>("DownedBossSystem", out downed))
+            {
+                var field = downed.GetType().GetField("downedGothiviaBoss", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("LunarVeilLegacy", (Language.GetOrRegister(locPath + "LunarVeil"), () => (bool)field.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("SacredTools", out var soa) && soa.TryFind<ModSystem>("DownedSystem", out downed))
+            {
+                var field = downed.GetType().GetField("DownedNihilus", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("SacredTools", (Language.GetOrRegister(locPath + "SacredTools"), () => (bool)field.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("Catalyst", out Mod catalyst))
+                ShenA.CrossModDialogue.Add("Catalyst", (Language.GetOrRegister(locPath + "Catalyst"), () => (bool)catalyst.Call("worlddefeats.astrageldon")));
+
+            if (ModLoader.TryGetMod("Split", out var split) && split.TryFind<ModSystem>("WorldFlagsSystem", out downed))
+            {
+                var baseSeth = downed.GetType().GetField("DownedSeth", BindingFlags.Static | BindingFlags.Public);
+                var ultiSeth = downed.GetType().GetField("DownedSethUltimate", BindingFlags.Static | BindingFlags.Public);
+
+                if (baseSeth != null)
+                {
+                    if (ultiSeth != null)
+                        ShenA.CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(locPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null) && !(bool)ultiSeth.GetValue(null)));
+                    else
+                        ShenA.CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(locPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null)));
+                }
+                if (ultiSeth != null)
+                    ShenA.CrossModDialogue.Add("Split:SethUltimate", (Language.GetOrRegister(locPath + "Split.SethUltimate"), () => (bool)ultiSeth.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("Macrocosm", out var macrocosm) && macrocosm.TryFind<ModSystem>("WorldData", out downed))
+            {
+                var field = downed.GetType().GetField("DownedCraterDemon", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("Macrocosm", (Language.GetOrRegister(locPath + "Macrocosm"), () => (bool)field.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("Spooky", out var spooky) && spooky.TryFind<ModSystem>("Flags", out downed))
+            {
+                var field = downed.GetType().GetField("downedBigBone", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("Spooky", (Language.GetOrRegister(locPath + "Spooky"), () => (bool)field.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("YouBoss", out var you) && you.TryFind<ModSystem>("WorldSaveSystem", out downed))
+            {
+                var field = downed.GetType().GetProperty("HasDefeatedYourself", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("YouBoss", (Language.GetOrRegister(locPath + "You"), () => (bool)field.GetValue(null)));
+            }
+
+            if (ModLoader.TryGetMod("Radiance", out var radiance) && radiance.TryFind<ModSystem>("SystemTweaks", out downed))
+            {
+                var field = downed.GetType().GetField("downedDaytimeEmpressOfLight", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenA.CrossModDialogue.Add("Radiance", (Language.GetOrRegister(locPath + "Radiance"), () => (bool)field.GetValue(null)));
+            }
+
+            //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
+            //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
+        }
+
         private static void PerformReforgedSupport()
         {
             if (ModLoader.TryGetMod("SpiritReforged", out var reforged))
@@ -1197,10 +1326,230 @@ namespace AAModClassic.CrossMod
 
                 reforged.Call("AddUndead", ModContent.NPCType<BlazeClaw>());
                 reforged.Call("AddUndead", ModContent.NPCType<AbyssClaw>());
+
+                reforged.Call("AddUndead", ModContent.NPCType<AbyssGrip>());
+                reforged.Call("AddUndead", ModContent.NPCType<BlazeGrip>());
                 #endregion
 
                 #region Add Potion Vat
                 reforged.Call("AddPotionVat", ModContent.ItemType<RoninPotion>(), new Color(154, 136, 231), true);
+                #endregion
+            }
+        }
+
+        private enum ElementalID
+        {
+            Arcane = 1,
+            Fire,
+            Water,
+            Ice,
+            Earth,
+            Wind,
+        	Thunder,
+        	Holy,
+        	Shadow,
+        	Nature,
+        	Poison,
+        	Blood,
+        	Psychic,
+        	Celestial,
+        	Explosive
+        }
+
+        private static void PerformRedemptionSupport()
+        {
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+            {
+                #region Enemies
+                //Pre-HM
+                redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<MadnessBat>());
+                redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<MadnessSlime>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<DragonClaw>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<InfernalSlime>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<FlameBrute>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Singemander>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingTail1>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingTail2>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraClaw>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<MurkySlime>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Mosster>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Newt>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Skulker>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<PurityCrawler>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<PuritySphere>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<PuritySphere>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<PuritySquid>());
+
+                //TODO: Where? Are you?
+                //redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<MiniDjinn>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeBody2>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeTail>());
+
+                //HM
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<BlazePhoenix>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<ChaoticDawn>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<MagmaSwimmer>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<PigronInferno>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<InfernalGhoul>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmBody1>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmBody2>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmBody3>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmBody4>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingTail1>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingTail2>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<InfernoMimic>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Kappa>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<ChaoticTwilight>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<FogAngler>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<PigronMire>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<ShadowGhoul>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Toxitoad>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Miresquito>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<MireMimic>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<ChaosDragon>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<ChaosDragon>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraWarlock>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraDeadshot>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraKnight>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraSquire>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraSquid>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraCrawler>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraSphere>());
+                redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<UnityProbe>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<FatPixie>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<ScavengerHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<ScavengerBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<ScavengerTail>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Wind, ModContent.NPCType<Seraph>());
+
+                //Post-ML
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<Nightguard>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<Nightguard>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<Sunwatcher>());
+                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<Sunwatcher>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<BlazeClaw>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AncientLungHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AncientLungBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AncientLungTail>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<AbyssClaw>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Soulsucker>());
+
+                //TODO: Where is it?
+                //redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<TerraSerpent>());
+
+                #endregion
+
+                #region Bosses
+                //Pre-HM
+                redemption.Call("addElementNPC", (int)ElementalID.Arcane, ModContent.NPCType<FeudalFungus>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<GripOfChaosRed>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<GripOfChaosBlue>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<TruffleToad>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Broodmother>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Broodmini>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead1>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead2>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead3>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead4>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead5>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead6>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead7>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead8>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead9>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SerpentHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SerpentBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SerpentTail>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<Djinn>());
+
+                //HM
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<Anubis>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Wind, ModContent.NPCType<Athena>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<Greed>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<GreedBody>());
+
+                //Post-ML
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<ForsakenAnubis>());
+                redemption.Call("addElementNPC", (int)ElementalID.Arcane, ModContent.NPCType<ForsakenAnubis>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Wind, ModContent.NPCType<AthenaA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Thunder, ModContent.NPCType<AthenaA>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<GreedA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<GreedA>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<DaybringerHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<DaybringerBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<DaybringerTail>());
+                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<DaybringerHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<DaybringerBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<DaybringerTail>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<NightcrawlerHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<NightcrawlerBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<NightcrawlerTail>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<NightcrawlerHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<NightcrawlerBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<NightcrawlerTail>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Ashe>());
+                redemption.Call("addElementNPC", (int)ElementalID.Arcane, ModContent.NPCType<Ashe>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Haruka>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<Haruka>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataHeadFake1>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataHeadFake2>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataABody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataAHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<YamataAHeadFake>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<YamataABody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<YamataAHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<YamataAHeadFake>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Akuma>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaBody>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Explosive, ModContent.NPCType<AkumaABody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Explosive, ModContent.NPCType<AkumaABody>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Shen>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Shen>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<ShenA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Explosive, ModContent.NPCType<ShenA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<ShenA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<ShenA>());
+
+                redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<SoulOfCthulhu>());
                 #endregion
             }
         }

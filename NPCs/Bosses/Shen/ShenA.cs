@@ -30,102 +30,6 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Shen Doragon Awakened");
             Main.npcFrameCount[NPC.type] = 2;
-
-            PopulateCrossModDialogue();
-        }
-
-        private static void PopulateCrossModDialogue()
-        {
-            string locPath = "Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.";
-            if (ModLoader.TryGetMod("Redemption", out var mor) && mor.TryFind<ModSystem>("RedeBossDowned", out ModSystem downed))
-            {
-                var field = downed.GetType().GetField("downedNebuleus", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("Redemption", (Language.GetOrRegister(locPath + "Redemption"), () => (bool)field.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("Thorium", out Mod thorium))
-                CrossModDialogue.Add("Thorium", (Language.GetOrRegister(locPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
-
-            if(ModLoader.TryGetMod("CalamityMod", out Mod cal))
-                CrossModDialogue.Add("CalamityMod", (Language.GetOrRegister(locPath + "CalamityMod"), () => (bool)cal.Call("GetBossDowned", "scal")));
-
-            if(ModLoader.TryGetMod("SpiritMod", out Mod spiritClassic))
-                CrossModDialogue.Add("SpiritMod", (Language.GetOrRegister(locPath + "SpiritMod"), () => (bool)spiritClassic.Call(0, "Atlas")));
-
-            if (ModLoader.TryGetMod("CalamityHunt", out var hunt) && hunt.TryFind<ModSystem>("BossDownedSystem", out downed))
-            {
-                var field = downed.GetType().GetProperty("GoozmaDowned", BindingFlags.Instance | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("CalamityHunt", (Language.GetOrRegister(locPath + "CalamityHunt"), () => (bool)field.GetValue(downed)));
-            }
-
-            if (ModLoader.TryGetMod("StarsAbove", out Mod tsa))
-                CrossModDialogue.Add("StarsAbove", (Language.GetOrRegister(locPath + "StarsAbove"), () => (bool)tsa.Call("downedTsukiyomi")));
-
-            if (ModLoader.TryGetMod("LunarVeilLegacy", out var lunarVeil) && lunarVeil.TryFind<ModSystem>("DownedBossSystem", out downed))
-            {
-                var field = downed.GetType().GetField("downedGothiviaBoss", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("LunarVeilLegacy", (Language.GetOrRegister(locPath + "LunarVeil"), () => (bool)field.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("SacredTools", out var soa) && soa.TryFind<ModSystem>("DownedSystem", out downed))
-            {
-                var field = downed.GetType().GetField("DownedNihilus", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("SacredTools", (Language.GetOrRegister(locPath + "SacredTools"), () => (bool)field.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("Catalyst", out Mod catalyst))
-                CrossModDialogue.Add("Catalyst", (Language.GetOrRegister(locPath + "Catalyst"), () => (bool)catalyst.Call("worlddefeats.astrageldon")));
-
-            if (ModLoader.TryGetMod("Split", out var split) && split.TryFind<ModSystem>("WorldFlagsSystem", out downed))
-            {
-                var baseSeth = downed.GetType().GetField("DownedSeth", BindingFlags.Static | BindingFlags.Public);
-                var ultiSeth = downed.GetType().GetField("DownedSethUltimate", BindingFlags.Static | BindingFlags.Public);
-
-                if (baseSeth != null)
-                {
-                    if (ultiSeth != null)
-                        CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(locPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null) && !(bool)ultiSeth.GetValue(null)));
-                    else
-                        CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(locPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null)));
-                }
-                if (ultiSeth != null)
-                    CrossModDialogue.Add("Split:SethUltimate", (Language.GetOrRegister(locPath + "Split.SethUltimate"), () => (bool)ultiSeth.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("Macrocosm", out var macrocosm) && macrocosm.TryFind<ModSystem>("WorldData", out downed))
-            {
-                var field = downed.GetType().GetField("DownedCraterDemon", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("Macrocosm", (Language.GetOrRegister(locPath + "Macrocosm"), () => (bool)field.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("Spooky", out var spooky) && spooky.TryFind<ModSystem>("Flags", out downed))
-            {
-                var field = downed.GetType().GetField("downedBigBone", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("Spooky", (Language.GetOrRegister(locPath + "Spooky"), () => (bool)field.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("YouBoss", out var you) && you.TryFind<ModSystem>("WorldSaveSystem", out downed))
-            {
-                var field = downed.GetType().GetProperty("HasDefeatedYourself", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("YouBoss", (Language.GetOrRegister(locPath + "You"), () => (bool)field.GetValue(null)));
-            }
-
-            if (ModLoader.TryGetMod("Radiance", out var radiance) && radiance.TryFind<ModSystem>("SystemTweaks", out downed))
-            {
-                var field = downed.GetType().GetField("downedDaytimeEmpressOfLight", BindingFlags.Static | BindingFlags.Public);
-                if (field != null)
-                    CrossModDialogue.Add("Radiance", (Language.GetOrRegister(locPath + "Radiance"), () => (bool)field.GetValue(null)));
-            }
-
-            //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
-            //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
         }
 
         public static bool AddShenCrossmodDialogue(string key, LocalizedText text, Func<bool> condition) => CrossModDialogue.TryAdd(key, new(text, condition));
@@ -145,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             return Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.NoMod");
         }
 
-        private static readonly Dictionary<string, (LocalizedText text, Func<bool> condition)> CrossModDialogue = [];
+        public static readonly Dictionary<string, (LocalizedText text, Func<bool> condition)> CrossModDialogue = [];
 
         public override void SetDefaults()
         {
