@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Armor.DoomiteU;
 using AAModClassic.Items.Boss.Broodmother;
 using Terraria;
 using Terraria.ID;
@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.Doomite
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomiteUGreaves>());
+            recipe.AddIngredient(ModContent.ItemType<DarkDoomiteLeggings>());
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 6);
             recipe.AddIngredient(ItemID.Coral, 6);
             recipe.AddIngredient(ItemID.FossilOre, 6);

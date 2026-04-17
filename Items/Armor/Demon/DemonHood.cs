@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Armor.Imp;
+using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
 
 
 namespace AAModClassic.Items.Armor.Demon
@@ -59,7 +59,7 @@ namespace AAModClassic.Items.Armor.Demon
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<ImpHood>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<ImpHelmet>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 5);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.ShadowScale, 5);
@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Armor.Demon
             }
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<ImpHood>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<ImpHelmet>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 5);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.TissueSample, 5);

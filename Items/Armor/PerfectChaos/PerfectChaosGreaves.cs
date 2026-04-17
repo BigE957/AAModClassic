@@ -6,8 +6,8 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
-using AAModClassic.Items.Armor.Draco;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {
@@ -52,8 +52,8 @@ The power of discordian rage radiates from this armor"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DracoLeggings>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DreadLeggings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DraconianSunLeggings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadMoonLeggings>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 4);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 4);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

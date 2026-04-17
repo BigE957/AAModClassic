@@ -1,5 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Accessories;
+﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Blazing;
 using AAModClassic.Items.Materials;
-using AAModClassic.Items.Armor.Raider;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -49,12 +49,12 @@ namespace AAModClassic.Items.Armor.Chaos
         {
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BlazingKabuto>());
+            recipe.AddIngredient(ModContent.ItemType<BlazingHelmet>());
             recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<RaiderHelm>());
+            recipe.AddIngredient(ModContent.ItemType<RaiderHelmet>());
             recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

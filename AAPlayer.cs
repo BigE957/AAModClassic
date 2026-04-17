@@ -1,5 +1,7 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Quest;
@@ -7,6 +9,7 @@ using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Tiles;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Quest;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
@@ -18,12 +21,13 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Consumables;
+using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Tinkers.__Hardmode.Items.Accessories;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Assassin;
 using AAModClassic.Items.Armor.Champion;
 using AAModClassic.Items.Armor.Champion.Carrot;
@@ -32,12 +36,8 @@ using AAModClassic.Items.Armor.Chaos;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Doomite;
 using AAModClassic.Items.Armor.Doomsday;
-using AAModClassic.Items.Armor.Draco;
-using AAModClassic.Items.Armor.GlowingMushium;
-using AAModClassic.Items.Armor.Hoodlum;
 using AAModClassic.Items.Armor.PerfectChaos;
 using AAModClassic.Items.Armor.Radium;
-using AAModClassic.Items.Armor.StripeMan;
 using AAModClassic.Items.Armor.Terra.Projectiles;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Equinox;
@@ -3830,7 +3830,7 @@ namespace AAModClassic
             for (int n = 10; n < 18 + Player.extraAccessorySlots; n++)
             {
                 Item item = Player.armor[n];
-                if (item.type == ModContent.ItemType<StripeManShirt>())
+                if (item.type == ModContent.ItemType<StripemansLuckyChestplate>())
                 {
                     Player.accWatch = 3;
                     Player.accDepthMeter = 1;
@@ -4023,7 +4023,7 @@ namespace AAModClassic
                 Vector2 position = drawInfo.Position;
                 int dyeHead = drawInfo.cHead;
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoHelm>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconainSunHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4095,7 +4095,7 @@ namespace AAModClassic
                 //{
                 //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TiedMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.FlashGlow, drawInfo.shadow), drawPlayer.bodyFrame);
                 //}
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomHat>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomHat_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4151,7 +4151,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<HoodlumHood>()) && drawPlayer.statLife < (drawPlayer.statLifeMax2 / 2))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<HoppingHoodlumHelmet>()) && drawPlayer.statLife < (drawPlayer.statLifeMax2 / 2))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/HoodlumHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4283,7 +4283,7 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoPlate>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4299,7 +4299,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Body").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomShirt>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4340,7 +4340,7 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoPlate>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4356,7 +4356,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Arms").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomShirt>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4393,7 +4393,7 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoLeggings>()))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
@@ -4409,7 +4409,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumCuisses_Legs").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomPants>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.legFrame);
                 }

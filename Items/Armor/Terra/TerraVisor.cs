@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Deathly;
 using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor;
 
 
 namespace AAModClassic.Items.Armor.Terra
@@ -55,7 +55,7 @@ Grants hunter & night vision"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DeathlySkull>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DeathlyHelmet>(), 1);
             recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

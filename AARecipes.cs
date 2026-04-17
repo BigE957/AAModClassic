@@ -1,33 +1,33 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Corruption.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Crimson.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Jungle.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Jungle.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Accessories;
-using AAModClassic.Items.Armor.Abyssal;
-using AAModClassic.Items.Armor.Atlantean;
-using AAModClassic.Items.Armor.Blazing;
 using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic.Items.Armor.Deathly;
 using AAModClassic.Items.Armor.Demon;
 using AAModClassic.Items.Armor.Doomite;
-using AAModClassic.Items.Armor.Dynaskull;
-using AAModClassic.Items.Armor.Fleshrend;
-using AAModClassic.Items.Armor.Nights;
 using AAModClassic.Items.Armor.Radium;
-using AAModClassic.Items.Armor.Raider;
-using AAModClassic.Items.Armor.Tribal;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.MushroomMonarch;
@@ -1000,23 +1000,23 @@ namespace AAModClassic
 
             RecipeGroup group18 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ChaosLeggings"), new int[]
             {
-                ModContent.ItemType<BlazingSuneate>(),
-                ModContent.ItemType<AbyssalHakama>(),
-                ModContent.ItemType<AtlanteanGreaves>(),
+                ModContent.ItemType<BlazingLeggings>(),
+                ModContent.ItemType<AbyssalLeggings>(),
+                ModContent.ItemType<AtlanteanLeggings>(),
                 ModContent.ItemType<DoomiteGreaves>(),
-                ModContent.ItemType<RaiderLegs>(),
-                ModContent.ItemType<DynaskullGreaves>()
+                ModContent.ItemType<RaiderLeggings>(),
+                ModContent.ItemType<DynaskullLeggings>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosBoots", group18);
 
             RecipeGroup group19 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.ChaosChestpiece"), new int[]
             {
-                ModContent.ItemType<BlazingDou>(),
-                ModContent.ItemType<AbyssalGi>(),
-                ModContent.ItemType<AtlanteanPlate>(),
+                ModContent.ItemType<BlazingChestplate>(),
+                ModContent.ItemType<AbyssalChestplate>(),
+                ModContent.ItemType<AtlanteanChestplate>(),
                 ModContent.ItemType<DoomiteBreastplate>(),
-                ModContent.ItemType<RaiderChest>(),
-                ModContent.ItemType<DynaskullRibguard>()
+                ModContent.ItemType<RaiderChestplate>(),
+                ModContent.ItemType<DynaskullChestplate>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosPlates", group19);
 
@@ -1069,20 +1069,20 @@ namespace AAModClassic
 
             RecipeGroup group24 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Boots", new int[]
             {
-                ModContent.ItemType<FleshrendGreaves>(),
-                ModContent.ItemType<NightsGreaves>(),
-                ModContent.ItemType<TribalKilt>(),
-                ModContent.ItemType<DeathlyGreaves>(),
+                ModContent.ItemType<FleshrendLeggings>(),
+                ModContent.ItemType<NightsLeggings>(),
+                ModContent.ItemType<TribalLeggings>(),
+                ModContent.ItemType<DeathlyLeggings>(),
                 ModContent.ItemType<DemonBoots>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraBoots", group24);
 
             RecipeGroup group25 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Terra Chestplate", new int[]
             {
-                ModContent.ItemType<NightsPlate>(),
-                ModContent.ItemType<FleshrendPlate>(),
-                ModContent.ItemType<TribalCloak>(),
-                ModContent.ItemType<DeathlyRibguard>(),
+                ModContent.ItemType<NightsChestplate>(),
+                ModContent.ItemType<FleshrendChestplate>(),
+                ModContent.ItemType<TribalChestplate>(),
+                ModContent.ItemType<DeathlyChestplate>(),
                 ModContent.ItemType<DemonGarb>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraPlates", group25);

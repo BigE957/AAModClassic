@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Armor.Atlantean;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -58,7 +58,7 @@ Allows you to breath underwater"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<AtlanteanHelm>());
+			recipe.AddIngredient(ModContent.ItemType<AtlanteanHelmet>());
 			recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

@@ -1,4 +1,4 @@
-using AAModClassic.Items.Accessories;
+using AAModClassic.___Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using Terraria;
