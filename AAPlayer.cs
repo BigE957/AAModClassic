@@ -1,5 +1,6 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
+using AAModClassic.___Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Consumables;
@@ -23,8 +24,10 @@ using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Tinkers.__Hardmode.Items.Accessories;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Quest;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
@@ -32,10 +35,7 @@ using AAModClassic.Items.Armor.Assassin;
 using AAModClassic.Items.Armor.Champion;
 using AAModClassic.Items.Armor.Champion.Carrot;
 using AAModClassic.Items.Armor.Champion.Drone;
-using AAModClassic.Items.Armor.Chaos;
 using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic.Items.Armor.Doomite;
-using AAModClassic.Items.Armor.Doomsday;
 using AAModClassic.Items.Armor.PerfectChaos;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Terra.Projectiles;
@@ -3195,7 +3195,7 @@ namespace AAModClassic
                     vector2.X = Main.mouseX + Main.screenPosition.X;
                     vector2.Y = Main.mouseY + Main.screenPosition.Y;
 
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<DragonShot>(), damage, knockback, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<ChaosHelmetSummoner_DragonShot>(), damage, knockback, Main.myPlayer, 0f, 0f);
                 }
             }
 
@@ -4027,7 +4027,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayHelmet>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayHelmetMage>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4103,7 +4103,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckHead_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteVisor>()) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteHelmet>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4307,7 +4307,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckShirt_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteBreastplate>()) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteChestplate>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4360,7 +4360,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteBreastplate>()) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteChestplate>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4413,7 +4413,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteGreaves>()) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteLeggings>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteGreaves_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.legFrame);
                 }
