@@ -1,5 +1,6 @@
 ﻿using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
+using AAModClassic.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -443,7 +444,7 @@ namespace AAModClassic.CrossMod
     {
         public override void OnKill(NPC npc)
         {
-            if (npc.ModNPC != null && TsaPlayer._lookupCache.TryGetValue(npc.type, out var data))
+            if (npc.ModNPC != null && !NPCExtensions.BeenKilled(npc, true) && TsaPlayer._lookupCache.TryGetValue(npc.type, out var data))
                 Main.LocalPlayer.GetModPlayer<TsaPlayer>().BossDefeat(data);
         }
     }
