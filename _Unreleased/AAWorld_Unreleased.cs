@@ -1,4 +1,15 @@
-﻿using AAModClassic.Tiles;
+﻿using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic._Removed;
+using AAModClassic._Removed.Content.Parthenan.Tiles;
+using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
+using AAModClassic._Unreleased.Content.Parthenan.World;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
+using AAModClassic._Unreleased.Content.SunkenShip.World;
+using AAModClassic.CrossMod;
+using AAModClassic.Tiles;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using AAModClassic.World;
 using Microsoft.Xna.Framework;
 using System;
@@ -11,17 +22,6 @@ using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.WorldBuilding;
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
-using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
-using AAModClassic._Unreleased.Content.Parthenan.World;
-using AAModClassic._Unreleased.Content.SunkenShip.World;
-using AAModClassic._Removed;
-using AAModClassic._Removed.Content.Parthenan.Tiles;
-using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
-using AAModClassic.UI.WorldGen;
-using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.Utilities;
-using AAModClassic.CrossMod;
 
 namespace AAModClassic._Unreleased
 {
@@ -135,21 +135,21 @@ namespace AAModClassic._Unreleased
             while (attempts > 0)
             {
                 Point origin = new Point();
-                Point newOrigin = new Point();
+                Point biomeCenter = new Point();
 
                 bool isInBounds = false;
                 bool isInCenter = false;
-                while (attempts > 0 && (!isInBounds || isInCenter || origin == new Point() || newOrigin == new Point()))
+                while (attempts > 0 && (!isInBounds || isInCenter || origin == new Point() || biomeCenter == new Point()))
                 {
                     origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
                     origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
 
                     // do some stuff to make it so the old origin is the position
-                    newOrigin = new Point(origin.X, origin.Y);
+                    biomeCenter = new Point(origin.X, origin.Y);
                     origin.X -= biomeHeightHalf;
                     origin.Y -= biomeHeightHalf;
 
-                    if (origin.X > 300 || origin.X < x - 300)
+                    if (origin.X > (biomeWidth * 1.25) && origin.X < x - (biomeWidth * 1.25))
                         isInBounds = true;
                     else
                         isInBounds = false;
@@ -168,29 +168,7 @@ namespace AAModClassic._Unreleased
                     TileID.Grass,
                     TileID.Dirt,
                     TileID.Stone,
-                    TileID.Sand,
-                    TileID.SnowBlock,
-                    TileID.IceBlock,
-                    TileID.BlueDungeonBrick,
-                    TileID.PinkDungeonBrick,
-                    TileID.GreenDungeonBrick,
-                    TileID.JungleGrass,
-                    TileID.Mud,
-                    TileID.CorruptGrass,
-                    TileID.Ebonstone,
-                    TileID.Ebonsand,
-                    TileID.CrimsonGrass,
-                    TileID.Crimstone,
-                    TileID.Crimsand,
-                    (ushort)ModContent.TileType<MireGrass_Tile>(),
-                    (ushort)ModContent.TileType<Depthstone_Tile>(),
-                    (ushort)ModContent.TileType<Depthsand_Tile>(),
-                    (ushort)ModContent.TileType<IndigoIce_Tile>(),
-                    (ushort)ModContent.TileType<InfernoGrass_Tile>(),
-                    (ushort)ModContent.TileType<Torchstone_Tile>(),
-                    (ushort)ModContent.TileType<Torchsand_Tile>(),
-                    (ushort)ModContent.TileType<TorchAsh_Tile>(),
-                    (ushort)ModContent.TileType<AAModClassic.Tiles.Torchice_Tile>(),
+                    TileID.ClayBlock
                 }).Output(dictionary));
 
                 // we do this manually bcuz im stupid as fuuuuuuuuuuuck
@@ -210,18 +188,27 @@ namespace AAModClassic._Unreleased
                     }
                 }
 
-                int dontGenThreshold = worldSize == 3 ? 800 : worldSize == 2 ? 600 : 400;
                 int grassCountThreshold = worldSize == 3 ? 100 : worldSize == 2 ? 75 : 50;
-                int IceBlockBiomeCount = dictionary[TileID.SnowBlock] + dictionary[TileID.IceBlock] + dictionary[(ushort)ModContent.TileType<IndigoIce_Tile>()] + dictionary[(ushort)ModContent.TileType<TorchAsh_Tile>()] + dictionary[(ushort)ModContent.TileType<AAModClassic.Tiles.Torchice_Tile>()];
-                int sandBiomeCount = dictionary[TileID.Sand] + dictionary[TileID.Ebonsand] + dictionary[TileID.Crimsand] + dictionary[(ushort)ModContent.TileType<Depthsand_Tile>()] + dictionary[(ushort)ModContent.TileType<Torchsand_Tile>()];
-                int dungeonBiomeCount = dictionary[TileID.BlueDungeonBrick] + dictionary[TileID.PinkDungeonBrick] + dictionary[TileID.GreenDungeonBrick];
-                int jungleBiomeCount = dictionary[TileID.JungleGrass] + dictionary[TileID.Mud] + dictionary[(ushort)ModContent.TileType<MireGrass_Tile>()];
-                int evilBiomeCount = dictionary[TileID.CorruptGrass] + dictionary[TileID.Ebonstone] + dictionary[TileID.Ebonsand] + dictionary[TileID.CrimsonGrass] + dictionary[TileID.Crimstone] + dictionary[TileID.Crimsand] + dictionary[(ushort)ModContent.TileType<MireGrass_Tile>()] + dictionary[(ushort)ModContent.TileType<Depthstone_Tile>()] + dictionary[(ushort)ModContent.TileType<Depthsand_Tile>()] + dictionary[(ushort)ModContent.TileType<InfernoGrass_Tile>()] + dictionary[(ushort)ModContent.TileType<Torchstone_Tile>()] + dictionary[(ushort)ModContent.TileType<Torchsand_Tile>()];
-                if (grassCount > grassCountThreshold && dungeonBiomeCount <= 0 && IceBlockBiomeCount < dontGenThreshold && sandBiomeCount < dontGenThreshold && jungleBiomeCount < dontGenThreshold && evilBiomeCount < dontGenThreshold)
+                int regularBlockCount = dictionary[TileID.Dirt] + dictionary[TileID.Stone] + dictionary[TileID.ClayBlock];
+
+                Ref<int> solidCount = new Ref<int>(0);
+                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(new GenAction[]
                 {
+                    new Actions.ContinueWrapper(Actions.Chain(new GenAction[]
+                    {
+                        new Modifiers.IsSolid(),
+                        new Actions.Scanner(solidCount)
+                    })),
+                }));
+
+                if (grassCount > grassCountThreshold && regularBlockCount > (solidCount.Value * 0.9))
+                {
+                    //TODO: this worldgen has to truth nuke the stupid logs
                     attempts = 0;
                     SurfaceMushroomGen_Refactored biome = new SurfaceMushroomGen_Refactored();
                     biome.Place(origin, GenVars.structures);
+                    Main.spawnTileX = biomeCenter.X;
+                    Main.spawnTileY = biomeCenter.Y;
                 }
                 attempts--;
             }
