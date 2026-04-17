@@ -719,7 +719,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "SubzeroSerpent.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SubzeroSerpent.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<SubzeroCrystal>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "SubzeroSerpent.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<CuriousClaw>(),
+                    ["spawnItems"] = ModContent.ItemType<SubzeroCrystal>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Serpent.SerpentTrophy>(),
