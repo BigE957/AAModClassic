@@ -1,5 +1,4 @@
-﻿using AAModClassic.Projectiles.Rajah.Supreme;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;

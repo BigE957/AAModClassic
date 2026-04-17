@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 

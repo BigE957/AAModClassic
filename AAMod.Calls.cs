@@ -1,12 +1,7 @@
 ﻿using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;

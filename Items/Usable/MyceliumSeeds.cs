@@ -1,4 +1,3 @@
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles;
 using Terraria;
 using Terraria.ID;

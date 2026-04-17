@@ -1,12 +1,8 @@
 ﻿using Terraria;
 using System;
-using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Banners;
 
 namespace AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling

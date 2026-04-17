@@ -1,6 +1,5 @@
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Materials;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;

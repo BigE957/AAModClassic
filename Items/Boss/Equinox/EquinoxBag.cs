@@ -1,15 +1,12 @@
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
-using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.NPCs.Bosses.Equinox.DaybringerHead;
 
 namespace AAModClassic.Items.Boss.Equinox
 {

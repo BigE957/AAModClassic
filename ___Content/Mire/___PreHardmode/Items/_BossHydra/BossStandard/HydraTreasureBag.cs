@@ -6,7 +6,6 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
