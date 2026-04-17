@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;

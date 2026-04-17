@@ -1,4 +1,3 @@
-using AAModClassic.Backgrounds;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;

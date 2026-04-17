@@ -16,7 +16,6 @@ using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.UI;
 
 namespace AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra
 {

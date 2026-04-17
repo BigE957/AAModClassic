@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Projectiles.Thorium;
 using Microsoft.Xna.Framework;

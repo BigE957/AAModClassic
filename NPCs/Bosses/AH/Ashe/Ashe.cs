@@ -1,8 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.AH;
-using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

@@ -5,15 +5,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
-using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using AAModClassic.Base.NPCs;
-using AAModClassic.Base.Projectiles;
-using ReLogic.Content;
 
 namespace AAModClassic.Base.BaseMod.Base
 {

@@ -1,5 +1,4 @@
-﻿using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic._Removed;
+﻿using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.Tiles;
 using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
 using AAModClassic._Unreleased.Content.Parthenan.World;
@@ -7,7 +6,6 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthu
 using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
 using AAModClassic._Unreleased.Content.SunkenShip.World;
 using AAModClassic.CrossMod;
-using AAModClassic.Tiles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.World;

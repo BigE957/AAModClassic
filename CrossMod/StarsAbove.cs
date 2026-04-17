@@ -1,9 +1,6 @@
-﻿using AAModClassic.NPCs.Bosses.FeudalFungus;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
-using AAModClassic.Utilities;
+﻿using AAModClassic.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Reflection;
 using Terraria;
 using Terraria.Audio;

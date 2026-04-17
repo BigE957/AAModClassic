@@ -3,12 +3,8 @@
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-using Terraria.ModLoader;
-
-using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
 
 namespace AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger
 {

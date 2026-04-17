@@ -2,15 +2,12 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using Microsoft.Xna.Framework;
 using System.Linq;
-using AAModClassic.Utilities;
 
 namespace AAModClassic.Base.BaseMod.Base
 {

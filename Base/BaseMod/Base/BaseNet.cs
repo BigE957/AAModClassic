@@ -1,9 +1,4 @@
-using System.IO;
-using Microsoft.Xna.Framework;
-
-using Terraria;
 using Terraria.ModLoader;
-using Terraria.Localization;
 
 namespace AAModClassic.Base.BaseMod.Base
 {

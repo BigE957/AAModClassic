@@ -4,7 +4,6 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +13,6 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Equinox

@@ -1,11 +1,9 @@
-﻿using AAModClassic.Backgrounds;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.BossSummons;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

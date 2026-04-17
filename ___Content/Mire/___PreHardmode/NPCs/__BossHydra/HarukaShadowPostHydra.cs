@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Music;
 
 namespace AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra
 { 

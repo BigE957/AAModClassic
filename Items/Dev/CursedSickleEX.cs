@@ -1,4 +1,3 @@
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss;
 using Microsoft.Xna.Framework;
 
