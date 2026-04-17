@@ -26,10 +26,12 @@ using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Desert;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
@@ -39,6 +41,8 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+using AAModClassic._Unreleased.Content.Void.Buffs;
+using AAModClassic.Buffs;
 using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.AH;
 using AAModClassic.Items.Boss.Akuma;
@@ -78,6 +82,14 @@ using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Enemies.Snow;
+using AAModClassic.Projectiles;
+using AAModClassic.Projectiles.Akuma;
+using AAModClassic.Projectiles.EFish;
+using AAModClassic.Projectiles.Rajah;
+using AAModClassic.Projectiles.Rajah.Supreme;
+using AAModClassic.Projectiles.Shen;
+using AAModClassic.Projectiles.Toad;
+using AAModClassic.Projectiles.Zero;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -140,6 +152,8 @@ namespace AAModClassic.CrossMod
             PerformReforgedSupport();
 
             PerformRedemptionSupport();
+
+            PerformThoriumSupport();
         }
 
         private static void PerformHealthBarSupport()
@@ -1550,6 +1564,67 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<ShenA>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<SoulOfCthulhu>());
+                #endregion
+
+                #region Items
+                //TODO
+                #endregion
+
+                #region Projectiles
+                //TODO
+                #endregion
+            }
+        }
+
+        private static void PerformThoriumSupport()
+        {
+            if (ModLoader.TryGetMod("ThoriumMod", out var thorium))
+            {
+                #region Flail Projectiles
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<GlacierBreaker>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<MushMace>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Pyrosphere>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Toad.ToadTongue>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Yogan>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChain>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IllumantBall>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Ryusei>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Punisher>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Shen.Astroid>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Akuma.Daycrusher>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EFlairon>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Flairdra_Holdout>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChainEX>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<PunisherEX>());
+                #endregion
+
+                #region DoT Debuffs
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<HydraToxin_Buff>());
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<DragonFire_Buff>());
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<DiscordInferno_Buff>());
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<Terrablaze_Buff>());
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<Moonraze_Buff>());
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<InfinityScorch_Buff>());
+
+                #endregion
+
+                #region Status Debuffs
+                thorium.Call("AddPlayerStatusBuffID", ModContent.BuffType<Shroomed_Buff>());
+                thorium.Call("AddPlayerStatusBuffID", ModContent.BuffType<LockedOn_Buff>());
+                #endregion
+
+                #region Repellents
+                thorium.Call("AddBatRepellentNPCID", ModContent.NPCType<MadnessBat>());
+                
+                //thorium.Call("AddZombieRepellentNPCID", ModContent.NPCType<MushroomZombie>());
+
+                thorium.Call("AddFishRepellentNPCID", ModContent.NPCType<MagmaSwimmer>());
+                thorium.Call("AddFishRepellentNPCID", ModContent.NPCType<FogAngler>());
+
+                thorium.Call("AddInsectRepellentNPCID", ModContent.NPCType<Skulker>());
+                thorium.Call("AddInsectRepellentNPCID", ModContent.NPCType<Miresquito>());
+                thorium.Call("AddInsectRepellentNPCID", ModContent.NPCType<Soulsucker>());
                 #endregion
             }
         }
