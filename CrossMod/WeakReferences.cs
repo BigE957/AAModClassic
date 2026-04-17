@@ -1,10 +1,14 @@
-﻿using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
+﻿using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -22,6 +26,7 @@ using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Potions;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
@@ -60,7 +65,7 @@ namespace AAModClassic.CrossMod
 {
     internal class WeakReferences
     {
-        private static Dictionary<string, float> BossProgressionValues = new()
+        private static readonly Dictionary<string, float> BossProgressionValues = new()
         {
             { "MushroomMonarch", 0f },
             { "FeudalFungus", 0.1f },
@@ -98,7 +103,8 @@ namespace AAModClassic.CrossMod
         {
             PerformHealthBarSupport();
             PerformBossChecklistSupport();
-            PerformFargosSetup();
+            PerformFargosSupport();
+            PerformReforgedSupport();
         }
 
         private static void PerformHealthBarSupport()
@@ -1138,7 +1144,7 @@ namespace AAModClassic.CrossMod
             }
         }
 
-        private static void PerformFargosSetup()
+        private static void PerformFargosSupport()
         {
             if (ModLoader.TryGetMod("Fargowiltas", out var fargos))
             {
@@ -1171,6 +1177,31 @@ namespace AAModClassic.CrossMod
                 fargos.Call("AddSummon", BossProgressionValues["ShenA"], "AAModClassic", "ChaosRune", (Func<bool>)(() => AAWorld.downedShen && Main.expertMode), 4000000);
                 fargos.Call("AddSummon", BossProgressionValues["InfinityZero"], "AAModClassic", "InfinityOverloader", (Func<bool>)(() => NPCExtensions.BeenKilled<InfinityZero>()), 2500000);
                 fargos.Call("AddSummon", BossProgressionValues["SoulOfCthulhu"], "AAModClassic", "CursedCompass", (Func<bool>)(() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), 2500000);
+            }
+        }
+
+        private static void PerformReforgedSupport()
+        {
+            if (ModLoader.TryGetMod("SpiritReforged", out var reforged))
+            {
+                #region Register Undead
+                //TODO: Where is he?
+                //reforged.Call("AddUndead", ModContent.NPCType<MushroomZombie>());
+                reforged.Call("AddUndead", ModContent.NPCType<DragonClaw>());
+                reforged.Call("AddUndead", ModContent.NPCType<HydraClaw>());
+
+                reforged.Call("AddUndead", ModContent.NPCType<DragonClawM>());
+                reforged.Call("AddUndead", ModContent.NPCType<HydraClawM>());
+                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosBlue>());
+                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosRed>());
+
+                reforged.Call("AddUndead", ModContent.NPCType<BlazeClaw>());
+                reforged.Call("AddUndead", ModContent.NPCType<AbyssClaw>());
+                #endregion
+
+                #region Add Potion Vat
+                reforged.Call("AddPotionVat", ModContent.ItemType<RoninPotion>(), new Color(154, 136, 231), true);
+                #endregion
             }
         }
     }

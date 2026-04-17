@@ -254,8 +254,8 @@ namespace AAModClassic.CrossMod
             internal BossData(string name) : this(name, StarfarerPromptData.DefaultSeenData(name)) { }
         }
 
-        private static readonly List<BossData> BossRegistry = new()
-        {
+        private static readonly List<BossData> BossRegistry =
+        [
             new("MushroomMonarch",
                 StarfarerPromptData.CustomSeen(() => "MushroomMonarch.Seen"),
                 StarfarerPromptData.CustomDefeat(() => "MushroomMonarch.Defeat", StarfarerExpression.Thinking)),
@@ -379,7 +379,7 @@ namespace AAModClassic.CrossMod
             new("SoulOfCthulhu",
                 StarfarerPromptData.CustomSeen(() => "SoulOfCthulhu.Seen", StarfarerExpression.Worried, StarfarerExpression.Angry, "BossVoiceAngry", "BossVoiceAngry"),
                 StarfarerPromptData.CustomDefeat(() => "SoulOfCthulhu.Defeat", StarfarerExpression.Surprised, StarfarerExpression.Worried, aVoice: "BossVoiceAngry")),
-        };
+        ];
 
         internal static Dictionary<int, BossData> _lookupCache;
 
