@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Melee
             Item.damage = 15;
             Item.knockBack = 7;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Pyrosphere>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Pyrosphere_Proj>();
             Item.shootSpeed = 10;
             Item.noUseGraphic = true;
             Item.noMelee = true;

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class Yogan : ModProjectile
+    public class Yogan_Proj : ModProjectile
     {
         public float rot = 0;
 

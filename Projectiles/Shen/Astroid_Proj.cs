@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Shen
 {
-    public class Astroid : ModProjectile
+    public class Astroid_Proj : ModProjectile
     {
         public static Asset<Texture2D> ChainTex;
 

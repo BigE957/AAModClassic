@@ -1,73 +1,39 @@
 using System;
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.Projectiles.Toad
 {
-    public class ChaosChainEX : ModProjectile
+    public class ToadTongue_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Perfect Chaos Chain");
+			// DisplayName.SetDefault("Toad Tongue");
 		}
-
         public override void SetDefaults()
         {
-            Projectile.width = 58;
-            Projectile.height = 58;
+            Projectile.width = 20;
+            Projectile.height = 20;
             Projectile.friendly = true;
             Projectile.penetrate = -1; 
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.tileCollide = false;
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 5;
-            Projectile.extraUpdates = 1;
+            Projectile.knockBack = 0;
         }
-
-        public float[] InternalAI = new float[2];
-        public override void SendExtraAI(BinaryWriter writer)
-        {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(InternalAI[0]);
-                writer.Write(InternalAI[1]);
-            }
-        }
-
-        public override void ReceiveExtraAI(BinaryReader reader)
-        {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                InternalAI[0] = reader.ReadSingle();
-                InternalAI[1] = reader.ReadSingle();
-            }
-        }
-
-        float Rot = 0;
-        int Dir = 1;
 		
 		public override void AI()
-        {
-            for (int i = 0; i < 1000; ++i)
+		{
+            if (Main.rand.NextFloat() < 1f)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == ModContent.ProjectileType<ChaosChainEXSaw>() && Projectile.ai[0] == 1f)
-                {
-                    InternalAI[1] = 1;
-                }
+                Dust dust1;
+                Dust dust2;
+                Vector2 position = Projectile.position;
+                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
+                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
+                dust1.noGravity = true;
+                dust2.noGravity = true;
             }
-            if (Projectile.velocity.X < 0)
-            {
-                Dir = -1;
-            }
-            Rot += 0.03f * Projectile.direction;
-
             if (Projectile.timeLeft == 120)
             {
                 Projectile.ai[0] = 1f;
@@ -93,21 +59,18 @@ namespace AAModClassic.Projectiles
                     Main.player[Projectile.owner].ChangeDir(-1);
                 }
             }
-            Projectile.rotation += .4f;
             Vector2 vector14 = new Vector2(Projectile.position.X + (Projectile.width * 0.5f), Projectile.position.Y + (Projectile.height * 0.5f));
             float num166 = Main.player[Projectile.owner].position.X + (Main.player[Projectile.owner].width / 2) - vector14.X;
             float num167 = Main.player[Projectile.owner].position.Y + (Main.player[Projectile.owner].height / 2) - vector14.Y;
             float num168 = (float)Math.Sqrt((num166 * num166) + (num167 * num167));
             if (Projectile.ai[0] == 0f)
             {
-                if (num168 > 1000)
+                if (num168 > 700f)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
                     Projectile.ai[0] = 1f;
                 }
                 else if (num168 > 500f)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
                     Projectile.ai[0] = 1f;
                 }
                 Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
@@ -159,34 +122,85 @@ namespace AAModClassic.Projectiles
                 }
 
             }
+            //Spew eyes
+            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer && Main.rand.NextBool(50)) //higher # means later on in the attack
+            {
+                Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
+                Vector2 vector55 = vector54 * -1f;
+                vector55.Normalize();
+                vector55 *= Main.rand.Next(45, 65) * 0.1f;
+                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
+                //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector55.X, vector55.Y, mod.ProjectileType("EyeProjectile2"), projectile.damage, projectile.knockBack, projectile.owner, -10f);
+            }
         }
 		
 		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            if (Projectile.ai[0] == 0f)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
-            }
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 240);
-        }
-		
-        // chain voodoo
-        public override bool PreDraw(ref Color lightColor)
-        {
-            Texture2D texture = Mod.GetTexture("Chains/ChaosChainEX_Chain");
-            BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
-            Texture2D Tex = Mod.GetTexture("Projectiles/ChaosChainEXSaw");
-            Texture2D Tex2 = Mod.GetTexture("Projectiles/ChaosChainEXSphere");
-            Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            for (int i = 0; i < 1000; ++i)
+            Player player = Main.player[Projectile.owner];
+            float TargetVelocity = 0;
+            if (!target.boss)
             {
                 if (Projectile.ai[0] == 1f)
                 {
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Tex2, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
+                    if (player.Center.X > target.Center.X)
+                    {
+                        TargetVelocity = 10 * target.knockBackResist;
+                    }
+                    else
+                    {
+                        TargetVelocity = -10 * target.knockBackResist;
+                    }
+                }
+                target.velocity = new Vector2(TargetVelocity, 0);
+            }
+        }
+		
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            width = 16;
+            height = 16;
+            return true;
+        }
+		
+		public override bool OnTileCollide (Vector2 oldVelocity)
+		{
+			Projectile.ai[0] = 1f;
+			return false;
+		}
+		
+ 
+        // chain voodoo
+        public override bool PreDraw(ref Color lightColor)
+        { 
+            Texture2D texture = Mod.GetTexture("Chains/ToadTongue_Chain");
+ 
+            Vector2 position = Projectile.Center;
+            Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
+            Rectangle? sourceRectangle = new Rectangle?();
+            Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+            float num1 = texture.Height;
+            Vector2 vector24 = mountedCenter - position;
+            float rotation = (float)Math.Atan2(vector24.Y, vector24.X) - 1.57f;
+            bool flag = true;
+            if (float.IsNaN(position.X) && float.IsNaN(position.Y))
+                flag = false;
+            if (float.IsNaN(vector24.X) && float.IsNaN(vector24.Y))
+                flag = false;
+            while (flag)
+            {
+                if (vector24.Length() < num1 + 1.0)
+                {
+                    flag = false;
                 }
                 else
                 {
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
+                    Vector2 vector21 = vector24;
+                    vector21.Normalize();
+                    position += vector21 * num1;
+                    vector24 = mountedCenter - position;
+                    Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
+                    color2 = Projectile.GetAlpha(color2);
+                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
                 }
             }
             return true;

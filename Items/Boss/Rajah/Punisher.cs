@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.width = 30;
             Item.height = 10;
             Item.damage = 90;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Punisher>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Punisher_Proj>();
             Item.shootSpeed = 15f;
             Item.UseSound = SoundID.Item1;
             Item.rare = ItemRarityID.Yellow;

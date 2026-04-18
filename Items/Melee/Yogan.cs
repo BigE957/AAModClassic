@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.LightRed;
             Item.autoReuse = false;
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Yogan>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Yogan_Proj>();
 			Item.UseSound = SoundID.Item18;
         }
 

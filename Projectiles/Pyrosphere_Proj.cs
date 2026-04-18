@@ -10,7 +10,7 @@ using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.Projectiles
 {
-    public class Pyrosphere : ModProjectile
+    public class Pyrosphere_Proj : ModProjectile
 	{
         public float rot = 0;
 

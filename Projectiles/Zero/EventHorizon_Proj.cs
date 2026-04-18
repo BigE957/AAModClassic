@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Zero
 {
-    public class EventHorizon : ModProjectile
+    public class EventHorizon_Proj : ModProjectile
     {
         public short customGlowMask = 0;
         public override void SetStaticDefaults()

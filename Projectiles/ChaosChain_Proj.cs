@@ -1,30 +1,42 @@
 using System;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class MushMace : ModProjectile
+    public class ChaosChain_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mushmace");
+			// DisplayName.SetDefault("Chaos Chain");
 		}
         public override void SetDefaults()
         {
-            Projectile.width = 16;
-            Projectile.height = 16;
+            Projectile.width = 58;
+            Projectile.height = 58;
             Projectile.friendly = true;
             Projectile.penetrate = -1; 
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.knockBack = 0;
+            Projectile.tileCollide = false;
         }
 		
 		public override void AI()
 		{
-            if (Projectile.timeLeft == 60)
+            if (Main.rand.NextFloat() < 1f)
+            {
+                Dust dust1;
+                Dust dust2;
+                Vector2 position = Projectile.position;
+                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0, 0, 0)];
+                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataAuraDust>(), 0, 0, 0)];
+                dust1.noGravity = true;
+                dust2.noGravity = true;
+            }
+            if (Projectile.timeLeft == 120)
             {
                 Projectile.ai[0] = 1f;
             }
@@ -35,8 +47,8 @@ namespace AAModClassic.Projectiles
                 return;
             }
 
-            Main.player[Projectile.owner].itemAnimation = 10;
-            Main.player[Projectile.owner].itemTime = 10;
+            Main.player[Projectile.owner].itemAnimation = 5;
+            Main.player[Projectile.owner].itemTime = 5;
 
             if (Projectile.alpha == 0)
             {
@@ -55,7 +67,7 @@ namespace AAModClassic.Projectiles
             float num168 = (float)Math.Sqrt((num166 * num166) + (num167 * num167));
             if (Projectile.ai[0] == 0f)
             {
-                if (num168 > 400f)
+                if (num168 > 700f)
                 {
                     Projectile.ai[0] = 1f;
                 }
@@ -112,30 +124,33 @@ namespace AAModClassic.Projectiles
                 }
             }
         }
-		
-		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
-            Projectile.ai[0] = 1;
-        }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
-            width = 16;
-            height = 16;
+            width = 30;
+            height = 30;
             return true;
         }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            Projectile.ai[0] = 1f;
+            return false;
+        }
+
+        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			Projectile.ai[0] = 1f;
-			return false;
-		}
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 150);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 150);
+        }
 		
  
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
-        { 
-            BaseDrawing.DrawChain(Main.spriteBatch, Mod.GetTexture("Chains/MushMaceChain"), 0, Projectile.Center, Main.player[Projectile.owner].Center);
+        {
+            Texture2D texture = Mod.GetTexture("Chains/ChaosChain_Chain");
+
+            BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
             return true;
         }
     }

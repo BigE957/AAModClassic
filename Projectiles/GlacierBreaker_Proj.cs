@@ -2,40 +2,38 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Rajah.Supreme
+namespace AAModClassic.Projectiles
 {
-    public class PunisherEX : ModProjectile
+    public class GlacierBreaker_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("The Avenger");
+			// DisplayName.SetDefault("Glacierbreaker");
 		}
         public override void SetDefaults()
         {
-            Projectile.width = 26;
-            Projectile.height = 26;
-            Projectile.aiStyle = -1;
+            Projectile.width = 20;
+            Projectile.height = 20;
             Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.alpha = 255;
+            Projectile.penetrate = -1; 
             Projectile.DamageType = DamageClass.Melee;
+            Projectile.knockBack = 0;
         }
-
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-            Projectile.ai[0] = 1f;
-            Projectile.netUpdate = true;
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            return false;
-        }
-
-        public override void AI()
-        {
+		
+		public override void AI()
+		{
+            if (Main.rand.NextFloat() < 1f)
+            {
+                Dust dust1;
+                Dust dust2;
+                Vector2 position = Projectile.position;
+                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SnowDust>(), 0, 0, 0)];
+                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SnowDust>(), 0, 0, 0)];
+                dust1.noGravity = true;
+                dust2.noGravity = true;
+            }
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
             if (Main.player[Projectile.owner].dead)
@@ -91,28 +89,31 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
             {
                 Projectile.alpha = 0;
             }
-            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
+            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer)
             {
-                Vector2 vector55 = vector54 * -1f;
-                vector55.Normalize();
-                vector55 *= Main.rand.Next(45, 65) * 0.1f;
-                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
-                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, ModContent.ProjectileType<CarrotEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
-                Main.projectile[p].DamageType = DamageClass.Melee;
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 7, ModContent.ProjectileType<AsgardianIce>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
         }
 		
 		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
-            width = 30;
-            height = 30;
+            width = 16;
+            height = 16;
             return true;
         }
-
+		
+		public override bool OnTileCollide (Vector2 oldVelocity)
+		{
+			Projectile.ai[0] = 1f;
+			return false;
+		}
+		
+ 
+        // chain voodoo
         public override bool PreDraw(ref Color lightColor)
-        {
-            Texture2D texture = Mod.GetTexture("Chains/PunisherEX_Chain");
+        { 
+            Texture2D texture = Mod.GetTexture("Chains/GlacierBreaker_Chain");
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -138,7 +139,9 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
                     vector21.Normalize();
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
-                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
+                    Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
+                    color2 = Projectile.GetAlpha(color2);
+                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
                 }
             }
             return true;

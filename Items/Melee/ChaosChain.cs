@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Melee
             Item.width = 20;
             Item.height = 20;
             Item.damage = 90;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosChain>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosChain_Proj>();
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item10;
             Item.rare = ItemRarityID.Yellow;

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Akuma
 {
-    public class Daycrusher : ModProjectile
+    public class Daycrusher_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{

@@ -16,9 +16,11 @@ using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic.___Content.Madness.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
@@ -47,12 +49,18 @@ using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.AH;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Anubis;
+using AAModClassic.Items.Boss.Anubis.Forsaken;
+using AAModClassic.Items.Boss.Athena;
+using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.Items.Boss.EFish;
 using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Sagittarius;
+using AAModClassic.Items.Boss.Serpent;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
@@ -60,6 +68,7 @@ using AAModClassic.Items.Dev;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Potions;
+using AAModClassic.Items.Throwing;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
@@ -1586,6 +1595,164 @@ namespace AAModClassic.CrossMod
                 redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxeEX>());
                 redemption.Call("setHammerBonus", ModContent.ItemType<StoneSlammer>());
                 redemption.Call("setHammerBonus", ModContent.ItemType<Earthbreaker>());
+
+                //Elements
+                #region Melee
+                //Swords
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalTwilight>());
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<BlazingDawn>());
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<BloodyMary>());
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<CloudEdge>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<DesertScimitar>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DragonGlove>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ExilesKatana>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FlamingFury>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<FleshrendClaymore>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<CrystalShortsword>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HydraGlove>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<IceLongsword>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DragonGlove>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<JungleReaper>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Psychic, ModContent.ItemType<MadnessSword>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<OceanRazor>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandScimitar>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ScorchDagger>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SubzeroSlasher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SultanScimitar>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<SwimmingHydra>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfEvil>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<BladeOfEvil>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSP>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSPEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<CarnalCrusher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Chaos>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Chaos>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<TrueBlazingDawn>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<DragonFang>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<TrueAbyssalTwilight>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Firestorm>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryForger>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryForgerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Judgment>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<RomulusTazesaber>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<SkycutterKopis>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<StoneSlammer>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<RomulusTazesaber>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<Tizona>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<TrueCopperShortsword>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<TrueTinShortsword>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<TrueFleshrendClaymore>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Melee.Aerodrake>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HydraStabber>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<HydraStabber>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Amenomuraku>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Amenomuraku>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Melee.Apocalypse>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<BreakingDawn>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<BreakingDawn>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<StarWrathEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Amenomuraku>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Items.Melee.DMSlasher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Items.Melee.DMSlasher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ReignOfFire>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ReignOfFireEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ReignOfFireEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DragonSlasher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<DragonSlasher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Earthbreaker>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<DragonSlasher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<Items.Melee.ChaosScythe>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosSlayerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosSlayerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosSlayerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<ChaosSlayerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<PerfectChaos>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<PerfectChaos>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Masamune>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<Olympia>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosSlayerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraBladeEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<TerraBladeEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<TrueCopperShortswordEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Verdict>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<Verdict>(), true);
+
+                //Yoyos
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Depthwalker>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Melee.Incineration>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Crescent>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Boss.Akuma.Solar>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Items.Melee.Void>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Items.Melee.Void>(), true);
+
+                //Spears
+                redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<AncientPoker>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<DuskBringer>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<GrassSpear>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HydrasSpear>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<MoltenLance>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Items.Melee.RaiderLance>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<Items.Melee.SaltwaterSpear>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SerpentSpike>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Items.Melee.VikingPolearm>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Items.Melee.AsgardianLance>(), true);
+                //TODO: Idk wtf to make of this thing
+                //redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<Items.Melee.ChaosYari>(), true);
+                //redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<Items.Melee.ChaosYariEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<Items.Melee.IchorSpear>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Items.Melee.Axis>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalYari>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<AbyssalYari>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Boss.Akuma.SunSpear>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Items.Boss.Akuma.SunSpear>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Timesplitter>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Timesplitter>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Timesplitter>(), true);
+
+                //Boomerangs
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<BlizzardBuster>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Djinnerang>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<Items.Throwing.Musharang>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Dracorang>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalArc>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<JackalsWrath>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<DarkmatterChakram>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<DarkmatterChakram>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Soulsplitter>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<Soulsplitter>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ThrowingCrescent>(), true);
+
+                //Flails
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<GlacierBreaker>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MushMace>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Pyrosphere>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Yogan>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosChain>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosChain>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<IllumantFlail>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Ryusei>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Astroid>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Astroid>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Daycrusher>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<EFlairon>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Flairdra>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosChainEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosChainEX>(), true);
+
+                //Other
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<DeathDaggers>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<DraculaKnives>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Boss.Akuma.MorningGlory>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosChainEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Items.Melee.DarkShredders>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Items.Melee.DarkShredders>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<ScourgeOfShadows>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<ScytheOfDecay>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<ScytheOfDecay>(), true);
+                #endregion
+
+
+
                 #endregion
 
                 #region Projectiles
@@ -1599,22 +1766,22 @@ namespace AAModClassic.CrossMod
             if (ModLoader.TryGetMod("ThoriumMod", out var thorium))
             {
                 #region Flail Projectiles
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.GlacierBreaker>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.MushMace>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Pyrosphere>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Toad.ToadTongue>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Yogan>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.ChaosChain>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.GlacierBreaker_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.MushMace_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Pyrosphere_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Toad.ToadTongue_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Yogan_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.ChaosChain_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IllumantBall>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Ryusei>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Punisher>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Shen.Astroid>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Akuma.Daycrusher>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EFlairon>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Ryusei_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Punisher_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Shen.Astroid_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Akuma.Daycrusher_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EFlairon_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Flairdra_Holdout>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.ChaosChainEX>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<PunisherEX>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.ChaosChainEX_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<PunisherEX_Proj>());
                 #endregion
 
                 #region DoT Debuffs

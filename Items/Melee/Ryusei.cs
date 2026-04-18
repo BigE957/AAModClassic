@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
             Item.autoReuse = true;
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Ryusei>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Ryusei_Proj>();
 			Item.UseSound = SoundID.Item18;
         }
 

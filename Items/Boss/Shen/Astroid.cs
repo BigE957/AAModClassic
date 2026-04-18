@@ -35,7 +35,7 @@ Inflicts Discordian Inferno"); */
             Item.knockBack = 7.5F;
             Item.damage = 300;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Shen.Astroid>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Shen.Astroid_Proj>();
             Item.shootSpeed = 32F;
             Item.UseSound = SoundID.Item20;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

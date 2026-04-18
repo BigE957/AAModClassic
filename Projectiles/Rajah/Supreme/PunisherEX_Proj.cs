@@ -6,23 +6,32 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.EFish
+namespace AAModClassic.Projectiles.Rajah.Supreme
 {
-    public class EFlairon : ModProjectile
+    public class PunisherEX_Proj : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Emperor Flairon");
-        }
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("The Avenger");
+		}
         public override void SetDefaults()
         {
             Projectile.width = 26;
             Projectile.height = 26;
-            Projectile.aiStyle = ProjAIStyleID.Flairon;
+            Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.alpha = 255;
             Projectile.DamageType = DamageClass.Melee;
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+            Projectile.ai[0] = 1f;
+            Projectile.netUpdate = true;
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+            return false;
         }
 
         public override void AI()
@@ -82,65 +91,29 @@ namespace AAModClassic.Projectiles.EFish
             {
                 Projectile.alpha = 0;
             }
-            if ((int)Projectile.ai[1] % 3 == 0 && Projectile.owner == Main.myPlayer)
+            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
             {
                 Vector2 vector55 = vector54 * -1f;
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
-                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ProjectileID.FlaironBubble, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
+                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, ModContent.ProjectileType<CarrotEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                Main.projectile[p].DamageType = DamageClass.Melee;
                 return;
             }
         }
 		
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			for (int h = 0; h < 6; h++)
-			{
-				Vector2 vel = new Vector2(0, -1);
-				float rand = Main.rand.NextFloat() * 6.3f;
-				vel = vel.RotatedBy(rand);
-				vel *= 4f;
-				Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage, 0, Main.myPlayer);
-			}
-		}
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            width = 30;
+            height = 30;
+            return true;
+        }
 
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			for (int h = 0; h < 6; h++)
-			{
-				Vector2 vel = new Vector2(0, -1);
-				float rand = Main.rand.NextFloat() * 6.3f;
-				vel = vel.RotatedBy(rand);
-				vel *= 4f;
-				Projectile.NewProjectile(Projectile.GetSource_OnHit(null), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage, 0, Main.myPlayer);
-			}
-            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-            if (Projectile.type == ProjectileID.ThornChakram || Projectile.type == ProjectileID.LightDisc)
-            {
-                if (Projectile.velocity.X != oldVelocity.X)
-                {
-                    Projectile.velocity.X = -oldVelocity.X;
-                }
-                if (Projectile.velocity.Y != oldVelocity.Y)
-                {
-                    Projectile.velocity.Y = -oldVelocity.Y;
-                }
-            }
-            else
-            {
-                Projectile.ai[0] = 1f;
-            }
-            Projectile.netUpdate = true;
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            return false;
-		}
-		
         public override bool PreDraw(ref Color lightColor)
         {
-
-            Texture2D texture = Mod.GetTexture("Chains/EFlairon_Chain");
-
+            Texture2D texture = Mod.GetTexture("Chains/PunisherEX_Chain");
+ 
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
             Rectangle? sourceRectangle = new Rectangle?();
@@ -165,13 +138,10 @@ namespace AAModClassic.Projectiles.EFish
                     vector21.Normalize();
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
-                    Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = Projectile.GetAlpha(color2);
-                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, color2, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
+                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
             }
             return true;
         }
-
     }
 }

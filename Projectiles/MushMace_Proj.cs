@@ -1,21 +1,21 @@
 using System;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Toad
+namespace AAModClassic.Projectiles
 {
-    public class ToadTongue : ModProjectile
+    public class MushMace_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Toad Tongue");
+			// DisplayName.SetDefault("Mushmace");
 		}
         public override void SetDefaults()
         {
-            Projectile.width = 20;
-            Projectile.height = 20;
+            Projectile.width = 16;
+            Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.penetrate = -1; 
             Projectile.DamageType = DamageClass.Melee;
@@ -24,17 +24,7 @@ namespace AAModClassic.Projectiles.Toad
 		
 		public override void AI()
 		{
-            if (Main.rand.NextFloat() < 1f)
-            {
-                Dust dust1;
-                Dust dust2;
-                Vector2 position = Projectile.position;
-                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
-                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
-                dust1.noGravity = true;
-                dust2.noGravity = true;
-            }
-            if (Projectile.timeLeft == 120)
+            if (Projectile.timeLeft == 60)
             {
                 Projectile.ai[0] = 1f;
             }
@@ -45,8 +35,8 @@ namespace AAModClassic.Projectiles.Toad
                 return;
             }
 
-            Main.player[Projectile.owner].itemAnimation = 5;
-            Main.player[Projectile.owner].itemTime = 5;
+            Main.player[Projectile.owner].itemAnimation = 10;
+            Main.player[Projectile.owner].itemTime = 10;
 
             if (Projectile.alpha == 0)
             {
@@ -65,7 +55,7 @@ namespace AAModClassic.Projectiles.Toad
             float num168 = (float)Math.Sqrt((num166 * num166) + (num167 * num167));
             if (Projectile.ai[0] == 0f)
             {
-                if (num168 > 700f)
+                if (num168 > 400f)
                 {
                     Projectile.ai[0] = 1f;
                 }
@@ -120,39 +110,12 @@ namespace AAModClassic.Projectiles.Toad
                 {
                     Projectile.spriteDirection = -1;
                 }
-
-            }
-            //Spew eyes
-            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer && Main.rand.NextBool(50)) //higher # means later on in the attack
-            {
-                Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
-                Vector2 vector55 = vector54 * -1f;
-                vector55.Normalize();
-                vector55 *= Main.rand.Next(45, 65) * 0.1f;
-                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
-                //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector55.X, vector55.Y, mod.ProjectileType("EyeProjectile2"), projectile.damage, projectile.knockBack, projectile.owner, -10f);
             }
         }
 		
 		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            Player player = Main.player[Projectile.owner];
-            float TargetVelocity = 0;
-            if (!target.boss)
-            {
-                if (Projectile.ai[0] == 1f)
-                {
-                    if (player.Center.X > target.Center.X)
-                    {
-                        TargetVelocity = 10 * target.knockBackResist;
-                    }
-                    else
-                    {
-                        TargetVelocity = -10 * target.knockBackResist;
-                    }
-                }
-                target.velocity = new Vector2(TargetVelocity, 0);
-            }
+            Projectile.ai[0] = 1;
         }
 		
 		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
@@ -172,37 +135,7 @@ namespace AAModClassic.Projectiles.Toad
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            Texture2D texture = Mod.GetTexture("Chains/ToadTongue_Chain");
- 
-            Vector2 position = Projectile.Center;
-            Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
-            Rectangle? sourceRectangle = new Rectangle?();
-            Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
-            float num1 = texture.Height;
-            Vector2 vector24 = mountedCenter - position;
-            float rotation = (float)Math.Atan2(vector24.Y, vector24.X) - 1.57f;
-            bool flag = true;
-            if (float.IsNaN(position.X) && float.IsNaN(position.Y))
-                flag = false;
-            if (float.IsNaN(vector24.X) && float.IsNaN(vector24.Y))
-                flag = false;
-            while (flag)
-            {
-                if (vector24.Length() < num1 + 1.0)
-                {
-                    flag = false;
-                }
-                else
-                {
-                    Vector2 vector21 = vector24;
-                    vector21.Normalize();
-                    position += vector21 * num1;
-                    vector24 = mountedCenter - position;
-                    Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = Projectile.GetAlpha(color2);
-                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
-                }
-            }
+            BaseDrawing.DrawChain(Main.spriteBatch, Mod.GetTexture("Chains/MushMaceChain"), 0, Projectile.Center, Main.player[Projectile.owner].Center);
             return true;
         }
     }

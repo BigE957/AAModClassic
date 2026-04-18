@@ -33,7 +33,7 @@ Inflicts Daybroken"); */
             Item.knockBack = 7.5F;
             Item.damage = 400;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Akuma.Daycrusher>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Akuma.Daycrusher_Proj>();
             Item.shootSpeed = 20F;
             Item.UseSound = SoundID.Item20;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

@@ -2,38 +2,40 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.Projectiles.Rajah
 {
-    public class GlacierBreaker : ModProjectile
+    public class Punisher_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Glacierbreaker");
+			// DisplayName.SetDefault("The Punisher");
 		}
         public override void SetDefaults()
         {
-            Projectile.width = 20;
-            Projectile.height = 20;
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.aiStyle = -1;
             Projectile.friendly = true;
-            Projectile.penetrate = -1; 
+            Projectile.penetrate = -1;
+            Projectile.alpha = 255;
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.knockBack = 0;
         }
-		
-		public override void AI()
-		{
-            if (Main.rand.NextFloat() < 1f)
-            {
-                Dust dust1;
-                Dust dust2;
-                Vector2 position = Projectile.position;
-                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SnowDust>(), 0, 0, 0)];
-                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SnowDust>(), 0, 0, 0)];
-                dust1.noGravity = true;
-                dust2.noGravity = true;
-            }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+            Projectile.ai[0] = 1f;
+            Projectile.netUpdate = true;
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+            return false;
+        }
+
+        public override void AI()
+        {
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
             if (Main.player[Projectile.owner].dead)
@@ -43,6 +45,7 @@ namespace AAModClassic.Projectiles
             }
             Main.player[Projectile.owner].itemAnimation = 10;
             Main.player[Projectile.owner].itemTime = 10;
+            float arg_1C53D_0 = vector54.X;
             if (vector54.X < 0f)
             {
                 Main.player[Projectile.owner].ChangeDir(1);
@@ -89,31 +92,36 @@ namespace AAModClassic.Projectiles
             {
                 Projectile.alpha = 0;
             }
-            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer)
+            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
             {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 7, ModContent.ProjectileType<AsgardianIce>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                Vector2 vector55 = vector54 * -1f;
+                vector55.Normalize();
+                vector55 *= Main.rand.Next(45, 65) * 0.1f;
+                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, ModContent.ProjectileType<Carrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
+        }
+
+        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
+		{
+            if (Projectile.ai[0] != 1)
+            {
+                Projectile.ai[1] = 1f;
+            }
+            Projectile.ai[0] = 1;
         }
 		
 		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
-            width = 16;
-            height = 16;
+            width = 30;
+            height = 30;
             return true;
         }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			Projectile.ai[0] = 1f;
-			return false;
-		}
-		
- 
-        // chain voodoo
+
         public override bool PreDraw(ref Color lightColor)
-        { 
-            Texture2D texture = Mod.GetTexture("Chains/GlacierBreaker_Chain");
+        {
+            Texture2D texture = Mod.GetTexture("Chains/Punisher_Chain");
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -139,9 +147,7 @@ namespace AAModClassic.Projectiles
                     vector21.Normalize();
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
-                    Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = Projectile.GetAlpha(color2);
-                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
+                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
             }
             return true;

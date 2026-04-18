@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class Ryusei : ModProjectile
+    public class Ryusei_Proj : ModProjectile
     {
         public float rot = 0;
 
