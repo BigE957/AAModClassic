@@ -11,7 +11,6 @@ using Terraria.ModLoader;
 using AAModClassic.NPCs.Bosses.Shen.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Potions;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
@@ -23,6 +22,7 @@ using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Terrarium.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {

@@ -1,13 +1,12 @@
-using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Demon
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DemonBoots : BaseAAItem
+	public class DemonLeggings : BaseAAItem
 	{
         public override void SetStaticDefaults()
         {

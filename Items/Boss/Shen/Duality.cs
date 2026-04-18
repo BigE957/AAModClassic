@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.Buffs;
+using AAModClassic.___Content.Terrarium.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;
@@ -75,12 +77,12 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             player.buffImmune[196] = true;
             player.buffImmune[197] = true;
             player.buffImmune[203] = true;
-            player.buffImmune[ModContent.BuffType<Buffs.DragonFire_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<Buffs.BurningAsh_Buff>()] = true;
+            player.buffImmune[ModContent.BuffType<DragonFire_Buff>()] = true;
+            player.buffImmune[ModContent.BuffType<BurningAsh_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<HydraToxin_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<Terrablaze_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<DiscordInferno_Buff>()] = true;
+            player.buffImmune[ModContent.BuffType<DiscordianInferno_Buff>()] = true;
             player.noKnockback = true;
             player.blackBelt = true;
             player.spikedBoots = 2;

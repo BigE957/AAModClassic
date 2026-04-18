@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Terrarium.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -44,7 +45,7 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze_Buff>(), 120);
+            target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 120);
         }
 
     }

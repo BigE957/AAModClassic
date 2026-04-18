@@ -1,6 +1,8 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Chaos.__Hardmode.Items.Armor;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor;
+using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Consumables;
@@ -11,6 +13,8 @@ using AAModClassic.___Content.Inferno.__Hardmode.Items.Tiles;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Quest;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
@@ -22,6 +26,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Consumables;
+using AAModClassic.___Content.Terrarium.Buffs;
 using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Tinkers.__Hardmode.Items.Accessories;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
@@ -31,7 +36,6 @@ using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Items.Armor.Assassin;
 using AAModClassic.Items.Armor.Champion;
 using AAModClassic.Items.Armor.Champion.Carrot;
 using AAModClassic.Items.Armor.Champion.Drone;
@@ -936,7 +940,7 @@ namespace AAModClassic
 
             if (ChaosMe)
             {
-                npc.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
+                npc.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 180);
                 npc.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
             }
 
@@ -993,7 +997,7 @@ namespace AAModClassic
 
             if (perfectChaosMe)
             {
-                target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
             }
 
             if (valkyrieSet)
@@ -1038,7 +1042,7 @@ namespace AAModClassic
             if (DiscordShredder)
             {
                 Player.ApplyDamageToNPC(target, 30, 0, 0, false);
-                target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
             }
 
             if (demonGauntlet)
@@ -1049,7 +1053,7 @@ namespace AAModClassic
 
             if (HeartP && Player.statLife > (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
+                target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
             }
             else if (HeartP && Player.statLife < (Player.statLifeMax / 3))
             {
@@ -1077,7 +1081,7 @@ namespace AAModClassic
 
             if (Player.HasBuff(ModContent.BuffType<FlaskOfDragonfire_Buff>()))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
+                target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 900);
             }
 
             if (Player.HasBuff(ModContent.BuffType<FlaskOfHydratoxin_Buff>()))
@@ -1106,7 +1110,7 @@ namespace AAModClassic
             {
                 if (perfectChaosMe)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
                 }
 
                 if (dracoSet)
@@ -1139,7 +1143,7 @@ namespace AAModClassic
 
                 if (Player.HasBuff(ModContent.BuffType<FlaskOfDragonfire_Buff>()))
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
+                    target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 900);
                 }
 
                 if (Player.HasBuff(ModContent.BuffType<FlaskOfHydratoxin_Buff>()))
@@ -1152,7 +1156,7 @@ namespace AAModClassic
             {
                 if (perfectChaosRa)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
                 }
 
                 if (dreadSet)
@@ -1196,7 +1200,7 @@ namespace AAModClassic
 
                 if (perfectChaosMa)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
                 }
 
                 if (darkmatterSetMa)
@@ -1225,7 +1229,7 @@ namespace AAModClassic
 
                 if (perfectChaosSu)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
                 }
 
                 if (impSet)
@@ -1287,7 +1291,7 @@ namespace AAModClassic
             if (DiscordShredder)
             {
                 Player.ApplyDamageToNPC(target, 30, 0, 0, false);
-                target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+                target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
             }
 
             if (StoneSoldier)
@@ -1446,12 +1450,12 @@ namespace AAModClassic
 
                 if (akuma.ai[0] >= 660)
                 {
-                    Player.AddBuff(ModContent.BuffType<BlazingPain_Buff>(), 2);
+                    Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
                 }
             }
             else if (NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
             {
-                Player.AddBuff(ModContent.BuffType<BlazingPain_Buff>(), 2);
+                Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
             }
 
             if (BasePlayer.HasAccessory(Player, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
@@ -1701,11 +1705,13 @@ namespace AAModClassic
                 Lighting.AddLight((int)(Player.position.X + Player.width / 2) / 16, (int)(Player.position.Y + Player.height / 2) / 16, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f);
             }
 
+            //TODO: is this needed? the same thing is done in YamataBody
             if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()))
             {
                 Player.AddBuff(ModContent.BuffType<YamataGravity_Buff>(), 10, true);
             }
 
+            //TODO: is this needed? the same thing is done in YamataABody
             if (NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
                 Player.AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
@@ -1724,7 +1730,7 @@ namespace AAModClassic
 
             if (Terrarium)
             {
-                Player.AddBuff(ModContent.BuffType<Terrarium_Buff>(), 2);
+                Player.AddBuff(ModContent.BuffType<TerrasGuidance_Buff>(), 2);
                 Player.AddBuff(BuffID.DryadsWard, 2);
             }
 
@@ -1775,7 +1781,7 @@ namespace AAModClassic
                     int i = 0;
                     while (i < 3)
                     {
-                        if(Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, ModContent.ProjectileType<AssassinDagger>(), (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
+                        if(Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, ModContent.ProjectileType<MidnightAssassinHelmet_AssassinDagger>(), (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
                         float round = 16f;
                         int k = 0;
                         while (k < round)
@@ -2160,7 +2166,7 @@ namespace AAModClassic
                     Spwanposition[2] = new Vector2(Player.Center.X - Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY,RandomY));
                     for (int i = 0; i < 3; i++)
                     {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Spwanposition[i].X, Spwanposition[i].Y, velocity.X, velocity.Y, ModContent.ProjectileType<AssassinArrow>(), (int)(item.damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Spwanposition[i].X, Spwanposition[i].Y, velocity.X, velocity.Y, ModContent.ProjectileType<MidnightAssassinHelmet_AssassinArrow>(), (int)(item.damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
                         float round = 16f;
                         int k = 0;
                         while (k < round)
@@ -2748,6 +2754,7 @@ namespace AAModClassic
                         }
                         break;
 
+                        //TODO: does he not like have a bag?
                     case 5:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsHead>());
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsBody>());
@@ -4035,6 +4042,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
+                //TODO: did we comment this out? if so, can this be fixed?
                 //else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelm>()))
                 //{
                 //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4055,6 +4063,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHat_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
+                //TODO: did we comment this out? if so, can this be fixed?
                 //else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelm>()))
                 //{
                 //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelm_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4083,6 +4092,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NightcrawlerMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
+                //TODO: holy shit actually can we just automate all of this somehow
                 //else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<RetrieverMask>()))
                 //{
                 //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RetrieverMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4425,6 +4435,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.legFrame);
                 }
+                //TODO: what the fuck is shox curse
                 /*else if (HasAndCanDraw(drawPlayer, mod.ItemType("ShoxCurse")))
                 {
                     if (!drawPlayer.invis && !drawPlayer.mount.Active)

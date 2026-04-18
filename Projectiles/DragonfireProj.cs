@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -84,7 +85,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
         }
     }
 }

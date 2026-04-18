@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Inferno.Buffs;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -43,7 +44,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 200);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 200);
         }
 
         public override void OnKill(int timeLeft)

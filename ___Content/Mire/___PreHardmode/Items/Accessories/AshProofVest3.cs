@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Buffs;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.Buffs;
 
 namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories
 {

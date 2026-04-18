@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Inferno.Buffs
 {
     public class DragonFire_Buff : ModBuff
 	{
@@ -46,21 +46,21 @@ namespace AAModClassic.Buffs
     {
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            if (Main.player[projectile.owner].HasBuff(ModContent.BuffType<Buffs.DragonFire_Buff>()))
+            if (Main.player[projectile.owner].HasBuff(ModContent.BuffType<DragonFire_Buff>()))
             {
                 modifiers.TargetDamageMultiplier *= 0.8f;
             }
         }
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
-            if (player.HasBuff(ModContent.BuffType<Buffs.DragonFire_Buff>()))
+            if (player.HasBuff(ModContent.BuffType<DragonFire_Buff>()))
             {
                 modifiers.TargetDamageMultiplier *= 0.8f;
             }
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
-            if (npc.HasBuff(ModContent.BuffType<Buffs.DragonFire_Buff>()))
+            if (npc.HasBuff(ModContent.BuffType<DragonFire_Buff>()))
             {
                 modifiers.FinalDamage.Flat -= 10;
                 if(modifiers.FinalDamage.Flat < 0)

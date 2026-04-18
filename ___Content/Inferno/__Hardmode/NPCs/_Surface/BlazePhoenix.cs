@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -107,7 +108,7 @@ namespace AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

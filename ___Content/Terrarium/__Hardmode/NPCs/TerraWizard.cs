@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Terrarium.Buffs;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;

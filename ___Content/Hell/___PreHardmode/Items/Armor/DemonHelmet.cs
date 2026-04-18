@@ -2,14 +2,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Buffs;
-using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
 
 
-namespace AAModClassic.Items.Armor.Demon
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DemonHood : BaseAAItem
+    public class DemonHelmet : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +31,7 @@ namespace AAModClassic.Items.Armor.Demon
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<DemonGarb>() && legs.type == ModContent.ItemType<DemonBoots>();
+            return body.type == ModContent.ItemType<DemonChestplate>() && legs.type == ModContent.ItemType<DemonLeggings>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -44,13 +42,13 @@ namespace AAModClassic.Items.Armor.Demon
             modPlayer.demonBonus = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<Demon_Buff>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<DemonHelmet_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<Demon_Buff>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<DemonHelmet_Buff>(), 3600, true);
                 }
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<ImpMinion>()] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<DemonHelmet_ImpServant>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<ImpMinion>(), 20, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<DemonHelmet_ImpServant>(), 20, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

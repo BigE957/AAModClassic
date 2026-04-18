@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Inferno.Buffs
 {
     public class BurningAsh_Buff : ModBuff
 	{

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.___Content.Chaos.Buffs;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -85,7 +86,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 180);
         }
     }
 }

@@ -6,12 +6,12 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Buffs;
 using AAModClassic.Projectiles.Shen;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Chaos.Buffs;
 
 namespace AAModClassic.Items.Boss.Shen   //where is located
 {
@@ -106,7 +106,7 @@ Inflicts Discordian Inferno"); */
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 600);
         }
 
         public override void AddRecipes()  //How to craft this sword

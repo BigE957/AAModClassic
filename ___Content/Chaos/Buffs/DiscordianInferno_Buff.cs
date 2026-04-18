@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Chaos.Buffs
 {
-    public class DiscordInferno_Buff : ModBuff
+    public class DiscordianInferno_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

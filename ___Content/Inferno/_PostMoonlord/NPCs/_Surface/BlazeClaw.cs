@@ -6,6 +6,7 @@ using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Inferno.Buffs;
 
 namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface
 {
@@ -84,7 +85,7 @@ namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 180);
         }
 
         public override void OnKill()

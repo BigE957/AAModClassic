@@ -6,6 +6,7 @@ namespace AAModClassic.Buffs
 {
     public class Yanked_Buff : ModBuff
     {
+        //TODO: removed. add to remove file with ported modplayer stuff. caligulas only task
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Yanked");

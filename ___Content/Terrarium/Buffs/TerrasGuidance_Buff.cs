@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Terrarium.Buffs
 {
-    public class Terrarium_Buff : ModBuff
+    public class TerrasGuidance_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

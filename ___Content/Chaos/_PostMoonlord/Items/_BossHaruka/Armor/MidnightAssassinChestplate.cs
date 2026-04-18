@@ -3,10 +3,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.Assassin
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	class AssassinShirt : BaseAAItem
+	class MidnightAssassinChestplate : BaseAAItem
 	{
         public override void SetStaticDefaults()
         {

@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.Assassin
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor
 {
-    public class AssassinHurt_Buff : ModBuff
+    public class MidnightAssassinHelmet_AssassinHurtBuff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1,13 +1,12 @@
-using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Demon
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DemonGarb : BaseAAItem
+    public class DemonChestplate : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

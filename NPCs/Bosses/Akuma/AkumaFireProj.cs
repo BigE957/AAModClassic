@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Inferno.Buffs;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -71,7 +72,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

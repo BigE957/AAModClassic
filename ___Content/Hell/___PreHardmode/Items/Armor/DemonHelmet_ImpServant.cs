@@ -5,9 +5,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.Demon
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Armor
 {
-    public class ImpMinion : ModProjectile
+    public class DemonHelmet_ImpServant : ModProjectile
 	{
         public override void SetStaticDefaults()
         {
@@ -76,7 +76,7 @@ namespace AAModClassic.Items.Armor.Demon
             if (ownerMinionAttackTargetNPC2 != null && ownerMinionAttackTargetNPC2.CanBeChasedBy(this, false))
             {
                 float num14 = Vector2.Distance(ownerMinionAttackTargetNPC2.Center, Projectile.Center);
-                if (((Vector2.Distance(Projectile.Center, vector) > num14 && num14 < num10) || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, ownerMinionAttackTargetNPC2.position, ownerMinionAttackTargetNPC2.width, ownerMinionAttackTargetNPC2.height))
+                if ((Vector2.Distance(Projectile.Center, vector) > num14 && num14 < num10 || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, ownerMinionAttackTargetNPC2.position, ownerMinionAttackTargetNPC2.width, ownerMinionAttackTargetNPC2.height))
                 {
                     num10 = num14;
                     vector = ownerMinionAttackTargetNPC2.Center;
@@ -92,7 +92,7 @@ namespace AAModClassic.Items.Armor.Demon
                     if (nPC2.CanBeChasedBy(this, false))
                     {
                         float num15 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                        if (((Vector2.Distance(Projectile.Center, vector) > num15 && num15 < num10) || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                        if ((Vector2.Distance(Projectile.Center, vector) > num15 && num15 < num10 || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                         {
                             num10 = num15;
                             vector = nPC2.Center;
@@ -195,11 +195,11 @@ namespace AAModClassic.Items.Armor.Demon
             Projectile.rotation = Projectile.velocity.X * 0.05f;
             if (flag)
             {
-                Projectile.spriteDirection = ((vector - Projectile.Center).X > 0? -1: 1);
+                Projectile.spriteDirection = (vector - Projectile.Center).X > 0? -1: 1;
             }
             else
             {
-                Projectile.spriteDirection =(Projectile.velocity.X > 0? -1: 1);
+                Projectile.spriteDirection =Projectile.velocity.X > 0? -1: 1;
             }
             if (Projectile.ai[1] > 0f)
             {

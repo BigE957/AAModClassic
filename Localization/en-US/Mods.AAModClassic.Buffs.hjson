@@ -1318,3 +1318,33 @@ FuryWitchsHelmet_Buff: {
 	DisplayName: Fury Witchs Helmet_ Buff
 	Description: Mods.AAModClassic.Buffs.FuryWitchsHelmet_Buff.Description
 }
+
+MidnightAssassinHelmet_AssassinHurtBuff: {
+	DisplayName: Midnight Assassin Helmet_ Assassin Hurt Buff
+	Description: Mods.AAModClassic.Buffs.MidnightAssassinHelmet_AssassinHurtBuff.Description
+}
+
+DiscordianInferno_Buff: {
+	DisplayName: Discordian Inferno_ Buff
+	Description: Mods.AAModClassic.Buffs.DiscordianInferno_Buff.Description
+}
+
+DemonHelmet_Buff: {
+	DisplayName: Demon Helmet_ Buff
+	Description: Mods.AAModClassic.Buffs.DemonHelmet_Buff.Description
+}
+
+ScorchingPain_Buff: {
+	DisplayName: Scorching Pain_ Buff
+	Description: Mods.AAModClassic.Buffs.ScorchingPain_Buff.Description
+}
+
+TerrasGuidance_Buff: {
+	DisplayName: Terras Guidance_ Buff
+	Description: Mods.AAModClassic.Buffs.TerrasGuidance_Buff.Description
+}
+
+DemonStaff_Buff: {
+	DisplayName: Demon Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.DemonStaff_Buff.Description
+}

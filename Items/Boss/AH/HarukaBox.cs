@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor;
 using AAModClassic.Globals;
-using AAModClassic.Items.Armor.Assassin;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -42,9 +42,9 @@ Contains a set of Midnight Assassin clothes"); */
         }
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AssassinHood>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AssassinShirt>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AssassinBoots>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MidnightAssassinHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MidnightAssassinChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MidnightAssassinLeggings>());
         }
     }
 }

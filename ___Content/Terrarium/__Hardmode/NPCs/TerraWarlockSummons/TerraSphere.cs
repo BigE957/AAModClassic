@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Terrarium.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -90,7 +91,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze_Buff>(), 300);
+            target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 300);
         }
     }
 }
