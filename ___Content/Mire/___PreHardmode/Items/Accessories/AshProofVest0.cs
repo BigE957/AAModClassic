@@ -1,4 +1,4 @@
-using AAModClassic.Buffs;
+using AAModClassic.___Content.Inferno.Buffs;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.___Content.Inferno.Buffs;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -101,7 +102,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

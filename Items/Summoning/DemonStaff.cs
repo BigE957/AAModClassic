@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Summoning
             Item.UseSound = SoundID.Item44;
             Item.shoot = ModContent.ProjectileType<DemonMinion>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<DemonMinion_Buff>();
+            Item.buffType = ModContent.BuffType<DemonStaff_Buff>();
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }

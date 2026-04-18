@@ -4,6 +4,7 @@ using AAModClassic.___Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Crimson.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Dungeon.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
@@ -26,7 +27,6 @@ using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic.Items.Armor.Demon;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
@@ -1073,7 +1073,7 @@ namespace AAModClassic
                 ModContent.ItemType<NightsLeggings>(),
                 ModContent.ItemType<TribalLeggings>(),
                 ModContent.ItemType<DeathlyLeggings>(),
-                ModContent.ItemType<DemonBoots>()
+                ModContent.ItemType<DemonLeggings>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraBoots", group24);
 
@@ -1083,7 +1083,7 @@ namespace AAModClassic
                 ModContent.ItemType<FleshrendChestplate>(),
                 ModContent.ItemType<TribalChestplate>(),
                 ModContent.ItemType<DeathlyChestplate>(),
-                ModContent.ItemType<DemonGarb>()
+                ModContent.ItemType<DemonChestplate>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraPlates", group25);
 

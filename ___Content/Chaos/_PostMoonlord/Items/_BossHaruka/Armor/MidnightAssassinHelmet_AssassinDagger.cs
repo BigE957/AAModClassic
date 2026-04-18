@@ -4,9 +4,9 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.Assassin
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor
 {
-    public class AssassinDagger : ModProjectile
+    public class MidnightAssassinHelmet_AssassinDagger : ModProjectile
 	{
 		public override void SetDefaults()
 		{
@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.Assassin
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<AssassinHurt_Buff>(), 1000);
+            target.AddBuff(ModContent.BuffType<MidnightAssassinHelmet_AssassinHurtBuff>(), 1000);
         }
 
         public override void OnKill(int timeLeft)

@@ -1,5 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
+﻿using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -81,7 +81,7 @@ namespace AAModClassic.Projectiles.Shen
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
+            target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
         }
     }
 }

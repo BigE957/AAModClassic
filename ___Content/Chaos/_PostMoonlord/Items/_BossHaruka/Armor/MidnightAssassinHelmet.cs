@@ -4,10 +4,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Armor.Assassin
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AssassinHood : BaseAAItem
+	public class MidnightAssassinHelmet : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -48,7 +48,7 @@ A dark hood infused with the shadow of midnight"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<AssassinShirt>() && legs.type == ModContent.ItemType<AssassinBoots>();
+			return body.type == ModContent.ItemType<MidnightAssassinChestplate>() && legs.type == ModContent.ItemType<MidnightAssassinLeggings>();
         }
 
 		public override void UpdateArmorSet(Player player)

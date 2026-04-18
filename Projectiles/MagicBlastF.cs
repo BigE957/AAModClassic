@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Terrarium.Buffs;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -72,7 +73,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 600);
         }
         
 

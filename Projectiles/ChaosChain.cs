@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
@@ -141,7 +142,7 @@ namespace AAModClassic.Projectiles
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
             target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 150);
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 150);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 150);
         }
 		
  

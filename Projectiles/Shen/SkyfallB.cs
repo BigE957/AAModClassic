@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Chaos.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -66,7 +67,7 @@ namespace AAModClassic.Projectiles.Shen
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             EnemyHit = true;
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

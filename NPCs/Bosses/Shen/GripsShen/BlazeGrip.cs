@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.___Content.Inferno.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
@@ -90,7 +91,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 180);
         }
 
         public override void BossLoot(ref int potionType)

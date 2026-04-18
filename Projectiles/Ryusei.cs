@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -61,7 +62,7 @@ namespace AAModClassic.Projectiles
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 300);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 300);
 		}
     }
 }

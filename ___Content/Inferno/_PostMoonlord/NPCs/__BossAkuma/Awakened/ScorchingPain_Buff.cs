@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    public class BlazingPain_Buff : ModBuff
+    public class ScorchingPain_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

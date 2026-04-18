@@ -1,10 +1,9 @@
-using AAModClassic.Items.Armor.Demon;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Hell.___PreHardmode.Items.Armor
 {
-    public class Demon_Buff : ModBuff
+    public class DemonHelmet_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -17,7 +16,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<ImpMinion>()] > 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<DemonHelmet_ImpServant>()] > 0)
             {
                 modPlayer.ImpServant = true;
             }

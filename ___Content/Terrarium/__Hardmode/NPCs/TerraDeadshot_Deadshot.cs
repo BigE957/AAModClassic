@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAModClassic.___Content.Terrarium.Buffs;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,7 +21,7 @@ namespace AAModClassic.___Content.Terrarium.__Hardmode.NPCs
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze_Buff>(), 300);
+            target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 300);
         }
     }
 }

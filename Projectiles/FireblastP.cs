@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -82,7 +83,7 @@ namespace AAModClassic.Projectiles
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 300);
+			target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 300);
 			Projectile.Kill();
 		}
 

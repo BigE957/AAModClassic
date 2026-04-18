@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
 {
-    public class DemonMinion_Buff : ModBuff
+    public class DemonStaff_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

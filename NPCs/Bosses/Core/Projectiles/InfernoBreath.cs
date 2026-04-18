@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -78,6 +79,6 @@ internal class InfernoBreath : ModProjectile
 
     public override void OnHitPlayer(Player target, Player.HurtInfo info)
     {
-		target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 300);
+		target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 300);
 	}
 }

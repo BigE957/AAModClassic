@@ -1,5 +1,6 @@
 ﻿using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic.___Content.Chaos.__Hardmode.NPCs;
+using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
@@ -13,6 +14,7 @@ using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
+using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.___Content.Madness.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
@@ -36,6 +38,7 @@ using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
+using AAModClassic.___Content.Terrarium.Buffs;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -1620,7 +1623,7 @@ namespace AAModClassic.CrossMod
                 #region DoT Debuffs
                 thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<HydraToxin_Buff>());
                 thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<DragonFire_Buff>());
-                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<DiscordInferno_Buff>());
+                thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<DiscordianInferno_Buff>());
                 thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<Terrablaze_Buff>());
                 thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<Moonraze_Buff>());
                 thorium.Call("AddPlayerDoTBuffID", ModContent.BuffType<InfinityScorch_Buff>());
