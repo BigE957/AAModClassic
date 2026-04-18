@@ -37,6 +37,8 @@ Titan Axe EX"); */
             Item.shootSpeed = 15f;
             Item.expert = true; Item.expertOnly = true;
             Item.UseSound = SoundID.Item1;
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+                redemption.Call("setAxeBonus", Item);
         }
 
         public override bool AltFunctionUse(Player player)

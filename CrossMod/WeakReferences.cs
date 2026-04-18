@@ -1597,16 +1597,6 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<Earthbreaker>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<SlapBone>());
 
-                /*
-                redemption.Call("setSlashBonus", ModContent.ItemType<Voidsaber>());
-                redemption.Call("setAxeBonus", ModContent.ItemType<Items.Dev.TitanAxe>());
-                redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxe>());
-                redemption.Call("setAxeBonus", ModContent.ItemType<Items.Dev.TitanAxeEX>());
-                redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxeEX>());
-                redemption.Call("setHammerBonus", ModContent.ItemType<StoneSlammer>());
-                redemption.Call("setHammerBonus", ModContent.ItemType<Earthbreaker>());
-                */
-
                 //Elements
                 #region Melee
                 //Swords

@@ -19,6 +19,8 @@ namespace AAModClassic.Projectiles
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.extraUpdates = 2;
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+                redemption.Call("setAxeProj", Projectile);
         }
 
 		public override void SetStaticDefaults()

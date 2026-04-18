@@ -31,6 +31,8 @@ If the enemy hits the ground after being hit, they will take damage"); */
 			Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+                redemption.Call("setHammerBonus", Item);
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)

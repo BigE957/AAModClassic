@@ -29,6 +29,8 @@ namespace AAModClassic.Items.Dev
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.shootSpeed = 12f;
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+                redemption.Call("setAxeBonus", Item);
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

@@ -27,6 +27,8 @@ namespace AAModClassic.Items.Boss.Greed
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.scale *= 1.3f;
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+                redemption.Call("setHammerBonus", Item);
         }
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)

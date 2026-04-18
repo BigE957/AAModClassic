@@ -24,7 +24,10 @@ namespace AAModClassic.Items.Melee
 			Item.shoot = ModContent.ProjectileType<Projectiles.Voidslash>();
 			Item.shootSpeed = 15f;
 			Item.value = 5400;
-		}
+
+            if (ModLoader.TryGetMod("Redemption", out var redemption))
+                redemption.Call("setSlashBonus", Item);
+        }
 
 		public override void SetStaticDefaults()
 		{
