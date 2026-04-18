@@ -10259,3 +10259,33 @@ DoomsdayHelmetSummoner: {
 	DisplayName: Doomsday Helmet Summoner
 	Tooltip: ""
 }
+
+MidnightAssassinChestplate: {
+	DisplayName: Midnight Assassin Chestplate
+	Tooltip: ""
+}
+
+MidnightAssassinHelmet: {
+	DisplayName: Midnight Assassin Helmet
+	Tooltip: ""
+}
+
+MidnightAssassinLeggings: {
+	DisplayName: Midnight Assassin Leggings
+	Tooltip: ""
+}
+
+DemonChestplate: {
+	DisplayName: Demon Chestplate
+	Tooltip: ""
+}
+
+DemonHelmet: {
+	DisplayName: Demon Helmet
+	Tooltip: ""
+}
+
+DemonLeggings: {
+	DisplayName: Demon Leggings
+	Tooltip: ""
+}
