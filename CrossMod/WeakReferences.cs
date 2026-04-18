@@ -1335,6 +1335,12 @@ namespace AAModClassic.CrossMod
                     ShenA.CrossModDialogue.Add("Radiance", (Language.GetOrRegister(locPath + "Radiance"), () => (bool)field.GetValue(null)));
             }
 
+            if (ModLoader.TryGetMod("Ultranium", out Mod ultranium))
+            {
+                ShenA.CrossModDialogue.Add("Ultranium.Aldin", (Language.GetOrRegister(locPath + "Ultranium.Aldin"), () => (bool)ultranium.Call("aldin")));
+                ShenA.CrossModDialogue.Add("Ultranium.Erebus", (Language.GetOrRegister(locPath + "Ultranium.Erebus"), () => !(bool)ultranium.Call("aldin") && (bool)ultranium.Call("erebus")));
+            }
+
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
             //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
         }
@@ -1591,6 +1597,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<Earthbreaker>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<SlapBone>());
 
+                /*
                 redemption.Call("setSlashBonus", ModContent.ItemType<Voidsaber>());
                 redemption.Call("setAxeBonus", ModContent.ItemType<Items.Dev.TitanAxe>());
                 redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxe>());
@@ -1598,6 +1605,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxeEX>());
                 redemption.Call("setHammerBonus", ModContent.ItemType<StoneSlammer>());
                 redemption.Call("setHammerBonus", ModContent.ItemType<Earthbreaker>());
+                */
 
                 //Elements
                 #region Melee
@@ -1665,6 +1673,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Earthbreaker>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<DragonSlasher>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<Items.Melee.ChaosScythe>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosSlayer>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosSlayer>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosSlayerEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosSlayerEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosSlayerEX>(), true);
@@ -1673,7 +1683,6 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<PerfectChaos>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Masamune>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<Olympia>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosSlayerEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraBladeEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<TerraBladeEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<TrueCopperShortswordEX>(), true);

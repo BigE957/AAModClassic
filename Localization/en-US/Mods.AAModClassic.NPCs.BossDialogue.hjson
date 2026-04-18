@@ -611,7 +611,7 @@ ShenDoragon: {
 
 			50: {
 				Thorium: You know, I was watching you beat down that god-sphere and its 3 goons. Gotta admit, pretty impressive.
-				Calamity: Considering you put that angsty witch in her place, gotta hand it to ya.
+				CalamityMod: Considering you put that angsty witch in her place, gotta hand it to ya.
 				GRealm: Seeing you squashed that oversided insect in the jungle, that's quite a head-turner.
 				Redemption: However, after you walloped that cosmic prude, even I was taken aback by that level of skill.
 				Jetshift: But slaying those two meteor-squatting crystal things? That's quite an eye-catcher.
@@ -632,10 +632,12 @@ ShenDoragon: {
 
 				Macrocosm: You even took your fury to the Moon! Now that's something I can get behind.
 				Spooky: Tearing through those catacombs like you own the place. That takes some skill.
-				Ultranium: Watching you whallop that star slinging hobo? That was a treat!
+				Ultranium: {
+					Erebus: Watching you whallop that tentacle-covered worm? That was a treat!
+					Aldin: Watching you whallop that star slinging hobo? That was a treat!
+				}
 				You: I mean, shattering your own reflection come alive? That's impressive stuff.
 				Radiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was a spectacle indeed!
-				CalamityMod: Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.CalamityMod
 			}
 
 			30: {
