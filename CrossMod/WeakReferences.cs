@@ -49,12 +49,16 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.Equinox;
+using AAModClassic.Items.Boss.Greed;
+using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
+using AAModClassic.Items.Dev;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Melee;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
@@ -1567,7 +1571,21 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Items
-                //TODO
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<BugSwatter>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<Legg>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<BladeOfEvil>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<MidasClub>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<StoneSlammer>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<Earthbreaker>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<SlapBone>());
+
+                redemption.Call("setSlashBonus", ModContent.ItemType<Voidsaber>());
+                redemption.Call("setAxeBonus", ModContent.ItemType<Items.Dev.TitanAxe>());
+                redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxe>());
+                redemption.Call("setAxeBonus", ModContent.ItemType<Items.Dev.TitanAxeEX>());
+                redemption.Call("setAxeProj", ModContent.ProjectileType<Projectiles.TitanAxeEX>());
+                redemption.Call("setHammerBonus", ModContent.ItemType<StoneSlammer>());
+                redemption.Call("setHammerBonus", ModContent.ItemType<Earthbreaker>());
                 #endregion
 
                 #region Projectiles
@@ -1581,21 +1599,21 @@ namespace AAModClassic.CrossMod
             if (ModLoader.TryGetMod("ThoriumMod", out var thorium))
             {
                 #region Flail Projectiles
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<GlacierBreaker>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<MushMace>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Pyrosphere>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.GlacierBreaker>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.MushMace>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Pyrosphere>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Toad.ToadTongue>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Yogan>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChain>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Yogan>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.ChaosChain>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IllumantBall>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Ryusei>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Ryusei>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Punisher>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Shen.Astroid>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.Akuma.Daycrusher>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EFlairon>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Flairdra_Holdout>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChainEX>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Projectiles.ChaosChainEX>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<PunisherEX>());
                 #endregion
 
