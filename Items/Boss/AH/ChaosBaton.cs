@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Boss.AH
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosBaton>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosBaton_Proj>();
             Item.damage = 100;
             Item.width = 52;
             Item.noMelee = true;

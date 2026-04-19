@@ -4,14 +4,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class ChaosBaton : ModProjectile
+    public class ClawBaton_Proj : ModProjectile
 	{	
 
 		public override void SetDefaults()
-        {
-            Projectile.width = 72;
-            Projectile.height = 60;
-            Projectile.aiStyle = 0;
+		{
+			Projectile.width = 72;
+			Projectile.height = 60;
+			Projectile.aiStyle = 0;
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
 			Projectile.ownerHitCheck = true;

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Grips
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ClawBaton>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ClawBaton_Proj>();
             Item.damage = 14;
             Item.width = 52;
             Item.height = 52;

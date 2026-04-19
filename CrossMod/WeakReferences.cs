@@ -76,6 +76,7 @@ using AAModClassic.Items.Materials;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Throwing;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
@@ -1955,6 +1956,48 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Spectrum>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<Spectrum>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Spectrum>(), true);
+                #endregion
+
+                #region Summon
+                //Minions
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Boss.Grips.ClawBaton>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Items.Boss.Grips.ClawBaton>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<CrimsonStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<EaterStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DemonStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FireStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandScepter>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SnakeStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosRitual>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosRitual>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosRitualEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosRitualEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DevilStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<DevilStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DragonriderStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<HallowStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<TrueHallowStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MagicAcorn>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MagicAcornEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraGauntlet>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<LungStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosBaton>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosBaton>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<FishnadoStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<FishnadoStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FireSpiritStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<OmenStaff>(), true);
+
+                //Sentries
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HydraStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<DivineWindCharm>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SentryOfTheEye>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<HurricaneStone>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<HurricaneStone>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<HorusCane>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<HorusCane>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<SunStaff>(), true);
                 #endregion
 
                 #endregion
