@@ -10289,3 +10289,33 @@ DemonLeggings: {
 	DisplayName: Demon Leggings
 	Tooltip: ""
 }
+
+ChaosSlayerChestplate: {
+	DisplayName: Chaos Slayer Chestplate
+	Tooltip: ""
+}
+
+ChaosSlayerHelmetMage: {
+	DisplayName: Chaos Slayer Helmet Mage
+	Tooltip: ""
+}
+
+ChaosSlayerHelmetMelee: {
+	DisplayName: Chaos Slayer Helmet Melee
+	Tooltip: ""
+}
+
+ChaosSlayerHelmetRanged: {
+	DisplayName: Chaos Slayer Helmet Ranged
+	Tooltip: ""
+}
+
+ChaosSlayerHelmetSummoner: {
+	DisplayName: Chaos Slayer Helmet Summoner
+	Tooltip: ""
+}
+
+ChaosSlayerLeggings: {
+	DisplayName: Chaos Slayer Leggings
+	Tooltip: ""
+}

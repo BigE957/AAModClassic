@@ -10,19 +10,18 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
 
-namespace AAModClassic.Items.Armor.PerfectChaos
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class PerfectChaosHood : BaseAAItem
+    public class ChaosSlayerHelmetSummoner : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Chaos Slayer Hood");
-            /* Tooltip.SetDefault(@"32% increased Magic damage
-20% increased Magic critical strike chance
-2% increased damage resistance
-30% reduced Mana consumption
-150 increased maximum mana
+            // DisplayName.SetDefault("Chaos Slayer Mask");
+            /* Tooltip.SetDefault(@"70% increased minion damage
+1% increased damage resistance
++6 maximum Minions
++2 maximum sentries 
 The power of discordian rage radiates from this hood"); */
         }
 
@@ -33,8 +32,8 @@ The power of discordian rage radiates from this hood"); */
 			Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
-            Item.defense = 30;
-		}
+            Item.defense = 27;
+        }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
@@ -49,29 +48,28 @@ The power of discordian rage radiates from this hood"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<PerfectChaosPlate>() && legs.type == ModContent.ItemType<PerfectChaosGreaves>();
+			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosHoodBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosMa = true;
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosMaskBonus");
+            player.GetModPlayer<AAPlayer>().perfectChaosSu = true;
             player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Magic) += .32f;
-            player.GetCritChance(DamageClass.Magic) += 20;
-            player.endurance += .02f;
-            player.manaCost *= .7f;
-            player.statManaMax2 += 150;
+            player.GetDamage(DamageClass.Summon) += .7f;
+            player.endurance += .01f;
+            player.maxMinions += 6;
+            player.maxTurrets += 2;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetMage>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetSummoner>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 6);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
@@ -80,7 +78,7 @@ The power of discordian rage radiates from this hood"); */
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D Glow = Mod.GetTexture("Glowmasks/PerfectChaosHood_Glow");
+            Texture2D Glow = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw(Glow, position, null, AAColor.Shen3, 0, origin, scale, SpriteEffects.None, 0f);
         }
 

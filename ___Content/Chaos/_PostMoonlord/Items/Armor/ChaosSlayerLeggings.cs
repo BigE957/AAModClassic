@@ -9,29 +9,27 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
 
-namespace AAModClassic.Items.Armor.PerfectChaos
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
 {
-    [AutoloadEquip(EquipType.Body)]
-	public class PerfectChaosPlate : BaseAAItem
+    [AutoloadEquip(EquipType.Legs)]
+	public class ChaosSlayerLeggings : BaseAAItem
 	{
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-            // DisplayName.SetDefault("Chaos Slayer Plate");
-            /* Tooltip.SetDefault(@"4% increased damage resistance
-+75 Max Life
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Chaos Slayer Greaves");
+            /* Tooltip.SetDefault(@"45% increased movement speed
+2% increased damage resistance
 The power of discordian rage radiates from this armor"); */
         }
 
-
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
-			Item.width = 26;
-			Item.height = 20;
-			Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.width = 22;
+            Item.height = 16;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.defense = 35;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
-            Item.defense = 60;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
@@ -46,26 +44,25 @@ The power of discordian rage radiates from this armor"); */
         }
 
         public override void UpdateEquip(Player player)
-		{
-            player.endurance += .04f;
-            player.GetAttackSpeed(DamageClass.Melee) += .15f;
-            player.statLifeMax2 += 75;
+        {
+            player.endurance += .02f;
+            player.moveSpeed += .45f;
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DraconianSunChestplate>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DreadMoonChestplate>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<DraconianSunLeggings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadMoonLeggings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 4);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D Glow = Mod.GetTexture("Glowmasks/PerfectChaosPlate_Glow");
+            Texture2D Glow = Mod.GetTexture("Glowmasks/PerfectChaosGreaves_Glow");
             spriteBatch.Draw(Glow, position, null, AAColor.Shen3, 0, origin, scale, SpriteEffects.None, 0f);
         }
 

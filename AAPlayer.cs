@@ -2,6 +2,7 @@
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
@@ -40,7 +41,6 @@ using AAModClassic.Items.Armor.Champion;
 using AAModClassic.Items.Armor.Champion.Carrot;
 using AAModClassic.Items.Armor.Champion.Drone;
 using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic.Items.Armor.PerfectChaos;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Terra.Projectiles;
 using AAModClassic.Items.Boss.Akuma;
@@ -4117,38 +4117,42 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosKabuto>()))
+                //TODO: move    this? (theres another one elsewhere btw. maybe more)
+                // btw there isnt one of these for the legs? lol???? we might wanna make that
+                #region move to chaos slayer stuff
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetMelee>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/PerfectChaos/PerfectChaosKabutoBlue_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosKabuto_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosMask>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetSummoner>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/PerfectChaos/PerfectChaosMaskBlue_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosHood>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetMage>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/PerfectChaos/PerfectChaosHoodBlue_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosVisor>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetRanged>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/PerfectChaos/PerfectChaosVisorBlue_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
+                #endregion
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4321,13 +4325,17 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosPlate>()))
+                //TODO: move     this?
+                // actually this has to be recoded i think
+                //
+                // actually can this just be removed?
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerChestplate>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/PerfectChaos/PerfectChaosPlateBlue_" + (drawPlayer.Male ? "Body" : "FemaleBody")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/PerfectChaosPlateBlue_" + (drawPlayer.Male ? "Body" : "FemaleBody")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
                 {
@@ -4374,13 +4382,14 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosPlate>()))
+                //TODO: move     this?
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerChestplate>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/PerfectChaos/PerfectChaosPlateBlue_Arms").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Alt").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
                 {
