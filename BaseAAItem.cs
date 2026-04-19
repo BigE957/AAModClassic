@@ -31,12 +31,12 @@ namespace AAModClassic
         public Color? customNameColor = null;
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            if (GlowmaskCache[Item.type] != null && GlowmaskDrawColorALSOREPLACELATER != Color.White)
+        {    
+            if (GlowmaskCache.TryGetValue(Item.type, out var asset) && GlowmaskDrawColorALSOREPLACELATER != Color.White)
             {
                 spriteBatch.Draw
                 (
-                    GlowmaskCache[Item.type].Value, 
+                    asset.Value, 
                     position, 
                     null, 
                     GlowmaskDrawColorALSOREPLACELATER, 
@@ -119,20 +119,5 @@ namespace AAModClassic
 			newItem.customNameColor = customNameColor;
             return newItem;
 		}
-
-        public override void Load()
-        {
-            if (ModContent.RequestIfExists<Asset<Texture2D>>(Texture + "_Glow", out var texture))
-            {
-                if (GlowmaskCache.TryAdd(Type, texture.Value) == false)
-                {
-                    Mod.Logger.Warn("some shit did NOT get loaded into the glowmask cache bcuz something was already there.");
-                    Mod.Logger.Warn("item id: " + Type);
-                    Mod.Logger.Warn("item name: " + Name);
-                    Mod.Logger.Warn("glowmask in that slot: " + texture.Name);
-                }
-                Mod.Logger.Warn("added item name: " + Name);
-            }
-        }
 	}
 }

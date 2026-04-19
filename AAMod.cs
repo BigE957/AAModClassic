@@ -243,6 +243,21 @@ namespace AAModClassic
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
+            foreach(ModItem modItem in this.GetContent<ModItem>())
+            {
+                if (ModContent.RequestIfExists<Texture2D>(modItem.Texture + "_Glow", out var texture))
+                {
+                    if (BaseAAItem.GlowmaskCache.TryAdd(modItem.Type, texture) == false)
+                    {
+                        Logger.Warn("some shit did NOT get loaded into the glowmask cache bcuz something was already there.");
+                        Logger.Warn("item id: " + modItem.Type);
+                        Logger.Warn("item name: " + modItem.DisplayName);
+                        Logger.Warn("glowmask in that slot: " + texture.Name);
+                    }
+                    Logger.Warn("added item name: " + modItem.DisplayName);
+                }
+            }
+
             isFullyReady = true;
         }
 
