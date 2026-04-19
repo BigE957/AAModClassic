@@ -2003,7 +2003,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Projectiles
-                //TODO
+                //TODO: ...Eventually...
                 #endregion
             }
         }
