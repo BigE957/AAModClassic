@@ -2,34 +2,38 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
 
-namespace AAModClassic.Items.Armor.PerfectChaos
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
 {
-    [AutoloadEquip(EquipType.Legs)]
-	public class PerfectChaosGreaves : BaseAAItem
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Slayer Greaves");
-            /* Tooltip.SetDefault(@"45% increased movement speed
-2% increased damage resistance
-The power of discordian rage radiates from this armor"); */
+    [AutoloadEquip(EquipType.Head)]
+    public class ChaosSlayerHelmetRanged : BaseAAItem
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Slayer Visor");
+            /* Tooltip.SetDefault(@"45% increased ranged damage
+38% increased ranged critical strike chance
+3% increased damage resistance
+25% reduced ammo consumption
++15 Max Life
+The power of discordian rage radiates from this hood"); */
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
-            Item.width = 22;
-            Item.height = 16;
-            Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.defense = 35;
+			Item.width = 20;
+			Item.height = 24;
+			Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
+            Item.defense = 39;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
@@ -42,27 +46,40 @@ The power of discordian rage radiates from this armor"); */
                 }
             }
         }
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+		{
+			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
+		}
+
+        public override void UpdateArmorSet(Player player)
+        {
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosVisorBonus");
+            player.GetModPlayer<AAPlayer>().perfectChaosRa = true;
+            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
+        }
 
         public override void UpdateEquip(Player player)
         {
-            player.endurance += .02f;
-            player.moveSpeed += .45f;
+            player.GetDamage(DamageClass.Ranged) += .45f;
+            player.GetCritChance(DamageClass.Ranged) += 38;
+            player.endurance += .03f;
+            player.ammoCost75 = true;
+            player.statLifeMax2 += 15;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DraconianSunLeggings>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DreadMoonLeggings>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 4);
-            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<DreadMoonHelmet>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D Glow = Mod.GetTexture("Glowmasks/PerfectChaosGreaves_Glow");
+            Texture2D Glow = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw(Glow, position, null, AAColor.Shen3, 0, origin, scale, SpriteEffects.None, 0f);
         }
 

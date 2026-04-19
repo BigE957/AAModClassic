@@ -18,3 +18,7 @@ rework shit so that this doesnt happen but thats up to u
 so yea. all biomes, worldgen, buffs, quest items go under the root class, and all items and npcs go under the
 progression points
 from there stuff is organized as usual, however bosses get their own folder for thier shit cuz they drop a ton
+
+if a buff is used to facilitate the creation of a minion or pet, just name it _Buff. otherwise name it its name
+
+if u wanna refer to classes: mage is Mage, melee is Melee, summoner is Summoner, ranged is Ranged
