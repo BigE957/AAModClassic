@@ -1054,7 +1054,7 @@ TitaniumPaint: {
 		'''
 }
 
-PerfectChaosGreaves: {
+ChaosSlayerLeggings: {
 	DisplayName: Chaos Slayer Greaves
 	Tooltip:
 		'''
@@ -1064,7 +1064,7 @@ PerfectChaosGreaves: {
 		'''
 }
 
-PerfectChaosHood: {
+ChaosSlayerHelmetMage: {
 	DisplayName: Chaos Slayer Hood
 	Tooltip:
 		'''
@@ -1077,7 +1077,7 @@ PerfectChaosHood: {
 		'''
 }
 
-PerfectChaosKabuto: {
+ChaosSlayerHelmetMelee: {
 	DisplayName: Chaos Slayer Kabuto
 	Tooltip:
 		'''
@@ -1089,7 +1089,7 @@ PerfectChaosKabuto: {
 		'''
 }
 
-PerfectChaosMask: {
+ChaosSlayerHelmetSummoner: {
 	DisplayName: Chaos Slayer Mask
 	Tooltip:
 		'''
@@ -1101,7 +1101,7 @@ PerfectChaosMask: {
 		'''
 }
 
-PerfectChaosPlate: {
+ChaosSlayerChestplate: {
 	DisplayName: Chaos Slayer Plate
 	Tooltip:
 		'''
@@ -1111,7 +1111,7 @@ PerfectChaosPlate: {
 		'''
 }
 
-PerfectChaosVisor: {
+ChaosSlayerHelmetRanged: {
 	DisplayName: Chaos Slayer Visor
 	Tooltip:
 		'''
@@ -6715,12 +6715,12 @@ ChaosJavelinEX: {
 		'''
 }
 
-ChaosShot: {
+ChaosBustershot: {
 	DisplayName: Chaos Bustershot
 	Tooltip: Fires a piercing dualblast as well as a spread of 6 bullets
 }
 
-ChaosShotEX: {
+ChaosBustershotEX: {
 	DisplayName: Perfect Chaos Bustershot
 	Tooltip:
 		'''
@@ -6789,7 +6789,7 @@ DynaskullJavelin: {
 	Tooltip: If stuck in an enemy and that enemy dies, releases a homing bolt of Dyna-Energy
 }
 
-Festivity: {
+Independence: {
 	DisplayName: Independence
 	Tooltip:
 		'''
@@ -10290,32 +10290,7 @@ DemonLeggings: {
 	Tooltip: ""
 }
 
-ChaosSlayerChestplate: {
+: {
 	DisplayName: Chaos Slayer Chestplate
-	Tooltip: ""
-}
-
-ChaosSlayerHelmetMage: {
-	DisplayName: Chaos Slayer Helmet Mage
-	Tooltip: ""
-}
-
-ChaosSlayerHelmetMelee: {
-	DisplayName: Chaos Slayer Helmet Melee
-	Tooltip: ""
-}
-
-ChaosSlayerHelmetRanged: {
-	DisplayName: Chaos Slayer Helmet Ranged
-	Tooltip: ""
-}
-
-ChaosSlayerHelmetSummoner: {
-	DisplayName: Chaos Slayer Helmet Summoner
-	Tooltip: ""
-}
-
-ChaosSlayerLeggings: {
-	DisplayName: Chaos Slayer Leggings
 	Tooltip: ""
 }
