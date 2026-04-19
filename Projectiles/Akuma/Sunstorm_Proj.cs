@@ -7,7 +7,7 @@ using Terraria.ID;
 
 namespace AAModClassic.Projectiles.Akuma
 {
-    public class Sunstorm : ModProjectile
+    public class Sunstorm_Proj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

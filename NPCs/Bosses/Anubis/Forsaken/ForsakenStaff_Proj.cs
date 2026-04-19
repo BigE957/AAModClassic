@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
-    public class ForsakenStaff : ModProjectile
+    public class ForsakenStaff_Proj : ModProjectile
 	{
         public override void SetDefaults()
         {

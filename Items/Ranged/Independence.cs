@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Ranged
 {
-    public class Festivity : BaseAAItem
+    public class Independence : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

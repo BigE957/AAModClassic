@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    class OdinsBlade : ModProjectile
+    class OdinsBlade_Proj : ModProjectile
     {
         public override void SetDefaults()
         {

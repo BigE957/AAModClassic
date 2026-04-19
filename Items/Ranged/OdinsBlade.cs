@@ -13,7 +13,7 @@ namespace AAModClassic.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<Projectiles.OdinsBlade>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.OdinsBlade_Proj>();
             Item.shootSpeed = 10f;
             Item.damage = 70;
             Item.knockBack = 5f;

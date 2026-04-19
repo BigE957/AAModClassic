@@ -482,7 +482,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                     if (internalAI[2] == 5 && internalAI[1] == 3 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         repeat -= 1;
-                        int projType = ModContent.ProjectileType<HarukaKunai>();
+                        int projType = ModContent.ProjectileType<HarukaKunai_Proj>();
                         float spread = 45f * 0.0174f;
                         Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                         dir *= 14f;

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class Volley : ModProjectile
+    public class Volley_Proj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

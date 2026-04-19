@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
 			Item.height = 38;
 			Item.useTime = 10;
 			Item.useAnimation = 10;
-			Item.shoot = ModContent.ProjectileType<Projectiles.SpookyKnife>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.SpookyKnife_Proj>();
 			Item.shootSpeed = 14f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;

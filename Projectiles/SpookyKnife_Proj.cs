@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-	public class SpookyKnife : ModProjectile
+	public class SpookyKnife_Proj : ModProjectile
 	{
 		public override void SetDefaults()
 		{

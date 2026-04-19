@@ -306,14 +306,14 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
                     if (NPC.ai[1] == 120)
                     {
-                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<ForsakenStaff>(), NPC.damage / 2, 14, 10, -1);
+                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<ForsakenStaff_Proj>(), NPC.damage / 2, 14, 10, -1);
                     }
                     if (NPC.ai[1] == 140)
                     {
                         ScepterTeleport();
                     }
 
-                    if (NPC.ai[1] > 160 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ForsakenStaff>()))
+                    if (NPC.ai[1] > 160 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ForsakenStaff_Proj>()))
                     {
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class Winterbreak : ModProjectile
+    public class Winterbreak_Proj : ModProjectile
     {
         public override void SetDefaults()
         {

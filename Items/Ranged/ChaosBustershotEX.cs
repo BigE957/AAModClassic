@@ -10,7 +10,7 @@ using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Ranged
 {
-    public class ChaosShotEX : BaseAAItem
+    public class ChaosBustershotEX : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
@@ -70,7 +70,7 @@ Chaos Bustershot EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<ChaosShot>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosBustershot>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();

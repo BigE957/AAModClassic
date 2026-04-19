@@ -49,7 +49,7 @@ Terra Rose EX"); */
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<Projectiles.TrueTerraRose>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TrueTerraRose_Proj>();
                 Item.damage = 70;
                 Item.useTime = 30;
                 Item.useAnimation = 30;

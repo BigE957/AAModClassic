@@ -395,7 +395,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 }
                 if (internalAI[0] == 40)
                 {
-                    BaseAI.FireProjectile(targetPlayer.Center, NPC.Center, BlazeGrip ? ModContent.ProjectileType<BlazeBomb>() : ModContent.ProjectileType<AbyssalBomb>(), damage, 2, 9f, -1, Main.myPlayer);
+                    BaseAI.FireProjectile(targetPlayer.Center, NPC.Center, BlazeGrip ? ModContent.ProjectileType<BlazeBomb>() : ModContent.ProjectileType<AbyssalBomb_Proj>(), damage, 2, 9f, -1, Main.myPlayer);
                 }
                 if (internalAI[0] > 50)
                 {

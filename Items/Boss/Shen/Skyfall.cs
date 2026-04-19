@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Boss.Shen
             Item.knockBack = 5f;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Shen.Skyfall>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Shen.Skyfall_Proj>();
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item124;
             Item.rare = ItemRarityID.Cyan;
@@ -86,7 +86,7 @@ namespace AAModClassic.Items.Boss.Shen
             switch (type)
             {
                 case 0:
-                    type = ModContent.ProjectileType<Projectiles.Shen.Skyfall>();
+                    type = ModContent.ProjectileType<Projectiles.Shen.Skyfall_Proj>();
                     break;
                 case 1:
                     type = ModContent.ProjectileType<Projectiles.Shen.SkyfallR>();

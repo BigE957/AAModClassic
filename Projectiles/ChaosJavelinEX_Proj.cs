@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class ChaosJavelinEX : ModProjectile
+    public class ChaosJavelinEX_Proj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Dev
             Item.damage = 270;
             Item.UseSound = SoundID.Item13;
             Item.channel = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Etheral>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Etheral_Proj>();
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;
             Item.DamageType = DamageClass.Magic;

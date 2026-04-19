@@ -9,7 +9,7 @@ using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {
-    public class ChaosShot : BaseAAItem
+    public class ChaosBustershot : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

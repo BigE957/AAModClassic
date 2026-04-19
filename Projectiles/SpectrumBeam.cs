@@ -120,7 +120,7 @@ namespace AAModClassic.Projectiles
 			{
 				Projectile.velocity = -Vector2.UnitY;
 			}
-			if (Projectile.type != ModContent.ProjectileType<SpectrumBeam>() || !Main.projectile[(int)Projectile.ai[1]].active || Main.projectile[(int)Projectile.ai[1]].type != ModContent.ProjectileType<Spectrum>())
+			if (Projectile.type != ModContent.ProjectileType<SpectrumBeam>() || !Main.projectile[(int)Projectile.ai[1]].active || Main.projectile[(int)Projectile.ai[1]].type != ModContent.ProjectileType<Spectrum_Proj>())
 			{
 				Projectile.Kill();
 				return;

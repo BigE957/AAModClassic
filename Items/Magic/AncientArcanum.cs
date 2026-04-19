@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Magic
 			Item.damage = 195;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shootSpeed = 9f;
-			Item.shoot = ModContent.ProjectileType<Projectiles.AncientArcanum>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.AncientArcanum_Proj>();
 			Item.width = 26;
 			Item.height = 28;
 			Item.UseSound = SoundID.Item117;

@@ -48,7 +48,7 @@ Right Clicking fires a piercing rose"); */
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<Projectiles.TerraRose>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TerraRose_Proj>();
                 Item.damage = 40;
                 Item.useTime = 30;
                 Item.useAnimation = 30;

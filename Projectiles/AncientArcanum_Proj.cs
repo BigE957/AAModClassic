@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class AncientArcanum : ModProjectile
+    public class AncientArcanum_Proj : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{

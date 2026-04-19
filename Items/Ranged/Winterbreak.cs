@@ -16,7 +16,7 @@ namespace AAModClassic.Items.Ranged
         public override void SetDefaults()
         {
 
-            Item.shoot = ModContent.ProjectileType<Projectiles.Winterbreak>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Winterbreak_Proj>();
             Item.shootSpeed = 10f;
             Item.damage = 32;
             Item.knockBack = 5f;

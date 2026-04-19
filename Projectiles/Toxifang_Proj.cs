@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class Toxifang : ModProjectile
+    public class Toxifang_Proj : ModProjectile
 	{
 		public override void SetDefaults()
 		{

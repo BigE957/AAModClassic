@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.AH.Haruka
 {
-    public class HarukaKunai : ModProjectile
+    public class HarukaKunai_Proj : ModProjectile
 	{
 		public override void SetDefaults()
 		{

@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 {
                     Main.projectile[i].Kill();
                 }
-                if(Main.projectile[i].type == ModContent.ProjectileType<AbyssalBomb>() && proj == 0)
+                if(Main.projectile[i].type == ModContent.ProjectileType<AbyssalBomb_Proj>() && proj == 0)
                 {
                     Center = Main.projectile[i].Center;
                     proj = Main.projectile[i].whoAmI;

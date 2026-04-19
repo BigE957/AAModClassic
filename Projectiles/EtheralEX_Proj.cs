@@ -9,19 +9,19 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class Spectrum : ModProjectile
+    public class EtheralEX_Proj : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Crystal");
-			Main.projFrames[Projectile.type] = 5;
+			// DisplayName.SetDefault("Light");
 		}
     	
         public override void SetDefaults()
         {
-            Projectile.width = 22;
-            Projectile.height = 26;
-            Projectile.friendly = true;
+            Projectile.width = 28;
+            Projectile.height = 84;
+            Projectile.hostile = false;
+            Projectile.friendly = false;
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
 			Projectile.DamageType = DamageClass.Magic;
@@ -30,16 +30,6 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-			Projectile.frameCounter++;
-			int num28 = (Projectile.ai[0] < 180f) ? 6 : 1;
-			if (Projectile.frameCounter >= num28)
-			{
-				Projectile.frameCounter = 0;
-				if (++Projectile.frame >= 5)
-				{
-					Projectile.frame = 0;
-				}
-			}
         	Player player = Main.player[Projectile.owner];
         	float num = 1.57079637f;
         	Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -52,7 +42,7 @@ namespace AAModClassic.Projectiles
 			{
 				num26 = 5f;
 			}
-			Projectile.damage = (int)(player.GetDamage(DamageClass.Magic).ApplyTo(player.inventory[player.selectedItem].damage));
+			Projectile.damage = (int)(player.GetDamage(DamageClass.Magic)).ApplyTo(player.inventory[player.selectedItem].damage);
 			Projectile.ai[0] += 1f;
 			Projectile.ai[1] += 1f;
 			bool flag9 = false;
@@ -119,7 +109,7 @@ namespace AAModClassic.Projectiles
 						int num29 = Projectile.damage;
 						for (int l = 0; l < 7; l++)
 						{
-							Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, ModContent.ProjectileType<SpectrumBeam>(), num29, Projectile.knockBack, Projectile.owner, l, Projectile.whoAmI);
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, ModContent.ProjectileType<EtheralLaserEX>(), num29, Projectile.knockBack, Projectile.owner, l, Projectile.whoAmI);
 						}
 						Projectile.netUpdate = true;
 					}

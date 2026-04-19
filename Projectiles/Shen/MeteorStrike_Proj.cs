@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Shen
 {
-    public class MeteorStrike : ModProjectile
+    public class MeteorStrike_Proj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class DynaskullJavelin : Javelin
+    public class DynaskullJavelin_Proj : Javelin
     {
         public override void SetStaticDefaults()
         {

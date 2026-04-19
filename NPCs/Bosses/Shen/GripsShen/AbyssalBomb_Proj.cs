@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
-    internal class AbyssalBomb : ModProjectile
+    internal class AbyssalBomb_Proj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

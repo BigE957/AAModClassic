@@ -11,7 +11,7 @@ using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.Projectiles.Akuma
 {
-    public class RadiantDawn : ModProjectile
+    public class RadiantDawn_Proj : ModProjectile
     {
         public int counter = 0;
 		public int chargeLevel = 0;

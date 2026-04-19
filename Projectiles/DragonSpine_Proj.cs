@@ -5,15 +5,16 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    public class PrimevalJavelin : Javelin
+    public class DragonSpine_Proj : Javelin
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Primeval Javelin");
+            // DisplayName.SetDefault("Dynaskull Javelin");
         }
 
         public override void SetDefaults()
@@ -25,8 +26,8 @@ namespace AAModClassic.Projectiles
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
             Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
-            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 18;
-            maxStickingJavelins = 8;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 20;
+            maxStickingJavelins = 12;
             rotationOffset = (float)Math.PI / 4;
         }
 
@@ -41,7 +42,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<DynaEnergy2_Buff>(), 60);
+            target.AddBuff(BuffID.OnFire, 40);
         }
     }
 }

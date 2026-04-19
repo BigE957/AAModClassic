@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-	public class Etheral : ModProjectile
+	public class Etheral_Proj : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{

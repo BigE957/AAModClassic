@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosJavelin>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosJavelin_Proj>();
             Item.shootSpeed = 15f;
             Item.damage = 105;
             Item.knockBack = 5f;

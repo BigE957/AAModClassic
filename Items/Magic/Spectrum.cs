@@ -33,7 +33,7 @@ Last Prism EX"); */
 			Item.channel = true;
 	        Item.knockBack = 0f;
 	        Item.value = 1000000;
-	        Item.shoot = ModContent.ProjectileType<Projectiles.Spectrum>();
+	        Item.shoot = ModContent.ProjectileType<Projectiles.Spectrum_Proj>();
 	        Item.shootSpeed = 30f;
 			Item.rare = ItemRarityID.Cyan;
 	    }
