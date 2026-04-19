@@ -16,6 +16,8 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Accessories
 	{
         public override void Load()
         {
+            base.Load();
+
             EquipLoader.AddEquipTexture(Mod, Texture + "_Wings_Alt", EquipType.Wings, name: "WingsOfChaos_Wings_Alt");
         }
 

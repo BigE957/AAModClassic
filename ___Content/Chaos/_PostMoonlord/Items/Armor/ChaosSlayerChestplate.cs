@@ -1,19 +1,23 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Armor;
+using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System.IO;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
 	public class ChaosSlayerChestplate : BaseAAItem
 	{
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -21,6 +25,8 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
             /* Tooltip.SetDefault(@"4% increased damage resistance
 +75 Max Life
 The power of discordian rage radiates from this armor"); */
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
 
@@ -32,6 +38,9 @@ The power of discordian rage radiates from this armor"); */
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
             Item.defense = 60;
+
+            //glowmaskTextureREPLACEOGWITHTHISLATER = Glowmask;
+            //glowmaskDrawColor = AAColor.Shen3;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
@@ -61,33 +70,6 @@ The power of discordian rage radiates from this armor"); */
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 10);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
-        }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D Glow = Mod.GetTexture("Glowmasks/PerfectChaosPlate_Glow");
-            spriteBatch.Draw(Glow, position, null, AAColor.Shen3, 0, origin, scale, SpriteEffects.None, 0f);
-        }
-
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                AAColor.Shen3,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
         }
     }
 }
