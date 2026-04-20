@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.___Content.Void.Projectiles;
 
 namespace AAModClassic.Items.Ranged
 {
@@ -27,7 +28,7 @@ namespace AAModClassic.Items.Ranged
             Item.rare = ItemRarityID.Blue;
             Item.DamageType = DamageClass.Ranged;
             Item.value = 2000;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Darkray>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Darkray>();
         }
 
         public override void SetStaticDefaults()

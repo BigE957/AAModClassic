@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss.Athena.Olympian;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;

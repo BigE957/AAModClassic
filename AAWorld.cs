@@ -61,6 +61,7 @@ using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Hallow.__Hardmode.Items.Materials;
 using AAModClassic.Backgrounds;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Dusts;
 
 namespace AAModClassic
 {
@@ -1139,7 +1140,7 @@ namespace AAModClassic
                     NPC Seraph1 = Main.npc[Seraph];
                     for (int i = 0; i < 5; i++)
                     {
-                        Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     AthenaHerald = true;
                 }

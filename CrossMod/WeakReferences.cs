@@ -1,6 +1,16 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Chaos.__Hardmode.NPCs;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons;
 using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
@@ -42,6 +52,9 @@ using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
 using AAModClassic.___Content.Terrarium.Buffs;
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius;
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -50,12 +63,9 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Blocks.Boxes;
-using AAModClassic.Items.Boss.AH;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
-using AAModClassic.Items.Boss.Athena;
-using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Items.Boss.EFish;
@@ -65,7 +75,6 @@ using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Rajah;
 using AAModClassic.Items.Boss.Rajah.Supreme;
-using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Boss.Serpent;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Toad;
@@ -716,15 +725,15 @@ namespace AAModClassic.CrossMod
                     AddBoss(bossChecklist, mod, "GripsOfChaos", (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosRed>(), ModContent.NPCType<GripOfChaosBlue>() }, new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "GripsOfChaos.Name"),
-                        ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").Format("[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]", "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").Format("[i:" + ModContent.ItemType<CuriousLookingClaw>() + "]", "[i:" + ModContent.ItemType<InterestingLookingClaw>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "GripsOfChaos.Despawn"),
-                        ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousClaw>(), ModContent.ItemType<InterestingClaw>() },
+                        ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousLookingClaw>(), ModContent.ItemType<InterestingLookingClaw>() },
                         ["collectibles"] = new List<int>
                         {
-                            ModContent.ItemType<Items.Boss.Grips.GripTrophyBlue>(),
-                            ModContent.ItemType<Items.Boss.Grips.GripTrophyRed>(),
-                            ModContent.ItemType<GripMaskBlue>(),
-                            ModContent.ItemType<GripMaskRed>(),
+                            ModContent.ItemType<MireGripTrophy>(),
+                            ModContent.ItemType<InfernoGripTrophy>(),
+                            ModContent.ItemType<MireGripMask>(),
+                            ModContent.ItemType<InfernoGripMask>(),
                             ModContent.ItemType<GripsBox>()
                         },
                             ["customPortrait"] = GetPortrait("Grips")
@@ -829,8 +838,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Lifescanner>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<SagTrophy>(),
-                        ModContent.ItemType<SagMask>(),
+                        ModContent.ItemType<SagittariusTrophy>(),
+                        ModContent.ItemType<SagittariusMask>(),
                         ModContent.ItemType<SagittariusBox>()
                     },
                     ["customPortrait"] = GetPortrait("Sag")
@@ -890,7 +899,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Owl>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Athena.AthenaTrophy>(),
+                        ModContent.ItemType<AthenaTrophy>(),
                         ModContent.ItemType<AthenaMask>(),
                         ModContent.ItemType<AthenaBox>()
                     },
@@ -1010,7 +1019,7 @@ namespace AAModClassic.CrossMod
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AsheTrophy>(),
-                        ModContent.ItemType<Items.Boss.AH.HarukaTrophy>(),
+                        ModContent.ItemType<HarukaTrophy>(),
                         ModContent.ItemType<SistersBox>()
                     },
                     ["customPortrait"] = GetPortrait("AH")
@@ -1596,7 +1605,7 @@ namespace AAModClassic.CrossMod
 
                 #region Items
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<BugSwatter>());
-                redemption.Call("addItemToBluntSwing", ModContent.ItemType<Legg>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<SagittariusLeg>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<BladeOfEvil>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<MidasClub>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<StoneSlammer>());
@@ -1863,7 +1872,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosJavelinEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosJavelinEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosJavelinEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HarukaKunai>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalKunai>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<MidnightWrath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<MidnightWrath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<OreCannon>(), true);
@@ -1960,8 +1969,8 @@ namespace AAModClassic.CrossMod
 
                 #region Summon
                 //Minions
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Items.Boss.Grips.ClawBaton>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Items.Boss.Grips.ClawBaton>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ClawBaton>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ClawBaton>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<CrimsonStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<EaterStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DemonStaff>(), true);
@@ -1986,12 +1995,12 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosBaton>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<FishnadoStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<FishnadoStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FireSpiritStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FlameVortexStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<OmenStaff>(), true);
 
                 //Sentries
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HydraStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<DivineWindCharm>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<DivineWindStone>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SentryOfTheEye>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<HurricaneStone>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<HurricaneStone>(), true);

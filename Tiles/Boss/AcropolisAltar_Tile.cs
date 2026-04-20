@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.NPCs.Bosses.Athena;
@@ -91,7 +92,7 @@ namespace AAModClassic.Tiles.Boss
             Vector2 npcCenter = Pos + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * Main.rand.Next(2) == 0 ? -1 : 1, -800f);
             for (int a = 0; a < 8; a++)
             {
-                Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)

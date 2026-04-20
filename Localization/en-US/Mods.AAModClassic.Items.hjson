@@ -10159,3 +10159,278 @@ StripemansLuckyLeggings: {
 	DisplayName: Stripemans Lucky Leggings
 	Tooltip: ""
 }
+
+AncientGoldChestplate: {
+	DisplayName: Ancient Gold Chestplate
+	Tooltip: ""
+}
+
+AncientGoldLeggings: {
+	DisplayName: Ancient Gold Leggings
+	Tooltip: ""
+}
+
+DarkDoomiteChestplate: {
+	DisplayName: Dark Doomite Chestplate
+	Tooltip: ""
+}
+
+DarkDoomiteHelmet: {
+	DisplayName: Dark Doomite Helmet
+	Tooltip: ""
+}
+
+DarkDoomiteLeggings: {
+	DisplayName: Dark Doomite Leggings
+	Tooltip: ""
+}
+
+OroborosLeggings: {
+	DisplayName: Oroboros Leggings
+	Tooltip: ""
+}
+
+ChaosChestplate: {
+	DisplayName: Chaos Chestplate
+	Tooltip: ""
+}
+
+ChaosHelmetMage: {
+	DisplayName: Chaos Helmet Mage
+	Tooltip: ""
+}
+
+ChaosHelmetMelee: {
+	DisplayName: Chaos Helmet Melee
+	Tooltip: ""
+}
+
+ChaosHelmetRanged: {
+	DisplayName: Chaos Helmet Ranged
+	Tooltip: ""
+}
+
+ChaosHelmetSummoner: {
+	DisplayName: Chaos Helmet Summoner
+	Tooltip: ""
+}
+
+ChaosLeggings: {
+	DisplayName: Chaos Leggings
+	Tooltip: ""
+}
+
+FuryWitchsChestplate: {
+	DisplayName: Fury Witchs Chestplate
+	Tooltip: ""
+}
+
+FuryWitchsHelmet: {
+	DisplayName: Fury Witchs Helmet
+	Tooltip: ""
+}
+
+FuryWitchsLeggings: {
+	DisplayName: Fury Witchs Leggings
+	Tooltip: ""
+}
+
+DoomiteChestplate: {
+	DisplayName: Doomite Chestplate
+	Tooltip: ""
+}
+
+DoomiteHelmet: {
+	DisplayName: Doomite Helmet
+	Tooltip: ""
+}
+
+DoomiteLeggings: {
+	DisplayName: Doomite Leggings
+	Tooltip: ""
+}
+
+DoomsdayHelmetMage: {
+	DisplayName: Doomsday Helmet Mage
+	Tooltip: ""
+}
+
+DoomsdayHelmetSummoner: {
+	DisplayName: Doomsday Helmet Summoner
+	Tooltip: ""
+}
+
+MidnightAssassinChestplate: {
+	DisplayName: Midnight Assassin Chestplate
+	Tooltip: ""
+}
+
+MidnightAssassinHelmet: {
+	DisplayName: Midnight Assassin Helmet
+	Tooltip: ""
+}
+
+MidnightAssassinLeggings: {
+	DisplayName: Midnight Assassin Leggings
+	Tooltip: ""
+}
+
+DemonChestplate: {
+	DisplayName: Demon Chestplate
+	Tooltip: ""
+}
+
+DemonHelmet: {
+	DisplayName: Demon Helmet
+	Tooltip: ""
+}
+
+DemonLeggings: {
+	DisplayName: Demon Leggings
+	Tooltip: ""
+}
+
+ChampionHelmetMage: {
+	DisplayName: Champion Helmet Mage
+	Tooltip: ""
+}
+
+ChampionHelmetMage_CarrotBooster: {
+	DisplayName: Champion Helmet Mage_ Carrot Booster
+	Tooltip: ""
+}
+
+ChampionHelmetMelee: {
+	DisplayName: Champion Helmet Melee
+	Tooltip: ""
+}
+
+ChampionHelmetRanged: {
+	DisplayName: Champion Helmet Ranged
+	Tooltip: ""
+}
+
+ChampionHelmetSummoner: {
+	DisplayName: Champion Helmet Summoner
+	Tooltip: ""
+}
+
+ChampionLeggings: {
+	DisplayName: Champion Leggings
+	Tooltip: ""
+}
+
+InfernoGripMask: {
+	DisplayName: Inferno Grip Mask
+	Tooltip: ""
+}
+
+InfernoGripTrophy: {
+	DisplayName: Inferno Grip Trophy
+	Tooltip: ""
+}
+
+GripsOfChaosTreasureBag: {
+	DisplayName: Grips Of Chaos Treasure Bag
+	Tooltip: ""
+}
+
+MireGripMask: {
+	DisplayName: Mire Grip Mask
+	Tooltip: ""
+}
+
+MireGripTrophy: {
+	DisplayName: Mire Grip Trophy
+	Tooltip: ""
+}
+
+CuriousLookingClaw: {
+	DisplayName: Curious Looking Claw
+	Tooltip: ""
+}
+
+InterestingLookingClaw: {
+	DisplayName: Interesting Looking Claw
+	Tooltip: ""
+}
+
+FuryWitchsGrabBag: {
+	DisplayName: Fury Witchs Grab Bag
+	Tooltip: ""
+}
+
+MidnightAssassinGrabBag: {
+	DisplayName: Midnight Assassin Grab Bag
+	Tooltip: ""
+}
+
+SistersOfDiscordTreasureBag: {
+	DisplayName: Sisters Of Discord Treasure Bag
+	Tooltip: ""
+}
+
+AbyssalKunai: {
+	DisplayName: Abyssal Kunai
+	Tooltip: ""
+}
+
+FlameVortexStaff: {
+	DisplayName: Flame Vortex Staff
+	Tooltip: ""
+}
+
+SagittariusMask: {
+	DisplayName: Sagittarius Mask
+	Tooltip: ""
+}
+
+SagittariusTreasureBag: {
+	DisplayName: Sagittarius Treasure Bag
+	Tooltip: ""
+}
+
+SagittariusTrophy: {
+	DisplayName: Sagittarius Trophy
+	Tooltip: ""
+}
+
+NeutronRod: {
+	DisplayName: Neutron Rod
+	Tooltip: ""
+}
+
+SagittariusCore: {
+	DisplayName: Sagittarius Core
+	Tooltip: ""
+}
+
+SagittariusLeg: {
+	DisplayName: Sagittarius Leg
+	Tooltip: ""
+}
+
+SagittariusShield: {
+	DisplayName: Sagittarius Shield
+	Tooltip: ""
+}
+
+StallionsStar: {
+	DisplayName: Stallions Star
+	Tooltip: ""
+}
+
+AthenaTreasureBag: {
+	DisplayName: Athena Treasure Bag
+	Tooltip: ""
+}
+
+DivineWindStone: {
+	DisplayName: Divine Wind Stone
+	Tooltip: ""
+}
+
+AthenaATreasureBag: {
+	DisplayName: Athena A Treasure Bag
+	Tooltip: ""
+}

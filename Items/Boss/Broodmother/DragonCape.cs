@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Items.Boss.Broodmother
 {

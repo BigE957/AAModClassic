@@ -15,6 +15,8 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
     [AutoloadEquip(EquipType.Head)]
     public class ChaosSlayerHelmetMage : BaseAAItem
     {
+        public override Color GlowmaskDrawColor => AAColor.Shen3;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Slayer Hood");
@@ -76,33 +78,6 @@ The power of discordian rage radiates from this hood"); */
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
-        }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D Glow = Mod.GetTexture("Glowmasks/PerfectChaosHood_Glow");
-            spriteBatch.Draw(Glow, position, null, AAColor.Shen3, 0, origin, scale, SpriteEffects.None, 0f);
-        }
-
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                AAColor.Shen3,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
         }
     }
 }

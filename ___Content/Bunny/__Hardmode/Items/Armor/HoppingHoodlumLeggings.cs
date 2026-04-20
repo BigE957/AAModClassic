@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Boss.Rajah;
+using AAModClassic.___Content.Bunny.__Hardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Bunny.__Hardmode.Items.Armor
 {

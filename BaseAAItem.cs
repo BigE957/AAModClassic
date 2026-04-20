@@ -15,31 +15,33 @@ namespace AAModClassic
 		public const int GLOWMASKTYPE_NONE = -1;	 //for shit like Daystorm which is a 'projectile' gun
 		public const int  GLOWMASKTYPE_SWORD = 0; //for swords and swordlike items
 		public const int GLOWMASKTYPE_GUN = 1; //for guns and gunlike items (bows too)
-        public int AARarity = 0;
+        public int AARarity = 0; //TODO: rework to use tml rarity system
 
         //glowmask shenanigans
         public static Dictionary<int, Asset<Texture2D>> GlowmaskCache = [];
         public Color GlowmaskDrawColorALSOREPLACELATER = Color.White;
 
-        public string glowmaskTexture = null;
+        public string glowmaskTexture = null; //TODO: remove and fix everythhing which breaks cuz of that
         public int glowmaskDrawType = 0; //TODO: remove this? does nothing
         // ok so i looked around. its SUPPOSED to do something. but it never does. lol. add that functionality in its place? 
         // even if we add the functionality we can remove this bcuz theres other ways to check usestyle its called checking what the usestyle is
-		public Color glowmaskDrawColor = Color.White;
+		public Color glowmaskDrawColor = Color.White; //TODO: remove and fix everythhing which breaks cuz of that
+        
+        public virtual Color GlowmaskDrawColor => Color.White;
 
         //custom name color
         public Color? customNameColor = null;
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {    
-            if (GlowmaskCache.TryGetValue(Item.type, out var asset) && GlowmaskDrawColorALSOREPLACELATER != Color.White)
+        {
+            if (GlowmaskCache.TryGetValue(Item.type, out var asset) && GlowmaskDrawColor != Color.White)
             {
                 spriteBatch.Draw
                 (
                     asset.Value, 
                     position, 
                     null, 
-                    GlowmaskDrawColorALSOREPLACELATER, 
+                    GlowmaskDrawColor, 
                     0, 
                     origin, 
                     scale, 
@@ -51,21 +53,20 @@ namespace AAModClassic
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-			if(glowmaskTexture != null)
+            if (GlowmaskCache.TryGetValue(Item.type, out var asset))
 			{
-	            Texture2D texture = Mod.GetTexture(glowmaskTexture);
 				spriteBatch.Draw
 				(
-					texture,
+					asset.Value,
 					new Vector2
 					(
 						Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-						Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
+						Item.position.Y - Main.screenPosition.Y + Item.height - asset.Value.Height * 0.5f + 2f
 					),
-					new Rectangle(0, 0, texture.Width, texture.Height),
-					Color.White,
+					new Rectangle(0, 0, asset.Value.Width, asset.Value.Height),
+                    GlowmaskDrawColor,
 					rotation,
-					texture.Size() * 0.5f,
+					asset.Value.Size() * 0.5f,
 					scale,
 					Item.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
 					0f
@@ -115,7 +116,6 @@ namespace AAModClassic
 			BaseAAItem newItem = (BaseAAItem)base.NewInstance(itemClone);
             newItem.glowmaskTexture = glowmaskTexture;
 			newItem.glowmaskDrawType = glowmaskDrawType;
-			newItem.glowmaskDrawColor = glowmaskDrawColor;
 			newItem.customNameColor = customNameColor;
             return newItem;
 		}

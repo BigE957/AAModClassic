@@ -1,5 +1,7 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.AH;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
@@ -553,13 +555,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<AHBag>()));
+            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AsheTrophy>(), 10));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            int[] lootTable = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FireSpiritStaff>(), ModContent.ItemType<AsheSatchel>() };
+            int[] lootTable = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsGrabBag>() };
 
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

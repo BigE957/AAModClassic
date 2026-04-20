@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Boss.Grips;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -43,17 +43,17 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GripTrophyBlue>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MireGripTrophy>(), 10));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
             notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 30, 44));
 
-            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripMaskBlue>(), 7));
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MireGripMask>(), 7));
 
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
-            lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripBag>()));
+            lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
 
             LeadingConditionRule lastStandingNormal = new(new MissingGripNormal());
 

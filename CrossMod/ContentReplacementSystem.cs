@@ -1,4 +1,8 @@
-﻿using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
+﻿using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
@@ -9,7 +13,6 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
@@ -63,8 +66,8 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<IntimidatingMushroom>(),
             ModContent.ItemType<ConfusingMushroom>(),
 
-            ModContent.ItemType<CuriousClaw>(),
-            ModContent.ItemType<InterestingClaw>(),
+            ModContent.ItemType<CuriousLookingClaw>(),
+            ModContent.ItemType<InterestingLookingClaw>(),
 
             ModContent.ItemType<Toadstool>(),
             #endregion
@@ -150,8 +153,8 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<FurnitureDynamo>(), NewAA.Find<ModItem>("FurnitureDynamo").Type);
 
                 //Trophies (Maybe used inr ecipes? I don't know)
-                OldToNewItems.Add(ModContent.ItemType<GripTrophyBlue>(), NewAA.Find<ModItem>("MireGripTrophy").Type);
-                OldToNewItems.Add(ModContent.ItemType<GripTrophyRed>(), NewAA.Find<ModItem>("InfernoGripTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<MireGripTrophy>(), NewAA.Find<ModItem>("MireGripTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<InfernoGripTrophy>(), NewAA.Find<ModItem>("InfernoGripTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<MonarchTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<FungusTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<ToadTrophy>(), NewAA.Find<ModItem>("ToadTrophy").Type);

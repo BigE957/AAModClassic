@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss.Sagittarius;
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
@@ -98,7 +98,7 @@ namespace AAModClassic.Items.Boss.Zero
                 ModContent.ItemType<Items.Boss.Zero.RiftShredder>(),
                 ModContent.ItemType<Items.Boss.Zero.VoidStar>(),
                 ModContent.ItemType<Items.Boss.Zero.TeslaHand>(),
-                ModContent.ItemType<ZeroStar>(),
+                ModContent.ItemType<StallionsStar>(),
                 ModContent.ItemType<ZeroTerratool>(),
                 ModContent.ItemType<DoomPortal>(),
                 ModContent.ItemType<Gigataser>(),

@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Thorium.Healer;
 using AAModClassic.Items.Vanity.Mask;

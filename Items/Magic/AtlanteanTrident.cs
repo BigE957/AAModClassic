@@ -1,6 +1,6 @@
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic.Items.Boss.Djinn;
-using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Boss.Serpent;
 using Microsoft.Xna.Framework;
 using System;
@@ -61,7 +61,7 @@ namespace AAModClassic.Items.Magic
 			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
 			recipe.AddIngredient(ModContent.ItemType<BlazePike>());
 			recipe.AddIngredient(ModContent.ItemType<SandLamp>());
-			recipe.AddIngredient(ModContent.ItemType<NeutronStaff>());
+			recipe.AddIngredient(ModContent.ItemType<NeutronRod>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 			
@@ -69,7 +69,7 @@ namespace AAModClassic.Items.Magic
 			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
 			recipe.AddIngredient(ModContent.ItemType<SludgeShot>());
 			recipe.AddIngredient(ModContent.ItemType<Sickle>());
-			recipe.AddIngredient(ModContent.ItemType<NeutronStaff>());
+			recipe.AddIngredient(ModContent.ItemType<NeutronRod>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

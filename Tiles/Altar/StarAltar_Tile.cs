@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -88,7 +89,7 @@ namespace AAModClassic.Tiles.Altar
         public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            int type = ModContent.ItemType<Items.Boss.Athena.Olympian.StarChart>();
+            int type = ModContent.ItemType<StarChart>();
             if (BasePlayer.HasItem(player, type, 1) && !AAWorld.StarActive)
             {
                 for (int m = 0; m < 50; m++)

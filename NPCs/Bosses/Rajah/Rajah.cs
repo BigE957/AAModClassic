@@ -23,6 +23,8 @@ using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
 using AAModClassic.Items.Thorium.Healer;
+using AAModClassic.___Content.Bunny.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {

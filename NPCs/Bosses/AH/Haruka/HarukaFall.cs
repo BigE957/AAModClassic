@@ -1,4 +1,4 @@
-﻿using AAModClassic.Items.Boss.AH;
+﻿using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -79,7 +79,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
                     if (Main.expertMode)
                     {
-                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
+                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<SistersOfDiscordTreasureBag>());
                     }
 
                     if (!Main.expertMode)
