@@ -1,6 +1,7 @@
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.NPCs.Bosses.Toad;
 using Microsoft.Xna.Framework;
 using Terraria;

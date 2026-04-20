@@ -2,7 +2,12 @@
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.Accessories;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
@@ -11,10 +16,11 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.MushroomMonarch;
-using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
@@ -155,9 +161,9 @@ namespace AAModClassic.CrossMod
                 //Trophies (Maybe used inr ecipes? I don't know)
                 OldToNewItems.Add(ModContent.ItemType<MireGripTrophy>(), NewAA.Find<ModItem>("MireGripTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<InfernoGripTrophy>(), NewAA.Find<ModItem>("InfernoGripTrophy").Type);
-                OldToNewItems.Add(ModContent.ItemType<MonarchTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
-                OldToNewItems.Add(ModContent.ItemType<FungusTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
-                OldToNewItems.Add(ModContent.ItemType<ToadTrophy>(), NewAA.Find<ModItem>("ToadTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<MushroomMonarchTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<FeudalFungusTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<TruffleToadTrophy>(), NewAA.Find<ModItem>("ToadTrophy").Type);
                 #endregion
 
                 #region Materials
@@ -224,10 +230,10 @@ namespace AAModClassic.CrossMod
 
             #region Shimmer Transmutes
             //Boss Items
-            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<ToadLeg>()] = NewAA.Find<ModItem>("TruffleLeg").Type;
+            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<TruffleLegs>()] = NewAA.Find<ModItem>("TruffleLeg").Type;
             ItemID.Sets.ShimmerTransformToItem[NewAA.Find<ModItem>("TruffleLeg").Type] = ModContent.ItemType<HeartyTruffle>();
-            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<HeartyTruffle>()] = ModContent.ItemType<MagicTruffle>();
-            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<MagicTruffle>()] = ModContent.ItemType<ToadLeg>();
+            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<HeartyTruffle>()] = ModContent.ItemType<GlowingTruffle>();
+            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<GlowingTruffle>()] = ModContent.ItemType<TruffleLegs>();
             ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<ClawOfChaos>()] = NewAA.Find<ModItem>("TwinClawPendant").Type;
 
             //Tiles

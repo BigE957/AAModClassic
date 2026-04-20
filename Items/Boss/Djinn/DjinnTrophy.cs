@@ -1,4 +1,4 @@
-using AAModClassic.Tiles.Trophy;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Boss.Djinn
@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Djinn
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<DjinnTrophy_Tile>();
+			Item.createTile = ModContent.TileType<DesertDjinnTrophy_Tile>();
 		}
 	}
 }

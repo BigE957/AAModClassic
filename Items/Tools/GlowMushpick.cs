@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Tools
 {

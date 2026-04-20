@@ -6,10 +6,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Usable;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
@@ -370,15 +370,15 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MonarchBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MushroomMonarchTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MonarchTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchTrophy>(), 10));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SporeSac>(), 1, 30, 35));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MonarchMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 1, 25, 35));
 

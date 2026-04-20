@@ -1,10 +1,10 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor
 {
@@ -45,7 +45,7 @@ It vibrates with the powers of Atlantis"); */
             recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanChestplate>());
-            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 8);
+            recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);

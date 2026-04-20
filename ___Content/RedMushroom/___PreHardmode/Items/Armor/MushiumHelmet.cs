@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor
 {

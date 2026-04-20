@@ -1,5 +1,4 @@
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Boss.Broodmother;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +28,7 @@ namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 20);
-            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 15);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

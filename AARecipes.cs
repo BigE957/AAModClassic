@@ -21,6 +21,7 @@ using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
@@ -29,8 +30,6 @@ using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Broodmother;
-using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Mushrooms;
@@ -809,7 +808,7 @@ namespace AAModClassic
 
             TransmuteRecipe(ItemID.SoulofNight, ItemID.SoulofLight);
 
-            TransmuteRecipe((short)ModContent.ItemType<BroodScale>(), (short)ModContent.ItemType<HydraHide>());
+            TransmuteRecipe((short)ModContent.ItemType<ScorchedScale>(), (short)ModContent.ItemType<HydraHide>());
             TransmuteRecipe((short)ModContent.ItemType<Hotshroom>(), (short)ModContent.ItemType<Darkshroom>());
             TransmuteRecipe((short)ModContent.ItemType<DragonFire>(), (short)ModContent.ItemType<Bogtoxin>());
             TransmuteRecipe((short)ModContent.ItemType<SoulOfSmite>(), (short)ModContent.ItemType<SoulOfSpite>());

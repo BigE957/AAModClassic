@@ -1,6 +1,5 @@
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Broodmother;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -55,7 +54,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 2, 4));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScorchedScale>(), 1, 2, 4));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 5, 6));
         }
 

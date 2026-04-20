@@ -12,8 +12,12 @@ using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Bo
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons;
 using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
@@ -47,6 +51,8 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
 using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
@@ -66,18 +72,14 @@ using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Items.Boss.EFish;
-using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Boss.Greed.WKG;
-using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Rajah;
 using AAModClassic.Items.Boss.Rajah.Supreme;
 using AAModClassic.Items.Boss.Serpent;
 using AAModClassic.Items.Boss.Shen;
-using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Dev;
 using AAModClassic.Items.Magic;
@@ -119,7 +121,6 @@ using AAModClassic.Projectiles.EFish;
 using AAModClassic.Projectiles.Rajah;
 using AAModClassic.Projectiles.Rajah.Supreme;
 using AAModClassic.Projectiles.Shen;
-using AAModClassic.Projectiles.Toad;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -696,8 +697,8 @@ namespace AAModClassic.CrossMod
                         ["spawnItems"] = ModContent.ItemType<IntimidatingMushroom>(),
                         ["collectibles"] = new List<int>
                         {
-                            ModContent.ItemType<MonarchTrophy>(),
-                            ModContent.ItemType<MonarchMask>(),
+                            ModContent.ItemType<MushroomMonarchTrophy>(),
+                            ModContent.ItemType<MushroomMonarchMask>(),
                             ModContent.ItemType<MonarchBox>()
                         },
                         ["customPortrait"] = GetPortrait("Monarch")
@@ -713,8 +714,8 @@ namespace AAModClassic.CrossMod
                         ["spawnItems"] = ModContent.ItemType<ConfusingMushroom>(),
                         ["collectibles"] = new List<int>
                         {
-                            ModContent.ItemType<Items.Boss.MushroomMonarch.FungusTrophy>(),
-                            ModContent.ItemType<FungusMask>(),
+                            ModContent.ItemType<FeudalFungusTrophy>(),
+                            ModContent.ItemType<FeudalFungusMask>(),
                             ModContent.ItemType<FungusBox>()
                         },
                         ["customPortrait"] = GetPortrait("Fungus")
@@ -749,8 +750,8 @@ namespace AAModClassic.CrossMod
                         ["spawnItems"] = ModContent.ItemType<Toadstool>(),
                         ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<ToadTrophy>(),
-                        ModContent.ItemType<ToadMask>(),
+                        ModContent.ItemType<TruffleToadTrophy>(),
+                        ModContent.ItemType<TruffleToadMask>(),
                         ModContent.ItemType<TruffleToadBox>()
                     },
                         ["customPortrait"] = GetPortrait("Toad"),
@@ -999,8 +1000,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<EquinoxWorm>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<DBTrophy>(),
-                        ModContent.ItemType<Items.Boss.Equinox.NCTrophy>(),
+                        ModContent.ItemType<DaybringerTrophy>(),
+                        ModContent.ItemType<NightcrawlerTrophy>(),
                         ModContent.ItemType<DaybringerMask>(),
                         ModContent.ItemType<NightcrawlerMask>(),
                         ModContent.ItemType<EquinoxBox>()
@@ -2025,7 +2026,7 @@ namespace AAModClassic.CrossMod
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<GlacierBreaker_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<MushMace_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Pyrosphere_Proj>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ToadTongue_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ToadTongue_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Yogan_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChain_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IllumantBall>());
