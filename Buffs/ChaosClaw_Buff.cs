@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<AbyssClaw>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<BlazeClaw>()] > 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<ChaosBaton_AbyssClaw>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<ChaosBaton_BlazeClaw>()] > 0)
             {
 				modPlayer.ChaosClaw = true;
 			}

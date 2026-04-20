@@ -43,17 +43,17 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GripTrophyBlue>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MireGripTrophy>(), 10));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
             notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 30, 44));
 
-            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripMaskBlue>(), 7));
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MireGripMask>(), 7));
 
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
-            lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripBag>()));
+            lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
 
             LeadingConditionRule lastStandingNormal = new(new MissingGripNormal());
 

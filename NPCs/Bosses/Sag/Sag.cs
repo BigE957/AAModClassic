@@ -470,17 +470,17 @@ namespace AAModClassic.NPCs.Bosses.Sag
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SagBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SagittariusTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SagTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SagittariusTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SagMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SagittariusMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DoomiteBar>(), 1, 20, 30));
 
-            int[] lootTable = { ModContent.ItemType<SagCore>(), ModContent.ItemType<NeutronStaff>(), ModContent.ItemType<Legg>() };
+            int[] lootTable = { ModContent.ItemType<SagittariusCore>(), ModContent.ItemType<NeutronRod>(), ModContent.ItemType<SagittariusLeg>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

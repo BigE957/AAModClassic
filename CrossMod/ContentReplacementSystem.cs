@@ -63,8 +63,8 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<IntimidatingMushroom>(),
             ModContent.ItemType<ConfusingMushroom>(),
 
-            ModContent.ItemType<CuriousClaw>(),
-            ModContent.ItemType<InterestingClaw>(),
+            ModContent.ItemType<CuriousLookingClaw>(),
+            ModContent.ItemType<InterestingLookingClaw>(),
 
             ModContent.ItemType<Toadstool>(),
             #endregion
@@ -150,8 +150,8 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<FurnitureDynamo>(), NewAA.Find<ModItem>("FurnitureDynamo").Type);
 
                 //Trophies (Maybe used inr ecipes? I don't know)
-                OldToNewItems.Add(ModContent.ItemType<GripTrophyBlue>(), NewAA.Find<ModItem>("MireGripTrophy").Type);
-                OldToNewItems.Add(ModContent.ItemType<GripTrophyRed>(), NewAA.Find<ModItem>("InfernoGripTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<MireGripTrophy>(), NewAA.Find<ModItem>("MireGripTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<InfernoGripTrophy>(), NewAA.Find<ModItem>("InfernoGripTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<MonarchTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<FungusTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
                 OldToNewItems.Add(ModContent.ItemType<ToadTrophy>(), NewAA.Find<ModItem>("ToadTrophy").Type);

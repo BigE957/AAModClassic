@@ -10,14 +10,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     public class DeitySkull_Hand5 : ModNPC
     {
+        public override string Texture => ModContent.GetInstance<DeitySkull_Hand>().Texture;
+
 
         public override void SetStaticDefaults()
         {
 
             Main.npcFrameCount[NPC.type] = 4;
         }
-
-        public override string Texture => ModContent.GetInstance<DeitySkull_Hand>().Texture;
 
         public override void SetDefaults()
         {

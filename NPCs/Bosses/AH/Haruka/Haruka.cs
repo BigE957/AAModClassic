@@ -172,13 +172,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<AHBag>()));
+            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HarukaTrophy>(), 10));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<Items.Boss.AH.HarukaKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<HarukaBox>() };
+            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<Items.Boss.AH.AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinGrabBag>() };
 
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

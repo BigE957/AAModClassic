@@ -61,7 +61,7 @@ namespace AAModClassic.Items.Magic
 			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
 			recipe.AddIngredient(ModContent.ItemType<BlazePike>());
 			recipe.AddIngredient(ModContent.ItemType<SandLamp>());
-			recipe.AddIngredient(ModContent.ItemType<NeutronStaff>());
+			recipe.AddIngredient(ModContent.ItemType<NeutronRod>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 			
@@ -69,7 +69,7 @@ namespace AAModClassic.Items.Magic
 			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
 			recipe.AddIngredient(ModContent.ItemType<SludgeShot>());
 			recipe.AddIngredient(ModContent.ItemType<Sickle>());
-			recipe.AddIngredient(ModContent.ItemType<NeutronStaff>());
+			recipe.AddIngredient(ModContent.ItemType<NeutronRod>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

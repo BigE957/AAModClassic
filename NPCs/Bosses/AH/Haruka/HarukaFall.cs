@@ -79,7 +79,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
                     if (Main.expertMode)
                     {
-                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
+                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<SistersOfDiscordTreasureBag>());
                     }
 
                     if (!Main.expertMode)

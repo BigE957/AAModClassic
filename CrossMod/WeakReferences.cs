@@ -718,13 +718,13 @@ namespace AAModClassic.CrossMod
                         ["displayName"] = Language.GetOrRegister(path + "GripsOfChaos.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").Format("[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]", "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "GripsOfChaos.Despawn"),
-                        ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousClaw>(), ModContent.ItemType<InterestingClaw>() },
+                        ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousLookingClaw>(), ModContent.ItemType<InterestingLookingClaw>() },
                         ["collectibles"] = new List<int>
                         {
-                            ModContent.ItemType<Items.Boss.Grips.GripTrophyBlue>(),
-                            ModContent.ItemType<Items.Boss.Grips.GripTrophyRed>(),
-                            ModContent.ItemType<GripMaskBlue>(),
-                            ModContent.ItemType<GripMaskRed>(),
+                            ModContent.ItemType<Items.Boss.Grips.MireGripTrophy>(),
+                            ModContent.ItemType<Items.Boss.Grips.InfernoGripTrophy>(),
+                            ModContent.ItemType<MireGripMask>(),
+                            ModContent.ItemType<InfernoGripMask>(),
                             ModContent.ItemType<GripsBox>()
                         },
                             ["customPortrait"] = GetPortrait("Grips")
@@ -829,8 +829,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Lifescanner>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<SagTrophy>(),
-                        ModContent.ItemType<SagMask>(),
+                        ModContent.ItemType<SagittariusTrophy>(),
+                        ModContent.ItemType<SagittariusMask>(),
                         ModContent.ItemType<SagittariusBox>()
                     },
                     ["customPortrait"] = GetPortrait("Sag")
@@ -1596,7 +1596,7 @@ namespace AAModClassic.CrossMod
 
                 #region Items
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<BugSwatter>());
-                redemption.Call("addItemToBluntSwing", ModContent.ItemType<Legg>());
+                redemption.Call("addItemToBluntSwing", ModContent.ItemType<SagittariusLeg>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<BladeOfEvil>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<MidasClub>());
                 redemption.Call("addItemToBluntSwing", ModContent.ItemType<StoneSlammer>());
@@ -1863,7 +1863,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosJavelinEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosJavelinEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosJavelinEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HarukaKunai>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalKunai>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<MidnightWrath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<MidnightWrath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<OreCannon>(), true);
@@ -1986,7 +1986,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosBaton>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<FishnadoStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<FishnadoStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FireSpiritStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FlameVortexStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<OmenStaff>(), true);
 
                 //Sentries

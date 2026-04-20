@@ -1556,11 +1556,11 @@ namespace AAModClassic
 
             if (Orbiters)
             {
-                Spheres = BaseAI.GetProjectiles(Player.Center, ModContent.ProjectileType<FireOrbiter>(), Main.myPlayer, 48);
+                Spheres = BaseAI.GetProjectiles(Player.Center, ModContent.ProjectileType<FlameVortexStaff_FireOrbiter>(), Main.myPlayer, 48);
 
-                if (Player.ownedProjectileCounts[ModContent.ProjectileType<FireOrbiter>()] > 0)
+                if (Player.ownedProjectileCounts[ModContent.ProjectileType<FlameVortexStaff_FireOrbiter>()] > 0)
                 {
-                    Player.GetDamage(DamageClass.Summon) += AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<FireOrbiter>()) * .1f;
+                    Player.GetDamage(DamageClass.Summon) += AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<FlameVortexStaff_FireOrbiter>()) * .1f;
 
                     if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.miscCounter % 3 == 0)
                     {
@@ -4078,7 +4078,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumMask_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GripMaskRed>()))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<InfernoGripMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GripMaskRed_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
