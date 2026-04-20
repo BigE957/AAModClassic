@@ -1383,3 +1383,18 @@ ChampionHelmetSummoner_Buff: {
 	DisplayName: Champion Helmet Summoner_ Buff
 	Description: Mods.AAModClassic.Buffs.ChampionHelmetSummoner_Buff.Description
 }
+
+ClawBaton_Buff: {
+	DisplayName: Claw Baton_ Buff
+	Description: Mods.AAModClassic.Buffs.ClawBaton_Buff.Description
+}
+
+FlameVortexStaff_Buff: {
+	DisplayName: Flame Vortex Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.FlameVortexStaff_Buff.Description
+}
+
+SagittariusCore_Buff: {
+	DisplayName: Sagittarius Core_ Buff
+	Description: Mods.AAModClassic.Buffs.SagittariusCore_Buff.Description
+}

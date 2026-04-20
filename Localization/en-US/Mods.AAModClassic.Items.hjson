@@ -10319,3 +10319,103 @@ ChampionLeggings: {
 	DisplayName: Champion Leggings
 	Tooltip: ""
 }
+
+InfernoGripMask: {
+	DisplayName: Inferno Grip Mask
+	Tooltip: ""
+}
+
+InfernoGripTrophy: {
+	DisplayName: Inferno Grip Trophy
+	Tooltip: ""
+}
+
+GripsOfChaosTreasureBag: {
+	DisplayName: Grips Of Chaos Treasure Bag
+	Tooltip: ""
+}
+
+MireGripMask: {
+	DisplayName: Mire Grip Mask
+	Tooltip: ""
+}
+
+MireGripTrophy: {
+	DisplayName: Mire Grip Trophy
+	Tooltip: ""
+}
+
+CuriousLookingClaw: {
+	DisplayName: Curious Looking Claw
+	Tooltip: ""
+}
+
+InterestingLookingClaw: {
+	DisplayName: Interesting Looking Claw
+	Tooltip: ""
+}
+
+FuryWitchsGrabBag: {
+	DisplayName: Fury Witchs Grab Bag
+	Tooltip: ""
+}
+
+MidnightAssassinGrabBag: {
+	DisplayName: Midnight Assassin Grab Bag
+	Tooltip: ""
+}
+
+SistersOfDiscordTreasureBag: {
+	DisplayName: Sisters Of Discord Treasure Bag
+	Tooltip: ""
+}
+
+AbyssalKunai: {
+	DisplayName: Abyssal Kunai
+	Tooltip: ""
+}
+
+FlameVortexStaff: {
+	DisplayName: Flame Vortex Staff
+	Tooltip: ""
+}
+
+SagittariusMask: {
+	DisplayName: Sagittarius Mask
+	Tooltip: ""
+}
+
+SagittariusTreasureBag: {
+	DisplayName: Sagittarius Treasure Bag
+	Tooltip: ""
+}
+
+SagittariusTrophy: {
+	DisplayName: Sagittarius Trophy
+	Tooltip: ""
+}
+
+NeutronRod: {
+	DisplayName: Neutron Rod
+	Tooltip: ""
+}
+
+SagittariusCore: {
+	DisplayName: Sagittarius Core
+	Tooltip: ""
+}
+
+SagittariusLeg: {
+	DisplayName: Sagittarius Leg
+	Tooltip: ""
+}
+
+SagittariusShield: {
+	DisplayName: Sagittarius Shield
+	Tooltip: ""
+}
+
+StallionsStar: {
+	DisplayName: Stallions Star
+	Tooltip: ""
+}

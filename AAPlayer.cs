@@ -4081,7 +4081,7 @@ namespace AAModClassic
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<InfernoGripMask>()))
                 {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GripMaskRed_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(ModContent.GetInstance<InfernoGripMask>().Texture + "Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DaybringerMask>()))
                 {

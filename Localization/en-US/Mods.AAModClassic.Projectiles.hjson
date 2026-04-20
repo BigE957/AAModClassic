@@ -1091,3 +1091,23 @@ ChampionHelmetRanged_RABITDrone.DisplayName: Champion Helmet Ranged_ R A B I T D
 ChampionHelmetSummoner_BaronBunny.DisplayName: Champion Helmet Summoner_ Baron Bunny
 ChampionHelmetSummoner_BaronsSpear.DisplayName: Champion Helmet Summoner_ Barons Spear
 ChampionHelmetSummoner_Carrot.DisplayName: Champion Helmet Summoner_ Carrot
+ClawBaton_DragonClaw.DisplayName: Claw Baton_ Dragon Claw
+ClawBaton_Holdout.DisplayName: Claw Baton_ Holdout
+ClawBaton_HydraClaw.DisplayName: Claw Baton_ Hydra Claw
+AbyssalKunai_Proj.DisplayName: Abyssal Kunai_ Proj
+AshRain_Ash.DisplayName: Ash Rain_ Ash
+AshRain_FireMagic.DisplayName: Ash Rain_ Fire Magic
+FlameVortexStaff_FireOrbiter.DisplayName: Flame Vortex Staff_ Fire Orbiter
+FuryFlame_FuryFire.DisplayName: Fury Flame_ Fury Fire
+Masamune_Slash.DisplayName: Masamune_ Slash
+Masamune_Surasshu.DisplayName: Masamune_ Surasshu
+MizuArashi_MizuSpirit.DisplayName: Mizu Arashi_ Mizu Spirit
+ChaosBaton_AbyssBall.DisplayName: Chaos Baton_ Abyss Ball
+ChaosBaton_AbyssClaw.DisplayName: Chaos Baton_ Abyss Claw
+ChaosBaton_BlazeBall.DisplayName: Chaos Baton_ Blaze Ball
+ChaosBaton_BlazeClaw.DisplayName: Chaos Baton_ Blaze Claw
+ChaosBaton_Holdout.DisplayName: Chaos Baton_ Holdout
+NeutronRod_NovaStar.DisplayName: Neutron Rod_ Nova Star
+SagittariusCore_Orbiter.DisplayName: Sagittarius Core_ Orbiter
+StallionsStar_Proj.DisplayName: Stallions Star_ Proj
+OrderSolution_Proj.DisplayName: Order Solution_ Proj
