@@ -10,7 +10,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Misc;
 using AAModClassic.CrossMod;
@@ -27,6 +26,7 @@ using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

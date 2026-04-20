@@ -18,7 +18,7 @@ using AAModClassic.Dusts;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
-using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {

@@ -2,7 +2,7 @@
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Boss.Greed.WKG
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Quest
 {
     public class GravitySphere : BaseAAItem
     {

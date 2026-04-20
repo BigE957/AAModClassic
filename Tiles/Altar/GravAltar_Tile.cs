@@ -1,5 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Greed.WKG;
+﻿using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA
+namespace AAModClassic.___Content.Stars._PostMoonlord.Items.Quest
 {
     public class StarChart : BaseAAItem
     {

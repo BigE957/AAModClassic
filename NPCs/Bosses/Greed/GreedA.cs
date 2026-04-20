@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Boss.Greed.WKG;
