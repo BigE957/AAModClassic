@@ -1,5 +1,6 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor;
@@ -37,9 +38,6 @@ using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Items.Armor.Champion;
-using AAModClassic.Items.Armor.Champion.Carrot;
-using AAModClassic.Items.Armor.Champion.Drone;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Terra.Projectiles;
@@ -1097,7 +1095,7 @@ namespace AAModClassic
             {
                 if (Main.rand.NextBool(30))
                 {
-                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<CarrotBooster>(), 1, false, 0, true);
+                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<ChampionHelmetMage_CarrotBooster>(), 1, false, 0, true);
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
                 }
             }
@@ -1260,7 +1258,7 @@ namespace AAModClassic
             {
                 if (Main.rand.NextBool(30))
                 {
-                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<CarrotBooster>(), 1, false, 0, true);
+                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<ChampionHelmetMage_CarrotBooster>(), 1, false, 0, true);
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
                 }
             }
@@ -1888,7 +1886,7 @@ namespace AAModClassic
                 }
             }
 
-            if (ChampionMe && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<Items.Armor.Champion.RageCool_Buff>()))
+            if (ChampionMe && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<ChampionHelmetMelee_RajahsRage>()))
             {
                 int BuffLength = 240;
                 if (Player.statLife < (int)(Player.statLifeMax2 * .75f))
@@ -1903,23 +1901,23 @@ namespace AAModClassic
                 {
                     BuffLength = 600;
                 }
-                Player.AddBuff(ModContent.BuffType<Rage_Buff>(), BuffLength);
+                Player.AddBuff(ModContent.BuffType<ChampionHelmetMelee_DefendersRage>(), BuffLength);
                 int RageCooldown = BuffLength * 4;
-                Player.AddBuff(ModContent.BuffType<Items.Armor.Champion.RageCool_Buff>(), RageCooldown);
+                Player.AddBuff(ModContent.BuffType<ChampionHelmetMelee_RajahsRage>(), RageCooldown);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<Rage_Buff>()))
+            if (Player.HasBuff(ModContent.BuffType<ChampionHelmetMelee_DefendersRage>()))
             {
                 Player.armorEffectDrawShadowLokis = true;
             }
 
-            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<DroneCool_Buff>()) && 
-                !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<RajahDrone>()))
+            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<ChampionHelmetRanged_RABITUnitReloadProtocol>()) && 
+                !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ChampionHelmetRanged_RABITDrone>()))
             {
                 Vector2 vector2;
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<RajahDrone>(), (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<ChampionHelmetRanged_RABITDrone>(), (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
             }
 
             if (TerraSu)
@@ -1964,9 +1962,9 @@ namespace AAModClassic
             {
                 for (int i = 0; i < 22; i++)
                 {
-                    if (Player.buffType[i] == ModContent.BuffType<CBoost1_Buff>() || 
-                        Player.buffType[i] == ModContent.BuffType<CBoost2_Buff>() ||
-                        Player.buffType[i] == ModContent.BuffType<CBoost3_Buff>())
+                    if (Player.buffType[i] == ModContent.BuffType<ChampionHelmetMage_ChampionBoost1>() || 
+                        Player.buffType[i] == ModContent.BuffType<ChampionHelmetMage_ChampionBoost2>() ||
+                        Player.buffType[i] == ModContent.BuffType<ChampionHelmetMage_ChampionBoost3>())
                     {
                         Player.DelBuff(i);
                     }
@@ -4008,11 +4006,11 @@ namespace AAModClassic
 
                     if (baseAAItem.glowmaskDrawType == BaseAAItem.GLOWMASKTYPE_SWORD)
                     {
-                        BaseDrawing.DrawHeldSword(drawInfo, 0, drawPlayer, baseAAItem.glowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
+                        BaseDrawing.DrawHeldSword(drawInfo, 0, drawPlayer, baseAAItem.GlowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
                     }
                     else if (baseAAItem.glowmaskDrawType == BaseAAItem.GLOWMASKTYPE_GUN)
                     {
-                        BaseDrawing.DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.glowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
+                        BaseDrawing.DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.GlowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
                     }
                 }
             }
@@ -4620,11 +4618,11 @@ namespace AAModClassic
                 if (cbuff > 0)
                 {
                     Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost1").Value;
-                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost2_Buff>()))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost2>()))
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost2").Value;
                     }
-                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost3_Buff>()))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost3>()))
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost3").Value;
                     }

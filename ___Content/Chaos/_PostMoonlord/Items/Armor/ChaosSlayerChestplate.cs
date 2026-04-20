@@ -16,7 +16,7 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
     [AutoloadEquip(EquipType.Body)]
 	public class ChaosSlayerChestplate : BaseAAItem
 	{
-        public static Asset<Texture2D> Glowmask;
+        public override Color GlowmaskDrawColor => AAColor.Shen3;
 
         public override void SetStaticDefaults()
         {
@@ -25,8 +25,6 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
             /* Tooltip.SetDefault(@"4% increased damage resistance
 +75 Max Life
 The power of discordian rage radiates from this armor"); */
-
-            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
 
@@ -38,9 +36,6 @@ The power of discordian rage radiates from this armor"); */
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
             Item.defense = 60;
-
-            //glowmaskTextureREPLACEOGWITHTHISLATER = Glowmask;
-            //glowmaskDrawColor = AAColor.Shen3;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)

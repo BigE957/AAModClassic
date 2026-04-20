@@ -10289,3 +10289,33 @@ DemonLeggings: {
 	DisplayName: Demon Leggings
 	Tooltip: ""
 }
+
+ChampionHelmetMage: {
+	DisplayName: Champion Helmet Mage
+	Tooltip: ""
+}
+
+ChampionHelmetMage_CarrotBooster: {
+	DisplayName: Champion Helmet Mage_ Carrot Booster
+	Tooltip: ""
+}
+
+ChampionHelmetMelee: {
+	DisplayName: Champion Helmet Melee
+	Tooltip: ""
+}
+
+ChampionHelmetRanged: {
+	DisplayName: Champion Helmet Ranged
+	Tooltip: ""
+}
+
+ChampionHelmetSummoner: {
+	DisplayName: Champion Helmet Summoner
+	Tooltip: ""
+}
+
+ChampionLeggings: {
+	DisplayName: Champion Leggings
+	Tooltip: ""
+}

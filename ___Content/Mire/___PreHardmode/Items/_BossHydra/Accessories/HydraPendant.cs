@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss;
+using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
 using Terraria;
 using Terraria.ModLoader;
 

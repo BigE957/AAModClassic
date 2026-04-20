@@ -15,6 +15,8 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
     [AutoloadEquip(EquipType.Head)]
     public class ChaosSlayerHelmetMelee : BaseAAItem
     {
+        public override Color GlowmaskDrawColor => AAColor.Shen3;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Slayer Kabuto");
@@ -23,8 +25,6 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
 15% increased melee speed
 +25 Max Life
 The power of discordian rage radiates from this armor"); */
-
-            GlowmaskDrawColorALSOREPLACELATER = AAColor.Shen3;
         }
 
         public override void SetDefaults()
@@ -35,7 +35,7 @@ The power of discordian rage radiates from this armor"); */
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
             Item.defense = 44;
-		}
+        }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {

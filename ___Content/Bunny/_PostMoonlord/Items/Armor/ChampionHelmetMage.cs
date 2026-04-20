@@ -1,31 +1,26 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
+using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor
+namespace AAModClassic.___Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ChaosSlayerHelmetMage : BaseAAItem
+    public class ChampionHelmetMage : BaseAAItem
     {
-        public override Color GlowmaskDrawColor => AAColor.Shen3;
-
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Chaos Slayer Hood");
+            // DisplayName.SetDefault("Champion Hood");
             /* Tooltip.SetDefault(@"32% increased Magic damage
-20% increased Magic critical strike chance
-2% increased damage resistance
-30% reduced Mana consumption
+10% increased non-magic damage
+25% increased Magic critical strike chance
+25% reduced Mana consumption
 150 increased maximum mana
-The power of discordian rage radiates from this hood"); */
+The armor of a champion feared across the land"); */
         }
 
         public override void SetDefaults()
@@ -51,31 +46,32 @@ The power of discordian rage radiates from this hood"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
+			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionLeggings>();
 		}
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosHoodBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosMa = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
+            player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.ChampionHoodBonus");
+
+            AAPlayer mplayer = player.GetModPlayer<AAPlayer>();
+
+            mplayer.ChampionMa = true;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Magic) += .32f;
-            player.GetCritChance(DamageClass.Magic) += 20;
-            player.endurance += .02f;
-            player.manaCost *= .7f;
+            player.GetDamage(DamageClass.Magic) += .22f;
+            player.GetDamage(DamageClass.Generic) += .1f;
+            player.GetCritChance(DamageClass.Magic) += 25;
+            player.manaCost *= .75f;
             player.statManaMax2 += 150;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetMage>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 6);
-            recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<HoppingHoodlumHelmet>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ChampionPlate>(), 10);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

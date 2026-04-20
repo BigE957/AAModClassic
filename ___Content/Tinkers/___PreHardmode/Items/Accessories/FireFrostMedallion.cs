@@ -1,28 +1,30 @@
-using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
+using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.Items.Boss.Serpent;
 
-namespace AAModClassic.Items.Boss.Serpent
+namespace AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories
 {
-    public class ArcticMedallion : BaseAAItem
+    public class FireFrostMedallion : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Arctic Medallion");
-            // Tooltip.SetDefault(@"Doubles your stats during a Blizzard");
+            // DisplayName.SetDefault("Fire Frost Medallion");
+            // Tooltip.SetDefault(@"Doubles your stats during a Blizzard or Sandstorm");
         }
         public override void SetDefaults()
         {
             Item.width = 26;
             Item.height = 50;
-            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
         }
 
         public override void UpdateAccessory(Player p, bool hideVisual)
         {
-			if(p.ZoneRain && p.ZoneSnow)
+			if(p.ZoneSandstorm || p.ZoneRain && p.ZoneSnow)
 			{
 				p.GetDamage(DamageClass.Melee) *= 2f;
 				p.GetDamage(DamageClass.Ranged) *= 2f;
@@ -32,10 +34,18 @@ namespace AAModClassic.Items.Boss.Serpent
 				p.GetCritChance(DamageClass.Melee) *= 2;
 				p.GetCritChance(DamageClass.Ranged) *= 2;
 				p.GetCritChance(DamageClass.Magic) += 2;
-				p.GetCritChance(DamageClass.Throwing) *= 2;	
+				p.GetCritChance(DamageClass.Throwing) *= 2;
 			}
         }
 
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ArcticMedallion>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SandstormMedallion>(), 1);
+            recipe.AddTile(TileID.TinkerersWorkbench);
+            recipe.Register();
+        }
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
@@ -43,7 +53,11 @@ namespace AAModClassic.Items.Boss.Serpent
                 int maxAccessoryIndex = 5 + player.extraAccessorySlots;
                 for (int i = 3; i < 3 + maxAccessoryIndex; i++)
                 {
-                    if (slot != i && player.armor[i].type == Terraria.ModLoader.ModContent.ItemType<FireFrostMedallion>())
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<SandstormMedallion>())
+                    {
+                        return false;
+                    }
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<ArcticMedallion>())
                     {
                         return false;
                     }

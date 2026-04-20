@@ -1348,3 +1348,38 @@ DemonStaff_Buff: {
 	DisplayName: Demon Staff_ Buff
 	Description: Mods.AAModClassic.Buffs.DemonStaff_Buff.Description
 }
+
+ChampionHelmetMage_ChampionBoost1: {
+	DisplayName: Champion Helmet Mage_ Champion Boost1
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMage_ChampionBoost1.Description
+}
+
+ChampionHelmetMage_ChampionBoost2: {
+	DisplayName: Champion Helmet Mage_ Champion Boost2
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMage_ChampionBoost2.Description
+}
+
+ChampionHelmetMage_ChampionBoost3: {
+	DisplayName: Champion Helmet Mage_ Champion Boost3
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMage_ChampionBoost3.Description
+}
+
+ChampionHelmetMelee_DefendersRage: {
+	DisplayName: Champion Helmet Melee_ Defenders Rage
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMelee_DefendersRage.Description
+}
+
+ChampionHelmetMelee_RajahsRage: {
+	DisplayName: Champion Helmet Melee_ Rajahs Rage
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMelee_RajahsRage.Description
+}
+
+ChampionHelmetRanged_RABITUnitReloadProtocol: {
+	DisplayName: Champion Helmet Ranged_ R A B I T Unit Reload Protocol
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetRanged_RABITUnitReloadProtocol.Description
+}
+
+ChampionHelmetSummoner_Buff: {
+	DisplayName: Champion Helmet Summoner_ Buff
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetSummoner_Buff.Description
+}

@@ -28,6 +28,7 @@ using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Globals
 {
@@ -233,7 +234,7 @@ namespace AAModClassic.Globals
                         {
                             return false;
                         }
-                        if (slot != i && player.armor[i].type == ModContent.ItemType<Items.Boss.DragonSerpentNecklace>())
+                        if (slot != i && player.armor[i].type == ModContent.ItemType<DragonSerpentNecklace>())
                         {
                             return false;
                         }
