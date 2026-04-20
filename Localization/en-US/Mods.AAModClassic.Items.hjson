@@ -10419,3 +10419,18 @@ StallionsStar: {
 	DisplayName: Stallions Star
 	Tooltip: ""
 }
+
+AthenaTreasureBag: {
+	DisplayName: Athena Treasure Bag
+	Tooltip: ""
+}
+
+DivineWindStone: {
+	DisplayName: Divine Wind Stone
+	Tooltip: ""
+}
+
+AthenaATreasureBag: {
+	DisplayName: Athena A Treasure Bag
+	Tooltip: ""
+}

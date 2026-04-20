@@ -10,12 +10,15 @@ using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Terraria.Localization;
-using AAModClassic.Items.Boss.Athena.Olympian;
-using AAModClassic.Items.Vanity.Mask;
-using AAModClassic.Items.Boss.Athena;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic.Dusts;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
@@ -135,17 +138,17 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                             NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 150, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
-                                Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                                Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                             NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
-                                Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                                Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                             NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
-                                Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                                Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                         }
                         internalAI[3] = 0;
@@ -635,7 +638,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaABag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaATreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarChart>()));
 

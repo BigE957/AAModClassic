@@ -1,5 +1,4 @@
 ﻿using System;
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -49,7 +48,7 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons
 			float num16 = 150f;
 			Player player = Main.player[Projectile.owner];
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			player.AddBuff(ModContent.BuffType<ChaosClaw_Buff>(), 3600);
+			player.AddBuff(ModContent.BuffType<ChaosBaton_Buff>(), 3600);
             if (player.dead)
             {
                 modPlayer.ChaosClaw = false;

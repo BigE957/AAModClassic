@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Boss.Athena.Olympian;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

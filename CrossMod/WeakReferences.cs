@@ -1,5 +1,8 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
@@ -63,8 +66,6 @@ using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
-using AAModClassic.Items.Boss.Athena;
-using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Items.Boss.EFish;
@@ -898,7 +899,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Owl>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Athena.AthenaTrophy>(),
+                        ModContent.ItemType<AthenaTrophy>(),
                         ModContent.ItemType<AthenaMask>(),
                         ModContent.ItemType<AthenaBox>()
                     },
@@ -1999,7 +2000,7 @@ namespace AAModClassic.CrossMod
 
                 //Sentries
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<HydraStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<DivineWindCharm>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<DivineWindStone>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SentryOfTheEye>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<HurricaneStone>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<HurricaneStone>(), true);

@@ -1,9 +1,11 @@
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Acropolis.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Effects;
-using AAModClassic.Items.Boss.Athena;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -384,17 +386,17 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                 NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
-                                   Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
+                                   Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
                                 NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
-                                    Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
                                 NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
-                                    Dust d = Main.dust[Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    Dust d = Main.dust[Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
                             }
                             NPC.netUpdate = true;
@@ -492,7 +494,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
         public void ShootFeather(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            int projType = ModContent.ProjectileType<SeraphFeather>();
+            int projType = ModContent.ProjectileType<___Content.Acropolis.Projectiles.SeraphFeather>();
             float spread = 30f * 0.0174f;
             Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
             dir *= 14f;
@@ -595,7 +597,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaTrophy>(), 10));
 
@@ -605,7 +607,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoddessFeather>(), 1, 20, 25));
 
-            int[] lootTable = { ModContent.ItemType<DivineWindCharm>(), ModContent.ItemType<GaleOfWings>(), ModContent.ItemType<RazorwindLongbow>(), ModContent.ItemType<SkycutterKopis>(), ModContent.ItemType<OlympianWings>() };
+            int[] lootTable = { ModContent.ItemType<DivineWindStone>(), ModContent.ItemType<GaleOfWings>(), ModContent.ItemType<RazorwindLongbow>(), ModContent.ItemType<SkycutterKopis>(), ModContent.ItemType<OlympianWings>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

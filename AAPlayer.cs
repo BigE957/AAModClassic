@@ -1,4 +1,5 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
@@ -39,6 +40,7 @@ using AAModClassic.___Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
@@ -66,7 +68,6 @@ using AAModClassic.Mounts;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
@@ -2195,7 +2196,7 @@ namespace AAModClassic
                 {
                     if (AADash == 1 && Main.rand.NextBool(50))
                     {
-                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
+                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<FeatherDust>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
                         Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y * 0.2f;
                         Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(Player.cWings, Player);
@@ -2208,7 +2209,7 @@ namespace AAModClassic
                 {
                     if (AADash == 1 && Main.rand.NextBool(50))
                     {
-                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
+                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<FeatherDust>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
                         Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y * 0.2f;
                         Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(Player.cWings, Player);
@@ -2237,11 +2238,11 @@ namespace AAModClassic
                         int num12;
                         if (Player.velocity.Y == 0f)
                         {
-                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
+                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, ModContent.DustType<FeatherDust>(), 0f, 0f, 100, default, 1);
                         }
                         else
                         {
-                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height / 2 - 8f), Player.width, 16, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
+                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height / 2 - 8f), Player.width, 16, ModContent.DustType<FeatherDust>(), 0f, 0f, 100, default, 1);
                         }
                         Main.dust[num12].velocity *= 0.1f;
                         Main.dust[num12].scale *= 1f + Main.rand.Next(20) * 0.01f;
@@ -2326,7 +2327,7 @@ namespace AAModClassic
                         Player.dashDelay = -1;
                         for (int num17 = 0; num17 < 2; num17++)
                         {
-                            int num18 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
+                            int num18 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, ModContent.DustType<FeatherDust>(), 0f, 0f, 100, default, 1);
                             Dust expr_CDB_cp_0 = Main.dust[num18];
                             expr_CDB_cp_0.position.X += Main.rand.Next(-5, 6);
                             Dust expr_D02_cp_0 = Main.dust[num18];
@@ -4081,7 +4082,7 @@ namespace AAModClassic
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<InfernoGripMask>()))
                 {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(ModContent.GetInstance<InfernoGripMask>().Texture + "Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(ModContent.GetInstance<InfernoGripMask>().Texture + "_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DaybringerMask>()))
                 {

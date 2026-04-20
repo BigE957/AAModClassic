@@ -9,6 +9,7 @@ using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Terraria.Localization;
 using AAModClassic.___Content.Acropolis.Projectiles;
 using AAModClassic.Items.Banners;
+using AAModClassic.Dusts;
 
 namespace AAModClassic.___Content.Acropolis.__Hardmode.NPCs
 {
@@ -108,7 +109,7 @@ namespace AAModClassic.___Content.Acropolis.__Hardmode.NPCs
                     }
                     for (int a = 0; a < 8; a++)
                     {
-                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     BaseAI.KillNPC(NPC);
                 }

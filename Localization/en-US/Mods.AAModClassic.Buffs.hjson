@@ -1398,3 +1398,18 @@ SagittariusCore_Buff: {
 	DisplayName: Sagittarius Core_ Buff
 	Description: Mods.AAModClassic.Buffs.SagittariusCore_Buff.Description
 }
+
+SeraphHarp_Buff: {
+	DisplayName: Seraph Harp_ Buff
+	Description: Mods.AAModClassic.Buffs.SeraphHarp_Buff.Description
+}
+
+ChaosBaton_Buff: {
+	DisplayName: Chaos Baton_ Buff
+	Description: Mods.AAModClassic.Buffs.ChaosBaton_Buff.Description
+}
+
+GoddessHarp_Buff: {
+	DisplayName: Goddess Harp_ Buff
+	Description: Mods.AAModClassic.Buffs.GoddessHarp_Buff.Description
+}
