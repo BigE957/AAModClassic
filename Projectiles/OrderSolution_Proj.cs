@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
-    internal class OrderSolution : ModProjectile
+    internal class OrderSolution_Proj : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()

@@ -23,7 +23,7 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ChaosBaton_Holdout>();
+            Item.shoot = ModContent.ProjectileType<ChaosBaton_Holdout>();
             Item.damage = 100;
             Item.width = 52;
             Item.noMelee = true;
