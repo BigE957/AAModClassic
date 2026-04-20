@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Trophy;
-namespace AAModClassic.Items.Boss.Grips
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
     public class InfernoGripTrophy : BaseAAItem
 	{

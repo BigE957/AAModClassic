@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories
 {
     public class HeartOfSorrow: BaseAAItem
     {
@@ -33,7 +33,7 @@ Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze i
             player.GetDamage(DamageClass.Ranged) += 1 - player.statLife / player.statLifeMax;
             player.GetModPlayer<AAPlayer>().HeartS = true;
 
-            if (player.statLife > (player.statLifeMax * (2/3)))
+            if (player.statLife > player.statLifeMax * (2/3))
             {
                 player.moveSpeed += 1f;
             }

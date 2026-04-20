@@ -1,5 +1,7 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.AH;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;

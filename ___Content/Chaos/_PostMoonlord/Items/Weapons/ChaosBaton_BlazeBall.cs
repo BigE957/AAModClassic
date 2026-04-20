@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -5,7 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons
 {
     public class ChaosBaton_BlazeBall : ModProjectile
     {

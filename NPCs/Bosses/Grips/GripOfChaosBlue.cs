@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Boss.Grips;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

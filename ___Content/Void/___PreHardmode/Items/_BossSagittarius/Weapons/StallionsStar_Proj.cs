@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.___Content.Void.Projectiles;
 
-namespace AAModClassic.Projectiles.Sag
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     class StallionsStar_Proj : ModProjectile
 	{

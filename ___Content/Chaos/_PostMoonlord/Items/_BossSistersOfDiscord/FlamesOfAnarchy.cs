@@ -16,7 +16,7 @@ using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.Items.BossSummons
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
 {
     public class FlamesOfAnarchy : BaseAAItem
     {

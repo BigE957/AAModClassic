@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Trophy
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard
 {
     public class SagittariusTrophy_Tile : ModTile
 	{
@@ -31,7 +31,7 @@ namespace AAModClassic.Tiles.Trophy
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/SagTrophy_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), ColorUtils.COLOR_GLOWPULSE, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/SagTrophy_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), ColorUtils.COLOR_GLOWPULSE, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 	}
 }

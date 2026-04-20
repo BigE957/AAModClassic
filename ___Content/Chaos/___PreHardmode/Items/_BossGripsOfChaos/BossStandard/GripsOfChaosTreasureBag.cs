@@ -1,12 +1,13 @@
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Vanity.Mask;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Grips
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
     public class GripsOfChaosTreasureBag : BaseAAItem
 	{

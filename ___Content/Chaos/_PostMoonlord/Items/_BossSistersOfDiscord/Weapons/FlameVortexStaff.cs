@@ -1,7 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.AH;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class FlameVortexStaff : BaseAAItem
     {
@@ -38,9 +36,9 @@ namespace AAModClassic.Items.Boss.AH
             Item.shootSpeed = 5;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<Terraria.ModLoader.TooltipLine> list)
+        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
-            foreach (Terraria.ModLoader.TooltipLine line2 in list)
+            foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
@@ -59,7 +57,7 @@ namespace AAModClassic.Items.Boss.AH
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(Terraria.ModLoader.ModContent.ProjectileType<FlameVortexStaff_FireOrbiter>());
+            bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<FlameVortexStaff_FireOrbiter>());
             int SummonCount = 2;
             if (AnyOrbiters)
             {

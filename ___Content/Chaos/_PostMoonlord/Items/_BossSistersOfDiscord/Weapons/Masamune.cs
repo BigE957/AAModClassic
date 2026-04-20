@@ -1,11 +1,10 @@
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.AH;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class Masamune : BaseAAItem
     {
@@ -39,9 +38,9 @@ Right click to shoot a blade wave"); */
             AARarity = 12;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<Terraria.ModLoader.TooltipLine> list)
+        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
-            foreach (Terraria.ModLoader.TooltipLine line2 in list)
+            foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {

@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Vanity.Mask
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
 	public class MireGripMask : BaseAAItem

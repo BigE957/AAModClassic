@@ -1,12 +1,11 @@
 using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.Items.Boss.AH;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class AbyssalKunai_Proj : ModProjectile
 	{

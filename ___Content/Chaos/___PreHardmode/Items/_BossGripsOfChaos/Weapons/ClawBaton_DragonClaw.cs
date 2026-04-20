@@ -1,10 +1,9 @@
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Grips
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
 {
     public class ClawBaton_DragonClaw : ModProjectile
     {
@@ -124,7 +123,7 @@ namespace AAModClassic.Items.Boss.Grips
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                    if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         num633 = num646;
                         vector46 = nPC2.Center;
@@ -140,7 +139,7 @@ namespace AAModClassic.Items.Boss.Grips
                     if (nPC2.CanBeChasedBy(Projectile, false))
                     {
                         float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                        if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                        if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                         {
                             num633 = num646;
                             vector46 = nPC2.Center;
@@ -221,7 +220,7 @@ namespace AAModClassic.Items.Boss.Grips
                 }
             }
             
-            Projectile.spriteDirection =(Projectile.velocity.X > 0? 1: -1);
+            Projectile.spriteDirection =Projectile.velocity.X > 0? 1: -1;
 
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
             

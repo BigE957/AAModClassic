@@ -1,4 +1,4 @@
-﻿using AAModClassic.Items.Boss.AH;
+﻿using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossHaruka.Armor
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
 	class MidnightAssassinChestplate : BaseAAItem

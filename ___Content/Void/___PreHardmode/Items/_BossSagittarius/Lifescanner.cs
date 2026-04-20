@@ -10,7 +10,7 @@ using AAModClassic.Globals;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
 
-namespace AAModClassic.Items.BossSummons
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius
 {
     public class Lifescanner : BaseAAItem
     {

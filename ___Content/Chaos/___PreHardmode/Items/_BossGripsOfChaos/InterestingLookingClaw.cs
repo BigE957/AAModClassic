@@ -11,7 +11,7 @@ using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.BossSummons
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos
 {
     //imported from my tAPI mod because I'm lazy
     public class InterestingLookingClaw : BaseAAItem

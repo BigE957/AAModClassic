@@ -1,4 +1,5 @@
-﻿using AAModClassic.___Content.Inferno.Buffs;
+﻿using AAModClassic.___Content.Chaos.Projectiles;
+using AAModClassic.___Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     internal class AshRain_FireMagic : ModProjectile
     {

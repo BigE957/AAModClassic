@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class FuryFlame : BaseAAItem
     {
@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.AH
             Item.useTime = 2;
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Projectiles.AH.FuryFlame_FuryFire>();
+            Item.shoot = ModContent.ProjectileType<FuryFlame_FuryFire>();
             Item.mana = 4;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 25, 0, 0);
@@ -37,9 +37,9 @@ namespace AAModClassic.Items.Boss.AH
             Item.noUseGraphic = true;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<Terraria.ModLoader.TooltipLine> list)
+        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
-            foreach (Terraria.ModLoader.TooltipLine line2 in list)
+            foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {

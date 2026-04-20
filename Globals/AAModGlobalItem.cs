@@ -8,7 +8,6 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Tiles.Ore;
@@ -29,6 +28,7 @@ using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Globals
 {

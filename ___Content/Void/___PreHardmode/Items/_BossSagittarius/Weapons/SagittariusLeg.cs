@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Sagittarius
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class SagittariusLeg : BaseAAItem
     {

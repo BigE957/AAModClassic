@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
 
-namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossAshe.Armor
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class FuryWitchsHelmet : BaseAAItem

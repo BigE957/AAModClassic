@@ -1,6 +1,6 @@
 using Terraria;
 
-namespace AAModClassic.Items.Boss.Sagittarius
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class SagittariusShield : BaseAAItem
     {

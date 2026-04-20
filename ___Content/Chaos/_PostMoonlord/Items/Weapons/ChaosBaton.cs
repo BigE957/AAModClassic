@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.AH;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -9,7 +9,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons
 {
     public class ChaosBaton : BaseAAItem
     {
@@ -91,7 +91,7 @@ namespace AAModClassic.Items.Boss.AH
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Items.Boss.Grips.ClawBaton>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<ClawBaton>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());

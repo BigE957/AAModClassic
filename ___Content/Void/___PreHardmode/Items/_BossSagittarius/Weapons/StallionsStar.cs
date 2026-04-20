@@ -1,10 +1,9 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Projectiles.Sag;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.Boss.Sagittarius
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class StallionsStar : BaseAAItem
     {

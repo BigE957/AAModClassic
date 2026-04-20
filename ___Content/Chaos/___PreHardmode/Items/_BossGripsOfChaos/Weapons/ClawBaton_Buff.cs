@@ -1,8 +1,7 @@
-using AAModClassic.Items.Boss.Grips;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
 {
     public class ClawBaton_Buff : ModBuff
 	{

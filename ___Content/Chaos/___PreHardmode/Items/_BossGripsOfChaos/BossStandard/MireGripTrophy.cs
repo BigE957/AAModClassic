@@ -1,7 +1,6 @@
-using AAModClassic.Tiles.Trophy;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Boss.Grips
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
     public class MireGripTrophy : BaseAAItem
 	{

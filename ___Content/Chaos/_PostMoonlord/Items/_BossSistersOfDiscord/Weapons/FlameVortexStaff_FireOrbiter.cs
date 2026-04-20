@@ -1,5 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using System;
 
@@ -7,7 +6,7 @@ using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Projectiles.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class FlameVortexStaff_FireOrbiter : AAProjectile
 	{
@@ -38,7 +37,7 @@ namespace AAModClassic.Projectiles.AH
 		{
 			float oldInit = rotInit;
 			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
-			rotInit = projs.Length == 0 ? 0f : ((float)Math.PI * 2f / projs.Length);
+			rotInit = projs.Length == 0 ? 0f : (float)Math.PI * 2f / projs.Length;
 
 			if (rotInit != oldInit)
 			{

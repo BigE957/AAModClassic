@@ -1,3 +1,6 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
     public class SistersOfDiscordTreasureBag : BaseAAItem
 	{

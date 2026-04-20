@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss.Sagittarius;
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;

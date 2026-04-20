@@ -1,8 +1,7 @@
-using AAModClassic.Projectiles.AH;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class FlameVortexStaff_Buff : ModBuff
 	{

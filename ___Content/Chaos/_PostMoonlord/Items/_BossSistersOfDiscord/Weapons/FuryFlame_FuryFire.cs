@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.___Content.Chaos.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     internal class FuryFlame_FuryFire : ModProjectile
     {

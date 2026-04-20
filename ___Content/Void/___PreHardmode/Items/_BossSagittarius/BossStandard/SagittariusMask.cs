@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Vanity.Mask
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
 	public class SagittariusMask : BaseAAItem

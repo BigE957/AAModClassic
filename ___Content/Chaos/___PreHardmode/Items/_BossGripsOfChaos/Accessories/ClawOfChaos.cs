@@ -1,8 +1,9 @@
+using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Grips
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
     public class ClawOfChaos : BaseAAItem

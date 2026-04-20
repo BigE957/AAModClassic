@@ -1,4 +1,8 @@
-﻿using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
+﻿using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
@@ -9,7 +13,6 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;

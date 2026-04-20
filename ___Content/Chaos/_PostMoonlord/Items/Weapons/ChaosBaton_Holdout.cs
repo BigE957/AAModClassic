@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons
 {
     public class ChaosBaton_Holdout : ModProjectile
 	{	
@@ -43,8 +43,8 @@ namespace AAModClassic.Projectiles
 				Projectile.spriteDirection = -1;
 			}
 			
-			Projectile.position.X = player.Center.X - (Projectile.width / 2f);
-			Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
+			Projectile.position.X = player.Center.X - Projectile.width / 2f;
+			Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
 			
 			if (Projectile.timeLeft < 8)
 			{

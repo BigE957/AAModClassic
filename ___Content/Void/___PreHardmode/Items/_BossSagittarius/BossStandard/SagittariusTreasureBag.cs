@@ -1,11 +1,11 @@
+using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Vanity.Mask;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Sagittarius
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard
 {
     public class SagittariusTreasureBag : BaseAAItem
     {

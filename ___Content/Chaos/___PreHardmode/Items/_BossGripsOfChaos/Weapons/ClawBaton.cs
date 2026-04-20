@@ -5,7 +5,7 @@ using Terraria.ID;
 using System;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Grips
+namespace AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
 {
     public class ClawBaton : BaseAAItem
     {
@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Grips
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ClawBaton_Holdout>();
+            Item.shoot = ModContent.ProjectileType<ClawBaton_Holdout>();
             Item.damage = 14;
             Item.width = 52;
             Item.height = 52;
@@ -76,7 +76,7 @@ namespace AAModClassic.Items.Boss.Grips
                 }
                 float num80 = (float)Math.Sqrt(num78 * num78 + num79 * num79);
                 float num81 = num80;
-                if ((float.IsNaN(num78) && float.IsNaN(num79)) || (num78 == 0f && num79 == 0f))
+                if (float.IsNaN(num78) && float.IsNaN(num79) || num78 == 0f && num79 == 0f)
                 {
                     num78 = player.direction;
                     num79 = 0f;

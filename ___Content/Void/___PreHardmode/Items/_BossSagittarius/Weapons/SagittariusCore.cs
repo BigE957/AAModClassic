@@ -1,6 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
-using AAModClassic.Projectiles.Sag;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -8,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Boss.Sagittarius
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class SagittariusCore : BaseAAItem
 	{

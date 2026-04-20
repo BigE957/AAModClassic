@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Sag
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class NeutronRod_NovaStar : ModProjectile
     {

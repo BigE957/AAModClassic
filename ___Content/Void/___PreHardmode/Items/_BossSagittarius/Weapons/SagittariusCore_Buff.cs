@@ -1,8 +1,7 @@
-using AAModClassic.Projectiles.Sag;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class SagittariusCore_Buff : ModBuff
 	{

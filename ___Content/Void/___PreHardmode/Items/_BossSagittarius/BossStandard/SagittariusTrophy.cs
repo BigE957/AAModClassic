@@ -1,7 +1,6 @@
-using AAModClassic.Tiles.Trophy;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Boss.Sagittarius
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard
 {
     public class SagittariusTrophy : BaseAAItem
 	{

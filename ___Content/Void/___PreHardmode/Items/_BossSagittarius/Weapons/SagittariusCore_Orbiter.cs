@@ -1,6 +1,6 @@
 using System;
+using AAModClassic.___Content.Void.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 
@@ -9,7 +9,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Projectiles.Sag
+namespace AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class SagittariusCore_Orbiter : AAProjectile
 	{
@@ -35,7 +35,7 @@ namespace AAModClassic.Projectiles.Sag
 		{
 			float oldInit = rotInit;
 			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
-			rotInit = projs.Length == 0 ? 0f : ((float)Math.PI * 2f / projs.Length);
+			rotInit = projs.Length == 0 ? 0f : (float)Math.PI * 2f / projs.Length;
 
 			if (rotInit != oldInit)
 			{
@@ -73,7 +73,7 @@ namespace AAModClassic.Projectiles.Sag
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                    if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         num633 = num646;
                         vector46 = nPC2.position;
@@ -91,7 +91,7 @@ namespace AAModClassic.Projectiles.Sag
                     if (nPC2.CanBeChasedBy(Projectile, false))
                     {
                         float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                        if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                        if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                         {
                             num633 = num646;
                             vector46 = nPC2.position;
@@ -105,7 +105,7 @@ namespace AAModClassic.Projectiles.Sag
             if (flag25)
             {
                 //TODO: smth here causes the orbiter to immediately despawn :(
-                int id = BaseAI.ShootPeriodic(Projectile, vector46, Width, Height, Terraria.ModLoader.ModContent.ProjectileType<Darkray>(), ref Projectile.ai[1], 120, (int)Projectile.ai[0], 11, true);
+                int id = BaseAI.ShootPeriodic(Projectile, vector46, Width, Height, ModContent.ProjectileType<Darkray>(), ref Projectile.ai[1], 120, (int)Projectile.ai[0], 11, true);
                 Main.projectile[id].DamageType = DamageClass.Summon;
                 Main.projectile[id].minion = true;
             }

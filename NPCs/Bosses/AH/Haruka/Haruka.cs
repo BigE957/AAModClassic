@@ -1,5 +1,7 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.AH;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -178,7 +180,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<Items.Boss.AH.AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinGrabBag>() };
+            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinGrabBag>() };
 
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

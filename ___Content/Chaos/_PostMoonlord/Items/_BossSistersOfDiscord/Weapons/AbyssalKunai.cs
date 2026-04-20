@@ -6,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class AbyssalKunai : BaseAAItem
     {
@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.AH
 			Item.noUseGraphic = true;
 			Item.useTime = 8;
 			Item.useAnimation = 8;
-			Item.shoot = ModContent.ProjectileType<Projectiles.AbyssalKunai_Proj>();
+			Item.shoot = ModContent.ProjectileType<AbyssalKunai_Proj>();
 			Item.shootSpeed = 15f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 0;
@@ -48,13 +48,13 @@ namespace AAModClassic.Items.Boss.AH
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 25f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 3; i++)
             {
-                offsetAngle = startAngle + (deltaAngle * i);
+                offsetAngle = startAngle + deltaAngle * i;
                 int proj = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
             }
             return false;

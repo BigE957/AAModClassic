@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons
 {
     public class ChaosBaton_BlazeClaw : ModProjectile
     {
@@ -98,7 +98,7 @@ namespace AAModClassic.Projectiles.AH
                 if (target.CanBeChasedBy(Projectile, false))
                 {
                     float distance = Vector2.Distance(target.Center, Projectile.Center);
-                    if (((Vector2.Distance(Projectile.Center, position) > distance && distance < radius) || !foundTarget) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
+                    if ((Vector2.Distance(Projectile.Center, position) > distance && distance < radius || !foundTarget) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
                     {
                         radius = distance;
                         position = target.Center;
@@ -114,7 +114,7 @@ namespace AAModClassic.Projectiles.AH
                     if (target.CanBeChasedBy(Projectile, false))
                     {
                         float distance = Vector2.Distance(target.Center, Projectile.Center);
-                        if (((Vector2.Distance(Projectile.Center, position) > distance && distance < radius) || !foundTarget) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
+                        if ((Vector2.Distance(Projectile.Center, position) > distance && distance < radius || !foundTarget) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
                         {
                             radius = distance;
                             position = target.Center;
@@ -178,8 +178,8 @@ namespace AAModClassic.Projectiles.AH
                 }
                 if (num651 > 2000f)
                 {
-                    Projectile.position.X = Main.player[Projectile.owner].Center.X - (Projectile.width / 2);
-                    Projectile.position.Y = Main.player[Projectile.owner].Center.Y - (Projectile.height / 2);
+                    Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+                    Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
                     Projectile.netUpdate = true;
                 }
                 if (num651 > 70f)

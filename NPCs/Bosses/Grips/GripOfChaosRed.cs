@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Grips;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

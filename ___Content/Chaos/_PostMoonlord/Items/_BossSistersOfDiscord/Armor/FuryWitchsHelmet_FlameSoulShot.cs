@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossAshe.Armor
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     public class FuryWitchsHelmet_FlameSoulShot : ModProjectile
 	{

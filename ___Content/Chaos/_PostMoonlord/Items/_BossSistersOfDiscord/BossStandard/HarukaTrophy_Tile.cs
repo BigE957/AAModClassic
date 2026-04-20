@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Trophy
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
     public class HarukaTrophy_Tile : ModTile
 	{

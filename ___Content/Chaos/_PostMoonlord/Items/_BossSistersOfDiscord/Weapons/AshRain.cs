@@ -5,9 +5,8 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.AH;
 
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
     public class AshRain : BaseAAItem
     {
@@ -18,9 +17,9 @@ namespace AAModClassic.Items.Boss.AH
 Right click to detonate fireballs"); */
         }
 
-        public override void ModifyTooltips(List<Terraria.ModLoader.TooltipLine> list)
+        public override void ModifyTooltips(List<TooltipLine> list)
         {
-            foreach (Terraria.ModLoader.TooltipLine line2 in list)
+            foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {

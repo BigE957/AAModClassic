@@ -1,6 +1,5 @@
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Items.Boss;
-using AAModClassic.Projectiles.AH;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

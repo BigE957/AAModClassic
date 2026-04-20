@@ -1,7 +1,6 @@
-using AAModClassic.Tiles.Trophy;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Boss.AH
+namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
     public class AsheTrophy : BaseAAItem
 	{
