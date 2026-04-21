@@ -10414,3 +10414,58 @@ Sickleshot: {
 	DisplayName: Sickleshot
 	Tooltip: ""
 }
+
+AnubisTreasureBag: {
+	DisplayName: Anubis Treasure Bag
+	Tooltip: ""
+}
+
+AnubisATreasureBag: {
+	DisplayName: Anubis A Treasure Bag
+	Tooltip: ""
+}
+
+FuryWitchsBag: {
+	DisplayName: Fury Witchs Bag
+	Tooltip: ""
+}
+
+MidnightAssassinBag: {
+	DisplayName: Midnight Assassin Bag
+	Tooltip: ""
+}
+
+Sandthrower: {
+	DisplayName: Sandthrower
+	Tooltip: ""
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDog: {
+	DisplayName: The Life And Epic Adventures Of Anubis The Wonder Dog
+	Tooltip: ""
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition: {
+	DisplayName: The Life And Epic Adventures Of Anubis The Wonder Dog Special Edition
+	Tooltip: ""
+}
+
+AnubisAMask: {
+	DisplayName: Anubis A Mask
+	Tooltip: ""
+}
+
+AnubisATrophy: {
+	DisplayName: Anubis A Trophy
+	Tooltip: ""
+}
+
+CrookOfTheSoulJudge: {
+	DisplayName: Crook Of The Soul Judge
+	Tooltip: ""
+}
+
+CursedFlamefury: {
+	DisplayName: Cursed Flamefury
+	Tooltip: ""
+}

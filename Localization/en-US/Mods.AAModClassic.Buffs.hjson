@@ -1423,3 +1423,23 @@ SnakeStaff_Buff: {
 	DisplayName: Snake Staff_ Buff
 	Description: Mods.AAModClassic.Buffs.SnakeStaff_Buff.Description
 }
+
+ArtifactOfJudgement_Buff: {
+	DisplayName: Artifact Of Judgement_ Buff
+	Description: Mods.AAModClassic.Buffs.ArtifactOfJudgement_Buff.Description
+}
+
+ArtifactOfGuilt_Buff: {
+	DisplayName: Artifact Of Guilt_ Buff
+	Description: Mods.AAModClassic.Buffs.ArtifactOfGuilt_Buff.Description
+}
+
+Lifeline_Forsaken: {
+	DisplayName: Lifeline_ Forsaken
+	Description: Mods.AAModClassic.Buffs.Lifeline_Forsaken.Description
+}
+
+Lifeline_ForsakenWeak: {
+	DisplayName: Lifeline_ Forsaken Weak
+	Description: Mods.AAModClassic.Buffs.Lifeline_ForsakenWeak.Description
+}

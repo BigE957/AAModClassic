@@ -8,7 +8,7 @@ namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapon
 {
     public class Soulsplitter_Proj : ModProjectile
 	{
-        public override string Texture => ModContent.GetInstance<Soulsplitter_Proj>().Texture;
+        public override string Texture => ModContent.GetInstance<Soulsplitter>().Texture;
 
         public override void SetStaticDefaults()
         {
