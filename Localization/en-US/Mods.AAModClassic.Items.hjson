@@ -10334,3 +10334,83 @@ DragontamersCloak: {
 	DisplayName: Dragontamers Cloak
 	Tooltip: ""
 }
+
+OwlStatue: {
+	DisplayName: Owl Statue
+	Tooltip: ""
+}
+
+DesertDjinnMask: {
+	DisplayName: Desert Djinn Mask
+	Tooltip: ""
+}
+
+DesertDjinnTreasureBag: {
+	DisplayName: Desert Djinn Treasure Bag
+	Tooltip: ""
+}
+
+DesertDjinnTrophy: {
+	DisplayName: Desert Djinn Trophy
+	Tooltip: ""
+}
+
+DesertLamp: {
+	DisplayName: Desert Lamp
+	Tooltip: ""
+}
+
+SultansScimitar: {
+	DisplayName: Sultans Scimitar
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: Dynaskull Fossil
+	Tooltip: ""
+}
+
+ConfusingLookingMushroom: {
+	DisplayName: Confusing Looking Mushroom
+	Tooltip: ""
+}
+
+AncientBell: {
+	DisplayName: Ancient Bell
+	Tooltip: ""
+}
+
+IntimidatingLookingMushroom: {
+	DisplayName: Intimidating Looking Mushroom
+	Tooltip: ""
+}
+
+SubzeroSerpentMask: {
+	DisplayName: Subzero Serpent Mask
+	Tooltip: ""
+}
+
+SubzeroSerpentTreasureBag: {
+	DisplayName: Subzero Serpent Treasure Bag
+	Tooltip: ""
+}
+
+SubzeroSerpentTrophy: {
+	DisplayName: Subzero Serpent Trophy
+	Tooltip: ""
+}
+
+Icicle: {
+	DisplayName: Icicle
+	Tooltip: ""
+}
+
+SerpentsSting: {
+	DisplayName: Serpents Sting
+	Tooltip: ""
+}
+
+Sickleshot: {
+	DisplayName: Sickleshot
+	Tooltip: ""
+}

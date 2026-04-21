@@ -180,7 +180,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinGrabBag>() };
+            int[] lootTable = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinBag>() };
 
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

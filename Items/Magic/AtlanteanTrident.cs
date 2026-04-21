@@ -1,7 +1,7 @@
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic.Items.Boss.Djinn;
-using AAModClassic.Items.Boss.Serpent;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Magic
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
 			recipe.AddIngredient(ModContent.ItemType<SludgeShot>());
-			recipe.AddIngredient(ModContent.ItemType<Sickle>());
+			recipe.AddIngredient(ModContent.ItemType<Icicle>());
 			recipe.AddIngredient(ModContent.ItemType<NeutronRod>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();

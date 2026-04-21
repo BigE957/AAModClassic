@@ -1,8 +1,9 @@
-﻿using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Serpent;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -821,17 +822,17 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SerpentBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SubzeroSerpentTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SerpentTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SubzeroSerpentTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SerpentMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SubzeroSerpentMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 1, 10, 15));
 
-            int[] lootTable = { ModContent.ItemType<BlizzardBuster>(), ModContent.ItemType<SerpentSpike>(), ModContent.ItemType<Icepick>(), ModContent.ItemType<SerpentSting>(), ModContent.ItemType<Sickle>(), ModContent.ItemType<SickleShot>(), ModContent.ItemType<SnakeStaff>(), ModContent.ItemType<SubzeroSlasher>() };
+            int[] lootTable = { ModContent.ItemType<BlizzardBuster>(), ModContent.ItemType<SerpentSpike>(), ModContent.ItemType<Icepick>(), ModContent.ItemType<SerpentsSting>(), ModContent.ItemType<Icicle>(), ModContent.ItemType<Sickleshot>(), ModContent.ItemType<SnakeStaff>(), ModContent.ItemType<SubzeroSlasher>() };
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 9, 90, 120).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
 

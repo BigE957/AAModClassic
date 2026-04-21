@@ -2,8 +2,10 @@
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.Accessories;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
@@ -16,12 +18,12 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
 using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Throwing;
@@ -69,8 +71,8 @@ namespace AAModClassic.CrossMod
             #endregion
 
             #region Boss Summons
-            ModContent.ItemType<IntimidatingMushroom>(),
-            ModContent.ItemType<ConfusingMushroom>(),
+            ModContent.ItemType<IntimidatingLookingMushroom>(),
+            ModContent.ItemType<ConfusingLookingMushroom>(),
 
             ModContent.ItemType<CuriousLookingClaw>(),
             ModContent.ItemType<InterestingLookingClaw>(),

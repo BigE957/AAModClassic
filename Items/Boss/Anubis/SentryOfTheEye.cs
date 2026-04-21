@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic.Projectiles.Anubis;
 using Microsoft.Xna.Framework;
 using Terraria;

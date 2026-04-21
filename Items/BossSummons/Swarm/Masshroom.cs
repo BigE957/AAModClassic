@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 
 
 namespace AAModClassic.Items.BossSummons.Swarm
@@ -64,7 +65,7 @@ namespace AAModClassic.Items.BossSummons.Swarm
             if (ModLoader.TryGetMod("Fargowiltas", out var fargos))
             {
                 Recipe recipe = CreateRecipe(1);
-                recipe.AddIngredient(ModContent.ItemType<IntimidatingMushroom>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<IntimidatingLookingMushroom>(), 1);
                 recipe.AddIngredient(fargos, "Overloader", 1);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();

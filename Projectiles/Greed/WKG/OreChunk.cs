@@ -20,6 +20,7 @@ using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Projectiles.Greed.WKG
 {
@@ -732,7 +733,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 target.AddBuff(BuffID.Venom, 180);
             }
-            else if(k == ModContent.ItemType<DynaskullOre>())
+            else if(k == ModContent.ItemType<DynaskullFossil>())
             {
                 if(Projectile.ai[0] != 1f)
                 {
@@ -742,7 +743,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     {
                         shoot = new Vector2((float)Math.Sin(shootid * 0.125f * Math.PI), (float)Math.Cos(shootid * 0.125f * Math.PI));
                         shoot *= 10f;
-                        int p = NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, projType, (int)(modifiers.FinalDamage.Flat /2), 5, Main.myPlayer, 0, ModContent.ItemType<DynaskullOre>());
+                        int p = NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, projType, (int)(modifiers.FinalDamage.Flat /2), 5, Main.myPlayer, 0, ModContent.ItemType<DynaskullFossil>());
                         Main.projectile[p].ai[0] = 1f;
                         Main.projectile[p].scale /= 2;
                         Main.projectile[p].width /= 2;

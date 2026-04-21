@@ -1,5 +1,5 @@
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tools;
-using AAModClassic.Items.Boss.Serpent;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

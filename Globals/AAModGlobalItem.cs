@@ -29,6 +29,7 @@ using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {
@@ -1000,7 +1001,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.NextBool(50))
                 {
-                    result = ModContent.ItemType<DynaskullOre>();
+                    result = ModContent.ItemType<DynaskullFossil>();
                     if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
@@ -1051,7 +1052,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(2))
                         {
-                            result = ModContent.ItemType<DynaskullOre>();
+                            result = ModContent.ItemType<DynaskullFossil>();
                             stack += 1;
                             if (Main.rand.NextBool(5))
                             {

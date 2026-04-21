@@ -1,6 +1,6 @@
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Blocks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +36,7 @@ namespace AAModClassic.___Content.Desert.___PreHardmode.Items.Armor
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FossilShirt, 1);
-            recipe.AddIngredient(ModContent.ItemType<DynaskullOre>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 15);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddIngredient(ItemID.Coral, 8);
             recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 8);

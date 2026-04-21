@@ -1,8 +1,8 @@
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Djinn;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -537,17 +537,17 @@ namespace AAModClassic.NPCs.Bosses.Djinn
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DjinnBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DesertDjinnTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DjinnTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DesertDjinnTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DjinnMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DesertDjinnMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DesertMana>(), 1, 10, 15));
 
-            int[] lootTable = { ModContent.ItemType<Djinnerang>(), ModContent.ItemType<SandLamp>(), ModContent.ItemType<SandScepter>(), ModContent.ItemType<SandstormCrossbow>(), ModContent.ItemType<SultanScimitar>() };
+            int[] lootTable = { ModContent.ItemType<Djinnerang>(), ModContent.ItemType<SandLamp>(), ModContent.ItemType<SandScepter>(), ModContent.ItemType<SandstormCrossbow>(), ModContent.ItemType<SultansScimitar>() };
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 90, 120).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
 

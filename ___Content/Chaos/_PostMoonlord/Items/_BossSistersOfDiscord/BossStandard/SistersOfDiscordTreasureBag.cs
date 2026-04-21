@@ -112,8 +112,8 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscor
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            int[] lootTableA = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsGrabBag>() };
-            int[] lootTableH = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinGrabBag>() };
+            int[] lootTableA = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsBag>() };
+            int[] lootTableH = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinBag>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTableA));
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTableH));

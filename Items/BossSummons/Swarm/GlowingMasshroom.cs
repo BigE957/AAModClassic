@@ -7,6 +7,7 @@ using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.FeudalFungus;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
 
 namespace AAModClassic.Items.BossSummons.Swarm
 {
@@ -72,7 +73,7 @@ Can only be used in glowing mushroom biomes"); */
             if (ModLoader.TryGetMod("Fargowiltas", out var fargos))
             {
                 Recipe recipe = CreateRecipe(1);
-                recipe.AddIngredient(ModContent.ItemType<ConfusingMushroom>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<ConfusingLookingMushroom>(), 1);
                 recipe.AddIngredient(fargos, "Overloader", 1);
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
