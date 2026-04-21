@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class Soulsplitter : BaseAAItem
 	{
@@ -25,7 +27,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 			Item.height = 28;
 			Item.damage = 183;
 			Item.UseSound = SoundID.Item71;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Anubis.Forsaken.Soulsplitter_Proj>();
+			Item.shoot = ModContent.ProjectileType<Soulsplitter_Proj>();
 			Item.shootSpeed = 14f;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;

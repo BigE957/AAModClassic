@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Vanity.Mask
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
 	public class AnubisAMask : BaseAAItem

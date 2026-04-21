@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class Soulsplitter_Proj : ModProjectile
 	{

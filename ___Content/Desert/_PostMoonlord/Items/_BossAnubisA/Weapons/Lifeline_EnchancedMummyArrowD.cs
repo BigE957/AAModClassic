@@ -3,7 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class Lifeline_EnchancedMummyArrowD : ModProjectile
 	{
@@ -30,8 +30,8 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 		}
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.buffImmune[ModContent.BuffType<Buffs.Lifeline_Forsaken>()] = false;
-			target.AddBuff(ModContent.BuffType<Buffs.Lifeline_Forsaken>(), 10);
+			target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = false;
+			target.AddBuff(ModContent.BuffType<Lifeline_Forsaken>(), 10);
 		}
 
         public override void OnKill(int timeleft)

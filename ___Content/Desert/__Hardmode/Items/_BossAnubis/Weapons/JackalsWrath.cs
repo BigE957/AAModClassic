@@ -1,9 +1,9 @@
-using AAModClassic.Projectiles.Anubis;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
     public class JackalsWrath : BaseAAItem
 	{

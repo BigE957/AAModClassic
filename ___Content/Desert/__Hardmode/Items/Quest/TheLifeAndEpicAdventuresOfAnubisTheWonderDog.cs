@@ -1,6 +1,6 @@
 ﻿using Terraria.ID;
 
-namespace AAModClassic.Items.Misc
+namespace AAModClassic.___Content.Desert.__Hardmode.Items.Quest
 {
     public class TheLifeAndEpicAdventuresOfAnubisTheWonderDog : BaseAAItem
     {

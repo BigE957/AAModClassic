@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
     public class SentryOfTheEye_TheEye : ModProjectile
     {

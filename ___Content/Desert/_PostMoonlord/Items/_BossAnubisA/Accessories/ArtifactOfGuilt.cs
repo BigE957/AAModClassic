@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories
 {
     public class ArtifactOfGuilt : BaseAAItem
     {

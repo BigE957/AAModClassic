@@ -1,11 +1,10 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Projectiles.Anubis.Forsaken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class CrookOfTheSoulJudge : BaseAAItem
 	{

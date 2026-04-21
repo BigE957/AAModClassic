@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 
-namespace AAModClassic.Projectiles.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories
 {
     public class ArtifactOfGuilt_EyeOfTheForsaken : ModProjectile
     {
@@ -31,7 +32,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 			Projectile.Center = player.Center;
 			Projectile.position.Y = player.Center.Y-90;
 			Projectile.spriteDirection = player.direction;
-			if (player.dead || !player.HasBuff(ModContent.BuffType<Buffs.ArtifactOfGuilt_Buff>()))
+			if (player.dead || !player.HasBuff(ModContent.BuffType<ArtifactOfGuilt_Buff>()))
 			{
 				Projectile.Kill();
 			}

@@ -1,7 +1,6 @@
-using AAModClassic.Tiles.Trophy;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
     public class AnubisTrophy : BaseAAItem
 	{

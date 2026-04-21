@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Trophy
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
     public class AnubisTrophy_Tile : ModTile
 	{
@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Trophy
             DustType = DustID.WoodFurniture;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Boss.Anubis.AnubisTrophy>());
+            RegisterItemDrop(ModContent.ItemType<AnubisTrophy>());
         }
 	}
 }

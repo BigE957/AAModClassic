@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items.Materials
 {
     public class SoulFragment : BaseAAItem
 	{

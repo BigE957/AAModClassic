@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items.Weapons
 {
     public class TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockHorizontal : ModProjectile
     {

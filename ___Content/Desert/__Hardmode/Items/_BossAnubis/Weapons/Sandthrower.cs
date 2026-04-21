@@ -1,10 +1,11 @@
+using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
     public class Sandthrower : BaseAAItem
 	{
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Boss.Anubis
             Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.LightPurple;
             Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Anubis.Sandthrower_Sandstorm>();
+			Item.shoot = ModContent.ProjectileType<Sandthrower_Sandstorm>();
 			Item.shootSpeed = 12f;
 			Item.useAmmo = 23;
 		}

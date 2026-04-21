@@ -9,6 +9,9 @@ using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.We
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables;
@@ -70,7 +73,6 @@ using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -851,7 +853,7 @@ namespace AAModClassic
                 }
             }
 
-            if (target.HasBuff(ModContent.BuffType<Buffs.Lifeline_Forsaken>()) && proj.type == ModContent.ProjectileType<Lifeline_EnchancedMummyArrow>())
+            if (target.HasBuff(ModContent.BuffType<Lifeline_Forsaken>()) && proj.type == ModContent.ProjectileType<Lifeline_EnchancedMummyArrow>())
             {
 				float num1 = 9f;
 				Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
@@ -879,7 +881,7 @@ namespace AAModClassic
 					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<Lifeline_ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
 				}
-				target.buffImmune[ModContent.BuffType<Buffs.Lifeline_Forsaken>()] = true;
+				target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = true;
 			}
         }
 
@@ -1435,7 +1437,7 @@ namespace AAModClassic
 			}
 			if (artifactGuiltCharge >= 250)
 			{
-				Player.AddBuff(ModContent.BuffType<Buffs.ArtifactOfGuilt_Buff>(), 900);
+				Player.AddBuff(ModContent.BuffType<ArtifactOfGuilt_Buff>(), 900);
 				artifactGuiltCharge = 0;
 			}
             if (!Greed1 && !Greed2)

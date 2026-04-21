@@ -3,9 +3,8 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Anubis;
 
-namespace AAModClassic.Items.Magic
+namespace AAModClassic.___Content.Desert.__Hardmode.Items.Weapons
 {
     public class TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition : BaseAAItem
     {

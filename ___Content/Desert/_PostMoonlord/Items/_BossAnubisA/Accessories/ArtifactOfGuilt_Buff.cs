@@ -1,9 +1,8 @@
-using AAModClassic.Projectiles.Anubis.Forsaken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories
 {
     public class ArtifactOfGuilt_Buff : ModBuff
 	{

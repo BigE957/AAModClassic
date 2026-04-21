@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Trophy
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
     public class AnubisATrophy_Tile : ModTile
 	{

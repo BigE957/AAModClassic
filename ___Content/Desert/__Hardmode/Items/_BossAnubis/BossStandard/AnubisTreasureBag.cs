@@ -1,4 +1,6 @@
-using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -7,7 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
     public class AnubisTreasureBag : BaseAAItem
     {

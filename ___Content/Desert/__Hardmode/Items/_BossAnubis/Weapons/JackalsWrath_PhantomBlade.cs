@@ -1,11 +1,10 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Anubis;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
     public class JackalsWrath_PhantomBlade : ModProjectile
 	{

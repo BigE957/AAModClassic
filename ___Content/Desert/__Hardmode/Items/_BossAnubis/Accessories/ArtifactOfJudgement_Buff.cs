@@ -1,9 +1,8 @@
-using AAModClassic.Projectiles.Anubis;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories
 {
     public class ArtifactOfJudgement_Buff : ModBuff
 	{

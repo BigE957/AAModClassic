@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;

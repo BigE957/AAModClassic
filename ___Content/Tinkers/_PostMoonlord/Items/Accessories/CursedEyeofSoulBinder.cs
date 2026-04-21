@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
-using AAModClassic.Items.Boss.Anubis.Forsaken;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic.Items.Accessories;
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.___Content.Tinkers._PostMoonlord.Items.Accessories
 {

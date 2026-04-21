@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class Lifeline_Forsaken : ModBuff
 	{

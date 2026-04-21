@@ -1,7 +1,8 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Anubis;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;

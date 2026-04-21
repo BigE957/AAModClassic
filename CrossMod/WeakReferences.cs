@@ -16,6 +16,11 @@ using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
 using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Weapons;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
@@ -81,8 +86,6 @@ using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Boss.Anubis;
-using AAModClassic.Items.Boss.Anubis.Forsaken;
 using AAModClassic.Items.Boss.EFish;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Boss.Greed.WKG;
@@ -960,7 +963,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.AnubisATrophy>(),
+                        ModContent.ItemType<AnubisATrophy>(),
                         ModContent.ItemType<AnubisAMask>(),
                         ModContent.ItemType<AnubisAwakenedBox>()
                     },

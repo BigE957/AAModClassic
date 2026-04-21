@@ -3,10 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Anubis;
 using AAModClassic.Items.Ranged;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
 
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
     public class NeithsString : BaseAAItem
     {

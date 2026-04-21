@@ -1,12 +1,12 @@
 using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
-using AAModClassic.Projectiles.Anubis;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
     public class SentryOfTheEye : BaseAAItem
     {

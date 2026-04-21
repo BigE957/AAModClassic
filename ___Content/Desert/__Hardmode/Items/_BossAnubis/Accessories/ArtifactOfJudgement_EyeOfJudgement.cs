@@ -3,9 +3,8 @@ using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic.Buffs;
 
-namespace AAModClassic.Projectiles.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories
 {
     public class ArtifactOfJudgement_EyeOfJudgement : ModProjectile
 	{

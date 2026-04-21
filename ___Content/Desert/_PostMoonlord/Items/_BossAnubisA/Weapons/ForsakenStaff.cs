@@ -3,9 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Anubis.Forsaken;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class ForsakenStaff : BaseAAItem
 	{

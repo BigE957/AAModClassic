@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Boss.Anubis
+namespace AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories
 {
     public class ArtifactOfJudgement : BaseAAItem
     {

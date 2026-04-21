@@ -1,7 +1,8 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Anubis.Forsaken;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -590,7 +591,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulFragment>(), 1, 8, 16));
 
-            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<Items.Boss.Anubis.Forsaken.ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
+            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

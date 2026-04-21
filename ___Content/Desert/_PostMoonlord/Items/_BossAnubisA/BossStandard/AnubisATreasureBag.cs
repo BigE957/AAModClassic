@@ -1,4 +1,6 @@
-using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -7,7 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
     public class AnubisATreasureBag : BaseAAItem
     {
@@ -83,7 +85,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulFragment>(), 1, 10, 20));
 
-            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<Items.Boss.Anubis.Forsaken.ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
+            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
