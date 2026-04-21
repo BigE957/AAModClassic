@@ -1,8 +1,10 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Greed;
-using AAModClassic.Items.Vanity.Mask;
+﻿using AAModClassic.___Content._PLACEHOLDER.ore.projs;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Tools;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
+using AAModClassic.___Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
-using AAModClassic.Projectiles.Greed.WKG;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -501,7 +503,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreedTrophy>(), 10));
 
@@ -511,7 +513,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<StoneShell>(), 1, 20, 25));
 
-            int[] lootTable = { ModContent.ItemType<GildedGlock>(), ModContent.ItemType<GoldDigger>(), ModContent.ItemType<Miner>() };
+            int[] lootTable = { ModContent.ItemType<GildedGlock>(), ModContent.ItemType<GoldDigger>(), ModContent.ItemType<MINEer>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

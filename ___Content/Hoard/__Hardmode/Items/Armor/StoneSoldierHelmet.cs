@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Items.Boss.Greed;
+using AAModClassic.___Content.Hoard.__Hardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Hoard.__Hardmode.Items.Armor
 {

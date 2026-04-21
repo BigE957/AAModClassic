@@ -7,7 +7,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Projectiles.Rajah.Supreme;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 
 namespace AAModClassic.___Content.Bunny._PostMoonlord.Items.Armor
 {

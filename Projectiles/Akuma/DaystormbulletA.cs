@@ -1,4 +1,4 @@
-using AAModClassic.Projectiles.Greed.WKG;
+using AAModClassic.___Content._PLACEHOLDER.ore.projs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

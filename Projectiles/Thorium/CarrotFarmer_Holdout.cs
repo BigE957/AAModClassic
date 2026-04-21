@@ -1,6 +1,6 @@
 using System;
+using AAModClassic.___Content.Bunny.Projectiles;
 using AAModClassic.CrossMod;
-using AAModClassic.Projectiles.Rajah;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -112,11 +112,11 @@ namespace AAModClassic.Projectiles.Thorium
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
                         if (Main.rand.NextBool(15))
                         {
-                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<Carrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         }
                         if (Main.rand.NextBool(15))
                         {
-                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<Carrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         }
                     }
                 }

@@ -1,9 +1,13 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content._PLACEHOLDER.ore;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
@@ -27,7 +31,10 @@ using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleT
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
+using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
@@ -87,10 +94,6 @@ using AAModClassic.Buffs;
 using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.EFish;
-using AAModClassic.Items.Boss.Greed;
-using AAModClassic.Items.Boss.Greed.WKG;
-using AAModClassic.Items.Boss.Rajah;
-using AAModClassic.Items.Boss.Rajah.Supreme;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Dev;
@@ -130,8 +133,6 @@ using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.Projectiles;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Projectiles.EFish;
-using AAModClassic.Projectiles.Rajah;
-using AAModClassic.Projectiles.Rajah.Supreme;
 using AAModClassic.Projectiles.Shen;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.UI.WorldGen;
@@ -929,7 +930,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Greed.GreedTrophy>(),
+                        ModContent.ItemType<GreedTrophy>(),
                         ModContent.ItemType<GreedMask>(),
                         ModContent.ItemType<GreedBox>()
                     },
@@ -946,8 +947,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<GoldenCarrot>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Rajah.RajahTrophy>(),
-                        ModContent.ItemType<RajahMask>(),
+                        ModContent.ItemType<RajahRabbitTrophy>(),
+                        ModContent.ItemType<RajahRabbitMask>(),
                         ModContent.ItemType<RajahBox>()
                     },
                     ["customPortrait"] = GetPortrait("Rajah")
@@ -1839,7 +1840,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<GameRaider>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<GameRaider>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Bunzooka>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<BunzookaEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<RPG>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<GameRaider>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Darksprayer>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Darksprayer>(), true);
@@ -1919,7 +1920,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<GoldDigger>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<PineBreaker>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<RoyalScepter>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<RoyalScepterEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<RoyalStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraFocus>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraRose>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<ManaRose>(), true);
@@ -2043,14 +2044,14 @@ namespace AAModClassic.CrossMod
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChain_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IllumantBall>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Ryusei_Proj>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Punisher_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ThePunisher_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Astroid_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Daycrusher_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EFlairon_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Flairdra_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChainEX_Proj>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<PunisherEX_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<TheAvenger_Holdout>());
                 #endregion
 
                 #region DoT Debuffs
