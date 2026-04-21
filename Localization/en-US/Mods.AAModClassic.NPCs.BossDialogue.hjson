@@ -831,8 +831,9 @@ InfinityZero: {
 								2: How about {0}? It hasn't been that long.
 								3: You've been playing {0} recently, right? Wouldn't that be more fun than bothering me?
 							}
+
 							Old: {
-								0: "Its been a bit. How about {0}? That'd be fun, right?"
+								0: Its been a bit. How about {0}? That'd be fun, right?
 								1: "{0} looks fun. Go play that."
 								2: How about {0}? That'd be fun, right? Play that instead.
 								3: You're a fan of {0}, right? Wouldn't that be more fun than bothering me?

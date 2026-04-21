@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.Items.Boss.Shen;
@@ -30,6 +29,8 @@ using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
+using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 
 namespace AAModClassic.Globals
 {
@@ -304,7 +305,7 @@ namespace AAModClassic.Globals
             {
                 if (modPlayer.GreedCharm)
                 {
-                    player.AddBuff(ModContent.BuffType<Items.Boss.Greed.Charm_Buff>(), 240);
+                    player.AddBuff(ModContent.BuffType<CharmOfDesire_Desire>(), 240);
                     if (modPlayer.GreedyDamage < 20)
                     {
                         modPlayer.GreedyDamage += 1;
@@ -312,7 +313,7 @@ namespace AAModClassic.Globals
                 }
                 else if (modPlayer.GreedTalisman)
                 {
-                    player.AddBuff(ModContent.BuffType<Talisman_Buff>(), 240);
+                    player.AddBuff(ModContent.BuffType<TalismanOfDesire_RuthlessDesire>(), 240);
                     if (modPlayer.GreedyDamage < 40)
                     {
                         modPlayer.GreedyDamage += 1;

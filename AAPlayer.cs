@@ -9,6 +9,9 @@ using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.We
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor;
 using AAModClassic.___Content.Chaos.Buffs;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Consumables;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
+using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables;
@@ -70,7 +73,6 @@ using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -763,7 +765,7 @@ namespace AAModClassic
 
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) 
 		{
-			if (npc.HasBuff(ModContent.BuffType<ForsakenWeak_Buff>()))
+			if (npc.HasBuff(ModContent.BuffType<Lifeline_ForsakenWeak>()))
 			{
                 modifiers.FinalDamage.Flat -= modifiers.FinalDamage.Flat / 5;
 			}
@@ -851,7 +853,7 @@ namespace AAModClassic
                 }
             }
 
-            if (target.HasBuff(ModContent.BuffType<Buffs.Forsaken_Buff>()) && proj.type == ModContent.ProjectileType<EnchancedMummyArrow>())
+            if (target.HasBuff(ModContent.BuffType<Lifeline_Forsaken>()) && proj.type == ModContent.ProjectileType<Lifeline_EnchancedMummyArrow>())
             {
 				float num1 = 9f;
 				Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
@@ -877,9 +879,9 @@ namespace AAModClassic
 				for (int i = 0; i < numberProjectiles; i++)
 				{
 					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
-					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
+					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<Lifeline_ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
 				}
-				target.buffImmune[ModContent.BuffType<Buffs.Forsaken_Buff>()] = true;
+				target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = true;
 			}
         }
 
@@ -1430,12 +1432,12 @@ namespace AAModClassic
             }
 			if (artifactJudgementCharge >= 250)
 			{
-				Player.AddBuff(ModContent.BuffType<EyeOfJudgement_Buff>(), 900);
+				Player.AddBuff(ModContent.BuffType<ArtifactOfJudgement_Buff>(), 900);
 				artifactJudgementCharge = 0;
 			}
 			if (artifactGuiltCharge >= 250)
 			{
-				Player.AddBuff(ModContent.BuffType<Buffs.EyeOfForsaken_Buff>(), 900);
+				Player.AddBuff(ModContent.BuffType<ArtifactOfGuilt_Buff>(), 900);
 				artifactGuiltCharge = 0;
 			}
             if (!Greed1 && !Greed2)

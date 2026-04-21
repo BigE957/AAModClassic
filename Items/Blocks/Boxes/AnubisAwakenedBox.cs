@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Boss.Anubis.Forsaken;
+using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

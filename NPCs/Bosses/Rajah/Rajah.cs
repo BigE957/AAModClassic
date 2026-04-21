@@ -12,12 +12,9 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Potions;
 using AAModClassic.NPCs.Bosses.Rajah.Supreme;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Rajah.Supreme;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Boss.Rajah;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
@@ -25,6 +22,11 @@ using System.Collections.Generic;
 using AAModClassic.Items.Thorium.Healer;
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Bunny._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -1092,17 +1094,17 @@ namespace AAModClassic.NPCs.Bosses.Rajah
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahRabbitTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahPelt>(), 1, 10, 26));
 
-            List<int> lootTable = [ ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<Punisher>(), ModContent.ItemType<RabbitcopterEars>() ];
+            List<int> lootTable = [ ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<RabbitcopterEars>() ];
             if (ModSupport.GetMod("ThoriumMod") != null)
                 lootTable.Add(ModContent.ItemType<CarrotFarmer>());
 
@@ -1252,13 +1254,13 @@ namespace AAModClassic.NPCs.Bosses.Rajah
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahCache>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahRabbitATreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChampionPlate>(), 1, 15, 31));
 

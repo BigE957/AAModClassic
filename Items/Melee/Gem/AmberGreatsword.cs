@@ -9,6 +9,12 @@ namespace AAModClassic.Items.Melee.Gem
 {
     public class AmberGreatsword : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Amber Greatsword");
+            // Tooltip.SetDefault("");
+        }
+
         public override void SetDefaults()
         {
 
@@ -27,12 +33,6 @@ namespace AAModClassic.Items.Melee.Gem
             Item.useTurn = true; 
 			Item.shoot = ModContent.ProjectileType<AmberShot>();
 			Item.shootSpeed = 12f;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Amber Greatsword");
-            // Tooltip.SetDefault("");
         }
 
         static int shoot = 0;

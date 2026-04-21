@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Projectiles.Greed.WKG;
+using AAModClassic.___Content._PLACEHOLDER.ore.projs;
 
 namespace AAModClassic.Buffs
 {

@@ -11,7 +11,6 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Misc;
 using AAModClassic.CrossMod;
 using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.Rajah;
@@ -27,6 +26,9 @@ using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Weapons;
+using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+using AAModClassic.___Content.Desert.__Hardmode.Items.Quest;
 
 namespace AAModClassic.NPCs.TownNPCs
 {
@@ -383,7 +385,7 @@ namespace AAModClassic.NPCs.TownNPCs
 			else
             {
                 Player player = Main.LocalPlayer;
-                int Item = player.FindItem(ModContent.ItemType<AnubisBook>());
+                int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
                 if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
                 {
                     player.inventory[Item].stack--;
@@ -393,7 +395,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.Magic.AnubisBlockBook>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -700,7 +702,7 @@ namespace AAModClassic.NPCs.TownNPCs
             Player player = Main.LocalPlayer;
             AAPlayer mPlayer = player.GetModPlayer<AAPlayer>();
 
-            if (player.head == ModContent.ItemType<Items.Vanity.Mask.AnubisMask>() && Main.rand.NextBool(5))
+            if (player.head == ModContent.ItemType<AnubisMask>() && Main.rand.NextBool(5))
             {
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatMask");
             }

@@ -1,0 +1,2 @@
+//TODO: rework all of this with mod compat in mind
+im not sure if OreStaff_Ore should pull from modded ores n shit but it should use the same tech as other ores

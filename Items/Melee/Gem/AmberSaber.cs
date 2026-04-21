@@ -6,6 +6,12 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
 {
     public class AmberSaber : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Amber Saber");
+            // Tooltip.SetDefault("");
+        }
+
         public override void SetDefaults()
         {
 
@@ -24,17 +30,13 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
             Item.useTurn = true;               
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Amber Saber");
-      // Tooltip.SetDefault("");
-    }
-
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Amber, 5);   
-            recipe.AddIngredient(ItemID.DesertFossil, 12);
+            recipe.AddIngredient(ItemID.DesertFossil, 12); //TODO: WE HAVE TO DO SOMETHING ABT THIS
+            // in 1.4 they made desert fossils pre-boss. in 1.3 theyre post-evils
+            // tiershift dynaskull?
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();
 

@@ -1423,3 +1423,48 @@ SnakeStaff_Buff: {
 	DisplayName: Snake Staff_ Buff
 	Description: Mods.AAModClassic.Buffs.SnakeStaff_Buff.Description
 }
+
+ArtifactOfJudgement_Buff: {
+	DisplayName: Artifact Of Judgement_ Buff
+	Description: Mods.AAModClassic.Buffs.ArtifactOfJudgement_Buff.Description
+}
+
+ArtifactOfGuilt_Buff: {
+	DisplayName: Artifact Of Guilt_ Buff
+	Description: Mods.AAModClassic.Buffs.ArtifactOfGuilt_Buff.Description
+}
+
+Lifeline_Forsaken: {
+	DisplayName: Lifeline_ Forsaken
+	Description: Mods.AAModClassic.Buffs.Lifeline_Forsaken.Description
+}
+
+Lifeline_ForsakenWeak: {
+	DisplayName: Lifeline_ Forsaken Weak
+	Description: Mods.AAModClassic.Buffs.Lifeline_ForsakenWeak.Description
+}
+
+CharmOfDesire_Desire: {
+	DisplayName: Charm Of Desire_ Desire
+	Description: Mods.AAModClassic.Buffs.CharmOfDesire_Desire.Description
+}
+
+TalismanOfDesire_RuthlessDesire: {
+	DisplayName: Talisman Of Desire_ Ruthless Desire
+	Description: Mods.AAModClassic.Buffs.TalismanOfDesire_RuthlessDesire.Description
+}
+
+Earthbreaker_Falling: {
+	DisplayName: Earthbreaker_ Falling
+	Description: Mods.AAModClassic.Buffs.Earthbreaker_Falling.Description
+}
+
+CottonCane_Buff: {
+	DisplayName: Cotton Cane_ Buff
+	Description: Mods.AAModClassic.Buffs.CottonCane_Buff.Description
+}
+
+RajahsRage_Buff: {
+	DisplayName: Rajahs Rage_ Buff
+	Description: Mods.AAModClassic.Buffs.RajahsRage_Buff.Description
+}

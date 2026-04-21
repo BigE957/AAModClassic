@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
@@ -892,7 +893,7 @@ namespace AAModClassic.World
                 }
                 else if (specialItem == 3)
                 {
-                    type = ModContent.ItemType<Items.Misc.AnubisBook>();
+                    type = ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>();
                 }
                 else if (genRand0.Next(100) < 2f)
                 {

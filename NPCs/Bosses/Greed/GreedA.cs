@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
+using AAModClassic.___Content._PLACEHOLDER.ore;
+using AAModClassic.___Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard;
+using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;
+using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Boss.Greed;
-using AAModClassic.Items.Boss.Greed.WKG;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -572,15 +574,15 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedABag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedATreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GravitySphere>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WKGTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreedATrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<WKGreedMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GreedAMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<StoneShell>(), 1, 20, 25));
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CovetiteOre>(), 1, 25, 40));
