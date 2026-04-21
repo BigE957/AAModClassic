@@ -1272,49 +1272,69 @@ namespace AAModClassic.CrossMod
 
         private static void PopulateCrossModDialogue()
         {
-            string locPath = "Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.";
+            string shenLocPath = "Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.50.";
+            string izLocPath = "Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.Mods.";
             if (ModLoader.TryGetMod("Redemption", out var mor) && mor.TryFind<ModSystem>("RedeBossDowned", out ModSystem downed))
             {
                 var field = downed.GetType().GetField("downedNebuleus", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("Redemption", (Language.GetOrRegister(locPath + "Redemption"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("Redemption", (Language.GetOrRegister(shenLocPath + "Redemption"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("Redemption", (Language.GetOrRegister(izLocPath + "Redemption"), () => true));
             }
 
             if (ModLoader.TryGetMod("Thorium", out Mod thorium))
-                ShenA.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(locPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
+            {
+                ShenA.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(shenLocPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
+                Oblivion.CrossModDialogue.Add("Throium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
+            }
 
             if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
-                ShenA.CrossModDialogue.Add("CalamityMod", (Language.GetOrRegister(locPath + "CalamityMod"), () => (bool)cal.Call("GetBossDowned", "scal")));
+            {
+                ShenA.CrossModDialogue.Add("CalamityMod", (Language.GetOrRegister(shenLocPath + "CalamityMod"), () => (bool)cal.Call("GetBossDowned", "scal")));
+                Oblivion.CrossModDialogue.Add("CalamityMod", (Language.GetOrRegister(izLocPath + "CalamityMod"), () => true));
+            }
 
             if (ModLoader.TryGetMod("SpiritMod", out Mod spiritClassic))
-                ShenA.CrossModDialogue.Add("SpiritMod", (Language.GetOrRegister(locPath + "SpiritMod"), () => (bool)spiritClassic.Call(0, "Atlas")));
+            {
+                ShenA.CrossModDialogue.Add("SpiritClassic", (Language.GetOrRegister(shenLocPath + "SpiritClassic"), () => (bool)spiritClassic.Call(0, "Atlas")));
+                Oblivion.CrossModDialogue.Add("SpiritClassic", (Language.GetOrRegister(izLocPath + "SpiritClassic"), () => true));
+            }
 
             if (ModLoader.TryGetMod("CalamityHunt", out var hunt) && hunt.TryFind<ModSystem>("BossDownedSystem", out downed))
             {
                 var field = downed.GetType().GetProperty("GoozmaDowned", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("CalamityHunt", (Language.GetOrRegister(locPath + "CalamityHunt"), () => (bool)field.GetValue(downed)));
+                    ShenA.CrossModDialogue.Add("CalamityHunt", (Language.GetOrRegister(shenLocPath + "CalamityHunt"), () => (bool)field.GetValue(downed)));
+                Oblivion.CrossModDialogue.Add("CalamityHunt", (Language.GetOrRegister(izLocPath + "CalamityHunt"), () => true));
             }
 
             if (ModLoader.TryGetMod("StarsAbove", out Mod tsa))
-                ShenA.CrossModDialogue.Add("StarsAbove", (Language.GetOrRegister(locPath + "StarsAbove"), () => (bool)tsa.Call("downedTsukiyomi")));
+            {
+                ShenA.CrossModDialogue.Add("StarsAbove", (Language.GetOrRegister(shenLocPath + "StarsAbove"), () => (bool)tsa.Call("downedTsukiyomi")));
+                Oblivion.CrossModDialogue.Add("StarsAbove", (Language.GetOrRegister(izLocPath + "StarsAbove"), () => true));
+            }
 
             if (ModLoader.TryGetMod("LunarVeilLegacy", out var lunarVeil) && lunarVeil.TryFind<ModSystem>("DownedBossSystem", out downed))
             {
                 var field = downed.GetType().GetField("downedGothiviaBoss", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("LunarVeilLegacy", (Language.GetOrRegister(locPath + "LunarVeil"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("LunarVeil", (Language.GetOrRegister(shenLocPath + "LunarVeil"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("LunarVeil", (Language.GetOrRegister(izLocPath + "LunarVeil"), () => true));
             }
 
             if (ModLoader.TryGetMod("SacredTools", out var soa) && soa.TryFind<ModSystem>("DownedSystem", out downed))
             {
                 var field = downed.GetType().GetField("DownedNihilus", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("SacredTools", (Language.GetOrRegister(locPath + "SacredTools"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("SacredTools", (Language.GetOrRegister(shenLocPath + "SacredTools"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("SacredTools", (Language.GetOrRegister(izLocPath + "SacredTools"), () => true));
             }
 
             if (ModLoader.TryGetMod("Catalyst", out Mod catalyst))
-                ShenA.CrossModDialogue.Add("Catalyst", (Language.GetOrRegister(locPath + "Catalyst"), () => (bool)catalyst.Call("worlddefeats.astrageldon")));
+            {
+                ShenA.CrossModDialogue.Add("Catalyst", (Language.GetOrRegister(shenLocPath + "Catalyst"), () => (bool)catalyst.Call("worlddefeats.astrageldon")));
+                Oblivion.CrossModDialogue.Add("Catalyst", (Language.GetOrRegister(izLocPath + "Catalyst"), () => true));
+            }
 
             if (ModLoader.TryGetMod("Split", out var split) && split.TryFind<ModSystem>("WorldFlagsSystem", out downed))
             {
@@ -1324,46 +1344,53 @@ namespace AAModClassic.CrossMod
                 if (baseSeth != null)
                 {
                     if (ultiSeth != null)
-                        ShenA.CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(locPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null) && !(bool)ultiSeth.GetValue(null)));
+                        ShenA.CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(shenLocPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null) && !(bool)ultiSeth.GetValue(null)));
                     else
-                        ShenA.CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(locPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null)));
+                        ShenA.CrossModDialogue.Add("Split:Seth", (Language.GetOrRegister(shenLocPath + "Split.Seth"), () => (bool)baseSeth.GetValue(null)));
                 }
                 if (ultiSeth != null)
-                    ShenA.CrossModDialogue.Add("Split:SethUltimate", (Language.GetOrRegister(locPath + "Split.SethUltimate"), () => (bool)ultiSeth.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("Split:SethUltimate", (Language.GetOrRegister(shenLocPath + "Split.SethUltimate"), () => (bool)ultiSeth.GetValue(null)));
+
+                Oblivion.CrossModDialogue.Add("Split", (Language.GetOrRegister(izLocPath + "Split"), () => true));
             }
 
             if (ModLoader.TryGetMod("Macrocosm", out var macrocosm) && macrocosm.TryFind<ModSystem>("WorldData", out downed))
             {
                 var field = downed.GetType().GetField("DownedCraterDemon", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("Macrocosm", (Language.GetOrRegister(locPath + "Macrocosm"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("Macrocosm", (Language.GetOrRegister(shenLocPath + "Macrocosm"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("Macrocosm", (Language.GetOrRegister(izLocPath + "Macrocosm"), () => true));
             }
 
             if (ModLoader.TryGetMod("Spooky", out var spooky) && spooky.TryFind<ModSystem>("Flags", out downed))
             {
                 var field = downed.GetType().GetField("downedBigBone", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("Spooky", (Language.GetOrRegister(locPath + "Spooky"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("Spooky", (Language.GetOrRegister(shenLocPath + "Spooky"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("Spooky", (Language.GetOrRegister(izLocPath + "Spooky"), () => true));
             }
 
             if (ModLoader.TryGetMod("YouBoss", out var you) && you.TryFind<ModSystem>("WorldSaveSystem", out downed))
             {
                 var field = downed.GetType().GetProperty("HasDefeatedYourself", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("YouBoss", (Language.GetOrRegister(locPath + "You"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("YouBoss", (Language.GetOrRegister(shenLocPath + "You"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("YouBoss", (Language.GetOrRegister(izLocPath + "YouBoss"), () => true));
             }
 
             if (ModLoader.TryGetMod("Radiance", out var radiance) && radiance.TryFind<ModSystem>("SystemTweaks", out downed))
             {
                 var field = downed.GetType().GetField("downedDaytimeEmpressOfLight", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
-                    ShenA.CrossModDialogue.Add("Radiance", (Language.GetOrRegister(locPath + "Radiance"), () => (bool)field.GetValue(null)));
+                    ShenA.CrossModDialogue.Add("Radiance", (Language.GetOrRegister(shenLocPath + "Radiance"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("Radiance", (Language.GetOrRegister(izLocPath + "Radiance"), () => true));
             }
 
             if (ModLoader.TryGetMod("Ultranium", out Mod ultranium))
             {
-                ShenA.CrossModDialogue.Add("Ultranium.Aldin", (Language.GetOrRegister(locPath + "Ultranium.Aldin"), () => (bool)ultranium.Call("aldin")));
-                ShenA.CrossModDialogue.Add("Ultranium.Erebus", (Language.GetOrRegister(locPath + "Ultranium.Erebus"), () => !(bool)ultranium.Call("aldin") && (bool)ultranium.Call("erebus")));
+                ShenA.CrossModDialogue.Add("Ultranium.Aldin", (Language.GetOrRegister(shenLocPath + "Ultranium.Aldin"), () => (bool)ultranium.Call("aldin")));
+                ShenA.CrossModDialogue.Add("Ultranium.Erebus", (Language.GetOrRegister(shenLocPath + "Ultranium.Erebus"), () => !(bool)ultranium.Call("aldin") && (bool)ultranium.Call("erebus")));
+                Oblivion.CrossModDialogue.Add("Ultranium", (Language.GetOrRegister(izLocPath + "Ultranium"), () => true));
             }
 
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);

@@ -76,301 +76,203 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 InitializeSteamSearch();
         }
 
-        public int OblivionSpeech = 0;
+        private static int OblivionSpeech = 0;
+        private static int SpeechRand = 0;
 
         public override void AI()
         {
             Color color1 = Color.DarkRed;
             NPC.velocity.X = 0;
             NPC.velocity.Y = 0;
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             OblivionSpeech++;
-            if (AAPlayer.IZKills == 1)
+
+            switch(AAPlayer.IZKills)
             {
-                if (OblivionSpeech == 180)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.1"), color1);
-                }
-                if (OblivionSpeech == 360)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.2"), color1);
-                }
-                if (OblivionSpeech == 540)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.3"), color1);
-                }
-                if (OblivionSpeech == 720)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.4"), color1);
-                }
-                if (player.difficulty == 2)
-                {
-                    if (OblivionSpeech == 900)
+                case 1:
+                    switch(OblivionSpeech)
                     {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Hardcore"), color1);
+                        case 180:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.1"), color1);
+                            break;
+                        case 360:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.2"), color1);
+                            break;
+                        case 540:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.3"), color1);
+                            break;
+                        case 720:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.4"), color1);
+                            break;
+                        case 900:
+                            if (player.difficulty == 2)
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Hardcore"), color1);
+                            else
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Normal"), color1);
+                            break;
+                        case 1080:
+                            if (player.difficulty == 2)
+                            {
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore"), color1);
+                                Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
+                            }
+                            else
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", player.name), color1);
+                            break;
+                        case 1260:
+                            if (player.difficulty == 2)
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Hardcore"), color1);
+                            else
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Normal"), color1);
+                            break;
                     }
-                    if (OblivionSpeech == 1080)
+                    if (OblivionSpeech >= 1420)
+                        NPC.alpha += 5;
+                    break;
+                case 2:
+                    switch(OblivionSpeech)
                     {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore"), color1);
-                        Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
+                        case 180:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.1"), color1);
+                            break;
+                        case 360:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.2"), color1);
+                            break;
+                        case 540:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.3"), color1);
+                            break;
+                        case 720:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.4"), color1);
+                            break;
+                        case 900:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.5"), color1);
+                            break;
+                        case 1080:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.6"), color1);
+                            break;
                     }
-                    if (OblivionSpeech == 1260)
+                    if (OblivionSpeech >= 1080)
+                        NPC.alpha += 5;
+                    break;
+                case 3:
+                    switch(OblivionSpeech)
                     {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Hardcore"), color1);
+                        case 180:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.1"), color1);
+                            break;
+                        case 360:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.2"), color1);
+                            break;
+                        case 540:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.3"), color1);
+                            break;
+                        case 720:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.4"), color1);
+                            break;
                     }
-                }
-                else
-                {
-                    if (OblivionSpeech == 900)
+                    if (OblivionSpeech >= 720)
+                        NPC.alpha += 5;
+                    break;
+                case 4:
+                    switch(OblivionSpeech)
                     {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Normal"), color1);
+                        case 180:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.1"), color1);
+                            break;
+                        case 360:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.2"), color1);
+                            break;
+                        case 540:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.3"), color1);
+                            break;
+                        case 720:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.4"), color1);
+                            break;
+                        case 900:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.5"), color1);
+                            break;
+                        case 1080:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.6"), color1);
+                            break;
+                        case 1260:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.7"), color1);
+                            break;
+                        case 1440:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.8"), color1);
+                            break;
                     }
-                    if (OblivionSpeech == 1080)
+                    if (OblivionSpeech >= 1440)
+                        NPC.alpha += 5;
+                    break;
+                case 10:
+                    switch(OblivionSpeech)
                     {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", player.name), color1);
+                        case 90:
+                            if(player.difficulty != 2)
+                                player.KillMe(PlayerDeathReason.ByCustomReason(NetworkText.FromKey("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.Kill", player.name)), player.statLifeMax + 10, 0, false);
+                            break;
+                        case 180:
+                            if (player.difficulty != 2)
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Normal"), color1);
+                            else
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Hardcore"), color1);
+                            break;
+                        case 360:
+                            if (player.difficulty != 2)
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Normal"), color1);
+                            else
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Hardcore"), color1);
+                            break;
+                        case 540:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.3"), color1);
+                            break;
                     }
-                    if (OblivionSpeech == 1260)
+
+                    if (OblivionSpeech >= 540)
+                        NPC.alpha += 5;
+                    break;
+                default:
+                    switch(OblivionSpeech)
                     {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Normal"), color1);
+                        case 180:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", AAPlayer.IZKills), color1);
+                            SpeechRand = 2;// Main.rand.Next(7);
+                            break;
+                        case 360:
+                            switch(SpeechRand)
+                            {
+                                case 2:
+                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        string dialogue = GetSteamGameDialogue();
+                                        if (dialogue != null)
+                                            Main.NewText(dialogue, color1);
+                                    }
+                                    break;
+                                case 6:
+                                    Main.NewText(GetCrossModDialogue(), color1);
+                                    break;
+                                default:
+                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2." + SpeechRand), color1);
+                                    break;
+                            }
+                            break;
                     }
-                }
-                if (OblivionSpeech >= 1420)
-                {
-                    NPC.alpha += 5;
-                }
+                    if (OblivionSpeech >= 300)
+                    {
+                        NPC.alpha += 5;
+                    }
+                    break;
             }
 
-            if (AAPlayer.IZKills == 2)
-            {
-                if (OblivionSpeech == 180)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.1"), color1);
-                }
-                if (OblivionSpeech == 360)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.2"), color1);
-                }
-                if (OblivionSpeech == 540)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.3"), color1);
-                }
-                if (OblivionSpeech == 720)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.4"), color1);
-                }
-                if (OblivionSpeech == 900)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.5"), color1);
-                }
-                if (OblivionSpeech == 1080)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.6"), color1);
-                }
-                if (OblivionSpeech >= 1080)
-                {
-                    NPC.alpha += 5;
-                }
-
-            }
-
-            if (AAPlayer.IZKills == 3)
-            {
-                if (OblivionSpeech == 180)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.1"), color1);
-                }
-                if (OblivionSpeech == 360)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.2"), color1);
-                }
-                if (OblivionSpeech == 540)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.3"), color1);
-                }
-                if (OblivionSpeech == 720)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.4"), color1);
-                }
-                if (OblivionSpeech >= 720)
-                {
-                    NPC.alpha += 5;
-                }
-            }
-
-            if (AAPlayer.IZKills == 4)
-            {
-                if (OblivionSpeech == 180)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.1"), color1);
-                }
-                if (OblivionSpeech == 360)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.2"), color1);
-                }
-                if (OblivionSpeech == 540)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.3"), color1);
-                }
-                if (OblivionSpeech == 720)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.4"), color1);
-                }
-                if (OblivionSpeech == 900)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.5"), color1);
-                }
-                if (OblivionSpeech == 1080)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.6"), color1);
-                }
-                if (OblivionSpeech == 1260)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.7"), color1);
-                }
-                if (OblivionSpeech == 1440)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.8"), color1);
-                }
-                if (OblivionSpeech >= 1440)
-                {
-                    NPC.alpha += 5;
-                }
-            }
-            
-            if (AAPlayer.IZKills == 10)
-            {
-                if (player.difficulty != 2)
-                {
-                    player.KillMe(PlayerDeathReason.ByCustomReason(NetworkText.FromKey("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.Kill", player.name)), player.statLifeMax + 10, 0, false);
-                    if (OblivionSpeech == 180)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Normal"), color1);
-                    }
-                    if (OblivionSpeech == 360)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Normal"), color1);
-                    }
-                }
-                else
-                {
-                    if (OblivionSpeech == 180)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Hardcore"), color1);
-                    }
-                    if (OblivionSpeech == 360)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Hardcore"), color1);
-                    }
-                }
-                if (OblivionSpeech == 540)
-                {
-                    Main.NewText("", color1);
-                }
-
-                if (OblivionSpeech >= 540)
-                {
-                    NPC.alpha += 5;
-                }
-            }
-
-            else if (AAPlayer.IZKills >= 5)
-            {
-                if (OblivionSpeech == 180)
-                {
-                    if (Main.netMode != NetmodeID.Server && Main.netMode != NetmodeID.MultiplayerClient)
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", AAPlayer.IZKills), color1);
-                }
-                if (OblivionSpeech == 300)
-                {
-                    int rand = 2;// Main.rand.Next(7);
-                    if (rand == 0)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0"), color1);
-                    }
-                    else if (rand == 1)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1"), color1);
-                    }
-                    else if (rand == 2)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
-                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        {
-                            string dialogue = GetSteamGameDialogue();
-                            if(dialogue != null)
-                                Main.NewText(dialogue, color1);
-                        }
-                    }
-                    else if (rand == 3)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.3"), color1);
-                    }
-                    else if (rand == 4)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.4"), color1);
-                    }
-                    else if (rand == 5)
-                    {
-                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.5"), color1);
-                    }
-                    else if (rand == 6)
-                    {
-                        ModCheck:
-                        if (AAMod_Unreleased.calamityLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("Go fight Supreme Calamitas or something. I'm sure she'll occupy your time.", color1);
-                        }
-                        else if (AAMod_Unreleased.thoriumLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("You know Ragnarok is a thing right? World-ending trio? They should be fun to fight. Now go away.", color1);
-                        }
-                        else if (AAMod_Unreleased.spiritLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("Why don't you go frolic in the spirit biome. I'm sure one of the creatures there would love a big ol' hug.", color1);
-                        }
-                        else if (AAMod_Unreleased.fargoLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("Hey, why not go bug the mutant. If you like killing bosses so much, he should be able to fix you right up.", color1);
-                        }
-                        else if (AAMod_Unreleased.redemptionLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("If you have such a hardon for killing robots, the Vlitch are a thing, you know.", color1);
-                        }
-                        else if (AAMod_Unreleased.tremorLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("Wait you're playing Tremor? HAHAHAHAHAHAH!", color1);
-                        }
-                        else if (AAMod_Unreleased.sacredToolsLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("Go bug the Lunarians or something. I'm sure they'll be more fun to fight than I am.", color1);
-                        }
-                        else if (AAMod_Unreleased.grealmLoaded && Main.rand.Next(MajorModCount()) == 0)
-                        {
-                            Main.NewText("Why don't you go fight the Horde for the 50th goddamn time. Maybe they have new drops or something since you last checked.", color1);
-                        }
-                        else if (MajorModCount() == 0)
-                        {
-                            Main.NewText("Go install another mod or something. There are plenty on the mod browser to choose from.", color1);
-                        }
-                        else
-                        {
-                            goto ModCheck;
-                        }
-                    }
-                }
-                if (OblivionSpeech >= 300)
-                {
-                    NPC.alpha += 5;
-                }
-            }
-            
             if (NPC.alpha >= 255)
             {
                 NPC.active = false;
             }
         }
 
-        private static readonly HashSet<string> ExcludedAppIDs = new() {
+        private static readonly HashSet<string> ExcludedAppIDs = [
             "105600", "1281930", // Terraria & tMod
             "228980",            // Steamworks Common Redistributables
             "250820",            // SteamVR
@@ -378,7 +280,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             "1150650",           // Steam Cloud (often appears as an app)
             "41300",             // Steam Dedicated Server
             "232250"             // Steam VR Room
-        };
+        ];
 
         private static readonly Dictionary<string, string> SpecialGameKeys = new() {
             { "620", "Portal2" },
@@ -400,7 +302,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             { "1996550", "Bonelords" },
             { "3176850", "SecondStellar" }
         };
-
 
         private static string GetSteamGameDialogue()
         {
@@ -540,6 +441,24 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             return GenocideState.None;
         }
 
+        public static bool AddInfinityZeroCrossmodDialogue(string key, LocalizedText text, Func<bool> condition) => CrossModDialogue.TryAdd(key, new(text, condition));
+
+        private static string GetCrossModDialogue()
+        {
+            List<LocalizedText> crossModText = [];
+            foreach (var (text, condition) in CrossModDialogue.Values)
+            {
+                if (condition.Invoke())
+                    crossModText.Add(text);
+            }
+
+            if (crossModText.Count > 0)
+                return crossModText[Main.rand.Next(crossModText.Count)].Value;
+
+            return Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.Mods.NoMod");
+        }
+
+        public static readonly Dictionary<string, (LocalizedText text, Func<bool> condition)> CrossModDialogue = [];
 
         public static int MajorModCount()
         {

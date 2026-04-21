@@ -623,7 +623,7 @@ ShenDoragon: {
 				LunarVeil: Looking back, I gotta give you credit for managing to quell that green goddess punk.
 				SacredTools: Dousing that abyssal pumpkin? Now that was a sight to see!
 				Catalyst: You really did wipe the floor with the purple pile of sludge.
-				Hunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
+				CalamityHunt: Must've taken a whole lot to put those slimes back in their place. Who'd have thought they could put up a fight!
 
 				Split: {
 					Seth: I'll admit, putting down that sword-slinging hothead was quite the show to witness.
@@ -638,7 +638,7 @@ ShenDoragon: {
 					Aldin: Watching you whallop that star slinging hobo? That was a treat!
 				}
 
-				You: I mean, shattering your own reflection come alive? That's impressive stuff.
+				YouBoss: I mean, shattering your own reflection come alive? That's impressive stuff.
 				Radiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was a spectacle indeed!
 			}
 
@@ -846,8 +846,27 @@ InfinityZero: {
 				5: Whatever, I'll be seeing you soon...again...assuming you're still a persistent wretch.
 
 				Mods: {
-					a: a
-					b: b
+					Thorium: You know Ragnarok is a thing right? World-ending trio? They should be fun to fight. Now go away.
+					CalamityMod: Go fight Supreme Calamitas or something. I'm sure she'll occupy your time.
+					GRealm: Why don't you go fight the Horde for the 50th goddamn time. Maybe they have new drops or something since you last checked.
+					Redemption: If you have such a hardon for killing robots, the Vlitch are a thing, you know.
+					Jetshift: ...
+					SpiritClassic: Why don't you go frolic in the spirit biome. I'm sure one of the creatures there would love a big ol' hug.
+					SacredTools: Go bug the Lunarians or something. I'm sure they'll be more fun to fight than I am.
+					Tremor: Wait you're playing Tremor? HAHAHAHAHAHAH!
+					Fargo: Hey, why not go bug the mutant. If you like killing bosses so much, he should be able to fix you right up.
+					NoMod: Go install another mod or something. There are plenty on the mod browser to choose from.
+					#New Additions
+					StarsAbove: ...
+					LunarVeil: ...
+					Catalyst: ...
+					CalamityHunt: ...
+					Split: ...
+					Macrocosm: ...
+					Spooky: ...
+					Ultranium: ...
+					YouBoss: ...
+					Radiance: ...
 				}
 			}
 		}

@@ -11,7 +11,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
@@ -32,7 +31,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public static bool AddShenCrossmodDialogue(string key, LocalizedText text, Func<bool> condition) => CrossModDialogue.TryAdd(key, new(text, condition));
 
-        public static string GetCrossModDialogue()
+        private static string GetCrossModDialogue()
         {
             List<LocalizedText> crossModText = [];
             foreach (var (text, condition) in CrossModDialogue.Values)
