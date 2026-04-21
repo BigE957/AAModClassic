@@ -960,8 +960,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.FAnubisTrophy>(),
-                        ModContent.ItemType<FAnubisMask>(),
+                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.AnubisATrophy>(),
+                        ModContent.ItemType<AnubisAMask>(),
                         ModContent.ItemType<AnubisAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("FAnubis")
@@ -1848,11 +1848,11 @@ namespace AAModClassic.CrossMod
                 //Flamethrowers
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<TheVulcano>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Blastshot>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandstormThrower>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Sandthrower>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Toxithrower>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalEruption>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<CursedFury>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<CursedFury>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<CursedFlamefury>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<CursedFlamefury>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalEruption>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Dawnstrike>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Dawnstrike>(), true);
@@ -1941,9 +1941,9 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<CrystalTome>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Fireblast>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Fireblast>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<AnubisBlockBook>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Toxifang>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<AnubisBlockBook>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<AbyssalBomb>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<AbyssalBomb>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<AshRain>(), true);

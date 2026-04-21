@@ -383,7 +383,7 @@ namespace AAModClassic.NPCs.TownNPCs
 			else
             {
                 Player player = Main.LocalPlayer;
-                int Item = player.FindItem(ModContent.ItemType<AnubisBook>());
+                int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
                 if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
                 {
                     player.inventory[Item].stack--;
@@ -393,7 +393,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.Magic.AnubisBlockBook>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.Magic.TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;

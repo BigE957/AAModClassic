@@ -463,7 +463,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AnubisTrophy>(), 10));
 
@@ -473,7 +473,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ForsakenFragment>(), 1, 8, 16));
 
-            int[] lootTable = { ModContent.ItemType<Judgment>(), ModContent.ItemType<NeithsString>(), ModContent.ItemType<DesertStaff>(), ModContent.ItemType<JackalsWrath>(), ModContent.ItemType<SandstormThrower>(), ModContent.ItemType<SentryOfTheEye>() };
+            int[] lootTable = { ModContent.ItemType<Judgment>(), ModContent.ItemType<NeithsString>(), ModContent.ItemType<DesertStaff>(), ModContent.ItemType<JackalsWrath>(), ModContent.ItemType<Sandthrower>(), ModContent.ItemType<SentryOfTheEye>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

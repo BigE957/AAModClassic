@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -8,7 +9,14 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscor
 {
     public class MidnightAssassinHelmet_AssassinDagger : ModProjectile
 	{
-		public override void SetDefaults()
+        public override string Texture => ModContent.GetInstance<AbyssalKunai>().Texture;
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Assassin Dagger");
+        }
+
+        public override void SetDefaults()
 		{
 			Projectile.CloneDefaults(ProjectileID.ThrowingKnife);
 			Projectile.width = 14;
@@ -27,10 +35,6 @@ namespace AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscor
 			return true;
 		}
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Assassin Dagger");
-		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<MidnightAssassinHelmet_AssassinHurtBuff>(), 1000);

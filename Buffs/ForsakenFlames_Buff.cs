@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
 {
+	//TODO: unused. remove when FFlames is ported to here
     public class ForsakenFlames_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()

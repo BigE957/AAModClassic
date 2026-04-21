@@ -892,7 +892,7 @@ namespace AAModClassic.World
                 }
                 else if (specialItem == 3)
                 {
-                    type = ModContent.ItemType<Items.Misc.AnubisBook>();
+                    type = ModContent.ItemType<Items.Misc.TheLifeAndEpicAdventuresOfAnubisTheWonderDog>();
                 }
                 else if (genRand0.Next(100) < 2f)
                 {
