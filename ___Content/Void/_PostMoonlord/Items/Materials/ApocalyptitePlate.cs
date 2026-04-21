@@ -8,18 +8,18 @@ namespace AAModClassic.___Content.Void._PostMoonlord.Items.Materials
 {
     public class ApocalyptitePlate : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Apocalyptite Plate");
+            // Tooltip.SetDefault("A forboding energy rings from this metal plating");
+        }
+
         public override void SetDefaults()
         {
             Item.width = 32;
             Item.height = 30;
             Item.maxStack = 99;
 			Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Apocalyptite Plate");
-            // Tooltip.SetDefault("A forboding energy rings from this metal plating");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 
 
 namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor

@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Corruption.__Hardmode.Items.Tools;
+using AAModClassic.___Content.Crimson.__Hardmode.Items.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

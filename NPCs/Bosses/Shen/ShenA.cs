@@ -1,8 +1,8 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossShenDoragon;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Shen;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;

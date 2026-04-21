@@ -1,4 +1,4 @@
-using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

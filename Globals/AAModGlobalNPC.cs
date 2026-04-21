@@ -1,5 +1,6 @@
 using AAModClassic.___Content._PLACEHOLDER;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Dungeon.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
@@ -44,7 +45,6 @@ using AAModClassic.___Content.Void._PostMoonlord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Currency;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Melee;

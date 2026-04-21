@@ -8,6 +8,9 @@ using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
@@ -16,7 +19,7 @@ using AAModClassic.___Content.Jungle.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
@@ -25,6 +28,7 @@ using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
@@ -58,7 +62,6 @@ using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Tied;
 using AAModClassic.Items.Vanity.VoidEye;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Tiles.Furniture.Razewood;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -993,7 +996,7 @@ namespace AAModClassic
                 ModContent.ItemType<AbyssAltarSafe>(),
                 ModContent.ItemType<CrimsonAltar>(),
                 ModContent.ItemType<CorruptAltar>(),
-                ModContent.ItemType<InfernoAltar>()
+                ModContent.ItemType<DragonAltarSafe>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:Altar", group17);
 
@@ -1089,7 +1092,7 @@ namespace AAModClassic
             if (RecipeGroup.recipeGroupIDs.ContainsKey("Wood"))
             {
                 int index = RecipeGroup.recipeGroupIDs["Wood"];
-                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Items.Blocks.Razewood>());
+                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Razewood>());
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Bogwood>());
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<OroborosWood>());
             }

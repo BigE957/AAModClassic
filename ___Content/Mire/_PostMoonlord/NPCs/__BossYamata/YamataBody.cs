@@ -1,6 +1,6 @@
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
@@ -238,7 +238,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadScale>(), 1, 20, 30));
 
-            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<YamataTerratool>() };
+            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<DreadTerratool>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

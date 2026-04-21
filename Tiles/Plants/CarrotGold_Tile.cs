@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.ID;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 
 namespace AAModClassic.Tiles.Plants
 {
@@ -17,7 +18,7 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            RegisterItemDrop(ModContent.ItemType<Items.BossSummons.GoldenCarrot>());
+            RegisterItemDrop(ModContent.ItemType<GoldenCarrot>());
             DustType = DustID.GoldCoin;
             HitSound = SoundID.Grass;
         }

@@ -1,4 +1,4 @@
-using AAModClassic.Items.Blocks.Bricks;
+using AAModClassic.___Content.Void._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Walls.Bricks;
 using Terraria;
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Walls
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayPlating>());
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>());
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

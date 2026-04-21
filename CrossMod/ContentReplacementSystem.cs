@@ -10,24 +10,26 @@ using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleT
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Tools;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Throwing;
-using AAModClassic.Items.Tools;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -91,8 +93,8 @@ namespace AAModClassic.CrossMod
 
             ModContent.ItemType<GlowingMushium>(),
             ModContent.ItemType<GlowingMushiumBar>(),
-            ModContent.ItemType<GlowMushpick>(),
-            ModContent.ItemType<GlowMushmallet>(),
+            ModContent.ItemType<GlowingMushpick>(),
+            ModContent.ItemType<GlowingMushmallet>(),
 
             ModContent.ItemType<ClawBaton>(),
             #endregion
@@ -149,7 +151,7 @@ namespace AAModClassic.CrossMod
                 //OldToNewItems.Add(ModContent.ItemType<Depthsandstone>(), NewAA.Find<ModItem>("Depthsandstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<DepthsandHardened>(), NewAA.Find<ModItem>("HardenedDepthsand").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<Items.Blocks.Razewood>(), NewAA.Find<ModItem>("Razewood").Type);
+                OldToNewItems.Add(ModContent.ItemType<Razewood>(), NewAA.Find<ModItem>("Razewood").Type);
                 OldToNewItems.Add(ModContent.ItemType<Torchstone>(), NewAA.Find<ModItem>("Torchstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<TorchAsh>(), NewAA.Find<ModItem>("TorchAsh").Type);
                 OldToNewItems.Add(ModContent.ItemType<Torchice>(), NewAA.Find<ModItem>("Torchice").Type);

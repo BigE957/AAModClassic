@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Blocks.Boxes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(ModContent.ItemType<Items.Blocks.Razewood>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<Razewood>(), 20);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

@@ -1,6 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.NPCs.Bosses.Greed;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -54,7 +54,7 @@ namespace AAModClassic.Tiles.Boss
                 return true;
             }
             Player player = Main.LocalPlayer;
-            int type = ModContent.ItemType<Items.BossSummons.GoldenGrub>();
+            int type = ModContent.ItemType<GoldenGrub>();
             if (BasePlayer.HasItem(player, type, 1))
             {
                 for (int m = 0; m < 50; m++)

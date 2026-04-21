@@ -3,7 +3,6 @@ using AAModClassic.Globals;
 using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.BossSummons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -17,6 +16,7 @@ using Terraria.ModLoader;
 using AAModClassic.Music;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Utilities;
+using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -128,7 +128,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingZeroP());
 
-            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroRune>()));
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ERROR_NULL>()));
 
             LeadingConditionRule shenDefeated = new(new Akuma.Awakened.AkumaA.ShenDefeated());
 

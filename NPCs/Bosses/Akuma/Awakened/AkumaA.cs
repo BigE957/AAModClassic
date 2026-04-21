@@ -1,8 +1,8 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Inferno._PostMoonlord.Items._BossAkuma;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -627,7 +627,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingAkumaA());
 
-            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraconianRune>()));
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraconianSunRune>()));
 
             LeadingConditionRule shenDefeated = new(new ShenDefeated());
 
