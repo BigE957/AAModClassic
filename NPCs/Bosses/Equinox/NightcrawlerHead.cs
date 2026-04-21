@@ -1,6 +1,6 @@
-﻿using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Boss.Equinox;
-using AAModClassic.Items.Vanity.Mask;
+﻿using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
@@ -24,9 +24,9 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NCTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NightcrawlerTrophy>(), 10));
 
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 

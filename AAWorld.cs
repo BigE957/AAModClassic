@@ -1337,7 +1337,7 @@ namespace AAModClassic
                         int tilesY = WorldGen.genRand.Next(0, y);
                         if (Main.tile[tilesX, tilesY].TileType == TileID.HardenedSand)
                         {
-                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DynaskullOre_Tile>());
+                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DynaskullFossil_Tile>());
                         }
                     }
                 }

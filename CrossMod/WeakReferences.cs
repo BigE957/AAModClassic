@@ -1,4 +1,5 @@
 ﻿using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
@@ -12,8 +13,18 @@ using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Bo
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons;
 using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
@@ -47,6 +58,12 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
 using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
@@ -66,18 +83,12 @@ using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Anubis;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
-using AAModClassic.Items.Boss.Broodmother;
-using AAModClassic.Items.Boss.Djinn;
 using AAModClassic.Items.Boss.EFish;
-using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Boss.Greed.WKG;
-using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Rajah;
 using AAModClassic.Items.Boss.Rajah.Supreme;
-using AAModClassic.Items.Boss.Serpent;
 using AAModClassic.Items.Boss.Shen;
-using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Dev;
 using AAModClassic.Items.Magic;
@@ -119,7 +130,6 @@ using AAModClassic.Projectiles.EFish;
 using AAModClassic.Projectiles.Rajah;
 using AAModClassic.Projectiles.Rajah.Supreme;
 using AAModClassic.Projectiles.Shen;
-using AAModClassic.Projectiles.Toad;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -691,13 +701,13 @@ namespace AAModClassic.CrossMod
                     AddBoss(bossChecklist, mod, "MushroomMonarch", (Func<bool>)(() => NPCExtensions.BeenKilled<MushroomMonarch>()), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "MushroomMonarch.Name"),
-                        ["spawnInfo"] = Language.GetOrRegister(path + "MushroomMonarch.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "MushroomMonarch.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingLookingMushroom>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "MushroomMonarch.Despawn"),
-                        ["spawnItems"] = ModContent.ItemType<IntimidatingMushroom>(),
+                        ["spawnItems"] = ModContent.ItemType<IntimidatingLookingMushroom>(),
                         ["collectibles"] = new List<int>
                         {
-                            ModContent.ItemType<MonarchTrophy>(),
-                            ModContent.ItemType<MonarchMask>(),
+                            ModContent.ItemType<MushroomMonarchTrophy>(),
+                            ModContent.ItemType<MushroomMonarchMask>(),
                             ModContent.ItemType<MonarchBox>()
                         },
                         ["customPortrait"] = GetPortrait("Monarch")
@@ -708,13 +718,13 @@ namespace AAModClassic.CrossMod
                     AddBoss(bossChecklist, mod, "FeudalFungus", (Func<bool>)(() => NPCExtensions.BeenKilled<FeudalFungus>()), ModContent.NPCType<FeudalFungus>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "FeudalFungus.Name"),
-                        ["spawnInfo"] = Language.GetOrRegister(path + "FeudalFungus.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingMushroom>() + "]"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "FeudalFungus.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingLookingMushroom>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "FeudalFungus.Despawn"),
-                        ["spawnItems"] = ModContent.ItemType<ConfusingMushroom>(),
+                        ["spawnItems"] = ModContent.ItemType<ConfusingLookingMushroom>(),
                         ["collectibles"] = new List<int>
                         {
-                            ModContent.ItemType<Items.Boss.MushroomMonarch.FungusTrophy>(),
-                            ModContent.ItemType<FungusMask>(),
+                            ModContent.ItemType<FeudalFungusTrophy>(),
+                            ModContent.ItemType<FeudalFungusMask>(),
                             ModContent.ItemType<FungusBox>()
                         },
                         ["customPortrait"] = GetPortrait("Fungus")
@@ -749,8 +759,8 @@ namespace AAModClassic.CrossMod
                         ["spawnItems"] = ModContent.ItemType<Toadstool>(),
                         ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<ToadTrophy>(),
-                        ModContent.ItemType<ToadMask>(),
+                        ModContent.ItemType<TruffleToadTrophy>(),
+                        ModContent.ItemType<TruffleToadMask>(),
                         ModContent.ItemType<TruffleToadBox>()
                     },
                         ["customPortrait"] = GetPortrait("Toad"),
@@ -763,9 +773,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Broodmother", (Func<bool>)(() => NPCExtensions.BeenKilled<Broodmother>()), ModContent.NPCType<Broodmother>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Broodmother.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Broodmother.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DragonBell>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Broodmother.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<AncientBell>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Broodmother.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DragonBell>(),
+                    ["spawnItems"] = ModContent.ItemType<AncientBell>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<BroodmotherTrophy>(),
@@ -802,8 +812,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<SubzeroCrystal>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Serpent.SerpentTrophy>(),
-                        ModContent.ItemType<SerpentMask>(),
+                        ModContent.ItemType<SubzeroSerpentTrophy>(),
+                        ModContent.ItemType<SubzeroSerpentMask>(),
                         ModContent.ItemType<SubzeroBox>()
                     },
                     ["customPortrait"] = GetPortrait("Serpent1"),
@@ -815,13 +825,13 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "DesertDjinn", (Func<bool>)(() => NPCExtensions.BeenKilled<Djinn>()), ModContent.NPCType<Djinn>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "DesertDjinn.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "DesertDjinn.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DjinnLamp>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "DesertDjinn.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DesertLamp>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "DesertDjinn.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DjinnLamp>(),
+                    ["spawnItems"] = ModContent.ItemType<DesertLamp>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Djinn.DjinnTrophy>(),
-                        ModContent.ItemType<DjinnMask>(),
+                        ModContent.ItemType<DesertDjinnTrophy>(),
+                        ModContent.ItemType<DesertDjinnMask>(),
                         ModContent.ItemType<DjinnBox>()
                     },
                     ["customPortrait"] = GetPortrait("Djinn"),
@@ -894,9 +904,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Athena", (Func<bool>)(() => NPCExtensions.BeenKilled<Athena>()), ModContent.NPCType<Athena>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Athena.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Athena.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Owl>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Athena.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<OwlStatue>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Athena.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<Owl>(),
+                    ["spawnItems"] = ModContent.ItemType<OwlStatue>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AthenaTrophy>(),
@@ -964,7 +974,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "AthenaA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "AthenaA.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "AthenaA.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<Owl>(),
+                    ["spawnItems"] = ModContent.ItemType<OwlStatue>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AthenaAwakenedBox>()
@@ -999,8 +1009,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<EquinoxWorm>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<DBTrophy>(),
-                        ModContent.ItemType<Items.Boss.Equinox.NCTrophy>(),
+                        ModContent.ItemType<DaybringerTrophy>(),
+                        ModContent.ItemType<NightcrawlerTrophy>(),
                         ModContent.ItemType<DaybringerMask>(),
                         ModContent.ItemType<NightcrawlerMask>(),
                         ModContent.ItemType<EquinoxBox>()
@@ -1634,7 +1644,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandScimitar>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ScorchDagger>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SubzeroSlasher>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SultanScimitar>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SultansScimitar>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<SwimmingHydra>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfEvil>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<BladeOfEvil>(), true);
@@ -1799,7 +1809,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraBallista>(), true);
 
                 //Guns
-                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SerpentSting>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SerpentsSting>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<AbyssalShadowshot>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<Alien_Rifle>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<Bonesaw>(), true);
@@ -1924,7 +1934,7 @@ namespace AAModClassic.CrossMod
 
                 //Tomes
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DragonsBreath>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Sickle>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Icicle>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<VenomSpray>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<BogBomb>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<BogBomb>(), true);
@@ -2025,7 +2035,7 @@ namespace AAModClassic.CrossMod
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<GlacierBreaker_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<MushMace_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Pyrosphere_Proj>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ToadTongue_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ToadTongue_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Yogan_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ChaosChain_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IllumantBall>());

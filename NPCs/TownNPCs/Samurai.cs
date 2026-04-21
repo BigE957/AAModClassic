@@ -1,11 +1,11 @@
 using AAModClassic.___Content.Chaos.__Hardmode.Items.Consumables;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Potions;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.Utilities;
@@ -149,7 +149,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 nextSlot++;
                 if (NPCExtensions.BeenKilled<Broodmother>() == true)
                 {
-                    items[nextSlot] = new Item(ModContent.ItemType<DragonBell>());
+                    items[nextSlot] = new Item(ModContent.ItemType<AncientBell>());
                     items[nextSlot].value = 100000;
                     nextSlot++;
                 }

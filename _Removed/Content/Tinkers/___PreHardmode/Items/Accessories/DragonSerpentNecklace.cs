@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 
 namespace AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories
 {
@@ -28,7 +28,7 @@ Ignores 5 Enemy defense"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DragonCape>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DragontamersCloak>(), 1);
             recipe.AddIngredient(ModContent.ItemType<HydraPendant>(), 1);
             recipe.AddIngredient(ItemID.SharkToothNecklace, 1);
             recipe.AddTile(TileID.DemonAltar);
@@ -49,7 +49,7 @@ Ignores 5 Enemy defense"); */
                 int maxAccessoryIndex = 5 + player.extraAccessorySlots;
                 for (int i = 3; i < 3 + maxAccessoryIndex; i++)
                 {
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<DragonCape>())
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<DragontamersCloak>())
                     {
                         return false;
                     }

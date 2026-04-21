@@ -1,11 +1,10 @@
-﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -118,7 +117,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodmotherTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherTrophy>(), 10));
 
@@ -131,7 +130,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AAModClassic.Items.Pets.BroodEgg>(), 10));
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 50, 75));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ScorchedScale>(), 1, 50, 75));
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 75, 100));
 
             npcLoot.Add(notExpertRule);

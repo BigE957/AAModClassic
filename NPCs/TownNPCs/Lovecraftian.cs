@@ -1,5 +1,7 @@
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
@@ -166,8 +168,8 @@ namespace AAModClassic.NPCs.TownNPCs
                 int Item6 = player.FindItem(ItemID.PixieDust);
                 int Item7 = player.FindItem(ModContent.ItemType<DoomiteScrap>());
                 int Item8 = player.FindItem(ItemID.JungleSpores);
-                int Item9 = player.FindItem(ModContent.ItemType<Items.Boss.MushroomMonarch.Mushium>());
-                int Item10 = player.FindItem(ModContent.ItemType<Items.Boss.MushroomMonarch.GlowingMushium>());
+                int Item9 = player.FindItem(ModContent.ItemType<Mushium>());
+                int Item10 = player.FindItem(ModContent.ItemType<GlowingMushium>());
                 int Item11 = player.FindItem(ItemID.Stinger);
                 int Item12 = player.FindItem(ItemID.IceMachine);
                 int Item13 = player.FindItem(ItemID.Bunny);
@@ -346,7 +348,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 }
                 else if (Item9 >= 0 && AAWorld.squid9 < 5 && Mushman >= 0)
                 {
-                    Main.npcChatCornerItem = ModContent.ItemType<Items.Boss.MushroomMonarch.Mushium>();
+                    Main.npcChatCornerItem = ModContent.ItemType<Mushium>();
                     player.inventory[Item9].stack--;
                     if (player.inventory[Item9].stack <= 0)
                     {
@@ -367,7 +369,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 }
                 else if (Item10 >= 0 && AAWorld.squid10 < 5 && Mushman >= 0)
                 {
-                    Main.npcChatCornerItem = ModContent.ItemType<Items.Boss.MushroomMonarch.GlowingMushium>();
+                    Main.npcChatCornerItem = ModContent.ItemType<GlowingMushium>();
                     player.inventory[Item10].stack--;
                     if (player.inventory[Item10].stack <= 0)
                     {

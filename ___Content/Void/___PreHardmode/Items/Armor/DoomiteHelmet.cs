@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Void.___PreHardmode.Items.Armor
 {
@@ -60,7 +60,7 @@ namespace AAModClassic.___Content.Void.___PreHardmode.Items.Armor
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

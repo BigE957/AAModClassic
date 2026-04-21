@@ -5,7 +5,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Greed.WKG;
@@ -29,6 +28,8 @@ using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {
@@ -238,7 +239,7 @@ namespace AAModClassic.Globals
                         {
                             return false;
                         }
-                        if (slot != i && player.armor[i].type == ModContent.ItemType<DragonCape>())
+                        if (slot != i && player.armor[i].type == ModContent.ItemType<DragontamersCloak>())
                         {
                             return false;
                         }
@@ -1000,7 +1001,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.NextBool(50))
                 {
-                    result = ModContent.ItemType<DynaskullOre>();
+                    result = ModContent.ItemType<DynaskullFossil>();
                     if (Main.rand.NextBool(5))
                     {
                         stack += Main.rand.Next(2);
@@ -1051,7 +1052,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(2))
                         {
-                            result = ModContent.ItemType<DynaskullOre>();
+                            result = ModContent.ItemType<DynaskullFossil>();
                             stack += 1;
                             if (Main.rand.NextBool(5))
                             {

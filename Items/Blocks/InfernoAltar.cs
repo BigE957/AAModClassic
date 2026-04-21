@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Chaos.World.Tiles;
 
@@ -62,7 +61,7 @@ namespace AAModClassic.Items.Blocks
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 15);
-            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

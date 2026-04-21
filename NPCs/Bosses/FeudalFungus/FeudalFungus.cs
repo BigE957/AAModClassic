@@ -9,10 +9,10 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Flasks;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus
@@ -211,15 +211,15 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FungusBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FeudalFungusTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FeudalFungusTrophy>(), 10));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowingSporeSac>(), 1, 30, 35));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FungusMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FeudalFungusMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GlowingMushium>(), 1, 25, 35));
 

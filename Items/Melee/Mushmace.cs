@@ -1,7 +1,7 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Melee
 {

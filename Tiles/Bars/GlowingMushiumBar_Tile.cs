@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

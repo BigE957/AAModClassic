@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic.Projectiles.Anubis;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -53,7 +54,7 @@ namespace AAModClassic.Items.Boss.Anubis
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Djinn.SultanScimitar>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<SultansScimitar>(), 1);
 			recipe.AddIngredient(ModContent.ItemType<ForsakenFragment>(), 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

@@ -1413,3 +1413,13 @@ GoddessHarp_Buff: {
 	DisplayName: Goddess Harp_ Buff
 	Description: Mods.AAModClassic.Buffs.GoddessHarp_Buff.Description
 }
+
+SandScepter_Buff: {
+	DisplayName: Sand Scepter_ Buff
+	Description: Mods.AAModClassic.Buffs.SandScepter_Buff.Description
+}
+
+SnakeStaff_Buff: {
+	DisplayName: Snake Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.SnakeStaff_Buff.Description
+}

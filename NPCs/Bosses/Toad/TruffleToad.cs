@@ -11,9 +11,9 @@ using System;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Boss.Toad;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 
 namespace AAModClassic.NPCs.Bosses.Toad
 {
@@ -598,15 +598,15 @@ namespace AAModClassic.NPCs.Bosses.Toad
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ToadBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TruffleToadTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ToadTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TruffleToadTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ToadMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TruffleToadMask>(), 7));
 
-            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<MushrockStaff>(), ModContent.ItemType<ToadTongue>(), ModContent.ItemType<Todegun>()));
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<MushrockStaff>(), ModContent.ItemType<ToadTongue>(), ModContent.ItemType<FrogLob>()));
 
             npcLoot.Add(notExpertRule);
         }

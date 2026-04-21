@@ -1,7 +1,7 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
@@ -69,7 +69,7 @@ namespace AAModClassic.Tiles.Boss
         public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            int type = ModContent.ItemType<Items.BossSummons.Owl>();
+            int type = ModContent.ItemType<OwlStatue>();
             bool Athena = NPC.AnyNPCs(ModContent.NPCType<Athena>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaFlee>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaDefeat>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
             if (BasePlayer.HasItem(player, type, 1) && !Athena)
             {
@@ -146,7 +146,7 @@ namespace AAModClassic.Tiles.Boss
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<Owl>();
+            player.cursorItemIconID = ModContent.ItemType<OwlStatue>();
         }
     }
 }

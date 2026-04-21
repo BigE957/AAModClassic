@@ -3,10 +3,10 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.___Content.Ocean.___PreHardmode.Items.Armor
 {
@@ -63,7 +63,7 @@ Allows to breath underwater"); */
             recipe.Register();
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanHelmet>());
-            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);

@@ -7,10 +7,10 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.___Content.Stars._PostMoonlord.Items;
 
 namespace AAModClassic.Tiles.Altar
 {

@@ -561,7 +561,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
-            int[] lootTable = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsGrabBag>() };
+            int[] lootTable = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsBag>() };
 
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

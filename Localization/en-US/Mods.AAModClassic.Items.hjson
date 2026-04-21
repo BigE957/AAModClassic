@@ -10244,3 +10244,173 @@ AthenaATreasureBag: {
 	DisplayName: Athena A Treasure Bag
 	Tooltip: ""
 }
+
+TruffleLegs: {
+	DisplayName: Truffle Legs
+	Tooltip: ""
+}
+
+TruffleToadTreasureBag: {
+	DisplayName: Truffle Toad Treasure Bag
+	Tooltip: ""
+}
+
+TruffleToadTrophy: {
+	DisplayName: Truffle Toad Trophy
+	Tooltip: ""
+}
+
+FrogLob: {
+	DisplayName: Frog Lob
+	Tooltip: ""
+}
+
+DaybringerTrophy: {
+	DisplayName: Daybringer Trophy
+	Tooltip: ""
+}
+
+NightcrawlerTrophy: {
+	DisplayName: Nightcrawler Trophy
+	Tooltip: ""
+}
+
+TruffleToadMask: {
+	DisplayName: Truffle Toad Mask
+	Tooltip: ""
+}
+
+EquinoxWormsTreasureBag: {
+	DisplayName: Equinox Worms Treasure Bag
+	Tooltip: ""
+}
+
+GlowingTruffle: {
+	DisplayName: Glowing Truffle
+	Tooltip: ""
+}
+
+FeudalFungusMask: {
+	DisplayName: Feudal Fungus Mask
+	Tooltip: ""
+}
+
+FeudalFungusTreasureBag: {
+	DisplayName: Feudal Fungus Treasure Bag
+	Tooltip: ""
+}
+
+FeudalFungusTrophy: {
+	DisplayName: Feudal Fungus Trophy
+	Tooltip: ""
+}
+
+MushroomMonarchMask: {
+	DisplayName: Mushroom Monarch Mask
+	Tooltip: ""
+}
+
+MushroomMonarchTreasureBag: {
+	DisplayName: Mushroom Monarch Treasure Bag
+	Tooltip: ""
+}
+
+MushroomMonarchTrophy: {
+	DisplayName: Mushroom Monarch Trophy
+	Tooltip: ""
+}
+
+BroodmotherTreasureBag: {
+	DisplayName: Broodmother Treasure Bag
+	Tooltip: ""
+}
+
+ScorchedScale: {
+	DisplayName: Scorched Scale
+	Tooltip: ""
+}
+
+DragontamersCloak: {
+	DisplayName: Dragontamers Cloak
+	Tooltip: ""
+}
+
+OwlStatue: {
+	DisplayName: Owl Statue
+	Tooltip: ""
+}
+
+DesertDjinnMask: {
+	DisplayName: Desert Djinn Mask
+	Tooltip: ""
+}
+
+DesertDjinnTreasureBag: {
+	DisplayName: Desert Djinn Treasure Bag
+	Tooltip: ""
+}
+
+DesertDjinnTrophy: {
+	DisplayName: Desert Djinn Trophy
+	Tooltip: ""
+}
+
+DesertLamp: {
+	DisplayName: Desert Lamp
+	Tooltip: ""
+}
+
+SultansScimitar: {
+	DisplayName: Sultans Scimitar
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: Dynaskull Fossil
+	Tooltip: ""
+}
+
+ConfusingLookingMushroom: {
+	DisplayName: Confusing Looking Mushroom
+	Tooltip: ""
+}
+
+AncientBell: {
+	DisplayName: Ancient Bell
+	Tooltip: ""
+}
+
+IntimidatingLookingMushroom: {
+	DisplayName: Intimidating Looking Mushroom
+	Tooltip: ""
+}
+
+SubzeroSerpentMask: {
+	DisplayName: Subzero Serpent Mask
+	Tooltip: ""
+}
+
+SubzeroSerpentTreasureBag: {
+	DisplayName: Subzero Serpent Treasure Bag
+	Tooltip: ""
+}
+
+SubzeroSerpentTrophy: {
+	DisplayName: Subzero Serpent Trophy
+	Tooltip: ""
+}
+
+Icicle: {
+	DisplayName: Icicle
+	Tooltip: ""
+}
+
+SerpentsSting: {
+	DisplayName: Serpents Sting
+	Tooltip: ""
+}
+
+Sickleshot: {
+	DisplayName: Sickleshot
+	Tooltip: ""
+}

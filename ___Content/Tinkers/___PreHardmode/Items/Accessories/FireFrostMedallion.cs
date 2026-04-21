@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Boss.Djinn;
-using AAModClassic.Items.Boss.Serpent;
+using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Accessories;
 
 namespace AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories
 {
