@@ -15,6 +15,7 @@ using AAModClassic.Items.Boss;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using ReLogic.Content;
 using AAModClassic.Music;
+using Terraria.Localization;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -261,7 +262,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		{
             Dead = true;
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
-            AAPlayer.ZeroKills += 1;
+            AAPlayer.IZKills += 1;
             AAWorld_Unreleased.downedIZ = true;
             if (Main.expertMode)
             {
@@ -326,7 +327,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public bool quarterHealth = false;
         public bool threeQuarterHealth = false;
         public bool HalfHealth = false;
-        public bool fifthHealth = false;
+        public bool tenthHealth = false;
         public bool OpenCore = false;
         public bool FirstCoreLine = false;
         public int CoreTimer = 600;
@@ -335,13 +336,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		{
             if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("WARNING. Systems have reached 75% efficiency.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.75"), new Color(158, 3, 32));
                 threeQuarterHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Redirecting resources to offensive systems.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.50"), new Color(158, 3, 32));
                 HalfHealth = true;
                 NPC.defense = 225;
                 InfinityZeroHand1.damageIdle = 250;
@@ -350,14 +351,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("CRITICAL WARNING. Systems have reached 25% efficiency. Failure imminent.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.25"), new Color(158, 3, 32));
                 quarterHealth = true;
                 roarTimer = 200;
             }
-            if (NPC.life <= NPC.lifeMax / 6 && !fifthHealth)
+            if (NPC.life <= NPC.lifeMax / 10 && !tenthHealth)
             {
-                fifthHealth = true;
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Terrarian, you will not win this. Rerouting all resources to offensive systems.", new Color(158, 3, 32));
+                tenthHealth = true;
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.10"), new Color(158, 3, 32));
                 NPC.defense = 175;
                 InfinityZeroHand1.damageIdle = 350;
                 InfinityZeroHand1.damageCharging = 500;
@@ -370,11 +371,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 if (Main.netMode != NetmodeID.MultiplayerClient && !FirstCoreLine)
                 {
                     FirstCoreLine = true;
-                    BaseUtility.Chat("Zero Units in critical condition. Rerouting resources to repair systems. Core defense temporarily disabled.", new Color(158, 3, 32));
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Defeated"), new Color(158, 3, 32));
                 }
                 if (CoreTimer <= 0)
                 {
-                    BaseUtility.Chat("Zero Units sufficiently repaired. Reengaging Core defense system.", new Color(158, 3, 32));
+                    BaseUtility.Chat("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived", new Color(158, 3, 32));
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;
@@ -383,7 +384,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
 
             }
-            if (NPC.life <= NPC.lifeMax / 6)
+            if (NPC.life <= NPC.lifeMax / 10)
             {
                 Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
@@ -480,7 +481,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
 
-            if (fifthHealth)
+            if (tenthHealth)
             {
                 //Main.NewText("bluha");
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
@@ -524,7 +525,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Vector2 connector = Zero.Center;
                 BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, ArmOrigin, connector, ArmTex2D.Height - 10f, null, 1f, false, null);
 				BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, Zero, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(Zero), GetGlowAlpha(true)));
-                if (fifthHealth)
+                if (tenthHealth)
                 {
                     BaseDrawing.DrawAura(spriteBatch, glowTex, 0, Zero, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true));
                     BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetRedAlpha());

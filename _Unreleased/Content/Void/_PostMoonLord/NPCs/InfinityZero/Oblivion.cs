@@ -2,23 +2,61 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Til
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.WorldGen;
+using Microsoft.Win32;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Steamworks;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
     public class Oblivion : ModNPC
     {
+        private static string steamPath = null;
+        private static string accountID = null;
+        private static string localConfigPath = null;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oblivion");
             Main.npcFrameCount[NPC.type] = 14;
+
+            InitializeSteamSearch();
         }
+
+        private static bool InitializeSteamSearch()
+        {
+            steamPath = null;
+            if (OperatingSystem.IsWindows())
+                steamPath = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null) as string;
+            else if (OperatingSystem.IsMacOS())
+                steamPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Library/Application Support/Steam");
+            else if (OperatingSystem.IsLinux())
+                steamPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/Steam");
+            else
+                return false;
+
+            accountID = SteamUser.GetSteamID().GetAccountID().ToString();
+
+            if (!string.IsNullOrEmpty(steamPath) && !string.IsNullOrEmpty(accountID))
+            {
+                localConfigPath = Path.Combine(steamPath, "userdata", accountID, "config", "localconfig.vdf");
+                return true;
+            }
+            return false;
+        }
+
         public override void SetDefaults()
         {
             NPC.width = 1;
@@ -33,6 +71,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             Music = MusicManagementSystem.MusicSlots["IZDeath"];
             NPC.boss = true;
+
+            if (localConfigPath == null)
+                InitializeSteamSearch();
         }
 
         public int OblivionSpeech = 0;
@@ -44,53 +85,53 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.velocity.Y = 0;
             Player player = Main.player[Main.myPlayer];
             OblivionSpeech++;
-            if (AAPlayer.ZeroKills == 1)
+            if (AAPlayer.IZKills == 1)
             {
                 if (OblivionSpeech == 180)
                 {
-                    Main.NewText("...impressive.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.1"), color1);
                 }
                 if (OblivionSpeech == 360)
                 {
-                    Main.NewText("Defeating my mechanical body...", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.2"), color1);
                 }
                 if (OblivionSpeech == 540)
                 {
-                    Main.NewText("...Is not a small feat...", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.3"), color1);
                 }
                 if (OblivionSpeech == 720)
                 {
-                    Main.NewText("I applaud you, Terrarian.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.4"), color1);
                 }
                 if (player.difficulty == 2)
                 {
                     if (OblivionSpeech == 900)
                     {
-                        Main.NewText("I'm also impressed you made it this far in hardcore mode.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Hardcore"), color1);
                     }
                     if (OblivionSpeech == 1080)
                     {
-                        Main.NewText("Good job. Here, have a sticker.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore"), color1);
                         Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
                     }
                     if (OblivionSpeech == 1260)
                     {
-                        Main.NewText("Now, I bid you adieu...", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Hardcore"), color1);
                     }
                 }
                 else
                 {
                     if (OblivionSpeech == 900)
                     {
-                        Main.NewText("Although...next time we meet...when you're stronger...", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Normal"), color1);
                     }
                     if (OblivionSpeech == 1080)
                     {
-                        Main.NewText("..." + player.name + "...", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", player.name), color1);
                     }
                     if (OblivionSpeech == 1260)
                     {
-                        Main.NewText("I won't be so forgiving.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Normal"), color1);
                     }
                 }
                 if (OblivionSpeech >= 1420)
@@ -99,31 +140,31 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
             }
 
-            if (AAPlayer.ZeroKills == 2)
+            if (AAPlayer.IZKills == 2)
             {
                 if (OblivionSpeech == 180)
                 {
-                    Main.NewText("Hmpf...", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.1"), color1);
                 }
                 if (OblivionSpeech == 360)
                 {
-                    Main.NewText("...breaking it once wasnÕt enough for you?", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.2"), color1);
                 }
                 if (OblivionSpeech == 540)
                 {
-                    Main.NewText("I assume youÕre doing it for the drops...", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.3"), color1);
                 }
                 if (OblivionSpeech == 720)
                 {
-                    Main.NewText("...bragging rights with your friends...perhaps?", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.4"), color1);
                 }
                 if (OblivionSpeech == 900)
                 {
-                    Main.NewText("Or maybe you get a sick kick out of breaking other peopleÕs property.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.5"), color1);
                 }
                 if (OblivionSpeech == 1080)
                 {
-                    Main.NewText("Who am I to judge, though?", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.6"), color1);
                 }
                 if (OblivionSpeech >= 1080)
                 {
@@ -132,23 +173,23 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             }
 
-            if (AAPlayer.ZeroKills == 3)
+            if (AAPlayer.IZKills == 3)
             {
                 if (OblivionSpeech == 180)
                 {
-                    Main.NewText("Bravo. You scrapped my body again.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.1"), color1);
                 }
                 if (OblivionSpeech == 360)
                 {
-                    Main.NewText("What do you want? A sticker?", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.2"), color1);
                 }
                 if (OblivionSpeech == 540)
                 {
-                    Main.NewText("A gold star?", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.3"), color1);
                 }
                 if (OblivionSpeech == 720)
                 {
-                    Main.NewText("I can just remake it again instantly, so I donÕt get why you keep going after me.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.4"), color1);
                 }
                 if (OblivionSpeech >= 720)
                 {
@@ -156,73 +197,74 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
             }
 
-            if (AAPlayer.ZeroKills == 4)
+            if (AAPlayer.IZKills == 4)
             {
                 if (OblivionSpeech == 180)
                 {
-                    Main.NewText("Sigh...you are a persistent one, arenÕt you?", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.1"), color1);
                 }
                 if (OblivionSpeech == 360)
                 {
-                    Main.NewText("4 times? You must be some kind of masochist or something.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.2"), color1);
                 }
                 if (OblivionSpeech == 540)
                 {
-                    Main.NewText("You know, IÕm not the aggressor here", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.3"), color1);
                 }
                 if (OblivionSpeech == 720)
                 {
-                    Main.NewText("You keep summoning me.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.4"), color1);
                 }
                 if (OblivionSpeech == 900)
                 {
-                    Main.NewText("I only showed up because you trashed my Zero unit.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.5"), color1);
                 }
                 if (OblivionSpeech == 1080)
                 {
-                    Main.NewText("The void wasnÕt hurting you. ItÕs just there.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.6"), color1);
                 }
                 if (OblivionSpeech == 1260)
                 {
-                    Main.NewText("YouÕre the one who went in to kill my Zero unit", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.7"), color1);
                 }
                 if (OblivionSpeech == 1440)
                 {
-                    Main.NewText("Whatever, just take your boss drops and go.", color1);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.8"), color1);
                 }
                 if (OblivionSpeech >= 1440)
                 {
                     NPC.alpha += 5;
                 }
             }
-            if (AAPlayer.ZeroKills == 10)
+            
+            if (AAPlayer.IZKills == 10)
             {
                 if (player.difficulty != 2)
                 {
-                    player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " was destroyed by Oblivion"), player.statLifeMax + 10, 0, false);
+                    player.KillMe(PlayerDeathReason.ByCustomReason(NetworkText.FromKey("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.Kill", player.name)), player.statLifeMax + 10, 0, false);
                     if (OblivionSpeech == 180)
                     {
-                        Main.NewText("That's what you get for bothering me 10 TIMES.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Normal"), color1);
                     }
                     if (OblivionSpeech == 360)
                     {
-                        Main.NewText("...but I doubt you'll go away.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Normal"), color1);
                     }
                 }
                 else
                 {
                     if (OblivionSpeech == 180)
                     {
-                        Main.NewText("I would kill you to teach you a lesson...", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Hardcore"), color1);
                     }
                     if (OblivionSpeech == 360)
                     {
-                        Main.NewText("...but you're in hardcore mode, and I'm not that much of an asshole.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Hardcore"), color1);
                     }
                 }
                 if (OblivionSpeech == 540)
                 {
-                    Main.NewText("Oh well.", color1);
+                    Main.NewText("", color1);
                 }
 
                 if (OblivionSpeech >= 540)
@@ -231,38 +273,45 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
             }
 
-            else if (AAPlayer.ZeroKills >= 5)
+            else if (AAPlayer.IZKills >= 5)
             {
                 if (OblivionSpeech == 180)
                 {
-                    if (Main.netMode != NetmodeID.Server && Main.netMode != NetmodeID.MultiplayerClient) Main.NewText(AAPlayer.ZeroKills + " kills...congratulations. You have no life", color1);
+                    if (Main.netMode != NetmodeID.Server && Main.netMode != NetmodeID.MultiplayerClient)
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", AAPlayer.IZKills), color1);
                 }
                 if (OblivionSpeech == 300)
                 {
-                    int rand = Main.rand.Next(7);
+                    int rand = 2;// Main.rand.Next(7);
                     if (rand == 0)
                     {
-                        Main.NewText("Go outside and kick a ball or something.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0"), color1);
                     }
                     else if (rand == 1)
                     {
-                        Main.NewText("Isn't there some schoolwork you have to do or an application you need to fill out or something?", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1"), color1);
                     }
                     else if (rand == 2)
                     {
-                        Main.NewText("Don't you have other games on Steam you could be playing right now?", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        {
+                            string dialogue = GetSteamGameDialogue();
+                            if(dialogue != null)
+                                Main.NewText(dialogue, color1);
+                        }
                     }
                     else if (rand == 3)
                     {
-                        Main.NewText("Now leave me alone, I have better things to do.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.3"), color1);
                     }
                     else if (rand == 4)
                     {
-                        Main.NewText("Fighting you gets really boring you know. You use the same tactics every time.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.4"), color1);
                     }
                     else if (rand == 5)
                     {
-                        Main.NewText("Whatever, I'll be seeing you soon...again...assuming you're still a persistent wretch.", color1);
+                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.5"), color1);
                     }
                     else if (rand == 6)
                     {
@@ -314,13 +363,185 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     NPC.alpha += 5;
                 }
             }
+            
             if (NPC.alpha >= 255)
             {
                 NPC.active = false;
             }
         }
 
-        public int MajorModCount()
+        private static readonly HashSet<string> ExcludedAppIDs = new() {
+            "105600", "1281930", // Terraria & tMod
+            "228980",            // Steamworks Common Redistributables
+            "250820",            // SteamVR
+            "1113010",           // Steam Networking
+            "1150650",           // Steam Cloud (often appears as an app)
+            "41300",             // Steam Dedicated Server
+            "232250"             // Steam VR Room
+        };
+
+        private static readonly Dictionary<string, string> SpecialGameKeys = new() {
+            { "620", "Portal2" },
+            { "413150", "StardewValley" },
+            { "367520", "HollowKnight" },
+            { "219740", "DontStarve" },
+            { "632360", "RoR2" },
+            { "250900", "TBoI" },
+            { "391540", "Undertale" },
+            { "1671210", "Deltarune" },
+            { "504230", "Celeste" },
+            { "264710", "Subnautica" },
+            { "1229490", "Ultrakill" },
+            { "588650", "DeadCells" },
+            { "548430", "DeepRock" },
+            { "698780", "DDLC" },
+            { "1966720", "LethalCompany" },
+            { "242760", "TheStanleyParable" },
+            { "1996550", "Bonelords" },
+            { "3176850", "SecondStellar" }
+        };
+
+
+        private static string GetSteamGameDialogue()
+        {
+            if ((!string.IsNullOrEmpty(steamPath) && File.Exists(localConfigPath)) || InitializeSteamSearch())
+            {
+                try
+                {
+                    string vdfContent = File.ReadAllText(localConfigPath);
+                    var playHistory = new Dictionary<string, long>();
+
+                    // Fixed: Use capture groups [1] and [2]
+                    var matches = Regex.Matches(vdfContent, @"\""(\d+)\""\s*\{\s*[^}]*\""LastPlayed\""\s*\""(\d+)\""");
+
+                    foreach (Match match in matches)
+                    {
+                        string appId = match.Groups[1].Value;
+                        if (long.TryParse(match.Groups[2].Value, out long lastPlayed))
+                        {
+                            if (!ExcludedAppIDs.Contains(appId))
+                                playHistory[appId] = lastPlayed;
+                        }
+                    }
+
+                    var recentGames = playHistory.OrderByDescending(x => x.Value).Take(10).ToList();
+                    string locPath = "Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.Games.";
+
+                    if (recentGames.Count > 0)
+                    {
+                        var randomGame = recentGames[Main.rand.Next(recentGames.Count)];
+
+                        if (SpecialGameKeys.TryGetValue(randomGame.Key, out string keySuffix))
+                        {
+                            switch (keySuffix)
+                            {
+                                case "Undertale":
+                                    GenocideState state = GetUndertaleGenocideState();
+                                    return state switch
+                                    {
+                                        GenocideState.Erased => Language.GetTextValue(locPath + keySuffix + ".Erased"),
+                                        GenocideState.Sold => Language.GetTextValue(locPath + keySuffix + ".Sold"),
+                                        _ => Language.GetTextValue(locPath + keySuffix + ".Normal"),
+                                    };
+                                case "SecondStellar":
+                                    if (ModLoader.HasMod("StarsAbove"))
+                                        return Language.GetTextValue(locPath + keySuffix + ".TsaEnabled");
+                                    else
+                                        return Language.GetTextValue(locPath + keySuffix + ".Normal");
+                                default:
+                                    return Language.GetTextValue(locPath + keySuffix);
+                            }
+                        }
+
+                        bool hasMinecraft = Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft"));
+                        if (Main.rand.NextBool(4) && hasMinecraft)
+                            return Language.GetTextValue(locPath + "Minecraft");
+
+                        string gameName = GetGameNameFromID(GetAllLibraryPaths(steamPath), randomGame.Key);
+                        if (!string.IsNullOrEmpty(gameName))
+                        {
+                            // Check if the game was played in the last 7 days (604,800 seconds)
+                            long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                            bool isRecent = (now - randomGame.Value) <= 604800;
+                            string timeSuffix = isRecent ? "Recent" : "Old";
+
+                            return Language.GetTextValue(locPath + "Default." + timeSuffix + "." + Main.rand.Next(3), gameName);
+                        }
+                    }
+                    else if (Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft")))
+                        return Language.GetTextValue(locPath + "Minecraft");
+                }
+                catch { }
+            }
+            return null;
+        }
+
+        private static string GetGameNameFromID(List<string> libraryPaths, string appId)
+        {
+            foreach (var path in libraryPaths)
+            {
+                string manifestPath = Path.Combine(path, $"appmanifest_{appId}.acf");
+                if (File.Exists(manifestPath))
+                {
+                    string content = File.ReadAllText(manifestPath);
+                    var match = Regex.Match(content, @"\""name\""\s*\""(.*)\""");
+                    if (match.Success) return match.Groups[1].Value;
+                }
+            }
+            return null;
+        }
+
+        private static List<string> GetAllLibraryPaths(string steamPath)
+        {
+            List<string> paths = [];
+            paths.Add(Path.Combine(steamPath, "steamapps"));
+
+            string vdfPath = Path.Combine(steamPath, "steamapps", "libraryfolders.vdf");
+            if (File.Exists(vdfPath))
+            {
+                string content = File.ReadAllText(vdfPath);
+                var matches = Regex.Matches(content, @"\""path\""\s*\""(.*)\""");
+                foreach (Match m in matches)
+                {
+                    string libraryPath = m.Groups[1].Value.Replace("\\\\", "\\");
+                    string steamappsPath = Path.Combine(libraryPath, "steamapps");
+                    if (Directory.Exists(steamappsPath) && !paths.Contains(steamappsPath))
+                    {
+                        paths.Add(steamappsPath);
+                    }
+                }
+            }
+            return paths;
+        }
+
+        private enum GenocideState
+        {
+            None,
+            Erased,
+            Sold
+        }
+        private static GenocideState GetUndertaleGenocideState()
+        {
+            try
+            {
+                string utPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UNDERTALE");
+                if (Directory.Exists(utPath))
+                {
+                    // If either of these "stain" files exist, they've done it.
+                    if (File.Exists(Path.Combine(utPath, "system_information_962")))
+                        return GenocideState.Erased;
+                    if(File.Exists(Path.Combine(utPath, "system_information_963")))
+                        return GenocideState.Sold;
+
+                    return GenocideState.None;
+                }
+            }
+            catch { }
+            return GenocideState.None;
+        }
+
+
+        public static int MajorModCount()
         {
             int ModCount = 0;
 

@@ -216,44 +216,28 @@ AbyssalHakama: {
 }
 
 AncientGoldChestplate: {
-	DisplayName: Ancient Gold Chainmail
-	Tooltip: You have chance to get gold coins in stoneblocks
+	DisplayName: Ancient Gold Chestplate
+	Tooltip: ""
 }
 
 AncientGoldLeggings: {
-	DisplayName: Ancient Gold Greaves
-	Tooltip: You have more chance to meet with vanilla gold critters.
+	DisplayName: Ancient Gold Leggings
+	Tooltip: ""
 }
 
 MidnightAssassinLeggings: {
-	DisplayName: Midnight Assassin's Boots
-	Tooltip:
-		'''
-		15% increased ranged/melee damage
-		15% increased movement speed
-		8% increased melee speed
-		Dark boots infused with the shadow of midnight
-		'''
+	DisplayName: Midnight Assassin Leggings
+	Tooltip: ""
 }
 
 MidnightAssassinHelmet: {
-	DisplayName: Midnight Assassin Hood
-	Tooltip:
-		'''
-		13% increased melee/ranged damage and critical strike chance
-		A dark hood infused with the shadow of midnight
-		'''
+	DisplayName: Midnight Assassin Helmet
+	Tooltip: ""
 }
 
 MidnightAssassinChestplate: {
-	DisplayName: Midnight Assassin Shirt
-	Tooltip:
-		'''
-		14% increased melee/ranged damage and critical strike chance
-		20% decreased ammo consumption
-		+50 Max Life
-		A dark armor infused with the shadow of midnight
-		'''
+	DisplayName: Midnight Assassin Chestplate
+	Tooltip: ""
 }
 
 AtlanteanGreaves: {
@@ -431,43 +415,33 @@ ChampionMask: {
 }
 
 ChaosChestplate: {
-	DisplayName: Chaos Dou
-	Tooltip: 7% increased damage
+	DisplayName: Chaos Chestplate
+	Tooltip: ""
 }
 
 ChaosHelmetRanged: {
-	DisplayName: Chaos Fukumen
-	Tooltip: 24% increased ranged critical strike chance
+	DisplayName: Chaos Helmet Ranged
+	Tooltip: ""
 }
 
 ChaosLeggings: {
-	DisplayName: Chaos Greaves
-	Tooltip:
-		'''
-		10% increased movement speed
-		7% increased damage
-		'''
+	DisplayName: Chaos Leggings
+	Tooltip: ""
 }
 
 ChaosHelmetMelee: {
-	DisplayName: Chaos Kabuto
-	Tooltip: 25% increased melee damage
+	DisplayName: Chaos Helmet Melee
+	Tooltip: ""
 }
 
 ChaosHelmetMage: {
-	DisplayName: Chaos Mask
-	Tooltip:
-		'''
-		Increases maximum mana by 80
-		Increases magic damage by 20%
-		Increases magic crit by 20%
-		Allows you to breath underwater
-		'''
+	DisplayName: Chaos Helmet Mage
+	Tooltip: ""
 }
 
 ChaosHelmetSummoner: {
-	DisplayName: Chaos Visor
-	Tooltip: 30% increased minion damage
+	DisplayName: Chaos Helmet Summoner
+	Tooltip: ""
 }
 
 DarkmatterBreastplate: {
@@ -542,22 +516,18 @@ DeathlySkull: {
 }
 
 DemonLeggings: {
-	DisplayName: Demon Hoofs
-	Tooltip: 9% Increased Minion damage
+	DisplayName: Demon Leggings
+	Tooltip: ""
 }
 
 DemonChestplate: {
-	DisplayName: Demon Garb
-	Tooltip:
-		'''
-		9% Increased Minion damage
-		+2 minion slots
-		'''
+	DisplayName: Demon Chestplate
+	Tooltip: ""
 }
 
 DemonHelmet: {
-	DisplayName: Demon Cowl
-	Tooltip: 9% Increased Minion damage
+	DisplayName: Demon Helmet
+	Tooltip: ""
 }
 
 DepthFukumen: {
@@ -589,33 +559,33 @@ DepthHakama: {
 }
 
 DoomiteChestplate: {
-	DisplayName: Doomite Plate
-	Tooltip: +1 Minion slot
+	DisplayName: Doomite Chestplate
+	Tooltip: ""
 }
 
 DoomiteLeggings: {
-	DisplayName: Doomite Greaves
-	Tooltip: +1 Minion slot
+	DisplayName: Doomite Leggings
+	Tooltip: ""
 }
 
 DoomiteHelmet: {
-	DisplayName: Doomite Visor
-	Tooltip: +1 Minion slot
+	DisplayName: Doomite Helmet
+	Tooltip: ""
 }
 
 DarkDoomiteLeggings: {
-	DisplayName: Dark Doomite Greaves
+	DisplayName: Dark Doomite Leggings
 	Tooltip: ""
 }
 
 DarkDoomiteHelmet: {
 	DisplayName: Dark Doomite Helmet
-	Tooltip: Increases minion damage by 5%
+	Tooltip: ""
 }
 
 DarkDoomiteChestplate: {
 	DisplayName: Dark Doomite Chestplate
-	Tooltip: Increases minion damage by 6%
+	Tooltip: ""
 }
 
 Doomite: {
@@ -639,13 +609,8 @@ DoomsdayChest: {
 }
 
 DoomsdayHelmetMage: {
-	DisplayName: Doomsday Assault Visor
-	Tooltip:
-		'''
-		25% increased magic damage
-		18% increased magic critical strike chance
-		The power to destroy entire planets rests in this armor
-		'''
+	DisplayName: Doomsday Helmet Mage
+	Tooltip: ""
 }
 
 DoomsdayLeggings: {
@@ -659,12 +624,8 @@ DoomsdayLeggings: {
 }
 
 DoomsdayHelmetSummoner: {
-	DisplayName: Doomsday Tactical Visor
-	Tooltip:
-		'''
-		50% increased minion damage
-		The power to destroy entire planets rests in this armor
-		'''
+	DisplayName: Doomsday Helmet Summoner
+	Tooltip: ""
 }
 
 DracoHelm: {
@@ -954,7 +915,7 @@ Olympia: {
 }
 
 OroborosLeggings: {
-	DisplayName: Oroboros Wood Boots
+	DisplayName: Oroboros Leggings
 	Tooltip: ""
 }
 
@@ -1370,39 +1331,18 @@ VikingPlate: {
 }
 
 FuryWitchsLeggings: {
-	DisplayName: Fury Witch's Boots
-	Tooltip:
-		'''
-		12% increased magic/minion damage
-		12% increased movement speed
-		+2 max minions
-		Boots enchanted with the firey spirit of a supreme dragon acolyte
-		'''
+	DisplayName: Fury Witchs Leggings
+	Tooltip: ""
 }
 
 FuryWitchsHelmet: {
-	DisplayName: Fury Witch's Cowl
-	Tooltip:
-		'''
-		+120 Max Mana
-		Reduced mana consumption by 20%
-		+2 Max Minions
-		10% increased magic/minion damage 
-		10% increased magic critical strike chance
-		A hood enchanted with the firey spirit of a supreme dragon acolyte
-		'''
+	DisplayName: Fury Witchs Helmet
+	Tooltip: ""
 }
 
 FuryWitchsChestplate: {
-	DisplayName: Fury Witch's Robe
-	Tooltip:
-		'''
-		10% increased magic/minion damage 
-		10% increased critical strike chance
-		+2 Max Minions
-		+30 Max Life
-		A robe enchanted with the firey spirit of a supreme dragon acolyte
-		'''
+	DisplayName: Fury Witchs Chestplate
+	Tooltip: ""
 }
 
 LungBanner: {
@@ -10157,136 +10097,6 @@ StripemansLuckyHelmet: {
 
 StripemansLuckyLeggings: {
 	DisplayName: Stripemans Lucky Leggings
-	Tooltip: ""
-}
-
-AncientGoldChestplate: {
-	DisplayName: Ancient Gold Chestplate
-	Tooltip: ""
-}
-
-AncientGoldLeggings: {
-	DisplayName: Ancient Gold Leggings
-	Tooltip: ""
-}
-
-DarkDoomiteChestplate: {
-	DisplayName: Dark Doomite Chestplate
-	Tooltip: ""
-}
-
-DarkDoomiteHelmet: {
-	DisplayName: Dark Doomite Helmet
-	Tooltip: ""
-}
-
-DarkDoomiteLeggings: {
-	DisplayName: Dark Doomite Leggings
-	Tooltip: ""
-}
-
-OroborosLeggings: {
-	DisplayName: Oroboros Leggings
-	Tooltip: ""
-}
-
-ChaosChestplate: {
-	DisplayName: Chaos Chestplate
-	Tooltip: ""
-}
-
-ChaosHelmetMage: {
-	DisplayName: Chaos Helmet Mage
-	Tooltip: ""
-}
-
-ChaosHelmetMelee: {
-	DisplayName: Chaos Helmet Melee
-	Tooltip: ""
-}
-
-ChaosHelmetRanged: {
-	DisplayName: Chaos Helmet Ranged
-	Tooltip: ""
-}
-
-ChaosHelmetSummoner: {
-	DisplayName: Chaos Helmet Summoner
-	Tooltip: ""
-}
-
-ChaosLeggings: {
-	DisplayName: Chaos Leggings
-	Tooltip: ""
-}
-
-FuryWitchsChestplate: {
-	DisplayName: Fury Witchs Chestplate
-	Tooltip: ""
-}
-
-FuryWitchsHelmet: {
-	DisplayName: Fury Witchs Helmet
-	Tooltip: ""
-}
-
-FuryWitchsLeggings: {
-	DisplayName: Fury Witchs Leggings
-	Tooltip: ""
-}
-
-DoomiteChestplate: {
-	DisplayName: Doomite Chestplate
-	Tooltip: ""
-}
-
-DoomiteHelmet: {
-	DisplayName: Doomite Helmet
-	Tooltip: ""
-}
-
-DoomiteLeggings: {
-	DisplayName: Doomite Leggings
-	Tooltip: ""
-}
-
-DoomsdayHelmetMage: {
-	DisplayName: Doomsday Helmet Mage
-	Tooltip: ""
-}
-
-DoomsdayHelmetSummoner: {
-	DisplayName: Doomsday Helmet Summoner
-	Tooltip: ""
-}
-
-MidnightAssassinChestplate: {
-	DisplayName: Midnight Assassin Chestplate
-	Tooltip: ""
-}
-
-MidnightAssassinHelmet: {
-	DisplayName: Midnight Assassin Helmet
-	Tooltip: ""
-}
-
-MidnightAssassinLeggings: {
-	DisplayName: Midnight Assassin Leggings
-	Tooltip: ""
-}
-
-DemonChestplate: {
-	DisplayName: Demon Chestplate
-	Tooltip: ""
-}
-
-DemonHelmet: {
-	DisplayName: Demon Helmet
-	Tooltip: ""
-}
-
-DemonLeggings: {
-	DisplayName: Demon Leggings
 	Tooltip: ""
 }
 

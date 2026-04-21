@@ -704,3 +704,152 @@ ShenDoragon: {
 	ShenDoragon15: The defeat of a superancient empowers the stonekeepers.
 	ShenDoragon17: The defeat of a superancient empowers the stonekeepers.
 }
+
+InfinityZero: {
+	Health: {
+		75: WARNING. Systems have reached 75% efficiency.
+		50: Redirecting resources to offensive systems.
+		25: CRITICAL WARNING. Systems have reached 25% efficiency. Failure imminent.
+		10: Terrarian, you will not win this. Rerouting all resources to offensive systems.
+	}
+
+	Zeroes: {
+		Revived: Zero Units sufficiently repaired. Reengaging Core defense system.
+		Defeated: Zero Units in critical condition. Rerouting resources to repair systems. Core defense temporarily disabled.
+	}
+
+	Defeat: {
+		First: {
+			1: ...impressive.
+			2: Defeating my mechanical body...
+			3: ...Is not a small feat...
+			4: I applaud you, Terrarian.
+
+			5: {
+				Normal: Although...next time we meet...when you're stronger...
+				Hardcore: I'm also impressed you made it this far in hardcore mode.
+			}
+
+			6: {
+				Normal: ...{0}...
+				Hardcore: Good job. Here, have a sticker.
+			}
+
+			7: {
+				Normal: I won't be so forgiving.
+				Hardcore: Now, I bid you adieu...
+			}
+		}
+
+		Second: {
+			1: Hmpf...
+			2: ...breaking it once wasn't enough for you?
+			3: I assume you're doing it for the drops...
+			4: ...bragging rights with your friends...perhaps?
+			5: Or maybe you get a sick kick out of breaking other people's property.
+			6: Who am I to judge, though?
+		}
+
+		Third: {
+			1: Bravo. You scrapped my body again.
+			2: What do you want? A sticker?
+			3: A gold star?
+			4: I can just remake it again instantly, so I don't get why you keep going after me.
+		}
+
+		Fourth: {
+			1: Sigh...you are a persistent one, aren't you?
+			2: Four times? You must be some kind of masochist or something.
+			3: You know, I'm not the aggressor here...
+			4: You keep summoning me.
+			5: I only showed up because you trashed my Zero unit.
+			6: The void wasn't hurting you. It's just there.
+			7: You're the one who went in to kill my Zero unit.
+			8: Whatever, just take your boss drops and go.
+		}
+
+		Tenth: {
+			1: {
+				Normal: That's what you get for bothering me TEN TIMES.
+				Hardcore: I would kill you to teach you a lesson...
+			}
+
+			2: {
+				Normal: ...but I doubt you'll go away.
+				Hardcore: ...but you're in hardcore mode, and I'm not that much of an asshole.
+			}
+
+			3: Oh well.
+			Kill: "{0} was destroyed by Oblivion"
+		}
+
+		Other: {
+			1: "{0} kills...congratulations. You have no life."
+
+			2: {
+				0: Go outside and kick a ball or something.
+				1: Isn't there some schoolwork you have to do or an application you need to fill out or something?
+
+				2: {
+					1: Don't you have other games on Steam you could be playing right now?
+
+					Games: {
+						Portal2: How about Portal 2? Go annoy GLaDOS some more instead of me.
+						StardewValley: Maybe Stardew Valley? Wouldn't your time be better spent tending to your farm than bothering me.
+						HollowKnight: You could dive back into Hollow Knight. Leave this Void alone for a bit and deal with that one?
+						DontStarve: Perhaps Don't Starve? Deerclops was fun, right? Plenty more fun to be had where that guy came from.
+						RoR2: Risk of Rain 2 always has more you could do. Isn't there a Void there you could go bother instead ot this one?
+						TBoI: The Binding of Issac could be fun, right? Though you spend enough time in the basement as is, huh?
+						Minecraft: I bet a bit of Minecraft would do you some good. Do some building instead of destroying for a change?
+
+						Undertale: {
+							Normal: You know, how about Undertale? I bet that Skeleton could keep you busy for a while.
+							Erased: You know, how about Undertale? Wait, what? Where'd it go? I could have sworn it was...
+							Sold: You know, how about Undertale? Hm? Not appealing? Guess you've had your fun with that one, huh.
+						}
+
+						Deltarune: Deltarune could be fun. I bet that Knight could keep you entertained a while. Or maybe an egg hunt'll keep you busy?
+						Celeste: How about Celeste? Get lost in the mountains for a while? I'd certainly appreciate that.
+						Subnautica: Subnautica would be perfect for you. You'll be lost at sea so I'll never have to see you again!
+						Ultrakill: Bet Ultrakill is the fix you're looking for. You just love tearing everything you see apart, right?
+						DeadCells: Dead Cells could keep you busy right? Aren't some of their trinkets gonna be showing up here soon...?
+						DeepRock: Deeprock Galatic could work. Yeah, go dig yourself a hole far, far away. Get some rock and stone and all that.
+						DDLC: Oh, that's right. Monika was asking for you wasn't she? Yeah, she misses you a whole lot. You should pay her a visit.
+						LethalCompany: Lethal Company would be good, right? Or, no, I guess not. You need friends to play that one.
+						TheStanleyParable: Can't you go back to the Stanley Parable? Go bother that Narrator instead of me?
+						Bonelords: Oh dude, you have Bonelords? Fuck yeah. Wanna play some Bonelords? Hop on Bonelords after this? ...No?
+
+						SecondStellar: {
+							TsaEnabled: Like... Woah man, seriously...? Second Stellar? You REALLY must like that starfarer of yours, huh?
+							Normal: Like... Huh, 'Second Stellar'? Do I recognize those two from somewhere?
+						}
+
+						Default: {
+							Recent: {
+								0: Some more {0} would be fun right? You had fun last time, didn't you?
+								1: It hasn't been too long since you last played {0}. Go play more of that.
+								2: How about {0}? It hasn't been that long.
+								3: You've been playing {0} recently, right? Wouldn't that be more fun than bothering me?
+							}
+							Old: {
+								0: "Its been a bit. How about {0}? That'd be fun, right?"
+								1: "{0} looks fun. Go play that."
+								2: How about {0}? That'd be fun, right? Play that instead.
+								3: You're a fan of {0}, right? Wouldn't that be more fun than bothering me?
+							}
+						}
+					}
+				}
+
+				3: Now leave me alone, I have better things to do.
+				4: Fighting you gets really boring you know. You use the same tactics every time.
+				5: Whatever, I'll be seeing you soon...again...assuming you're still a persistent wretch.
+
+				Mods: {
+					a: a
+					b: b
+				}
+			}
+		}
+	}
+}

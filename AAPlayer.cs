@@ -383,7 +383,7 @@ namespace AAModClassic
         public static Color groviteColor = new Color(138, (int)(39 * 0.7f), (int)(196 * 0.7f));
         public static bool[] groviteGlow = new bool[255];
 
-        public static int ZeroKills = 0;
+        public static int IZKills = 0;
 
         public int ManaLantern = 0;
         #endregion
