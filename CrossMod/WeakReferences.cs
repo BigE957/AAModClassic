@@ -5,13 +5,16 @@ using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandar
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA;
 using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic.___Content.Chaos.__Hardmode.NPCs;
+using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
@@ -31,6 +34,7 @@ using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleT
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
+using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed;
 using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
 using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
@@ -46,6 +50,7 @@ using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Desert;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
+using AAModClassic.___Content.Inferno._PostMoonlord.Items._BossAkuma;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic.___Content.Inferno.Buffs;
@@ -72,9 +77,10 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
-using AAModClassic.___Content.Stars._PostMoonlord.Items;
+using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
 using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
@@ -84,6 +90,7 @@ using AAModClassic.___Content.Terrarium.Buffs;
 using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius;
 using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
 using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -95,7 +102,6 @@ using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.EFish;
 using AAModClassic.Items.Boss.Shen;
-using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Dev;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Materials;
@@ -864,13 +870,13 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Anubis", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Items.BossSummons.Scepter>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>() + "]"),
                     ["despawnMessage"] = (Func<NPC, LocalizedText>)((NPC npc) => {
                         if (NPC.AnyNPCs(ModContent.NPCType<FATransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
                     }),
-                    ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisTrophy>(),
@@ -961,7 +967,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "ForsakenAnubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ForsakenAnubis.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "ForsakenAnubis.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisATrophy>(),
@@ -1044,9 +1050,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Akuma", () => AAWorld.downedAkuma, new List<int>() { ModContent.NPCType<Akuma>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Akuma.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Akuma.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSigil>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Akuma.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunSigil>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Akuma.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DraconianSigil>(),
+                    ["spawnItems"] = ModContent.ItemType<DraconianSunSigil>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AkumaTrophy>(),
@@ -1059,9 +1065,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "AkumaA", (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<AkumaA>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AkumaA.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "AkumaA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianRune>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "AkumaA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunRune>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "AkumaA.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DraconianRune>(),
+                    ["spawnItems"] = ModContent.ItemType<DraconianSunRune>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AkumaATrophy>(),
@@ -1077,9 +1083,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Yamata", (Func<bool>)(() => AAWorld.downedYamata), ModContent.NPCType<YamataBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Yamata.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Yamata.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadSigil>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Yamata.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadMoonSigil>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Yamata.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DreadSigil>(),
+                    ["spawnItems"] = ModContent.ItemType<DreadMoonSigil>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<YamataTrophy>(),
@@ -1092,9 +1098,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "YamataA", (Func<bool>)(() => AAWorld.downedYamata), ModContent.NPCType<YamataABody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "YamataA.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "YamataA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadRune>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "YamataA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadMoonRune>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "YamataA.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DreadRune>(),
+                    ["spawnItems"] = ModContent.ItemType<DreadMoonRune>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<YamataATrophy>(),
@@ -1110,9 +1116,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Zero", (Func<bool>)(() => AAWorld.downedZero), ModContent.NPCType<Zero>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Zero.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Zero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ZeroTesseract>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Zero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DoomsdayTesseract>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Zero.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<ZeroTesseract>(),
+                    ["spawnItems"] = ModContent.ItemType<DoomsdayTesseract>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(),
@@ -1125,9 +1131,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "ZeroP", (Func<bool>)(() => AAWorld.downedZero), ModContent.NPCType<ZeroProtocol>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ZeroP.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "ZeroP.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ZeroRune>() + "]"),                    
+                    ["spawnInfo"] = Language.GetOrRegister(path + "ZeroP.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ERROR_NULL>() + "]"),                    
                     ["despawnMessage"] = Language.GetOrRegister(path + "ZeroP.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<ZeroRune>(),
+                    ["spawnItems"] = ModContent.ItemType<ERROR_NULL>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Zero.ZeroATrophy>()
@@ -1141,9 +1147,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "RajahRabbitR", (Func<bool>)(() => NPCExtensions.BeenKilled<SupremeRajah>()), ModContent.NPCType<SupremeRajah>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbitR.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbitR.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DiamondCarrot>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbitR.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<TenCaratCarrot>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "RajahRabbitR.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<DiamondCarrot>(),
+                    ["spawnItems"] = ModContent.ItemType<TenCaratCarrot>(),
                     ["collectibles"] = new List<int>
                     {
                         ///ModContent.ItemType<SRajahBox>()

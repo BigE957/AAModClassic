@@ -1,4 +1,5 @@
 using AAModClassic.___Content.Desert.__Hardmode.Items.Quest;
+using AAModClassic.___Content.Inferno.World.Tiles;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
@@ -7,7 +8,6 @@ using AAModClassic.Tiles;
 using AAModClassic.Tiles.Altar;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Tiles.Chests;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Decoration;
 using AAModClassic.Tiles.Furniture;
 using AAModClassic.Tiles.Keep;
@@ -506,7 +506,7 @@ namespace AAModClassic.World
                     {
                         if (Main.rand.NextBool(15))
                         {
-                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar2_Tile>());
+                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<DragonAltarUnsafe_Tile>());
                         }
                     }
                 }

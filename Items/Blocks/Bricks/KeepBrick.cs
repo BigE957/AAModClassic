@@ -29,9 +29,9 @@ public class KeepBrick : BaseAAItem
 
 	public override void AddRecipes()
 	{
-		Recipe val = CreateRecipe(1);
+		Recipe val = CreateRecipe(5);
 		val.AddIngredient(ModContent.ItemType<TerraShard>(), 1);
-		val.AddIngredient(ItemID.StoneBlock, 1);
+		val.AddIngredient(ItemID.StoneBlock, 5);
 		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}

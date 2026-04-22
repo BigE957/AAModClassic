@@ -24,7 +24,7 @@ public class TerraBrick : BaseAAItem
 
 	public override void SetStaticDefaults()
 	{
-		//((ModItem)this).DisplayName.SetDefault("Keep Brick");
+		//((ModItem)this).DisplayName.SetDefault("Terra Brick");
 	}
 
 	public override void AddRecipes()

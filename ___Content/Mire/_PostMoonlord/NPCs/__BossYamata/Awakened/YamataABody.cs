@@ -217,7 +217,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingYamataA());
 
-            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadRune>()));
+            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadMoonRune>()));
 
             LeadingConditionRule shenDefeated = new(new AAModClassic.NPCs.Bosses.Akuma.Awakened.AkumaA.ShenDefeated());
 

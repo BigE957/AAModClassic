@@ -1,4 +1,3 @@
-using AAModClassic.Tiles.Crafters;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Tiles

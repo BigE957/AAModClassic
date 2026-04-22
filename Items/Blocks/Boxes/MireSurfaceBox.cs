@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

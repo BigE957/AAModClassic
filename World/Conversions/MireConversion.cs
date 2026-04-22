@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwood;
+﻿using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.___Content.Mire.World.Tiles;
 using System;
 using Terraria.ID;

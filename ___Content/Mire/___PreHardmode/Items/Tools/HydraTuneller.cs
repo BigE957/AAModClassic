@@ -32,7 +32,7 @@ namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Tools
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<HydraTuneller_Proj>();
+			Item.shoot = ModContent.ProjectileType<HydraTuneller_Holdout>();
 			Item.shootSpeed = 40f;
 		}
 

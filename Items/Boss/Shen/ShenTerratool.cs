@@ -1,5 +1,5 @@
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;
@@ -84,7 +84,7 @@ You may only have a maximum of 2 tool types active"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AkumaTerratool>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<YamataTerratool>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadTerratool>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());

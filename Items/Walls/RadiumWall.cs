@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Walls.Bricks;
-using AAModClassic.Items.Blocks.Bricks;
+using AAModClassic.___Content.Stars._PostMoonlord.Items.Tiles.Decoration;
 
 namespace AAModClassic.Items.Walls
 {

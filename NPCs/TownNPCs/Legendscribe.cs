@@ -561,9 +561,9 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (AnubisB)
             {
-                if (!BasePlayer.HasItem(player, ModContent.ItemType<Items.BossSummons.Scepter>()))
+                if (!BasePlayer.HasItem(player, ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>()))
                 {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.BossSummons.Scepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost"); 
                 }
 
@@ -773,12 +773,12 @@ namespace AAModClassic.NPCs.TownNPCs
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat31"));
             }
 
-            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<Items.BossSummons.Scepter>()))
+            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>()))
             {
                 if (!mPlayer.GivenAnuSummon)
                 {
                     mPlayer.GivenAnuSummon = true;
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.BossSummons.Scepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat");
                 }
             }

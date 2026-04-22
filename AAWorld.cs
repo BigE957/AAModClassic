@@ -3,7 +3,6 @@ using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Keep;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.UI.WorldGen;
@@ -29,7 +28,6 @@ using AAModClassic.Items.Magic;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Walls.Bricks;
-using AAModClassic.Tiles.Furniture.Oroboros;
 using AAModClassic.Items.Melee;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
@@ -62,6 +60,8 @@ using AAModClassic.___Content.Hallow.__Hardmode.Items.Materials;
 using AAModClassic.Backgrounds;
 using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
+using AAModClassic.___Content.Inferno.World.Tiles;
+using AAModClassic.___Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosWoodFurniture;
 
 namespace AAModClassic
 {
@@ -972,7 +972,7 @@ namespace AAModClassic
                         }
                         else
                         {
-                            Altar = ModContent.TileType<ChaosAltar2_Tile>();
+                            Altar = ModContent.TileType<DragonAltarUnsafe_Tile>();
                         }
                         if (Main.rand.NextBool(15))
                         {
@@ -984,7 +984,7 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<InfernoGrass_Tile>())  
                                 && Altar == ModContent.TileType<AbyssAltarUnsafe_Tile>())
                             {
-                                Altar = ModContent.TileType<ChaosAltar2_Tile>();
+                                Altar = ModContent.TileType<DragonAltarUnsafe_Tile>();
                             }
                             if ((tile.TileType == ModContent.TileType<Depthstone_Tile>() || 
                                 tile.TileType == ModContent.TileType<Depthsand_Tile>() || 
@@ -992,7 +992,7 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<Depthsandstone_Tile>() ||
                                 tile.TileType == ModContent.TileType<Depthsand_Tile>() ||
                                 tile.TileType == ModContent.TileType<MireGrass_Tile>()) 
-                                && Altar == ModContent.TileType<ChaosAltar2_Tile>())
+                                && Altar == ModContent.TileType<DragonAltarUnsafe_Tile>())
                             {
                                 Altar = ModContent.TileType<AbyssAltarUnsafe_Tile>();
                             }
@@ -1042,7 +1042,7 @@ namespace AAModClassic
             }
             WorldGen.PlaceTile(X + sizeX - 2, Y + sizeY - 1, (ushort)ModContent.TileType<DoomiteScrap_Tile>());
 
-            int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)ModContent.TileType<OroborosChest_Tile>(), true);
+            int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)ModContent.TileType<OroborosWoodChest_Tile>(), true);
             if (PlacementSuccess >= 0)
             {
                 Chest chest = Main.chest[PlacementSuccess];

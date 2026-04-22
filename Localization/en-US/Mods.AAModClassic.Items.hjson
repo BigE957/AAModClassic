@@ -10564,3 +10564,178 @@ TheAvenger: {
 	DisplayName: The Avenger
 	Tooltip: ""
 }
+
+DragonAltarSafe: {
+	DisplayName: Dragon Altar Safe
+	Tooltip: ""
+}
+
+OroborosWoodBathtub: {
+	DisplayName: Oroboros Wood Bathtub
+	Tooltip: ""
+}
+
+OroborosWoodBed: {
+	DisplayName: Oroboros Wood Bed
+	Tooltip: ""
+}
+
+OroborosWoodBookcase: {
+	DisplayName: Oroboros Wood Bookcase
+	Tooltip: ""
+}
+
+OroborosWoodCandle: {
+	DisplayName: Oroboros Wood Candle
+	Tooltip: ""
+}
+
+OroborosWoodChair: {
+	DisplayName: Oroboros Wood Chair
+	Tooltip: ""
+}
+
+OroborosWoodChest: {
+	DisplayName: Oroboros Wood Chest
+	Tooltip: ""
+}
+
+OroborosWoodClock: {
+	DisplayName: Oroboros Wood Clock
+	Tooltip: ""
+}
+
+OroborosWoodDoor: {
+	DisplayName: Oroboros Wood Door
+	Tooltip: ""
+}
+
+OroborosWoodLamp: {
+	DisplayName: Oroboros Wood Lamp
+	Tooltip: ""
+}
+
+OroborosWoodLantern: {
+	DisplayName: Oroboros Wood Lantern
+	Tooltip: ""
+}
+
+OroborosWoodPlatform: {
+	DisplayName: Oroboros Wood Platform
+	Tooltip: ""
+}
+
+OroborosWoodWall: {
+	DisplayName: Oroboros Wood Wall
+	Tooltip: ""
+}
+
+OroborosWoodWorkbench: {
+	DisplayName: Oroboros Wood Workbench
+	Tooltip: ""
+}
+
+DoomBookcase: {
+	DisplayName: Doom Bookcase
+	Tooltip: ""
+}
+
+DoomsdayCircuitPlating: {
+	DisplayName: Doomsday Circuit Plating
+	Tooltip: ""
+}
+
+RoyalRabbit_Item: {
+	DisplayName: Royal Rabbit_ Item
+	Tooltip: ""
+}
+
+RoyalRabbitCage: {
+	DisplayName: Royal Rabbit Cage
+	Tooltip: ""
+}
+
+TenCaratCarrot: {
+	DisplayName: Ten Carat Carrot
+	Tooltip: ""
+}
+
+GlowingMushmallet: {
+	DisplayName: Glowing Mushmallet
+	Tooltip: ""
+}
+
+GlowingMushpick: {
+	DisplayName: Glowing Mushpick
+	Tooltip: ""
+}
+
+UnityPickaxe: {
+	DisplayName: Unity Pickaxe
+	Tooltip: ""
+}
+
+DraconianSunRune: {
+	DisplayName: Draconian Sun Rune
+	Tooltip: ""
+}
+
+DraconianSunSigil: {
+	DisplayName: Draconian Sun Sigil
+	Tooltip: ""
+}
+
+JungleOrchid: {
+	DisplayName: Jungle Orchid
+	Tooltip: ""
+}
+
+MadnessPickaxe: {
+	DisplayName: Madness Pickaxe
+	Tooltip: ""
+}
+
+DreadMoonRune: {
+	DisplayName: Dread Moon Rune
+	Tooltip: ""
+}
+
+DreadMoonSigil: {
+	DisplayName: Dread Moon Sigil
+	Tooltip: ""
+}
+
+DreadTerratool: {
+	DisplayName: Dread Terratool
+	Tooltip: ""
+}
+
+CoralAxe: {
+	DisplayName: Coral Axe
+	Tooltip: ""
+}
+
+CoralPickaxe: {
+	DisplayName: Coral Pickaxe
+	Tooltip: ""
+}
+
+Starminer: {
+	DisplayName: Starminer
+	Tooltip: ""
+}
+
+DoomsdayTesseract: {
+	DisplayName: Doomsday Tesseract
+	Tooltip: ""
+}
+
+ERROR_NULL: {
+	DisplayName: E R R O R_ N U L L
+	Tooltip: ""
+}
+
+Terraformer: {
+	DisplayName: Terraformer
+	Tooltip: ""
+}

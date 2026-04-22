@@ -579,3 +579,16 @@ AbyssAltarUnsafe_Tile.MapEntry: Abyss Altar Unsafe_ Tile
 VikingRelic_Tile.MapEntry: Viking Relic_ Tile
 EvilAltarSafe_Tile.MapEntry: Evil Altar Safe_ Tile
 DynaskullFossil_Tile.MapEntry: Dynaskull Fossil_ Tile
+DragonAltarUnsafe_Tile.MapEntry: Dragon Altar Unsafe_ Tile
+OroborosWoodBathtub_Tile.MapEntry: Oroboros Wood Bathtub_ Tile
+OroborosWoodBed_Tile.MapEntry: Oroboros Wood Bed_ Tile
+OroborosWoodBookcase_Tile.MapEntry: Oroboros Wood Bookcase_ Tile
+OroborosWoodChair_Tile.MapEntry: Oroboros Wood Chair_ Tile
+OroborosWoodChest_Tile.MapEntry: Oroboros Wood Chest_ Tile
+OroborosWoodClock_Tile.MapEntry: Oroboros Wood Clock_ Tile
+OroborosWoodDoorClosed_Tile.MapEntry: Oroboros Wood Door Closed_ Tile
+OroborosWoodDoorOpen_Tile.MapEntry: Oroboros Wood Door Open_ Tile
+OroborosWoodLantern_Tile.MapEntry: Oroboros Wood Lantern_ Tile
+OroborosWoodWorkbench_Tile.MapEntry: Oroboros Wood Workbench_ Tile
+DoomBookcase_Tile.MapEntry: Doom Bookcase_ Tile
+RoyalRabbitCage_Tile.MapEntry: Royal Rabbit Cage_ Tile
