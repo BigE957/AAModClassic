@@ -6,16 +6,20 @@ using AAModClassic.UI.WorldGen;
 using Microsoft.Win32;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.OS;
 using Steamworks;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.X86;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -37,6 +41,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         private static bool InitializeSteamSearch()
         {
+            if (!SteamAPI.IsSteamRunning())
+                return false;
+
             steamPath = null;
             if (OperatingSystem.IsWindows())
                 steamPath = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null) as string;
@@ -71,6 +78,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             Music = MusicManagementSystem.MusicSlots["IZDeath"];
             NPC.boss = true;
+            OblivionSpeech = 0;
 
             if (localConfigPath == null)
                 InitializeSteamSearch();
@@ -113,11 +121,16 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         case 1080:
                             if (player.difficulty == 2)
                             {
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore"), color1);
+                                if (IsPlayerStreaming())
+                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Streaming"), color1);
+                                else
+                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Normal", Environment.UserName), color1);
                                 Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
                             }
+                            else if(IsPlayerStreaming())
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Streaming"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", player.name), color1);
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", Environment.UserName), color1);
                             break;
                         case 1260:
                             if (player.difficulty == 2)
@@ -236,11 +249,54 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     {
                         case 180:
                             Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", AAPlayer.IZKills), color1);
-                            SpeechRand = 2;// Main.rand.Next(7);
+                            SpeechRand = Main.rand.Next(7);
                             break;
                         case 360:
                             switch(SpeechRand)
                             {
+                                case 0:
+                                    if (SteamAPI.IsSteamRunning())
+                                    {
+                                        int friendCount = SteamFriends.GetFriendCount(EFriendFlags.k_EFriendFlagImmediate);
+                                        if(friendCount <= 0)
+                                        {
+                                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Friendless"), color1);
+                                            break;
+                                        }
+
+                                        List<string> onlineFriends = [];
+                                        for (int i = 0; i < friendCount; i++)
+                                        {
+                                            CSteamID friendID = SteamFriends.GetFriendByIndex(i, EFriendFlags.k_EFriendFlagImmediate);
+
+                                            // Get the friend's current status
+                                            EPersonaState state = SteamFriends.GetFriendPersonaState(friendID);
+
+                                            // Check if they are explicitly "Online" (State 1)
+                                            if (state == EPersonaState.k_EPersonaStateOnline)
+                                                onlineFriends.Add(SteamFriends.GetFriendPersonaName(friendID));
+                                        }
+
+                                        if (onlineFriends.Count > 0)
+                                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Online", onlineFriends[Main.rand.Next(onlineFriends.Count)]), color1);
+                                        else
+                                        {
+                                            CSteamID randomFriend = SteamFriends.GetFriendByIndex(Main.rand.Next(friendCount), EFriendFlags.k_EFriendFlagImmediate);
+                                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Offline", SteamFriends.GetFriendPersonaName(randomFriend)), color1);
+                                        }
+                                    }
+                                    else
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2." + SpeechRand), color1);
+                                    break;
+                                case 1:
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Job"), color1);
+                                        Platform.Get<IPathService>().OpenURL("https://www.linkedin.com/jobs");
+                                    }
+                                    else
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Default"), color1);
+                                    break;
                                 case 2:
                                     Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -249,6 +305,50 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                         if (dialogue != null)
                                             Main.NewText(dialogue, color1);
                                     }
+                                    break;
+                                case 3:
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.3.Computer", Environment.MachineName), color1);
+                                    else
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Default"), color1);
+                                    break;
+                                case 4:
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        MetaPopup.TriggerSystemError(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Notification"));
+                                        NPC.active = false;
+                                    }
+                                    //SendSystemPopup(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Notification.Title"), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Notification.Message"));
+                                    else
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Default"), color1);
+                                    break;
+                                case 5:
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        var (text, status) = GetDiscordContext();
+                                        switch(status)
+                                        {
+                                            case DiscordStatus.None:
+                                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
+                                                break;
+                                            case DiscordStatus.DirectMessage:
+                                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.DM", text), color1);
+                                                break;
+                                            case DiscordStatus.Server:
+                                                switch(text)
+                                                {
+                                                    case "Calamity Dev Server":
+                                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.CalDev"), color1);
+                                                        break;
+                                                    default:
+                                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.Default", text), color1);
+                                                        break;
+                                                }
+                                                break;
+                                        }
+                                    }
+                                    else
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
                                     break;
                                 case 6:
                                     Main.NewText(GetCrossModDialogue(), color1);
@@ -259,17 +359,88 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                             }
                             break;
                     }
-                    if (OblivionSpeech >= 300)
+                    if (OblivionSpeech >= 360)
                     {
                         NPC.alpha += 5;
                     }
                     break;
             }
-
             if (NPC.alpha >= 255)
             {
                 NPC.active = false;
             }
+        }
+
+        private enum DiscordStatus
+        {
+            None,
+            DirectMessage,
+            Server
+        }
+        private static (string text, DiscordStatus status) GetDiscordContext()
+        {
+            var discordProcs = Process.GetProcesses();
+
+            string discordInfo = null;
+
+            foreach (var proc in discordProcs)
+            {
+                string title = proc.MainWindowTitle;
+
+                if (!string.IsNullOrEmpty(title) && title.Contains(" - Discord"))
+                {
+                    discordInfo = title.Replace(" - Discord", "");
+                    break;
+                }
+            }
+
+            if (discordInfo == null)
+                return (null, DiscordStatus.None);
+
+            if (discordInfo.Contains('@'))
+                return (discordInfo.Replace("@", ""), DiscordStatus.DirectMessage);
+            else
+                return (discordInfo.Remove(0, discordInfo.IndexOf('|') + 2), DiscordStatus.Server);
+        }
+
+        private static void SendNotification(string title, string message)
+        {
+            // Only run on Windows to avoid crashing Mac/Linux players
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return;
+
+            // This PowerShell script creates a basic Windows Toast notification
+            string psCommand = $"-Command \"& {{ " +
+                "Add-Type -AssemblyName System.Windows.Forms; " +
+                "Add-Type -AssemblyName System.Drawing; " +
+                "$notify = New-Object System.Windows.Forms.NotifyIcon; " +
+                "$notify.Icon = [System.Drawing.SystemIcons]::Warning; " +
+                "$notify.Visible = $true; " +
+                $"$notify.ShowBalloonTip(5000, '{title}', '{message}', [System.Windows.Forms.ToolTipIcon]::Warning); " +
+                "Start-Sleep -s 6; " + // Wait for it to display
+                "$notify.Dispose(); " +
+                "}\"";
+
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "powershell.exe",
+                Arguments = psCommand,
+                CreateNoWindow = true,      // Keep it invisible to the player
+                UseShellExecute = false,
+                WindowStyle = ProcessWindowStyle.Hidden
+            };
+
+            Process.Start(psi);
+        }
+
+        private static bool IsPlayerStreaming()
+        {
+            // List of common streaming executables DDLC checks for
+            string[] streamApps = { "obs", "obs64", "obs32", "xsplit.core", "livehime" };
+
+            // Get all running processes and check if any match our list
+            var runningProcesses = Process.GetProcesses();
+            return runningProcesses.Any(p => streamApps.Contains(p.ProcessName.ToLower()));
         }
 
         private static readonly HashSet<string> ExcludedAppIDs = [
@@ -610,6 +781,25 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             BaseDrawing.DrawTexture(spriteBatch, glitchTex, 0, NPC, AAColor.Oblivion);
 
             return false;
+        }
+    }
+
+    internal static class MetaPopup
+    {
+        // Imports the standard Windows Message Box function
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
+
+        internal static void TriggerSystemError(string message)
+        {
+            // Only run on Windows
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+
+            // 0x00000010 is the code for the "Critical Error" (Red X) icon
+            // 0x00000000 is the code for a simple "OK" button
+            uint MB_ICONERROR = 0x00000010;
+
+            _ = MessageBox(IntPtr.Zero, message, "System Error", MB_ICONERROR);
         }
     }
 }

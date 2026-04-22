@@ -483,9 +483,14 @@ Zero: {
 		Despawn: TARGET L0ST. RETURNING T0 0RBIT.
 
 		Self-Organization: {
-			1: SELF-ORGNAZATION CHARGING COMPLETED...
-			2: BOOTING IN SELF ORGNAZATION MODE...
-			3: ALLOW {0}\M0DS\AAM0D\ZER0\PR0T0C0L\SELF-ORGNAZATION.EXE ? <Y/N>...
+			1: SELF-0RGNAZATI0N CHARGING C0MPLETED...
+			2: BOOTING IN SELF 0RGNAZATI0N MODE...
+
+			3: {
+				Normal: ALLOW {0}\M0DS\AAM0D\ZER0\SELF-0RGNAZATI0N.EXE ? <Y/N>...
+				Streaming: AUDIENCE P0LL: ALL0W SELF-0RGNAZATI0N.EXE ? <Y/N>...
+			}
+
 			4: ===C A R N A G E===
 		}
 
@@ -732,7 +737,12 @@ InfinityZero: {
 
 			6: {
 				Normal: ...{0}...
-				Hardcore: Good job. Here, have a sticker.
+				Streaming: ...and when there isn't an audiance...
+
+				Hardcore: {
+					Normal: Good job, {0}. Here, have a sticker.
+					Streaming: Guess an audiance can be pretty motivating. Was this some 'challenge run'? Well here, have a sticker.
+				}
 			}
 
 			7: {
@@ -787,8 +797,20 @@ InfinityZero: {
 			1: "{0} kills...congratulations. You have no life."
 
 			2: {
-				0: Go outside and kick a ball or something.
-				1: Isn't there some schoolwork you have to do or an application you need to fill out or something?
+				0: {
+					Default: Go outside and kick a ball or something.
+
+					Friends: {
+						Online: Why not play something with {0}? They're online right now. Surely playing with them would be more fun than bothering me.
+						Offline: Hm, none of your friends are online... Surely you can get one of them to play with you though. Maybe {0}? Or maybe they're all avoiding you... I can see why they might.
+						Friendless: Wait, you seriously have zero steam friends?? Wow, maybe you really don't have anything better to do than bother me...
+					}
+				}
+
+				1: {
+					Default: Isn't there some schoolwork you have to do or an application you need to fill out or something?
+					Job: Here, let me do you a favor. This is just what you need!
+				}
 
 				2: {
 					1: Don't you have other games on Steam you could be playing right now?
@@ -842,9 +864,28 @@ InfinityZero: {
 					}
 				}
 
-				3: Now leave me alone, I have better things to do.
-				4: Fighting you gets really boring you know. You use the same tactics every time.
-				5: Whatever, I'll be seeing you soon...again...assuming you're still a persistent wretch.
+				3: {
+					Default: Now leave me alone, I have better things to do.
+					Computer: If you keep this up I might just have to fry your beloved '{0}'. Don't test me.
+				}
+
+				4: {
+					Default: Fighting you gets really boring you know. You use the same tactics every time.
+					Notification: Message: You should be more careful who you mess with.
+				}
+
+				5: {
+					Default: Whatever, I'll be seeing you soon...again...assuming you're still a persistent wretch.
+
+					Discord: {
+						Server: {
+							CalDev: Why are you even fighting me? Don't you have a Sunken Sea Overhaul to be working on or something?
+							Default: Why don't you just go back to {0} and find someone to bother there, alright?
+						}
+
+						DM: Can't you just go back to bothering {0}? They seem to be willing to put up with you.
+					}
+				}
 
 				Mods: {
 					Thorium: You know Ragnarok is a thing right? World-ending trio? They should be fun to fight. Now go away.
