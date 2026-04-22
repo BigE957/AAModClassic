@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Terraria;
@@ -95,7 +96,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Player player = Main.LocalPlayer;
             OblivionSpeech++;
 
-            switch(AAPlayer.IZKills)
+            switch (AAPlayer.IZKills)
             {
                 case 1:
                     switch(OblivionSpeech)
@@ -130,7 +131,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                             else if(IsPlayerStreaming())
                                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Streaming"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", Environment.UserName), color1);
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", WindowsIdentityHelper.GetRealName()), color1);
                             break;
                         case 1260:
                             if (player.difficulty == 2)
@@ -781,6 +782,28 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             BaseDrawing.DrawTexture(spriteBatch, glitchTex, 0, NPC, AAColor.Oblivion);
 
             return false;
+        }
+    }
+
+    internal static class WindowsIdentityHelper
+    {
+        // Import the GetUserNameEx function from secur32.dll
+        [DllImport("secur32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int GetUserNameEx(int nameFormat, StringBuilder userName, ref uint userNameSize);
+
+        internal static string GetRealName()
+        {
+            // NameDisplay (3) format retrieves the "friendly" name
+            uint size = 1024;
+            StringBuilder sb = new StringBuilder((int)size);
+
+            if (GetUserNameEx(3, sb, ref size) != 0)
+            {
+                return sb.ToString();
+            }
+
+            // Fallback to Environment.UserName if the display name isn't set
+            return Environment.UserName;
         }
     }
 
