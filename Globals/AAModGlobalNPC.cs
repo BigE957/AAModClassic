@@ -1,4 +1,4 @@
-using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
@@ -7,33 +7,34 @@ using AAModClassic.___Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Hell.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
-using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface._Day;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface._Day;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Desert;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic.___Content.Jungle.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface._Night;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface._Night;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Desert;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface._Night;
 using AAModClassic.___Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
@@ -57,7 +58,6 @@ using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -155,7 +155,7 @@ namespace AAModClassic.Globals
         {
             if (npc.type == NPCID.KingSlime || npc.type == NPCID.Plantera || 
                 npc.type == ModContent.NPCType<SerpentBody>() || npc.type == ModContent.NPCType<SerpentHead>() || npc.type == ModContent.NPCType<SerpentTail>() ||
-                npc.type == ModContent.NPCType<SnakeHead>() || npc.type == ModContent.NPCType<SnakeBody>() || npc.type == ModContent.NPCType<SnakeBody2>() || npc.type == ModContent.NPCType<SnakeTail>())
+                npc.type == ModContent.NPCType<SnowSerpentHead>() || npc.type == ModContent.NPCType<SnowSerpentBody>() || npc.type == ModContent.NPCType<SnowSerpentTail>())
             {
                 ApplyDPSDebuff(npc.onFire, 20, ref npc.lifeRegen);
             }

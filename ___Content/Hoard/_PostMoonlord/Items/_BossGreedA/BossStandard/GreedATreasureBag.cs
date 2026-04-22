@@ -1,4 +1,4 @@
-using AAModClassic.___Content._PLACEHOLDER.ore;
+using AAModClassic.___Content.__PLACEHOLDER.ore;
 using AAModClassic.___Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;

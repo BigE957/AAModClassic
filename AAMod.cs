@@ -2,6 +2,7 @@ using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic.___Content.Mire.World.Biomes;
+using AAModClassic.___Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
@@ -10,7 +11,6 @@ using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Dev.Invoker;
-using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
@@ -202,7 +202,7 @@ namespace AAModClassic
                             ModNPC npc = GetNPC(m == 0 ? "SnakeHead" : (m == 1 ? "SnakeBody" : "SnakeTail"));
                             if (npc != null)
                             {
-                                npc.Banner = ModContent.NPCType<SnakeHead>();
+                                npc.Banner = ModContent.NPCType<SnowSerpentHead>();
                                 npc.BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnakeBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }

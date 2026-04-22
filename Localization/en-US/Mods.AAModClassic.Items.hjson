@@ -10749,3 +10749,8 @@ ScorchedEgg: {
 	DisplayName: Scorched Egg
 	Tooltip: ""
 }
+
+PaperBomb: {
+	DisplayName: Paper Bomb
+	Tooltip: ""
+}

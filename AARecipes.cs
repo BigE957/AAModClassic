@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content._PLACEHOLDER;
+﻿using AAModClassic.___Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Crimson.___PreHardmode.Items.Armor;

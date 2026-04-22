@@ -551,7 +551,7 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (Djinn)
             {
-                return NPCExtensions.BeenKilled<Djinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedDjinnY") : 
+                return NPCExtensions.BeenKilled<DesertDjinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedDjinnY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedDjinnN");
             }
             else if (Serpent)
@@ -714,7 +714,7 @@ namespace AAModClassic.NPCs.TownNPCs
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat5"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat6"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat7"));
-            if (NPCExtensions.BeenKilled<Djinn>())
+            if (NPCExtensions.BeenKilled<DesertDjinn>())
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat8"));
             }

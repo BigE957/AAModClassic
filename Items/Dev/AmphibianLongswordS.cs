@@ -3,7 +3,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAModClassic.___Content._PLACEHOLDER;
+using AAModClassic.___Content._Dev.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Dev
 {

@@ -1,4 +1,7 @@
-﻿using AAModClassic.___Content._PLACEHOLDER;
+﻿using AAModClassic.___Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic.___Content._Tinker.___PreHardmode.Items.Armor;
+using AAModClassic.___Content._Tinker.__Hardmode.Items.Accessories;
+using AAModClassic.___Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
 using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic.___Content.Bunny._PostMoonlord.Items.Armor;
@@ -36,9 +39,6 @@ using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic.___Content.Terrarium.Buffs;
-using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.Tinkers.__Hardmode.Items.Accessories;
-using AAModClassic.___Content.Tinkers._PostMoonlord.Items.Accessories;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic.___Content.Void.___PreHardmode.Items.Quest;
@@ -1316,80 +1316,60 @@ namespace AAModClassic
             if (attempt.inHoney)
                 liquidType = 2;
 
-            if (Main.rand.Next(100) < (10 + (Player.cratePotion ? 10 : 0)))
+            if (npcSpawn > 0)
+                return;
+
+            if (itemDrop == ItemID.OldShoe || itemDrop == ItemID.FishingSeaweed || itemDrop == ItemID.TinCan || itemDrop == ItemID.JojaCola)
+                return;
+
+            if (attempt.crate)
             {
-                if (liquidType == 0 && Player.ZoneSnow)
+                if (attempt.rare)
                 {
-                    itemDrop = ModContent.ItemType<IceCrate>();
+                    if (liquidType == 0 && Player.ZoneSnow && Main.rand.NextBool())
+                        itemDrop = ModContent.ItemType<IceCrate>();
+                    if (liquidType == 0 && Player.ZoneDesert && Main.rand.NextBool())
+                        itemDrop = ModContent.ItemType<DesertCrate>();
+                    if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<AAPlayer>().ZoneInferno)
+                        itemDrop = ModContent.ItemType<InfernoCrate>();
+                    if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneMire)
+                        itemDrop = ModContent.ItemType<MireCrate>();
+                    if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneVoid)
+                        itemDrop = ModContent.ItemType<VoidCrate>();
+                    if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneHoard)
+                        itemDrop = ItemID.GoldenCrate;
+                    if (liquidType == 1 && attempt.CanFishInLava && Player.ZoneUnderworldHeight && Main.rand.NextBool())
+                        itemDrop = ModContent.ItemType<HellCrate>();
                 }
-
-                if (liquidType == 0 && Player.ZoneDesert)
-                {
-                    itemDrop = ModContent.ItemType<DesertCrate>();
-                }
-
-                if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<AAPlayer>().ZoneInferno)
-                {
-                    itemDrop = ModContent.ItemType<InfernoCrate>();
-                }
-
-                if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneMire)
-                {
-                    itemDrop = ModContent.ItemType<MireCrate>();
-                }
-
-                if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneVoid)
-                {
-                    itemDrop = ModContent.ItemType<VoidCrate>();
-                }
-
-                if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneHoard)
-                {
-                    itemDrop = ItemID.GoldenCrate;
-                }
-
-                if (liquidType == 1 && attempt.CanFishInLava && Player.ZoneUnderworldHeight)
-                {
-                    itemDrop = ModContent.ItemType<HellCrate>();
-                }
+                return;
             }
 
-            if (attempt.questFish == ModContent.ItemType<TriHeadedKoi>() && Player.GetModPlayer<AAPlayer>().ZoneMire && Main.rand.NextBool())
-            {
+            if (attempt.questFish == ModContent.ItemType<TriHeadedKoi>() && Player.GetModPlayer<AAPlayer>().ZoneMire && attempt.uncommon)
                 itemDrop = ModContent.ItemType<TriHeadedKoi>();
-            }
-
-            if (attempt.questFish == ModContent.ItemType<Fishmother>() && Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.rand.NextBool())
-            {
+            if (attempt.questFish == ModContent.ItemType<Fishmother>() && Player.GetModPlayer<AAPlayer>().ZoneInferno && attempt.uncommon)
                 itemDrop = ModContent.ItemType<Fishmother>();
-            }
-
-            if (attempt.questFish == ModContent.ItemType<GlitchFish>() && Player.GetModPlayer<AAPlayer>().ZoneVoid && Main.rand.NextBool())
-            {
+            if (attempt.questFish == ModContent.ItemType<GlitchFish>() && Player.GetModPlayer<AAPlayer>().ZoneVoid && attempt.uncommon)
                 itemDrop = ModContent.ItemType<GlitchFish>();
-            }
 
             if (Player.GetModPlayer<AAPlayer>().ZoneInferno)
             {
-                if(Main.rand.NextBool(50) && Main.hardMode)
+                if(attempt.legendary)
                 {
-                    itemDrop = ModContent.ItemType<ScorchShark>();
-                }
-                else if(Main.rand.NextBool(49))
-                {
-                    itemDrop = ModContent.ItemType<SharpeningLavaFish>();
+                    if (Main.rand.NextBool() && Main.hardMode)
+                        itemDrop = ModContent.ItemType<SharpeningLavaFish>();
+                    else
+                        itemDrop = ModContent.ItemType<ScorchShark>();
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneMire && Main.hardMode)
+            if (Player.GetModPlayer<AAPlayer>().ZoneMire)
             {
-                if(Main.rand.NextBool(50) && Main.hardMode)
+                if (attempt.legendary)
                 {
-                    itemDrop = ModContent.ItemType<SwimmingHydra>();
-                }
-                else if(Main.rand.NextBool(49))
-                {
-                    itemDrop = ModContent.ItemType<ToxinMonkfish>();
+                    if (Main.rand.NextBool() && Main.hardMode)
+                        itemDrop = ModContent.ItemType<ToxinMonkfish>();
+                    else
+                        itemDrop = ModContent.ItemType<SwimmingHydra>();
                 }
             }
 
