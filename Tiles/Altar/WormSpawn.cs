@@ -57,57 +57,62 @@ namespace AAModClassic.Tiles.Altar
 
             string s = Main.netMode == NetmodeID.SinglePlayer ? "" : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.s");
 
-            if (NPC.ai[0] == 180)
+            if (NPC.ai[0] == 175)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn1"), new Color(0, 255, 181));
             }
 
-            if (NPC.ai[0] == 360)
+            if (NPC.ai[0] == 235)
             {
 
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn2") + s + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn3"), new Color(43, 178, 245));
             }
 
-            if (NPC.ai[0] == 540)
+            if (NPC.ai[0] == 380)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn4"), new Color(0, 255, 181));
             }
 
-            if (NPC.ai[0] == 720)
+            if (NPC.ai[0] == 540)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn5"), new Color(43, 178, 245));
             }
-            if (NPC.ai[0] == 900)
+            if (NPC.ai[0] == 720)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn6") + s + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn7"), new Color(43, 178, 245));
             }
 
-            if (NPC.ai[0] == 960)
+            if (NPC.ai[0] == 780)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn8"), new Color(0, 255, 181));
             }
 
-            if (NPC.ai[0] == 1140)
+            if (NPC.ai[0] == 990)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn9"), new Color(43, 178, 245));
             }
 
-            if (NPC.ai[0] == 1320)
+            if (NPC.ai[0] == 1200)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn10"), new Color(0, 255, 181));
             }
 
-            if (NPC.ai[0] == 1520)
+            if (NPC.ai[0] == 1480)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn11"), new Color(0, 255, 181));
             }
 
-            if (NPC.ai[0] >= 1880)
+            if (NPC.ai[0] == 1600)
             {
                 string name = Main.netMode == NetmodeID.SinglePlayer ? player.name : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.heroes");
 
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn12") + name + ".", new Color(0, 255, 181));
 
+                AAWorld.WormActive = true;
+            }
+
+            if (NPC.ai[0] >= 1880)
+            {
                 AAWorld.WormActive = true;
                 NPC.active = false;
                 NPC.netUpdate = true;
