@@ -1,9 +1,9 @@
 ﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -126,9 +126,9 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
 
             if (ContentReplacementSystem.NeedToReplaceContent)
-                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonsSoul>(), ModContent.ItemType<DragonsGuard>()));
+                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AAModClassic.Items.Pets.BroodEgg>(), 10));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ScorchedEgg>(), 10));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ScorchedScale>(), 1, 50, 75));
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 75, 100));

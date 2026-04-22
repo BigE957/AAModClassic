@@ -13,7 +13,6 @@ using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Magic;
-using AAModClassic.Items.Pets;
 using AAModClassic.Items.Blocks;
 using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
@@ -31,6 +30,7 @@ using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Acce
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
 
 namespace AAModClassic.Globals
 {
@@ -413,7 +413,7 @@ namespace AAModClassic.Globals
                                 item = ModContent.ItemType<Volley>();
                                 break;
                             case 3:
-                                item = ModContent.ItemType<DragonsSoul>();
+                                item = ModContent.ItemType<DragonSoul>();
                                 break;
                             default:
                                 item = ModContent.ItemType<DragonsGuard>();

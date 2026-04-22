@@ -1,5 +1,5 @@
 using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic.Items.Pets;
+using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

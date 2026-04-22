@@ -1,11 +1,11 @@
 using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;

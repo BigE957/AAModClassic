@@ -3,11 +3,10 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Buffs;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets
 {
-    public class BroodEgg : BaseAAItem
+    public class ScorchedEgg : BaseAAItem
 	{
         
         public override void SetStaticDefaults()
@@ -21,9 +20,9 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.DD2PetGhost);
-			Item.shoot = ModContent.ProjectileType<Broodmini>();
+			Item.shoot = ModContent.ProjectileType<ScorchedEgg_Broodmini>();
             
-            Item.buffType = ModContent.BuffType<Broodmini_Buff>();
+            Item.buffType = ModContent.BuffType<ScorchedEgg_Buff>();
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

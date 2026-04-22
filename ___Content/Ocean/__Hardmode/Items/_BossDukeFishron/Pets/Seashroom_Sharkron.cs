@@ -2,34 +2,33 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets
 {
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEM
     /// </summary>
-    public class MiniProbe : ModProjectile
+    public class Seashroom_Sharkron : ModProjectile
     {
-        
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mini Probe"); // Automatic from .lang files
-			Main.projFrames[Projectile.type] = 6;
+			// DisplayName.SetDefault("Sharkron"); // Automatic from .lang files
+			Main.projFrames[Projectile.type] = 4;
 			Main.projPet[Projectile.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			Projectile.CloneDefaults(ProjectileID.SuspiciousTentacle);
-            AIType = ProjectileID.SuspiciousTentacle;
-            Projectile.width = 14;
-            Projectile.height = 14;
+			Projectile.CloneDefaults(ProjectileID.ZephyrFish);
+			AIType = ProjectileID.ZephyrFish;
+            Projectile.width = 66;
+            Projectile.height = 56;
             
         }
 
-        public override bool PreAI()
+		public override bool PreAI()
 		{
 			Player player = Main.player[Projectile.owner];
-			player.suspiciouslookingTentacle = false; // Relic from aiType
+			player.zephyrfish = false; // Relic from aiType
 			return true;
 		}
 
@@ -39,9 +38,9 @@ namespace AAModClassic.Items.Pets
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			if (player.dead)
 			{
-				modPlayer.MiniProbe = false;
+				modPlayer.Sharkron = false;
 			}
-			if (modPlayer.MiniProbe)
+			if (modPlayer.Sharkron)
 			{
 				Projectile.timeLeft = 2;
 			}

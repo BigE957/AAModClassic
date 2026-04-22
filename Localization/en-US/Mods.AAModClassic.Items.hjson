@@ -10739,3 +10739,13 @@ Terraformer: {
 	DisplayName: Terraformer
 	Tooltip: ""
 }
+
+DragonSoul: {
+	DisplayName: Dragon Soul
+	Tooltip: ""
+}
+
+ScorchedEgg: {
+	DisplayName: Scorched Egg
+	Tooltip: ""
+}

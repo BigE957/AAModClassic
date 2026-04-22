@@ -2,12 +2,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets
 {
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEM
     /// </summary>
-    public class Broodmini : ModProjectile
+    public class ScorchedEgg_Broodmini : ModProjectile
     {
         
         public override void SetStaticDefaults()

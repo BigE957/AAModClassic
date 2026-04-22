@@ -3,9 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Buffs;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets
 {
     public class Seashroom : BaseAAItem
 	{
@@ -21,9 +20,9 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = ModContent.ProjectileType<Sharkron>();
+			Item.shoot = ModContent.ProjectileType<Seashroom_Sharkron>();
             
-            Item.buffType = ModContent.BuffType<Sharkron_Buff>();
+            Item.buffType = ModContent.BuffType<Seashroom_Buff>();
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

@@ -5,13 +5,13 @@ using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Pets;
 using AAModClassic.Globals;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Magic;
 using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
 
 namespace AAModClassic.Tiles.Boss
 {
@@ -44,7 +44,7 @@ namespace AAModClassic.Tiles.Boss
             drop1 = ModContent.ItemType<Pyrosphere>();
             drop2 = ModContent.ItemType<Firebuster>();
             drop3 = ModContent.ItemType<Volley>();
-            drop4 = ModContent.ItemType<DragonsSoul>();
+            drop4 = ModContent.ItemType<DragonSoul>();
             drop5 = ModContent.ItemType<DragonsGuard>();
             AddMapEntry(new Color(102, 45, 42), name);
             TileID.Sets.DisableSmartCursor[Type] = true;

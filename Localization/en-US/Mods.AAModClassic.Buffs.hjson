@@ -1468,3 +1468,18 @@ RajahsRage_Buff: {
 	DisplayName: Rajahs Rage_ Buff
 	Description: Mods.AAModClassic.Buffs.RajahsRage_Buff.Description
 }
+
+ScorchedEgg_Buff: {
+	DisplayName: Scorched Egg_ Buff
+	Description: Mods.AAModClassic.Buffs.ScorchedEgg_Buff.Description
+}
+
+Seashroom_Buff: {
+	DisplayName: Seashroom_ Buff
+	Description: Mods.AAModClassic.Buffs.Seashroom_Buff.Description
+}
+
+ZeroCore_Buff: {
+	DisplayName: Zero Core_ Buff
+	Description: Mods.AAModClassic.Buffs.ZeroCore_Buff.Description
+}

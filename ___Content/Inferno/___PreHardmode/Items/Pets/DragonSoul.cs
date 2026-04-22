@@ -3,11 +3,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using AAModClassic.Buffs;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets
 {
-    public class DragonsSoul : BaseAAItem
+    public class DragonSoul : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -21,7 +20,7 @@ It feels hot, but comforting..."); */
 		{
 			Item.damage = 0;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.shoot = ModContent.ProjectileType<DragonSoul>();
+			Item.shoot = ModContent.ProjectileType<DragonSoul_DragonSoul>();
 			Item.width = 16;
 			Item.height = 30;
 			Item.UseSound = SoundID.Item2;

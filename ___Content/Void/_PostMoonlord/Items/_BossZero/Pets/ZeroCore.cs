@@ -1,11 +1,10 @@
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Void._PostMoonlord.Items._BossZero.Pets
 {
     public class ZeroCore : BaseAAItem
 	{
@@ -22,8 +21,8 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = ModContent.ProjectileType<ZeroBab>();
-            Item.buffType = ModContent.BuffType<ZeroBab_Buff>();
+			Item.shoot = ModContent.ProjectileType<ZeroCore_ZeroBab>();
+            Item.buffType = ModContent.BuffType<ZeroCore_Buff>();
             Item.noUseGraphic = true;
 		}
 

@@ -1,10 +1,9 @@
-using AAModClassic.Items.Pets;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Void._PostMoonlord.Items._BossZero.Pets
 {
-    public class ZeroBab_Buff : ModBuff
+    public class ZeroCore_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
@@ -20,10 +19,10 @@ namespace AAModClassic.Buffs
 			player.buffTime[buffIndex] = 1800000;
 			player.detectCreature = true;
             player.GetModPlayer<AAPlayer>().ZeroBab = true;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<ZeroBab>()] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<ZeroCore_ZeroBab>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<ZeroBab>(), 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<ZeroCore_ZeroBab>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}

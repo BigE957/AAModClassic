@@ -6,9 +6,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Void._PostMoonlord.Items._BossZero.Pets
 {
-    public class ZeroBab : ModProjectile
+    public class ZeroCore_ZeroBab : ModProjectile
     {
         public override void SetStaticDefaults()
         {
