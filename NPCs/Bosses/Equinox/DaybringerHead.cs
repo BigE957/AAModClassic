@@ -127,61 +127,40 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 		{
 			bool daybringerExists = NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>());
 			bool nightcrawlerExists = NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>());
+
+            int rate = 1;
+
 			if (daybringerExists && nightcrawlerExists)
             {
                 if((NPC.type == ModContent.NPCType<DaybringerHead>() && Main.dayTime && !preShootingSun) || (NPC.type == ModContent.NPCType<NightcrawlerHead>() && !Main.dayTime && !preDeathRay))
                 {
                     if (Main.expertMode)
-                    {
-                        Main.fastForwardTimeToDusk = true;
-                        Main.fastForwardTimeToDawn = true;
-                        Main.dayRate = 20;
-                    }else
-                    {
-                        Main.fastForwardTimeToDusk = true;
-                        Main.fastForwardTimeToDawn = true;
-                        Main.dayRate = 15;
-                    }
+                        rate = 20;
+                    else
+                        rate = 15;
                 }
                 else if((NPC.type == ModContent.NPCType<DaybringerHead>() && preShootingSun) || (NPC.type == ModContent.NPCType<NightcrawlerHead>() && (preDeathRay || isDeathRay)))
                 {
-                    Main.dayRate = 0;
-                    Main.fastForwardTimeToDusk = false;
-                    Main.fastForwardTimeToDawn = false;
-                    Main.time --;
+                    rate = 0;
+                    Main.time--;
                 }
-            }else
-            if ((daybringerExists && !nightcrawlerExists))
-            {
-                Main.fastForwardTimeToDusk = true;
-                Main.fastForwardTimeToDawn = true;
-                Main.dayTime = true;
-                Main.dayRate = 0;
-                if(preShootingSun)
-                {
-                    Main.fastForwardTimeToDusk = false;
-                    Main.fastForwardTimeToDawn = false;
-                    Main.time --;
-                }
-            }else
-            if ((!daybringerExists && nightcrawlerExists))
-            {
-                Main.fastForwardTimeToDusk = true;
-                Main.fastForwardTimeToDawn = true;
-                Main.dayTime = false;
-                Main.dayRate = 0;
-                if(preDeathRay || isDeathRay)
-                {
-                    Main.fastForwardTimeToDusk = false;
-                    Main.fastForwardTimeToDawn = false;
-                    Main.time --;
-                }
-            }else
-            {
-                Main.dayRate = 1;
-                Main.fastForwardTimeToDusk = false;
-                Main.fastForwardTimeToDawn = false;
             }
+            else if ((daybringerExists && !nightcrawlerExists))
+            {
+                Main.dayTime = true;
+                rate = 0;
+                if(preShootingSun)
+                    rate--;
+            }
+            else if ((!daybringerExists && nightcrawlerExists))
+            {
+                Main.dayTime = false;
+                rate = 0;
+                if(preDeathRay || isDeathRay)
+                    rate--;
+            }
+
+            Main.time += rate - 1;
 		}
         bool preDeathRay = false;
         bool isDeathRay = false;
