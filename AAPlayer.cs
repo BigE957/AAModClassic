@@ -417,6 +417,8 @@ namespace AAModClassic
             if (AnubisBook) saved.Add("Book");
             if (GivenAnuSummon) saved.Add("Stick");
             if (GivenWormIdol) saved.Add("Idol");
+            tag.Add("saved", saved);
+            tag.Add("izKills", IZKills);
         }
 
         public override void LoadData(TagCompound tag)
@@ -425,6 +427,7 @@ namespace AAModClassic
             AnubisBook = downed.Contains("Book");
             GivenAnuSummon = downed.Contains("Stick");
             GivenWormIdol = downed.Contains("Idol");
+            IZKills = tag.GetInt("izKills");
         }
 
         #endregion
