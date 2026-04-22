@@ -2,6 +2,7 @@
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.___Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -764,11 +765,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 }
             }
 
-            if (internalAI[3]++ > 400 && NPC.CountNPCS(ModContent.NPCType<Enemies.Snow.SnakeHead>()) < 3)
+            if (internalAI[3]++ > 400 && NPC.CountNPCS(ModContent.NPCType<SnowSerpentHead>()) < 3)
             {
-                for (int i = 0; i < 3 - NPC.CountNPCS(ModContent.NPCType<Enemies.Snow.SnakeHead>()); i++)
+                for (int i = 0; i < 3 - NPC.CountNPCS(ModContent.NPCType<SnowSerpentHead>()); i++)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Enemies.Snow.SnakeHead>(), false, 0, 0, "Snake", false);
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SnowSerpentHead>(), false, 0, 0, "Snake", false);
                 }
                 internalAI[3] = 0;
             }

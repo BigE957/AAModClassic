@@ -1483,3 +1483,8 @@ ZeroCore_Buff: {
 	DisplayName: Zero Core_ Buff
 	Description: Mods.AAModClassic.Buffs.ZeroCore_Buff.Description
 }
+
+PaperBomb_Buff: {
+	DisplayName: Paper Bomb_ Buff
+	Description: Mods.AAModClassic.Buffs.PaperBomb_Buff.Description
+}

@@ -1,5 +1,5 @@
-﻿using AAModClassic.___Content._PLACEHOLDER;
-using AAModClassic.___Content._PLACEHOLDER.ore;
+﻿using AAModClassic.___Content.__PLACEHOLDER.ore;
+using AAModClassic.___Content._EX;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
@@ -42,16 +42,16 @@ using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
-using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface._Day;
 using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface._Day;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Desert;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic.___Content.Inferno._PostMoonlord.Items._BossAkuma;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic.___Content.Inferno.Buffs;
 using AAModClassic.___Content.Madness.___PreHardmode.NPCs;
@@ -60,10 +60,10 @@ using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
 using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface._Night;
 using AAModClassic.___Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface;
+using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface._Night;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Desert;
 using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Snow;
@@ -73,13 +73,14 @@ using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface._Night;
 using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic.___Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
 using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
@@ -135,7 +136,6 @@ using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.Projectiles;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Projectiles.EFish;
@@ -832,7 +832,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Djinn
-                AddBoss(bossChecklist, mod, "DesertDjinn", (Func<bool>)(() => NPCExtensions.BeenKilled<Djinn>()), ModContent.NPCType<Djinn>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "DesertDjinn", (Func<bool>)(() => NPCExtensions.BeenKilled<DesertDjinn>()), ModContent.NPCType<DesertDjinn>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "DesertDjinn.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "DesertDjinn.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DesertLamp>() + "]"),
@@ -1258,7 +1258,7 @@ namespace AAModClassic.CrossMod
                 fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "DragonBell", (Func<bool>)(() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (Func<bool>)(() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (Func<bool>)(() => NPCExtensions.BeenKilled<SerpentHead>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DjinnLamp", (Func<bool>)(() => NPCExtensions.BeenKilled<Djinn>()), 100000);
+                fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DjinnLamp", (Func<bool>)(() => NPCExtensions.BeenKilled<DesertDjinn>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (Func<bool>)(() => NPCExtensions.BeenKilled<Sag>()), 200000);
                 fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "Scepter", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), 400000);
                 fargos.Call("AddSummon", BossProgressionValues["Athena"], "AAModClassic", "Owl", (Func<bool>)(() => NPCExtensions.BeenKilled<Athena>()), 500000);
@@ -1483,13 +1483,11 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<PuritySphere>());
                 redemption.Call("addElementNPC", (int)ElementalID.Nature, ModContent.NPCType<PuritySquid>());
 
-                //TODO: Where? Are you?
-                //redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<MiniDjinn>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<DesertDjinn>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeHead>());
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeBody>());
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeBody2>());
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnakeTail>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnowSerpentHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnowSerpentBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SnowSerpentTail>());
 
                 //HM
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<BlazePhoenix>());
@@ -1581,7 +1579,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SerpentBody>());
                 redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SerpentTail>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<Djinn>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<DesertDjinn>());
 
                 //HM
                 redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<Anubis>());

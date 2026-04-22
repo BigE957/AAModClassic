@@ -1,4 +1,4 @@
-using AAModClassic.___Content._PLACEHOLDER.ore.projs;
+using AAModClassic.___Content.__PLACEHOLDER.ore.projs;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.___Content.Mire.Buffs;
 using Microsoft.Xna.Framework;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using AAModClassic.___Content._PLACEHOLDER.ore;
+using AAModClassic.___Content.__PLACEHOLDER.ore;
 using AAModClassic.___Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;

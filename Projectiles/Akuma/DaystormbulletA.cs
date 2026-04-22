@@ -1,4 +1,4 @@
-using AAModClassic.___Content._PLACEHOLDER.ore.projs;
+using AAModClassic.___Content.__PLACEHOLDER.ore.projs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

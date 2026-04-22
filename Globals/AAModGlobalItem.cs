@@ -25,12 +25,12 @@ using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
-using AAModClassic.___Content.Tinkers.___PreHardmode.Items.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
 using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
+using AAModClassic.___Content._Tinker.___PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Globals
 {
