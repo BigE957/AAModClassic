@@ -8,9 +8,20 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
-    public class DaybringerTrophy_Tile : ModTile
+    public class DaybringerTrophy_Tile : ModTile, IGlowmaskTile
 	{
-		public override void SetStaticDefaults()
+        public bool ShouldDrawGlow => Main.dayTime;
+
+        public Point GetCoordinateSize(int x, int y)
+        {
+            Tile tile = Main.tile[x, y];
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            return new Point(16, height);
+        }
+
+        public Color GlowColor => AAColor.Glow;
+
+        public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -23,6 +34,7 @@ namespace AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Bo
 			AddMapEntry(new Color(120, 85, 60));
 		}
 
+        /*
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];
@@ -37,5 +49,6 @@ namespace AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Bo
                 Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/DBTrophy_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             }
         }
+        */
 	}
 }

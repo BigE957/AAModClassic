@@ -14,6 +14,8 @@ using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.World.Tiles;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 
 namespace AAModClassic.Globals
 {
@@ -754,7 +756,7 @@ namespace AAModClassic.Globals
             }
         }
 
-        public int DropOreMethod(int x, int y, int type)
+        public static int DropOreMethod(int x, int y, int type)
         {
             float ChanceBalance = 1;
             int SecondDrop = Config.LuckyOre.Keys.Count;
@@ -831,6 +833,30 @@ namespace AAModClassic.Globals
             }
             return 0;
         }
+
+        public override void PostDraw(int i, int j, int type, SpriteBatch spriteBatch)
+        {
+            ModTile tile = ModContent.GetModTile(type);
+            if (tile != null && tile is IGlowmaskTile glowTile && glowTile.ShouldDrawGlow)
+            {
+                if (ModContent.RequestIfExists(tile.Texture + "_Glow", out Asset<Texture2D> tex))
+                {
+                    Tile t = Main.tile[i, j];
+                    Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
+                    if (Main.drawToScreen)
+                        zero = Vector2.Zero;
+
+                    Point coordSize = glowTile.GetCoordinateSize(i, j);
+                    Main.spriteBatch.Draw(tex.Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(t.TileFrameX, t.TileFrameY, coordSize.X, coordSize.Y), glowTile.GlowColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                }
+            }
+        }
+    }
+
+    public interface IGlowmaskTile
+    {
+        public bool ShouldDrawGlow => true;
+        public Point GetCoordinateSize(int x, int y) => new(16, 16);
+        public Color GlowColor => Color.White;
     }
 }
-
