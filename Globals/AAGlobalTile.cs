@@ -16,6 +16,9 @@ using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.___Content.Inferno.World.Tiles;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System.Collections.Generic;
+using Terraria.ModLoader.IO;
+using System.Linq;
 
 namespace AAModClassic.Globals
 {
@@ -196,6 +199,9 @@ namespace AAModClassic.Globals
 
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
+                return false;
+
             Tile t = Main.tile[i, j - 1];
 
             if(!t.HasTile)
@@ -217,6 +223,9 @@ namespace AAModClassic.Globals
         {
             Tile t = Main.tile[i, j - 1];
             if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (t.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+                return false;
+
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
 
             return base.CanExplode(i, j, type);
@@ -850,6 +859,48 @@ namespace AAModClassic.Globals
                     Main.spriteBatch.Draw(tex.Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(t.TileFrameX, t.TileFrameY, coordSize.X, coordSize.Y), glowTile.GlowColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 }
             }
+        }
+    }
+
+    public class AAGlobalWall : GlobalWall
+    {
+        public override void KillWall(int i, int j, int type, ref bool fail)
+        {
+            if (TileProtectionSystem.UnbreakableWalls.Contains(new(i, j)))
+                fail = true;
+        }
+
+        public override bool CanExplode(int i, int j, int type)
+        {
+            if (TileProtectionSystem.UnbreakableWalls.Contains(new(i, j)))
+                return false;
+            return base.CanExplode(i, j, type);
+        }
+    }
+
+    public class TileProtectionSystem : ModSystem
+    {
+        public static readonly HashSet<Point> UnbreakableTiles = [];
+
+        public static readonly HashSet<Point> UnbreakableWalls = [];
+
+        public override void SaveWorldData(TagCompound tag)
+        {
+            tag["ProtectedTileList"] = UnbreakableTiles.ToList();
+            tag["ProtectedWallList"] = UnbreakableWalls.ToList();
+        }
+
+        public override void LoadWorldData(TagCompound tag)
+        {
+            UnbreakableTiles.Clear();
+            var list = tag.GetList<Point>("ProtectedTileList");
+            foreach(Point p in list)
+                UnbreakableTiles.Add(p);
+
+            UnbreakableWalls.Clear();
+            list = tag.GetList<Point>("ProtectedWallList");
+            foreach (Point p in list)
+                UnbreakableWalls.Add(p);
         }
     }
 

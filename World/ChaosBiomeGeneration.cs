@@ -334,12 +334,18 @@ namespace AAModClassic.World
             {
                 [new Color(255, 0, 0)] = ModContent.TileType<Torchstone_Tile>(),
                 [new Color(0, 0, 255)] = ModContent.TileType<Torchstone_Tile>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<ScorchedDynastyWoodS_Tile>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<ScorchedShinglesS_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<ScorchedDynastyWood_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<ScorchedShingles_Tile>(),
                 [new Color(255, 0, 255)] = ModContent.TileType<ScorchedPlatform_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning
             };
+
+            HashSet<int> protectedTiles = [
+                ModContent.TileType<ScorchedDynastyWood_Tile>(),
+                ModContent.TileType<ScorchedShingles_Tile>(),
+                ModContent.TileType<ScorchedPlatform_Tile>(),
+            ];
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
@@ -348,7 +354,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.VolcanoTileData, colorToTile, TexGenAssets.VolcanoWallData, colorToWall, TexGenAssets.VolcanoLiquidData);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.VolcanoTileData, colorToTile, TexGenAssets.VolcanoWallData, colorToWall, TexGenAssets.VolcanoLiquidData, unbreakableTiles: protectedTiles, unbreakableWalls: [ModContent.WallType<ScorchedDynastyWoodWall_Wall>()]);
             Point newOrigin = new Point(origin.X, origin.Y - 30); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...

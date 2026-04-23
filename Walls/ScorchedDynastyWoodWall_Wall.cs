@@ -16,7 +16,7 @@ namespace AAModClassic.Walls
 			num = fail ? 1 : 3;
 		}
 
-
+        /*
         public override void KillWall(int i, int j, ref bool fail)
         {
             if (AAWorld.downedShen)
@@ -30,5 +30,6 @@ namespace AAModClassic.Walls
         {
             return false;
         }
+        */
     }
 }

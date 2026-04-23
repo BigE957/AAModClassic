@@ -32,7 +32,7 @@ unreleased
 -
 
 unofficial
--unreleased: oblivion has special dialogue which can randomly occur after four kills
+-unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
 -
 
 crossmod

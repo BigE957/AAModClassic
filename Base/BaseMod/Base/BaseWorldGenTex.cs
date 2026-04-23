@@ -1,3 +1,4 @@
+using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -69,9 +70,12 @@ namespace AAModClassic.Base.BaseMod.Base
         public static Dictionary<Color, int> colorToLiquid;
         public static Dictionary<Color, int> colorToSlope;
 
+        public static HashSet<int> unbreakableTileIDs = [];
+        public static HashSet<int> unbreakableWallIDs = [];
+
         public int width, height;
-        private TileInfo[,] tileGen;
-        private int torchStyle = 0, platformStyle = 0;
+        private readonly TileInfo[,] tileGen;
+        private const int torchStyle = 0, platformStyle = 0;
 
         public TexGen(int w, int h)
         {
@@ -100,6 +104,12 @@ namespace AAModClassic.Base.BaseMod.Base
                     if (info.tileID != -1 || info.wallID > -1 || info.wire > -1)
                     {
                         WorldGenUtils.GenerateTile(x2, y2, info.tileID, info.wallID, info.tileStyle != 0 ? info.tileStyle : info.tileID == TileID.Torches ? torchStyle : info.tileID == TileID.Platforms ? platformStyle : 0, info.tileID > -1, info.liquidAmt == 0, info.slope, silent: silent, sync: sync);
+
+                        if (unbreakableTileIDs.Contains(info.tileID))
+                            TileProtectionSystem.UnbreakableTiles.Add(new(x2, y2));
+
+                        if (unbreakableWallIDs.Contains(info.wallID))
+                            TileProtectionSystem.UnbreakableWalls.Add(new(x2, y2));
                     }
                     if (info.liquidType != -1)
                     {
@@ -139,7 +149,7 @@ namespace AAModClassic.Base.BaseMod.Base
         /// Creates a <see cref="TexGen"/> from <see cref="TexGenData"/>s. 
         /// NOTE: all textures MUST be the same size or horrible things happen! 
         /// </summary>
-        public static TexGen GetTexGenerator(TexGenData tileData, Dictionary<Color, int> colorToTile, TexGenData wallData = null, Dictionary<Color, int> colorToWall = null, TexGenData liquidData = null, TexGenData slopeData = null, TexGenData objectData = null, Dictionary<Color, int> colorToObject = null)
+        public static TexGen GetTexGenerator(TexGenData tileData, Dictionary<Color, int> colorToTile, TexGenData wallData = null, Dictionary<Color, int> colorToWall = null, TexGenData liquidData = null, TexGenData slopeData = null, TexGenData objectData = null, Dictionary<Color, int> colorToObject = null, HashSet<int> unbreakableTiles = null, HashSet<int> unbreakableWalls = null)
         {
             if (colorToLiquid == null)
             {
@@ -161,6 +171,12 @@ namespace AAModClassic.Base.BaseMod.Base
                     [new Color(0, 0, 0)] = -2 // FULLBLOCK //
                 };
             }
+
+            if (unbreakableTiles != null)
+                unbreakableTileIDs = unbreakableTiles;
+
+            if (unbreakableWalls != null)
+                unbreakableWallIDs = unbreakableWalls;
 
             int x = 0, y = 0;
             TexGen gen = new(tileData.Width, tileData.Height);

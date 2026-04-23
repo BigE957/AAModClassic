@@ -33,6 +33,7 @@ namespace AAModClassic.Tiles
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
 		}
+		/*
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {
             return false;
@@ -42,7 +43,7 @@ namespace AAModClassic.Tiles
         {
             return false;
         }
-
+		*/
         public override void PostSetDefaults()
 		{
 			Main.tileNoSunLight[Type] = false;
