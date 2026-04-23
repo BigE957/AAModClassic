@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -6,19 +7,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.___Content.Void.___PreHardmode.Items.Consumables
 {
-    public class VoidCrate_Tile : ModTile
+    public class VoidCrate_Tile : CrateTileAbstract
     {
-        public override void SetStaticDefaults()
-        {
-            LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Void Crate");
-            Main.tileFrameImportant[Type] = true;
-            Main.tileTable[Type] = true;
-            Main.tileSolidTop[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-            TileObjectData.addTile(Type);
-            AddMapEntry(new Color(200, 200, 200), name);
-        }
     }
 }

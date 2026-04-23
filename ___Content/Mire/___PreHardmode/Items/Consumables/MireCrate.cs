@@ -1,41 +1,31 @@
-﻿using AAModClassic.Globals;
-using Terraria;
-using Terraria.ID;
+﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Pets;
+using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic.Items.Magic;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables
 {
-    public class MireCrate : BaseAAItem
+    public class MireCrate : CrateAbstract
     {
-        public override void SetDefaults()
-        {
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Green;
-            Item.maxStack = 99;
-            Item.useAnimation = 15;
-            Item.useTime = 15;
-            Item.autoReuse = true;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.createTile = ModContent.TileType<MireCrate_Tile>();
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Mire Crate");
-            // Tooltip.SetDefault("Right click to open");
-        }
-
-        public override bool CanRightClick()
-        {
-            return true;
-        }
-
-        public override void RightClick(Player player)
-        {
-            AAModGlobalItem.OpenAACrate(player, 1);
-        }
+        public override int Tile => ModContent.TileType<MireCrate_Tile>();
+        public override IItemDropRule[] TopLoot =>
+        [
+            ItemDropRule.OneFromOptionsNotScalingWithLuck
+            (
+                1,
+                ModContent.ItemType<HydrasSpear>(),
+                ModContent.ItemType<Mossket>(),
+                ModContent.ItemType<GlowingMossBall>(),
+                ModContent.ItemType<ShadowBand>(),
+                ModContent.ItemType<GunkWand>()
+            )
+        ];
     }
 }

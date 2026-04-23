@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -6,20 +7,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables
 {
-    public class InfernoCrate_Tile : ModTile
+    public class InfernoCrate_Tile : CrateTileAbstract
     {
-        public override void SetStaticDefaults()
-        {
-            LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Inferno Crate");
-            Main.tileFrameImportant[Type] = true;
-            Main.tileTable[Type] = true;
-            Main.tileSolidTop[Type] = true;
-            Main.tileNoAttach[Type] = false;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-            TileObjectData.addTile(Type);
-            AddMapEntry(new Color(200, 200, 200), name);
-        }
     }
 }

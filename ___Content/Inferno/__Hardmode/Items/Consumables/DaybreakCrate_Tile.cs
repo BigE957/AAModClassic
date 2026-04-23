@@ -5,9 +5,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables
+namespace AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables
 {
-    public class MireCrate_Tile : CrateTileAbstract
+    public class DaybreakCrate_Tile : CrateTileAbstract
     {
     }
 }

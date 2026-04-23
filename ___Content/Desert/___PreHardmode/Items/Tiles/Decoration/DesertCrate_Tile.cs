@@ -5,9 +5,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables
+namespace AAModClassic.___Content.Desert.___PreHardmode.Items.Tiles.Decoration
 {
-    public class MireCrate_Tile : CrateTileAbstract
+    public class DesertCrate_Tile : CrateTileAbstract
     {
     }
 }

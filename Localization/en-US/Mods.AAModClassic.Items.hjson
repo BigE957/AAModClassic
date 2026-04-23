@@ -10754,3 +10754,18 @@ PaperBomb: {
 	DisplayName: Paper Bomb
 	Tooltip: ""
 }
+
+DaybreakCrate: {
+	DisplayName: Daybreak Crate
+	Tooltip: ""
+}
+
+EventideCrate: {
+	DisplayName: Eventide Crate
+	Tooltip: ""
+}
+
+NullCrate: {
+	DisplayName: Null Crate
+	Tooltip: ""
+}
