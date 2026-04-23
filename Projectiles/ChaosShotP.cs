@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
-using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 
 namespace AAModClassic.Projectiles
 {

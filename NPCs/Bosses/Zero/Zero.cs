@@ -1,6 +1,6 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero.Pets;
-using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;

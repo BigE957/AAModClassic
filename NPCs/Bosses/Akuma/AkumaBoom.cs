@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.___Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Akuma
 {

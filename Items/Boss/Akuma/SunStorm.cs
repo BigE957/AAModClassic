@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {

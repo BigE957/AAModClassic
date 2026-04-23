@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Greed;

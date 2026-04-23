@@ -12,8 +12,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Music;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 
 namespace AAModClassic.NPCs.Bosses.Toad
 {

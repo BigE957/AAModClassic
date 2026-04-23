@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Dev.DevTile.Tiles;
 using AAModClassic.Tiles;

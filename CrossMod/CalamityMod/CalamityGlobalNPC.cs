@@ -1,6 +1,6 @@
-using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.AH.Haruka;
 using AAModClassic.NPCs.Bosses.Akuma;

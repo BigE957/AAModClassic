@@ -8,8 +8,8 @@ using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Usable;
 using AAModClassic.Music;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch

@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using Terraria;
 using Terraria.ModLoader;
 

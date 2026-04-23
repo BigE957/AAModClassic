@@ -1,6 +1,6 @@
-﻿using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
-using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
-using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;

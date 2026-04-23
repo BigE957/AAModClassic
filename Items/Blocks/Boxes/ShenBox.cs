@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

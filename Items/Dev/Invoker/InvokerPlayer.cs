@@ -12,7 +12,7 @@ using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Buffs;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 
 namespace AAModClassic.Items.Dev.Invoker
 {

@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Terrarium.Buffs;
+using AAModClassic._Content.Terrarium.Buffs;
 
 namespace AAModClassic.Items.Melee
 {

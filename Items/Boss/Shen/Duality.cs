@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using AAModClassic.___Content.Chaos.Buffs;
-using AAModClassic.___Content.Inferno.Buffs;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
-using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.___Content.Terrarium.Buffs;
+using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.ID;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 
 namespace AAModClassic.Tiles.Plants
 {

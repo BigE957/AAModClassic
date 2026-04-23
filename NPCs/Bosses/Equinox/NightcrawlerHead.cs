@@ -1,6 +1,6 @@
-﻿using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
-using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
-using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;

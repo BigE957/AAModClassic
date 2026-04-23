@@ -1,0 +1,24 @@
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Mire.World.Tiles.Trees
+{
+    public class Bogtus_Tile : ModCactus
+	{
+        public override void SetStaticDefaults()
+        {
+            GrowsOnTileId = [ModContent.TileType<Depthsand_Tile>()];
+        }
+
+        public override Asset<Texture2D> GetFruitTexture()
+        {
+            return null;
+        }
+
+        public override Asset<Texture2D> GetTexture()
+		{
+			return ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Tiles/Trees/Bogtus_Tile");
+		}
+    }
+}

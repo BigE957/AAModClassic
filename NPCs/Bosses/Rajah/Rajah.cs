@@ -20,13 +20,13 @@ using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
 using AAModClassic.Items.Thorium.Healer;
-using AAModClassic.___Content.Bunny.__Hardmode.Items.Materials;
-using AAModClassic.___Content.Bunny._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
-using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
-using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
+using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {

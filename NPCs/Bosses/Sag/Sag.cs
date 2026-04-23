@@ -1,6 +1,6 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;

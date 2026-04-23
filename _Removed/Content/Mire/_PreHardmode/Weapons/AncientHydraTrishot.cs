@@ -4,7 +4,7 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic._Removed.Content.Mire._PreHardmode.Weapons
 {

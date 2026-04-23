@@ -2,7 +2,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic._Content.Mire.World.Tiles;
 
 namespace AAModClassic.Projectiles
 {

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.___Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Blocks;
-using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Tiles
 {

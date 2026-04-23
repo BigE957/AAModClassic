@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Walls.Bricks;
-using AAModClassic.___Content.Snow.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 
 namespace AAModClassic.Items.Walls
 {

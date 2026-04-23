@@ -3,7 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.___Content.Void.Projectiles;
+using AAModClassic._Content.Void.Projectiles;
 
 namespace AAModClassic.Items.Ranged
 {

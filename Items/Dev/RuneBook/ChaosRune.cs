@@ -1,6 +1,6 @@
-using AAModClassic.___Content.__PLACEHOLDER.ore.projs;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic._Content.__PLACEHOLDER.ore.projs;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

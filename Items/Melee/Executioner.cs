@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

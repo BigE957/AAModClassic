@@ -1,5 +1,5 @@
-using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

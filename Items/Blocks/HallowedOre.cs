@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Hallow.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Blocks

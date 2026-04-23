@@ -1,6 +1,6 @@
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.Tiles.Ore;
 using Terraria;
 using Terraria.ID;

@@ -1,5 +1,5 @@
-﻿using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.___Content.Mire.World.Tiles;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Mire.World.Tiles;
 using System;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +14,7 @@ namespace AAModClassic.World.Conversions
             {
                 Func<int[]> tileType = () => [ModContent.TileType<MireGrass_Tile>()];
 
-                (bool success, int type) = ((bool success, int type))spirit.Call("AddSavannaTree", "AAModClassic/___Content/_PLACEHOLDER/crossmod/", "BogwoodAcaciaTree_Tile", tileType, Mod);
+                (bool success, int type) = ((bool success, int type))spirit.Call("AddSavannaTree", "AAModClassic/_Content/_PLACEHOLDER/crossmod/", "BogwoodAcaciaTree_Tile", tileType, Mod);
                 if (success)
                 {
                     spirit.Call("RegisterConversionSet", "AcaciaTree", ModContent.TileType<MireGrass_Tile>(), type);

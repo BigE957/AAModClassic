@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

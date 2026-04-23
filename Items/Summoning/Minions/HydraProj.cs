@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire.Projectiles;
+using AAModClassic._Content.Mire.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

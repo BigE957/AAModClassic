@@ -1,0 +1,19 @@
+using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Mire.World.Tiles
+{
+    public class LivingBogleafWall_Wall : ModWall
+	{
+		public override void SetStaticDefaults()
+		{
+			DustType = ModContent.DustType<Dusts.BogleafDust>();
+			AddMapEntry(new Color(100, 0, 150));
+		}
+
+		public override void NumDust(int i, int j, bool fail, ref int num)
+		{
+			num = fail ? 1 : 3;
+		}
+    }
+}

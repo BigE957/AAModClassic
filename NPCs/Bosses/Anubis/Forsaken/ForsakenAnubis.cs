@@ -1,6 +1,6 @@
-﻿using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
-using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
-using AAModClassic.___Content.Desert._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;

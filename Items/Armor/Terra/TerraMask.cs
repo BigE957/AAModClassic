@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Armor.Terra.Projectiles;
-using AAModClassic.___Content.Hell.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
 
 namespace AAModClassic.Items.Armor.Terra
 {

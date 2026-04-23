@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 
 namespace AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories
 {

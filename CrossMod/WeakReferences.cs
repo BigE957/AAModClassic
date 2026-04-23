@@ -1,97 +1,97 @@
-﻿using AAModClassic.___Content.__PLACEHOLDER.ore;
-using AAModClassic.___Content._EX;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
-using AAModClassic.___Content.Acropolis.__Hardmode.NPCs;
-using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
-using AAModClassic.___Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
-using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA;
-using AAModClassic.___Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
-using AAModClassic.___Content.Chaos.__Hardmode.NPCs;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossShenDoragon;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items.Weapons;
-using AAModClassic.___Content.Chaos.Buffs;
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn;
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
-using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
-using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
-using AAModClassic.___Content.Desert.__Hardmode.Items.Weapons;
-using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
-using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
-using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
-using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed;
-using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
-using AAModClassic.___Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
-using AAModClassic.___Content.Hoard.__Hardmode.NPCs.Scavenger;
-using AAModClassic.___Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
-using AAModClassic.___Content.Inferno.___PreHardmode.NPCs;
-using AAModClassic.___Content.Inferno.___PreHardmode.NPCs._Surface._Day;
-using AAModClassic.___Content.Inferno.___PreHardmode.NPCs.Wyrmling;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Surface._Day;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Desert;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground._Snow;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items._BossAkuma;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs._Surface._Day;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.AncientLung;
-using AAModClassic.___Content.Inferno.Buffs;
-using AAModClassic.___Content.Madness.___PreHardmode.NPCs;
-using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra;
-using AAModClassic.___Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.___Content.Mire.___PreHardmode.NPCs;
-using AAModClassic.___Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic.___Content.Mire.___PreHardmode.NPCs._Surface._Night;
-using AAModClassic.___Content.Mire.__Hardmode.Items.Weapons;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Surface._Night;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Desert;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground._Snow;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs._Surface._Night;
-using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
-using AAModClassic.___Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
-using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
-using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
-using AAModClassic.___Content.Stars._PostMoonlord.NPCs;
-using AAModClassic.___Content.Terrarium.___PreHardmode.NPCs;
-using AAModClassic.___Content.Terrarium.__Hardmode.NPCs;
-using AAModClassic.___Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
-using AAModClassic.___Content.Terrarium.Buffs;
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius;
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero;
+﻿using AAModClassic._Content.__PLACEHOLDER.ore;
+using AAModClassic._Content._EX;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic._Content.Chaos.__Hardmode.NPCs;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
+using AAModClassic._Content.Hallow.__Hardmode.NPCs;
+using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed;
+using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
+using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger;
+using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Madness.___PreHardmode.NPCs;
+using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
+using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.___PreHardmode.NPCs;
+using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire.__Hardmode.NPCs;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
+using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs;
+using AAModClassic._Content.Terrarium.___PreHardmode.NPCs;
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
+using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -870,13 +870,13 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Anubis", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>() + "]"),
                     ["despawnMessage"] = (Func<NPC, LocalizedText>)((NPC npc) => {
                         if (NPC.AnyNPCs(ModContent.NPCType<FATransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
                     }),
-                    ["spawnItems"] = ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisTrophy>(),
@@ -967,7 +967,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "ForsakenAnubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ForsakenAnubis.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "ForsakenAnubis.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<___Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisATrophy>(),

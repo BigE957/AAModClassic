@@ -1,5 +1,5 @@
-using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Tools;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;

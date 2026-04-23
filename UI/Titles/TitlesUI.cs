@@ -1,5 +1,5 @@
-﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+﻿using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;

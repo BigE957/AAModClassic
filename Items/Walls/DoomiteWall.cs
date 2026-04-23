@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Walls.Bricks;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Walls
 {

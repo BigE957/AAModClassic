@@ -1,48 +1,48 @@
-﻿using AAModClassic.___Content._Dev.___PreHardmode.Items.Materials;
-using AAModClassic.___Content._Tinker.___PreHardmode.Items.Armor;
-using AAModClassic.___Content._Tinker.__Hardmode.Items.Accessories;
-using AAModClassic.___Content._Tinker._PostMoonlord.Items.Accessories;
-using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
-using AAModClassic.___Content.Bunny.__Hardmode.Items.Armor;
-using AAModClassic.___Content.Bunny._PostMoonlord.Items.Armor;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
-using AAModClassic.___Content.Chaos.__Hardmode.Items.Armor;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items.Armor;
-using AAModClassic.___Content.Chaos.Buffs;
-using AAModClassic.___Content.Desert.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.___Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
-using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
-using AAModClassic.___Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.Hell.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Consumables;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Quest;
-using AAModClassic.___Content.Inferno.__Hardmode.Items.Consumables;
-using AAModClassic.___Content.Inferno.__Hardmode.Items.Tiles;
-using AAModClassic.___Content.Inferno.__Hardmode.Items.Tools;
-using AAModClassic.___Content.Inferno.__Hardmode.NPCs._Underground;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Armor;
-using AAModClassic.___Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic.___Content.Inferno.Buffs;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Consumables;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Quest;
-using AAModClassic.___Content.Mire.__Hardmode.Items.Consumables;
-using AAModClassic.___Content.Mire.__Hardmode.Items.Tiles;
-using AAModClassic.___Content.Mire.__Hardmode.Items.Weapons;
-using AAModClassic.___Content.Mire.__Hardmode.NPCs._Underground;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.___Content.Mire.Buffs;
-using AAModClassic.___Content.Snow.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.___Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
-using AAModClassic.___Content.Terrarium.Buffs;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Consumables;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Quest;
-using AAModClassic.___Content.Void._PostMoonlord.Items.Armor;
+﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
+using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
+using AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
+using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
+using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Armor;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Mire.__Hardmode.Items.Tiles;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -4110,33 +4110,33 @@ namespace AAModClassic
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetSummoner>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetMage>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetRanged>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 #endregion
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenHelmet>()))
@@ -4319,7 +4319,7 @@ namespace AAModClassic
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/PerfectChaosPlateBlue_" + (drawPlayer.Male ? "Body" : "FemaleBody")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/PerfectChaosPlateBlue_" + (drawPlayer.Male ? "Body" : "FemaleBody")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
                     //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4373,9 +4373,9 @@ namespace AAModClassic
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Alt").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Alt").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/___Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
                 {

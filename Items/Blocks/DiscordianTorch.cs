@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Torches;

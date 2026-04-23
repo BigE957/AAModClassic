@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic._Content.Chaos.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

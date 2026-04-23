@@ -13,12 +13,12 @@ using Terraria.Localization;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic.Dusts;
-using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
-using AAModClassic.___Content.Acropolis._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
-using AAModClassic.___Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {

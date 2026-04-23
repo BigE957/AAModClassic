@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

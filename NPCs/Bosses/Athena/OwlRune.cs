@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.___Content.Acropolis.Projectiles;
+using AAModClassic._Content.Acropolis.Projectiles;
 
 namespace AAModClassic.NPCs.Bosses.Athena
 {

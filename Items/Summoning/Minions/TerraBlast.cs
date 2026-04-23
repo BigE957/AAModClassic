@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Terrarium.Buffs;
+﻿using AAModClassic._Content.Terrarium.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;

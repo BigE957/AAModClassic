@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;

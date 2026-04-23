@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Hallow.__Hardmode.NPCs;
+using AAModClassic._Content.Hallow.__Hardmode.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

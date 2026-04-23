@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.AH.Haruka
 {

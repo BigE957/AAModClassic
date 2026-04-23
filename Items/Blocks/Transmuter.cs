@@ -1,5 +1,5 @@
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

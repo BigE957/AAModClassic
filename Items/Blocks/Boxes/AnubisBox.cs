@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.___Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

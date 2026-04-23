@@ -1,7 +1,7 @@
-﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Ranged;

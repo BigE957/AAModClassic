@@ -1,8 +1,8 @@
-﻿using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
-using AAModClassic.___Content.Snow.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;

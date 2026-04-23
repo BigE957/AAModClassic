@@ -6,9 +6,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 
 namespace AAModClassic.Items.Summoning
 {

@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;

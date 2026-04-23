@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

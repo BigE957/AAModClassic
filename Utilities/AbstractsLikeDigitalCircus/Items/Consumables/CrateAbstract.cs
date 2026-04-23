@@ -1,7 +1,7 @@
-﻿using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic.___Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Melee;

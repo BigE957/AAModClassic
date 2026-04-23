@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Underground.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

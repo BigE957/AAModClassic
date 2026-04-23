@@ -1,6 +1,6 @@
-﻿using AAModClassic.___Content.Sky.__Hardmode.Items.Materials;
-using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Underground.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.WorldGen;

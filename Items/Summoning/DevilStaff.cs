@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Hell.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hell.__Hardmode.Items.Materials;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning.Minions;

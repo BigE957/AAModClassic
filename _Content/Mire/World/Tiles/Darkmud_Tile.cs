@@ -1,0 +1,36 @@
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Mire.World.Tiles
+{
+    public class Darkmud_Tile : ModTile
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileSolid[Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssGrass_Tile>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssWoodSolid_Tile>()] = true;
+            Main.tileBlendAll[Type] = false;
+			Main.tileMerge[TileID.Mud][Type] = true;
+            Main.tileLighted[Type] = false;
+            Main.tileBlockLight[Type] = true;
+            HitSound = SoundID.Tink;
+            DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
+            AddMapEntry(new Color(0, 0, 100));
+			MinPick = 65;
+        }
+
+
+        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+        {
+            return false;
+        }
+
+        public override bool CanExplode(int i, int j)
+        {
+            return false;
+        }
+    }
+}

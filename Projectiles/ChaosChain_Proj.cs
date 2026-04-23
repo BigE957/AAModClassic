@@ -1,6 +1,6 @@
 using System;
-using AAModClassic.___Content.Inferno.Buffs;
-using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

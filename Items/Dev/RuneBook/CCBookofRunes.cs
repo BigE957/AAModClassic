@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 

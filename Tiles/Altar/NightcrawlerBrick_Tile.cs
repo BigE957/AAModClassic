@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Stars._PostMoonlord.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;

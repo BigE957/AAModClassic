@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

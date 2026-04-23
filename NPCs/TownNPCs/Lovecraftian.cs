@@ -1,9 +1,9 @@
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;

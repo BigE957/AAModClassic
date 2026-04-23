@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;

@@ -7,7 +7,7 @@ using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Melee;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma   //where is located
 {

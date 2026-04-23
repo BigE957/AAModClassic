@@ -1,0 +1,47 @@
+base
+-ported to 1.4!
+-wings of chaos change color depending on what direction you face
+-renamed oroboros furniture to oroboros wood furniture (vanilla consistency)
+-the recipes for several decoration blocks have been adjusted to match what vanilla does (more blocks for less mats)
+-everything related to the royal rabbit now refers to it as the royal rabbit (previously was inconsistently called royal bunny)
+-probably a bunch of other minor renames that have fallen through the cracks
+-removed all unobtainable content (hopefully!). anything we could save was moved to unreleased, and anything not was slain
+-scorch shark and swimming hydra are now properly obtainable pre-hardmode
+-sharpening lava fish is now locked to hardmode like its counterpart toxin monkfish
+-reduced the chance of catching sharpening lava fish and toxin monkfish from 1/49 to 1/50 and adjusted logic to not prioritize catching scorch shark or toxin monkfish respectively
+-crates added by ancients awakened now use vanilla crate logic i think
+-redundant biome crates have been turned into vanity tiles
+-aa fishing catches now respect and utilize vanillas fish rarity system
+-all crates function in line with vanillas crates. as well, hardmode crates have been added
+-inferno and mire crates no longer drop their respective biomes bars, to prevent progression skips
+-
+
+removed
+-re-added the parthenan[sic], a fulgarian research site located near the left ocean
+-the red mushroom biome once again generates in the world with redone generation for stability
+-added the ancient hydra trishot
+-re-added the dragon serpent necklace
+-
+
+unreleased
+-added infinity zero with all of their created drops
+-added the soul of cthulhu with all of their created drops
+-added the lost keep, with a new miniboss: biolite core
+--note: all three of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
+-added the lost ship. not to be confused with the lost sea, this ship is located inside one of the oceans
+-finished constructing the pit. no other pit content has been added, as none was ever completed
+-after all superancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
+-
+
+unofficial
+-unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
+-
+
+crossmod
+-
+
+notes
+-this port was based on version 1.0.2.203(TODO: is it?). we have attempted to backport everything from the two patches after this version, but we may have missed some stuff
+-the changelogs for 1.0.3 note that mushmonarch drops his weapons. this is false. we cannot find evidence of this ever actually having been true. i guess we could add it if it was desired, but itd go under unofficial
+-this same changelog states elder dragons had their ai reworked. this is also false, as far as we can tell
+-

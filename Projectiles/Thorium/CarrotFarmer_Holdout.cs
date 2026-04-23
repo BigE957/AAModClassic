@@ -1,5 +1,5 @@
 using System;
-using AAModClassic.___Content.Bunny.Projectiles;
+using AAModClassic._Content.Bunny.Projectiles;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Terraria;

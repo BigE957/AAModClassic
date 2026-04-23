@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using Terraria;

@@ -1,8 +1,8 @@
-using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
-using AAModClassic.___Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic.___Content.Acropolis.Projectiles;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
@@ -494,7 +494,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
         public void ShootFeather(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            int projType = ModContent.ProjectileType<___Content.Acropolis.Projectiles.SeraphFeather>();
+            int projType = ModContent.ProjectileType<_Content.Acropolis.Projectiles.SeraphFeather>();
             float spread = 30f * 0.0174f;
             Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
             dir *= 14f;

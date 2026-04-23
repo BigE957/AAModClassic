@@ -8,10 +8,10 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Shen;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.___Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos.Buffs;
 
 namespace AAModClassic.Items.Boss.Shen   //where is located
 {

@@ -8,7 +8,7 @@ using ReLogic.Content;
 using AAModClassic.CrossMod.Overhaul;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Melee
 {

@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Mire.World.Biomes;
+﻿using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Backgrounds;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

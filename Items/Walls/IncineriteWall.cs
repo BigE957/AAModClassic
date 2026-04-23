@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Walls.Bricks;
 using Terraria;
 using Terraria.ID;

@@ -1,6 +1,6 @@
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
-using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;

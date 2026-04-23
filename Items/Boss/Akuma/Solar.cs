@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.___Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {

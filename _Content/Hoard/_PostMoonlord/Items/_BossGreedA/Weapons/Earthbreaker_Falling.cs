@@ -1,0 +1,39 @@
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
+{
+    public class Earthbreaker_Falling : ModBuff
+	{
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Falling");
+			Main.debuff[Type] = true;
+			Main.pvpBuff[Type] = false;
+			Main.buffNoSave[Type] = true;
+		}
+
+        public override void Update(NPC npc, ref int buffIndex)
+        {
+            if (npc.collideY)
+            {
+                NPC.HitInfo hit = new();
+                hit.Damage = npc.GetGlobalNPC<FallDamage>().damage;
+                hit.HitDirection = 0;
+                hit.Knockback = 0f;
+                hit.Crit = true;
+                npc.StrikeNPC(hit);
+                Projectile.NewProjectile(npc.GetSource_OnHurt(null), npc.position, Vector2.Zero, ModContent.ProjectileType<Earthbreaker_Earthquake>(), npc.GetGlobalNPC<FallDamage>().damage, 10, Main.myPlayer);
+                npc.DelBuff(buffIndex);
+                buffIndex--;
+            }
+        }
+    }
+
+    public class FallDamage : GlobalNPC
+    {
+        public override bool InstancePerEntity => true;
+        public int damage = 0;
+    }
+}

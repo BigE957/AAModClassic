@@ -1,4 +1,4 @@
-﻿using AAModClassic.___Content.Mire.World.Tiles;
+﻿using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Tiles;
 using AAModClassic.Walls;
 using Terraria.ID;

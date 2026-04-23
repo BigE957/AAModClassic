@@ -1,7 +1,7 @@
-using AAModClassic.___Content.Desert.__Hardmode.Items.Quest;
-using AAModClassic.___Content.Inferno.World.Tiles;
-using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.___Content.Underground.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
+using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles;
@@ -77,9 +77,9 @@ namespace AAModClassic.World
         public override void OnModLoad()
         {
             //TODO: Perhaps move these to proper content folders
-            LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/RisingMoonLake", AssetRequestMode.ImmediateLoad).Value);
-            LakeWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/RisingMoonLake_Walls", AssetRequestMode.ImmediateLoad).Value);
-            LakeLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/RisingMoonLake_Liquid", AssetRequestMode.ImmediateLoad).Value);
+            LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/RisingMoonLake", AssetRequestMode.ImmediateLoad).Value);
+            LakeWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/RisingMoonLake_Walls", AssetRequestMode.ImmediateLoad).Value);
+            LakeLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/RisingMoonLake_Liquid", AssetRequestMode.ImmediateLoad).Value);
 
             VolcanoTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Volcano", AssetRequestMode.ImmediateLoad).Value);
             VolcanoWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/VolcanoWalls", AssetRequestMode.ImmediateLoad).Value);

@@ -1,7 +1,7 @@
-using AAModClassic.___Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.___Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
-using AAModClassic.___Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

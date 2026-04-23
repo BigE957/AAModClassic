@@ -11,8 +11,8 @@ using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Flasks;
 using AAModClassic.Music;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus

@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

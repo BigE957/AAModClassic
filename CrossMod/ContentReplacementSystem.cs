@@ -1,31 +1,31 @@
-﻿using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
-using AAModClassic.___Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.Accessories;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.GlowingMushroom.___PreHardmode.Items.Tools;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Accessories;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.Mire.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.___Content.Mire.World.Tiles;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Armor;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.___Content.RedMushroom.___PreHardmode.Items.Tools;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.Accessories;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Tools;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
@@ -66,8 +66,8 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<IncineriteBar>(),
             ModContent.ItemType<MirePod>(),
             ModContent.ItemType<DragonScale>(),
-            ModContent.ItemType<___Content.Inferno.___PreHardmode.Items.Materials.DragonClaw>(),
-            ModContent.ItemType<___Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(),
+            ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw>(),
+            ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(),
             ModContent.ItemType<Hotshroom>(),
             ModContent.ItemType<Darkshroom>(),
             #endregion
@@ -180,8 +180,8 @@ namespace AAModClassic.CrossMod
 
                 OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<___Content.Inferno.___PreHardmode.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
-                OldToNewItems.Add(ModContent.ItemType<___Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
 
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);

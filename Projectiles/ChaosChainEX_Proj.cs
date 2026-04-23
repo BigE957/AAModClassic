@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using AAModClassic.___Content.Chaos.Buffs;
+using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

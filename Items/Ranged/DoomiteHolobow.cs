@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Projectiles;
-using AAModClassic.___Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {

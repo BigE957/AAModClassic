@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Buffs;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Rajah;

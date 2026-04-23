@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 using Terraria;

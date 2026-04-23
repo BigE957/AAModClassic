@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic._Content.Mire.World.Tiles;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

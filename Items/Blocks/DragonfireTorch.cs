@@ -1,4 +1,4 @@
-using AAModClassic.___Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;

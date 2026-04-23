@@ -16,7 +16,7 @@ using Terraria.ModLoader;
 using AAModClassic.Music;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Utilities;
-using AAModClassic.___Content.Void._PostMoonlord.Items._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
