@@ -14,6 +14,7 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Music;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
 
 namespace AAModClassic.NPCs.Bosses.Toad
 {
@@ -537,9 +538,15 @@ namespace AAModClassic.NPCs.Bosses.Toad
                 NPC.velocity.X *= .98f;
                 if (internalAI[1] == 35)
                 {
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X - 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X + 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    NPC toadNPC = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)(NPC.Center.X - 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    TinyToad toad = toadNPC.ModNPC as TinyToad;
+                    toad.WasSpawnedByTruffleToad = true;
+                    toadNPC = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    toad = toadNPC.ModNPC as TinyToad;
+                    toad.WasSpawnedByTruffleToad = true;
+                    toadNPC = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)(NPC.Center.X + 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    toad = toadNPC.ModNPC as TinyToad;
+                    toad.WasSpawnedByTruffleToad = true;
                 }
                 if (internalAI[1] >= 100)
                 {

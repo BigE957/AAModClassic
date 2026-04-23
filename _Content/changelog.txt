@@ -9,7 +9,7 @@ base
 -scorch shark and swimming hydra are now properly obtainable pre-hardmode
 -sharpening lava fish is now locked to hardmode like its counterpart toxin monkfish
 -reduced the chance of catching sharpening lava fish and toxin monkfish from 1/49 to 1/50 and adjusted logic to not prioritize catching scorch shark or toxin monkfish respectively
--crates added by ancients awakened now use vanilla crate logic i think
+-crates added by ancients awakened now use vanilla crate logic
 -redundant biome crates have been turned into vanity tiles
 -aa fishing catches now respect and utilize vanillas fish rarity system
 -all crates function in line with vanillas crates. as well, hardmode crates have been added

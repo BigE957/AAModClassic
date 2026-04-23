@@ -1,12 +1,12 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -36,43 +36,16 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         public override void HitEffect(NPC.HitInfo hit)
         {
             bool isDead = NPC.life <= 0;
-            if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
-            {
-
-            }
             for (int m = 0; m < (isDead ? 35 : 6); m++)
-            {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
-            }
         }
 
         public override void AI()
         {
             NPC.TargetClosest(true);
-            Player player = Main.player[NPC.target];
-            if (NPC.velocity.Y != 0)
-            {
-                if (NPC.velocity.X < 0)
-                {
-                    NPC.spriteDirection = -1;
-                }
-                else if (NPC.velocity.X > 0)
-                {
-                    NPC.spriteDirection = 1;
-                }
-            }
-            else
-            {
-                if (player.position.X < NPC.position.X)
-                {
-                    NPC.spriteDirection = -1;
-                }
-                else if (player.position.X > NPC.position.X)
-                {
-                    NPC.spriteDirection = 1;
-                }
-            }
-            BaseAI.AISlime(NPC, ref NPC.ai, false, 25, 6f, -8f, 6f, -10f);
+            NPC.LookAtTargetWhileNotMovingLookTowardsDirectionWhileMoving();
+
+            NPC.AISlime(ref NPC.ai, false, 25, 6f, -8f, 6f, -10f);
         }
 
         public override void FindFrame(int frameHeight)
@@ -103,43 +76,15 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             }
         }
 
-        public override bool PreKill()
-        {
-            return false;
-        }
+        public override bool PreKill() => false;
 
         public override void PostAI()
         {
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
-            {
                 NPC.oldPos[m] = NPC.oldPos[m - 1];
-            }
             NPC.oldPos[0] = NPC.position;
 
-            if (NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()))
-            {
-                if (NPC.alpha > 0)
-                {
-                    NPC.alpha -= 5;
-                }
-                else
-                {
-                    NPC.alpha = 0;
-                }
-            }
-            else
-            {
-                NPC.dontTakeDamage = true;
-                if (NPC.alpha < 255)
-                {
-                    NPC.alpha += 5;
-                }
-                else
-                {
-                    NPC.active = false;
-                }
-            }
+            NPC.FadeInOutBasedOnAliveEntities(0, 0, ModContent.NPCType<Rajah>(), ModContent.NPCType<SupremeRajah>());
         }
     }
 
@@ -160,9 +105,8 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()))
-            {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, true, 0f, 0f, AAColor.Rainbow2);
-            }
+
             return false;
         }
     }

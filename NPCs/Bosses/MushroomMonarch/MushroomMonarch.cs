@@ -1,15 +1,16 @@
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Usable;
-using AAModClassic.Music;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Usable;
+using AAModClassic.Music;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using Microsoft.Xna.Framework;
+using System.IO;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
@@ -246,7 +247,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 NPC.noGravity = false;
                 NPC.noTileCollide = false;
                 if(NPC.ai[0] < -10) NPC.ai[0] = -10; //force rapid jumping
-                BaseAI.AISlime(NPC, ref NPC.ai, true, 30, 6f, -8f, 6f, -10f);
+                NPC.AISlime(ref NPC.ai, true, 30, 6f, -8f, 6f, -10f);
 								
 			}
             else if (internalAI[1] == AISTATE_FLY)//fly

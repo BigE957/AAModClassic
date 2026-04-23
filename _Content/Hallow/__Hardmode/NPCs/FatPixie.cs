@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -86,11 +87,9 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
 				jumpWidth = 8f;
 				jumpHeight = -25f;
                 if (NPC.ai[0] >= 0)
-                {
                     CombatText.NewText(NPC.Hitbox, Color.LightGoldenrodYellow, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FatPixie"));
-                }
-			}
-            BaseAI.AISlime(NPC, ref NPC.ai, false, 150, 4f, 2f, jumpWidth, jumpHeight);
+            }
+            NPC.AISlime(ref NPC.ai, false, 150, 4f, 2f, jumpWidth, jumpHeight);
 			BaseDrawing.AddLight(NPC.Center, new Color(212, 208, 107), 2f);
         }
 
@@ -108,8 +107,16 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
         {
             if (NPC.whoAmI % 30 == 0)
             {
-                if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
-                else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
+                if (auraDirection) 
+                { 
+                    auraPercent += 0.1f; 
+                    auraDirection = auraPercent < 1f; 
+                }
+                else 
+                { 
+                    auraPercent -= 0.1f; 
+                    auraDirection = auraPercent <= 0f; 
+                }
                 BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Gold);
             }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);

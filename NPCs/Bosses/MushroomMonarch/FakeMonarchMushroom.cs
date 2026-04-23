@@ -7,6 +7,7 @@ using Terraria.DataStructures;
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
+    //TODO: rework this into an item?
     internal class FakeMonarchMushroom : ModProjectile
     {
         
