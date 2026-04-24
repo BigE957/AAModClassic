@@ -66,8 +66,8 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<IncineriteBar>(),
             ModContent.ItemType<MirePod>(),
             ModContent.ItemType<DragonScale>(),
-            ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw>(),
-            ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(),
+            ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw_Item>(),
+            ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw_Item>(),
             ModContent.ItemType<Hotshroom>(),
             ModContent.ItemType<Darkshroom>(),
             #endregion
@@ -180,8 +180,8 @@ namespace AAModClassic.CrossMod
 
                 OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
-                OldToNewItems.Add(ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw_Item>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw_Item>(), NewAA.Find<ModItem>("ChaosPowder").Type);
 
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);

@@ -83,7 +83,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<HydraClaw>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<HydraClaw_Item>(), 15);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

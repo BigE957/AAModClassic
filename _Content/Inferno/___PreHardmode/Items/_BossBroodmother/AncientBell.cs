@@ -7,10 +7,10 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother
 {

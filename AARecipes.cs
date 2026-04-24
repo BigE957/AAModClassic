@@ -609,7 +609,7 @@ namespace AAModClassic
             Recipe recipe = GetNewRecipe(ItemID.RagePotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Deathweed, 1);
-            recipe.AddIngredient(ModContent.ItemType<DragonClaw>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<DragonClaw_Item>(), 3);
             recipe.AddIngredient(ModContent.ItemType<DragonScale>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
@@ -617,7 +617,7 @@ namespace AAModClassic
             recipe = GetNewRecipe(ItemID.WrathPotion, 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Deathweed, 1);
-            recipe.AddIngredient(ModContent.ItemType<HydraClaw>(), 3);
+            recipe.AddIngredient(ModContent.ItemType<HydraClaw_Item>(), 3);
             recipe.AddIngredient(ModContent.ItemType<MirePod>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
@@ -928,8 +928,8 @@ namespace AAModClassic
 
             RecipeGroup group8 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.chaosclaw"), new int[]
             {
-                ModContent.ItemType<DragonClaw>(),
-                ModContent.ItemType<HydraClaw>()
+                ModContent.ItemType<DragonClaw_Item>(),
+                ModContent.ItemType<HydraClaw_Item>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosClaw", group8);
 

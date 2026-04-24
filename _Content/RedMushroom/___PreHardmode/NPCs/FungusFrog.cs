@@ -1,6 +1,6 @@
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Terraria;
@@ -59,7 +59,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 
         public override void PostAI()
         {
-            NPC.FadeInOutBasedOnAliveEntities(-1, 0);
+            NPC.FadeInOutBasedOnAliveEntities(true, -1, 0);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

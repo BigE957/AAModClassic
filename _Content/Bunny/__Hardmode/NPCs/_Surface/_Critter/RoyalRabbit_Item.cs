@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            int num = NPC.NewNPC(Item.GetSource_ReleaseEntity(), (int)(player.position.X + Main.rand.Next(-20, 20)), (int)(player.position.Y - 0f), ModContent.NPCType<RoyalRabbit>());
+            int num = NPC.NewNPC(Item.GetSource_ReleaseEntity(), (int)(player.position.X + Main.rand.Next(-20, 20)), (int)(player.position.Y - 0f), ModContent.NPCType<RoyalRabbit_NPC>());
             if (Main.netMode == NetmodeID.Server && num < 200)
             {
                 NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, num, 0f, 0f, 0f, 0, 0, 0);

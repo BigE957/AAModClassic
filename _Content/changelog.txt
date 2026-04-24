@@ -14,6 +14,8 @@ base
 -aa fishing catches now respect and utilize vanillas fish rarity system
 -all crates function in line with vanillas crates. as well, hardmode crates have been added
 -inferno and mire crates no longer drop their respective biomes bars, to prevent progression skips
+-reworked structure unbreakability; unbreakable versions of tiles and walls no longer exist. unbreakability is now stored as data, and updated when appropriate
+-removed blocks made redundant by the previous change
 -
 
 removed

@@ -73,7 +73,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 300)
             {
-                if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
+                if (NPCExtensions.BeenKilled<_Content.Inferno.___PreHardmode.NPCs.__BossBroodmother.Broodmother>())
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.2.Broodmother"), new Color(102, 20, 48));
                 }
@@ -87,7 +87,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 if (NPCExtensions.BeenKilled<HydraBody>())
                 {
-                    if (NPCExtensions.BeenKilled<Broodmother.Broodmother>())
+                    if (NPCExtensions.BeenKilled<_Content.Inferno.___PreHardmode.NPCs.__BossBroodmother.Broodmother>())
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.3.Both"), new Color(72, 78, 117));
                     }

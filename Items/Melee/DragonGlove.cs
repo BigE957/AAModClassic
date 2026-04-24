@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Melee
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<DragonClaw>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DragonClaw_Item>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

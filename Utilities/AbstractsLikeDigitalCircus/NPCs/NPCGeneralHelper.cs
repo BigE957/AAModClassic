@@ -1,5 +1,4 @@
-﻿using AAModClassic.NPCs.Bosses.Toad;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
         /// <param name="fadeInExtra">An extra boost to the fade in rate.</param>
         /// <param name="fadeOutExtra">An extra boost to the fade out rate.</param>
         /// <param name="parentIDs">The type IDs of any "parent" entities. While they are alive, the NPC will fade in, and when they are dead they will fade out.</param>
-        public static void FadeInOutBasedOnAliveEntities(this NPC npc, int fadeInExtra = 0, int fadeOutExtra = 0, params int[] parentIDs)
+        public static void FadeInOutBasedOnAliveEntities(this NPC npc, bool becomeImmuneToDamage = true, int fadeInExtra = 0, int fadeOutExtra = 0, params int[] parentIDs)
         {
             bool anyParentsAlive = false;
 
@@ -41,7 +40,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
             }
             else
             {
-                npc.dontTakeDamage = true;
+                npc.dontTakeDamage = becomeImmuneToDamage;
                 if (npc.alpha < 255)
                     npc.alpha += 5 + fadeOutExtra;
                 else

@@ -84,7 +84,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 NPC.oldPos[m] = NPC.oldPos[m - 1];
             NPC.oldPos[0] = NPC.position;
 
-            NPC.FadeInOutBasedOnAliveEntities(0, 0, ModContent.NPCType<Rajah>(), ModContent.NPCType<SupremeRajah>());
+            NPC.FadeInOutBasedOnAliveEntities(true, 0, 0, ModContent.NPCType<Rajah>(), ModContent.NPCType<SupremeRajah>());
         }
     }
 

@@ -70,7 +70,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using DragonClaw = AAModClassic._Content.Inferno.___PreHardmode.NPCs.DragonClaw;
+using DragonClaw_NPC = AAModClassic._Content.Inferno.___PreHardmode.NPCs.DragonClaw_NPC;
 
 namespace AAModClassic.Globals
 {
@@ -958,7 +958,7 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<InfernalSlime>(), .05f);
                         pool.Add(ModContent.NPCType<FlameBrute>(), .25f);
                         pool.Add(ModContent.NPCType<Singemander>(), .5f);
-                        pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
+                        pool.Add(ModContent.NPCType<DragonClaw_NPC>(), .05f);
                     }
 
                     if (Main.hardMode)
@@ -979,7 +979,7 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<WyrmlingHead>(), .25f);
                         pool.Add(ModContent.NPCType<FlameBrute>(), .25f);
                         pool.Add(ModContent.NPCType<Singemander>(), .5f);
-                        pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
+                        pool.Add(ModContent.NPCType<DragonClaw_NPC>(), .05f);
                     }
 
                     if (Main.hardMode)
@@ -1015,7 +1015,7 @@ namespace AAModClassic.Globals
                     {
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<HydraClaw_NPC>(), .025f);
                         pool.Add(ModContent.NPCType<Skulker>(), .02f);
                         pool.Add(ModContent.NPCType<MurkySlime>(), .025f);
                     }
@@ -1038,7 +1038,7 @@ namespace AAModClassic.Globals
                     { 
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<HydraClaw_NPC>(), .025f);
                         pool.Add(ModContent.NPCType<Skulker>(), .02f);
                     }
 

@@ -9,9 +9,9 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Magic;
-using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 
 namespace AAModClassic.Tiles.Boss
 {

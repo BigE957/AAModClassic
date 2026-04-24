@@ -29,11 +29,9 @@ using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Walls.Bricks;
 using AAModClassic.Items.Melee;
-using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Utilities;
-using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Akuma;
@@ -62,6 +60,8 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosWoodFurniture;
+using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 
 namespace AAModClassic
 {
@@ -1201,8 +1201,8 @@ namespace AAModClassic
                                     {
                                         ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
                                     }
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosBlue>(), false, 1, 0);
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosRed>(), false, -1, 0);
+                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
+                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
                                 spawnGrips = false;
                                 break;
                             }

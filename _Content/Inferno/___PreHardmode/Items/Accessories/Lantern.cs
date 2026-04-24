@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DragonClaw>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<DragonClaw_Item>(), 15);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

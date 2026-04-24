@@ -12,7 +12,7 @@ using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
 using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

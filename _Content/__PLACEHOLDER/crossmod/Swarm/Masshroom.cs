@@ -4,9 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 
 
 namespace AAModClassic._Content.__PLACEHOLDER.crossmod.Swarm

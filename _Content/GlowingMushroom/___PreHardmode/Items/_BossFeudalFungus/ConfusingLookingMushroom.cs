@@ -4,9 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus
 {

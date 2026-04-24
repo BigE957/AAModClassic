@@ -7,9 +7,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.Globals;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos
 {
@@ -41,14 +41,14 @@ Can only be used at night"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ModContent.ItemType<DragonClaw>(), 6);
+            recipe.AddIngredient(ModContent.ItemType<DragonClaw_Item>(), 6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }
 
         public override bool CanUseItem(Player player)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<GripOfChaosBlue>()) || NPC.AnyNPCs(ModContent.NPCType<GripOfChaosRed>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<GripOfChaosMire>()) || NPC.AnyNPCs(ModContent.NPCType<GripOfChaosInferno>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CuriousClawFalse1"), Color.DarkOrange, false);
                 return false;
@@ -71,8 +71,8 @@ Can only be used at night"); */
             {
                 ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
             }
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GripOfChaosBlue>(), false, 1, 0);
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GripOfChaosRed>(), false, -1, 0);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

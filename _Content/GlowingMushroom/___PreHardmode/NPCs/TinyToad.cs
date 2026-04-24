@@ -1,7 +1,7 @@
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.FeudalFungus;
-using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Terraria;
@@ -67,9 +67,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
         public override void PostAI()
         {
             if (WasSpawnedByTruffleToad)
-                NPC.FadeInOutBasedOnAliveEntities(4, 0, ModContent.NPCType<TruffleToad>());
+                NPC.FadeInOutBasedOnAliveEntities(true, 4, 0, ModContent.NPCType<TruffleToad>());
             else
-                NPC.FadeInOutBasedOnAliveEntities(-1, 0);
+                NPC.FadeInOutBasedOnAliveEntities(true, -1, 0);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

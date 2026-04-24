@@ -17,18 +17,18 @@ using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Utilities;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Greed;
-using AAModClassic.NPCs.Bosses.Djinn;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.NPCs.Bosses.Serpent;
-using AAModClassic.NPCs.Bosses.Broodmother;
-using AAModClassic.NPCs.Bosses.FeudalFungus;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

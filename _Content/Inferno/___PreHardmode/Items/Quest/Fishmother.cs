@@ -1,4 +1,4 @@
-﻿using AAModClassic.NPCs.Bosses.Broodmother;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic.Utilities;
 using Terraria.ID;
 using Terraria.Localization;

@@ -8,8 +8,8 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Djinn;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 {

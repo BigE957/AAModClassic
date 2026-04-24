@@ -9,7 +9,6 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 {
     public class TruffleToadTreasureBag : BaseAAItem
 	{
-        
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");

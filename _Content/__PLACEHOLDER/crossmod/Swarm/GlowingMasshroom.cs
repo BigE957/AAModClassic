@@ -4,10 +4,10 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 
 namespace AAModClassic._Content.__PLACEHOLDER.crossmod.Swarm
 {

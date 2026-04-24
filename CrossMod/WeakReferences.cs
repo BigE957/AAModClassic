@@ -13,6 +13,7 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
+using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Chaos.__Hardmode.NPCs;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
@@ -23,6 +24,7 @@ using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
@@ -33,6 +35,8 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFung
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.Hallow.__Hardmode.NPCs;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
@@ -42,6 +46,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs;
@@ -77,6 +82,8 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
@@ -120,20 +127,14 @@ using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Broodmother;
 using AAModClassic.NPCs.Bosses.Core;
-using AAModClassic.NPCs.Bosses.Djinn;
 using AAModClassic.NPCs.Bosses.Equinox;
-using AAModClassic.NPCs.Bosses.FeudalFungus;
 using AAModClassic.NPCs.Bosses.Greed;
-using AAModClassic.NPCs.Bosses.Grips;
-using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Shen.GripsShen;
-using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.Projectiles;
@@ -742,7 +743,7 @@ namespace AAModClassic.CrossMod
                     #endregion
 
                     #region Grips
-                    AddBoss(bossChecklist, mod, "GripsOfChaos", (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosRed>(), ModContent.NPCType<GripOfChaosBlue>() }, new Dictionary<string, object>()
+                    AddBoss(bossChecklist, mod, "GripsOfChaos", (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosInferno>(), ModContent.NPCType<GripOfChaosMire>() }, new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "GripsOfChaos.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").Format("[i:" + ModContent.ItemType<CuriousLookingClaw>() + "]", "[i:" + ModContent.ItemType<InterestingLookingClaw>() + "]"),
@@ -1412,15 +1413,13 @@ namespace AAModClassic.CrossMod
             if (ModLoader.TryGetMod("SpiritReforged", out var reforged))
             {
                 #region Register Undead
-                //TODO: Where is he?
-                //reforged.Call("AddUndead", ModContent.NPCType<MushroomZombie>());
-                reforged.Call("AddUndead", ModContent.NPCType<DragonClaw>());
-                reforged.Call("AddUndead", ModContent.NPCType<HydraClaw>());
+                reforged.Call("AddUndead", ModContent.NPCType<MushroomZombie>());
+                reforged.Call("AddUndead", ModContent.NPCType<MushroomZombie2>());
+                reforged.Call("AddUndead", ModContent.NPCType<DragonClaw_NPC>());
+                reforged.Call("AddUndead", ModContent.NPCType<HydraClaw_NPC>());
 
-                reforged.Call("AddUndead", ModContent.NPCType<DragonClawM>());
-                reforged.Call("AddUndead", ModContent.NPCType<HydraClawM>());
-                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosBlue>());
-                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosRed>());
+                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosMire>());
+                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosInferno>());
 
                 reforged.Call("AddUndead", ModContent.NPCType<BlazeClaw>());
                 reforged.Call("AddUndead", ModContent.NPCType<AbyssClaw>());
@@ -1463,7 +1462,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<MadnessBat>());
                 redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<MadnessSlime>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<DragonClaw>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<DragonClaw_NPC>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<InfernalSlime>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<FlameBrute>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Singemander>());
@@ -1472,7 +1471,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingTail1>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<WyrmlingTail2>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraClaw>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraClaw_NPC>());
                 redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<MurkySlime>());
                 redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Mosster>());
                 redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<Newt>());
@@ -1556,8 +1555,8 @@ namespace AAModClassic.CrossMod
                 //Pre-HM
                 redemption.Call("addElementNPC", (int)ElementalID.Arcane, ModContent.NPCType<FeudalFungus>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<GripOfChaosRed>());
-                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<GripOfChaosBlue>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<GripOfChaosInferno>());
+                redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<GripOfChaosMire>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Psychic, ModContent.NPCType<TruffleToad>());
 
