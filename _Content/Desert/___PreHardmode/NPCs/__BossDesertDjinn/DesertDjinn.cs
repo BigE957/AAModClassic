@@ -157,7 +157,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 if (NPC.localAI[0]++ > 50)
                 {
                     NPC.localAI[0] = 0;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-200, 200), NPC.Center.Y + Main.rand.Next(-100, 100), 0, 0, ModContent.ProjectileType<Menacing>(), 0, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-200, 200), NPC.Center.Y + Main.rand.Next(-100, 100), 0, 0, ModContent.ProjectileType<DesertDjinn_Djinnado>(), 0, 0, Main.myPlayer);
                 }
                 return;
             }
@@ -225,7 +225,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 
                 if (NPC.ai[3] % 30 == 0)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position + new Vector2(Main.rand.Next(70), Main.rand.Next(80)), Vector2.Zero, ModContent.ProjectileType<Menacing>(), 0, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position + new Vector2(Main.rand.Next(70), Main.rand.Next(80)), Vector2.Zero, ModContent.ProjectileType<DesertDjinn_Djinnado>(), 0, 0, Main.myPlayer);
                 }
                 if (NPC.ai[3] > 200 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -558,21 +558,17 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         {
             Texture2D CurrentTex;
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D MudaMuda = Mod.GetTexture("NPCs/Bosses/Djinn/DesertDjinnMudaMuda");
-            Texture2D Punch = Mod.GetTexture("NPCs/Bosses/Djinn/DesertDjinnPunch");
+            Texture2D MudaMuda = Mod.GetTexture(Texture + "_MudaMuda");
+            Texture2D Punch = Mod.GetTexture(Texture + "_Punch");
 
+            //TODO: djinn is simple enough to where he could super easily be reworked to only use one sheet instead of three
+            // not just bcuz of boss complexity but bcuz all his sheets r the same width and height. the logic is basically already there
             if (internalAI[0] == 1 || !Main.player[NPC.target].ZoneDesert)
-            {
                 CurrentTex = MudaMuda;
-            }
             else if (internalAI[0] == 2)
-            {
                 CurrentTex = Punch;
-            }
             else
-            {
                 CurrentTex = texture;
-            }
 
             var effects = NPC.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 {
-    public class Menacing : ModProjectile
+    public class DesertDjinn_Djinnado : ModProjectile
 	{
         public override void SetStaticDefaults()
         {

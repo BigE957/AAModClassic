@@ -154,7 +154,7 @@ namespace AAModClassic.Globals
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
             if (npc.type == NPCID.KingSlime || npc.type == NPCID.Plantera || 
-                npc.type == ModContent.NPCType<SerpentBody>() || npc.type == ModContent.NPCType<SerpentHead>() || npc.type == ModContent.NPCType<SerpentTail>() ||
+                npc.type == ModContent.NPCType<SubzeroSerpentBody>() || npc.type == ModContent.NPCType<SubzeroSerpentHead>() || npc.type == ModContent.NPCType<SubzeroSerpentTail>() ||
                 npc.type == ModContent.NPCType<SnowSerpentHead>() || npc.type == ModContent.NPCType<SnowSerpentBody>() || npc.type == ModContent.NPCType<SnowSerpentTail>())
             {
                 ApplyDPSDebuff(npc.onFire, 20, ref npc.lifeRegen);

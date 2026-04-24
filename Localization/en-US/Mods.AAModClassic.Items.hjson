@@ -10769,3 +10769,13 @@ NullCrate: {
 	DisplayName: Null Crate
 	Tooltip: ""
 }
+
+DragonClaw_Item: {
+	DisplayName: Dragon Claw_ Item
+	Tooltip: ""
+}
+
+HydraClaw_Item: {
+	DisplayName: Hydra Claw_ Item
+	Tooltip: ""
+}

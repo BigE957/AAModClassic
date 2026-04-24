@@ -5,11 +5,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Serpent
 {
-    internal class SnowBreath : ModProjectile
+    internal class SubzeroSerpentHead_SerpentBreath : ModProjectile
     {
+        public ref float BiomeType => ref Projectile.ai[1];
+
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Subzero Breath");
+            // DisplayName.SetDefault("Serpent Breath");
         }
 
         public override void SetDefaults()
@@ -33,67 +35,67 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
             if (Projectile.ai[0] > 7f)
             {
-                float num296 = 1f;
+                float scaleModifier = 1f;
                 if (Projectile.ai[0] == 8f)
                 {
-                    num296 = 0.25f;
+                    scaleModifier = 0.25f;
                 }
                 else if (Projectile.ai[0] == 9f)
                 {
-                    num296 = 0.5f;
+                    scaleModifier = 0.5f;
                 }
                 else if (Projectile.ai[0] == 10f)
                 {
-                    num296 = 0.75f;
+                    scaleModifier = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
 
-                int num297 = ModContent.DustType<Dusts.SnowDustLight>();
-                if (Projectile.ai[1] == 1)
+                int dustType = ModContent.DustType<Dusts.SnowDustLight>();
+                if (BiomeType == 1)
                 {
-                    num297 = 75;
+                    dustType = DustID.CursedTorch;
                 }
-                if (Projectile.ai[1] == 2)
+                if (BiomeType == 2)
                 {
-                    num297 = DustID.GoldFlame;
+                    dustType = DustID.GoldFlame;
                 }
-                if (Projectile.ai[1] == 3)
+                if (BiomeType == 3)
                 {
-                    num297 = ModContent.DustType<Dusts.BroodmotherDust>();
+                    dustType = ModContent.DustType<Dusts.BroodmotherDust>();
                 }
-                if (Projectile.ai[1] == 4)
+                if (BiomeType == 4)
                 {
-                    num297 = ModContent.DustType<Dusts.AcidDust>();
+                    dustType = ModContent.DustType<Dusts.AcidDust>();
                 }
-                if (Projectile.ai[1] == 5)
+                if (BiomeType == 5)
                 {
-                    num297 = ModContent.DustType<Dusts.HallowedDustT>();
+                    dustType = ModContent.DustType<Dusts.HallowedDustT>();
                 }
 
                 if (Main.rand.NextBool(2))
                 {
-                    for (int num298 = 0; num298 < 3; num298++)
+                    for (int i = 0; i < 3; i++)
                     {
-                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, num297, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1f);
+                        int biomeDust = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, dustType, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1f);
                         if (Main.rand.NextBool(3))
                         {
-                            Main.dust[num299].noGravity = true;
-                            Main.dust[num299].scale *= 2.2f;
-                            Dust expr_DD5D_cp_0 = Main.dust[num299];
+                            Main.dust[biomeDust].noGravity = true;
+                            Main.dust[biomeDust].scale *= 2.2f;
+                            Dust expr_DD5D_cp_0 = Main.dust[biomeDust];
                             expr_DD5D_cp_0.velocity.X *= 2f;
-                            Dust expr_DD7D_cp_0 = Main.dust[num299];
+                            Dust expr_DD7D_cp_0 = Main.dust[biomeDust];
                             expr_DD7D_cp_0.velocity.Y *= 2f;
                         }
-                        Main.dust[num299].scale *= 1.2f;
-                        Dust expr_DDE2_cp_0 = Main.dust[num299];
+                        Main.dust[biomeDust].scale *= 1.2f;
+                        Dust expr_DDE2_cp_0 = Main.dust[biomeDust];
                         expr_DDE2_cp_0.velocity.X *= 1.2f;
-                        Dust expr_DE02_cp_0 = Main.dust[num299];
+                        Dust expr_DE02_cp_0 = Main.dust[biomeDust];
                         expr_DE02_cp_0.velocity.Y *= 1.2f;
-                        Main.dust[num299].scale *= num296;
-                        Main.dust[num299].velocity += Projectile.velocity;
-                        if (!Main.dust[num299].noGravity)
+                        Main.dust[biomeDust].scale *= scaleModifier;
+                        Main.dust[biomeDust].velocity += Projectile.velocity;
+                        if (!Main.dust[biomeDust].noGravity)
                         {
-                            Main.dust[num299].velocity *= 0.5f;
+                            Main.dust[biomeDust].velocity *= 0.5f;
                         }
                     }
                 }
@@ -108,19 +110,19 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(BuffID.Chilled, 300);
-            if  (Projectile.ai[1] == 1)
+            if  (BiomeType == 1)
             {
                 target.AddBuff(BuffID.CursedInferno, 180);
             }
-            if (Projectile.ai[1] == 2)
+            if (BiomeType == 2)
             {
                 target.AddBuff(BuffID.Ichor, 180);
             }
-            if (Projectile.ai[1] == 3)
+            if (BiomeType == 3)
             {
                 target.AddBuff(BuffID.OnFire, 180);
             }
-            if (Projectile.ai[1] == 4)
+            if (BiomeType == 4)
             {
                 target.AddBuff(BuffID.Poisoned, 180);
             }

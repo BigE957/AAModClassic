@@ -37,6 +37,10 @@ unreleased
 
 unofficial
 -unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
+-subzero serpents biome variant heads have had unique sprites add (other than corruption variant, which already had one)
+-an entirely nonfunctional subzero serpent attack has been reinterpreted and restored
+--subzero serpent will periodically summon an ice crystal above the players head, up to a cap of 3. this crystal shoots projectiles towards the player. it kinda sucks but it gives u smth to hit while shes offscreen so it feels fine
+--this is our interpretation of the code, with very minor polish added. since it was never complete and extremely buggy, it's hard to tell what decisions were or were not intentional. consequently, we have put this change under unofficial
 -
 
 crossmod
