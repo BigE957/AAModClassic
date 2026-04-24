@@ -1,12 +1,13 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Music;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Greed
 {
@@ -16,6 +17,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
         {
             // DisplayName.SetDefault("Spark of Desire");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

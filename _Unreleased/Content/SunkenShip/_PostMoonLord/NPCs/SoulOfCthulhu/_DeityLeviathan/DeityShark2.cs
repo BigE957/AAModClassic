@@ -1,9 +1,10 @@
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.Audio;
-using Terraria.ModLoader;
 using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
@@ -15,6 +16,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             // DisplayName.SetDefault("Deity Shark");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

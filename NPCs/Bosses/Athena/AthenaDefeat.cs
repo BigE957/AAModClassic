@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -17,6 +18,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 15;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

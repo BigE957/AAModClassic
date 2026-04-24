@@ -1,12 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 using Terraria;
 
 namespace AAModClassic.NPCs.Bosses.Equinox
 {
     //[AutoloadBossHead]
     public class NightcrawlerTail : NightcrawlerHead
-	{	
-		public override void SetDefaults()
+	{
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            this.HideFromBestiary();
+        }
+        public override void SetDefaults()
 		{
             base.SetDefaults();
             NPC.dontCountMe = true;

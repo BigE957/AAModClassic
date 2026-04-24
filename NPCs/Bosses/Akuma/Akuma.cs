@@ -611,6 +611,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
         {
             // DisplayName.SetDefault("Akuma, Draconian Demon");
             Main.npcFrameCount[NPC.type] = 5;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

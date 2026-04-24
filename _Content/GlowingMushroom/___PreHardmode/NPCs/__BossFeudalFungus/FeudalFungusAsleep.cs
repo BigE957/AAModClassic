@@ -18,6 +18,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         {
             // DisplayName.SetDefault("Very Large Glowing Mushroom");
             Main.npcFrameCount[NPC.type] = 1;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

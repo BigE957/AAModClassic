@@ -1,10 +1,17 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 
 namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class DaybringerTail : DaybringerHead
-	{	
-		public override void SetDefaults()
+	{
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            this.HideFromBestiary();
+        }
+
+        public override void SetDefaults()
 		{
             base.SetDefaults();
             NPC.dontCountMe = true;

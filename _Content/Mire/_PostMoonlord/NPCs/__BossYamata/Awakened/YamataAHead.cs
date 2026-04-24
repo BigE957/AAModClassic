@@ -1,11 +1,12 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
-using System.IO;
-using Terraria.ID;
-using Terraria.Audio;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -17,6 +18,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 			base.SetStaticDefaults();
             // DisplayName.SetDefault("Yamata no Orochi");
             Main.npcFrameCount[NPC.type] = 3;
+            this.HideFromBestiary();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

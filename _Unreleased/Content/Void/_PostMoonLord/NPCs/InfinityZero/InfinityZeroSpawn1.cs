@@ -1,6 +1,7 @@
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -16,6 +17,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             // DisplayName.SetDefault("Death");
             Main.npcFrameCount[NPC.type] = 2;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

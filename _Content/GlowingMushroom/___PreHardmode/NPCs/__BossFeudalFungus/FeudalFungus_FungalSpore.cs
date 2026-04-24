@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using System.IO;
 using Terraria;
 using Terraria.ID;
@@ -37,6 +38,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fungal Spore");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

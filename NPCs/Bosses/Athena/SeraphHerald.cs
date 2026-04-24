@@ -12,6 +12,11 @@ namespace AAModClassic.NPCs.Bosses.Athena
 {
     public class SeraphHerald : ModNPC
 	{
+        public override void SetStaticDefaults()
+        {
+            this.HideFromBestiary();
+        }
+
         public override string Texture => "AAModClassic/NPCs/Bosses/Athena/SeraphA";
 
         public override void SetDefaults()

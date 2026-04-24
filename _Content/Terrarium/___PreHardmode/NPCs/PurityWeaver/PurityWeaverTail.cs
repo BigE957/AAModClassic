@@ -1,7 +1,8 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
@@ -11,6 +12,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Weaver");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

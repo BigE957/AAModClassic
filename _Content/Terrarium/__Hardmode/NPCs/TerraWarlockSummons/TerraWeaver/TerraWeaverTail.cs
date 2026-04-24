@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -11,6 +12,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Weaver");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

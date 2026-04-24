@@ -1,9 +1,10 @@
-using System;
+using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose
 {
@@ -14,6 +15,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             // DisplayName.SetDefault("Ei'Lor's Claw");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

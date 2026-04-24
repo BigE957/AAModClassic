@@ -1,11 +1,12 @@
-﻿using Terraria;
-using System;
-using Terraria.GameContent;
-using Terraria.ID;
+﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -397,6 +398,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discordian Serpent");
             Main.npcFrameCount[NPC.type] = 1;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -528,6 +530,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discordian Serpent");
             Main.npcFrameCount[NPC.type] = 1;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -659,6 +662,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discordian Serpent");
             Main.npcFrameCount[NPC.type] = 1;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

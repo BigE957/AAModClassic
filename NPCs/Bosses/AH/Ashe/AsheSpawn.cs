@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,7 +13,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashe Akuma");     
-            Main.npcFrameCount[NPC.type] = 16;     
+            Main.npcFrameCount[NPC.type] = 16;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

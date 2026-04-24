@@ -1,7 +1,8 @@
-using System;
-using System.IO;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,6 +16,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
 
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override string Texture => ModContent.GetInstance<DeitySkull_Hand>().Texture;

@@ -797,6 +797,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             // DisplayName.SetDefault("Worm King Greed");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             Main.npcFrameCount[NPC.type] = 27;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

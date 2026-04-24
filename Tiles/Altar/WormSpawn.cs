@@ -1,11 +1,12 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Music;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Tiles.Altar
 {
@@ -16,6 +17,7 @@ namespace AAModClassic.Tiles.Altar
         {
             // DisplayName.SetDefault("Heavenly Voice");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

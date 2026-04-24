@@ -1,13 +1,13 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-
-using System.IO;
-using Terraria.ID;
-using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -20,6 +20,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             // DisplayName.SetDefault("Yamata no Orochi");
             Main.npcFrameCount[NPC.type] = 3;
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

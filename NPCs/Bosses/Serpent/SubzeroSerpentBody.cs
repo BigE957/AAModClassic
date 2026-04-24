@@ -27,6 +27,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             // DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

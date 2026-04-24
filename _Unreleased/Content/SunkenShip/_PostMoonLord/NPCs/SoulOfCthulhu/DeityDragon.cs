@@ -1,3 +1,4 @@
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -379,6 +380,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -512,6 +514,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -645,6 +648,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -778,6 +782,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -911,6 +916,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

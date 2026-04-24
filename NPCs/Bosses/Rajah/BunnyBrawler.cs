@@ -1,13 +1,13 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System.IO;
-
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -124,6 +124,11 @@ namespace AAModClassic.NPCs.Bosses.Rajah
     }
     public class BunnyBrawler2 : BunnyBrawler
     {
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            this.HideFromBestiary();
+        }
         public override string Texture => "AAModClassic/NPCs/Bosses/Rajah/BunnyBrawler";
         public override void SetDefaults()
         {

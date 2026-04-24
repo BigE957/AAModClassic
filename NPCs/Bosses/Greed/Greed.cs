@@ -671,6 +671,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             // DisplayName.SetDefault("Greed");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             Main.npcFrameCount[NPC.type] = 22;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

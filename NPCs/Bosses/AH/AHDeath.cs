@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -14,6 +15,7 @@ namespace AAModClassic.NPCs.Bosses.AH
         {
             // DisplayName.SetDefault("Sisters Defeat");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

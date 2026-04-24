@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -12,6 +13,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wyrm");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

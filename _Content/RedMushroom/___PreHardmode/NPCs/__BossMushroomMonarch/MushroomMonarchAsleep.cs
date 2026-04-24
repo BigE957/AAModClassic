@@ -15,6 +15,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             // DisplayName.SetDefault("Very Large Mushroom");
             Main.npcFrameCount[NPC.type] = 1;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

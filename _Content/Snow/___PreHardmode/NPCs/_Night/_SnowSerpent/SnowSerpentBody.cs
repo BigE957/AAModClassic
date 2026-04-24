@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
 {
@@ -6,7 +7,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
     {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Snow Serpent");
+            // DisplayName.SetDefault("Snow Serpent");
+            this.HideFromBestiary();
         }
 
 		public override void SetDefaults()

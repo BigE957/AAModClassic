@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,6 +15,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ancient Lung");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

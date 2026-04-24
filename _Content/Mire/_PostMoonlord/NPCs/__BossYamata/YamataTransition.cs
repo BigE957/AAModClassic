@@ -3,6 +3,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -20,6 +21,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             // DisplayName.SetDefault("Spirit of Wrath");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

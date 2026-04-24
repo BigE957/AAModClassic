@@ -1,7 +1,8 @@
+using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Music;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch
 {
@@ -11,6 +12,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             // DisplayName.SetDefault("Very Large Mushroom...?");
             Main.npcFrameCount[NPC.type] = 5;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

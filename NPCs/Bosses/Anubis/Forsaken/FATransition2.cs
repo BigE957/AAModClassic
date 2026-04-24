@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Effects;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,6 +14,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 		{
 			// DisplayName.SetDefault("Anubis Legendscribe");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

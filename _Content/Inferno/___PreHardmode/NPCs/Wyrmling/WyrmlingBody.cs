@@ -1,9 +1,10 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Items.Banners;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
@@ -12,6 +13,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wyrmling");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

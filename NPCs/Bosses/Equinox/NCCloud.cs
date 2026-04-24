@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -15,7 +16,8 @@ namespace AAModClassic.NPCs.Bosses.Equinox
     	public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Nightclawer Cloud");
-             Main.npcFrameCount[NPC.type] = 4;
+            Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

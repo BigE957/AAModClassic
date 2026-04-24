@@ -1389,10 +1389,6 @@ namespace AAModClassic
 
         public override void PostUpdate()
         {
-            Point mouseTile = Main.MouseWorld.ToTileCoordinates();
-            //Main.NewText(ModLoader.HasMod("SpiritReforged"));
-            //Main.NewText(TileID.Sets.Conversion.Grass[Main.tile[mouseTile].TileType]);
-
             if (!bossactive)
             {
                 nohitplayer = true;

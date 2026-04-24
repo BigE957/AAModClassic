@@ -3,6 +3,7 @@ using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -20,6 +21,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             // DisplayName.SetDefault("Soul Of Fury");
             Main.npcFrameCount[NPC.type] = 8;
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

@@ -1,13 +1,13 @@
-using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
@@ -17,6 +17,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         {
             // DisplayName.SetDefault("Flame Vortex");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

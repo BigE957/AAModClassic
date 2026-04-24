@@ -19,6 +19,7 @@ namespace AAModClassic.NPCs.Bosses.AH
         {
             // DisplayName.SetDefault("Sisters of Discord");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

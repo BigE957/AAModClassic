@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -377,6 +378,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashen Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -524,6 +526,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashen Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -664,6 +667,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashen Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -804,6 +808,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashen Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -944,6 +949,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashen Dragon");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

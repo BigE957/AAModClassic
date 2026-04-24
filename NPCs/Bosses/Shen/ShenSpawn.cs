@@ -21,6 +21,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discord");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {
@@ -255,6 +256,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discord's Defeat");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -310,6 +312,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discord's Death");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -435,6 +438,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             // DisplayName.SetDefault("Discordian Awakening");
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

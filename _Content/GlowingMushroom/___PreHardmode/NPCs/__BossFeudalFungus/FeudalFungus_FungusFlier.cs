@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,6 +14,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         {
             // DisplayName.SetDefault("Fungus Flier");
             Main.npcFrameCount[NPC.type] = 3;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

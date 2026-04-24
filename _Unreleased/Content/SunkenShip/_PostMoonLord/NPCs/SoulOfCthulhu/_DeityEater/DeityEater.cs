@@ -1,5 +1,8 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Music;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,8 +11,6 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater
 {
@@ -371,6 +372,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Crom Cruach");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -458,6 +460,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Crom Cruach");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

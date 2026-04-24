@@ -1,16 +1,20 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class CurseCircle : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            this.HideFromBestiary();
+        }
         public override void SetDefaults()
         {
             NPC.alpha = 255;

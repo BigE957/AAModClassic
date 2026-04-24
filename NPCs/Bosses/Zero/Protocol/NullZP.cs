@@ -1,9 +1,10 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -14,6 +15,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 		{
 			// DisplayName.SetDefault("Null");
             Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 		
 		public override void SetDefaults()

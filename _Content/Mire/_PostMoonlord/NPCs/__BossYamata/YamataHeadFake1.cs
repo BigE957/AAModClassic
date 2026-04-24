@@ -1,15 +1,15 @@
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
-
-using System.IO;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
-using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
@@ -22,6 +22,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             // DisplayName.SetDefault("Yamata");
             Main.npcFrameCount[NPC.type] = 3;
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

@@ -21,6 +21,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             // DisplayName.SetDefault("Hydra");
             Main.npcFrameCount[NPC.type] = 2;
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
 
         public float Shoot = 0;

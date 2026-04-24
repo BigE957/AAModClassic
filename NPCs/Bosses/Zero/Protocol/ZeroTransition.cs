@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Effects;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -18,6 +19,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             // DisplayName.SetDefault("Broken Rift");
             Main.npcFrameCount[NPC.type] = 26;
             Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

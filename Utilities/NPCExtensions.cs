@@ -13,5 +13,18 @@ namespace AAModClassic.Utilities
         public static bool BeenKilled(this ModNPC modNPC, bool justKilled = false) => BeenKilled(modNPC.Type, justKilled);
 
         public static bool BeenKilled<T>(bool justKilled = false) where T : ModNPC => BeenKilled(ModContent.GetInstance<T>().Type, justKilled);
+
+        /// <summary>
+        /// Hides an NPC from the bestiary. This should be called in SetStaticDefaults.
+        /// </summary>
+        /// <param name="n"></param>
+        public static void HideFromBestiary(this ModNPC n)
+        {
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
+            {
+                Hide = true
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(n.Type, value);
+        }
     }
 }

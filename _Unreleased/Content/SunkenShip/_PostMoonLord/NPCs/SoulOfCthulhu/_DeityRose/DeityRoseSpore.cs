@@ -1,3 +1,4 @@
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,6 +11,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ei'Lor's Spore");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
