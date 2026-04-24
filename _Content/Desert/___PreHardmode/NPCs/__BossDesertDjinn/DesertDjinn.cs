@@ -4,6 +4,7 @@ using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -22,6 +23,10 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
     [AutoloadBossHead]
     public class DesertDjinn : ModNPC
     {
+        public bool Anim_MudaMuda => internalAI[0] == 1 || !Main.player[NPC.target].ZoneDesert;
+        public bool Anim_Punch => internalAI[0] == 2;
+        public bool Anim_Default => !Anim_MudaMuda && !Anim_Punch;
+
         public int damage = 0;
 
         public override void SetStaticDefaults()
@@ -298,7 +303,15 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         int Frame = 0;
         public override void FindFrame(int frameHeight)
         {
-            NPC.frameCounter++;
+            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 3;
+            if (Anim_MudaMuda)
+                NPC.frame.X = NPC.frame.Width;
+            else if (Anim_Punch)
+                NPC.frame.X = NPC.frame.Width * 2;
+            else
+                NPC.frame.X = 0;
+
+                NPC.frameCounter++;
             if (internalAI[0] == 0)
             {
                 if (Frame < 6 || Frame > 14)
@@ -556,29 +569,18 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D CurrentTex;
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D MudaMuda = Mod.GetTexture(Texture + "_MudaMuda");
-            Texture2D Punch = Mod.GetTexture(Texture + "_Punch");
-
-            //TODO: djinn is simple enough to where he could super easily be reworked to only use one sheet instead of three
-            // not just bcuz of boss complexity but bcuz all his sheets r the same width and height. the logic is basically already there
-            if (internalAI[0] == 1 || !Main.player[NPC.target].ZoneDesert)
-                CurrentTex = MudaMuda;
-            else if (internalAI[0] == 2)
-                CurrentTex = Punch;
-            else
-                CurrentTex = texture;
 
             var effects = NPC.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
             if (!Main.player[NPC.target].ZoneDesert)
             {
                 drawColor = Color.Goldenrod;
-                BaseDrawing.DrawAfterimage(spriteBatch, CurrentTex, 0, NPC, 1, 1, 7, false, 0, 0, drawColor, NPC.frame, 15);
+                //TODO: this doesnt support direction or horizontal frames in a sheet. has to be reworked to do that 
+                BaseDrawing.DrawAfterimage(spriteBatch, texture, 0, NPC, 1, 1, 7, false, 0, 0, drawColor, NPC.frame, 15);
             }
 
-            spriteBatch.Draw(CurrentTex, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0);
+            spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0);
 
             return false;
         }

@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Serpent;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

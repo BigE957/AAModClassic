@@ -8,6 +8,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -21,11 +22,13 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Serpent
+namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     [AutoloadBossHead]	
 	public class SubzeroSerpentHead : ModNPC
 	{
+        public ref float BiomeType => ref NPC.ai[2];
+
         public int damage = 0;
 
         private static int CorruptHead;
@@ -64,7 +67,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void BossHeadSlot(ref int index)
         {
-            switch ((int)NPC.ai[2])
+            switch ((int)BiomeType)
             {
                 case 1:
                     index = CorruptHead;
@@ -101,11 +104,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 			NPC.npcSlots = 5f;
             NPC.width = 32;
             NPC.height = 32;
-            if (NPC.ai[2] == 2)
+            if (BiomeType == 2)
             {
                 NPC.lifeMax = 7000;
             }
-            else if (NPC.ai[2] == 5)
+            else if (BiomeType == 5)
             {
                 NPC.lifeMax = 15000;
             }
@@ -188,7 +191,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
+                    if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
@@ -229,11 +232,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         {
                             type = ModContent.NPCType<SubzeroSerpentTail>();
                         }
-                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, NPC.ai[2], NPC.whoAmI, 255);
+                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, BiomeType, NPC.whoAmI, 255);
                         Main.npc[segment].realLife = NPC.whoAmI;
                         NPC.ai[0] = segment;
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
-                        previousSegment = (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? segment : (NPC.whoAmI = segment));
+                        previousSegment = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? segment : (NPC.whoAmI = segment);
                     }
                     internalAI[4] = 1;
                     NPC.netUpdate = true;
@@ -266,7 +269,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 {
                     for (int y = posY; y < centerY; y++)
                     {
-                        if (Main.tile[x, y] != null && ((Main.tile[x, y].HasUnactuatedTile && (Main.tileSolid[Main.tile[x, y].TileType] || (Main.tileSolidTop[Main.tile[x, y].TileType] && Main.tile[x, y].TileFrameY == 0))) || Main.tile[x, y].LiquidAmount > 64))
+                        if (Main.tile[x, y] != null && (Main.tile[x, y].HasUnactuatedTile && (Main.tileSolid[Main.tile[x, y].TileType] || Main.tileSolidTop[Main.tile[x, y].TileType] && Main.tile[x, y].TileFrameY == 0) || Main.tile[x, y].LiquidAmount > 64))
                         {
                             Vector2 vector2;
                             vector2.X = x * 16;
@@ -314,7 +317,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             float num48 = 0.1f;
             float num49 = 0.15f;
 
-            if (NPC.ai[2] == 1 || NPC.ai[2] == 5)
+            if (BiomeType == 1 || BiomeType == 5)
             {
                 num48 = 0.13f;
                 num49 = 0.2f;
@@ -416,7 +419,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 float num57 = maxDistance / num52;
                 targetX *= num57;
                 targetY *= num57;
-                if (((NPC.velocity.X > 0f && targetX > 0f) || (NPC.velocity.X < 0f && targetX < 0f)) && ((NPC.velocity.Y > 0f && targetY > 0f) || (NPC.velocity.Y < 0f && targetY < 0f)))
+                if ((NPC.velocity.X > 0f && targetX > 0f || NPC.velocity.X < 0f && targetX < 0f) && (NPC.velocity.Y > 0f && targetY > 0f || NPC.velocity.Y < 0f && targetY < 0f))
                 {
                     if (NPC.velocity.X < targetX)
                     {
@@ -435,7 +438,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         NPC.velocity.Y = NPC.velocity.Y - num49;
                     }
                 }
-                if ((NPC.velocity.X > 0f && targetX > 0f) || (NPC.velocity.X < 0f && targetX < 0f) || (NPC.velocity.Y > 0f && targetY > 0f) || (NPC.velocity.Y < 0f && targetY < 0f))
+                if (NPC.velocity.X > 0f && targetX > 0f || NPC.velocity.X < 0f && targetX < 0f || NPC.velocity.Y > 0f && targetY > 0f || NPC.velocity.Y < 0f && targetY < 0f)
                 {
                     if (NPC.velocity.X < targetX)
                     {
@@ -453,7 +456,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     {
                         NPC.velocity.Y = NPC.velocity.Y - num48;
                     }
-                    if (Math.Abs(targetY) < maxDistance * 0.2 && ((NPC.velocity.X > 0f && targetX < 0f) || (NPC.velocity.X < 0f && targetX > 0f)))
+                    if (Math.Abs(targetY) < maxDistance * 0.2 && (NPC.velocity.X > 0f && targetX < 0f || NPC.velocity.X < 0f && targetX > 0f))
                     {
                         if (NPC.velocity.Y > 0f)
                         {
@@ -464,7 +467,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                             NPC.velocity.Y = NPC.velocity.Y - num48 * 2f;
                         }
                     }
-                    if (Math.Abs(targetX) < maxDistance * 0.2 && ((NPC.velocity.Y > 0f && targetY < 0f) || (NPC.velocity.Y < 0f && targetY > 0f)))
+                    if (Math.Abs(targetX) < maxDistance * 0.2 && (NPC.velocity.Y > 0f && targetY < 0f || NPC.velocity.Y < 0f && targetY > 0f))
                     {
                         if (NPC.velocity.X > 0f)
                         {
@@ -538,7 +541,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 }
                 NPC.localAI[0] = 0f;
             }
-            if (((NPC.velocity.X > 0f && NPC.oldVelocity.X < 0f) || (NPC.velocity.X < 0f && NPC.oldVelocity.X > 0f) || (NPC.velocity.Y > 0f && NPC.oldVelocity.Y < 0f) || (NPC.velocity.Y < 0f && NPC.oldVelocity.Y > 0f)) && !NPC.justHit)
+            if ((NPC.velocity.X > 0f && NPC.oldVelocity.X < 0f || NPC.velocity.X < 0f && NPC.oldVelocity.X > 0f || NPC.velocity.Y > 0f && NPC.oldVelocity.Y < 0f || NPC.velocity.Y < 0f && NPC.oldVelocity.Y > 0f) && !NPC.justHit)
             {
                 NPC.netUpdate = true;
             }
@@ -570,14 +573,13 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     {
                         tongueFlickCounter = 8;
                         NPC.frame.Y += NPC.frame.Height;
-                        if (NPC.frame.Y >= (NPC.frame.Height * 3))
+                        if (NPC.frame.Y >= NPC.frame.Height * 3)
                             tongueFlickDir = true;
                     }
                 }
             }
 
-            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 6;
-            NPC.frame.X = NPC.frame.Width * (int)NPC.ai[2];
+            NPC.SetProperFramingForBiome_Horizontal((int)BiomeType);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -613,12 +615,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         private void Rain()
         {
-            if (NPC.ai[2] == 3 || NPC.ai[2] == 5)
+            if (BiomeType == 3 || BiomeType == 5)
             {
                 NPC.defense = 32;
             }
 
-            if (NPC.ai[2] == 4 || NPC.ai[2] == 5)
+            if (BiomeType == 4 || BiomeType == 5)
             {
                 NPC.damage = 40;
             }
@@ -729,7 +731,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     if (NPC.CountNPCS(ModContent.NPCType<IceCrystal>()) < 3)
                     {
                         SoundEngine.PlaySound(SoundID.Item60, player.position);
-                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-100, 101), (int)player.position.Y - 180, ModContent.NPCType<IceCrystal>(), 0, NPC.ai[2], 0, 0, 0, NPC.target);
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-100, 101), (int)player.position.Y - 180, ModContent.NPCType<IceCrystal>(), 0, 0, BiomeType, 0, 0, NPC.target);
                     }
                 }
                 internalAI[2] = 2;
@@ -749,8 +751,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     attackTimer++;
                     if (attackTimer == 20 || attackTimer == 50 || attackTimer == 79)
                     {
-                        int p = BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<IceBall2>(), damage, 3, 14f, 0, 0, -1);
-                        Main.projectile[p].ai[1] = NPC.ai[2]; 
+                        int p = BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<SubzeroSerpent_IceBall>(), damage, 3, 14f, 0, 0, -1);
+                        Main.projectile[p].ai[1] = BiomeType; 
                         NPC.netUpdate = true;
                     }
                     if (attackTimer >= 80)
@@ -781,8 +783,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         {
                             float num433 = 6f;
                             Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-                            float PlayerPosX = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) - PlayerDistance.X;
-                            float PlayerPosY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - PlayerDistance.Y;
+                            float PlayerPosX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - PlayerDistance.X;
+                            float PlayerPosY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - PlayerDistance.Y;
                             float PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
                             PlayerPos = num433 / PlayerPos;
                             PlayerPosX *= PlayerPos;
@@ -793,7 +795,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                             PlayerPosX += NPC.velocity.X * 0.5f;
                             PlayerDistance.X -= PlayerPosX * 1f;
                             PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 1.5f, NPC.velocity.Y * 1.5f, ModContent.ProjectileType<SubzeroSerpentHead_SerpentBreath>(), damage, 0, Main.myPlayer, 0, NPC.ai[2]);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 1.5f, NPC.velocity.Y * 1.5f, ModContent.ProjectileType<SubzeroSerpentHead_SerpentBreath>(), damage, 0, Main.myPlayer, 0, BiomeType);
                         }
                     }
                     if (attackTimer >= 80)

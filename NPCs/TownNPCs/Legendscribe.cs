@@ -19,7 +19,6 @@ using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic.NPCs.Bosses.Greed;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
@@ -29,6 +28,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFung
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 
 namespace AAModClassic.NPCs.TownNPCs
 {
