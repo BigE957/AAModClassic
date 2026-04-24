@@ -87,6 +87,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarc
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
@@ -132,7 +133,6 @@ using AAModClassic.NPCs.Bosses.Equinox;
 using AAModClassic.NPCs.Bosses.Greed;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Sag;
-using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.NPCs.Bosses.Zero;

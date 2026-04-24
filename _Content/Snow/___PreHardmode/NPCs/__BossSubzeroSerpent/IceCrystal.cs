@@ -5,10 +5,12 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic.NPCs.Bosses.Serpent
+namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     public class IceCrystal : ModNPC
     {
+        public ref float BiomeType => ref NPC.ai[1];
+
         public override void SetDefaults()
         {
             NPC.lifeMax = 600;
@@ -39,17 +41,17 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 NPC.ai[2]++;
             }
-            if (NPC.alpha > 40)
+            if (NPC.alpha > 50)
             {
                 NPC.alpha -= 3;
             }
             else
             {
                 //TODO: speed based on distance or something
-                int p = BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<IceSpike>(), ref NPC.ai[0], 80, NPC.damage / 2, 7, true);
+                int p = BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<IceCrystal_IceSpike>(), ref NPC.ai[0], 80, NPC.damage / 2, 7, true);
                 if (p != -1)
                 {
-                    Main.projectile[p].ai[1] = NPC.ai[1];
+                    Main.projectile[p].ai[1] = BiomeType;
                     int pieCut = 8;
                     float radians = MathHelper.TwoPi / pieCut;
                     for (int i = 0; i < pieCut; i++)
@@ -64,7 +66,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void FindFrame(int frameHeight)
         {
-            NPC.frame.Y = frameHeight * (int)NPC.ai[1];
+            NPC.frame.Y = frameHeight * (int)BiomeType;
         }
 
         public override void OnKill()

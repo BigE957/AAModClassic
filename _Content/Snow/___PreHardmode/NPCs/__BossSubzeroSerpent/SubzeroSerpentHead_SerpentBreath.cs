@@ -1,9 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.UI.WorldGen;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs.InfectionBiomeNPCAlternatesHelper;
 
-namespace AAModClassic.NPCs.Bosses.Serpent
+namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     internal class SubzeroSerpentHead_SerpentBreath : ModProjectile
     {
@@ -51,25 +53,23 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 Projectile.ai[0] += 1f;
 
                 int dustType = ModContent.DustType<Dusts.SnowDustLight>();
-                if (BiomeType == 1)
+                switch (BiomeType)
                 {
-                    dustType = DustID.CursedTorch;
-                }
-                if (BiomeType == 2)
-                {
-                    dustType = DustID.GoldFlame;
-                }
-                if (BiomeType == 3)
-                {
-                    dustType = ModContent.DustType<Dusts.BroodmotherDust>();
-                }
-                if (BiomeType == 4)
-                {
-                    dustType = ModContent.DustType<Dusts.AcidDust>();
-                }
-                if (BiomeType == 5)
-                {
-                    dustType = ModContent.DustType<Dusts.HallowedDustT>();
+                    case (int)InfectionType.Corruption:
+                        dustType = DustID.CursedTorch;
+                        break;
+                    case (int)InfectionType.Crimson:
+                        dustType = DustID.GoldFlame;
+                        break;
+                    case (int)InfectionType.Inferno:
+                        dustType = ModContent.DustType<Dusts.BroodmotherDust>();
+                        break;
+                    case (int)InfectionType.Mire:
+                        dustType = ModContent.DustType<Dusts.AcidDust>();
+                        break;
+                    case (int)InfectionType.Hallow:
+                        dustType = ModContent.DustType<Dusts.HallowedDustT>();
+                        break;
                 }
 
                 if (Main.rand.NextBool(2))
@@ -110,21 +110,25 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(BuffID.Chilled, 300);
-            if  (BiomeType == 1)
+
+            switch (BiomeType)
             {
-                target.AddBuff(BuffID.CursedInferno, 180);
-            }
-            if (BiomeType == 2)
-            {
-                target.AddBuff(BuffID.Ichor, 180);
-            }
-            if (BiomeType == 3)
-            {
-                target.AddBuff(BuffID.OnFire, 180);
-            }
-            if (BiomeType == 4)
-            {
-                target.AddBuff(BuffID.Poisoned, 180);
+                case (int)InfectionType.Corruption:
+                    target.AddBuff(BuffID.CursedInferno, 180);
+                    break;
+                case (int)InfectionType.Crimson:
+                    target.AddBuff(BuffID.Ichor, 180);
+                    break;
+                case (int)InfectionType.Inferno:
+                    target.AddBuff(BuffID.OnFire, 180);
+                    break;
+                case (int)InfectionType.Mire:
+                    target.AddBuff(BuffID.Poisoned, 180);
+                    break;
+                case (int)InfectionType.Hallow:
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        target.AddBuff(BuffID.Confused, 180);
+                    break;
             }
         }
     }

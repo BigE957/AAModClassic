@@ -5,9 +5,9 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Serpent
+namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-    public class IceBall2 : ModProjectile
+    public class SubzeroSerpent_IceBall : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -26,10 +26,9 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             Projectile.friendly = false;
         }
 
-        public override bool PreAI()
+        public override void PostAI()
         {
             Projectile.frame = (int)Projectile.ai[1];
-            return true;
         }
 
         public override bool PreKill(int timeLeft)

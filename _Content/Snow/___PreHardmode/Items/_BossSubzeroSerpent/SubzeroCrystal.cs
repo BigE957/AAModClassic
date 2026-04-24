@@ -1,6 +1,6 @@
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Serpent;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

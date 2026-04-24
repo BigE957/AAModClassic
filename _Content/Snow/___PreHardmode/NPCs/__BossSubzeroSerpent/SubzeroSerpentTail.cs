@@ -8,6 +8,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -19,7 +20,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Serpent
+namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     public class SubzeroSerpentTail : ModNPC
     {
@@ -74,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
+                    if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
@@ -141,7 +142,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 {
                     for (int l = num14; l < num15; l++)
                     {
-                        if (Main.tile[k, l] != null && ((Main.tile[k, l].HasUnactuatedTile && (Main.tileSolid[Main.tile[k, l].TileType] || (Main.tileSolidTop[Main.tile[k, l].TileType] && Main.tile[k, l].TileFrameY == 0))) || Main.tile[k, l].LiquidAmount > 64))
+                        if (Main.tile[k, l] != null && (Main.tile[k, l].HasUnactuatedTile && (Main.tileSolid[Main.tile[k, l].TileType] || Main.tileSolidTop[Main.tile[k, l].TileType] && Main.tile[k, l].TileFrameY == 0) || Main.tile[k, l].LiquidAmount > 64))
                         {
                             Vector2 vector2;
                             vector2.X = k * 16;
@@ -262,7 +263,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 float num27 = num17 / num22;
                 num20 *= num27;
                 num21 *= num27;
-                if (((NPC.velocity.X > 0f && num20 > 0f) || (NPC.velocity.X < 0f && num20 < 0f)) && ((NPC.velocity.Y > 0f && num21 > 0f) || (NPC.velocity.Y < 0f && num21 < 0f)))
+                if ((NPC.velocity.X > 0f && num20 > 0f || NPC.velocity.X < 0f && num20 < 0f) && (NPC.velocity.Y > 0f && num21 > 0f || NPC.velocity.Y < 0f && num21 < 0f))
                 {
                     if (NPC.velocity.X < num20)
                     {
@@ -281,7 +282,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         NPC.velocity.Y = NPC.velocity.Y - num19;
                     }
                 }
-                if ((NPC.velocity.X > 0f && num20 > 0f) || (NPC.velocity.X < 0f && num20 < 0f) || (NPC.velocity.Y > 0f && num21 > 0f) || (NPC.velocity.Y < 0f && num21 < 0f))
+                if (NPC.velocity.X > 0f && num20 > 0f || NPC.velocity.X < 0f && num20 < 0f || NPC.velocity.Y > 0f && num21 > 0f || NPC.velocity.Y < 0f && num21 < 0f)
                 {
                     if (NPC.velocity.X < num20)
                     {
@@ -299,7 +300,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     {
                         NPC.velocity.Y = NPC.velocity.Y - num18;
                     }
-                    if (Math.Abs(num21) < num17 * 0.2 && ((NPC.velocity.X > 0f && num20 < 0f) || (NPC.velocity.X < 0f && num20 > 0f)))
+                    if (Math.Abs(num21) < num17 * 0.2 && (NPC.velocity.X > 0f && num20 < 0f || NPC.velocity.X < 0f && num20 > 0f))
                     {
                         if (NPC.velocity.Y > 0f)
                         {
@@ -310,7 +311,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                             NPC.velocity.Y = NPC.velocity.Y - num18 * 2f;
                         }
                     }
-                    if (Math.Abs(num20) < num17 * 0.2 && ((NPC.velocity.Y > 0f && num21 < 0f) || (NPC.velocity.Y < 0f && num21 > 0f)))
+                    if (Math.Abs(num20) < num17 * 0.2 && (NPC.velocity.Y > 0f && num21 < 0f || NPC.velocity.Y < 0f && num21 > 0f))
                     {
                         if (NPC.velocity.X > 0f)
                         {
@@ -372,8 +373,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void FindFrame(int frameHeight)
         {
-            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 6;
-            NPC.frame.X = NPC.frame.Width * (int)NPC.ai[2];
+            NPC.SetProperFramingForBiome_Horizontal((int)NPC.ai[2]);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
