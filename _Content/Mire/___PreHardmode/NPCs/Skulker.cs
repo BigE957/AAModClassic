@@ -150,7 +150,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MirePod>(), 1, 5, 15));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MirePod>()));
         }
     }
 }

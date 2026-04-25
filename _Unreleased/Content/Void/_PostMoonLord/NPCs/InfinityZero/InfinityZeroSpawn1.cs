@@ -79,10 +79,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         if (spawnState >= 5 && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             SummonInfinity();
-
-                            NPC.life = 0;
-                            NPC.checkDead();
-                            NPC.netUpdate = true;
+                            NPC.active = false;
                         }
                     }
                 }

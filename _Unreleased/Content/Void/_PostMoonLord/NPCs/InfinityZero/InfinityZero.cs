@@ -1,21 +1,24 @@
-﻿using System;
-using System.IO;
+﻿using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss;
+using AAModClassic.Items.Potions;
+using AAModClassic.Music;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.IO;
+using System.Net;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-using Terraria.ModLoader;
-using AAModClassic.Items.Potions;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
-using AAModClassic.Items.Boss;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
-using ReLogic.Content;
-using AAModClassic.Music;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -202,40 +205,21 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    int latestNPC = NPC.whoAmI;
 					int handType = 0;
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
-					Main.npc[latestNPC].ai[1] = handType;
-					handType++;
+                    int latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI, handType++);
                     Zero1 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
-					Main.npc[latestNPC].ai[1] = handType;
-					handType++;
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI, handType++);
                     Zero2 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
-					Main.npc[latestNPC].ai[1] = handType;
-					handType++;
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI, handType++);
                     Zero3 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
-					Main.npc[latestNPC].ai[1] = handType;
-					handType++;
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI, handType++);
                     Zero4 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
-					Main.npc[latestNPC].ai[1] = handType;
-					handType++;
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI, handType++);
                     Zero5 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
-					Main.npc[latestNPC].ai[1] = handType;
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI, handType);
                     Zero6 = Main.npc[latestNPC];
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityCore>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
-                    Main.npc[latestNPC].ai[0] = NPC.whoAmI;
                     Core = Main.npc[latestNPC];
                 }
                 ZerosSpawned = true;
@@ -296,6 +280,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.frame.Y = 0;
             }
+
+            if (OpenCore)
+                NPC.frame.Y += frameHeight;
         }
 
         public override void BossLoot(ref int potionType)
@@ -375,12 +362,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
                 if (CoreTimer <= 0)
                 {
-                    BaseUtility.Chat("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived", new Color(158, 3, 32));
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived"), new Color(158, 3, 32));
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;
                     InfinityZeroHand1.RepairMode = false;
-                    InfinityZeroHand1.RepairMode = false;
+                    InfinityZeroHand2.RepairMode = false;
                 }
 
             }
@@ -439,7 +426,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             return (aura ? infinityGlowRed : Color.White) * (Main.mouseTextColor / 255f);
         }
 
-        public Color GetRedAlpha()
+        public static Color GetRedAlpha()
         {
             return new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
         }
@@ -448,19 +435,33 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public bool auraDirection = true;
         public bool saythelinezero = false;
 		
-		public Vector2 GetConnectionPoint(int handType)
+		public static Vector2 GetConnectionPoint(int handType)
 		{
 			float offsetX = 0, offsetY = 0;
-			switch(handType)
-			{
-				case 0: offsetX = -62; offsetY = -80; break;
-				case 1: offsetX = -32; offsetY = -44; break;
-				case 2: offsetX = -46; offsetY = -20; break;
-				case 3: offsetX = 62; offsetY = -80; break;
-				case 4: offsetX = 32; offsetY = -44; break;
-				case 5: offsetX = 46; offsetY = -20; break;		
-				default: break;
-			}
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                switch (handType)
+                {
+                    case 0: offsetX = -74; offsetY = -86; break;
+                    case 1: offsetX = -46; offsetY = -50; break;
+                    case 2: offsetX = -64; offsetY = -28; break;
+                    case 3: offsetX = 74; offsetY = -86; break;
+                    case 4: offsetX = 46; offsetY = -50; break;
+                    case 5: offsetX = 64; offsetY = -28; break;
+                }
+            }
+            else
+            {
+                switch (handType)
+                {
+                    case 0: offsetX = -62; offsetY = -80; break;
+                    case 1: offsetX = -32; offsetY = -44; break;
+                    case 2: offsetX = -46; offsetY = -20; break;
+                    case 3: offsetX = 62; offsetY = -80; break;
+                    case 4: offsetX = 32; offsetY = -44; break;
+                    case 5: offsetX = 46; offsetY = -20; break;
+                }
+            }
 			offsetX *= 2f;
 			offsetY *= 2f;
 			return new Vector2(offsetX, offsetY);
@@ -483,7 +484,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (tenthHealth)
             {
-                //Main.NewText("bluha");
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
                 BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha());
                 BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetRedAlpha());
@@ -521,18 +521,45 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Texture2D ArmTex2D = ModContent.Request<Texture2D>(ArmTex).Value;
 				Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
                 Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;				
-                Vector2 ArmOrigin = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.handType);
-                Vector2 connector = Zero.Center;
-                BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, ArmOrigin, connector, ArmTex2D.Height - 10f, null, 1f, false, null);
-				BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, Zero, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(Zero), GetGlowAlpha(true)));
+                Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.handType);
+                Vector2 end = Zero.Center;
+                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                {
+                    Vector2 direction = end - start;
+                    float curveIntensity = 8000f / direction.Length();
+                    Vector2 perpindicular = Vector2.UnitY * curveIntensity;// direction.RotatedBy(MathHelper.PiOver2);
+
+                    Vector2 controlPoint1 = start + (direction * 0.25f) + perpindicular;
+                    Vector2 controlPoint2 = start + (direction * 0.75f) + perpindicular;
+
+                    float dist = start.Distance(controlPoint1) + controlPoint1.Distance(controlPoint2) + controlPoint2.Distance(end);
+
+                    BezierCurve path = new(start, controlPoint1, controlPoint2, end);
+                    int count = (int)(dist / ArmTex2D.Height) + 4;
+                    for(int i = 0; i < count; i++)
+                    {
+                        float ratio = i / (float)count;
+                        float nextRatio = (i + 1) / (float)count;
+                        Vector2 myStart = i == 0 ? start : path.Evaluate(ratio);
+                        Vector2 myEnd = i == count - 1 ? end : path.Evaluate(nextRatio);
+                        float rotation = myStart.AngleTo(myEnd) - MathHelper.PiOver2;
+                        float scale = (myStart.Distance(myEnd) / ArmTex2D.Height) + 0.25f;
+                        spriteBatch.Draw(ArmTex2D, myStart - Main.screenPosition, null, Lighting.GetColor(((myStart + myEnd) / 2f).ToTileCoordinates()), rotation, new Vector2(ArmTex2D.Width / 2f, 0), new Vector2(1, scale), 0, 0);
+                    }
+
+                }
+                else
+                    BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, start, end, ArmTex2D.Height - 10f, null, 1f, false, null);
+				
+                BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, Zero, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(Zero), GetGlowAlpha(true)), true);
                 if (tenthHealth)
                 {
-                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, Zero, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true));
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetRedAlpha());
+                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, Zero, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), true);
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetRedAlpha(), true);
                 }
                 else
                 {
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetGlowAlpha(false));
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetGlowAlpha(false), true);
                 }
             }
         }

@@ -624,7 +624,7 @@ namespace AAModClassic.Base.BaseMod.Base
             if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(texture, p.Center - Main.screenPosition + offset, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, p.rotation, origin, p.scale, p.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
         }
 
-        public static void DrawAura(object sb, Texture2D texture, int shader, Entity codable, float auraPercent, float distanceScalar = 1f, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
+        public static void DrawAura(object sb, Texture2D texture, int shader, Entity codable, float auraPercent, float distanceScalar = 1f, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null, bool centered = false)
         {
             int frameCount = (codable is NPC ? Main.npcFrameCount[((NPC)codable).type] : 1);
             Rectangle frame = (codable is NPC ? ((NPC)codable).frame : new Rectangle(0, 0, texture.Height, texture.Width));
@@ -632,10 +632,10 @@ namespace AAModClassic.Base.BaseMod.Base
             float rotation = (codable is NPC ? ((NPC)codable).rotation : ((Projectile)codable).rotation);
             int spriteDirection = (codable is NPC ? ((NPC)codable).spriteDirection : ((Projectile)codable).spriteDirection);
             float offsetY2 = (codable is NPC ? ((NPC)codable).gfxOffY : 0f);
-            DrawAura(sb, texture, shader, codable.position + new Vector2(0f, offsetY2), codable.width, codable.height, auraPercent, distanceScalar, scale, rotation, spriteDirection, frameCount, frame, offsetX, offsetY, overrideColor);
+            DrawAura(sb, texture, shader, codable.position + new Vector2(0f, offsetY2), codable.width, codable.height, auraPercent, distanceScalar, scale, rotation, spriteDirection, frameCount, frame, offsetX, offsetY, overrideColor, centered);
         }
 
-        public static void DrawAura(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float auraPercent, float distanceScalar = 1f, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default(Rectangle), float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
+        public static void DrawAura(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float auraPercent, float distanceScalar = 1f, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default(Rectangle), float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null, bool centered = false)
         {
             Color lightColor = overrideColor != null ? (Color)overrideColor : GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
             float percentHalf = auraPercent * 5f * distanceScalar;
@@ -657,7 +657,7 @@ namespace AAModClassic.Base.BaseMod.Base
                     case 3: offY -= percentHalf; break;
                 }
                 position2 = new Vector2(position.X + offX, position.Y + offY);
-                DrawTexture(sb, texture, shader, position2, width, height, scale, rotation, direction, framecount, frame, lightColor);
+                DrawTexture(sb, texture, shader, position2, width, height, scale, rotation, direction, framecount, frame, lightColor, centered);
             }
         }
 

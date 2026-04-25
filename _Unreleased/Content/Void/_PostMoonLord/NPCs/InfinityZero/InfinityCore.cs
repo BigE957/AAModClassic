@@ -1,12 +1,15 @@
-using Terraria;
-using System;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class InfinityCore : InfinityZero
+    public class InfinityCore : ModNPC
     {
 		
         public override void SetStaticDefaults()
@@ -17,7 +20,29 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void SetDefaults()
         {
-            base.SetDefaults();
+            NPC.damage = 0;
+            NPC.width = 420;
+            NPC.height = 342;
+            NPC.npcSlots = 100;
+            NPC.scale = 1f;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 2500000;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            NPC.value = Item.buyPrice(30, 0, 0, 0);
+            NPC.boss = true;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
+            {
+                NPC.buffImmune[k] = true;
+            }
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.netAlways = true;
+            NPC.chaseable = true;
+            Music = MusicManagementSystem.MusicSlots["IZ"];
+            NPC.HitSound = SoundID.NPCHit44;
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
+            NPC.scale *= 1.4f;
             NPC.width = 38;
             NPC.height = 44;
         }
@@ -33,7 +58,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public int f = 1;
         public float TargetDirection = (float)Math.PI / 2;
         public float s = 1;
-        //private int CoreFrame;
         private int CoreCounter;
 
         public override void AI()
@@ -77,7 +101,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
             }
             
-            Vector2 moveTo = Body.Center - NPC.Center;
+            Vector2 moveTo = (Body.Center - Vector2.UnitY * 94) - NPC.Center;
             NPC.velocity = moveTo;
         }
         public override void FindFrame(int frameHeight)

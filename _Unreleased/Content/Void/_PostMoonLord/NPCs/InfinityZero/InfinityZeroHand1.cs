@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.ID;
+using AAModClassic.UI.WorldGen;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -21,9 +22,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void SetDefaults()
         {
             base.SetDefaults();
-            NPC.lifeMax = 90000;
-            NPC.width = 206;
-            NPC.height = 206;
+            NPC.life = NPC.lifeMax = 90000;
+            NPC.height = NPC.width = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 128 : 206;
             NPC.npcSlots = 0;
 			NPC.aiStyle = -1;
             NPC.dontCountMe = true;
@@ -34,6 +34,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.buffImmune[k] = true;
             }
+            RepairMode = false;
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
@@ -309,11 +310,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center);
 				NPC.velocity *= ChargeAttack ? 18f : 8f;
 			}
-			NPC.position += Body.NPC.oldPos[0] - Body.NPC.position;	
-			//npc.spriteDirection = -1; commented out temporarily			
-		}
-		
-		public Vector2 GetVariance(bool random = true)
+			NPC.position += Body.NPC.oldPos[0] - Body.NPC.position;
+            //npc.spriteDirection = -1; commented out temporarily	
+        }
+
+        public Vector2 GetVariance(bool random = true)
 		{
 			float offsetX = 0, offsetY = 0;
 			switch(handType)
@@ -340,7 +341,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.life = NPC.lifeMax;
                 RepairMode = true;
-                Body.NPC.ai[3] += 1;
+                Body.NPC.ai[3] = 6;
             }
         }
 
