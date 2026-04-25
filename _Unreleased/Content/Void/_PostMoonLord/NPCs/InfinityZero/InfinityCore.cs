@@ -101,7 +101,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
             }
             
-            Vector2 moveTo = (Body.Center - Vector2.UnitY * 94) - NPC.Center;
+            Vector2 moveTo = (Body.Center - Vector2.UnitY * 89) - NPC.Center;
             NPC.velocity = moveTo;
         }
         public override void FindFrame(int frameHeight)
