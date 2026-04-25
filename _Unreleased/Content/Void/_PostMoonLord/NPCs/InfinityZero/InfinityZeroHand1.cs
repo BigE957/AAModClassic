@@ -118,6 +118,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         
         public override void AI()
 		{
+            if(RepairMode)
+                NPC.life = NPC.lifeMax;
 
             int num429 = 1;
             if (NPC.position.X + NPC.width / 2 < Main.player[NPC.target].position.X + Main.player[NPC.target].width)

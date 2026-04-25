@@ -416,7 +416,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             if (core != null && core.active)
             {
-                BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(coreTex).Value, 0, NPC.Center, core.width, core.height, core.scale, core.rotation, core.spriteDirection, Main.npcFrameCount[core.type], core.frame, drawColor, false);
+                Texture2D tex = ModContent.Request<Texture2D>(coreTex).Value;
+                spriteBatch.Draw(tex, core.Center - Main.screenPosition, core.frame, drawColor, core.rotation, core.frame.Size() * 0.5f, core.scale, core.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : 0, 0);
             }
         }
 
@@ -494,7 +495,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true));
                 BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetGlowAlpha(false));
             }
-
 
             string ZeroTex = ModContent.GetInstance<InfinityZeroHand1>().Texture;
 
