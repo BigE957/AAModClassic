@@ -124,7 +124,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             for (int i = 0; i < 4; i++)
                 UpdateMessage();
 
-            switch (4)//AAPlayer.IZKills)
+            switch (AAPlayer.IZKills)
             {
                 case 1:
                     switch(OblivionSpeech)
