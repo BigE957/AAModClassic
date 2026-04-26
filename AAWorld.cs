@@ -375,6 +375,10 @@ namespace AAModClassic
             RabbitKills = tag.GetInt("Bunny");
             SmashDragonEgg = tag.GetInt("Egg");
             SmashHydraPod = tag.GetInt("Pod");
+
+            TerrariumEnemies = NPC.downedBoss2;
+            previousDownedAllAncients = downedAllAncients;
+            AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
         }
         //Idt this is actually needed
         public override void NetSend(BinaryWriter writer)
