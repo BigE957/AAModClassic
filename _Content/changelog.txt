@@ -38,6 +38,7 @@ unreleased
 -
 
 unofficial
+-unreleased: Infinity Zero has been resprited (credit to Aria) as well as visually overhauled. Oblivion has also been resprited to match.
 -unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
 -subzero serpents biome variant heads have had unique sprites add (other than corruption variant, which already had one)
 -an entirely nonfunctional subzero serpent attack has been reinterpreted and restored
