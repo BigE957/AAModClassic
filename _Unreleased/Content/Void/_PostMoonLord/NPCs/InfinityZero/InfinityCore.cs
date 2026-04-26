@@ -39,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.noTileCollide = true;
             NPC.netAlways = true;
             NPC.chaseable = true;
-            Music = MusicManagementSystem.MusicSlots["IZ"];
+            Music = MusicManagementSystem.MusicSlots["InfinityZero"];
             NPC.HitSound = SoundID.NPCHit44;
             NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;

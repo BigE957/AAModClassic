@@ -45,6 +45,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		{
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
+            Main.npcFrameCount[NPC.type] = 4;
         }
 		public override void SetDefaults()
 		{
@@ -67,11 +68,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.noTileCollide = true;
 			NPC.netAlways = true;
 			NPC.chaseable = true;
-			Music = MusicManagementSystem.MusicSlots["IZ"];
+			Music = MusicManagementSystem.MusicSlots["InfinityZero"];
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
-            Main.npcFrameCount[NPC.type] = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 2 : 4;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -271,30 +271,20 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
         }
         
-
         public override void FindFrame(int frameHeight)
         {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-            {
-                NPC.frame.Height = 455;
-                if (roarTimer > -1)
-                    NPC.frame.Y = NPC.frame.Height;
-                else
-                    NPC.frame.Y = 0;
-                return;
-            }
-
-            NPC.frame.Height = TextureAssets.Npc[Type].Height() / 4;
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+            NPC.frame.Height = unofficial ? 455 : frameHeight;
             if (roarTimer > -1)
             {
-                NPC.frame.Y = 2 * NPC.frame.Height;
+                NPC.frame.Y = unofficial ? NPC.frame.Height : 2 * NPC.frame.Height;
             } else
             {
                 NPC.frame.Y = 0;
             }
 
             if (OpenCore)
-                NPC.frame.Y += NPC.frame.Height;
+                NPC.frame.Y += unofficial ? 2 * NPC.frame.Height : NPC.frame.Height;
         }
 
         public override void BossLoot(ref int potionType)
@@ -333,6 +323,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void HitEffect(NPC.HitInfo hit)
 		{
+            if (OpenCore)
+                NPC.defense = 50;
+            else if (NPC.life <= NPC.lifeMax / 10)
+                NPC.defense = 175;
+            else if (NPC.life <= NPC.lifeMax / 2)
+                NPC.defense = 225;
+            else
+                NPC.defense = 275;
+
             if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.75"), new Color(158, 3, 32));
@@ -343,7 +342,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.50"), new Color(158, 3, 32));
                 HalfHealth = true;
-                NPC.defense = 225;
                 InfinityZeroHand1.damageIdle = 250;
                 InfinityZeroHand1.damageCharging = 350;
                 roarTimer = 200;
@@ -358,7 +356,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 tenthHealth = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.10"), new Color(158, 3, 32));
-                NPC.defense = 175;
                 InfinityZeroHand1.damageIdle = 350;
                 InfinityZeroHand1.damageCharging = 500;
                 roarTimer = 200;
@@ -378,8 +375,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;
-                    InfinityZeroHand1.RepairMode = false;
-                    InfinityZeroHand2.RepairMode = false;
+                    foreach(NPC n in Main.npc)
+                    {
+                        if (n.ModNPC == null || n.ModNPC is not InfinityZeroHand1 hand)
+                            continue;
+                        hand.RepairMode = false;
+                    }
                 }
 
             }
@@ -503,14 +504,32 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (tenthHealth)
             {
                 BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor, unofficialWorld);
-                BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
-                BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetRedAlpha(), unofficialWorld);
+                BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
+                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetRedAlpha(), unofficialWorld);
+                if(unofficialWorld)
+                {
+                    Texture2D eye = ModContent.Request<Texture2D>(respritePath + "_Eye").Value;
+                    Vector2 drawPos = NPC.Center - new Vector2(7, 194);
+                    drawPos += drawPos.DirectionTo(Main.LocalPlayer.Center) * MathHelper.Clamp(drawPos.Distance(Main.LocalPlayer.Center) / 48f, 0, 36f);
+                    BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetRedAlpha(), true);
+                    BaseDrawing.DrawTexture(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, NPC.scale, 0f, 1, 1, eye.Frame(), GetRedAlpha(), true);
+                }
             }
             else
             {
                 BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true)), unofficialWorld);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetGlowAlpha(false), unofficialWorld);
+                if (unofficialWorld)
+                {
+                    Texture2D eye = ModContent.Request<Texture2D>(respritePath + "_Eye").Value;
+                    float maxDist = 9f;
+                    Vector2 drawPos = NPC.Center - new Vector2(7, 190);
+                    Vector2 eyeOffset = drawPos.DirectionTo(Main.LocalPlayer.Center) * drawPos.Distance(Main.LocalPlayer.Center) / 48f;
+                    drawPos += new Vector2(MathHelper.Clamp(eyeOffset.X, -maxDist, maxDist), MathHelper.Clamp(eyeOffset.Y, -maxDist, maxDist));
+                    BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetGlowAlpha(false), unofficialWorld);
+                    BaseDrawing.DrawTexture(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, NPC.scale, 0f, 1, 1, eye.Frame(), GetGlowAlpha(false), unofficialWorld);
+                }
             }
 
             //bottom arms

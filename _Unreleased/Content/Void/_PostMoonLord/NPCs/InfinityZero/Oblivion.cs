@@ -77,7 +77,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = MusicManagementSystem.MusicSlots["IZDeath"];
+            Music = MusicManagementSystem.MusicSlots["InfinityZero_Outro"];
             NPC.boss = true;
             OblivionSpeech = 0;
 

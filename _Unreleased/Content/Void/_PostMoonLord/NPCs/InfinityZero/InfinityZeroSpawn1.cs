@@ -35,10 +35,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.aiStyle = -1;
             NPC.scale *= 1.4f;
             NPC.behindTiles = true;
-            //TODOIZ what is he even talking abt here
-            //Music = Mod.GetSoundSlot(SoundType.Music, "Lulspooky");
-            Music = MusicManagementSystem.MusicSlots["Silence"]; //Temp Replacement
             NPC.boss = true;
+            Music = MusicManagementSystem.MusicSlots["InfinityZero_Intro"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -63,7 +61,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             StartTimer--;
             if (StartTimer <= 0)
             {
-                Music = MusicManagementSystem.MusicSlots["IZ"];
                 NPC.alpha = 0;
                 int endFrame = spawnState == 0 ? 7 : spawnState == 1 ? 4 : spawnState == 2 ? 4 : spawnState == 3 ? 4 : spawnState == 4 ? 3 : 6;
                 if (Frame >= endFrame)

@@ -44,7 +44,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		public InfinityZero Body = null;
 		public int handType = 0; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
 		public bool leftHand= true;
-        public static bool RepairMode = false;
+        public bool RepairMode = false;
 
         public static int damageIdle = 200;
 		public static int damageCharging = 300;
@@ -343,7 +343,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.life = NPC.lifeMax;
                 RepairMode = true;
-                Body.NPC.ai[3] = 6;
+                Body.NPC.ai[3]++;
             }
         }
 
