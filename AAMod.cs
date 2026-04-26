@@ -323,6 +323,11 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
             Filters.Scene["AAModClassic:Shockwave"].Load();
 
+            shader = ModContent.Request<Effect>("AAModClassic/Effects/Mask");
+            shaderdata = new(shader, "Mask");
+            Filters.Scene["AAModClassic:Mask"] = new Filter(shaderdata, EffectPriority.VeryHigh);
+            Filters.Scene["AAModClassic:Mask"].Load();
+
             //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
             Main.QueueMainThreadAction(() => {
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);

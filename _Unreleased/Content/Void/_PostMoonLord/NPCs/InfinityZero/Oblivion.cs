@@ -6,6 +6,7 @@ using AAModClassic.UI.WorldGen;
 using Microsoft.Win32;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using ReLogic.OS;
 using Steamworks;
 using System;
@@ -21,6 +22,7 @@ using System.Windows.Forms;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -80,6 +82,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Music = MusicManagementSystem.MusicSlots["InfinityZero_Outro"];
             NPC.boss = true;
             OblivionSpeech = 0;
+
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+            Main.npcFrameCount[NPC.type] = unofficial ? 10 : 14;
+            Asset<Texture2D> tex = unofficial ? ModContent.Request<Texture2D>(Texture + "_Resprite") : TextureAssets.Npc[NPC.type];
+            NPC.frame.Height = tex.Height() / Main.npcFrameCount[NPC.type];
+            NPC.frame.Width = tex.Width();
 
             if (localConfigPath == null)
                 InitializeSteamSearch();
@@ -404,36 +412,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 return (discordInfo.Remove(0, discordInfo.IndexOf('|') + 2), DiscordStatus.Server);
         }
 
-        private static void SendNotification(string title, string message)
-        {
-            // Only run on Windows to avoid crashing Mac/Linux players
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                return;
-
-            // This PowerShell script creates a basic Windows Toast notification
-            string psCommand = $"-Command \"& {{ " +
-                "Add-Type -AssemblyName System.Windows.Forms; " +
-                "Add-Type -AssemblyName System.Drawing; " +
-                "$notify = New-Object System.Windows.Forms.NotifyIcon; " +
-                "$notify.Icon = [System.Drawing.SystemIcons]::Warning; " +
-                "$notify.Visible = $true; " +
-                $"$notify.ShowBalloonTip(5000, '{title}', '{message}', [System.Windows.Forms.ToolTipIcon]::Warning); " +
-                "Start-Sleep -s 6; " + // Wait for it to display
-                "$notify.Dispose(); " +
-                "}\"";
-
-            ProcessStartInfo psi = new ProcessStartInfo
-            {
-                FileName = "powershell.exe",
-                Arguments = psCommand,
-                CreateNoWindow = true,      // Keep it invisible to the player
-                UseShellExecute = false,
-                WindowStyle = ProcessWindowStyle.Hidden
-            };
-
-            Process.Start(psi);
-        }
-
         private static bool IsPlayerStreaming()
         {
             // List of common streaming executables DDLC checks for
@@ -632,130 +610,51 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public static readonly Dictionary<string, (LocalizedText text, Func<bool> condition)> CrossModDialogue = [];
 
-        public static int MajorModCount()
-        {
-            int ModCount = 0;
-
-            if (AAMod_Unreleased.calamityLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.thoriumLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.spiritLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.fargoLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.redemptionLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.tremorLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.sacredToolsLoaded)
-            {
-                ModCount++;
-            }
-            if (AAMod_Unreleased.grealmLoaded)
-            {
-                ModCount++;
-            }
-
-            return ModCount;
-        }
-
         public override void FindFrame(int frameHeight)
         {
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+            Main.npcFrameCount[NPC.type] = unofficial ? 10 : 14;
+            Asset<Texture2D> tex = unofficial ? ModContent.Request<Texture2D>(Texture + "_Resprite") : TextureAssets.Npc[NPC.type];
+            NPC.frame.Height = tex.Height() / Main.npcFrameCount[NPC.type];
+            NPC.frame.Width = tex.Width();
+
             NPC.frameCounter++;
-            if (NPC.frameCounter < 5)
+            int realFrames = unofficial ? 10 : 7;
+            if (unofficial)
             {
+                NPC.frame.Y = (int)((NPC.frameCounter / 5) % realFrames);
                 if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 7 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 0 * frameHeight;
-                }
-            }
-            else if (NPC.frameCounter < 10)
-            {
-                if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 8 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 1 * frameHeight;
-                }
-            }
-            else if (NPC.frameCounter < 15)
-            {
-                if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 9 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 2 * frameHeight;
-                }
-            }
-            else if (NPC.frameCounter < 20)
-            {
-                if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 10 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 3 * frameHeight;
-                }
-            }
-            else if (NPC.frameCounter < 25)
-            {
-                if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 11 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 4 * frameHeight;
-                }
-            }
-            else if (NPC.frameCounter < 30)
-            {
-                if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 12 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 5 * frameHeight;
-                }
-            }
-            else if (NPC.frameCounter < 35)
-            {
-                if (Main.rand.NextBool(9))
-                {
-                    NPC.frame.Y = 13 * frameHeight;
-                }
-                else
-                {
-                    NPC.frame.Y = 6 * frameHeight;
-                }
+                    StaticActive = !StaticActive;
             }
             else
-            {
+                switch ((NPC.frameCounter / 5) % realFrames)
+                {
+                    case 0:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 7 : 0);
+                        break;
+                    case 1:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 8 : 1);
+                        break;
+                    case 2:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 9 : 2);
+                        break;
+                    case 3:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 10 : 3);
+                        break;
+                    case 4:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 11 : 4);
+                        break;
+                    case 5:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 12 : 5);
+                        break;
+                    case 6:
+                        NPC.frame.Y = (Main.rand.NextBool(9) ? 13 : 6);
+                        break;
+                }
+            
+            NPC.frame.Y *= NPC.frame.Height;
+            if ((NPC.frameCounter / 5) % realFrames == 0 && NPC.frameCounter != 0)
                 NPC.frameCounter = 0;
-            }
         }
 
         public static Texture2D glowTex = null;
@@ -763,8 +662,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
+        private bool StaticActive = false;
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+
             if (glowTex == null)
             {
                 glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
@@ -773,13 +676,35 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 glitchTex = ModContent.Request<Texture2D>(Texture + "_Glitch").Value;
             }
+            Texture2D tex = unofficial ? ModContent.Request<Texture2D>(Texture + "_Resprite").Value : TextureAssets.Npc[NPC.type].Value;
+            Texture2D glow = unofficial ? ModContent.Request<Texture2D>(Texture + "_Resprite_Glow").Value : glowTex;
+
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor));
-            BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, Color.White);
-            BaseDrawing.DrawAura(spriteBatch, glitchTex, 0, NPC, auraPercent, 1f, 0f, 0f, AAColor.Oblivion);
-            BaseDrawing.DrawTexture(spriteBatch, glitchTex, 0, NPC, AAColor.Oblivion);
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor), true);
+            BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, Color.White, true);
+
+            if(unofficial && StaticActive)
+            {
+                Effect effect = Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
+                effect.Parameters["offset"].SetValue(Main.rand.NextVector2Square(0, 600));
+                effect.Parameters["noiseScale"].SetValue(new Vector2(0.2f, 1f));
+
+                Main.spriteBatch.End();
+                Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, effect, Main.GameViewMatrix.TransformationMatrix);
+
+                Main.instance.GraphicsDevice.Textures[1] = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/StaticNoise").Value;
+                Main.instance.GraphicsDevice.SamplerStates[1] = SamplerState.PointWrap;
+
+                Texture2D mask = ModContent.Request<Texture2D>(Texture + "_Resprite_Mask").Value;
+
+                Main.EntitySpriteDraw(mask, NPC.position - Main.screenPosition, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+                Main.spriteBatch.End();
+                Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+            }
+            //BaseDrawing.DrawAura(spriteBatch, glitchTex, 0, NPC, auraPercent, 1f, 0f, 0f, AAColor.Oblivion);
+            //BaseDrawing.DrawTexture(spriteBatch, glitchTex, 0, NPC, AAColor.Oblivion);
 
             return false;
         }
