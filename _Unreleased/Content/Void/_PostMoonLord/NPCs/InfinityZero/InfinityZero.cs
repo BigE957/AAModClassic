@@ -497,34 +497,42 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             int coreFrameRate = 5;
 
-            if (OpenCore)
+            if (!unofficial)
             {
-                NPC.frame.Y += unofficial ? 2 * NPC.frame.Height : NPC.frame.Height;
-                if (CoreFrame != -1)
-                {
-                    if (NPC.frameCounter >= coreFrameRate)
-                    {
-                        CoreFrame--;
-                        NPC.frameCounter = 0;
-                    }
-                    NPC.frameCounter++;
-                }
-                else
-                    NPC.frameCounter = 0;
+                if (OpenCore)
+                    NPC.frame.Y += NPC.frame.Height;
             }
             else
             {
-                if (CoreFrame != 2)
+                NPC.frame.Y += NPC.frame.Height * 2;
+                if (OpenCore)
                 {
-                    if (NPC.frameCounter >= coreFrameRate)
+                    if (CoreFrame != -1)
                     {
-                        CoreFrame++;
-                        NPC.frameCounter = 0;
+                        if (NPC.frameCounter >= coreFrameRate)
+                        {
+                            CoreFrame--;
+                            NPC.frameCounter = 0;
+                        }
+                        NPC.frameCounter++;
                     }
-                    NPC.frameCounter++;
+                    else
+                        NPC.frameCounter = 0;
                 }
                 else
-                    NPC.frameCounter = 0;
+                {
+                    if (CoreFrame != 2)
+                    {
+                        if (NPC.frameCounter >= coreFrameRate)
+                        {
+                            CoreFrame++;
+                            NPC.frameCounter = 0;
+                        }
+                        NPC.frameCounter++;
+                    }
+                    else
+                        NPC.frameCounter = 0;
+                }
             }
         }
 
