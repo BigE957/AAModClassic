@@ -1,6 +1,5 @@
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using Humanizer;
@@ -16,17 +15,17 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.UI.Chat;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -36,12 +35,28 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private static string accountID = null;
         private static string localConfigPath = null;
 
+        private static FieldInfo ChatMessageList = null;
+        private static FieldInfo MessageTimeLeft = null;
+        private static FieldInfo MessageColor = null;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oblivion");
             Main.npcFrameCount[NPC.type] = 14;
 
             InitializeSteamSearch();
+
+            var field = Main.chatMonitor.GetType().GetField("_messages", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (field != null)
+                ChatMessageList = field;
+
+            field = typeof(ChatMessageContainer).GetField("_timeLeft", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (field != null)
+                MessageTimeLeft = field;
+
+            field = typeof(ChatMessageContainer).GetField("_color", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (field != null)
+                MessageColor = field;
         }
 
         private static bool InitializeSteamSearch()
@@ -106,48 +121,51 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Player player = Main.LocalPlayer;
             OblivionSpeech++;
 
-            switch (AAPlayer.IZKills)
+            for (int i = 0; i < 4; i++)
+                UpdateMessage();
+
+            switch (4)//AAPlayer.IZKills)
             {
                 case 1:
                     switch(OblivionSpeech)
                     {
                         case 180:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.1"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.1"), color1);
                             break;
                         case 360:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.2"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.2"), color1);
                             break;
                         case 540:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.3"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.3"), color1);
                             break;
                         case 720:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.4"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.4"), color1);
                             break;
                         case 900:
                             if (player.difficulty == 2)
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Hardcore"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Hardcore"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Normal"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.5.Normal"), color1);
                             break;
                         case 1080:
                             if (player.difficulty == 2)
                             {
                                 if (IsPlayerStreaming())
-                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Streaming"), color1);
+                                    StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Streaming"), color1);
                                 else
-                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Normal", Environment.UserName), color1);
+                                    StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Normal", Environment.UserName), color1);
                                 Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
                             }
                             else if(IsPlayerStreaming())
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Streaming"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Streaming"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", WindowsIdentityHelper.GetRealName()), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", WindowsIdentityHelper.GetRealName()), color1);
                             break;
                         case 1260:
                             if (player.difficulty == 2)
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Hardcore"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Hardcore"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Normal"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.7.Normal"), color1);
                             break;
                     }
                     if (OblivionSpeech >= 1420)
@@ -157,22 +175,22 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     switch(OblivionSpeech)
                     {
                         case 180:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.1"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.1"), color1);
                             break;
                         case 360:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.2"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.2"), color1);
                             break;
                         case 540:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.3"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.3"), color1);
                             break;
                         case 720:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.4"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.4"), color1);
                             break;
                         case 900:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.5"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.5"), color1);
                             break;
                         case 1080:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.6"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.6"), color1);
                             break;
                     }
                     if (OblivionSpeech >= 1080)
@@ -182,16 +200,16 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     switch(OblivionSpeech)
                     {
                         case 180:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.1"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.1"), color1);
                             break;
                         case 360:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.2"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.2"), color1);
                             break;
                         case 540:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.3"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.3"), color1);
                             break;
                         case 720:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.4"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.4"), color1);
                             break;
                     }
                     if (OblivionSpeech >= 720)
@@ -201,28 +219,28 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     switch(OblivionSpeech)
                     {
                         case 180:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.1"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.1"), color1);
                             break;
                         case 360:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.2"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.2"), color1);
                             break;
                         case 540:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.3"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.3"), color1);
                             break;
                         case 720:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.4"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.4"), color1);
                             break;
                         case 900:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.5"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.5"), color1);
                             break;
                         case 1080:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.6"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.6"), color1);
                             break;
                         case 1260:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.7"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.7"), color1);
                             break;
                         case 1440:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.8"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.8"), color1);
                             break;
                     }
                     if (OblivionSpeech >= 1440)
@@ -237,18 +255,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                             break;
                         case 180:
                             if (player.difficulty != 2)
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Normal"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Normal"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Hardcore"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.1.Hardcore"), color1);
                             break;
                         case 360:
                             if (player.difficulty != 2)
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Normal"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Normal"), color1);
                             else
-                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Hardcore"), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.2.Hardcore"), color1);
                             break;
                         case 540:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.3"), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.3"), color1);
                             break;
                     }
 
@@ -260,7 +278,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     {
                         case 180:
                             string number = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(AAPlayer.IZKills.ToWords());
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", number), color1);
+                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", number), color1);
                             SpeechRand = Main.rand.Next(7);
                             break;
                         case 360:
@@ -272,7 +290,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                         int friendCount = SteamFriends.GetFriendCount(EFriendFlags.k_EFriendFlagImmediate);
                                         if(friendCount <= 0)
                                         {
-                                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Friendless"), color1);
+                                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Friendless"), color1);
                                             break;
                                         }
 
@@ -290,39 +308,42 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                         }
 
                                         if (onlineFriends.Count > 0)
-                                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Online", onlineFriends[Main.rand.Next(onlineFriends.Count)]), color1);
+                                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Online", onlineFriends[Main.rand.Next(onlineFriends.Count)]), color1);
                                         else
                                         {
                                             CSteamID randomFriend = SteamFriends.GetFriendByIndex(Main.rand.Next(friendCount), EFriendFlags.k_EFriendFlagImmediate);
-                                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Offline", SteamFriends.GetFriendPersonaName(randomFriend)), color1);
+                                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Offline", SteamFriends.GetFriendPersonaName(randomFriend)), color1);
                                         }
                                     }
                                     else
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2." + SpeechRand), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2." + SpeechRand), color1);
                                     break;
                                 case 1:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                     {
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Job"), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Job"), color1);
                                         Platform.Get<IPathService>().OpenURL("https://www.linkedin.com/jobs");
                                     }
                                     else
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Default"), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Default"), color1);
                                     break;
                                 case 2:
-                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                     {
                                         string dialogue = GetSteamGameDialogue();
                                         if (dialogue != null)
-                                            Main.NewText(dialogue, color1);
+                                            StartMessage(dialogue, color1);
+                                        else
+                                            StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
                                     }
+                                    else
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.2.1"), color1);
                                     break;
                                 case 3:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.3.Computer", Environment.MachineName), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.3.Computer", Environment.MachineName), color1);
                                     else
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Default"), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.1.Default"), color1);
                                     break;
                                 case 4:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -332,7 +353,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                     }
                                     //SendSystemPopup(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Notification.Title"), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Notification.Message"));
                                     else
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Default"), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.4.Default"), color1);
                                     break;
                                 case 5:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -341,32 +362,32 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                         switch(status)
                                         {
                                             case DiscordStatus.None:
-                                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
+                                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
                                                 break;
                                             case DiscordStatus.DirectMessage:
-                                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.DM", text), color1);
+                                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.DM", text), color1);
                                                 break;
                                             case DiscordStatus.Server:
                                                 switch(text)
                                                 {
                                                     case "Calamity Dev Server":
-                                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.CalDev"), color1);
+                                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.CalDev"), color1);
                                                         break;
                                                     default:
-                                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.Default", text), color1);
+                                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.Default", text), color1);
                                                         break;
                                                 }
                                                 break;
                                         }
                                     }
                                     else
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
+                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
                                     break;
                                 case 6:
-                                    Main.NewText(GetCrossModDialogue(), color1);
+                                    StartMessage(GetCrossModDialogue(), color1);
                                     break;
                                 default:
-                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2." + SpeechRand), color1);
+                                    StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2." + SpeechRand), color1);
                                     break;
                             }
                             break;
@@ -377,10 +398,103 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                     break;
             }
+
             if (NPC.alpha >= 255)
             {
                 NPC.active = false;
             }
+        }
+
+        private bool MessageSwapComplete => PositionsToChange.Count <= 0;
+        private string CurrentMessage = "";
+        private List<int> PositionsToChange = [];
+        private bool firstMessage = true;
+        private List<string> FirstMessageCache = [];
+
+        private void StartMessage(string message, Color color)
+        {
+            if(!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                Main.NewText(message, color);
+                return;
+            }
+
+            CurrentMessage = message;
+            List<ChatMessageContainer> messages = (List<ChatMessageContainer>)(ChatMessageList.GetValue(Main.chatMonitor));
+            if ((int)MessageTimeLeft.GetValue(messages[0]) <= 0)
+            {
+                Main.NewText("".PadRight(CurrentMessage.Length), color);
+                PositionsToChange = [];
+                for (int i = 0; i < MathHelper.Max(CurrentMessage.Length, messages[0].OriginalText.Length); i++)
+                    PositionsToChange.Add(i);
+                firstMessage = false;
+            }
+            else
+            {
+                string displayed = messages[0].OriginalText;
+                if (displayed.Length < CurrentMessage.Length)
+                    displayed = displayed.PadRight(CurrentMessage.Length);
+                PositionsToChange = [];
+                for (int i = 0; i < MathHelper.Max(CurrentMessage.Length, displayed.Length); i++)
+                {
+                    if (i < displayed.Length)
+                        FirstMessageCache.Add(displayed[i].ToString());
+                    else
+                        FirstMessageCache.Add(" ");
+                    PositionsToChange.Add(i);
+                }
+
+                messages[0].SetContents(displayed, (Color)MessageColor.GetValue(messages[0]), -1);
+
+                ChatMessageList.SetValue(Main.chatMonitor, messages);
+            }
+        }
+
+        private void UpdateMessage()
+        {
+            if (MessageSwapComplete)
+                return;
+
+            int posSlot = Main.rand.Next(PositionsToChange.Count);
+            int messageSlot = PositionsToChange[posSlot];
+            PositionsToChange.RemoveAt(posSlot);
+
+            List<ChatMessageContainer> messages = (List<ChatMessageContainer>)ChatMessageList.GetValue(Main.chatMonitor);
+            char[] arr;
+            if (firstMessage)
+            {
+                if (messageSlot >= CurrentMessage.Length)
+                    FirstMessageCache[messageSlot] = " ";
+                else
+                    FirstMessageCache[messageSlot] = "[C/8B0000:" + CurrentMessage[messageSlot].ToString() + "]";
+
+                string str = "";
+                foreach (string s in FirstMessageCache)
+                    str += s;
+                arr = str.ToCharArray();
+            }
+            else
+            {
+                arr = messages[0].OriginalText.ToCharArray();
+                if (messageSlot >= CurrentMessage.Length)
+                    arr[messageSlot] = ' ';
+                else
+                    arr[messageSlot] = CurrentMessage[messageSlot];
+            }
+
+            if (MessageSwapComplete)
+            {
+                messages[0].SetContents(CurrentMessage, Color.DarkRed, -1);
+                firstMessage = false;
+            }
+            else if (firstMessage)
+            {
+                messages[0].SetContents(new string(arr), (Color)MessageColor.GetValue(messages[0]), -1);
+            }
+            else
+                messages[0].SetContents(new string(arr), Color.DarkRed, -1);
+
+            ChatMessageList.SetValue(Main.chatMonitor, messages);
         }
 
         private enum DiscordStatus
@@ -594,6 +708,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             return GenocideState.None;
         }
 
+        public static readonly Dictionary<string, (LocalizedText text, Func<bool> condition)> CrossModDialogue = [];
+
         public static bool AddInfinityZeroCrossmodDialogue(string key, LocalizedText text, Func<bool> condition) => CrossModDialogue.TryAdd(key, new(text, condition));
 
         private static string GetCrossModDialogue()
@@ -610,8 +726,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             return Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.Mods.NoMod");
         }
-
-        public static readonly Dictionary<string, (LocalizedText text, Func<bool> condition)> CrossModDialogue = [];
 
         public override void FindFrame(int frameHeight)
         {
