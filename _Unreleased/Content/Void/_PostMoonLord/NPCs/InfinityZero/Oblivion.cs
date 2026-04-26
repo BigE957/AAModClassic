@@ -121,7 +121,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Player player = Main.LocalPlayer;
             OblivionSpeech++;
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < RateOfChange; i++)
                 UpdateMessage();
 
             switch (AAPlayer.IZKills)
@@ -410,6 +410,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private List<int> PositionsToChange = [];
         private bool firstMessage = true;
         private List<string> FirstMessageCache = [];
+        private int RateOfChange = 4;
 
         private void StartMessage(string message, Color color)
         {
@@ -435,6 +436,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 if (displayed.Length < CurrentMessage.Length)
                     displayed = displayed.PadRight(CurrentMessage.Length);
                 PositionsToChange = [];
+                RateOfChange = (int)MathHelper.Max(CurrentMessage.Length, displayed.Length) / 16;
                 for (int i = 0; i < MathHelper.Max(CurrentMessage.Length, displayed.Length); i++)
                 {
                     if (i < displayed.Length)
@@ -798,9 +800,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor), true);
-            BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White, true);
-            BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor) * NPC.Opacity, true);
+            BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
+            BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, Color.White * NPC.Opacity, true);
 
             if(unofficial && StaticActive)
             {
@@ -816,7 +818,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 Texture2D mask = ModContent.Request<Texture2D>(Texture + "_Resprite_Mask").Value;
 
-                Main.EntitySpriteDraw(mask, NPC.position - Main.screenPosition, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+                Main.EntitySpriteDraw(mask, NPC.position - Main.screenPosition, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 Main.spriteBatch.End();
                 Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
             }
