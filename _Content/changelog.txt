@@ -34,7 +34,7 @@ unreleased
 --note: all three of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
 -added the lost ship. not to be confused with the lost sea, this ship is located inside one of the oceans
 -finished constructing the pit. no other pit content has been added, as none was ever completed
--after all superancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
+-after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
 -
 
 unofficial
