@@ -2,9 +2,11 @@
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Potions;
 using AAModClassic.Music;
+using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -42,8 +44,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
-			Main.npcFrameCount[NPC.type] = 4;
-
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 		public override void SetDefaults()
@@ -71,6 +71,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
+            Main.npcFrameCount[NPC.type] = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 2 : 4;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -273,16 +274,27 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void FindFrame(int frameHeight)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                NPC.frame.Height = 455;
+                if (roarTimer > -1)
+                    NPC.frame.Y = NPC.frame.Height;
+                else
+                    NPC.frame.Y = 0;
+                return;
+            }
+
+            NPC.frame.Height = TextureAssets.Npc[Type].Height() / 4;
             if (roarTimer > -1)
             {
-                NPC.frame.Y = 2 * frameHeight;
+                NPC.frame.Y = 2 * NPC.frame.Height;
             } else
             {
                 NPC.frame.Y = 0;
             }
 
             if (OpenCore)
-                NPC.frame.Y += frameHeight;
+                NPC.frame.Y += NPC.frame.Height;
         }
 
         public override void BossLoot(ref int potionType)
@@ -412,7 +424,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			}
 		}
 
-        public void DrawCore(SpriteBatch spriteBatch, string coreTex, NPC core, Color drawColor, bool DrawUnder)
+        public static void DrawCore(SpriteBatch spriteBatch, string coreTex, NPC core, Color drawColor, bool DrawUnder)
         {
             if (core != null && core.active)
             {
@@ -443,12 +455,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 switch (handType)
                 {
-                    case 0: offsetX = -74; offsetY = -86; break;
-                    case 1: offsetX = -46; offsetY = -50; break;
-                    case 2: offsetX = -64; offsetY = -28; break;
-                    case 3: offsetX = 74; offsetY = -86; break;
-                    case 4: offsetX = 46; offsetY = -50; break;
-                    case 5: offsetX = 64; offsetY = -28; break;
+                    case 0: offsetX = -78; offsetY = -42; break;
+                    case 1: offsetX = -48; offsetY = -6; break;
+                    case 2: offsetX = -62; offsetY = 12; break;
+                    case 3: offsetX = 78; offsetY = -42; break;
+                    case 4: offsetX = 48; offsetY = -6; break;
+                    case 5: offsetX = 62; offsetY = 12; break;
                 }
             }
             else
@@ -483,83 +495,110 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
 
+            bool unofficialWorld = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+            string respritePath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+            Texture2D texture = !unofficialWorld ? TextureAssets.Npc[NPC.type].Value : ModContent.Request<Texture2D>(respritePath).Value;
+            Texture2D glow = !unofficialWorld ? glowTex.Value : ModContent.Request<Texture2D>(respritePath + "_Glow").Value;
+
             if (tenthHealth)
             {
-                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
-                BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha());
-                BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetRedAlpha());
+                BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor, unofficialWorld);
+                BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
+                BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetRedAlpha(), unofficialWorld);
             }
             else
             {
-                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true)));
-                BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true));
-                BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetGlowAlpha(false));
+                BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true)), unofficialWorld);
+                BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), unofficialWorld);
+                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetGlowAlpha(false), unofficialWorld);
             }
 
-            string ZeroTex = ModContent.GetInstance<InfinityZeroHand1>().Texture;
-
             //bottom arms
-            DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero6, drawColor);
-	        DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero3, drawColor);	
+            DrawZero(spriteBatch, Zero6);
+	        DrawZero(spriteBatch, Zero3);	
             //middle arms
-	        DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero5, drawColor);		
-            DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero2, drawColor);
+	        DrawZero(spriteBatch, Zero5);		
+            DrawZero(spriteBatch, Zero2);
 			//top arms
-			DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero4, drawColor);		
-			DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero1, drawColor);			
-
-		
+			DrawZero(spriteBatch, Zero4);		
+			DrawZero(spriteBatch, Zero1);
             return false;
         }
 
-        public void DrawZero(SpriteBatch spriteBatch, string zeroTexture, string glowMaskTexture, NPC Zero, Color drawColor)
+        private readonly float[] currentCurveIntensities = new float[6];
+
+        public void DrawZero(SpriteBatch spriteBatch, NPC Zero)
         {
             if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is InfinityZeroHand1 || Zero.ModNPC is InfinityZeroHand2))
             {
 				InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
-                string ArmTex = Texture + "_Arm";
-                Texture2D ArmTex2D = ModContent.Request<Texture2D>(ArmTex).Value;
-				Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
-                Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;				
                 Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.handType);
                 Vector2 end = Zero.Center;
-                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
+                    string texPath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+                    Texture2D ArmTex2D = ModContent.Request<Texture2D>(texPath + "_Arm").Value;
+
                     Vector2 direction = end - start;
-                    float curveIntensity = 8000f / direction.Length();
-                    Vector2 perpindicular = Vector2.UnitY * curveIntensity;// direction.RotatedBy(MathHelper.PiOver2);
+                    float curveIntensity = MathHelper.Clamp(8000f / direction.Length(), 0f, 200f);
+                    float intensityDelta = MathHelper.Clamp(curveIntensity - currentCurveIntensities[handNPC.handType], -30, 30);
+                    currentCurveIntensities[handNPC.handType] = currentCurveIntensities[handNPC.handType] + intensityDelta;
+
+                    Vector2 perpindicular = Vector2.UnitY * currentCurveIntensities[handNPC.handType];
 
                     Vector2 controlPoint1 = start + (direction * 0.25f) + perpindicular;
                     Vector2 controlPoint2 = start + (direction * 0.75f) + perpindicular;
 
+                    BezierCurve path = new(start, controlPoint1, controlPoint2, end);
+
                     float dist = start.Distance(controlPoint1) + controlPoint1.Distance(controlPoint2) + controlPoint2.Distance(end);
 
-                    BezierCurve path = new(start, controlPoint1, controlPoint2, end);
-                    int count = (int)(dist / ArmTex2D.Height) + 4;
-                    for(int i = 0; i < count; i++)
+                    int count = (int)(dist / (ArmTex2D.Height - 7));
+                    for (int i = 0; i < count; i++)
                     {
+                        Rectangle frame = ArmTex2D.Frame(4, 1, i >= 3 ? 0 : 3 - i, 0);
                         float ratio = i / (float)count;
                         float nextRatio = (i + 1) / (float)count;
                         Vector2 myStart = i == 0 ? start : path.Evaluate(ratio);
                         Vector2 myEnd = i == count - 1 ? end : path.Evaluate(nextRatio);
                         float rotation = myStart.AngleTo(myEnd) - MathHelper.PiOver2;
-                        float scale = (myStart.Distance(myEnd) / ArmTex2D.Height) + 0.25f;
-                        spriteBatch.Draw(ArmTex2D, myStart - Main.screenPosition, null, Lighting.GetColor(((myStart + myEnd) / 2f).ToTileCoordinates()), rotation, new Vector2(ArmTex2D.Width / 2f, 0), new Vector2(1, scale), 0, 0);
+                        float scale = 1f;// (myStart.Distance(myEnd) / ArmTex2D.Height) + 0.25f;
+                        spriteBatch.Draw(ArmTex2D, myStart - Main.screenPosition, frame, Lighting.GetColor(((myStart + myEnd) / 2f).ToTileCoordinates()), rotation, frame.Size() * 0.5f, new Vector2(1, scale), 0, 0);
                     }
 
+                    Texture2D zeroTex = ModContent.Request<Texture2D>(texPath + "_Hand").Value;
+                    Texture2D glowTex = ModContent.Request<Texture2D>(texPath + "_Hand_Glow").Value;
+                    BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, Zero, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(Zero), GetGlowAlpha(true)), true);
+                    if (tenthHealth)
+                    {
+                        BaseDrawing.DrawAura(spriteBatch, glowTex, 0, Zero, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), true);
+                        BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetRedAlpha(), true);
+                    }
+                    else
+                    {
+                        BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetGlowAlpha(false), true);
+                    }
                 }
                 else
+                {
+                    string zeroTexture = ModContent.GetInstance<InfinityZeroHand1>().Texture;
+                    string glowMaskTexture = zeroTexture + "_Glow";
+                    string ArmTex = Texture + "_Arm";
+                    Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
+                    Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;
+                    Texture2D ArmTex2D = ModContent.Request<Texture2D>(ArmTex).Value;
                     BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, start, end, ArmTex2D.Height - 10f, null, 1f, false, null);
-				
-                BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, Zero, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(Zero), GetGlowAlpha(true)), true);
-                if (tenthHealth)
-                {
-                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, Zero, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), true);
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetRedAlpha(), true);
-                }
-                else
-                {
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetGlowAlpha(false), true);
+
+                    BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, Zero, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(Zero), GetGlowAlpha(true)), true);
+                    if (tenthHealth)
+                    {
+                        BaseDrawing.DrawAura(spriteBatch, glowTex, 0, Zero, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), true);
+                        BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetRedAlpha(), true);
+                    }
+                    else
+                    {
+                        BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Zero, GetGlowAlpha(false), true);
+                    }
                 }
             }
         }
