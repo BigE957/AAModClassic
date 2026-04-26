@@ -1,12 +1,14 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Blocks.Boxes;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria;
 using Terraria.ID;
-using AAModClassic.UI.WorldGen;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -349,6 +351,38 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                string texPath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+
+                Texture2D zeroTex = ModContent.Request<Texture2D>(texPath + "_Hand").Value;
+                Texture2D glowTex = ModContent.Request<Texture2D>(texPath + "_Hand_Glow").Value;
+                BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), true);
+                if (Body != null && Body.tenthHealth)
+                {
+                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetRedAlpha(), true);
+                }
+                else
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetGlowAlpha(false), true);
+            }
+            else
+            {
+                string zeroTexture = ModContent.GetInstance<InfinityZeroHand1>().Texture;
+                string glowMaskTexture = zeroTexture + "_Glow";
+                string ArmTex = Texture + "_Arm";
+                Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
+                Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;
+
+                BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), true);
+                if (Body != null && Body.tenthHealth)
+                {
+                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetRedAlpha(), true);
+                }
+                else
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetGlowAlpha(false), true);
+            }
             return false;
         }
 
