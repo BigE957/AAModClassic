@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -137,7 +136,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 				int bossType = Mod.Find<ModNPC>(name).Type;
 				if(NPC.AnyNPCs(bossType)){ return; } //don't spawn if there's already a boss!
 				int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0, 0f);
-				Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-100f, 100f, (float)Main.rand.NextDouble()), 0f);
+				Main.npc[npcID].Center = player.Center;
 				Main.npc[npcID].netUpdate2 = true;
 			}
 		}	

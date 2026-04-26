@@ -1,6 +1,7 @@
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -112,6 +113,17 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			}
 		}
 
+        public override void DrawBehind(int index)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                NPC.hide = true;
+                Main.instance.DrawCacheNPCsMoonMoon.Add(index);
+            }
+            else
+                NPC.hide = false;
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D SFrame1 = TextureAssets.Npc[NPC.type].Value;
@@ -125,14 +137,17 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.frame = BaseDrawing.GetFrame(Frame, 171, 210, 0, 0);
 			Rectangle darkFrame = BaseDrawing.GetFrame(0, 171, 210, 0, 0);
 			Texture2D drawTexture = spawnState == 0 ? SFrame1 : spawnState == 1 ? SFrame2 : spawnState == 2 ? SFrame3 : spawnState == 3 ? SFrame4 : spawnState == 4 ? SFrame5 : SFrame6;
-			Texture2D infinityTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/IInfinityZeroSpawn1_Shadow").Value;		
-			NPC.position.Y += 72;
+			Texture2D infinityTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/IInfinityZeroSpawn1_Shadow").Value;
+
+            int offset = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 144 : 72;
+            
+            NPC.position.Y += offset;
             if (StartTimer <= 0)
             {
                 BaseDrawing.DrawTexture(spriteBatch, infinityTex, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, 3f, NPC.rotation, NPC.spriteDirection, 7, darkFrame, Color.Black);
                 BaseDrawing.DrawTexture(spriteBatch, drawTexture, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, 3f, NPC.rotation, NPC.spriteDirection, 7, NPC.frame, InfinityZero.GetGlowAlpha(true));
             }
-            NPC.position.Y -= 72;
+            NPC.position.Y -= offset;
 			return false;
         }
     }

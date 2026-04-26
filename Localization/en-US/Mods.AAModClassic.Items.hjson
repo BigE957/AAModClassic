@@ -9626,8 +9626,8 @@ Infinitium: {
 }
 
 InfinityOverloader: {
-	DisplayName: Infinity Overloader
-	Tooltip: ""
+	DisplayName: Infinity Beacon
+	Tooltip: Calls the Infinity Slayer
 }
 
 Sticker: {
