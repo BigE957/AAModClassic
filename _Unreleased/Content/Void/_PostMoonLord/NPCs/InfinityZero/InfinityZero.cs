@@ -384,7 +384,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
 
             }
-            if (NPC.life <= NPC.lifeMax / 10)
+            if (!AAConfigClient.Instance.DisablePinchThemes && NPC.life <= NPC.lifeMax / 10)
             {
                 Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
