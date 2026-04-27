@@ -1,13 +1,12 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
+using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
-using AAModClassic.Tiles;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
-using AAModClassic.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

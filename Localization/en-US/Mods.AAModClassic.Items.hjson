@@ -10794,3 +10794,8 @@ TerraLeafWand: {
 	DisplayName: Terra Leaf Wand
 	Tooltip: ""
 }
+
+UnsafeScorchedDynastyWood: {
+	DisplayName: Unsafe Scorched Dynasty Wood
+	Tooltip: ""
+}

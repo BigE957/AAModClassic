@@ -15,6 +15,9 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
         public bool glow = true; 
         public override void SetStaticDefaults()
         {
+            MineResist = 2f;
+            MinPick = 200;
+
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSolid[Type] = false;

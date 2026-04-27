@@ -334,7 +334,7 @@ namespace AAModClassic.World
             {
                 [new Color(255, 0, 0)] = ModContent.TileType<Torchstone_Tile>(),
                 [new Color(0, 0, 255)] = ModContent.TileType<Torchstone_Tile>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<ScorchedDynastyWood_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<ScorchedDynastyWoodUnsafe_Tile>(),
                 [new Color(255, 255, 0)] = ModContent.TileType<ScorchedShingles_Tile>(),
                 [new Color(255, 0, 255)] = ModContent.TileType<ScorchedPlatform_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
@@ -342,7 +342,7 @@ namespace AAModClassic.World
             };
 
             HashSet<int> protectedTiles = [
-                ModContent.TileType<ScorchedDynastyWood_Tile>(),
+                ModContent.TileType<ScorchedDynastyWoodUnsafe_Tile>(),
                 ModContent.TileType<ScorchedShingles_Tile>(),
                 ModContent.TileType<ScorchedPlatform_Tile>(),
             ];

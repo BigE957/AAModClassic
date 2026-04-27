@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
             // DisplayName.SetDefault("Terra Wood Wand");
             /* Tooltip.SetDefault(@"Right click to swap modes"); */
         }
+
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.LivingWoodWand);
@@ -32,6 +33,15 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
             Item.SetDefaults(ModContent.ItemType<PermeableTerraWoodWand>());
             Item.stack++;
             Item.favorited = favorited;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 20);
+            recipe.AddIngredient(ItemID.LivingWoodWand);
+            recipe.AddTile(ModContent.TileType<TruePaladinsSmeltery_Tile>());
+            recipe.Register();
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.World.Tiles
 {

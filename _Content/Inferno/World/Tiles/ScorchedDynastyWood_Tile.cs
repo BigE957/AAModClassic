@@ -1,9 +1,8 @@
-using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class ScorchedDynastyWood_Tile : ModTile
     {
