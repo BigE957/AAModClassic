@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
             Item.height = 24;
             Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
-			
+            Item.value = 100;
         }
         
         public override void SetStaticDefaults()

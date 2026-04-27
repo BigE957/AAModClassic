@@ -16,6 +16,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
             Item.height = 22;
             Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
+            Item.value = 10;
         }
     }
 }
