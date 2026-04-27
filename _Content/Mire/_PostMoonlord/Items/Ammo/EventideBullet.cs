@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Ammo
 			Item.damage = 25;
 			Item.width = 8;
 			Item.height = 8;
-			Item.maxStack = 9999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.ammo = AmmoID.Bullet;
 			Item.knockBack = 2f;

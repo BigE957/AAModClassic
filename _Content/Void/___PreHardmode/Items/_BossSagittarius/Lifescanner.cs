@@ -26,7 +26,7 @@ Can only be used in the Void"); */
         {
             Item.width = 24;
             Item.height = 22;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;

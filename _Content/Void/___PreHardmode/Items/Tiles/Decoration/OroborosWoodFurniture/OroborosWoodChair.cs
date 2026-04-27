@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Orobo
         {
             Item.width = 16;
             Item.height = 32;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

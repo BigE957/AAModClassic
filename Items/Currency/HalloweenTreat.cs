@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Currency
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
             Item.rare = ItemRarityID.Yellow;
         }

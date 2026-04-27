@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Materials
@@ -14,7 +15,7 @@ despite you already owning it."); */
         {
             Item.width = 22;
             Item.height = 20;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.LightPurple;
         }
     }

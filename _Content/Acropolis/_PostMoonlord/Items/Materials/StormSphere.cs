@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
         {
             Item.width = 10;
             Item.height = 10;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;

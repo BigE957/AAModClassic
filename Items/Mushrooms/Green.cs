@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic.Items.Mushrooms
@@ -13,7 +14,7 @@ namespace AAModClassic.Items.Mushrooms
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Green;
         }
     }

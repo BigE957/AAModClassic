@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
         {
             Item.width = Item.height = 16;
             Item.rare = ItemRarityID.White;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 100;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTime = Item.useAnimation = 19;

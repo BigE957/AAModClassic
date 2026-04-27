@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStand
 
         public override void SetDefaults()
         {
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;

@@ -24,7 +24,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
         {
             Item.width = 24;
             Item.height = 22;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;

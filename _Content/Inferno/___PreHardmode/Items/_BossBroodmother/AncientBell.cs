@@ -30,7 +30,7 @@ Only useable during the day"); */
         {
             Item.width = 34;
             Item.height = 38;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Materials
@@ -12,7 +13,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Materials
         {
             Item.width = 22;
             Item.height = 22;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 50000;
             Item.rare = ItemRarityID.Lime;
         }

@@ -1,4 +1,5 @@
 using AAModClassic.Tiles.Decoration;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Blocks
@@ -16,7 +17,7 @@ A somber engraving is etched into the base."); */
         {
             Item.width = 18;
             Item.height = 38;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

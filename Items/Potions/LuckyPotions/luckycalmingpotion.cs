@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 			Item.useTurn = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.maxStack = 30;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 16;
 			Item.height = 16;

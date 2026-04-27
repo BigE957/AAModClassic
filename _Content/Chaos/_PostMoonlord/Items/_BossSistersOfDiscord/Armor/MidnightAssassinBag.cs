@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
     {
         public override void SetDefaults()
         {
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
             Item.width = 16;
             Item.height = 16;

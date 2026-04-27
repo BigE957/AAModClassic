@@ -1,15 +1,15 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Keep;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic._Content.Terrarium.World.Tiles
 {
-    public class TerraWood_Tile : ModTile
+    public class PermeableTerraWood_Tile : ModTile
     {
 
         public bool glow = true; 
@@ -20,20 +20,13 @@ namespace AAModClassic.Tiles
             Main.tileSolid[Type] = false;
             Main.tileMerge[Type][ModContent.TileType<TerraLeaves_Tile>()] = true;
             Main.tileMerge[Type][ModContent.TileType<TerraCrystal_Tile>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<TerraWood_Tile>()] = true;
+            TileID.Sets.CanPlaceNextToNonSolidTile[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
             DustType = DustID.Terra;
             AddMapEntry(new Color(52, 200, 0));
-        }
-
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-        {
-            return false;
-        }
-
-        public override bool CanExplode(int i, int j)
-        {
-            return false;
+            RegisterItemDrop(ItemID.Wood);
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
@@ -45,7 +38,7 @@ namespace AAModClassic.Tiles
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/TerraWood_Tile"), i, j, true, false, false, null, AAGlobalTile.GetTerraColorDim);
+            BaseDrawing.DrawTileTexture(spriteBatch, TextureAssets.Tile[Type].Value, i, j, true, false, false, null, AAGlobalTile.GetTerraColorDim);
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

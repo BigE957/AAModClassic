@@ -1,5 +1,6 @@
 using AAModClassic.Globals;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +17,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items.Materials
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.value = 20000;
 			Item.rare = ItemRarityID.Pink;
             Item.rare = ItemRarityID.Cyan;

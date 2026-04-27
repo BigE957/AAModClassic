@@ -26,7 +26,7 @@ Can only be used in the underground jungle"); */
         {
             Item.width = 24;
             Item.height = 22;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
             Item.rare = ItemRarityID.LightPurple;
             Item.useAnimation = 30;

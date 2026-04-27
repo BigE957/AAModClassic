@@ -1,6 +1,7 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
@@ -29,7 +30,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;

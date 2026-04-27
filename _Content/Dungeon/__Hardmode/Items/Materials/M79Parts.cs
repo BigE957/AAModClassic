@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Materials
 		{
 			Item.width = 26;
 			Item.height = 20;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
 			Item.rare = ItemRarityID.Orange;
 		}

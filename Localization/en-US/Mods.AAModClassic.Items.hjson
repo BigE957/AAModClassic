@@ -10779,3 +10779,18 @@ HydraClaw_Item: {
 	DisplayName: Hydra Claw_ Item
 	Tooltip: ""
 }
+
+TerraWoodWand: {
+	DisplayName: Terra Wood Wand
+	Tooltip: ""
+}
+
+PermeableTerraWoodWand: {
+	DisplayName: Permeable Terra Wood Wand
+	Tooltip: ""
+}
+
+TerraLeafWand: {
+	DisplayName: Terra Leaf Wand
+	Tooltip: ""
+}

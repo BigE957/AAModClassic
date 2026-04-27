@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
 		{
 			Item.width = 14;
 			Item.height = 34;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.value = Item.sellPrice(0, 0, 8, 0);
 			Item.rare = ItemRarityID.Blue;
 		}

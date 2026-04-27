@@ -16,7 +16,7 @@ public class TerraDresser : ModItem
 	{
 		Item.width = 38;
 		Item.height = 24;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.useAnimation = 15;

@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
             refItem.SetDefaults(ItemID.SoulofNight);
             Item.width = refItem.width;
             Item.height = refItem.height;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
             Item.rare = refItem.rare;
         }

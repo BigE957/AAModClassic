@@ -13,7 +13,7 @@ namespace AAModClassic.Items.Throwing
 			Item.useTime = 25;
             Item.CloneDefaults(ItemID.LightDisc);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.maxStack = 5;
+            Item.maxStack = Item.CommonMaxStack;
             Item.damage = 42;                            
             Item.value = 6;
             Item.rare = ItemRarityID.Pink;

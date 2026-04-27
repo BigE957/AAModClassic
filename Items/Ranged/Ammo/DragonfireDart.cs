@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireDart>();
 			Item.width = 8;
 			Item.height = 8;
-			Item.maxStack = 9999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.ammo = AmmoID.Dart;
 			Item.damage = 11;
 			Item.knockBack = 3f;

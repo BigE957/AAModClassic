@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
             Item.width = 20;
             Item.height = 20;
 			Item.useTime = 8;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
 			Item.useAnimation = 8;
             Item.noUseGraphic = true;
             Item.useStyle = ItemUseStyleID.Swing;

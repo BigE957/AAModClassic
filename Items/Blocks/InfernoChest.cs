@@ -1,4 +1,5 @@
 using AAModClassic.Tiles.Chests;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Blocks
@@ -16,7 +17,7 @@ namespace AAModClassic.Items.Blocks
 			Item.width = 32;
 			Item.height = 28;
             Item.value = 500;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTime = 10;
             Item.useAnimation = 15;

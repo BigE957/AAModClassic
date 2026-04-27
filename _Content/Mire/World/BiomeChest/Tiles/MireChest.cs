@@ -1,5 +1,7 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace AAModClassic._Content.Mire.World.BiomeChest.Tiles
 {
     public class MireChest : BaseAAItem
@@ -15,7 +17,7 @@ namespace AAModClassic._Content.Mire.World.BiomeChest.Tiles
 			Item.width = 32;
 			Item.height = 28;
             Item.value = 500;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTime = 10;
             Item.useAnimation = 15;

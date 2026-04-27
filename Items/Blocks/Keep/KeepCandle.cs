@@ -16,7 +16,7 @@ public class KeepCandle : ModItem
 	{
 		Item.width = 16;
 		Item.height = 18;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.useAnimation = 15;

@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Boss.Shen
 
 		public override void SetDefaults()
 		{
-			Item.maxStack = 9999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;

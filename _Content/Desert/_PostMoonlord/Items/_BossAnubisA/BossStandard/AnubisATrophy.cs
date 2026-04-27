@@ -1,5 +1,7 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
     public class AnubisATrophy : BaseAAItem
@@ -13,7 +15,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStan
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;

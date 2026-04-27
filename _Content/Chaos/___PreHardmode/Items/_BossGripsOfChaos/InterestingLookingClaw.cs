@@ -28,7 +28,7 @@ Can only be used at night"); */
 		{
 			Item.width = 32;
 			Item.height = 24;
-			Item.maxStack = 20;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;

@@ -1,3 +1,4 @@
+using AAModClassic._Content.Terrarium.World.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -13,7 +14,7 @@ public class TerraCrystalBack_Tile : ModTile
 		//IL_0051: Unknown result type (might be due to invalid IL or missing references)
 		Main.tileSolid[Type] = false;
 		Main.tileBlockLight[Type] = true;
-		Main.tileMerge[Type][ModContent.TileType<TerraWood_Tile>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<PermeableTerraWood_Tile>()] = true;
 		HitSound = SoundID.Tink;
 		Main.tileLighted[Type] = false;
 		base.DustType = DustID.Terra;

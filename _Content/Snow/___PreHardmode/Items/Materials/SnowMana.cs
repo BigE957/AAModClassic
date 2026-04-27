@@ -23,7 +23,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
             refItem.SetDefaults(ItemID.SoulofSight);
             Item.width = refItem.width;
             Item.height = refItem.height;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
         }
 

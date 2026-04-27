@@ -15,7 +15,7 @@ Pressing the rift return hotkey brings you back to your most recent rift locatio
 		public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.MagicMirror);
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
 			Item.useAnimation = 15;
             Item.useTime = 15;
             Item.consumable = false;

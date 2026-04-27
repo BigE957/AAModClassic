@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria;
+using Terraria.ID;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items.Quest
 {
@@ -18,7 +19,7 @@ give you something for it."); */
         public override void SetDefaults()
         {
             Item.questItem = true;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.width = 28;
             Item.height = 30;
             Item.rare = ItemRarityID.Quest;

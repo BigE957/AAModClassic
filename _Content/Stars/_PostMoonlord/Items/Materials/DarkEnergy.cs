@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         {
             Item.width = 22;
             Item.height = 22;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Purple;
             Item.value = 10000;
         }

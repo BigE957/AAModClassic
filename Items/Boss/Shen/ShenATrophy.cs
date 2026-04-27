@@ -1,4 +1,5 @@
 using AAModClassic.Tiles.Trophy;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Boss.Shen
@@ -16,7 +17,7 @@ namespace AAModClassic.Items.Boss.Shen
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;

@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
         {
             Item.width = 30;
             Item.height = 42;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.glowMask = customGlowMask;

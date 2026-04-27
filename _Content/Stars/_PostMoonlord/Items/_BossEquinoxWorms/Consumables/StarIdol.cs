@@ -22,7 +22,7 @@ Can only be used if there arent many radium stars in the world."); */
         {
             Item.width = 20;
             Item.height = 20;
-            Item.maxStack = 30;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Lime;
 			Item.expert = true;
             Item.value = Item.sellPrice(0, 15, 0, 0);

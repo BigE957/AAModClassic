@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
             Item.width = 30;
             Item.height = 24;
             Item.rare = ItemRarityID.Green;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

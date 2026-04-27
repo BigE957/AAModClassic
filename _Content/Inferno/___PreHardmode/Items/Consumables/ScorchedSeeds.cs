@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 0, 0, 5);
 

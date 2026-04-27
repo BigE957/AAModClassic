@@ -1,5 +1,7 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
 {
     public class DoomiteBar : BaseAAItem
@@ -13,7 +15,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Orange;
             Item.useTurn = true;
             Item.autoReuse = true;

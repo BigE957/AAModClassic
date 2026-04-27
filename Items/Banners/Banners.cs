@@ -1,3 +1,4 @@
+using Terraria;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -48,7 +49,7 @@ namespace AAModClassic.Items.Banners
 			Item.scale = 0.7f;
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
             Item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
 

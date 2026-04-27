@@ -8,9 +8,9 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Keep;
+namespace AAModClassic._Content.Terrarium.World.Tiles;
 
-public class TerraWoodSolid_Tile : ModTile
+public class TerraWood_Tile : ModTile
 {
 	public bool glow = true;
 
@@ -20,29 +20,20 @@ public class TerraWoodSolid_Tile : ModTile
 		Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		Main.tileSolid[Type] = true;
-		Main.tileMerge[Type][ModContent.TileType<TerraWood_Tile>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<PermeableTerraWood_Tile>()] = true;
 		Main.tileMerge[Type][ModContent.TileType<TerraLeaves_Tile>()] = true;
 		Main.tileMerge[Type][ModContent.TileType<TerraCrystal_Tile>()] = true;
 		HitSound = SoundID.Tink;
 		Main.tileLighted[Type] = true;
 		DustType = DustID.Terra;
-		AddMapEntry(new Color(52, 200, 0), (LocalizedText)null);
-	}
-
-	public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-	{
-		return false;
-	}
-
-	public override bool CanExplode(int i, int j)
-	{
-		return false;
-	}
+		AddMapEntry(new Color(52, 200, 0), null);
+        RegisterItemDrop(ItemID.Wood);
+    }
 
 	public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 	{
 		Tile tile = Main.tile[i, j];
-		new Vector2((float)Main.offScreenRange, (float)Main.offScreenRange);
+		new Vector2(Main.offScreenRange, Main.offScreenRange);
 		if (Main.drawToScreen)
 		{
 			_ = Vector2.Zero;

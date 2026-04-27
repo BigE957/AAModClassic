@@ -7,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Keep
+namespace AAModClassic._Content.Terrarium.World.Tiles
 {
     public class TerraCrystal_Tile : ModTile
     {
@@ -15,21 +15,12 @@ namespace AAModClassic.Tiles.Keep
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<PermeableTerraWood_Tile>()] = true;
             Main.tileMerge[Type][ModContent.TileType<TerraWood_Tile>()] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
             DustType = DustID.Terra;
             AddMapEntry(new Color(39, 125, 37));
-        }
-
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-        {
-            return false;
-        }
-
-        public override bool CanExplode(int i, int j)
-        {
-            return false;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
@@ -41,7 +32,7 @@ namespace AAModClassic.Tiles.Keep
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(TextureAssets.Tile[Type].Value, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.TerraGlow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(TextureAssets.Tile[Type].Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.TerraGlow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

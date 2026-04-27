@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         {
             Item.width = 45;
             Item.height = 18;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
             Item.value = Item.sellPrice(0, 20, 0, 0);

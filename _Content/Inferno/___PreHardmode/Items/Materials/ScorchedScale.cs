@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
 
             Item.width = 22;
             Item.height = 24;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
 			
         }

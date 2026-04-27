@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials
         {
             Item.width = 10;
             Item.height = 18;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 100;
         }
 

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items.Materials
@@ -13,7 +14,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items.Materials
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.value = 20000;
 			Item.rare = ItemRarityID.Pink;
 		}

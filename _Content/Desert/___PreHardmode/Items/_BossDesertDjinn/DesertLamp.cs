@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 		{
 			Item.width = 32;
 			Item.height = 26;
-			Item.maxStack = 20;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;

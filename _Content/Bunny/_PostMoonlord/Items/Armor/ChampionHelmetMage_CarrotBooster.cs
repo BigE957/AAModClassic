@@ -23,7 +23,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
         }
 
         public override Color? GetAlpha(Color lightColor)

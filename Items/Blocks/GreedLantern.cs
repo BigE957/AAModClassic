@@ -1,4 +1,5 @@
 using AAModClassic.Tiles.Decoration;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.width = 64;
 			Item.height = 34;
             Item.value = 150;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTime = 10;
             Item.useAnimation = 15;

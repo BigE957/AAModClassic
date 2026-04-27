@@ -1,6 +1,7 @@
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.Terrarium.World.Tiles;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Ranged;
@@ -10,7 +11,6 @@ using AAModClassic.Tiles.Boss;
 using AAModClassic.Tiles.Chests;
 using AAModClassic.Tiles.Decoration;
 using AAModClassic.Tiles.Furniture;
-using AAModClassic.Tiles.Keep;
 using AAModClassic.Walls;
 using AAModClassic.World.Conversions;
 using Microsoft.Xna.Framework;
@@ -687,11 +687,17 @@ namespace AAModClassic.World
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
                 [new Color(0, 255, 0)] = ModContent.TileType<TerraCrystal_Tile>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<TerraWood_Tile>(),
+                [new Color(255, 0, 255)] = ModContent.TileType<PermeableTerraWood_Tile>(),
                 [new Color(255, 255, 0)] = ModContent.TileType<TerraLeaves_Tile>(),
                 [new Color(0, 0, 255)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
+
+            HashSet<int> protectedTiles = [
+                ModContent.TileType<TerraCrystal_Tile>(),
+                ModContent.TileType<PermeableTerraWood_Tile>(),
+                ModContent.TileType<TerraLeaves_Tile>(),
+            ];
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
@@ -719,7 +725,7 @@ namespace AAModClassic.World
                 }
             }
 
-            TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, TerraWalls, colorToWall);
+            TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, TerraWalls, colorToWall, unbreakableTiles: protectedTiles);
             Point newOrigin = new Point(origin.X, origin.Y); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...

@@ -576,7 +576,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             if (!Main.player[NPC.target].ZoneDesert)
             {
                 drawColor = Color.Goldenrod;
-                //TODO: this doesnt support direction or horizontal frames in a sheet. has to be reworked to do that 
+                //TODO: this doesnt support direction or horizontal frames in a sheet. has to be reworked to do that
                 BaseDrawing.DrawAfterimage(spriteBatch, texture, 0, NPC, 1, 1, 7, false, 0, 0, drawColor, NPC.frame, 15);
             }
 

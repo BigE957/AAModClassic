@@ -16,7 +16,7 @@ public class TerraSink : ModItem
 	{
 		Item.width = 32;
 		Item.height = 32;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.useAnimation = 15;

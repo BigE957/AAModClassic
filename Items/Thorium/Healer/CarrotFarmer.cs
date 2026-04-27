@@ -25,7 +25,7 @@ Grants 1 soul essence on direct hit"); */
 		{
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.useStyle = ItemUseStyleID.Swing;

@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
         {
             Item.width = 32;
             Item.height = 30;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
 			Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
 

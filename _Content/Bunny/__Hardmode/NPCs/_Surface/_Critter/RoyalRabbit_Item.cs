@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
         {
             Item.width = 36;
             Item.height = 30;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.useAnimation = 30;

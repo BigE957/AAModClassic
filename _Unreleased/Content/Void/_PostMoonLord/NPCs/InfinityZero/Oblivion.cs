@@ -3,6 +3,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using Humanizer;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Win32;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -743,7 +744,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.frame.Y = (int)((NPC.frameCounter / 5) % realFrames);
                 if (Main.rand.NextBool(9))
-                    StaticActive = !StaticActive;
+                {
+                    if (!StaticActive && Main.rand.NextBool())
+                    {
+
+                    }
+                    else
+                        StaticActive = !StaticActive;
+                }
             }
             else
                 switch ((NPC.frameCounter / 5) % realFrames)

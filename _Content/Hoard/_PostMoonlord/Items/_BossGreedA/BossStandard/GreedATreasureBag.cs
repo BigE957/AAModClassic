@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
 
 		public override void SetDefaults()
 		{
-			Item.maxStack = 9999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 32;
 			Item.height = 36;

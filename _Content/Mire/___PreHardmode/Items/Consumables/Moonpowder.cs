@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
             Item.shootSpeed = 4f;
             Item.width = 16;
             Item.height = 24;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
             Item.UseSound = SoundID.Item1;
             Item.useAnimation = 15;

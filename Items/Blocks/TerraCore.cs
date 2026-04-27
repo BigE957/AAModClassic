@@ -20,7 +20,7 @@ Used to create ancient crafting stations"); */
         {
             Item.width = 32;
             Item.height = 36;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

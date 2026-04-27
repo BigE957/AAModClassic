@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 
             Item.width = 30;
             Item.height = 24;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

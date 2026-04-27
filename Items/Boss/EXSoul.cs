@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Boss
             refItem.SetDefaults(ItemID.SoulofSight);
             Item.width = refItem.width;
             Item.height = refItem.height;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000000;
             Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;

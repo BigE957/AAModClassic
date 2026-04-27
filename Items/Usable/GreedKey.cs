@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic.Items.Usable
@@ -14,7 +15,7 @@ namespace AAModClassic.Items.Usable
         {
             Item.width = Item.height = 16;
             Item.rare = ItemRarityID.LightPurple;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
 			Item.value = 800000;
             Item.noMelee = true;
         }

@@ -23,7 +23,7 @@ Cursed Sickle EX"); */
 		{
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Cyan;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.UseSound = SoundID.Item71;

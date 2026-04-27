@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic.Items.Mushrooms
@@ -14,7 +15,7 @@ Maybe the Mushman knows what to do with it?"); */
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Purple;
         }
     }

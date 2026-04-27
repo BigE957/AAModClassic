@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Usable
 			Item.height = 12;
 			Item.value = Item.sellPrice(0, 0, 25, 0);
 			Item.rare = ItemRarityID.Orange;
-			Item.maxStack = 9999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 		}
 	}

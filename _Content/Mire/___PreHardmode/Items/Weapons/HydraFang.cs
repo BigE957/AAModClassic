@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 			Item.damage = 13;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noUseGraphic = true;
-			Item.maxStack = 9999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 28;
 			Item.height = 34;

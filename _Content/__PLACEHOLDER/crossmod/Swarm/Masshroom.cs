@@ -24,7 +24,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod.Swarm
         {
             Item.width = 24;
             Item.height = 22;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;

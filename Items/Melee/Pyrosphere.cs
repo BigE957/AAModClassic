@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,7 +15,7 @@ namespace AAModClassic.Items.Melee
         {
             Item.width = 30;
             Item.height = 30;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Green;
             Item.value = Terraria.Item.sellPrice(0, 0, 90, 50);
             Item.useStyle = ItemUseStyleID.Shoot;

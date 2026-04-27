@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using AAModClassic.Globals;
 
@@ -29,7 +30,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;

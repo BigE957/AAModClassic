@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
             Item.width = 24;
             Item.height = 24;
             Item.rare = ItemRarityID.Green;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;

@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 
             Item.width = 24;
             Item.height = 22;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.useTurn = true;
             Item.autoReuse = true;

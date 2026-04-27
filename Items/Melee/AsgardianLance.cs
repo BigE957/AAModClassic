@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.knockBack = 4f;

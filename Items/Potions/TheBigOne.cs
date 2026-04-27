@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Potions
 			Item.width = 20;
 			Item.height = 38;
 			Item.useTurn = true;
-			Item.maxStack = 50;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.healLife = 600;
             Item.healMana = 600;
             Item.useAnimation = 17;

@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
 			Item.useTurn = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.maxStack = 30;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 22;
 			Item.height = 30;

@@ -1,5 +1,7 @@
-﻿using Terraria.ID;
+﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
 {
     class Bogwood : BaseAAItem
@@ -9,7 +11,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
 
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

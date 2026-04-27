@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Hell.__Hardmode.Items.Materials
             refItem.SetDefaults(ItemID.SoulofSight);
             Item.width = refItem.width;
             Item.height = refItem.height;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Lime;
         }

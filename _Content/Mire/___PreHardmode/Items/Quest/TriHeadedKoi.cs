@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Utilities;
+using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 
@@ -14,7 +15,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Quest
         public override void SetDefaults()
         {
             Item.questItem = true;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.width = 26;
             Item.height = 26;
             Item.uniqueStack = true;

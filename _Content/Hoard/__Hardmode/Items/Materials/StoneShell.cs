@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Materials
@@ -13,7 +14,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Materials
         {
             Item.width = 14;
             Item.height = 24;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Yellow;
         }
     }

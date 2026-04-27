@@ -62,6 +62,7 @@ using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosWoodFurniture;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+using AAModClassic._Content.Terrarium.World.Tiles;
 
 namespace AAModClassic
 {
@@ -1392,7 +1393,7 @@ namespace AAModClassic
             Main.SceneMetrics.JungleTileCount += mireTiles;
             pagodaTiles = tileCounts[ModContent.TileType<ScorchedDynastyWoodS_Tile>()] + tileCounts[ModContent.TileType<ScorchedShinglesS_Tile>()];
             lakeTiles = tileCounts[ModContent.TileType<Darkmud_Tile>()] + tileCounts[ModContent.TileType<AbyssGrass_Tile>()] + tileCounts[ModContent.TileType<AbyssWood_Tile>()] + tileCounts[ModContent.TileType<AbyssWoodSolid_Tile>()];
-            terraTiles = tileCounts[ModContent.TileType<TerraCrystal_Tile>()] + tileCounts[ModContent.TileType<TerraWood_Tile>()] + tileCounts[ModContent.TileType<TerraLeaves_Tile>()];
+            terraTiles = tileCounts[ModContent.TileType<TerraCrystal_Tile>()] + tileCounts[ModContent.TileType<PermeableTerraWood_Tile>()] + tileCounts[ModContent.TileType<TerraLeaves_Tile>()];
             keepTiles = tileCounts[ModContent.TileType<KeepBrick_Tile>()] + tileCounts[ModContent.TileType<KeepPlatform_Tile>()] + tileCounts[ModContent.TileType<TerraPillar_Tile>()];
             Radium = tileCounts[ModContent.TileType<RadiumOre_Tile>()] + tileCounts[ModContent.TileType<Tiles.Altar.DaybringerBrick_Tile>()] + tileCounts[ModContent.TileType<Tiles.Altar.NightcrawlerBrick_Tile>()];
             HoardTiles = tileCounts[ModContent.TileType<GreedBrick_Tile>()] + tileCounts[ModContent.TileType<GreedStone_Tile>()];

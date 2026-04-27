@@ -11,7 +11,7 @@ namespace AAModClassic.Items.Magic
         {
             Item.width = 35;
             Item.height = 54;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Orange;
 			Item.damage = 20;                        

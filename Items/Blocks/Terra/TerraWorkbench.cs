@@ -16,7 +16,7 @@ public class TerraWorkbench : ModItem
 	{
 		Item.width = 32;
 		Item.height = 18;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.useAnimation = 15;

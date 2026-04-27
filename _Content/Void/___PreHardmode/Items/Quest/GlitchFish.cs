@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Quest
@@ -12,7 +13,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Quest
         public override void SetDefaults()
         {
             Item.questItem = true;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.width = 26;
             Item.height = 26;
             Item.uniqueStack = true;

@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Dev
         {
 			Item.useTime = 25;
             Item.CloneDefaults(ItemID.Bone);
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 120;                            
             Item.value = 600000;

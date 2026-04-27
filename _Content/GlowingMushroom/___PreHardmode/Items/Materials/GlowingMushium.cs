@@ -11,7 +11,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.sellPrice(0, 0, 3, 0);
         }

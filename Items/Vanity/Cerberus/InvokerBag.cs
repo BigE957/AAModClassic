@@ -16,7 +16,7 @@ namespace AAModClassic.Items.Vanity.Cerberus
 
         public override void SetDefaults()
         {
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;

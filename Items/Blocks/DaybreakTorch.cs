@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			Item.width = 10;
 			Item.height = 12;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.holdStyle = 1;
 			Item.noWet = true;
 			Item.useTurn = true;

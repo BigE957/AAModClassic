@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Potions
             Item.useTurn = true;
             Item.useAnimation = 17;
             Item.useTime = 17;
-            Item.maxStack = 50;
+            Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
             Item.width = 14;
             Item.height = 24;

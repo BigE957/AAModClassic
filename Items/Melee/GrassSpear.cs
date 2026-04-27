@@ -13,7 +13,7 @@ namespace AAModClassic.Items.Melee
             Item.width = 132;
             Item.height = 132;
             Item.scale = 1.1f;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 24;
             Item.knockBack = 4.7f;

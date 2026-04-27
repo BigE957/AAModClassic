@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             Item.width = 132;
             Item.height = 132;
             Item.scale = 1.1f;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 18;
             Item.knockBack = 2.3f;

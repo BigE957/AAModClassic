@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Shen
         {
             Item.width = 22;
             Item.height = 24;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.expert = true; 

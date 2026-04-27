@@ -1,3 +1,5 @@
+using Terraria;
+
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
 {
     public class HydraClaw_Item : BaseAAItem
@@ -11,7 +13,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
         {
             Item.width = 22;
             Item.height = 20;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
         }
     }
 }

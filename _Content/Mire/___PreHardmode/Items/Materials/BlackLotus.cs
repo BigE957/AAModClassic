@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
         {
             Item.width = 24;
             Item.height = 24;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Yellow;
         }

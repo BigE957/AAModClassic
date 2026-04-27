@@ -17,7 +17,7 @@ namespace AAModClassic.Items.DevTools
         {
             Item.width = 20;
             Item.height = 20;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Red;
             Item.value = 0;
 			Item.useStyle = ItemUseStyleID.Swing;
