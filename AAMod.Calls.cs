@@ -1,4 +1,5 @@
-﻿using AAModClassic.Music;
+﻿using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Utilities;
 using System;
@@ -97,7 +98,7 @@ namespace AAModClassic
                     case "AddShenDialogue":
                         if (args.Length <= 4)
                         {
-                            Logger.Error($"Ancients Awakened Call Error: {args.Length} is invalid for {methodName}. Must be at least 1");
+                            Logger.Error($"Ancients Awakened Call Error: {args.Length} is invalid for {methodName}. Must be at least 4");
                             return null;
                         }
                         if (args[1] is not string dKey)
@@ -117,6 +118,42 @@ namespace AAModClassic
                         }
                         
                         return ShenA.AddShenCrossmodDialogue(dKey, text, condition);
+                    case "AddInfinityZeroDialogue":
+                        if (args.Length <= 4)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args.Length} is invalid for {methodName}. Must be at least 4");
+                            return null;
+                        }
+                        if (args[1] is not string diKey)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[1].GetType().Name} is invalid for the first argument of {methodName}. Must be a string");
+                            return null;
+                        }
+                        if (args[2] is not LocalizedText dText)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[2].GetType().Name} is invalid for the first argument of {methodName}. Must be a LocalizedText");
+                            return null;
+                        }
+                        if (args[1] is not Func<bool> dCondition)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[3].GetType().Name} is invalid for the first argument of {methodName}. Must be a Func<bool>");
+                            return null;
+                        }
+
+                        return Oblivion.AddInfinityZeroCrossmodDialogue(diKey, dText, dCondition);
+                    case "AddAltarBlockingTile":
+                        if (args.Length <= 2)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args.Length} is invalid for {methodName}. Must be at least 1");
+                            return null;
+                        }
+                        if (args[1] is not int tileType)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: {args[1].GetType().Name} is invalid for the first argument of {methodName}. Must be a int");
+                            return null;
+                        }
+                        AAWorld.DontSpawnAltarsOn.Add(tileType);
+                        return null;
                     default:
                         Logger.Error($"Ancients Awakened Call Error: {methodName} does not exist.");
                         return null;

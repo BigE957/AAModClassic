@@ -957,6 +957,13 @@ namespace AAModClassic
             }
         }
 
+        public static readonly HashSet<int> DontSpawnAltarsOn =
+        [
+            ModContent.TileType<KeepBrick_Tile>(),
+            ModContent.TileType<TerraCrystal_Tile>(),
+            ModContent.TileType<GreedBrick_Tile>(),
+        ];
+
         private static void Altars(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAltars");
@@ -969,16 +976,16 @@ namespace AAModClassic
                     for (int AltarY = yAxis - 45; AltarY < yAxis + 45; AltarY++)
                     {
                         Tile tile = Main.tile[AltarX, AltarY];
-                        int Altar = Main.rand.Next(2);
 
-                        if (Altar == 0)
-                        {
+                        if (DontSpawnAltarsOn.Contains(tile.TileType))
+                            continue;
+
+                        int Altar;
+                        if (Main.rand.NextBool())
                             Altar = ModContent.TileType<AbyssAltarUnsafe_Tile>();
-                        }
                         else
-                        {
                             Altar = ModContent.TileType<DragonAltarUnsafe_Tile>();
-                        }
+
                         if (Main.rand.NextBool(15))
                         {
                             if ((tile.TileType == ModContent.TileType<Torchstone_Tile>() ||
