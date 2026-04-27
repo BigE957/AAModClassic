@@ -58,10 +58,11 @@ namespace AAModClassic.Items.Ranged
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == 474)
-            {
-                type = 270;
-            }
+            if (type == ProjectileID.BoneArrow)
+                Projectile.NewProjectile(source, position, velocity, ProjectileID.Skull, damage, knockback, player.whoAmI);
+            else
+                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+
             return true;
         }
     }
