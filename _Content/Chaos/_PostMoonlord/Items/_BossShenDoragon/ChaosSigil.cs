@@ -99,13 +99,13 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (AAWorld.ShenSummoned)
+            if (false)//AAWorld.ShenSummoned)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue1") : Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Shen>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.ShenDoragon"), false);
             }
-            if (!AAWorld.ShenSummoned)
+            else
             {
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenSpawn>(), false, 0, 0);
                 AAWorld.ShenSummoned = true;

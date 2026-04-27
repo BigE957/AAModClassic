@@ -582,10 +582,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 {
                     if (!NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
                     {
-                        int previousMusic = Main.curMusic;
-                        Main.musicFade[previousMusic] = 0f;
-                        Main.newMusic = Main.curMusic = MusicManagementSystem.MusicSlots["Shen_Outro"];
-                        Main.musicFade[Main.curMusic] = 1f;
+                        MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen_Outro"]);
                         NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDefeat>());
                     }
                     TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
