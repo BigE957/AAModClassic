@@ -28,8 +28,16 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
 
         public override void AI()
         {
+            if (Projectile.velocity.X < 0)
+                Projectile.direction = -1;
+            else
+                Projectile.direction = 1;
+
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
                 Projectile.velocity.Y += 0.2f;
+                Projectile.rotation += .15f * Projectile.velocity.X * Projectile.direction;
+            }
             else
             {
                 Projectile.ai[0]++;
@@ -43,13 +51,11 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
                 {
                     Projectile.velocity.Y = 16f;
                 }
-            }
-            if (Projectile.velocity.X < 0)
-                Projectile.direction = -1;
-            else
-                Projectile.direction = 1;
 
-            Projectile.rotation += .3f * Projectile.velocity.X * Projectile.direction;
+                Projectile.rotation += .3f * Projectile.velocity.X * Projectile.direction;
+            }
+
+
         }
 
         public override bool PreDraw(ref Color lightColor)
