@@ -1,13 +1,14 @@
 ﻿
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using System.IO;
+using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Bosses.Anubis
 {
@@ -68,20 +69,23 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 Projectile.frame = 5;
             }
 
+            float maxVelocity = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 14 : 12;
+            float accel = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 0.14f : 0.05f;
+
             if (internalAI[0]++ > 90)
             {
                 if (Projectile.ai[0] == 0)
                 {
-                    if (Projectile.velocity.Y < 12)
+                    if (Projectile.velocity.Y < maxVelocity)
                     {
-                        Projectile.velocity.Y += .05f;
+                        Projectile.velocity.Y += accel;
                     }
                 }
                 else if (Projectile.ai[0] == 1)
                 {
-                    if (Projectile.velocity.Y > -12)
+                    if (Projectile.velocity.Y > -maxVelocity)
                     {
-                        Projectile.velocity.Y -= .05f;
+                        Projectile.velocity.Y -= accel;
                     }
                     Projectile.direction = Projectile.spriteDirection = -1;
                 }

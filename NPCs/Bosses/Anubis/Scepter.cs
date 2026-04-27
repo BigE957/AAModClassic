@@ -1,5 +1,7 @@
+using AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -30,7 +32,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != ModContent.NPCType<Anubis>())) master = -1;
             if (master == -1)
             {
-                master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<Anubis>(), -1, null);
+                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<AnubisRework>(), -1, null);
+                else
+                    master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<Anubis>(), -1, null);
                 if (master == -1) master = -2;
             }
             if (master == -1) { return; }

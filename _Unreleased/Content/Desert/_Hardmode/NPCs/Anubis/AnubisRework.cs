@@ -1,28 +1,35 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis.Runes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Music;
+using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Anubis
+namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
 {
-    public class Anubis : ModNPC
+    public class AnubisRework : ModNPC
     {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Anubis Legendscribe");
-            Main.npcFrameCount[NPC.type] = 11;
+            Main.npcFrameCount[NPC.type] = 4;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -37,12 +44,16 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = MusicLoader.GetMusicSlot("AAModMusic/Music/Anubis");
-            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
+            Music = MusicManagementSystem.MusicSlots["Anubis"];
+            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
             NPC.value = Item.sellPrice(0, 1, 0, 0);
+            NPC.noTileCollide = false;
         }
 
         public float[] internalAI = new float[4];
+        
+        Vector2 movePoint = Vector2.Zero;
+        Vector2 DashPoint = Vector2.Zero;
 
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -53,8 +64,18 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 writer.Write(internalAI[1]);
                 writer.Write(internalAI[2]);
                 writer.Write(internalAI[3]);
+                writer.Write(movePoint.X);
+                writer.Write(movePoint.Y);
+                writer.Write(DashPoint.X);
+                writer.Write(DashPoint.Y);
             }
         }
+
+        /* [0] = Attack Type
+         * [1] = Attack Timer
+         * [2] = Shooting Timer
+         * [3] = Upcoming Attack
+         */
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
@@ -65,6 +86,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 internalAI[1] = reader.ReadSingle();
                 internalAI[2] = reader.ReadSingle();
                 internalAI[3] = reader.ReadSingle();
+                movePoint.X = reader.ReadSingle();
+                movePoint.Y = reader.ReadSingle();
+                DashPoint.X = reader.ReadSingle();
+                DashPoint.Y = reader.ReadSingle();
             }
         }
 
@@ -102,27 +127,43 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 Preamble();
                 return;
             }
-
+            NPC.noTileCollide = true;
             NPC.dontTakeDamage = false;
             NPC.noGravity = true;
 
-            if (internalAI[3] == 0)
+            if (NPC.ai[0] == 6)
             {
-                NPC.velocity.Y += 0.002f;
-                if (NPC.velocity.Y > .1f)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.damage != 50)
                 {
-                    internalAI[3] = 1f;
+                    NPC.velocity.Y *= 0f;
+                    NPC.damage = 50;
                     NPC.netUpdate = true;
                 }
             }
             else
-            if (internalAI[3] == 1)
             {
-                NPC.velocity.Y -= 0.002f;
-                if (NPC.velocity.Y < -.1f)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.damage != 35)
                 {
-                    internalAI[3] = 0f;
+                    NPC.damage = 35;
                     NPC.netUpdate = true;
+                }
+                if (internalAI[3] == 0)
+                {
+                    NPC.velocity.Y += 0.002f;
+                    if (NPC.velocity.Y > .1f)
+                    {
+                        internalAI[3] = 1f;
+                        NPC.netUpdate = true;
+                    }
+                }
+                else if (internalAI[3] == 1)
+                {
+                    NPC.velocity.Y -= 0.002f;
+                    if (NPC.velocity.Y < -.1f)
+                    {
+                        internalAI[3] = 0f;
+                        NPC.netUpdate = true;
+                    }
                 }
             }
 
@@ -179,139 +220,151 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 internalAI[2] = 1;
             }
 
+            Vector2 targetPos = player.Center;
             NPC.ai[1]++;
-
             switch (NPC.ai[0])
             {
                 case 0:
-                    if (!AliveCheck(player))
-                        break;
-                    int proj = Main.rand.NextBool(50) ? ModContent.ProjectileType<Pumpkin>() : ModContent.ProjectileType<Runeblast>();
-
-                    int damage = NPC.damage / 2;
-                    if (NPC.ai[3] == 0 && proj == ModContent.ProjectileType<Pumpkin>())
+                    if (NPC.ai[3] == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.PumpkinThrow"), true); 
-                        damage = 300;
-                    }
+                        NPC.ai[3] = Main.rand.Next(5) + 1;
 
-                    if (NPC.ai[1] == 20)
-                    {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.Runeblast"), true);
-                    }
-
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, proj, ref NPC.ai[3], 80, damage, 10, true);
-
-                    if (NPC.ai[3] == 40)
-                    {
-                        Teleport();
-                    }
-
-                    if (NPC.ai[1] >= 260)
-                    {
-                        NPC.ai[0]++;
-                        NPC.ai[1] = 0;
-                        NPC.ai[2] = 0;
-                        NPC.ai[3] = 0;
-                        Teleport();
-                    }
-                    break;
-                case 1:
-                    if (!AliveCheck(player))
-                        break;
-                    if (NPC.ai[1] == 10)
-                    {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.Summons"), true);
-
-                        if (Main.rand.NextBool(2) && NPC.life < NPC.lifeMax * (2/3))
+                        if (NPC.ai[3] == 5)
                         {
-                            if (NPC.life < NPC.lifeMax / 3)
+                            int posX;
+                            if (player.position.X > NPC.position.X)
                             {
-                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
-                                Main.npc[a].Center = NPC.Center;
-                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
-                                Main.npc[b].Center = NPC.Center;
-                                int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X, NPC.Center.Y - 200);
-                                Main.npc[c].Center = NPC.Center;
+                                posX = -400;
                             }
                             else
                             {
-                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
-                                Main.npc[a].Center = NPC.Center;
-                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
-                                Main.npc[b].Center = NPC.Center;
+                                posX = 400;
                             }
+                            movePoint = new Vector2(targetPos.X + posX, targetPos.Y);
                         }
                         else
                         {
-                            int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
-                            Main.npc[m].Center = new Vector2(NPC.Center.X + 100, NPC.Center.Y);
+                            int posX = Main.rand.Next(-400, 400);
 
-                            int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
-                            Main.npc[n].Center = new Vector2(NPC.Center.X - 100, NPC.Center.Y);
-
-                            if (NPC.life < NPC.lifeMax / 2)
+                            int posY = Main.rand.Next(0, 400);
+                            if (posX > -150 && posX < 150)
                             {
-                                int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, ModContent.NPCType<MinionCircle>());
-                                Main.npc[o].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 100);
-
-                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y - 100, ModContent.NPCType<MinionCircle>());
-                                Main.npc[p].Center = new Vector2(NPC.Center.X, NPC.Center.Y - 100);
+                                posY = Main.rand.Next(150, 400);
                             }
+                            movePoint = new Vector2(targetPos.X + posX, targetPos.Y - posY);
+                        }
+
+                        if (NPC.life < (int)(NPC.lifeMax * .66) && Main.rand.Next(4 - Repeat()) == 0)
+                        {
+                            if (Main.rand.Next(2) == 0 && NPC.life < NPC.lifeMax / 3)
+                            {
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
+                                Main.npc[a].Center = new Vector2(NPC.Center.X + 100, NPC.Center.Y);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
+                                Main.npc[b].Center = new Vector2(NPC.Center.X - 100, NPC.Center.Y);
+                            }
+                            else
+                            {
+                                int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
+                                Main.npc[m].Center = new Vector2(NPC.Center.X + 100, NPC.Center.Y);
+
+                                int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
+                                Main.npc[n].Center = new Vector2(NPC.Center.X - 100, NPC.Center.Y);
+
+                                if (NPC.life < NPC.lifeMax / 2)
+                                {
+                                    int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, ModContent.NPCType<MinionCircle>());
+                                    Main.npc[o].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 100);
+
+                                    int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y - 100, ModContent.NPCType<MinionCircle>());
+                                    Main.npc[p].Center = new Vector2(NPC.Center.X, NPC.Center.Y - 100);
+                                }
+                            }
+                        }
+
+                        NPC.netUpdate = true;
+                    }
+
+                    if (NPC.ai[1] == 40 && Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AnubisCircle>(), 0, movePoint.X, movePoint.Y, NPC.ai[3] - 1, NPC.whoAmI);
+                        NPC.netUpdate = true;
+                    }
+
+                    if (NPC.ai[1] >= 80 - (10 * Repeat()))
+                    {
+                        MoveToPoint(movePoint);
+
+                        if (Vector2.Distance(NPC.Center, movePoint) <= 10)
+                        {
+                            NPC.velocity *= 0;
+                            NPC.ai[0] = NPC.ai[3];
+                            NPC.ai[1] = 0;
+                            NPC.ai[2] = 0;
+                            NPC.ai[3] = 0;
                         }
                     }
 
-                    if (NPC.ai[1] >= 160)
+                    break;
+
+                #region Shoot Stuff
+                case 1:
+
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Runeblast>(), ref NPC.ai[2], 80, NPC.damage / 2, 10, true);
+
+                    if (NPC.ai[2] == 79)
                     {
-                        NPC.ai[0]++;
-                        NPC.ai[1] = 0;
-                        NPC.ai[2] = 0;
-                        NPC.ai[3] = 0;
-                        Teleport();
+                        int posX = Main.rand.Next(-400, 400);
+
+                        int posY = Main.rand.Next(0, 400);
+                        if (posX > -150 && posX < 150)
+                        {
+                            posY = Main.rand.Next(150, 400);
+                        }
+
+                        movePoint = new Vector2(targetPos.X + posX, targetPos.Y - posY);
+                    }
+
+                    MoveToPoint(movePoint);
+
+                    if (NPC.ai[1] == 241 + (80 * Repeat()))
+                    {
+                        ResetAI();
                     }
                     break;
-                case 2:
-                    if (!AliveCheck(player))
-                        break;
+                #endregion
 
-                    if (NPC.ai[1] == 20)
-                    {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.ScepterThrow"), true);
-                    }
+                #region Scepter Throw
+                case 2:
                     if (NPC.ai[1] == 120)
                     {
                         BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Scepter>(), NPC.damage / 2, 14, 10, -1);
                     }
                     if (NPC.ai[1] == 160)
                     {
-                        ScepterTeleport();
+                        targetPos.X += 300 * (NPC.Center.X < targetPos.X ? 1 : -1);
+                        targetPos.Y -= 300;
+                        movePoint = targetPos;
                     }
-
-                    if (NPC.ai[1] > 140 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Scepter>()))
+                    if (NPC.ai[1] >= 160)
                     {
-                        NPC.ai[0]++;
-                        NPC.ai[1] = 0;
-                        NPC.ai[2] = 0;
-                        NPC.ai[3] = 0;
-                        Teleport();
+                        MoveToPoint(movePoint);
                     }
 
+                    if (NPC.ai[1] > 160 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Scepter>()))
+                    {
+                        ResetAI();
+                    }
                     break;
+                #endregion 
 
+                #region Block Crush
                 case 3:
-                    if (!AliveCheck(player))
-                        break;
-
-                    if (NPC.ai[1] == 20)
-                    {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.BlockCrush"), true);
-                    }
-
-                    if (NPC.life > NPC.lifeMax * (2/3))
+                    if (NPC.life > (int)(NPC.lifeMax * .66f))
                     {
                         if (NPC.ai[1] == 60)
                         {
-                            if (Main.rand.NextBool(2))
+                            if (Main.rand.Next(2) == 0)
                             {
                                 int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
                                 int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
@@ -331,21 +384,17 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             }
                         }
 
-                        if (NPC.ai[1] > 120 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block>()))
+                        if (NPC.ai[1] > 120 && !Globals.AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block>()) && !Globals.AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block1>()))
                         {
-                            NPC.ai[0]++;
-                            NPC.ai[1] = 0;
-                            NPC.ai[2] = 0;
-                            NPC.ai[3] = 0;
-                            Teleport();
+                            ResetAI();
                         }
                     }
-                    else if (NPC.life < NPC.lifeMax * (2 / 3))
+                    else if (NPC.life < (int)(NPC.lifeMax * .66f))
                     {
                         if (NPC.ai[1] == 50)
                         {
-                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                            int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(),  player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                            int r = Projectile.NewProjectile(   NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                             Main.projectile[l].ai[1] = r;
                             Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                             Main.projectile[r].ai[1] = l;
@@ -360,20 +409,16 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             Main.projectile[d].ai[1] = u;
                             Main.projectile[d].Center = player.Center + new Vector2(0, 800);
                         }
-                        if (NPC.ai[1] > 180 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block>()))
+                        if (NPC.ai[1] > 180 && !Globals.AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block>()) && !Globals.AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block1>()))
                         {
-                            NPC.ai[0]++;
-                            NPC.ai[1] = 0;
-                            NPC.ai[2] = 0;
-                            NPC.ai[3] = 0;
-                            Teleport();
+                            ResetAI();
                         }
                     }
                     else if (NPC.life < NPC.lifeMax / 3)
                     {
                         if (NPC.ai[1] % 40 == 0)
                         {
-                            if (Main.rand.NextBool(2))
+                            if (Main.rand.Next(2) == 0)
                             {
                                 int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
                                 int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
@@ -393,20 +438,133 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             }
                         }
 
-                        if (NPC.ai[1] > 270 && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block>()))
+                        if (NPC.ai[1] > 270 && !Globals.AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block>()) && !Globals.AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Block1>()))
                         {
-                            NPC.ai[0]++;
-                            NPC.ai[1] = 0;
-                            NPC.ai[2] = 0;
-                            NPC.ai[3] = 0;
-                            Teleport();
+                            ResetAI();
                         }
                     }
                     break;
+                #endregion
+
+                #region Axe
+                case 4:
+                    if (NPC.ai[1] == 80)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 14, 10, -1);
+                        }
+                    }
+                    if (NPC.ai[1] == 86)
+                    {
+                        ResetAI();
+                    }
+
+                    break;
+                #endregion
+
+                #region Claws Prep
+                case 5:
+                    if (NPC.ai[1] == 30 && Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        int posX;
+                        if (player.position.X > NPC.position.X)
+                        {
+                            posX = 400;
+                        }
+                        else
+                        {
+                            posX = -400;
+                        }
+                        DashPoint = new Vector2(targetPos.X + posX, targetPos.Y);
+
+                        NPC.ai[0] = 6;
+                        NPC.ai[1] = 0;
+                        NPC.netUpdate = true;
+                    }
+                    break;
+                #endregion
+
+                #region Claws
+                case 6:
+                    if (NPC.ai[1] < 36)
+                    {
+                        MoveToPoint(DashPoint);
+                    }
+                    else
+                    {
+                        NPC.velocity.X *= .95f;
+                    }
+
+                    if (NPC.ai[1] >= 54)
+                    {
+                        ResetAI();
+                    }
+
+                    break;
+                #endregion
+
                 default:
-                    NPC.ai[0] = 0;
-                    goto case 0;
+                    NPC.ai[0] = 1;
+                    goto case 1;
+
             }
+
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
+            {
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
+            }
+            NPC.oldPos[0] = NPC.position;
+        }
+
+        public void ResetAI()
+        {
+            NPC.velocity *= 0;
+            NPC.ai[0] = 0;
+            NPC.ai[1] = 0;
+            NPC.ai[2] = 0;
+            NPC.ai[3] = 0;
+        }
+
+        public int Repeat()
+        {
+            if (NPC.life < (int)(NPC.lifeMax * .66))
+            {
+                return 2;
+            }
+            if (NPC.life < (int)(NPC.lifeMax * .66))
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public void MoveToPoint(Vector2 point)
+        {
+            float Speed = 13;
+
+            float velMultiplier = 1f;
+            Vector2 dist = point - NPC.Center;
+            float length = dist == Vector2.Zero ? 0f : dist.Length();
+            if (length < Speed)
+            {
+                velMultiplier = MathHelper.Lerp(0f, 1f, length / Speed);
+            }
+            if (length < 200f)
+            {
+                Speed *= 0.5f;
+            }
+            if (length < 100f)
+            {
+                Speed *= 0.5f;
+            }
+            if (length < 50f)
+            {
+                Speed *= 0.5f;
+            }
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= Speed;
+            NPC.velocity *= velMultiplier;
         }
 
         int deathtimer = 0;
@@ -416,13 +574,13 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
             {
                 NPC.TargetClosest();
-                if (!Main.player[NPC.target].active || Main.player[NPC.target].dead || Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 5000f || !Main.player[NPC.target].ZoneDesert)
+                if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
                 {
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisFalse"), Color.Gold);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
+                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
                     }
@@ -444,7 +602,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override bool PreKill()
         {
-            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
+            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<AAModClassic.NPCs.Bosses.Anubis.Anubis>())
             {
                 if (!AAWorld.AnubisAwakened)
                     AAWorld.AnubisAwakened = true;
@@ -456,10 +614,11 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override void OnKill()
         {
-            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>(true))
+            Main.BestiaryTracker.Kills.RegisterKill(ContentSamples.NpcsByNetId[ModContent.NPCType<AAModClassic.NPCs.Bosses.Anubis.Anubis>()]);
+            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<AAModClassic.NPCs.Bosses.Anubis.Anubis>(true))
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
             else
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -481,6 +640,11 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             npcLoot.Add(notExpertRule);
         }
 
+        int PreludeFrame = 0;
+        int AxeFrame = 0;
+        int ClawFrame1 = 0;
+        int ClawFrame2 = 0;
+
         public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter++;
@@ -488,40 +652,89 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += frameHeight;
+                PreludeFrame++; 
+                AxeFrame++;
             }
+            //Prelude
             if (internalAI[0] == 0)
             {
                 if (internalAI[1] >= 240 && internalAI[1] < 320)
                 {
-                    if (NPC.frame.Y < frameHeight * 9)
+                    if (PreludeFrame < 9)
                     {
-                        NPC.frame.Y = 9;
+                        PreludeFrame = 9;
                     }
-                    if (NPC.frame.Y >= 10)
+                    if (PreludeFrame >= 10)
                     {
-                        NPC.frame.Y = 10;
-                    }
-                }
-                if (NPC.velocity.Y == 0)
-                {
-                    if (NPC.frame.Y < frameHeight * 4 || NPC.frame.Y > frameHeight * 8)
-                    {
-                        NPC.frame.Y = frameHeight * 4;
+                        PreludeFrame = 10;
                     }
                 }
                 else
                 {
-                    if (NPC.frame.Y > frameHeight * 3)
+                    if (NPC.velocity.Y == 0)
                     {
-                        NPC.frame.Y = 0;
+                        if (PreludeFrame < 4 || PreludeFrame > 8)
+                        {
+                            PreludeFrame = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (NPC.frame.Y > 3)
+                        {
+                            PreludeFrame = 0;
+                        }
                     }
                 }
             }
             else
             {
-                if (NPC.frame.Y > frameHeight * 3)
+                //Axe
+                if (NPC.ai[0] == 4)
                 {
-                    NPC.frame.Y = 0;
+                    if (NPC.ai[1] < 80 && AxeFrame > 3)
+                    {
+                        AxeFrame = 3;
+                    }
+                    if (NPC.ai[0] == 80)
+                    {
+                        AxeFrame = 4;
+                    }
+                }
+                //Claws prep
+                else if (NPC.ai[0] == 5)
+                {
+                    if (NPC.ai[1] % 6 == 0)
+                    {
+                        ClawFrame1++;
+                        if (ClawFrame1 > 3)
+                        {
+                            ClawFrame1 = 3;
+                        }
+                    }
+                }
+                //Claws
+                else if (NPC.ai[0] == 6)
+                {
+                    if (NPC.ai[1] % 6 == 0)
+                    {
+                        ClawFrame2++;
+                        if (ClawFrame2 > 7)
+                        {
+                            ClawFrame2 = 7;
+                        }
+                    }
+                }
+                //Idle
+                else
+                {
+                    AxeFrame = 0;
+                    ClawFrame1 = 0;
+                    ClawFrame2 = 0;
+                    if (NPC.frame.Y > frameHeight * 3)
+                    {
+                        NPC.frame.Y = 0;
+                    }
                 }
             }
         }
@@ -679,7 +892,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 {
                     if (internalAI[1]++ < 420)
                     {
-                        if (!NPCExtensions.BeenKilled<Anubis>())
+                        if (true)//!NPCExtensions.BeenKilled<AAModClassic.NPCs.Bosses.Anubis.Anubis>())
                         {
                             if (internalAI[1] == 60)
                             {
@@ -687,7 +900,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                                 foreach (Player p in Main.ActivePlayers)
                                     activePlayers++;
                                 string s = activePlayers > 1 ? "Multiplayer" : "Singleplayer";
-                                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
                                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.1." + s), Color.Gold);
                             }
 
@@ -711,6 +924,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.5"), Color.Gold);
                                 internalAI[0] = 1;
+                                NPC.ai[3] = 0;
                                 NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                                 Teleport();
                                 NPC.netUpdate = true;
@@ -721,6 +935,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.Rematch"), Color.Gold);
                             internalAI[0] = 1;
+                            NPC.ai[3] = 0;
                             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                             Teleport();
                             NPC.netUpdate = true;
@@ -728,6 +943,62 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     }
                 }
             }
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(150, 255, 150) * (Main.mouseTextColor / 255f);
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            string path = "_Unreleased/Content/Desert/_Hardmode/NPCs/Anubis/";
+            Texture2D PreludeTex = Mod.GetTexture(path + "AnubisPrelude");
+            Texture2D AxeTex = Mod.GetTexture(path + "AnubisAxe");
+            Texture2D ClawTex1 = Mod.GetTexture(path + "AnubisClaws1");
+            Texture2D ClawTex2 = Mod.GetTexture(path + "AnubisClaws2");
+            Texture2D Glow = Mod.GetTexture(path + "Glow/Anubis_Glow");
+            Texture2D PreludeGlow = Mod.GetTexture(path + "Glow/AnubisPrelude_Glow");
+            Texture2D AxeGlow = Mod.GetTexture(path + "Glow/AnubisAxe_Glow");
+            Texture2D ClawGlow1 = Mod.GetTexture(path + "Glow/AnubisClaws1_Glow");
+            Texture2D ClawGlow2 = Mod.GetTexture(path + "Glow/AnubisClaws2_Glow");
+            if (internalAI[0] != 1)
+            {
+                Rectangle frame = BaseDrawing.GetFrame(PreludeFrame, PreludeTex.Width, PreludeTex.Height / 11, 0, 0);
+                BaseDrawing.DrawTexture(spriteBatch, PreludeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 11, frame, drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, PreludeGlow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 11, frame, AAColor.COLOR_WHITEFADE1, true);
+            }
+            else
+            {
+                if (NPC.ai[0] == 4)
+                {
+                    Rectangle frame = BaseDrawing.GetFrame(AxeFrame, AxeTex.Width, AxeTex.Height / 5, 0, 0);
+                    BaseDrawing.DrawTexture(spriteBatch, AxeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 5, frame, drawColor, true);
+                    BaseDrawing.DrawTexture(spriteBatch, AxeGlow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 5, frame, AAColor.COLOR_WHITEFADE1, true);
+                }
+                else if (NPC.ai[0] == 5)
+                {
+                    Rectangle frame = BaseDrawing.GetFrame(ClawFrame1, ClawTex1.Width, ClawTex1.Height / 4, 0, 0);
+                    BaseDrawing.DrawTexture(spriteBatch, ClawTex1, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 4, frame, drawColor, true);
+                    BaseDrawing.DrawTexture(spriteBatch, ClawGlow1, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 4, frame, AAColor.COLOR_WHITEFADE1, true);
+                }
+                else if (NPC.ai[0] == 6)
+                {
+                    Rectangle frame = BaseDrawing.GetFrame(ClawFrame2, ClawTex2.Width, ClawTex2.Height / 8, 0, 0);
+                    BaseDrawing.DrawTexture(spriteBatch, ClawTex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, frame, drawColor, true);
+                    BaseDrawing.DrawTexture(spriteBatch, ClawGlow2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, frame, AAColor.COLOR_WHITEFADE1, true);
+                }
+                else
+                {
+                    if (NPC.velocity.X != 0)
+                    {
+                        BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1, 1, 8, true, 0, 0, GetAlpha(Color.White), NPC.frame, 4);
+                    }
+                    BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 4, NPC.frame, drawColor, true);
+                    BaseDrawing.DrawTexture(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 4, NPC.frame, AAColor.COLOR_WHITEFADE1, true);
+                }
+            }
+            return false;
         }
     }
 }

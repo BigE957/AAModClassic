@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -68,20 +69,23 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 Projectile.frame = 5;
             }
 
+            float maxVelocity = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 14 : 12;
+            float accel = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 0.14f : 0.05f;
+
             if (internalAI[0]++ > 90)
             {
                 if (Projectile.ai[0] == 0)
                 {
-                    if (Projectile.velocity.X < 12)
+                    if (Projectile.velocity.X < maxVelocity)
                     {
-                        Projectile.velocity.X += .05f;
+                        Projectile.velocity.X += accel;
                     }
                 }
                 else if (Projectile.ai[0] == 1)
                 {
-                    if (Projectile.velocity.X > -12)
+                    if (Projectile.velocity.X > -maxVelocity)
                     {
-                        Projectile.velocity.X -= .05f;
+                        Projectile.velocity.X -= accel;
                     }
                     Projectile.direction = Projectile.spriteDirection = -1;
                 }

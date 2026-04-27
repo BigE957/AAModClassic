@@ -8,7 +8,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace AAModClassic.NPCs.Bosses.Anubis
 {
     public class HorusHawk : ModNPC

@@ -8,6 +8,8 @@ using Terraria.ID;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.UI.WorldGen;
+using AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis
 {
@@ -53,9 +55,8 @@ Can only be used in the desert on the surface
                 return true;
             }
 
-
-
-            int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, ModContent.NPCType<Anubis>());
+            int anubis = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? ModContent.NPCType<AnubisRework>() : ModContent.NPCType<Anubis>();
+            int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, anubis);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
             NPC npc = Main.npc[a];

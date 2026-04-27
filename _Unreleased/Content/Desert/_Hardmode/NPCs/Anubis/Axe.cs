@@ -1,0 +1,54 @@
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+
+namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
+{
+    public class Axe : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Axe");
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.hostile = true;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = true;
+        }
+
+        public override void AI()
+        {
+            Projectile.ai[0]++;
+            if (Projectile.ai[0] >= 15f || (Projectile.Center.X <= Projectile.ai[1] - 20 && Projectile.Center.X <= Projectile.ai[1] + 20))
+            {
+                Projectile.ai[0] = 15f;
+                Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
+                Projectile.velocity.X *= .94f;
+            }
+            if (Projectile.velocity.Y > 16f)
+            {
+                Projectile.velocity.Y = 16f;
+            }
+            if (Projectile.velocity.X < 0)
+            {
+                Projectile.direction = -1;
+            }
+            Projectile.rotation += .3f * Projectile.velocity.X * Projectile.direction;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
+            return false;
+        }
+    }
+}
