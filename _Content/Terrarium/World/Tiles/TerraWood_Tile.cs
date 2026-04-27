@@ -16,14 +16,16 @@ public class TerraWood_Tile : ModTile
 
 	public override void SetStaticDefaults()
 	{
-		//IL_0086: Unknown result type (might be due to invalid IL or missing references)
-		Main.tileSolid[Type] = true;
+        MineResist = 2f;
+        MinPick = 200;
+
+        Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		Main.tileSolid[Type] = true;
 		Main.tileMerge[Type][ModContent.TileType<PermeableTerraWood_Tile>()] = true;
 		Main.tileMerge[Type][ModContent.TileType<TerraLeaves_Tile>()] = true;
 		Main.tileMerge[Type][ModContent.TileType<TerraCrystal_Tile>()] = true;
-		HitSound = SoundID.Tink;
+        HitSound = SoundID.Tink;
 		Main.tileLighted[Type] = true;
 		DustType = DustID.Terra;
 		AddMapEntry(new Color(52, 200, 0), null);

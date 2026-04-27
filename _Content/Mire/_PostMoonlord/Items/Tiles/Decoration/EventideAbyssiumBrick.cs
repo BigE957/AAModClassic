@@ -7,6 +7,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
     public class EventideAbyssiumBrick : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Eventide Brick");
+        }
+
         public override void SetDefaults()
         {
 
@@ -20,11 +25,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<EventideAbyssiumBrick_Tile>();
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Eventide Brick");
         }
 
         public override void AddRecipes()

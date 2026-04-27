@@ -23,8 +23,7 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic.Tiles;
-using AAModClassic.Walls;
+using AAModClassic._Content.Inferno.World.Tiles;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {

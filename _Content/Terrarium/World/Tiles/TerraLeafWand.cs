@@ -21,5 +21,14 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
             Item.CloneDefaults(ItemID.LivingWoodWand);
             Item.createTile = ModContent.TileType<TerraLeaves_Tile>();
         }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 20);
+            recipe.AddIngredient(ItemID.LeafWand);
+            recipe.AddTile(ModContent.TileType<TruePaladinsSmeltery_Tile>());
+            recipe.Register();
+        }
     }
 }
