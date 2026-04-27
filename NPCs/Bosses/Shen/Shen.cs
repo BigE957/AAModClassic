@@ -23,6 +23,8 @@ using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Vanity.Mask;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic.Tiles;
+using AAModClassic.Walls;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -833,6 +835,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     if (!NPC.BeenKilled(true))
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.First"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                        TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), (ModContent.TileType<ScorchedShingles_Tile>());
+                        TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
                     }
                     else
                     {

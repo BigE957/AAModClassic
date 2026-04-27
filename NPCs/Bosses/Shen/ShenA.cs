@@ -4,8 +4,10 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
+using AAModClassic.Tiles;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
+using AAModClassic.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -586,6 +588,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         Main.musicFade[Main.curMusic] = 1f;
                         NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDefeat>());
                     }
+                    ileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), (ModContent.TileType<ScorchedShingles_Tile>());
+                    TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
                 }
             }
                 

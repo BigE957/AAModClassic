@@ -902,6 +902,10 @@ namespace AAModClassic.Globals
             foreach (Point p in list)
                 UnbreakableWalls.Add(p);
         }
+
+        public static void UnprotectTiles(params int[] types) => UnbreakableTiles.RemoveWhere((p) => types.Contains(Main.tile[p].TileType));
+
+        public static void UnprotectWalls(params int[] types) => UnbreakableWalls.RemoveWhere((p) => types.Contains(Main.tile[p].WallType));
     }
 
     public interface IGlowmaskTile
