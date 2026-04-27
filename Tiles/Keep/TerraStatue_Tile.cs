@@ -35,6 +35,14 @@ public class TerraStatue_Tile : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 	}
 
+    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+    {
+		blockDamaged = true;
+        return false;
+    }
+
+	public override bool CanExplode(int i, int j) => false;
+
 	public override bool RightClick(int i, int j)
 	{
 		BaseUtility.Chat("The Hero who saved us all from the brink of chaos", Color.LawnGreen);
