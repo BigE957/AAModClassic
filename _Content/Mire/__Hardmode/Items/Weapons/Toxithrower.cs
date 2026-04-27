@@ -32,7 +32,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Toxifire>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 7.5f;
-            Item.useAmmo = 23;
+            Item.useAmmo = AmmoID.Gel;
+            Item.consumeAmmoOnFirstShotOnly = true;
         }
 		
 		public override Vector2? HoldoutOffset()
