@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 
 namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
 {
@@ -22,25 +23,32 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
             Projectile.aiStyle = -1;
             Projectile.penetrate = -1;
             Projectile.tileCollide = true;
+            Projectile.extraUpdates = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 1 : 0;
         }
 
         public override void AI()
         {
-            Projectile.ai[0]++;
-            if (Projectile.ai[0] >= 15f || (Projectile.Center.X <= Projectile.ai[1] - 20 && Projectile.Center.X <= Projectile.ai[1] + 20))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                Projectile.velocity.Y += 0.2f;
+            else
             {
-                Projectile.ai[0] = 15f;
-                Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
-                Projectile.velocity.X *= .94f;
-            }
-            if (Projectile.velocity.Y > 16f)
-            {
-                Projectile.velocity.Y = 16f;
+                Projectile.ai[0]++;
+                if (Projectile.ai[0] >= 15f || (Projectile.Center.X <= Projectile.ai[1] - 20 && Projectile.Center.X <= Projectile.ai[1] + 20))
+                {
+                    Projectile.ai[0] = 15f;
+                    Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
+                    Projectile.velocity.X *= .94f;
+                }
+                if (Projectile.velocity.Y > 16f)
+                {
+                    Projectile.velocity.Y = 16f;
+                }
             }
             if (Projectile.velocity.X < 0)
-            {
                 Projectile.direction = -1;
-            }
+            else
+                Projectile.direction = 1;
+
             Projectile.rotation += .3f * Projectile.velocity.X * Projectile.direction;
         }
 

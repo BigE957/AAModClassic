@@ -1,8 +1,9 @@
-using System;
+using AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -54,12 +55,16 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 			NPC.noGravity = true;
 			if(body == -1)
 			{
-				int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Anubis>(), 500f, null);	
-				if(npcID >= 0) body = npcID;
+				int npcID;
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                    npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AnubisRework>(), -1, null);
+                else
+                    npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Anubis>(), -1, null);
+                if (npcID >= 0) body = npcID;
 			}
 			if(body == -1) return;				
 			NPC anubis = Main.npc[body];
-			if(anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != ModContent.NPCType<Anubis>()){ BaseAI.KillNPCWithLoot(NPC); return; }
+			if(anubis == null || anubis.life <= 0 || !anubis.active || (anubis.type != ModContent.NPCType<Anubis>() && anubis.type != ModContent.NPCType<AnubisRework>())){ BaseAI.KillNPCWithLoot(NPC); return; }
 
 			for (int m = NPC.oldPos.Length - 1; m > 0; m--)
 			{
@@ -67,8 +72,13 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 			}
 			NPC.oldPos[0] = NPC.position;
 
-			int locust = ((Anubis)anubis.ModNPC).LocustCount;
-			if(rotValue == -1f) rotValue = (NPC.ai[0] % locust) * ((float)Math.PI * 2f / locust);
+			int locust = 0;
+			if (anubis.ModNPC is Anubis baseAnubis)
+                locust = baseAnubis.LocustCount;
+			else if (anubis.ModNPC is AnubisRework reworkAnubis)
+                locust = reworkAnubis.LocustCount;
+
+            if (rotValue == -1f) rotValue = (NPC.ai[0] % locust) * ((float)Math.PI * 2f / locust);
 			rotValue += 0.05f;
 			while(rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
 			NPC.Center = BaseUtility.RotateVector(anubis.Center, anubis.Center + new Vector2(160f, 0f), rotValue);

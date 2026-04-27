@@ -69,10 +69,11 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 Projectile.frame = 5;
             }
 
-            float maxVelocity = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 14 : 12;
-            float accel = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 0.14f : 0.05f;
+            float maxVelocity = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? 14 : 12;
+            float accel = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? 0.14f : 0.05f;
+            int delay = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? 45 : 90;
 
-            if (internalAI[0]++ > 90)
+            if (internalAI[0]++ > delay)
             {
                 if (Projectile.ai[0] == 0)
                 {

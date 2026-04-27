@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != ModContent.NPCType<Anubis>())) master = -1;
             if (master == -1)
             {
-                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                     master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<AnubisRework>(), -1, null);
                 else
                     master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<Anubis>(), -1, null);

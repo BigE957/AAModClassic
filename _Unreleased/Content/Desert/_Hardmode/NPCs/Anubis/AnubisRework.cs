@@ -9,9 +9,11 @@ using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -452,7 +454,24 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 14, 10, -1);
+                            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            {
+                                Vector2 goal = player.Center - NPC.Center;
+
+                                float vyi = 10;
+                                float vyisq = 100;
+                                float g = 0.2f;
+
+                                float vyf = -MathF.Sqrt(vyisq + 2 * g * goal.Y);
+                                float t = Math.Abs((vyf - vyi) / g);
+
+                                float vxi = goal.X / t;
+
+                                Vector2 velocity = new Vector2(float.IsNaN(vxi) ? (goal.X > 0 ? 10 : -10) : vxi, -vyi);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
+                            }
+                            else
+                                BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 14, 10, -1);
                         }
                     }
                     if (NPC.ai[1] == 86)
@@ -892,7 +911,7 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
                 {
                     if (internalAI[1]++ < 420)
                     {
-                        if (true)//!NPCExtensions.BeenKilled<AAModClassic.NPCs.Bosses.Anubis.Anubis>())
+                        if (!NPCExtensions.BeenKilled<AAModClassic.NPCs.Bosses.Anubis.Anubis>())
                         {
                             if (internalAI[1] == 60)
                             {
