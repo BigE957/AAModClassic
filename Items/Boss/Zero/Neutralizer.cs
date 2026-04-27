@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Zero
             // DisplayName.SetDefault("Neutralizer");
             /* Tooltip.SetDefault(@"Left click to fire a bouncing laser that gets more powerful as it bounces off walls
 Right click to fire normal arrows"); */
-            
+            ItemID.Sets.ItemsThatAllowRepeatedRightClick[Type] = true;
         }
 
         public override void SetDefaults()
