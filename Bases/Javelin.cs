@@ -39,21 +39,11 @@ namespace AAModClassic.Bases
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Play a death sound
-            Vector2 usePos = Projectile.position; // Position to use for dusts
-                                                  // Please note the usage of MathHelper, please use projectile! We subtract 90 degrees as radians to the rotation vector to offset the sprite as its default rotation in the sprite isn't aligned properly.
-            Vector2 rotVector =
-                (Projectile.rotation - MathHelper.ToRadians(90f)).ToRotationVector2();
-            usePos += rotVector * 16f;
-
-
-
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
             if (Projectile.owner == Main.myPlayer && dropItem != -1)
             {
-                int item =
-Main.rand.NextBool(18) ? Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, dropItem)
-                    : 0;
+                int item = Main.rand.NextBool(18) ? Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, dropItem) : 0;
 
                 // Sync the drop for multiplayer
                 // Note the usage of Terraria.ID.MessageID, please use projectile!
@@ -81,16 +71,14 @@ Main.rand.NextBool(18) ? Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Pr
             set { Projectile.ai[1] = value; }
         }
 
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.timeLeft = 30 * 60;
             // If you'd use the example above, you'd do: isStickingToTarget = 1f;
             // and: targetWhoAmI = (float)target.whoAmI;
             IsStickingToTarget = true; // we are sticking to a target
             TargetWhoAmI = target.whoAmI; // Set the target whoAmI
-            Projectile.velocity =
-                (target.Center - Projectile.Center) *
-                0.75f; // Change velocity based on delta center of targets (difference between entity centers)
+            Projectile.velocity = (target.Center - Projectile.Center) * 0.75f; // Change velocity based on delta center of targets (difference between entity centers)
             Projectile.netUpdate = true; // netUpdate projectile javelin
             target.AddBuff(ModContent.BuffType<Impaled_Buff>(), 900); // Adds the Impaled debuff
             Projectile.penetrate = -1;

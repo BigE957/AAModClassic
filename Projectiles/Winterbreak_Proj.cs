@@ -11,7 +11,7 @@ namespace AAModClassic.Projectiles
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.aiStyle = -1;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
             Projectile.extraUpdates = 1;
         }
