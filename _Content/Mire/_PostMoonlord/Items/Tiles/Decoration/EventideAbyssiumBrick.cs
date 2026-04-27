@@ -29,9 +29,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            Recipe recipe = CreateRecipe(5);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumOre>(), 1);
-            recipe.AddIngredient(ItemID.StoneBlock, 1);
+            recipe.AddIngredient(ItemID.StoneBlock, 5);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
         }
