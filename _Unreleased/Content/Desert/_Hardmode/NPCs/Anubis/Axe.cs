@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.WorldGen;
+using System;
 
 namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
 {
@@ -52,7 +53,7 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
                     Projectile.velocity.Y = 16f;
                 }
 
-                Projectile.rotation += .3f * Projectile.velocity.X * Projectile.direction;
+                Projectile.rotation += .3f * Math.Abs(Projectile.velocity.X) * Projectile.direction;
             }
 
 
@@ -61,7 +62,7 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, -Projectile.direction, 1, frame, lightColor, true);
             return false;
         }
     }

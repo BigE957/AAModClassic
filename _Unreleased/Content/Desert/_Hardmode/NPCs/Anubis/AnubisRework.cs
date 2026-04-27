@@ -260,10 +260,8 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
                         {
                             if (Main.rand.Next(2) == 0 && NPC.life < NPC.lifeMax / 3)
                             {
-                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
-                                Main.npc[a].Center = new Vector2(NPC.Center.X + 100, NPC.Center.Y);
-                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
-                                Main.npc[b].Center = new Vector2(NPC.Center.X - 100, NPC.Center.Y);
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X + 100, NPC.Center.Y), Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X - 100, NPC.Center.Y), Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
                             }
                             else
                             {

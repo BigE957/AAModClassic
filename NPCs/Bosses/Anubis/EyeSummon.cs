@@ -42,9 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override void OnKill(int timeLeft)
         {
-            int MinionType = ModContent.NPCType<EyeSentry>();
-
-            int Minion = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, MinionType, 0);
+            int Minion = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<EyeSentry>(), 0);
             Main.npc[Minion].netUpdate2 = true;
             Projectile.active = false;
             Projectile.netUpdate2 = true;
