@@ -1,3 +1,4 @@
+using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,6 +34,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             recipe.AddIngredient(ModContent.ItemType<RadiumBrick>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DarkmatterBrick>(), 1);
             recipe.AddTile(TileID.Furnaces);
+            recipe.Register();
+
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<EquinoxWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

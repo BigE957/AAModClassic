@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,6 +34,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteOre>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 5);
             recipe.AddTile(TileID.Furnaces);
+            recipe.Register();
+
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DaybreakWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

@@ -1,4 +1,6 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
+using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,6 +29,14 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Razewood");
             // Tooltip.SetDefault("");
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<RazewoodWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }

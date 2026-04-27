@@ -1,3 +1,4 @@
+using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,6 +26,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<DoomiteScrap_Tile>();
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DoomiteWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }

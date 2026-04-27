@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,6 +28,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Bogwood");
             // Tooltip.SetDefault("");
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<BogwoodWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }

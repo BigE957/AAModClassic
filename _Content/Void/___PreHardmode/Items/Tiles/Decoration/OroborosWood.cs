@@ -1,4 +1,5 @@
-﻿using AAModClassic.Globals;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosWoodFurniture;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -40,9 +41,16 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration
                     line2.OverrideColor = new Color(100, 0, 10);
 
                     line2.OverrideColor = AAColor.Rarity13;
-//
                 }
             }
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<OroborosWoodWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }

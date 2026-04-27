@@ -5,6 +5,7 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Walls;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
@@ -46,12 +47,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         }
         public override void AddRecipes()
         {
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 2);
-                recipe.AddTile(ModContent.TileType<ACS_Tile>());
-                recipe.Register();
-            }
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 2);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
+
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DoomstoneBrickWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }

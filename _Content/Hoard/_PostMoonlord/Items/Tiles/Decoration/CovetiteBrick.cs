@@ -1,4 +1,5 @@
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
+using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,6 +33,11 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
             recipe.AddIngredient(ModContent.ItemType<CovetiteOre>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 5);
             recipe.AddTile(TileID.Furnaces);
+            recipe.Register();
+
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<CovetiteBrickWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

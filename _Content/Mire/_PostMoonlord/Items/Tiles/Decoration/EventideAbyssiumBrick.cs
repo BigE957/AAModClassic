@@ -34,6 +34,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
             recipe.AddIngredient(ItemID.StoneBlock, 5);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
+
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<EventideBrickWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }
