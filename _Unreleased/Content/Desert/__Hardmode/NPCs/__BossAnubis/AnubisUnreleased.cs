@@ -4,6 +4,7 @@ using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Music;
 using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
@@ -53,6 +54,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             SwipeBuildup = 5,
             SwipeExecute = 6,
             ThrowAxe2 = 7,
+            ThrowAxe3 = 8,
 
             Preamble = 39
         }
@@ -66,6 +68,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
         public static Asset<Texture2D> SwipeExecuteGlowmask;
         public static Asset<Texture2D> Prelude;
         public static Asset<Texture2D> PreludeGlowmask;
+        public static Asset<Texture2D> ThrowAxeHuge;
+        public static Asset<Texture2D> ThrowAxeHugeGlowmask;
 
         const int THROWAXE_FRAMECOUNT = 5;
         const int SWIPEBUILDUP_FRAMECOUNT = 4;
@@ -121,6 +125,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             SwipeExecuteGlowmask = ModContent.Request<Texture2D>(Texture + "_SwipeExecute_Glow");
             Prelude = ModContent.Request<Texture2D>(Texture + "_Prelude");
             PreludeGlowmask = ModContent.Request<Texture2D>(Texture + "_Prelude_Glow");
+            ThrowAxeHuge = ModContent.Request<Texture2D>(Texture + "_ThrowAxeHuge");
+            ThrowAxeHugeGlowmask = ModContent.Request<Texture2D>(Texture + "_ThrowAxeHuge_Glow");
         }
 
         public override void SetDefaults()
@@ -258,12 +264,17 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     if (AttackNext == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         AttackNext = Main.rand.Next(5) + 1;
-                        AttackNext = (int)AnubisAttacks.ThrowAxe;
+                        AttackNext = (int)AnubisAttacks.ThrowAxe3;
 
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && IsBelow66Percent)
                         {
                             if (AttackNext == (int)AnubisAttacks.ThrowAxe)
                                 AttackNext = (int)AnubisAttacks.ThrowAxe2;
+                        }
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && IsBelow33Percent)
+                        {
+                            if (AttackNext == (int)AnubisAttacks.ThrowAxe2)
+                                AttackNext = (int)AnubisAttacks.ThrowAxe3;
                         }
 
                         if (AttackNext == (int)AnubisAttacks.SwipeBuildup)
@@ -541,17 +552,35 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
                     break;
                 case (int)AnubisAttacks.ThrowAxe2:
-                    FrameChangeRate = THROWAXE2_AMOUNTOFFRAMESUSED;
-                    
-                    if (AttackTimer % ThrownAxe2_TimeBetweenAxes == 0)
+                    CurrentFrameRate = 4;
+                    if (AttackTimer >= ThrownAxe2_TimeBetweenAxes * 5)
+                        CurrentFrameRate--;
+                    if (AttackTimer >= ThrownAxe2_TimeBetweenAxes * 10)
+                        CurrentFrameRate--;
+
+                    if (!ThrowAxe2_HasDoneWindup)
                     {
+                        if (AttackTimer > THROWAXE2_WINDUPSTART)
+                        {
+                            AttackTimer = 0;
+                            ThrowAxe2_HasDoneWindup = true;
+                        }
+                        break;
+                    }
+
+                    ShotTimer--;
+
+                    if (ShotTimer <= 0)
+                    {
+                        ShotTimer = ThrownAxe2_TimeBetweenAxes;
+                        
                         Vector2 goal = player.Center - NPC.Center;
                         int randomBorderMin = 200;
-                        int randomBorderMax = 500;
+                        int randomBorderMax = 600;
                         int randomCenterMin = -90;
                         int randomCenterMax = 60;
 
-                        float direction = (AttackTimer / (THROWAXE2_AMOUNTOFFRAMESUSED * 3)) % THROWAXE2_AMOUNTOFFRAMESUSED;
+                        float direction = ThrowAxe2_AmountOfAxesThrown % 3;
                         if (direction == 0)
                             goal.X += Main.rand.NextFloat(randomBorderMin, randomBorderMax);
                         else if (direction == 1)
@@ -572,14 +601,118 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         if (NPC.position.Y > targetPos.Y)
                             velocity = NPC.DirectionTo(targetPos) * 100;
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
+
+                        ThrowAxe2_AmountOfAxesThrown++;
                     }
 
-
-                    if (AttackTimer >= ThrownAxe2_TimeBetweenAxes * 18)
-                    {
+                    if (ThrowAxe2_AmountOfAxesThrown >= THROWAXE2_AMOUNTOFAXES && ShotTimer >= ThrownAxe2_TimeBetweenAxes)
                         ResetAI();
-                    }
                     break;
+                case (int)AnubisAttacks.ThrowAxe3:
+                    CurrentFrameRate = 4;
+                    if (AttackTimer >= ThrownAxe2_TimeBetweenAxes * 3)
+                        CurrentFrameRate--;
+                    if (AttackTimer >= ThrownAxe2_TimeBetweenAxes * 7)
+                        CurrentFrameRate--;
+
+                    if (!ThrowAxe2_HasDoneWindup && !ThrowAxe3_HasThrownSmallAxes)
+                    {
+                        if (AttackTimer > THROWAXE2_WINDUPSTART)
+                        {
+                            AttackTimer = 0;
+                            ThrowAxe2_HasDoneWindup = true;
+                        }
+                        break;
+                    }
+
+                    ShotTimer--;
+
+                    if (ShotTimer <= 0 && !ThrowAxe3_HasThrownSmallAxes)
+                    {
+                        ShotTimer = ThrownAxe2_TimeBetweenAxes;
+
+                        Vector2 goal = player.Center - NPC.Center;
+                        int randomBorderMin = 200;
+                        int randomBorderMax = 600;
+                        int randomCenterMin = -90;
+                        int randomCenterMax = 60;
+
+                        float direction = ThrowAxe2_AmountOfAxesThrown % 3;
+                        if (direction == 0)
+                            goal.X += Main.rand.NextFloat(randomBorderMin, randomBorderMax);
+                        else if (direction == 1)
+                            goal.X += Main.rand.NextFloat(-randomBorderMax, -randomBorderMin);
+                        else
+                            goal.X += Main.rand.NextFloat(randomCenterMin, randomCenterMax);
+
+                        float vyi = 10;
+                        float vyisq = 100;
+                        float g = 0.2f;
+
+                        float vyf = -MathF.Sqrt(vyisq + 2 * g * goal.Y);
+                        float t = Math.Abs((vyf - vyi) / g);
+
+                        float vxi = goal.X / t;
+
+                        Vector2 velocity = new Vector2(float.IsNaN(vxi) ? goal.X > 0 ? 10 : -10 : vxi, -vyi);
+                        if (NPC.position.Y > targetPos.Y)
+                            velocity = NPC.DirectionTo(targetPos) * 100;
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
+
+                        ThrowAxe2_AmountOfAxesThrown++;
+                    }
+
+                    if (ThrowAxe2_AmountOfAxesThrown >= THROWAXE3_AMOUNTOFAXES && ShotTimer >= ThrownAxe2_TimeBetweenAxes && !ThrowAxe3_HasThrownSmallAxes)
+                    {
+                        AttackTimer = 0;
+                        ThrowAxe3_HasThrownSmallAxes = true;
+                        ThrowAxe2_HasDoneWindup = false;
+                    }
+
+                    if (ThrowAxe3_HasThrownSmallAxes && !ThrowAxe2_HasDoneWindup && !ThrowAxe3_HasThrownHugeAxe)
+                    {
+                        CurrentFrameRate = THROWAXE3_WINDUPFRAMERATE;
+                        if (AttackTimer > THROWAXE3_WINDUPSUPERAXE)
+                        {
+                            ThrowAxe2_HasDoneWindup = true;
+                        }
+                    }
+                    else if (ThrowAxe3_HasThrownSmallAxes && ThrowAxe2_HasDoneWindup && !ThrowAxe3_HasThrownHugeAxe)
+                    {
+                        Vector2 goal = player.Center - NPC.Center;
+
+                        float vyi = 12;
+                        float vyisq = 100;
+                        float g = 0.2f;
+
+                        float vyf = -MathF.Sqrt(vyisq + 2 * g * goal.Y);
+                        float t = Math.Abs((vyf - vyi) / g);
+
+                        float vxi = goal.X / t;
+
+                        Vector2 velocity = new Vector2(float.IsNaN(vxi) ? goal.X > 0 ? 10 : -10 : vxi, -vyi);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<HugeAxe>(), NPC.damage / 2, 0.5f, -1);
+
+                        ThrowAxe3_HasThrownHugeAxe = true;
+                        AttackTimer = 0;
+                    }
+                    else if (ThrowAxe3_HasThrownHugeAxe && !ThrowAxe3_HasDoneAxeThrowSmearFrames)
+                    {
+                        CurrentFrameRate = FRAMECHANGERATE_ORIGINAL;
+                        if (AttackTimer > THROWAXE3_AXETHROWSMEARFRAMES)
+                        {
+                            AttackTimer = 0;
+                            ThrowAxe3_HasDoneAxeThrowSmearFrames = true;
+                        }
+                    }
+                    else
+                    {
+                        //AttackTimer = 0;
+                        //ThrowAxe3_HasThrownHugeAxe = false;
+                        //ThrowAxe3_HasDoneAxeThrowSmearFrames = false;
+                    }
+
+                        break;
                 default:
                     AttackCurrent = 1;
                     goto case 1;
@@ -591,8 +724,22 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
             NPC.oldPos[0] = NPC.position;
         }
-        const int THROWAXE2_AMOUNTOFFRAMESUSED = 3;
-        public int ThrownAxe2_TimeBetweenAxes => FrameChangeRate * THROWAXE2_AMOUNTOFFRAMESUSED; //amtofframesused
+        public int THROWAXE2_AMOUNTOFFRAMESUSED = 3;
+        public int THROWAXE2_AMOUNTOFAXES = 18;
+        public int THROWAXE2_WINDUPSTART = FRAMECHANGERATE_ORIGINAL * 2;
+        public int ThrownAxe2_TimeBetweenAxes => CurrentFrameRate * THROWAXE2_AMOUNTOFFRAMESUSED;
+        public int ThrowAxe2_AmountOfAxesThrown = 0;
+        public bool ThrowAxe2_HasDoneWindup = false;
+
+        public int THROWAXE3_AMOUNTOFAXES = 15;
+        public int THROWAXE3_WINDUPFRAMERATE = 12;
+        public int THROWAXE3_WINDUPSUPERAXE => THROWAXE3_WINDUPFRAMERATE * 4;
+        public int THROWAXE3_AXETHROWSMEARFRAMES => FRAMECHANGERATE_ORIGINAL * 2;
+        //TODO: replace with an int that ticks up determining attack substate 
+        public bool ThrowAxe3_HasThrownSmallAxes = false;
+        public bool ThrowAxe3_HasThrownHugeAxe = false;
+        public bool ThrowAxe3_HasDoneAxeThrowSmearFrames = false;
+        public int? ThrowAxe3_HugeAxeProjID = null;
 
         public void ResetAI()
         {
@@ -601,6 +748,13 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             AttackTimer = 0;
             ShotTimer = 0;
             AttackNext = 0;
+
+            ThrowAxe2_AmountOfAxesThrown = 0;
+            ThrowAxe2_HasDoneWindup = false;
+
+            ThrowAxe3_HasThrownSmallAxes = false;
+            ThrowAxe3_HasThrownHugeAxe = false;
+            ThrowAxe3_HasDoneAxeThrowSmearFrames = false;
         }
 
         public int Repeat()
@@ -720,12 +874,12 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         int CurrentTextureFrame = 0;
         const int FRAMECHANGERATE_ORIGINAL = 6;
-        int FrameChangeRate = FRAMECHANGERATE_ORIGINAL;
+        int CurrentFrameRate = FRAMECHANGERATE_ORIGINAL;
 
         public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter++;
-            if (NPC.frameCounter > FrameChangeRate)
+            if (NPC.frameCounter > CurrentFrameRate)
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += frameHeight;
@@ -808,27 +962,66 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         CurrentTextureFrame = 7;
                     }
                 }
-                else if (AttackCurrent == (int)AnubisAttacks.ThrowAxe2)
+                else if (AttackCurrent == (int)AnubisAttacks.ThrowAxe2 || AttackCurrent == (int)AnubisAttacks.ThrowAxe3)
                 {
                     CurrentTexture = ThrowAxe.Value;
                     CurrentGlowmask = ThrowAxeGlowmask.Value;
                     CurrentTextureFrameCount = THROWAXE_FRAMECOUNT;
 
-                    int frame = (int)((AttackTimer / THROWAXE2_AMOUNTOFFRAMESUSED) % THROWAXE2_AMOUNTOFFRAMESUSED);
-                    if (frame == 0)
-                        CurrentTextureFrame = 0;
-                    else if (frame == 1)
-                        CurrentTextureFrame = 2;
-                    else
-                        CurrentTextureFrame = 4;
+                    if (!ThrowAxe2_HasDoneWindup && !ThrowAxe3_HasThrownSmallAxes)
+                    {
+                        if (AttackTimer > 4)
+                            CurrentTextureFrame = 1;
+                        else
+                            CurrentTextureFrame = 0;
+                    }
+                    else if (!ThrowAxe3_HasThrownSmallAxes)
+                    {
+                        float frameProgress = ((float)ShotTimer / ThrownAxe2_TimeBetweenAxes);
+                        if (frameProgress < 0.33f)
+                            CurrentTextureFrame = 0;
+                        else if (frameProgress < 0.66f)
+                            CurrentTextureFrame = 1;
+                        else
+                            CurrentTextureFrame = 4;
+                    }
+                    else if (ThrowAxe3_HasThrownSmallAxes && !ThrowAxe2_HasDoneWindup)
+                    {
+                        CurrentTexture = ThrowAxeHuge.Value;
+                        CurrentGlowmask = ThrowAxeHugeGlowmask.Value;
+                        CurrentTextureFrameCount = THROWAXE_FRAMECOUNT;
 
+                        if (AttackTimer > THROWAXE3_WINDUPFRAMERATE * 3)
+                            CurrentTextureFrame = 3;
+                        else if (AttackTimer > THROWAXE3_WINDUPFRAMERATE * 2)
+                            CurrentTextureFrame = 2;
+                        else if (AttackTimer > THROWAXE3_WINDUPFRAMERATE)
+                            CurrentTextureFrame = 1;
+                        else
+                            CurrentTextureFrame = 0;
+                    }
+                    else if (!ThrowAxe3_HasDoneAxeThrowSmearFrames)
+                    {
+                        //TODO: it needs two frames bcuz its huge
+                        if (AttackTimer > FRAMECHANGERATE_ORIGINAL)
+                            CurrentTextureFrame = 0;
+                        else
+                            CurrentTextureFrame = 4;
+                    }
+                    else
+                    {
+                        CurrentTexture = TextureAssets.Npc[NPC.type].Value;
+                        CurrentGlowmask = Glowmask.Value;
+                        CurrentTextureFrameCount = Main.npcFrameCount[NPC.type];
+                        CurrentTextureFrame = 0;
+                    }
                 }
                 else
                 {
                     CurrentTexture = TextureAssets.Npc[NPC.type].Value;
                     CurrentGlowmask = Glowmask.Value;
                     CurrentTextureFrameCount = Main.npcFrameCount[NPC.type];
-                    FrameChangeRate = FRAMECHANGERATE_ORIGINAL;
+                    CurrentFrameRate = FRAMECHANGERATE_ORIGINAL;
 
                     if (NPC.frame.Y > frameHeight * 3)
                     {
