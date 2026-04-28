@@ -30,7 +30,30 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Projectile.timeLeft = 120 * (Projectile.extraUpdates + 1);
         }
 
-        
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            for (int i = 0; i < Projectile.oldPos.Length; i++)
+            {
+                projHitbox.X = (int)Projectile.oldPos[i].X;
+                projHitbox.Y = (int)Projectile.oldPos[i].Y;
+                if (projHitbox.Intersects(targetHitbox))
+                {
+                    return true;
+                }
+            }
+            return base.Colliding(projHitbox, targetHitbox);
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            if (Projectile.localAI[1] < 1f)
+            {
+                Projectile.localAI[1] += 2f;
+                Projectile.position += Projectile.velocity;
+                Projectile.velocity = Vector2.Zero;
+            }
+            return false;
+        }
 
         public override void AI()
         {
