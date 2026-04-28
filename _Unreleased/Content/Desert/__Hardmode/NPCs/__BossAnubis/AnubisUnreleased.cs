@@ -264,7 +264,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     if (AttackNext == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         AttackNext = Main.rand.Next(5) + 1;
-                        AttackNext = (int)AnubisAttacks.ThrowAxe3;
+                        //AttackNext = (int)AnubisAttacks.ThrowAxe3;
 
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && IsBelow66Percent)
                         {
@@ -705,11 +705,12 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                             ThrowAxe3_HasDoneAxeThrowSmearFrames = true;
                         }
                     }
-                    else
+                    else if (ThrowAxe3_HasDoneAxeThrowSmearFrames)
                     {
                         //AttackTimer = 0;
                         //ThrowAxe3_HasThrownHugeAxe = false;
                         //ThrowAxe3_HasDoneAxeThrowSmearFrames = false;
+                        ResetAI();
                     }
 
                         break;
