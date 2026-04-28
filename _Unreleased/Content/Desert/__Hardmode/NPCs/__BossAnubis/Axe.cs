@@ -7,7 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.WorldGen;
 using System;
 
-namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
+namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
     public class Axe : ModProjectile
     {
@@ -42,7 +42,7 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis
             else
             {
                 Projectile.ai[0]++;
-                if (Projectile.ai[0] >= 15f || (Projectile.Center.X <= Projectile.ai[1] - 20 && Projectile.Center.X <= Projectile.ai[1] + 20))
+                if (Projectile.ai[0] >= 15f || Projectile.Center.X <= Projectile.ai[1] - 20 && Projectile.Center.X <= Projectile.ai[1] + 20)
                 {
                     Projectile.ai[0] = 15f;
                     Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;

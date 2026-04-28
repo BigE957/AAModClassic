@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         private static int MireHeadUnofficial;
         private static int HallowHeadUnofficial;
 
-        public static Asset<Texture2D> UnofficialTexture;
+        public static Asset<Texture2D> Unofficial;
 
         public override void Load()
         {
@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 			// DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 4;
 
-            UnofficialTexture = ModContent.Request<Texture2D>(Texture + "_Unofficial");
+            Unofficial = ModContent.Request<Texture2D>(Texture + "_Unofficial");
         }
 
         public override void BossHeadSlot(ref int index)
@@ -586,7 +586,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                texture = UnofficialTexture.Value;
+                texture = Unofficial.Value;
 
             spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
             return false;

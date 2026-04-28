@@ -7,7 +7,7 @@ using Terraria.ID;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis.Runes
+namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes
 {
     public class AnubisCircle : ModNPC
     {
@@ -124,7 +124,7 @@ namespace AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis.Runes
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D Icon = Mod.GetTexture("_Unreleased/Content/Desert/_Hardmode/NPCs/Anubis/Runes/RuneTex");
+            Texture2D Icon = Mod.GetTexture("_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/RuneTex");
             Rectangle frame = BaseDrawing.GetFrame((int)NPC.ai[2], Icon.Width, Icon.Height / 5, 0, 0);
 
             BaseDrawing.DrawTexture(spriteBatch, Icon, 0, NPC.position, NPC.width, NPC.height, NPC.scale, -NPC.rotation, 0, 5, frame, NPC.GetAlpha(Color.Cyan), true);

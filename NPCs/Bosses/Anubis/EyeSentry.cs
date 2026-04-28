@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 
 namespace AAModClassic.NPCs.Bosses.Anubis
 {
@@ -57,7 +57,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
             NPC.ai[0] += 1f;
 
-            if (!NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisRework>()))
+            if (!NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
             {
                 NPC.StrikeInstantKill();
                 return;

@@ -1,4 +1,4 @@
-using AAModClassic._Unreleased.Content.Desert._Hardmode.NPCs.Anubis;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
@@ -57,14 +57,14 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 			{
 				int npcID;
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                    npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AnubisRework>(), -1, null);
+                    npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AnubisUnreleased>(), -1, null);
                 else
                     npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Anubis>(), -1, null);
                 if (npcID >= 0) body = npcID;
 			}
 			if(body == -1) return;				
 			NPC anubis = Main.npc[body];
-			if(anubis == null || anubis.life <= 0 || !anubis.active || (anubis.type != ModContent.NPCType<Anubis>() && anubis.type != ModContent.NPCType<AnubisRework>())){ BaseAI.KillNPCWithLoot(NPC); return; }
+			if(anubis == null || anubis.life <= 0 || !anubis.active || (anubis.type != ModContent.NPCType<Anubis>() && anubis.type != ModContent.NPCType<AnubisUnreleased>())){ BaseAI.KillNPCWithLoot(NPC); return; }
 
 			for (int m = NPC.oldPos.Length - 1; m > 0; m--)
 			{
@@ -75,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 			int locust = 0;
 			if (anubis.ModNPC is Anubis baseAnubis)
                 locust = baseAnubis.LocustCount;
-			else if (anubis.ModNPC is AnubisRework reworkAnubis)
+			else if (anubis.ModNPC is AnubisUnreleased reworkAnubis)
                 locust = reworkAnubis.LocustCount;
 
             if (rotValue == -1f) rotValue = (NPC.ai[0] % locust) * ((float)Math.PI * 2f / locust);
