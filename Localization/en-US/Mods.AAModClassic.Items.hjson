@@ -9627,7 +9627,7 @@ Infinitium: {
 
 InfinityOverloader: {
 	DisplayName: Infinity Beacon
-	Tooltip: 
+	Tooltip:
 		'''
 		An ominous device with unstable code
 		Summons the Infinity Slayer
@@ -10792,5 +10792,10 @@ TerraLeafWand: {
 
 UnsafeScorchedDynastyWood: {
 	DisplayName: Unsafe Scorched Dynasty Wood
+	Tooltip: ""
+}
+
+ScorchedDynastyWoodUnsafe: {
+	DisplayName: Scorched Dynasty Wood Unsafe
 	Tooltip: ""
 }
