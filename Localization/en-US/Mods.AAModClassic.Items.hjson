@@ -4061,7 +4061,7 @@ ChaosRune: {
 	Tooltip:
 		'''
 		A cursed tablet bursting with chaotic energy
-		Summons Shen Doragon's true awakened form
+		Summons Shen Doragon's true Awakened form
 		Non-Consumable
 		'''
 }
@@ -4071,7 +4071,7 @@ ChaosSigil: {
 	Tooltip:
 		'''
 		A cursed tablet filled with unstable magic
-		Summons the chaos emperor
+		Summons the Chaos Emperor
 		Non-Consumable
 		'''
 }
@@ -4296,7 +4296,7 @@ WormIdol: {
 		'''
 }
 
-ZeroRune: {
+ERROR_NULL: {
 	DisplayName: ERR0R_NULL
 	Tooltip:
 		'''
@@ -4305,7 +4305,7 @@ ZeroRune: {
 		'''
 }
 
-ZeroTesseract: {
+DoomsdayTesseract: {
 	DisplayName: Doomsday Tesseract
 	Tooltip:
 		'''
@@ -9627,7 +9627,12 @@ Infinitium: {
 
 InfinityOverloader: {
 	DisplayName: Infinity Beacon
-	Tooltip: Calls the Infinity Slayer
+	Tooltip: 
+		'''
+		An ominous device with unstable code
+		Summons the Infinity Slayer
+		Non-consumable
+		'''
 }
 
 Sticker: {
@@ -10722,16 +10727,6 @@ CoralPickaxe: {
 
 Starminer: {
 	DisplayName: Starminer
-	Tooltip: ""
-}
-
-DoomsdayTesseract: {
-	DisplayName: Doomsday Tesseract
-	Tooltip: ""
-}
-
-ERROR_NULL: {
-	DisplayName: E R R O R_ N U L L
 	Tooltip: ""
 }
 
