@@ -9,6 +9,44 @@ namespace AAModClassic.Utilities
 {
     public static class MathUtils
     {
+        public static bool TryGetLaunchVelocity(Vector2 goal, float initialYVelocity, float gravity, out Vector2 velocity)
+        {
+            if (MathF.Abs(gravity) == 0)
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            float vyisq = initialYVelocity * initialYVelocity;
+
+            float d = vyisq + 2 * gravity * goal.Y;
+
+            if (d < 0)
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            float vyf = -MathF.Sqrt(d);
+            float t = Math.Abs((vyf - initialYVelocity) / gravity);
+
+            if (t <= float.Epsilon)
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            float vxi = goal.X / t;
+
+            if (float.IsNaN(vxi) || float.IsInfinity(vxi))
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            velocity = new Vector2(vxi, -initialYVelocity);
+            return true;
+        }
     }
 
     public class BezierCurve(params Vector2[] controls)

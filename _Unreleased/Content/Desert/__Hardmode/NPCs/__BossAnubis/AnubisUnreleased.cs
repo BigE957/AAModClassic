@@ -490,17 +490,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                             if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                             {
                                 Vector2 goal = player.Center - NPC.Center;
-
-                                float vyi = 10;
-                                float vyisq = 100;
-                                float g = 0.2f;
-
-                                float vyf = -MathF.Sqrt(vyisq + 2 * g * goal.Y);
-                                float t = Math.Abs((vyf - vyi) / g);
-
-                                float vxi = goal.X / t;
-
-                                Vector2 velocity = new Vector2(float.IsNaN(vxi) ? goal.X > 0 ? 10 : -10 : vxi, -vyi);
+                                if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
+                                    velocity = new Vector2(Math.Sign(goal.X) == -1 ? -10 : 10, 10);
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
 
                                 CurrentTextureFrame = 3;
@@ -588,18 +579,9 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         else
                             goal.X += Main.rand.NextFloat(randomCenterMin, randomCenterMax);
 
-                        float vyi = 10;
-                        float vyisq = 100;
-                        float g = 0.2f;
-
-                        float vyf = -MathF.Sqrt(vyisq + 2 * g * goal.Y);
-                        float t = Math.Abs((vyf - vyi) / g);
-
-                        float vxi = goal.X / t;
-
-                        Vector2 velocity = new Vector2(float.IsNaN(vxi) ? goal.X > 0 ? 10 : -10 : vxi, -vyi);
-                        if (NPC.position.Y > targetPos.Y)
+                        if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
                             velocity = NPC.DirectionTo(targetPos) * 100;
+
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
 
                         ThrowAxe2_AmountOfAxesThrown++;
@@ -645,17 +627,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         else
                             goal.X += Main.rand.NextFloat(randomCenterMin, randomCenterMax);
 
-                        float vyi = 10;
-                        float vyisq = 100;
-                        float g = 0.2f;
-
-                        float vyf = -MathF.Sqrt(vyisq + 2 * g * goal.Y);
-                        float t = Math.Abs((vyf - vyi) / g);
-
-                        float vxi = goal.X / t;
-
-                        Vector2 velocity = new Vector2(float.IsNaN(vxi) ? goal.X > 0 ? 10 : -10 : vxi, -vyi);
-                        if (NPC.position.Y > targetPos.Y)
+                        if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
                             velocity = NPC.DirectionTo(targetPos) * 100;
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
 
