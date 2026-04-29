@@ -27,7 +27,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
 			Item.consumable = true;
 			Item.value = 2000;
             Item.rare = ItemRarityID.Green;
-            Item.expert = true; Item.expertOnly = true;
 			Item.createTile = ModContent.TileType<HydraTrophy_Tile>();
 		}
 	}
