@@ -22,12 +22,15 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-    public class SubzeroSerpentTail : ModNPC
+    public class SubzeroSerpent_Body : ModNPC
     {
+        public ref float HasChosenVerticalFrame => ref NPC.localAI[0];
+        public ref float VerticalFrame => ref NPC.localAI[1];
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Subzero Serpent");
-            Main.npcFrameCount[NPC.type] = 1;
+            Main.npcFrameCount[NPC.type] = 4;
             this.HideFromBestiary();
         }
 
@@ -57,7 +60,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void AI()
         {
-            if (NPC.realLife == -1 || !Main.npc[NPC.realLife].active)
+            if (!Main.npc[NPC.realLife].active)
             {
                 NPC.active = false;
                 return;
@@ -101,16 +104,16 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 NPC.TargetClosest(true);
             }
             NPC.velocity.Length();
-            bool headActive = false;
+            bool flag = false;
             if (NPC.ai[1] <= 0f)
             {
-                headActive = true;
+                flag = true;
             }
             else if (Main.npc[(int)NPC.ai[1]].life <= 0)
             {
-                headActive = true;
+                flag = true;
             }
-            if (headActive)
+            if (flag)
             {
                 NPC.life = 0;
                 NPC.HitEffect(0, 10.0);
@@ -157,15 +160,31 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     }
                 }
             }
-            if (!flag2)
-            {
-                NPC.localAI[1] = 1f;
-            }
-            else
-            {
-                NPC.localAI[1] = 0f;
-            }
+
             float num17 = 16f;
+            if (Main.player[NPC.target].dead || Main.player[NPC.target].position.Y < Main.rockLayer)
+            {
+                flag2 = false;
+                NPC.velocity.Y = NPC.velocity.Y + 1f;
+                if (NPC.position.Y > (double)((Main.maxTilesY - 200) * 16))
+                {
+                    NPC.velocity.Y = NPC.velocity.Y + 1f;
+                    num17 = 32f;
+                }
+                /*
+                if (NPC.position.Y > (double)((Main.maxTilesY - 200) * 16))
+                {
+                    for (int a = 0; a < 200; a++)
+                    {
+                        if (Main.npc[a].type == ModContent.NPCType<ArmoredDiggerHead>() || Main.npc[a].type == ModContent.NPCType<ArmoredDiggerBody>() ||
+                            Main.npc[a].type == ModContent.NPCType<ArmoredDiggerTail>())
+                        {
+                            Main.npc[a].active = false;
+                        }
+                    }
+                }
+                */
+            }
             float num18 = 0.1f;
             float num19 = 0.15f;
             Vector2 vector3 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
@@ -374,6 +393,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void FindFrame(int frameHeight)
         {
+            if (HasChosenVerticalFrame == 0)
+            {
+                HasChosenVerticalFrame = 1;
+                VerticalFrame = Main.rand.Next(4);
+            }
+            NPC.frame.Y = (int)VerticalFrame * NPC.frame.Height;
+
             NPC.SetProperFramingForBiome_Horizontal((int)NPC.ai[2]);
         }
 
@@ -395,7 +421,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override bool CheckActive()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpent_Head>()))
             {
                 return false;
             }
@@ -415,7 +441,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreTail").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreBody").Type, 1f);
             }
         }
     }

@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq.Expressions;
 using Terraria;
@@ -25,77 +26,48 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     [AutoloadBossHead]	
-	public class SubzeroSerpentHead : ModNPC
+	public class SubzeroSerpent_Head : BiomeConvertableNPC
 	{
-        public ref float BiomeType => ref NPC.ai[2];
-
         public int damage = 0;
 
-        private static int CorruptHead;
-        private static int CrimsonHead;
-        private static int InfernoHead;
-        private static int MireHead;
-        private static int HallowHead;
-        private static int CrimsonHeadUnofficial;
-        private static int InfernoHeadUnofficial;
-        private static int MireHeadUnofficial;
-        private static int HallowHeadUnofficial;
+        private static Dictionary<string, int> HeadSlots = [];
+        private static Dictionary<string, int> UnofficialHeadSlots = [];
 
-        public static Asset<Texture2D> UnofficialTexture;
+        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head";
+        public override string HeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head_Boss";
+        
+        public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures";
 
         public override void Load()
         {
-            CorruptHead = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Corruption", Type);
-            CrimsonHead = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Crimson", Type);
-            InfernoHead = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Inferno", Type);
-            MireHead = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Mire", Type);
-            HallowHead = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Hallow", Type);
+            base.Load();
 
-            CrimsonHeadUnofficial = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Crimson" + "_Unofficial", Type);
-            InfernoHeadUnofficial = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Inferno" + "_Unofficial", Type);
-            MireHeadUnofficial = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Mire" + "_Unofficial", Type);
-            HallowHeadUnofficial = Mod.AddBossHeadTexture(Texture + "_Head_Boss" + "_Hallow" + "_Unofficial", Type);
+            foreach (var biome in Biomes)
+            {
+                if (biome.Name == "Default")
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture + "_Head_Boss", Type));
+                else
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
+            }
+
+            UnofficialHeadSlots.Add("Crimson", Mod.AddBossHeadTexture(Texture.Replace("Default", "Crimson") + "_Crimson_Unofficial_Head_Boss", Type));
+            UnofficialHeadSlots.Add("Inferno", Mod.AddBossHeadTexture(Texture.Replace("Default", "Inferno") + "_Inferno_Unofficial_Head_Boss", Type));
+            UnofficialHeadSlots.Add("Mire", Mod.AddBossHeadTexture(Texture.Replace("Default", "Mire") + "_Mire_Unofficial_Head_Boss", Type));
+            UnofficialHeadSlots.Add("Hallow", Mod.AddBossHeadTexture(Texture.Replace("Default", "Hallow") + "_Hallow_Unofficial_Head_Boss", Type));
         }
-        
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 4;
-
-            UnofficialTexture = ModContent.Request<Texture2D>(Texture + "_Unofficial");
         }
 
         public override void BossHeadSlot(ref int index)
         {
-            switch ((int)BiomeType)
-            {
-                case 1:
-                    index = CorruptHead;
-                    break;
-                case 2:
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        index = CrimsonHeadUnofficial;
-                    index = CrimsonHead;
-                    break;
-                case 3:
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        index = InfernoHeadUnofficial;
-                    index = InfernoHead;
-                    break;
-                case 4:
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        index = MireHeadUnofficial;
-                    index = MireHead;
-                    break;
-                case 5:
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        index = HallowHeadUnofficial;
-                    index = HallowHead;
-                    break;
-                default:
-                    // nothing...
-                    break;
-            }
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && UnofficialHeadSlots.TryGetValue(BiomeType, out int slot))
+                index = slot;
+            else
+                index = HeadSlots[BiomeType];
         }
 
 
@@ -104,11 +76,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 			NPC.npcSlots = 5f;
             NPC.width = 32;
             NPC.height = 32;
-            if (BiomeType == 2)
+            if (BiomeType == "Crimson")
             {
                 NPC.lifeMax = 7000;
             }
-            else if (BiomeType == 5)
+            else if (BiomeType == "Hallow")
             {
                 NPC.lifeMax = 15000;
             }
@@ -227,12 +199,12 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     int Length = 12;
                     for (int a = 0; a <= Length; a++)
                     {
-                        int type = ModContent.NPCType<SubzeroSerpentBody>();
+                        int type = ModContent.NPCType<SubzeroSerpent_Body>();
                         if (a == Length)
                         {
-                            type = ModContent.NPCType<SubzeroSerpentTail>();
+                            type = ModContent.NPCType<SubzeroSerpent_Tail>();
                         }
-                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, BiomeType, NPC.whoAmI, 255);
+                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, 0, NPC.whoAmI, 255);
                         Main.npc[segment].realLife = NPC.whoAmI;
                         NPC.ai[0] = segment;
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
@@ -317,7 +289,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             float num48 = 0.1f;
             float num49 = 0.15f;
 
-            if (BiomeType == 1 || BiomeType == 5)
+            if (BiomeType == "Corruption" || BiomeType == "Hallow")
             {
                 num48 = 0.13f;
                 num49 = 0.2f;
@@ -578,16 +550,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     }
                 }
             }
-
-            NPC.SetProperFramingForBiome_Horizontal((int)BiomeType);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                texture = UnofficialTexture.Value;
-
+            Texture2D texture = GetCurrentTexture();
             spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
             return false;
         }
@@ -615,12 +582,12 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         private void Rain()
         {
-            if (BiomeType == 3 || BiomeType == 5)
+            if (BiomeType == "Inferno" || BiomeType == "Hallow")
             {
                 NPC.defense = 32;
             }
 
-            if (BiomeType == 4 || BiomeType == 5)
+            if (BiomeType == "Mire" || BiomeType == "Hallow")
             {
                 NPC.damage = 40;
             }
@@ -731,7 +698,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     if (NPC.CountNPCS(ModContent.NPCType<IceCrystal>()) < 3)
                     {
                         SoundEngine.PlaySound(SoundID.Item60, player.position);
-                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-100, 101), (int)player.position.Y - 180, ModContent.NPCType<IceCrystal>(), 0, 0, BiomeType, 0, 0, NPC.target);
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-100, 101), (int)player.position.Y - 180, ModContent.NPCType<IceCrystal>(), 0, 0, BiomeNumber(BiomeType), 0, 0, NPC.target);
                     }
                 }
                 internalAI[2] = 2;
@@ -752,7 +719,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     if (attackTimer == 20 || attackTimer == 50 || attackTimer == 79)
                     {
                         int p = BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<SubzeroSerpent_IceBall>(), damage, 3, 14f, 0, 0, -1);
-                        Main.projectile[p].ai[1] = BiomeType; 
+                        Main.projectile[p].ai[1] = BiomeNumber(BiomeType); 
                         NPC.netUpdate = true;
                     }
                     if (attackTimer >= 80)
@@ -795,7 +762,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                             PlayerPosX += NPC.velocity.X * 0.5f;
                             PlayerDistance.X -= PlayerPosX * 1f;
                             PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 1.5f, NPC.velocity.Y * 1.5f, ModContent.ProjectileType<SubzeroSerpentHead_SerpentBreath>(), damage, 0, Main.myPlayer, 0, BiomeType);
+                            Projectile p = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), PlayerDistance, NPC.velocity * 1.5f, ModContent.ProjectileType<SubzeroSerpentHead_SerpentBreath>(), damage, 0, Main.myPlayer, 0);
+                            ((SubzeroSerpentHead_SerpentBreath)p.ModProjectile).BiomeType = BiomeType;
                         }
                     }
                     if (attackTimer >= 80)
@@ -817,6 +785,17 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 internalAI[3] = 0;
             }
         }
+
+        //TODO: Temporary helper to make things have errors. Should be removed once things are properly moved to new system
+        private static int BiomeNumber(string biome) => biome switch
+        {
+            "Corruption" => 1,
+            "Crimson" => 2,
+            "Inferno" => 3,
+            "Mire" => 4,
+            "Hallow" => 5,
+            _ => 0,
+        };
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
