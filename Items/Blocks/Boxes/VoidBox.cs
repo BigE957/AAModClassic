@@ -7,6 +7,7 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {
@@ -54,7 +55,7 @@ namespace AAModClassic.Items.Blocks.Boxes
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
             recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 20);
-            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

@@ -56,15 +56,12 @@ namespace AAModClassic.Items.Blocks.Boxes
 
         public override void AddRecipes()
         {
-            if (Main.expertMode == true)
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ItemID.MusicBox);
-                recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
-                recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 5);
-                recipe.AddTile(TileID.Sawmill);
-                recipe.Register();
-            }
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.MusicBox);
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 5);
+            recipe.AddTile(TileID.Sawmill);
+            recipe.Register();
         }
     }
 }

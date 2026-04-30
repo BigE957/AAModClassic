@@ -38,8 +38,8 @@ namespace AAModClassic.Items.Blocks.Boxes
             recipe.AddIngredient(ItemID.MusicBoxTitle);
             recipe.AddIngredient(ModContent.ItemType<MonarchBox>(), 1);
             recipe.AddIngredient(ModContent.ItemType<InfernoSurfaceBox>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<MireUndergroundBox>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<InfernoSurfaceBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<InfernoUndergroundBox>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<MireSurfaceBox>(), 1);
             recipe.AddIngredient(ModContent.ItemType<MireUndergroundBox>(), 1);
             recipe.AddIngredient(ModContent.ItemType<VoidBox>(), 1);
             recipe.AddTile(TileID.Sawmill);
