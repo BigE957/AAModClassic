@@ -623,7 +623,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AkumaBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaATrophy>(), 10));
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingAkumaA());
 

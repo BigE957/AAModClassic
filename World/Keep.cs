@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
+using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Terrarium.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Dev.DevTile.Tiles;
-using AAModClassic.Tiles;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Tiles.Furniture.Keep;
 using AAModClassic.Tiles.Furniture.Terra;
@@ -32,7 +32,7 @@ public class Keep : MicroBiome
 		ColorToTile[new(0, 255, 255)] = ModContent.TileType<PermeableTerraWood_Tile>();
 		Color black = default(Color);
 		ColorToTile[new(0, 0, 64)] = ModContent.TileType<TerraLeaves_Tile>();
-		ColorToTile[new(64, 0, 0)] = ModContent.TileType<ScorchedShinglesS_Tile>();
+		ColorToTile[new(64, 0, 0)] = ModContent.TileType<ScorchedShingles_Tile>();
 		ColorToTile[new(255, 0, 255)] = ModContent.TileType<TerraVault_Tile>();
 		ColorToTile[new(0, 0, 255)] = TileID.Glass;
 		ColorToTile[new(255, 255, 255)] = -1;

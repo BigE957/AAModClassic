@@ -99,7 +99,7 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (false)//AAWorld.ShenSummoned)
+            if (AAWorld.ShenSummoned)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue1") : Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 

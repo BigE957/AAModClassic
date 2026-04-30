@@ -1,15 +1,24 @@
-﻿using AAModClassic.UI.WorldGen;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs.InfectionBiomeNPCAlternatesHelper;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     internal class SubzeroSerpentHead_SerpentBreath : ModProjectile
     {
-        public ref float BiomeType => ref Projectile.ai[1];
+        public string BiomeType = "Default";
+
+        public static Dictionary<string, (int Dust, int Debuff)> BiomeData = new Dictionary<string, (int, int)>()
+        {
+            { "Default", (ModContent.DustType<Dusts.SnowDustLight>(), -1) },
+            { "Corruption", (DustID.CursedTorch, BuffID.CursedInferno) },
+            { "Crimson", (DustID.GoldFlame, BuffID.Ichor) },
+            { "Inferno", (ModContent.DustType<Dusts.BroodmotherDust>(), BuffID.OnFire) },
+            { "Mire", (ModContent.DustType<Dusts.AcidDust>(), BuffID.Poisoned) },
+            { "Hallow", (ModContent.DustType<Dusts.HallowedDustT>(), -1) }, //TODO: Had Confused in unofficial but idk i wanna bother adding support for that
+        };
 
         public override void SetStaticDefaults()
         {
@@ -52,25 +61,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 }
                 Projectile.ai[0] += 1f;
 
-                int dustType = ModContent.DustType<Dusts.SnowDustLight>();
-                switch (BiomeType)
-                {
-                    case (int)InfectionType.Corruption:
-                        dustType = DustID.CursedTorch;
-                        break;
-                    case (int)InfectionType.Crimson:
-                        dustType = DustID.GoldFlame;
-                        break;
-                    case (int)InfectionType.Inferno:
-                        dustType = ModContent.DustType<Dusts.BroodmotherDust>();
-                        break;
-                    case (int)InfectionType.Mire:
-                        dustType = ModContent.DustType<Dusts.AcidDust>();
-                        break;
-                    case (int)InfectionType.Hallow:
-                        dustType = ModContent.DustType<Dusts.HallowedDustT>();
-                        break;
-                }
+                int dustType = BiomeData[BiomeType].Dust;
 
                 if (Main.rand.NextBool(2))
                 {
@@ -110,26 +101,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(BuffID.Chilled, 300);
-
-            switch (BiomeType)
-            {
-                case (int)InfectionType.Corruption:
-                    target.AddBuff(BuffID.CursedInferno, 180);
-                    break;
-                case (int)InfectionType.Crimson:
-                    target.AddBuff(BuffID.Ichor, 180);
-                    break;
-                case (int)InfectionType.Inferno:
-                    target.AddBuff(BuffID.OnFire, 180);
-                    break;
-                case (int)InfectionType.Mire:
-                    target.AddBuff(BuffID.Poisoned, 180);
-                    break;
-                case (int)InfectionType.Hallow:
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        target.AddBuff(BuffID.Confused, 180);
-                    break;
-            }
+            int debuff = BiomeData[BiomeType].Dust;
+            if(debuff != -1)
+                target.AddBuff(debuff, 180);
         }
     }
 }

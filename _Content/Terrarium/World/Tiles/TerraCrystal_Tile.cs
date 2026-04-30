@@ -13,6 +13,9 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
     {
         public override void SetStaticDefaults()
         {
+            MineResist = 2f;
+            MinPick = 200;
+
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[Type][ModContent.TileType<PermeableTerraWood_Tile>()] = true;

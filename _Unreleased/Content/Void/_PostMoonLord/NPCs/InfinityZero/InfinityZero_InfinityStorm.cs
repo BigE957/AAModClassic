@@ -58,33 +58,30 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Projectile.ai[0] += 1f;
             if (Projectile.ai[0] % 30f == 0f && Projectile.ai[0] < 180f && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int[] array4 = new int[5];
-                Vector2[] array5 = new Vector2[5];
-                int num838 = 0;
-                float num839 = 2000f;
-                for (int num840 = 0; num840 < 255; num840++)
+                Vector2[] playerPositions = new Vector2[5];
+                int foundPlayer = 0;
+                float maxDist = 2000f;
+                foreach(Player p in Main.ActivePlayers)
                 {
-                    if (Main.player[num840].active && !Main.player[num840].dead)
+                    if (p.active && !p.dead)
                     {
-                        Vector2 center9 = Main.player[num840].Center;
-                        float num841 = Vector2.Distance(center9, Projectile.Center);
-                        if (num841 < num839 && Collision.CanHit(Projectile.Center, 1, 1, center9, 1, 1))
+                        Vector2 center9 = p.Center;
+                        float myDist = Vector2.Distance(center9, Projectile.Center);
+                        if (myDist < maxDist && Collision.CanHit(Projectile.Center, 1, 1, center9, 1, 1))
                         {
-                            array4[num838] = num840;
-                            array5[num838] = center9;
-                            if (++num838 >= array5.Length)
-                            {
+                            playerPositions[foundPlayer] = center9;
+                            if (++foundPlayer >= playerPositions.Length)
                                 break;
-                            }
                         }
                     }
                 }
-                for (int num842 = 0; num842 < num838; num842++)
+
+                for (int i = 0; i < foundPlayer; i++)
                 {
-                    Vector2 vector82 = array5[num842] - Projectile.Center;
+                    Vector2 center = playerPositions[i] - Projectile.Center;
                     float ai = Main.rand.Next(100);
-                    Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 7f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<InfinityZero_InfinityBolt>(), Projectile.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                    Vector2 velocity = Vector2.Normalize(center.RotatedByRandom(0.78539818525314331)) * 7f;
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<InfinityZero_InfinityBolt>(), Projectile.damage, 0f, Main.myPlayer, center.ToRotation(), ai);
                 }
             }
             Lighting.AddLight(Projectile.Center, 0.4f, 0.85f, 0.9f);
@@ -160,16 +157,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override bool PreDraw(ref Color lightColor)
         {
-            if (tex == null)
-            {
-                tex = TextureAssets.Projectile[Projectile.type].Value;
-                glowTex =  ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            }
             Color lightColour = BaseDrawing.GetLightColor(Projectile.Center);
             for (int m = Projectile.oldPos.Length - 1; m > 0; m--) { Projectile.oldPos[m] = Projectile.oldPos[m - 1]; }
             Projectile.oldPos[0] = Projectile.position;
-            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, lightColour);
-            BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, AAColor.Oblivion);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value,        0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, lightColour, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, AAColor.Oblivion, true);
 
             return false;
         }

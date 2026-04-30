@@ -1,15 +1,18 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-    public class IceCrystal : ModNPC
+    public class IceCrystal : BiomeConvertableNPC
     {
-        public ref float BiomeType => ref NPC.ai[1];
+        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/CrystalTextures/IceCrystal";
+        public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/CrystalTextures/";
 
         public override void SetDefaults()
         {
@@ -29,7 +32,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 		public override void SetStaticDefaults()
 		{
 		    // DisplayName.SetDefault("Ice Crystal");
-            Main.npcFrameCount[NPC.type] = 6;
+            Main.npcFrameCount[NPC.type] = 1;
+            base.SetStaticDefaults();
         }
 
         public override void AI()
@@ -51,7 +55,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 int p = BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<IceCrystal_IceSpike>(), ref NPC.ai[0], 80, NPC.damage / 2, 7, true);
                 if (p != -1)
                 {
-                    Main.projectile[p].ai[1] = BiomeType;
+                    ((IceCrystal_IceSpike)Main.projectile[p].ModProjectile).BiomeType = BiomeType;
                     int pieCut = 8;
                     float radians = MathHelper.TwoPi / pieCut;
                     for (int i = 0; i < pieCut; i++)
@@ -62,11 +66,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
                 NPC.alpha = 40;
             }
-        }
-
-        public override void FindFrame(int frameHeight)
-        {
-            NPC.frame.Y = frameHeight * (int)BiomeType;
         }
 
         public override void OnKill()
@@ -85,6 +84,12 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 Main.dust[dustID].velocity = Vector2.Normalize(new Vector2(9, 0).RotatedBy(radians * i));
                 Main.dust[dustID].noLight = false;
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            spriteBatch.Draw(GetCurrentTexture(), NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
+            return false;
         }
     }
 }

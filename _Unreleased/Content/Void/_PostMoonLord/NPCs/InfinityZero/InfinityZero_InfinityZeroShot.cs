@@ -9,8 +9,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void SetDefaults()
         {
-            Projectile.width = 18;
-            Projectile.height = 42;
+            Projectile.width = Projectile.height = 18;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.penetrate = 1;

@@ -556,7 +556,7 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (Serpent)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentY") : 
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentN");
             }
             else if (AnubisB)

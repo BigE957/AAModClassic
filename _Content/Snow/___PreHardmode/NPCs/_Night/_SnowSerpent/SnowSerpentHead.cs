@@ -90,7 +90,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
 
         public override bool PreKill()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpent_Head>()))
             {
                 return false;
             }

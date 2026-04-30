@@ -424,14 +424,14 @@ SupremeRajahDefeat.DisplayName: Rajah Rabbit
 SupremeRajah.DisplayName: Rajah Rabbit; Champion of the Innocent
 Sag.DisplayName: Sagittarius
 IceCrystal.DisplayName: Ice Crystal
-SerpentBody.DisplayName: Subzero Serpent
+SubzeroSerpent_Body.DisplayName: Subzero Serpent
 
-SerpentHead: {
+SubzeroSerpent_Head: {
 	DisplayName: Subzero Serpent
 	BossChecklistIntegration.EntryName: Subzero Serpent
 }
 
-SerpentTail.DisplayName: Subzero Serpent
+SubzeroSerpent_Tail.DisplayName: Subzero Serpent
 FuryAshe.DisplayName: Fury Ashe
 FuryAsheOrbiter.DisplayName: Flame Vortex
 FuryAsheVanish.DisplayName: Ashe Akuma
