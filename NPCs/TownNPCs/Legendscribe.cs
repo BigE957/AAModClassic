@@ -35,7 +35,6 @@ namespace AAModClassic.NPCs.TownNPCs
     [AutoloadHead]
 	public class Legendscribe : ModNPC
 	{
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/Legendscribe";
         public override void ModifyTypeName(ref string typeName)
         {
             typeName = "Legendscribe";
@@ -464,6 +463,7 @@ namespace AAModClassic.NPCs.TownNPCs
             return true;
         }
 
+        //TODO: turn into shimer
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D t = Mod.GetTexture(NPCExtensions.BeenKilled<ForsakenAnubis>() ? "NPCs/TownNPCs/LegendscribeF" : "NPCs/TownNPCs/Legendscribe");
