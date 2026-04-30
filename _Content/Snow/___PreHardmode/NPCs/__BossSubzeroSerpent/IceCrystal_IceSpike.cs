@@ -1,6 +1,9 @@
 using AAModClassic.Backgrounds;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -11,10 +14,23 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     public class IceCrystal_IceSpike : ModProjectile
     {
+        private static readonly Dictionary<string, Asset<Texture2D>> BiomeTextures = [];
+
+        public string BiomeType = "Default";
+        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/SpikeTextures/IceSpike";
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ice Spike");
-            Main.projFrames[Projectile.type] = 30;
+            Main.projFrames[Projectile.type] = 5;
+
+            foreach (var biome in BiomeConvertableNPC.Biomes)
+            {
+                if (biome.Name == "Default")
+                    BiomeTextures.Add(biome.Name, TextureAssets.Projectile[Type]);
+                else if (biome.Name != "Void")
+                    BiomeTextures.Add(biome.Name, ModContent.Request<Texture2D>(Texture + "_" + biome.Name));
+            }
         }
 
         public override void SetDefaults()
@@ -44,19 +60,18 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 Projectile.frameCounter = 1;
                 Projectile.frame = Main.rand.Next(5);
-                Main.NewText(Projectile.frame);
             }
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle newFrame = new Rectangle();
-            newFrame.Width = TextureAssets.Projectile[Projectile.type].Width() / 6;
+            newFrame.Width = TextureAssets.Projectile[Projectile.type].Width();
             newFrame.Height = TextureAssets.Projectile[Projectile.type].Height() / 5;
-            newFrame.X = (int)Projectile.ai[1] * (TextureAssets.Projectile[Projectile.type].Width() / 6);
+            newFrame.X = 0;
             newFrame.Y = Projectile.frame * (TextureAssets.Projectile[Projectile.type].Height() / 5);
 
-            Main.EntitySpriteDraw(TextureAssets.Projectile[Projectile.type].Value, Projectile.Center - Main.screenPosition, newFrame, Projectile.GetAlpha(lightColor), Projectile.rotation, newFrame.Size() * 0.5f, Projectile.scale, SpriteEffects.None, 0f);
+            Main.EntitySpriteDraw(BiomeTextures[BiomeType].Value, Projectile.Center - Main.screenPosition, newFrame, Projectile.GetAlpha(lightColor), Projectile.rotation, newFrame.Size() * 0.5f, Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
 

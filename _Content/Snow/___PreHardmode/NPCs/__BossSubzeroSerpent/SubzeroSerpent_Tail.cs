@@ -1,38 +1,33 @@
-﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
-using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
-using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic.Music;
-using AAModClassic.UI.WorldGen;
+﻿using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-    public class SubzeroSerpent_Tail : ModNPC
+    public class SubzeroSerpent_Tail : BiomeConvertableNPC
     {
+        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Tail";
+        public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/";
+        public override bool SeperateBiomeFolders => true;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 1;
             this.HideFromBestiary();
+            base.SetStaticDefaults();
         }
 
         public override void SetDefaults()
         {
+            base.SetDefaults();
             NPC.npcSlots = 5f;
             NPC.width = 32;
             NPC.height = 32;
@@ -372,14 +367,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
         }
 
-        public override void FindFrame(int frameHeight)
-        {
-            NPC.SetProperFramingForBiome_Horizontal((int)NPC.ai[2]);
-        }
-
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(GetCurrentTexture(), NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
             return false;
         }
 

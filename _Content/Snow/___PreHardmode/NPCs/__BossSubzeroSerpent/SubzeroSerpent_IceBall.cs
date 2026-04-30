@@ -1,7 +1,12 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,10 +14,24 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
     public class SubzeroSerpent_IceBall : ModProjectile
     {
+        private static readonly Dictionary<string, Asset<Texture2D>> BiomeTextures = [];
+
+        public string BiomeType = "Default";
+
+        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BallTextures/IceBall";
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ice Ball");
-            Main.projFrames[Projectile.type] = 6;
+            Main.projFrames[Projectile.type] = 1;
+
+            foreach (var biome in BiomeConvertableNPC.Biomes)
+            {
+                if (biome.Name == "Default")
+                    BiomeTextures.Add(biome.Name, TextureAssets.Projectile[Type]);
+                else if (biome.Name != "Void")
+                    BiomeTextures.Add(biome.Name, ModContent.Request<Texture2D>(Texture + "_" + biome.Name));
+            }
         }
 
         public override void SetDefaults()
@@ -47,6 +66,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 Main.dust[dustID].noLight = false;
             }
             return true;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D tex = BiomeTextures[BiomeType].Value;
+            Main.spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, null, lightColor * Projectile.Opacity, Projectile.rotation, tex.Size() * 0.5f, Projectile.scale, SpriteEffects.None, 0f);
+            return false;
         }
     }
 }
