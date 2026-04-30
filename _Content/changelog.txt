@@ -28,6 +28,7 @@ removed
 -
 
 unreleased
+-reworked anubis
 -added infinity zero with all of their created drops
 -added the soul of cthulhu with all of their created drops
 -added the lost keep, with a new miniboss: biolite core
@@ -38,6 +39,7 @@ unreleased
 -
 
 unofficial
+-unreleased: reworked anubis.
 -unreleased: Infinity Zero has been resprited (credit to Aria) as well as visually overhauled. Oblivion has also been resprited to match.
 -unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
 -subzero serpents biome variant heads have had unique sprites add (other than corruption variant, which already had one)

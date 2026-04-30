@@ -264,7 +264,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     if (AttackNext == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         AttackNext = Main.rand.Next(5) + 1;
-                        //AttackNext = (int)AnubisAttacks.ThrowAxe3;
+                        AttackNext = (int)AnubisAttacks.SwipeBuildup;
 
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && IsBelow66Percent)
                         {
@@ -528,18 +528,12 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     break;
                 case (int)AnubisAttacks.SwipeExecute:
                     if (AttackTimer < 36)
-                    {
                         MoveToPoint(DashPoint);
-                    }
                     else
-                    {
-                        //NPC.velocity.X *= .95f;
-                    }
+                        NPC.velocity = Vector2.Zero;
 
                     if (AttackTimer >= 54)
-                    {
                         ResetAI();
-                    }
 
                     break;
                 case (int)AnubisAttacks.ThrowAxe2:
@@ -1238,7 +1232,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             //Main.NewText(hoverOffset);
             //Main.NewText(NPC.velocity.Y);
 
-            if (HasDonePreamble == true && NPC.velocity.X != 0)
+            if (HasDonePreamble == true && NPC.velocity != Vector2.Zero)
                 BaseDrawing.DrawAfterimage(spriteBatch, CurrentTexture, 0, NPC, 1, 1, 8, true, 0, 0, GetAlpha(Color.White), frame, 4);
             BaseDrawing.DrawTexture(spriteBatch, CurrentTexture, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, CurrentGlowmask, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, AAColor.COLOR_WHITEFADE1, true);
