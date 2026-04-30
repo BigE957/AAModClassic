@@ -62,6 +62,7 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -1359,9 +1360,11 @@ namespace AAModClassic.Globals
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
                     shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<Rajah>()));
+                    shop.ActiveEntries.First(e => e.Item.type == ModContent.ItemType<GoldenCarrot>()).Item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
                     break;
                 case NPCID.Truffle:
                     shop.Add(ItemID.TruffleWorm, Condition.DownedPlantera);
+                    shop.ActiveEntries.First(e => e.Item.type == ItemID.TruffleWorm).Item.shopCustomPrice = Item.sellPrice(3, 0, 0, 0);
                     break;
                 case NPCID.Steampunker:
                     shop.Add<DeepGreenSolution>();
@@ -1370,24 +1373,6 @@ namespace AAModClassic.Globals
                     shop.Add<WhiteSolution>();
                     shop.Add<YellowSolution>();
                     break;
-            }
-        }
-
-        public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
-        {
-            int type = npc.type;
-            if (type == NPCID.Dryad && NPCExtensions.BeenKilled<Rajah>())
-            {
-                foreach(Item item in items)
-                    if(item.type == ModContent.ItemType<GoldenCarrot>())
-                        item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
-            }
-
-            if (type == NPCID.Truffle && NPC.downedPlantBoss)
-            {
-                foreach (Item item in items)
-                    if (item.type == ItemID.TruffleWorm)
-                        item.shopCustomPrice = Item.sellPrice(3, 0, 0, 0);
             }
         }
 
