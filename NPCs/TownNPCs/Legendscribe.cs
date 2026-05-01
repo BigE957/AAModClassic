@@ -71,8 +71,8 @@ namespace AAModClassic.NPCs.TownNPCs
             NPCID.Sets.ShimmerTownTransform[Type] = true;
 
             NPCProfile = new Profiles.StackedNPCProfile(
-                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture),
-                new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex, Texture)
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture)),
+                new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex)
             );
         }
 
@@ -81,14 +81,14 @@ namespace AAModClassic.NPCs.TownNPCs
             return NPCProfile;
         }
 
-        public float internalAI = 0;
+        public float TeleportToHouseTimer = 0;
 
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
             if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
-                writer.Write(internalAI);
+                writer.Write(TeleportToHouseTimer);
             }
         }
 
@@ -97,7 +97,7 @@ namespace AAModClassic.NPCs.TownNPCs
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI = reader.ReadSingle();
+                TeleportToHouseTimer = reader.ReadSingle();
             }
         }
 
@@ -433,10 +433,10 @@ namespace AAModClassic.NPCs.TownNPCs
                 TPDust();
                 NPC.active = false;
             }
-            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && internalAI < 240 && !NPC.homeless)
+            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && TeleportToHouseTimer < 240 && !NPC.homeless)
             {
-                internalAI++;
-                if (internalAI >= 240)
+                TeleportToHouseTimer++;
+                if (TeleportToHouseTimer >= 240)
                 {
                     bool flag4 = true;
                     int num3 = NPC.homeTileY;
@@ -475,7 +475,7 @@ namespace AAModClassic.NPCs.TownNPCs
                             NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
                             NPC.position.Y = num3 * 16 - NPC.height - 0.1f;
                             NPC.netUpdate = true;
-                            internalAI = 0;
+                            TeleportToHouseTimer = 0;
                         }
                     }
                 }
