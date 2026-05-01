@@ -20,6 +20,7 @@ using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +38,18 @@ namespace AAModClassic._Unofficial.Desert
     [AutoloadHead]
 	public class LegendscribeUnofficial : ModNPC
 	{
-        public override string Texture => "AAModClassic/_Unofficial/Desert/LegendscribeUnofficial";
+        private static int ShimmerHeadIndex;
+
+        public static Asset<Texture2D> Glowmask;
+        public static Asset<Texture2D> GlowmaskShimmer;
+
+        public override void Load()
+        {
+            ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            GlowmaskShimmer = ModContent.Request<Texture2D>(Texture + "_Shimmer_Glow");
+        }
 
         public override void ModifyTypeName(ref string typeName)
         {
@@ -919,13 +931,10 @@ namespace AAModClassic._Unofficial.Desert
             NPC.position -= NPC.netOffset;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D t = Mod.GetTexture(NPCExtensions.BeenKilled<ForsakenAnubis>() ? "NPCs/TownNPCs/LegendscribeF" : "NPCs/TownNPCs/Legendscribe");
-            Texture2D g = Mod.GetTexture(NPCExtensions.BeenKilled<ForsakenAnubis>() ? "Glowmasks/LegendscribeF_Glow" : "Glowmasks/Legendscribe_Glow");
-            BaseDrawing.DrawTexture(spriteBatch, t, 0, NPC, drawColor);
-            BaseDrawing.DrawTexture(spriteBatch, g, 0, NPC, Color.White);
-            return false;
+            Texture2D tex = NPC.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White);
         }
 
         public void TPDust()
