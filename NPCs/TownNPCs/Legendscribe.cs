@@ -1,41 +1,57 @@
 
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
+using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
+using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Greed;
+using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod;
-using Terraria.Localization;
-using AAModClassic.NPCs.Bosses.Rajah;
-using AAModClassic.Utilities;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Greed;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
-using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
-using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
-using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
-using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
-using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 
 namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
 	public class Legendscribe : ModNPC
 	{
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/Legendscribe";
+        private static int ShimmerHeadIndex;
+
+        public static Asset<Texture2D> Glowmask;
+        public static Asset<Texture2D> GlowmaskShimmer;
+
+        private static Profiles.StackedNPCProfile NPCProfile;
+
+        public override void Load()
+        {
+            ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            GlowmaskShimmer = ModContent.Request<Texture2D>(Texture + "_Shimmer_Glow");
+        }
+
         public override void ModifyTypeName(ref string typeName)
         {
             typeName = "Legendscribe";
@@ -52,16 +68,27 @@ namespace AAModClassic.NPCs.TownNPCs
 			NPCID.Sets.AttackTime[NPC.type] = 40;
 			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
-		}
+            NPCID.Sets.ShimmerTownTransform[Type] = true;
 
-        public float internalAI = 0;
+            NPCProfile = new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture)),
+                new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex)
+            );
+        }
+
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return NPCProfile;
+        }
+
+        public float TeleportToHouseTimer = 0;
 
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
             if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
-                writer.Write(internalAI);
+                writer.Write(TeleportToHouseTimer);
             }
         }
 
@@ -70,7 +97,7 @@ namespace AAModClassic.NPCs.TownNPCs
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI = reader.ReadSingle();
+                TeleportToHouseTimer = reader.ReadSingle();
             }
         }
 
@@ -95,10 +122,6 @@ namespace AAModClassic.NPCs.TownNPCs
             }
         }
 
-		public override void HitEffect(NPC.HitInfo hit)
-		{
-		}
-
 		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             for (int k = 0; k < 255; k++)
@@ -118,10 +141,6 @@ namespace AAModClassic.NPCs.TownNPCs
 		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
             return ["Anubis"];
-        }
-
-        public override void PostAI()
-        {
         }
 
         public static bool SwitchInfo = false;
@@ -414,10 +433,10 @@ namespace AAModClassic.NPCs.TownNPCs
                 TPDust();
                 NPC.active = false;
             }
-            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && internalAI < 240 && !NPC.homeless)
+            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && TeleportToHouseTimer < 240 && !NPC.homeless)
             {
-                internalAI++;
-                if (internalAI >= 240)
+                TeleportToHouseTimer++;
+                if (TeleportToHouseTimer >= 240)
                 {
                     bool flag4 = true;
                     int num3 = NPC.homeTileY;
@@ -456,7 +475,7 @@ namespace AAModClassic.NPCs.TownNPCs
                             NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
                             NPC.position.Y = num3 * 16 - NPC.height - 0.1f;
                             NPC.netUpdate = true;
-                            internalAI = 0;
+                            TeleportToHouseTimer = 0;
                         }
                     }
                 }
@@ -464,13 +483,10 @@ namespace AAModClassic.NPCs.TownNPCs
             return true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D t = Mod.GetTexture(NPCExtensions.BeenKilled<ForsakenAnubis>() ? "NPCs/TownNPCs/LegendscribeF" : "NPCs/TownNPCs/Legendscribe");
-            Texture2D g = Mod.GetTexture(NPCExtensions.BeenKilled<ForsakenAnubis>() ? "Glowmasks/LegendscribeF_Glow" : "Glowmasks/Legendscribe_Glow");
-            BaseDrawing.DrawTexture(spriteBatch, t, 0, NPC, drawColor);
-            BaseDrawing.DrawTexture(spriteBatch, g, 0, NPC, Color.White);
-            return false;
+            Texture2D tex = NPC.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White);
         }
 
         public void TPDust()
