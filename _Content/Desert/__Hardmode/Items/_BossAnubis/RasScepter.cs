@@ -39,6 +39,10 @@ Can only be used in the desert on the surface
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
+            Point tile = new Point((int)Main.MouseWorld.X / 16, (int)Main.MouseWorld.Y / 16);
+            Main.NewText(Main.tile[tile.X, tile.Y].TileType == TileID.TallGateClosed);
+            WorldGen.ShiftTallGate(tile.X, tile.Y, true, false);
+            
             if (!player.ZoneDesert && !player.ZoneUndergroundDesert)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScepterBossFalse1"), Color.Gold, false);
