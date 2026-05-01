@@ -141,13 +141,17 @@ TownNPCs: {
 		AnubisChat23: "Hey uh...if anyone asks, "
 		AnubisChat24: " got all of his info from me, got it?"
 		AnubisChat25: "That "
-		AnubisChat26: " is pretty chill. Knows a lot about bosses too...actually I hope he isn't stalking me or anything."
+		AnubisChat26: " is pretty chill. Knows a lot about bosses too... actually I hope he isn't stalking me or anything."
 		AnubisChat27: "I think "
 		AnubisChat28: " isn't letting in on how smart he actually is. I mean look at that face. Pure. Raw. Genius."
 		AnubisChat29: " keeps yelling at me for eating all the shoes he makes. It's not my fault he makes them with premium lether."
 		AnubisChat30: "Don't ask "
 		AnubisChat31: " where he gets his merch. It's nasty."
 		AnubisChat32: ...and then, he flips it over, and it turns out this guy turned himself into get this; a pickle. Bloody funniest sh*t I've ever seen. Huh? Who am I talking to? I dunno.
+		AnubisChatSOTSAnubisMask1: No.
+		AnubisChatSOTSAnubisMask2: Stop it.
+		AnubisChatSOTSAnubisMask3: Don't talk to me.
+		AnubisChatSOTSAnubisMask4: Get away from me.
 	}
 
 	GoblinSlayer: {
