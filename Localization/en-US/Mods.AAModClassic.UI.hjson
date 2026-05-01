@@ -35,3 +35,81 @@ WindowTitle: {
 	18: Ancients Awakened: Ported in full for your enjoyment
 	19: Ancients Awakened: A bright but dark future unfolds...
 }
+
+Quests: {
+	NotStarted: Not Started
+
+	LegendscribeQuestline: {
+		MushroomMonarch: {
+			Name: Mushrooms. I'm serious.
+			Description: Hey, you know all these little red mushrooms growing everywhere? I hear if you squish a bunch of them together and wave them around, their king or something will come and attempt to run you down. I gotta see that.
+			Tasks: - Defeat the Mushroom Monarch
+		}
+
+		FeudalFungus: {
+			Name: More Mushrooms.
+			Description: The glowing mushroom caves always make me feel loopy for some reason. Anyways, you want better magic abilities? There's a big mushroom monster that has some great magic abilities infused into it. Just plug your nose while your down there.
+			Tasks: - Defeat the Feudal Fungus
+		}
+
+		GripsOfChaos: {
+			Name: Get a Grip
+			Description: Those flying claws at night are a nightmare to deal with, and they freak me out. In my travels, I've come across these two REEEEEEEEALLY big ones. Maybe if you kill them, the little ones will bugger off. Maybe killing a few of them and showing that you have in some way will call them down.
+			Tasks: - Defeat the Grips of Chaos
+		}
+
+		Broodmother: {
+			Name: Deadweight Dragon
+			Description: Like dragons? No? Too bad. You want better gear? You gotta go kill of this HUGE dragon made of lava. She's big, scary, and WAAAAAAAAAAAY too fat to fly, but she does anyways.
+			Tasks: - Defeat the Broodmother
+		}
+
+		Hydra: {
+			Name: Three-Headed Freak
+			Description: The Mire has always been a gathering spot for all the nastiest lizards, but there's a really big one there, and it's got 3 heads. She's really grouchy all the time, and any time I try to go into her den, she tries to EAT me!
+			Tasks: - Defeat the Hydra
+		}
+
+		DesertDjinn: {
+			Name: 3 Wishes
+			Description: THAT SON OF A-- Oh hi. Sorry, I was just a bit angry about a little tussle I had with desert djinn. That magical meathead and his goons to stop flexing their muscles on me. Could you go teach em' a thing or two?
+			Tasks: - Defeat the Desert Djinn
+		}
+
+		SubzeroSerpent: {
+			Name: Cool as Ice
+			Description: Snakes, why does it always have to be snakes? I hate 'em! Whatever, in the tundra recently, there have been these snow snerpents that won't leave me alone. Could ya play exterminator and find out what they're doing?
+			Tasks: - Defeat the Subzero Serpent
+		}
+
+		Sagittarius: {
+			Name: Horseplay
+			Description: You know the void? Those spooky floating islands to the east? I swear I saw a robot horse flying around there. Gave me the heebie-jeebies! I was thinking, would you be able to take care of that tin can for me?
+			Tasks: - Defeat Sagittarius
+		}
+
+		Anubis: {
+			Name: Ancient of Judgement
+			Description: I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
+			Tasks: Defeat Anubis; Legendscribe
+		}
+
+		Athena: {
+			Name: Squakin' Headache
+			Description: You know those screechin' harpies up in the sky? Well there are these REALLY obnoxious ones called seraphs who just WILL NOT SHUT UP!!! They have a leader in that sky palace to the east. Maybe if you give her the ol' one-two, they'll shut their yappers.
+			Tasks: Defeat Athena the Seraph Queen
+		}
+
+		Greed: {
+			Name: What a Worm
+			Description: I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
+			Tasks: Defeat Greed the Golden Glutton
+		}
+
+		Rajah: {
+			Name: Hopping Hoodlum
+			Description: I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
+			Tasks: Defeat Rajah Rabbit
+		}
+	}
+}

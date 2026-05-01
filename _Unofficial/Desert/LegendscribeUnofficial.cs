@@ -1024,6 +1024,50 @@ namespace AAModClassic._Unofficial.Desert
             }
         }
 
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            button = "Smth";
+            button2 = "What should I do?";
+        }
+
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            if (firstButton)
+            {
+                /*
+                ResetBools();
+                ChatNumber += 1;
+                if (ChatNumber > 21)
+                {
+                    ChatNumber = 0;
+                }
+                */
+            }
+            else
+            {
+                LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
+                /*
+                Player player = Main.LocalPlayer;
+                int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
+                if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
+                {
+                    player.inventory[Item].stack--;
+                    if (player.inventory[Item].stack <= 0)
+                    {
+                        player.inventory[Item] = new Item();
+                    }
+
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
+
+                    SoundEngine.PlaySound(SoundID.Chat);
+                    return;
+                }
+                Main.npcChatText = BossChat();
+                */
+            }
+        }
+
         public override string GetChat()
         {
             return Legendscribe.LegendscribeDialogue(NPC);
