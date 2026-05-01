@@ -579,9 +579,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                 legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<LegendscribeUnofficial>());
             else 
                 legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
-            legendscribe.netUpdate = true;
-            legendscribe.townNpcVariationIndex = (legendscribe.townNpcVariationIndex != 1) ? 1 : 0;
-            NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, legendscribe.whoAmI);
+            legendscribe.ShimmerNPC();
 
             if (!NPCExtensions.BeenKilled<ForsakenAnubis>(true))
             {
