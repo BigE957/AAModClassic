@@ -238,6 +238,25 @@ namespace AAModClassic._Unofficial.Desert
 
             Point npcCenterInTiles = new Point((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16);
 
+            Rectangle openGateRectangle = new Rectangle(npcCenterInTiles.X - 1, npcCenterInTiles.Y - 1, 3, 5);
+            for (int x = openGateRectangle.X; x < openGateRectangle.X + openGateRectangle.Width; x++)
+            {
+                for (int y = openGateRectangle.Y; y < openGateRectangle.Y + openGateRectangle.Height; y++)
+                {
+                    if (Main.tile[openGateRectangle.X, openGateRectangle.Y].TileType == TileID.TallGateClosed)
+                        WorldGen.OpenDoor(openGateRectangle.X, openGateRectangle.Y, 1);
+                }
+            }
+
+            Rectangle closeGateRectangle = new Rectangle(npcCenterInTiles.X - 2, npcCenterInTiles.Y - 1, 5, 5);
+            for (int x = closeGateRectangle.X; x < closeGateRectangle.X + closeGateRectangle.Width; x++)
+            {
+                for (int y = closeGateRectangle.Y; y < closeGateRectangle.Y + closeGateRectangle.Height; y++)
+                {
+                    if (Main.tile[closeGateRectangle.X, closeGateRectangle.Y].TileType == TileID.TallGateOpen)
+                        WorldGen.CloseDoor(closeGateRectangle.X, closeGateRectangle.Y);
+                }
+            }
         }
 
         public override void FindFrame(int frameHeight)
