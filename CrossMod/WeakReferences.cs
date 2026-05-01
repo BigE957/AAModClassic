@@ -871,13 +871,13 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Anubis", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>() + "]"),
                     ["despawnMessage"] = (Func<NPC, LocalizedText>)((NPC npc) => {
                         if (NPC.AnyNPCs(ModContent.NPCType<FATransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
                     }),
-                    ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisTrophy>(),
@@ -968,7 +968,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "ForsakenAnubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ForsakenAnubis.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "ForsakenAnubis.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisATrophy>(),

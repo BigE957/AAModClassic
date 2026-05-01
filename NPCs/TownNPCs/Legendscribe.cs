@@ -579,9 +579,9 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (AnubisB)
             {
-                if (!BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>()))
+                if (!BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost"); 
                 }
 
@@ -748,12 +748,12 @@ namespace AAModClassic.NPCs.TownNPCs
                     chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat18") + Main.npc[femaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat19"));
             }
 
-            if (player.head == ArmorIDs.Head.AncientBattleArmor && player.body == ArmorIDs.Body.AncientBattleArmor && player.legs == ArmorIDs.Legs.AncientBattleArmor)
+            if (player.head == ArmorIDs.Head.AncientBattleArmor && player.body == ArmorIDs.Body.AncientBattleArmor && player.legs == ArmorIDs.Legs.AncientBattleArmor && Main.rand.NextBool(4))
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat20");
-            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.head == ArmorIDs.Head.AncientArmor && player.body == ArmorIDs.Body.AncientArmor && player.legs == ArmorIDs.Legs.AncientArmor)
+            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.head == ArmorIDs.Head.AncientArmor && player.body == ArmorIDs.Body.AncientArmor && player.legs == ArmorIDs.Legs.AncientArmor && Main.rand.NextBool(4))
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat20");
 
-            if ((player.armor[0].type == ModContent.ItemType<AnubisMask>() || player.armor[10].type == ModContent.ItemType<AnubisMask>()) && Main.rand.NextBool(5))
+            if ((player.armor[0].type == ModContent.ItemType<AnubisMask>() || player.armor[10].type == ModContent.ItemType<AnubisMask>()) && Main.rand.NextBool(4))
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatMask");
 
             if (NPCExtensions.BeenKilled<DesertDjinn>())
@@ -809,12 +809,12 @@ namespace AAModClassic.NPCs.TownNPCs
             #endregion
 
             #region progression
-            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>()))
+            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
             {
                 if (!mPlayer.GivenAnuSummon)
                 {
                     mPlayer.GivenAnuSummon = true;
-                    player.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(), 1);
+                    player.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat");
                 }
             }
@@ -833,6 +833,10 @@ namespace AAModClassic.NPCs.TownNPCs
             return chat;
         }
 
+        /// <summary>
+        /// unused but i dont have the heart to remove it
+        /// </summary>
+        /// <returns>a completely emptyy weightedrandom</returns>
         public static string WHATTHEFUCKDOIDOANUBIS()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
