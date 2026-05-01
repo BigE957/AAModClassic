@@ -709,12 +709,6 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public static string LegendscribeDialogue(NPC npc)
         {
-            Mod GRealm = ModSupport.GetMod("Grealm");
-            Mod Fargos = ModSupport.GetMod("Fargowiltas");
-            Mod Redemption = ModSupport.GetMod("Redemption");
-            Mod Thorium = ModSupport.GetMod("ThoriumMod");
-            Mod SOTS = ModSupport.GetMod("SOTS");
-
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             Player player = Main.LocalPlayer;
@@ -769,7 +763,13 @@ namespace AAModClassic.NPCs.TownNPCs
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat21"));
             #endregion
 
-            #region crosscompat
+            #region crossmod
+            Mod GRealm = ModSupport.GetMod("Grealm");
+            Mod Fargos = ModSupport.GetMod("Fargowiltas");
+            Mod Redemption = ModSupport.GetMod("Redemption");
+            Mod Thorium = ModSupport.GetMod("ThoriumMod");
+            Mod SOTS = ModSupport.GetMod("SOTS");
+
             int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("GRealm", "HordeZombie").NPC.type);
             if (HordeZombie >= 0)
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat23") + Main.npc[HordeZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat24"));
