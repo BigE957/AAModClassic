@@ -201,7 +201,7 @@ Contained loot depends on the time of day"); */
 
             dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DaybringerMask>(), 7));
 
-            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantStar>(), 7));
+            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantStar>()));
 
             LeadingConditionRule nightTime = new(new Nighttime());
 
@@ -209,7 +209,7 @@ Contained loot depends on the time of day"); */
 
             nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<NightcrawlerMask>(), 7));
 
-            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkVoid>(), 7));
+            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkVoid>()));
 
             itemLoot.Add(dayTime);
             itemLoot.Add(nightTime);
