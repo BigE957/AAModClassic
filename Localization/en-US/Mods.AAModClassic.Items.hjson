@@ -10799,3 +10799,8 @@ ScorchedDynastyWoodUnsafe: {
 	DisplayName: Scorched Dynasty Wood Unsafe
 	Tooltip: ""
 }
+
+RasScepter: {
+	DisplayName: Ras Scepter
+	Tooltip: ""
+}

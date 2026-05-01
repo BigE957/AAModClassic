@@ -13,7 +13,7 @@ using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis
 {
-    public class Scepter : BaseAAItem
+    public class RasScepter : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

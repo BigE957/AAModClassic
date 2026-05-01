@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
 using Terraria.ID;
@@ -49,6 +50,15 @@ namespace AAModClassic._Unofficial.Desert
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             GlowmaskShimmer = ModContent.Request<Texture2D>(Texture + "_Shimmer_Glow");
+
+            On_Main.DoDraw_DrawNPCsOverTiles += GeneralDrawLayer_DrawToLayer_NPCs;
+        }
+
+        private static void GeneralDrawLayer_DrawToLayer_NPCs(On_Main.orig_DoDraw_DrawNPCsOverTiles orig, Main self)
+        {
+            //Draw stuff before all other npcs
+            orig(self);
+            //Draw stuff after all other npcs
         }
 
         public override void ModifyTypeName(ref string typeName)
@@ -56,18 +66,29 @@ namespace AAModClassic._Unofficial.Desert
             typeName = "Legendscribe";
         }
 
-		public override void SetStaticDefaults()
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture)),
+                new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex)
+            );
+        }
+
+        public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 19;
-            NPC.dontTakeDamageFromHostiles = true;
 			NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
 			NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 			NPCID.Sets.AttackType[NPC.type] = 0;
 			NPCID.Sets.AttackTime[NPC.type] = 40;
 			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
-		}
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -82,12 +103,13 @@ namespace AAModClassic._Unofficial.Desert
             NPC.HitSound = SoundID.NPCHit23;
             NPC.DeathSound = SoundID.NPCDeath39;
             NPC.knockBackResist = 0f;
-            //AnimationType = NPCID.Guide;
             NPC.lavaImmune = true;
+            NPC.dontTakeDamageFromHostiles = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
             }
+            NPC.buffImmune[BuffID.Shimmer] = false;
         }
 
         public float AwayFromPlayerTimer = 0;
@@ -238,6 +260,25 @@ namespace AAModClassic._Unofficial.Desert
 
             Point npcCenterInTiles = new Point((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16);
 
+            Rectangle openGateRectangle = new Rectangle(npcCenterInTiles.X - 2, npcCenterInTiles.Y - 1, 5, 5);
+            for (int x = openGateRectangle.X; x < openGateRectangle.X + openGateRectangle.Width; x++)
+            {
+                for (int y = openGateRectangle.Y; y < openGateRectangle.Y + openGateRectangle.Height; y++)
+                {
+                    if (Main.tile[x, y].TileType == TileID.TallGateClosed)
+                        WorldGen.ShiftTallGate(x, y, false);
+                }
+            }
+
+            Rectangle closeGateRectangle = new Rectangle(npcCenterInTiles.X - 3, npcCenterInTiles.Y - 1, 8, 5);
+            for (int x = closeGateRectangle.X; x < closeGateRectangle.X + closeGateRectangle.Width; x++)
+            {
+                for (int y = closeGateRectangle.Y; y < closeGateRectangle.Y + closeGateRectangle.Height; y++)
+                {
+                    if (Main.tile[x, y].TileType == TileID.TallGateOpen && ((x < openGateRectangle.X || x > openGateRectangle.X + openGateRectangle.Width) || (y < openGateRectangle.Y || y > openGateRectangle.Y + openGateRectangle.Height)))
+                        WorldGen.ShiftTallGate(x, y, true);
+                }
+            }
         }
 
         public override void FindFrame(int frameHeight)
@@ -985,114 +1026,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override string GetChat()
         {
-            Mod GRealm = ModSupport.GetMod("Grealm");
-            Mod Fargos = ModSupport.GetMod("Fargowiltas");
-            Mod Redemption = ModSupport.GetMod("Redemption");
-            Mod Thorium = ModSupport.GetMod("ThoriumMod");
-
-            //int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("GRealm", "HordeZombie").npc.type);
-            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Fargowiltas", "Mutant").NPC.type);
-            int Newb = Redemption == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Redemption", "Newb").NPC.type);
-            int Cobbler = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "Cobbler").NPC.type);
-            int ConfusedZombie = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "ConfusedZombie").NPC.type);
-
-            WeightedRandom<string> chat = new WeightedRandom<string>();
-
-            Player player = Main.LocalPlayer;
-            AAPlayer mPlayer = player.GetModPlayer<AAPlayer>();
-
-            if (player.head == ModContent.ItemType<AnubisMask>() && Main.rand.NextBool(5))
-            {
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatMask");
-            }
-
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat1"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat2"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat3"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat4"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat5"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat6"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat7"));
-            if (NPCExtensions.BeenKilled<DesertDjinn>())
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat8"));
-            }
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat9"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat10"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat11") + (WorldGen.crimson ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat12") : Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat13")) + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat14"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat15"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat32"));
-
-
-
-            int FemaleNPC = NPC.FindFirstNPC(FindFemaleNPC());
-
-
-            if (Main.bloodMoon && FemaleNPC != NPCID.PartyGirl)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat16") + Main.npc[FemaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat17"));
-            }
-            else if (Main.bloodMoon && FemaleNPC == NPCID.PartyGirl)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat18") + Main.npc[FemaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat19"));
-            }
-
-            if (player.head == 200 && player.body == 198 && player.legs == 142)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat20"));
-            }
-
-            if (BirthdayParty.GenuineParty || BirthdayParty.ManualParty)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat21"));
-            }
-
-            /*if (HordeZombie >= 0)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat23") + Main.npc[HordeZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat24"));
-            }*/
-
-            if (Mutant >= 0)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat25") + Main.npc[Mutant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat26"));
-            }
-
-            if (Newb >= 0)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat27") + Main.npc[Newb].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat28"));
-            }
-
-            if (Cobbler >= 0)
-            {
-                chat.Add(Main.npc[Cobbler].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat29"));
-            }
-
-            if (ConfusedZombie >= 0)
-            {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat31"));
-            }
-
-            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>()))
-            {
-                if (!mPlayer.GivenAnuSummon)
-                {
-                    mPlayer.GivenAnuSummon = true;
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.Scepter>(), 1);
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat");
-                }
-            }
-
-            if (NPCExtensions.BeenKilled<ForsakenAnubis>() && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
-            {
-                if (!mPlayer.GivenWormIdol)
-                {
-                    mPlayer.GivenWormIdol = true;
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<WormIdol>(), 1);
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat2");
-                }
-            }
-
-            return chat;
+            return Legendscribe.LegendscribeDialogue(NPC);
         }
 
         public static int FindFemaleNPC()

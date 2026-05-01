@@ -75,6 +75,8 @@ namespace AAModClassic.NPCs.TownNPCs
             return false;
         }
 
+        public override bool CanGoToStatue(bool toKingStatue) => !toKingStatue;
+
         public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
             return ["Aletheia", "C'thalpa", "D’endrrah", "Ycnagnnisssz", "Yidhra"];			
