@@ -126,7 +126,7 @@ namespace AAModClassic.Tiles.Boss
             else
             {
                 //I have no idea how to convert this to the standard system so im gonna post this method too lol
-                AANet.SendNetMessage(AANet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, true, (int)npcCenter.X, (int)npcCenter.Y, name, false);
+                AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, true, (int)npcCenter.X, (int)npcCenter.Y, name, false);
             }
         }
 

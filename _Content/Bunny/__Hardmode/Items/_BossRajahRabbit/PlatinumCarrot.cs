@@ -101,7 +101,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
             }
             else
             {
-                AANet.SendNetMessage(AANet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
+                AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
         }
     }

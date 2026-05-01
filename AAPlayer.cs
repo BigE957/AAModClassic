@@ -3150,7 +3150,7 @@ namespace AAModClassic
                     DD2Event.TimeLeftBetweenWaves = 60;
                     if (Main.netMode != NetmodeID.SinglePlayer)
                     {
-                        AANet.SendNetMessage(AANet.DD2EventTime, (byte)DD2Event.TimeLeftBetweenWaves);
+                        AANet.SendNetMessage<DD2EventTime>((byte)DD2Event.TimeLeftBetweenWaves);
                     }
                 }
             }

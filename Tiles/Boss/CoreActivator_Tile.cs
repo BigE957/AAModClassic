@@ -108,7 +108,7 @@ public class CoreActivator_Tile : ModTile
 		}
 		else
 		{
-			AANet.SendNetMessage(0, (byte)player.whoAmI, (short)bossType, true, (int)val.X, (int)val.Y, "The Biome Core whirs to life!", false);
+			AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, true, (int)val.X, (int)val.Y, "The Biome Core whirs to life!", false);
 		}
 	}
 

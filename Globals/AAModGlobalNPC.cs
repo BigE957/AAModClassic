@@ -1468,7 +1468,7 @@ namespace AAModClassic.Globals
             else
             {
                 //I have no idea how to convert this to the standard system so im gonna post this method too lol
-                AANet.SendNetMessage(AANet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
+                AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
         }
 
@@ -1499,7 +1499,7 @@ namespace AAModClassic.Globals
             else
             {
                 //I have no idea how to convert this to the standard system so im gonna post this method too lol
-                AANet.SendNetMessage(AANet.SummonNPCFromClient, (byte)player.whoAmI, (short)RajahType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
+                AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)RajahType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
         }
     }

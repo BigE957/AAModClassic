@@ -1,58 +1,52 @@
 
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.ID;
 using Terraria.GameContent.Events;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Globals
 {
-    public class AANet
+    public class AANet : AAModSystem
     {
-        public const byte SummonNPCFromClient = 0;
-	    public const byte UpdateLovecraftianCount = 1;
-        public const byte GenOre = 2;
-        public const byte DD2EventTime = 3;
+        private static readonly List<AAPacket> instances = [];
+        private static readonly Dictionary<Type, byte> typeToId = [];
 
-        public static bool DEBUG = true;
+        public override void Load()
+        {
+            var packets = Mod.GetContent<AAPacket>();
 
-        public static void HandlePacket(BinaryReader bb, int whoAmI)
+            foreach (var p in packets)
+            {
+                p.MessageType = instances.Count;
+                typeToId[p.GetType()] = (byte)instances.Count;
+                instances.Add(p);
+            }
+        }
+
+        public override void Unload()
+        {
+            instances.Clear();
+            typeToId.Clear();
+        }
+
+        public static void HandlePacket(BinaryReader bb, int sender)
         {
             byte msg = bb.ReadByte();
-            
-			if (DEBUG)
+
+            if (msg >= instances.Count)
             {
-                string mode = Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ";
-                AAMod.instance.Logger.Info($"{mode} HANDLING MESSAGE: {msg}");
+                AAMod.instance.Logger.Warn("Recieved packet with an invalid msg id of " + msg);
+                return;
             }
 
             try
 			{
-				if (msg == SummonNPCFromClient)
-				{
-					if (Main.netMode == NetmodeID.Server)
-					{
-						int playerID = bb.ReadByte();
-						int bossType = bb.ReadInt16();
-						bool spawnMessage = bb.ReadBoolean();
-						int npcCenterX = bb.ReadInt32();
-						int npcCenterY = bb.ReadInt32();
-						string overrideDisplayName = bb.ReadString();
-						bool namePlural = bb.ReadBoolean();
-
-						AAModGlobalNPC.SpawnBoss(Main.player[playerID], bossType, spawnMessage, new Vector2(npcCenterX, npcCenterY), overrideDisplayName, namePlural);
-					}
-				}
-                else if (msg == UpdateLovecraftianCount)
-				{
-					LovecraftianCount(bb, whoAmI);
-				}
-                else if (msg == DD2EventTime)
-                {
-                    DD2Event.TimeLeftBetweenWaves = bb.ReadByte();
-                }
+                instances[msg].HandlePacket(bb, sender);
             }
             catch (Exception e)
             {
@@ -64,9 +58,106 @@ namespace AAModClassic.Globals
             }
 		}
 
-        private static void LovecraftianCount(BinaryReader reader, int fromWho)
+        public static void SendNetMessage<T>(params object[] param) where T : AAPacket
         {
-            int whichSquidX = reader.ReadByte();
+            SendNetMessageClient<T>(-1, param);
+        }
+
+        public static void SendNetMessageClient<T>(int client, params object[] param) where T : AAPacket
+        {
+            if (!typeToId.TryGetValue(typeof(T), out byte msg)) 
+                return;
+
+            try
+            {
+                instances[msg].Send(client, param);
+            }
+            catch (Exception e)
+            {
+                string mode = Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ";
+                AAMod.instance.Logger.Error($"{mode} ERROR SENDING MSG: {msg}: {e.Message}");
+                AAMod.instance.Logger.Info(e.StackTrace);
+                AAMod.instance.Logger.Info("-------");
+
+                string param2 = "";
+                for (int m = 0; m < param.Length; m++)
+                {
+                    param2 += param[m];
+                }
+
+                AAMod.instance.Logger.Info("PARAMS: " + param2);
+                AAMod.instance.Logger.Info("-------");
+            }
+        }
+
+    }
+
+    public abstract class AAPacket : ILoadable
+    {
+        public virtual void Load(Mod mod) { }
+
+        public virtual void Unload() { }
+
+        public int MessageType = -1;
+
+        public abstract void HandlePacket(BinaryReader reader, int sender);
+
+        // The "Internal" write logic
+        protected abstract void Write(BinaryWriter writer, object[] args);
+
+        // The clean helper for the caller
+        public void Send(int toClient = -1, params object[] args)
+        {
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                return;
+
+            ModPacket packet = AAMod.instance.GetPacket();
+            packet.Write((byte)MessageType);
+            Write(packet, args);
+            packet.Send(toClient);
+        }
+    }
+
+    public class SummonNPCFromClient : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
+        {
+            w.Write((byte)args[0]);  // playerID
+            w.Write((short)args[1]); // bossType
+            w.Write((bool)args[2]);  // spawnMessage
+            w.Write((int)args[3]);  // npcCenterX
+            w.Write((int)args[4]); // npcCenterY
+            w.Write((string)args[5]);  // overrideDisplayName
+            w.Write((bool)args[6]);  // namePlural
+        }
+
+        public override void HandlePacket(BinaryReader packet, int sender)
+        {
+            if (Main.netMode == NetmodeID.Server)
+            {
+                int playerID = packet.ReadByte();
+                int bossType = packet.ReadInt16();
+                bool spawnMessage = packet.ReadBoolean();
+                int npcCenterX = packet.ReadInt32();
+                int npcCenterY = packet.ReadInt32();
+                string overrideDisplayName = packet.ReadString();
+                bool namePlural = packet.ReadBoolean();
+
+                AAModGlobalNPC.SpawnBoss(Main.player[playerID], bossType, spawnMessage, new Vector2(npcCenterX, npcCenterY), overrideDisplayName, namePlural);
+            }
+        }
+    }
+
+    public class UpdateLovecraftianCount : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
+        {
+            w.Write(Convert.ToByte(args[0]));  // whichSquidX
+        }
+
+        public override void HandlePacket(BinaryReader packet, int sender)
+        {
+            int whichSquidX = packet.ReadByte();
             switch (whichSquidX)
             {
                 case 1:
@@ -134,74 +225,18 @@ namespace AAModClassic.Globals
                     break;
             }
         }
+    }
 
-        private static void RabbitCount(BinaryReader reader, int fromWho)
+    public class DD2EventTime : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
         {
-            int RabbitKills = reader.ReadByte();
-            if (RabbitKills == 1)
-            {
-                AAWorld.RabbitKills += 1;
-            }
-            else if (RabbitKills == 2)
-            {
-                AAWorld.RabbitKills = 0;
-            }
+            w.Write((byte)args[0]);  // TimeLeftBetweenWaves
         }
 
-        public static void SyncPlayer(int toWho, int fromWho, bool newPlayer)
+        public override void HandlePacket(BinaryReader packet, int sender)
         {
-            if (DEBUG)
-            {
-                string mode = Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ";
-                AAMod.instance.Logger.Info($"{mode} SYNC PLAYER CALLED! NEWPLAYER: {newPlayer}. TOWHO:{toWho}. FROMWHO:{fromWho}");
-            }
-
-            if (Main.netMode == NetmodeID.Server && (toWho > -1 || fromWho > -1))
-            {
-                PlayerConnected(toWho == -1 ? fromWho : toWho);
-            }
-        }
-
-        public static void PlayerConnected(int playerID)
-        {
-            if (DEBUG)
-            {
-                AAMod.instance.Logger.Info("--SERVER-- PLAYER JOINED!");
-            }
-        }
-
-        public static void SendNetMessage(int msg, params object[] param)
-        {
-            SendNetMessageClient(msg, -1, param);
-        }
-
-        public static void SendNetMessageClient(int msg, int client, params object[] param)
-        {
-            try
-            {
-                if (Main.netMode == NetmodeID.SinglePlayer)
-                {
-                    return;
-                }
-
-                BaseNet.WriteToPacket(AAMod.instance.GetPacket(), (byte)msg, param).Send(client);
-            }
-            catch (Exception e)
-            {
-                string mode = Main.netMode == NetmodeID.Server ? "--SERVER-- " : "--CLIENT-- ";
-                AAMod.instance.Logger.Error($"{mode} ERROR SENDING MSG: {msg}: {e.Message}");
-                AAMod.instance.Logger.Info(e.StackTrace);
-                AAMod.instance.Logger.Info("-------");
-
-                string param2 = "";
-                for (int m = 0; m < param.Length; m++)
-                {
-                    param2 += param[m];
-                }
-
-                AAMod.instance.Logger.Info("PARAMS: " + param2);
-                AAMod.instance.Logger.Info("-------");
-            }
+            DD2Event.TimeLeftBetweenWaves = packet.ReadByte();
         }
     }
 }
