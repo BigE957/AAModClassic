@@ -1,9 +1,12 @@
 ﻿using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic._Unofficial.Desert;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.NPCs.TownNPCs;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -571,7 +574,14 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
         public override void OnKill()
         {
-            NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
+            NPC legendscribe = null;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<LegendscribeUnofficial>());
+            else 
+                legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
+            legendscribe.netUpdate = true;
+            legendscribe.townNpcVariationIndex = (legendscribe.townNpcVariationIndex != 1) ? 1 : 0;
+            NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, legendscribe.whoAmI);
 
             if (!NPCExtensions.BeenKilled<ForsakenAnubis>(true))
             {

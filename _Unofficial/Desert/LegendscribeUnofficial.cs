@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
 using Terraria.ID;
@@ -49,6 +50,15 @@ namespace AAModClassic._Unofficial.Desert
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             GlowmaskShimmer = ModContent.Request<Texture2D>(Texture + "_Shimmer_Glow");
+
+            On_Main.DoDraw_DrawNPCsOverTiles += GeneralDrawLayer_DrawToLayer_NPCs;
+        }
+
+        private static void GeneralDrawLayer_DrawToLayer_NPCs(On_Main.orig_DoDraw_DrawNPCsOverTiles orig, Main self)
+        {
+            //Draw stuff before all other npcs
+            orig(self);
+            //Draw stuff after all other npcs
         }
 
         public override void ModifyTypeName(ref string typeName)
@@ -56,18 +66,29 @@ namespace AAModClassic._Unofficial.Desert
             typeName = "Legendscribe";
         }
 
-		public override void SetStaticDefaults()
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture)),
+                new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex)
+            );
+        }
+
+        public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 19;
-            NPC.dontTakeDamageFromHostiles = true;
 			NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
 			NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 			NPCID.Sets.AttackType[NPC.type] = 0;
 			NPCID.Sets.AttackTime[NPC.type] = 40;
 			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
-		}
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -82,12 +103,13 @@ namespace AAModClassic._Unofficial.Desert
             NPC.HitSound = SoundID.NPCHit23;
             NPC.DeathSound = SoundID.NPCDeath39;
             NPC.knockBackResist = 0f;
-            //AnimationType = NPCID.Guide;
             NPC.lavaImmune = true;
+            NPC.dontTakeDamageFromHostiles = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
             }
+            NPC.buffImmune[BuffID.Shimmer] = false;
         }
 
         public float AwayFromPlayerTimer = 0;
@@ -238,29 +260,23 @@ namespace AAModClassic._Unofficial.Desert
 
             Point npcCenterInTiles = new Point((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16);
 
-            bool hasOpenedGate = false;
             Rectangle openGateRectangle = new Rectangle(npcCenterInTiles.X - 2, npcCenterInTiles.Y - 1, 5, 5);
             for (int x = openGateRectangle.X; x < openGateRectangle.X + openGateRectangle.Width; x++)
             {
                 for (int y = openGateRectangle.Y; y < openGateRectangle.Y + openGateRectangle.Height; y++)
                 {
                     if (Main.tile[x, y].TileType == TileID.TallGateClosed)
-                    {
                         WorldGen.ShiftTallGate(x, y, false);
-                        hasOpenedGate = true;
-                    }
                 }
             }
 
-            Rectangle closeGateRectangle = new Rectangle(npcCenterInTiles.X - 3, npcCenterInTiles.Y - 1, 7, 5);
+            Rectangle closeGateRectangle = new Rectangle(npcCenterInTiles.X - 3, npcCenterInTiles.Y - 1, 8, 5);
             for (int x = closeGateRectangle.X; x < closeGateRectangle.X + closeGateRectangle.Width; x++)
             {
                 for (int y = closeGateRectangle.Y; y < closeGateRectangle.Y + closeGateRectangle.Height; y++)
                 {
                     if (Main.tile[x, y].TileType == TileID.TallGateOpen && ((x < openGateRectangle.X || x > openGateRectangle.X + openGateRectangle.Width) || (y < openGateRectangle.Y || y > openGateRectangle.Y + openGateRectangle.Height)))
-                    {
                         WorldGen.ShiftTallGate(x, y, true);
-                    }
                 }
             }
         }

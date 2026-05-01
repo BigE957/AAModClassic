@@ -44,8 +44,6 @@ namespace AAModClassic.NPCs.TownNPCs
         public static Asset<Texture2D> Glowmask;
         public static Asset<Texture2D> GlowmaskShimmer;
 
-        private static Profiles.StackedNPCProfile NPCProfile;
-
         public override void Load()
         {
             ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
@@ -59,27 +57,51 @@ namespace AAModClassic.NPCs.TownNPCs
             typeName = "Legendscribe";
         }
 
-		public override void SetStaticDefaults()
-		{
-			Main.npcFrameCount[NPC.type] = 26;
-			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
-			NPCID.Sets.AttackFrameCount[NPC.type] = 5;
-			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
-			NPCID.Sets.AttackType[NPC.type] = 0;
-			NPCID.Sets.AttackTime[NPC.type] = 40;
-			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
-			NPCID.Sets.HatOffsetY[NPC.type] = 3;
-            NPCID.Sets.ShimmerTownTransform[NPC.type] = true;
-
-            NPCProfile = new Profiles.StackedNPCProfile(
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return new Profiles.StackedNPCProfile(
                 new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture)),
                 new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex)
             );
         }
 
-        public override ITownNPCProfile TownNPCProfile()
+        public override void SetStaticDefaults()
         {
-            return NPCProfile;
+            Main.npcFrameCount[Type] = 26;
+            NPCID.Sets.ExtraFramesCount[Type] = 10;
+            NPCID.Sets.AttackFrameCount[Type] = 5;
+
+            NPCID.Sets.DangerDetectRange[Type] = 700;
+            NPCID.Sets.AttackType[Type] = 0;
+            NPCID.Sets.AttackTime[Type] = 40;
+            NPCID.Sets.AttackAverageChance[Type] = 20;
+
+            NPCID.Sets.HatOffsetY[Type] = 3;
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true;
+        }
+
+        public override void SetDefaults()
+        {
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = NPCAIStyleID.Passive;
+            NPC.damage = 10;
+            NPC.defense = 68;
+            NPC.lifeMax = 160000;
+            NPC.HitSound = SoundID.NPCHit23;
+            NPC.DeathSound = SoundID.NPCDeath39;
+            NPC.knockBackResist = 0f;
+            AnimationType = NPCID.Guide;
+            NPC.lavaImmune = true;
+            NPC.dontTakeDamageFromHostiles = true;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
+            {
+                NPC.buffImmune[k] = true;
+            }
+            NPC.buffImmune[BuffID.Shimmer] = false;
         }
 
         public float TeleportToHouseTimer = 0;
@@ -99,28 +121,6 @@ namespace AAModClassic.NPCs.TownNPCs
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 TeleportToHouseTimer = reader.ReadSingle();
-            }
-        }
-
-        public override void SetDefaults()
-		{
-			NPC.townNPC = true;
-			NPC.friendly = true;
-			NPC.width = 18;
-            NPC.height = 40;
-            NPC.aiStyle = NPCAIStyleID.Passive;
-			NPC.damage = 10;
-			NPC.defense = 68;
-			NPC.lifeMax = 160000;
-            NPC.HitSound = SoundID.NPCHit23;
-            NPC.DeathSound = SoundID.NPCDeath39;
-            NPC.knockBackResist = 0f;
-			AnimationType = NPCID.Guide;
-            NPC.lavaImmune = true;
-            NPC.dontTakeDamageFromHostiles = true;
-            for (int k = 0; k < NPC.buffImmune.Length; k++)
-            {
-                NPC.buffImmune[k] = true;
             }
         }
 
