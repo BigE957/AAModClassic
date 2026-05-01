@@ -489,6 +489,7 @@ namespace AAModClassic.NPCs.TownNPCs
         {
             Texture2D tex = NPC.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White);
+            //spriteBatch.Draw(tex, );
         }
 
         public void TPDust()

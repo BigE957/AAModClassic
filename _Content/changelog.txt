@@ -18,6 +18,7 @@ base
 -removed blocks made redundant by the previous change
 -subzero serpent now properly chooses a random segment sprite to use per segment
 -fixed subzero serpents head being fully opaque
+-removed the old ones charms hotkey effect as it is redundant
 -
 
 removed
@@ -46,6 +47,7 @@ unofficial
 -an entirely nonfunctional subzero serpent attack has been reinterpreted and restored
 --subzero serpent will periodically summon an ice crystal above the players head, up to a cap of 3. this crystal shoots projectiles towards the player. it kinda sucks but it gives u smth to hit while shes offscreen so it feels fine
 --this is our interpretation of the code, with very minor polish added. since it was never complete and extremely buggy, it's hard to tell what decisions were or were not intentional. consequently, we have put this change under unofficial
+-the legendscribe is now much larger, and now boasts a custom ui instead of janky town npc options
 -
 
 crossmod

@@ -226,17 +226,4 @@ namespace AAModClassic.Globals
             }
         }
     }
-
-    public class DD2EventTime : AAPacket
-    {
-        protected override void Write(BinaryWriter w, object[] args)
-        {
-            w.Write((byte)args[0]);  // TimeLeftBetweenWaves
-        }
-
-        public override void HandlePacket(BinaryReader packet, int sender)
-        {
-            DD2Event.TimeLeftBetweenWaves = packet.ReadByte();
-        }
-    }
 }

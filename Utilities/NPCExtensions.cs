@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAModClassic.NPCs.TownNPCs;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,6 +26,34 @@ namespace AAModClassic.Utilities
                 Hide = true
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(n.Type, value);
+        }
+
+        /// <summary>
+        /// Shimmers the current NPC, if they aren't already shimmered. If the NPC doesn't have an alt shimmer skin, nothing will happen.
+        /// </summary>
+        /// <param name="npc">The NPC to be shimmered.</param>
+        public static void ShimmerNPC(this NPC npc)
+        {
+            if (NPCID.Sets.ShimmerTownTransform[npc.type] && npc.townNpcVariationIndex != 1)
+            {
+                npc.netUpdate = true;
+                npc.townNpcVariationIndex = 1;
+                NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, npc.whoAmI);
+            }
+        }
+
+        /// <summary>
+        /// Unshimmers the current NPC, if they aren't already ordinary. If the NPC doesn't have an alt shimmer skin, nothing will happen.
+        /// </summary>
+        /// <param name="npc">The NPC to be unshimmered.</param>
+        public static void UnshimmerNPC(this NPC npc)
+        {
+            if (NPCID.Sets.ShimmerTownTransform[npc.type] && npc.townNpcVariationIndex != 0)
+            {
+                npc.netUpdate = true;
+                npc.townNpcVariationIndex = 0;
+                NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, npc.whoAmI);
+            }
         }
     }
 }

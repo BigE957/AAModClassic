@@ -313,7 +313,6 @@ namespace AAModClassic
 
         public bool GreedCharm;
         public bool GreedTalisman;
-        public bool OldOneCharm = false;
         public bool SpellBookofRagnarok;
         public bool CursedEyeofSoulBinder;
         #endregion
@@ -610,7 +609,6 @@ namespace AAModClassic
             Greed1 = false;
             Greed2 = false;
             olympianWings = false;
-            OldOneCharm = false;
             SpellBookofRagnarok = false;
             CursedEyeofSoulBinder = false;
         }
@@ -3140,18 +3138,6 @@ namespace AAModClassic
                     }
                     Player.AddBuff(ModContent.BuffType<AsheFlame_Buff>(), 900);
                     AsheCooldown = 5400;
-                }
-            }
-
-            if (OldOneCharm)
-            {
-                if (AAMod.AccessoryAbilityKey.JustPressed && DD2Event.Ongoing && DD2Event.TimeLeftBetweenWaves > 0)
-                {
-                    DD2Event.TimeLeftBetweenWaves = 60;
-                    if (Main.netMode != NetmodeID.SinglePlayer)
-                    {
-                        AANet.SendNetMessage<DD2EventTime>((byte)DD2Event.TimeLeftBetweenWaves);
-                    }
                 }
             }
 

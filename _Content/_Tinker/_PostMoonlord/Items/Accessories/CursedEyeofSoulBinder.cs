@@ -27,15 +27,13 @@ namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
             player.maxTurrets ++;
             player.statLifeMax2 += 50;
             if(DD2Event.Ongoing) player.GetDamage(DamageClass.Summon) += .1f;
-            player.GetModPlayer<AAPlayer>().OldOneCharm = true;
             player.GetModPlayer<AAPlayer>().CursedEyeofSoulBinder = true;
         }
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cursed Eye of the Soul Binder");
-            /* Tooltip.SetDefault(@"Pressing the accessory ability hotkey helps player skip the time between old one army two waves.
-Increase 21% minion damage
+            /* Tooltip.SetDefault(@"Increase 21% minion damage
 Increase your max number of minions
 Increase your max number of sentries
 +50 Max Life
