@@ -90,26 +90,26 @@ Quests: {
 
 		Anubis: {
 			Name: Ancient of Judgement
-			Description: I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
-			Tasks: Defeat Anubis; Legendscribe
+			Description: I hear there's this lorekeeper guy that's really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
+			Tasks: - Defeat Anubis; Legendscribe
 		}
 
 		Athena: {
 			Name: Squakin' Headache
 			Description: You know those screechin' harpies up in the sky? Well there are these REALLY obnoxious ones called seraphs who just WILL NOT SHUT UP!!! They have a leader in that sky palace to the east. Maybe if you give her the ol' one-two, they'll shut their yappers.
-			Tasks: Defeat Athena the Seraph Queen
+			Tasks: - Defeat Athena
 		}
 
 		Greed: {
 			Name: What a Worm
-			Description: I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
-			Tasks: Defeat Greed the Golden Glutton
+			Description: Hey uh, there's this HUGE hoard of treasure underground somewhere with lots of gold in it, but it's guarded by this really stingy worm. You should go check it out for a boatload of booty, but uh...there's something of mine down there. Could you go get it for me? Don't worry, when you see it, you'll know it's mine.
+			Tasks: - Defeat Greed
 		}
 
 		Rajah: {
 			Name: Hopping Hoodlum
-			Description: I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
-			Tasks: Defeat Rajah Rabbit
+			Description: Hey, you know those bunnies that hop around all the time? I uh... I wouldn't harass them if I were you. There's a legend around here of a sort of 'Guardian' of sorts that protects from the danger. Why is it a legend? Because apparently nobody has fought this thing and lived. Neat story, eh?
+			Tasks: - Defeat Rajah Rabbit
 		}
 	}
 }

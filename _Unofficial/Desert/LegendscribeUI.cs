@@ -72,21 +72,30 @@ namespace AAModClassic._Unofficial.Desert
             if (!QuestSystem.Questlines.ContainsKey("LegendscribeQuestline"))
                 return;
 
+            Color outerBorder = Color.Black;
+            Color outerBack = Color.DarkGoldenrod;
+
+            Color innerBorder = Color.Cyan;
+            Color innerBack = Color.Black;
+
+            Color labelBorder = Color.Black;
+            Color labelBack = Color.Gold;
+
             currentQuestID = "MushroomMonarch";
             Area = new()
             {
                 HAlign = 0.5f,
                 VAlign = 0.33f,
-                BackgroundColor = Color.SkyBlue,
-                BorderColor = Color.Blue
+                BackgroundColor = outerBack,
+                BorderColor = outerBorder
             };
             Area.Width.Pixels = 880;
             Area.Height.Pixels = 630;
 
             QuestListArea = new()
             {
-                BackgroundColor = Color.Tan,
-                BorderColor = Color.Yellow,
+                BackgroundColor = innerBack,
+                BorderColor = innerBorder,
                 VAlign = 0.99f,
                 HAlign = 0.5f
             };
@@ -129,8 +138,8 @@ namespace AAModClassic._Unofficial.Desert
 
             QuestDetailsArea = new()
             {
-                BackgroundColor = Color.Tan,
-                BorderColor = Color.Yellow,
+                BackgroundColor = innerBack,
+                BorderColor = innerBorder,
                 VAlign = 0.01f,
                 HAlign = 0.5f
             };
@@ -141,7 +150,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestTitle = new(currentQuest == null ? "Hi" : currentQuest.Name.Value, 0.66f, true)
             {
                 HAlign = 0.5f,
-                BackgroundColor = Color.SandyBrown
+                BackgroundColor = labelBack
             };
 
             QuestTitle.Left.Pixels = -222;
@@ -161,7 +170,9 @@ namespace AAModClassic._Unofficial.Desert
 
             QuestDescriptionArea = new()
             {
-                HAlign = 0.05f
+                HAlign = 0.05f,
+                BackgroundColor = outerBack,
+                BorderColor = outerBorder,
             };
             QuestDescriptionArea.Width.Pixels = descWidth;
             QuestDescriptionArea.Height.Pixels = 190;
@@ -192,7 +203,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestTasksHeader = new("Tasks", 0.66f, true)
             {
                 HAlign = 0.95f,
-                BackgroundColor = Color.SandyBrown,
+                BackgroundColor = labelBack,
                 MarginRight = 10
             };
 
@@ -219,7 +230,9 @@ namespace AAModClassic._Unofficial.Desert
 
             QuestTasksArea = new()
             {
-                HAlign = 0.95f
+                HAlign = 0.95f,
+                BackgroundColor = outerBack,
+                BorderColor = outerBorder,
             };
             QuestTasksArea.Width.Pixels = descWidth;
             QuestTasksArea.Height.Pixels = 60;
@@ -250,7 +263,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestRewardsHeader = new("Rewards", 0.66f, true)
             {
                 HAlign = 0.95f,
-                BackgroundColor = Color.SandyBrown,
+                BackgroundColor = labelBack,
                 MarginRight = 10
             };
 
@@ -263,7 +276,9 @@ namespace AAModClassic._Unofficial.Desert
             #region Quest Rewards
             QuestRewardsArea = new()
             {
-                HAlign = 0.95f
+                HAlign = 0.95f,
+                BackgroundColor = outerBack,
+                BorderColor = outerBorder,
             };
             QuestRewardsArea.Width.Pixels = descWidth;
             QuestRewardsArea.Height.Pixels = 60;
