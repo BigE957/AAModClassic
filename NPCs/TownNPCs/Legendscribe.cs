@@ -488,8 +488,9 @@ namespace AAModClassic.NPCs.TownNPCs
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = NPC.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White);
-            //spriteBatch.Draw(tex, );
+            //TODO: this is disgusting. find out whatever stat vanilla modifies while npcs are sitting to lift the spirte up (npc.ai[0] == 5)
+            int sittingOffset = NPC.ai[0] == 5 ? 4 : 0;
+            spriteBatch.Draw(tex, NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY - (4 + sittingOffset)), NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
         }
 
         public void TPDust()
