@@ -8,6 +8,7 @@ using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.NPCs.Bosses.Anubis;
@@ -41,24 +42,51 @@ namespace AAModClassic._Unofficial.Desert
 	{
         private static int ShimmerHeadIndex;
 
+        public static Asset<Texture2D> Shimmer;
         public static Asset<Texture2D> Glowmask;
         public static Asset<Texture2D> GlowmaskShimmer;
+        public static Asset<Texture2D> PartyHat;
 
         public override void Load()
         {
             ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
 
+            Shimmer = ModContent.Request<Texture2D>(Texture + "_Shimmer");
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             GlowmaskShimmer = ModContent.Request<Texture2D>(Texture + "_Shimmer_Glow");
+            PartyHat = ModContent.Request<Texture2D>(Texture + "_PartyHat");
 
             On_Main.DoDraw_DrawNPCsOverTiles += GeneralDrawLayer_DrawToLayer_NPCs;
         }
 
+        // we wanna draw him under npcs bcuz he is so massive
         private static void GeneralDrawLayer_DrawToLayer_NPCs(On_Main.orig_DoDraw_DrawNPCsOverTiles orig, Main self)
         {
-            //Draw stuff before all other npcs
+            foreach (NPC npc in Main.npc)
+            {
+                if (npc.whoAmI != -1 && npc.active && npc.type == ModContent.NPCType<LegendscribeUnofficial>())
+                {
+                    Texture2D tex = npc.IsShimmerVariant ? Shimmer.Value : TextureAssets.Npc[npc.type].Value;
+                    Texture2D glow = npc.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
+
+                    Vector2 position = npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY - 8);
+                    Color color = Lighting.GetColor(npc.Center.ToTileCoordinates()) * npc.Opacity;
+
+                    Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+                    Main.spriteBatch.Draw(tex, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                    Main.spriteBatch.Draw(glow, position, npc.frame, Color.White * npc.Opacity, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                    if (BirthdayParty.ManualParty || BirthdayParty.GenuineParty)
+                        Main.spriteBatch.Draw(PartyHat.Value, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                    Main.spriteBatch.End();
+                }
+            }
+            
             orig(self);
-            //Draw stuff after all other npcs
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            return false;
         }
 
         public override void ModifyTypeName(ref string typeName)
@@ -970,12 +998,6 @@ namespace AAModClassic._Unofficial.Desert
             }
 
             NPC.position -= NPC.netOffset;
-        }
-
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            Texture2D tex = NPC.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White);
         }
 
         public void TPDust()
