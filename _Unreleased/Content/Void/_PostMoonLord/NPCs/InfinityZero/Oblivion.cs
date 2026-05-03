@@ -154,13 +154,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                 if (IsPlayerStreaming())
                                     StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Streaming"), color1);
                                 else
-                                    StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Normal", Environment.UserName), color1);
+                                    StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Normal", PlayerIdentityHelper.GetRealName()), color1);
                                 Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
                             }
                             else if(IsPlayerStreaming())
                                 StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Streaming"), color1);
                             else
-                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", WindowsIdentityHelper.GetRealName()), color1);
+                                StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", PlayerIdentityHelper.GetRealName()), color1);
                             break;
                         case 1260:
                             if (player.difficulty == 2)
@@ -837,24 +837,220 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
     }
 
-    internal static class WindowsIdentityHelper
+    internal static class PlayerIdentityHelper
     {
-        // Import the GetUserNameEx function from secur32.dll
-        [DllImport("secur32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        // NameDisplay (3) = the user's "friendly" display name, e.g. "John Smith"
+        private const int NameDisplay = 3;
+
+        private static string _cachedName;
+
+        [DllImport("netapi32.dll", CharSet = CharSet.Unicode)]
+        private static extern int NetUserGetInfo(string servername, string username, int level, out IntPtr bufPtr);
+
+        [DllImport("netapi32.dll")]
+        private static extern int NetApiBufferFree(IntPtr buffer);
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        private struct USER_INFO_10
+        {
+            public string usri10_name;
+            public string usri10_comment;
+            public string usri10_usr_comment;
+            public string usri10_full_name; // This is what we're after
+        }
+
+        [DllImport("secur32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int GetUserNameEx(int nameFormat, StringBuilder userName, ref uint userNameSize);
 
         internal static string GetRealName()
         {
-            // NameDisplay (3) format retrieves the "friendly" name
-            uint size = 1024;
-            StringBuilder sb = new StringBuilder((int)size);
+            if (_cachedName is not null)
+                return _cachedName;
 
-            if (GetUserNameEx(3, sb, ref size) != 0)
+            _cachedName =
+                TryGetDisplayName()             // secur32 display name
+                ?? TryGetNetUserName()          // netapi32 full name
+                ?? TryGetRegistryOwner()        // Windows install-time owner
+                ?? TryGetPasswdName()           // Linux GECOS
+                ?? TryGetMacOsRealName()        // macOS dscl
+                ?? TryGetEnvironmentVariables() // DEBFULLNAME / GIT_AUTHOR_NAME
+                ?? TryGetGitName()              // git config user.name
+                ?? TryGetEnvironmentName()      // login name fallback
+                ?? TryGetSteamName()            // Steam persona
+                ?? Main.LocalPlayer.name
+                ?? "dumb fucking bitch";
+
+            return _cachedName;
+        }
+
+        private static string TryGetRegistryOwner()
+        {
+            if (!OperatingSystem.IsWindows()) return null;
+            try
             {
-                return sb.ToString();
+                using var key = Microsoft.Win32.Registry.LocalMachine
+                    .OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+                var name = key?.GetValue("RegisteredOwner") as string;
+                return string.IsNullOrWhiteSpace(name) ? null : name;
             }
+            catch { return null; }
+        }
 
-            // Fallback to Environment.UserName if the display name isn't set
+        private static string TryGetDisplayName()
+        {
+            if (!OperatingSystem.IsWindows())
+                return null;
+
+            try
+            {
+                uint size = 0;
+                _ = GetUserNameEx(NameDisplay, null, ref size);
+
+                if (size == 0)
+                    return null;
+
+                var sb = new StringBuilder((int)size);
+                return GetUserNameEx(NameDisplay, sb, ref size) != 0 ? sb.ToString() : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static string TryGetNetUserName()
+        {
+            if (!OperatingSystem.IsWindows())
+                return null;
+
+            try
+            {
+                // null servername = local machine
+                if (NetUserGetInfo(null, Environment.UserName, 10, out IntPtr bufPtr) == 0)
+                {
+                    var info = Marshal.PtrToStructure<USER_INFO_10>(bufPtr);
+                    NetApiBufferFree(bufPtr); // Always free the buffer
+                    return string.IsNullOrWhiteSpace(info.usri10_full_name) ? null : info.usri10_full_name;
+                }
+            }
+            catch { }
+
+            return null;
+        }
+
+        private static string TryGetMacOsRealName()
+        {
+            if (!OperatingSystem.IsMacOS()) return null;
+            Process process = null;
+            try
+            {
+                process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "dscl",
+                        Arguments = $". -read /Users/{Environment.UserName} RealName",
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                    }
+                };
+
+                process.Start();
+                var result = process.StandardOutput.ReadToEnd().Trim();
+                if (!process.WaitForExit(1000))
+                    process.Kill();
+
+                var lines = result.Split('\n');
+                var name = lines.Length > 1 ? lines[1].Trim() : null;
+                return string.IsNullOrWhiteSpace(name) ? null : name;
+            }
+            catch { return null; }
+            finally { process?.Dispose(); }
+        }
+
+        private static string TryGetPasswdName()
+        {
+            if (!OperatingSystem.IsLinux()) return null;
+            try
+            {
+                var username = Environment.UserName;
+                foreach (var line in File.ReadAllLines("/etc/passwd"))
+                {
+                    var parts = line.Split(':');
+                    if (parts.Length >= 5 && parts[0] == username)
+                    {
+                        var gecos = parts[4].Split(',')[0].Trim();
+                        return string.IsNullOrWhiteSpace(gecos) ? null : gecos;
+                    }
+                }
+            }
+            catch { }
+            return null;
+        }
+
+        private static string TryGetEnvironmentVariables()
+        {
+            var deb = Environment.GetEnvironmentVariable("DEBFULLNAME");
+            if (!string.IsNullOrWhiteSpace(deb))
+                return deb;
+
+            var gitAuthor = Environment.GetEnvironmentVariable("GIT_AUTHOR_NAME");
+            if (!string.IsNullOrWhiteSpace(gitAuthor))
+                return gitAuthor;
+
+            return null;
+        }
+
+        private static string TryGetGitName()
+        {
+            Process process = null;
+            try
+            {
+                process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "git",
+                        Arguments = "config --global user.name",
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                    }
+                };
+
+                process.Start();
+                var result = process.StandardOutput.ReadToEnd().Trim();
+
+                if (!process.WaitForExit(1000))
+                    process.Kill();
+
+                return string.IsNullOrWhiteSpace(result) ? null : result;
+            }
+            catch { return null; }
+            finally { process?.Dispose(); }
+        }
+
+        private static string TryGetSteamName()
+        {
+            try
+            {
+                if (!SteamAPI.IsSteamRunning())
+                    return null;
+
+                var name = SteamFriends.GetFriendPersonaName(SteamUser.GetSteamID());
+                return string.IsNullOrWhiteSpace(name) ? null : name;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    
+        private static string TryGetEnvironmentName()
+        {
+            if(Environment.UserName.Equals("user", StringComparison.InvariantCultureIgnoreCase))
+                return null;
             return Environment.UserName;
         }
     }
