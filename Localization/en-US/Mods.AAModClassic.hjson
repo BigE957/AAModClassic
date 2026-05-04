@@ -69,3 +69,50 @@ WorldBuild: {
 	Info4: Flooding the Mire
 	Info5: Constructing the Terrarium
 }
+
+Achievements: {
+	MushroomMonarchKilled: {
+		FriendlyName: Big Fungus
+		Description: Overthrow the Mushroom Monarch, a fungal abomination who calls himself a monarch.
+	}
+
+	FeudalFungusKilled: {
+		FriendlyName: Glowing Feud
+		Description: Strike down the Feudal Fungus, another abomination with mind warping abilities.
+	}
+
+	GripsOfChaosKilled: {
+		FriendlyName: Out of Hands
+		Description: Defeat the Grips of Chaos, disastrous beings with five fingers and a thirst for chaos.
+	}
+
+	TruffleToadKilled: {
+		FriendlyName: There She Croaked
+		Description: Take down the Truffle Toad, a surprisingly agile fungal beast.
+	}
+
+	BroodmotherKilled: {
+		FriendlyName: Ashes to Ashes
+		Description: Defeat the The Broodmother, a dragon born of molten fury.
+	}
+
+	HydraKilled: {
+		FriendlyName: Three Heads Think Better Than One
+		Description: Decapitate the Hydra, a wrathful beast that dwells in the Mire.
+	}
+
+	DesertDjinnKilled: {
+		FriendlyName: No Wishes?
+		Description: End the magic of the Desert Djinn, a muscular genie that roams the sandy wastes
+	}
+
+	SubzeroSerpentKilled: {
+		FriendlyName: Zero Mercy
+		Description: Defrost the Subzero Serpent, a glistening snake that lives in the frigid tundra.
+	}
+
+	SagittariusKilled: {
+		FriendlyName: Feeling Hoarse
+		Description: Destroy Sagittarius, a machine turned Trojan by the dark influence of the Void.
+	}
+}
