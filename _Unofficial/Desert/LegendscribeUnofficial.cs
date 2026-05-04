@@ -1074,7 +1074,7 @@ namespace AAModClassic._Unofficial.Desert
 
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
-
+                        player.GetModPlayer<AAPlayer>().AnubisBook = true;
                         SoundEngine.PlaySound(SoundID.Chat);
                         return;
                     }
@@ -1091,9 +1091,9 @@ namespace AAModClassic._Unofficial.Desert
             else
             {
                 if (Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook)
-                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetText("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.CompleteFoundBook");
+                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.FoundBook");
                 else
-                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetText("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Complete");
+                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.Complete");
                 LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
             }
         }

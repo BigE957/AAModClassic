@@ -79,7 +79,11 @@ namespace AAModClassic._Unofficial.Desert
             Color labelBorder = Color.Black;
             Color labelBack = Color.Gold;
 
+            if (!QuestSystem.Questlines.ContainsKey("LegendscribeQuestline"))
+                return;
+
             currentQuestID = "MushroomMonarch";
+
             Area = new()
             {
                 HAlign = 0.5f,

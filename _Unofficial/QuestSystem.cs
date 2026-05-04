@@ -190,8 +190,8 @@ namespace AAModClassic._Unofficial
                     Questlines[legendscribeQuestID].Quests[id].QuestRequirements.Add(quest.ID);
             }
 
-            LegendscribeQuestUISystem.questUI.Initialize();
-
+            LegendscribeQuestUISystem.questUI.OnInitialize();
+            LegendscribeQuestUISystem.questUI.OnActivate();
             #endregion
         }
 

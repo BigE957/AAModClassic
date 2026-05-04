@@ -156,7 +156,7 @@ Quests: {
 			Description: {
 				Incomplete: Hey uh, there's this HUGE hoard of treasure underground somewhere with lots of gold in it, but it's guarded by this really stingy worm. You should go check it out for a boatload of booty, but uh...there's something of mine down there. Could you go get it for me? Don't worry, when you see it, you'll know it's mine.
 				Complete: Hey uh...did you find my thing yet? No? Just dig around in that loot pile down there, I'm sure it's there somewhere.
-				CompleteFoundBook: Hey thanks for getting my book back. Greed stole it a while ago, probably because of the gold highlights I used to bind it. Look around that cave, maybe there's some other stuff he's stolen?
+				FoundBook: Hey thanks for getting my book back. Greed stole it a while ago, probably because of the gold highlights I used to bind it. Look around that cave, maybe there's some other stuff he's stolen?
 			}
 
 			Tasks: - Defeat Greed
