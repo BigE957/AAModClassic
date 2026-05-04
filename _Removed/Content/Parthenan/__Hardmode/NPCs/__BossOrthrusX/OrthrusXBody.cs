@@ -6,6 +6,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
@@ -18,12 +19,20 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
     [AutoloadBossHead]
-    public class OrthrusX : YamataBoss
+    public class OrthrusXBody : YamataBoss
 	{
-        public NPC Head1;
-        public NPC Head2;
+        public OrthrusXHead HeadBlue;
+        public OrthrusXHead HeadRed;
         public int[] Heads = null;
         public bool HeadsSpawned = false;
+
+        public static Asset<Texture2D> Glowmask1;
+        public static Asset<Texture2D> Glowmask2;
+        public static Asset<Texture2D> NeckTexture;
+        public static Asset<Texture2D> HeadTex;
+        public static Asset<Texture2D> HeadGlowmask;
+        public static Asset<Texture2D> HeadGlowmaskBlue;
+        public static Asset<Texture2D> HeadGlowmaskRed;
 
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -49,6 +58,15 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         {
             displayName = "Orthrus X";
             Main.npcFrameCount[NPC.type] = 12;
+
+            Glowmask1 = ModContent.Request<Texture2D>(Texture + "_Glow1");
+            Glowmask2 = ModContent.Request<Texture2D>(Texture + "_Glow2");
+            NeckTexture = ModContent.Request<Texture2D>(Texture + "_Neck");
+
+            HeadTex = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture);
+            HeadGlowmask = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture + "_Glow");
+            HeadGlowmaskBlue = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture + "_Glow_Blue");
+            HeadGlowmaskRed = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture + "_Glow_Red");
         }
 
         public override void SetDefaults()
@@ -125,49 +143,32 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
 		public void HandleHeads()
 		{
-			if(Main.netMode != 1)
-			{
-				if(!HeadsSpawned)
-				{
-					Head1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusHead1>(), 0)];
-					Head1.ai[0] = NPC.whoAmI;
-					Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusHead2>(), 0)];				
-					Head2.ai[0] = NPC.whoAmI;
-					
-					Head1.netUpdate = true;
-					Head2.netUpdate = true;
-					HeadsSpawned = true;
-				}
-			}else
-			{
-				if(!HeadsSpawned)
-				{
-					int[] npcs = BaseAI.GetNPCs(NPC.Center, -1, default(int[]), 200f, null);
-					if (npcs != null && npcs.Length > 0)
-					{
-						foreach (int npcID in npcs)
-						{
-							NPC npc2 = Main.npc[npcID];
-							if (npc2 != null)
-							{
-								if(Head1 == null && npc2.type == Mod.Find<ModNPC>("OrthrusHead1").Type && npc2.ai[0] == NPC.whoAmI)
-								{
-									Head1 = npc2;
-								}else
-								if(Head2 == null && npc2.type == Mod.Find<ModNPC>("OrthrusHead2").Type && npc2.ai[0] == NPC.whoAmI)
-								{
-									Head2 = npc2;
-								}							
-							}
-						}
-					}
-					if(Head1 != null && Head2 != null)
-					{
-						HeadsSpawned = true;
-					}
-				}
-			}
-		}
+            if (HeadBlue is OrthrusXHead)
+                HeadsSpawned = false;
+            if (HeadBlue == null || HeadRed == null)
+                HeadsSpawned = false;
+
+            if (!HeadsSpawned)
+            {
+                if (HeadBlue == null)
+                {
+                    NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusXHead>(), 0);
+                    HeadBlue = npc.ModNPC as OrthrusXHead;
+                    HeadBlue.NPC.ai[0] = NPC.whoAmI;
+                }
+                if (HeadRed == null)
+                {
+                    NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusXHead>(), 0);
+                    HeadRed = npc.ModNPC as OrthrusXHead;
+                    HeadRed.NPC.ai[0] = NPC.whoAmI;
+                    HeadRed.redHead = true;
+                }
+
+                HeadBlue.NPC.netUpdate = true;
+                HeadRed.NPC.netUpdate = true;
+                HeadsSpawned = true;
+            }
+        }
 		
 		
         public override void AI()
@@ -178,42 +179,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.TargetClosest();
 			
 			HandleHeads();
-			
-			
-			
-           /* if (!HeadsSpawned)
-            {
-                if (Head1 == null)
-                {
-                    if (Main.netMode != 1)
-                    {
-                        Head1 = Main.npc[NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("OrthrusHead1"), 0)];
-                        Head1.realLife = npc.whoAmI;
-                        Head2 = Main.npc[NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("OrthrusHead2"), 0)];
-                        Head2.realLife = npc.whoAmI;
-                    }
-                    else
-                    {
-                        int[] npcs = BaseAI.GetNPCs(npc.Center, -1, default(int[]), 100f, null);
-                        if (npcs != null && npcs.Length > 0)
-                        {
-                            foreach (int npcID in npcs)
-                            {
-                                NPC npc2 = Main.npc[npcID];
-                                if (npc2 != null && npc2.type == mod.NPCType("OrthrusHead1"))
-                                {
-                                    Head1 = npc2;
-                                }
-                                if (npc2 != null && npc2.type == mod.NPCType("OrthrusHead2"))
-                                {
-                                    Head2 = npc2;
-                                }
-                            }
-                        }
-                    }
-                }
-                HeadsSpawned = true;
-            }*/
 
             Player playerTarget = Main.player[NPC.target];
 
@@ -226,10 +191,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 NPC.velocity.Y -= .05f;
                 int SHLOOPX = 34;
                 int SHLOOPY = 60;
-                if (Head1 != null && Head2 != null)
+                if (HeadBlue != null && HeadRed != null)
                 {
-                    Head1.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
-                    Head2.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
+                    HeadBlue.NPC.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
+                    HeadRed.NPC.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
                 }
                 if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { NPC.active = false; NPC.netUpdate = true; }
                 return;
@@ -249,12 +214,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 					{
 						internalAI[1] = AISTATE_FLY;
 						NPC.netUpdate = true;
-						if(Head1 != null && Head2 != null)
+						if(HeadBlue != null && HeadRed != null)
 						{
-							Head1.ai[1] = AISTATE_FLY;
-							Head2.ai[1] = AISTATE_FLY;							 
-							Head1.netUpdate = true;
-							Head2.netUpdate = true;						
+							HeadBlue.NPC.ai[1] = AISTATE_FLY;
+							HeadRed.NPC.ai[1] = AISTATE_FLY;							 
+							HeadBlue.NPC.netUpdate = true;
+							HeadRed.NPC.netUpdate = true;						
 						}
 					}
 				}
@@ -272,22 +237,22 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 						playerTarget.Center += new Vector2(0f, 32f);						
 						int SHLOOPX = 34;
 						int SHLOOPY = 60;
-                        if (Head1 != null && Head2 != null)
+                        if (HeadBlue != null && HeadRed != null)
                         {
-                            Head1.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
-                            Head2.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
+                            HeadBlue.NPC.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
+                            HeadRed.NPC.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
                         }
                     }
                     else if (Main.netMode != 1) //digs itself out of the ground
 					{
 						internalAI[1] = AISTATE_TURRET;							
 						NPC.netUpdate = true;
-						if(Head1 != null && Head2 != null)
+						if(HeadBlue != null && HeadRed != null)
 						{
-							Head1.ai[1] = AISTATE_TURRET;
-							Head2.ai[1] = AISTATE_TURRET;							 
-							Head1.netUpdate = true;
-							Head2.netUpdate = true;						
+							HeadBlue.NPC.ai[1] = AISTATE_TURRET;
+							HeadRed.NPC.ai[1] = AISTATE_TURRET;							 
+							HeadBlue.NPC.netUpdate = true;
+							HeadRed.NPC.netUpdate = true;						
 						}				
 					}
 				}
@@ -327,24 +292,24 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.oldPos[0] = NPC.position;			
         }     
 
-        public void DrawHead(SpriteBatch spriteBatch, string headTexture, string glowMaskTexture, NPC head, Color drawColor, bool leftHead)
+        public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool leftHead)
         {
-            if (head != null && head.active && head.ModNPC != null && head.ModNPC is OrthrusHead1)
+            if (head != null && head.active && head.ModNPC != null && head.ModNPC is OrthrusXHead)
             {
-                string neckTex = "NPCs/Bosses/Orthrus/OrthrusNeck";
-                Texture2D neckTex2D = Mod.GetTexture(neckTex);
                 Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y) + new Vector2(leftHead ? -37 : 37, -28);
-                Vector2 connector = head.Center - new Vector2(neckTex2D.Width * 0.5f, 0f);
-				BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { null, neckTex2D, null }, 0, neckOrigin, connector, neckTex2D.Height - 10f, null, 1f, false, null);					
-				spriteBatch.Draw(Mod.GetTexture(headTexture), new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
-				spriteBatch.Draw(Mod.GetTexture(glowMaskTexture), new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+                Vector2 connector = head.Center - new Vector2(NeckTexture.Value.Width * 0.5f, 0f);
+				BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { null, NeckTexture.Value, null }, 0, neckOrigin, connector, NeckTexture.Value.Height - 10f, null, 1f, false, null);					
+				spriteBatch.Draw(headTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+				spriteBatch.Draw(glowMaskTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
 			}
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            DrawHead(spriteBatch, "NPCs/Bosses/Orthrus/OrthrusHead1", "NPCs/Bosses/Orthrus/OrthrusHead1_Glow", Head1, drawColor, false);			
-            DrawHead(spriteBatch, "NPCs/Bosses/Orthrus/OrthrusHead2", "NPCs/Bosses/Orthrus/OrthrusHead2_Glow", Head2, drawColor, true); 			
+            if (HeadBlue != null)
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, HeadBlue.NPC, drawColor, false);
+            if (HeadRed != null)
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, HeadRed.NPC, drawColor, true); 			
 			BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, false);		         
 		    return false;
         }

@@ -7,11 +7,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
-    public class OrthrusLock : ModNPC
+    public class OrthrusXHeadBlue_OrthrusReticle : ModNPC
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Target Locked.");
+            // DisplayName.SetDefault("Orthrus Reticle");
         }
         public override void SetDefaults()
         {
@@ -41,8 +41,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void AI()
         {
-            NPC body = Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<OrthrusHead1>(), -1)];
-            OrthrusHead1 orthrus = (OrthrusHead1)body.ModNPC;
+            NPC body = Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<OrthrusXHead>(), -1)];
+            OrthrusXHead orthrus = (OrthrusXHead)body.ModNPC;
 
             Player player = Main.player[NPC.target];
 

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
-    internal class OrthrusX_ShockingBreath : ModProjectile
+    internal class OrthrusXHeadBlue_ShockingBreath : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -42,12 +42,16 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         {
 			if(head == -1)
 			{
-				int npcID = BaseAI.GetNPC(Projectile.Center, Mod.Find<ModNPC>("OrthrusHead1").Type, 500f, null);	
+				int npcID = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<OrthrusXHead>(), 500f, null);	
 				if(npcID >= 0) head = npcID;
 			}
 			if(head == -1) return false;				
 			NPC headNPC = Main.npc[head];
-			if(headNPC == null || headNPC.life <= 0 || !headNPC.active || headNPC.type != Mod.Find<ModNPC>("OrthrusHead1").Type){ Projectile.Kill(); return false; }
+			if(headNPC == null || headNPC.life <= 0 || !headNPC.active || headNPC.type != ModContent.NPCType<OrthrusXHead>()) 
+            { 
+                Projectile.Kill(); 
+                return false; 
+            }
 
 			//Fun fact: this technique is what the shadowbeam staff does!
 			if(Main.netMode != 1 && Projectile.timeLeft % 3 == 0) //so it doesn't do this every tick, which would be laggy
@@ -60,8 +64,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 				}
 			}
 			Projectile.Center = headNPC.Center;
-			//TODO: uh oh!
+            //TODO: is this right??
             //BaseAI.LookAt(Projectile.Center + Projectile.velocity, Projectile.Center, ref Projectile.rotation, ref Projectile.spriteDirection, 2, 0f, 0.1f, false);
+            BaseAI.LookAt(Projectile.Center + Projectile.velocity, Projectile, 2, 0f, 0.1f, false);
 
             if (++Projectile.frameCounter >= 3)
             {

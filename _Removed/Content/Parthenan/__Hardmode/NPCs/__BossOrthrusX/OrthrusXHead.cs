@@ -11,7 +11,7 @@ using AAModClassic.Base.BaseMod.Base;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
     [AutoloadBossHead]
-    public class OrthrusHead1 : ModNPC
+    public class OrthrusXHead : ModNPC
     {
         public float[] internalAI = new float[2];
         public override void SendExtraAI(BinaryWriter writer)
@@ -60,10 +60,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 NPC.buffImmune[k] = true;
             }
         }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return 0f;
-        }
 
         public override void OnKill()
         {
@@ -84,11 +80,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             */
         }
 
-        public OrthrusX Body => bodyNPC != null && bodyNPC.ModNPC is OrthrusX ? (OrthrusX)bodyNPC.ModNPC : null;
+        public OrthrusXBody Body => bodyNPC != null && bodyNPC.ModNPC is OrthrusXBody ? (OrthrusXBody)bodyNPC.ModNPC : null;
         public NPC bodyNPC = null;
         public int Target = -1;
         public NPC Lock = null;
-        public bool leftHead = false;
+        public bool redHead = false;
         public int damage = 0;
 
         public int distFromBodyX = 60; //how far from the body to centeralize the movement points. (X coord)
@@ -96,11 +92,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public int movementVariance = 40; //how far from the center point to move.
 
         public override void AI()
-        {         
-	        if (bodyNPC == null)
+        {
+            NPC.TargetClosest();
+            
+            if (bodyNPC == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<OrthrusX>())
+                if (npcBody.type == ModContent.NPCType<OrthrusXBody>())
                 {
                     bodyNPC = npcBody;
                 }
@@ -116,8 +114,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                     NPC.netUpdate = true;
                 }
                 return;
-            }			
-		
+            }
+
             NPC.realLife = bodyNPC.whoAmI;
             NPC.timeLeft = 100;
 
@@ -130,23 +128,30 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             {
                 damage = NPC.damage / 2;
             }
+
             Player targetPlayer = Main.player[NPC.target];
             if (!targetPlayer.active || targetPlayer.dead || Main.dayTime) //fleeing
             {
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { NPC.active = false; NPC.netUpdate = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) 
+                { 
+                    NPC.active = false; 
+                    NPC.netUpdate = true; 
+                }
                 return;
             }
-            if (NPC.ai[1] == OrthrusX.AISTATE_TURRET)
+
+            if (NPC.ai[1] == OrthrusXBody.AISTATE_TURRET)
             {
                 NPC.TargetClosest();
-                if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
+                if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) 
+                    targetPlayer = null; //deliberately set to null
 
                 if (Main.netMode != 1)
                 {
                     internalAI[0]++;
-                    if (!leftHead && Target == -1 && internalAI[0] >= 150)
+                    if (!redHead && Target == -1 && internalAI[0] >= 150)
                     {
-                        Target = NPC.NewNPC(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusLock>());
+                        Target = NPC.NewNPC(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusXHeadBlue_OrthrusReticle>());
                         Lock = Main.npc[Target];
                         Lock.netUpdate = true;
                         NPC.netUpdate = true;
@@ -155,23 +160,24 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                     if (targetPlayer != null)
                     {
                         Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
-                        if (leftHead)
+                        if (redHead)
                         {
                             dir *= 12f;
                             if (internalAI[0] % 10 == 0)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, Mod.Find<ModProjectile>("OrthrusSpark").Type, NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHeadBlue_Spark>(), NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
 
                             }
                         }
                         else
                         {
-                            if (internalAI[0] == 300)
+                            if (internalAI[0] % 300 == 0)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, Mod.Find<ModProjectile>("Shocking").Type, NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHeadBlue_ShockingBreath>(), NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
                             }
                         }
                     }
+
                     else if (NPC.localAI[1] >= 200) //pick random spot to move head to
                     {
                         NPC.localAI[1] = 0;
@@ -180,7 +186,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                         NPC.netUpdate = true;
                     }
                 }
-                Vector2 nextTarget = bodyNPC.Center + new Vector2(leftHead ? -distFromBodyX : distFromBodyX, -distFromBodyY) + new Vector2(NPC.ai[2], NPC.ai[3]);
+                Vector2 nextTarget = bodyNPC.Center + new Vector2(redHead ? -distFromBodyX : distFromBodyX, -distFromBodyY) + new Vector2(NPC.ai[2], NPC.ai[3]);
                 if (Vector2.Distance(nextTarget, NPC.Center) < 40f)
                 {
                     NPC.velocity *= 0.9f;
@@ -203,7 +209,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.position += Body.NPC.position - Body.NPC.oldPosition;
             NPC.rotation = 1.57f;
             NPC.spriteDirection = -1;
-            BaseDrawing.AddLight(NPC.Center, leftHead ? new Color(255, 84, 84) : new Color(48, 232, 232));
+            BaseDrawing.AddLight(NPC.Center, redHead ? new Color(255, 84, 84) : new Color(48, 232, 232));
         }
 
 

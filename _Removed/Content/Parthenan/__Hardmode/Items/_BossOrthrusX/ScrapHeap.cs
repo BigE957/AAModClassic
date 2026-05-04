@@ -42,7 +42,7 @@ Can only be used at night"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<OrthrusX>(), true, 0, 0, "Orthrus X", false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<OrthrusXBody>(), true, 0, 0, "Orthrus X", false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -58,7 +58,7 @@ Can only be used at night"); */
                 }
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<OrthrusX>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<OrthrusXBody>()))
             {
                 if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("Orthrus wants to eat that AND you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
