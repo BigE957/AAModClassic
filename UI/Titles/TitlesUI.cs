@@ -35,7 +35,7 @@ namespace AAModClassic.UI.Titles
             if (modPlayer.text)
             {
                 var textLayer = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
-                var computerState = new LegacyGameInterfaceLayer("AAMod: UI",
+                var computerState = new LegacyGameInterfaceLayer("AAMod: UI", //TODO: is that correct? shouldnt it be classic
                     delegate
                     {
                         BossTitle(modPlayer.BossID);

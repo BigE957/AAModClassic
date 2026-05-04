@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;

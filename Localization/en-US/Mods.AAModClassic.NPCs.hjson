@@ -815,3 +815,16 @@ LegendscribeUnofficial: {
 
 	Census.SpawnCondition: Conditions unknown
 }
+
+OrthrusHead1.DisplayName: Orthrus Head1
+OrthrusHead2.DisplayName: Orthrus Head2
+OrthrusLock.DisplayName: Orthrus Lock
+OrthrusX.DisplayName: Orthrus X
+RaiderEgg.DisplayName: Raider Egg
+RaiderUltima.DisplayName: Raider Ultima
+Raidmini.DisplayName: Raidmini
+Retriever.DisplayName: Retriever
+TechnoTruffle.DisplayName: Techno Truffle
+TruffleProbe.DisplayName: Truffle Probe
+Truffling.DisplayName: Truffling
+CyberClaw.DisplayName: Cyber Claw

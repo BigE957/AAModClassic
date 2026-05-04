@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Removed;
-using AAModClassic._Removed.Content.Parthenan.Tiles;
-using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Parthenan.World;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
@@ -112,7 +111,7 @@ namespace AAModClassic._Unreleased
 
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
-            StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<AncientFulguritePlatingS_Tile>()] + tileCounts[ModContent.TileType<AncientFulguriteBrickS_Tile>()] + tileCounts[ModContent.TileType<AncientFulgurGlassS_Tile>()];
+            StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<FulguritePlating_Tile>()] + tileCounts[ModContent.TileType<FulguriteBrick_Tile>()] + tileCounts[ModContent.TileType<FulgurGlass_Tile>()];
         }
 
         private void Mush_Refactored(GenerationProgress progress)
