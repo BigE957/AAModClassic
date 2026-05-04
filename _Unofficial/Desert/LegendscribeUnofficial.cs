@@ -1048,7 +1048,11 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            button = "Smth";
+            int Item = Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
+            if (!Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Item >= 0)
+                button = "Found you book";
+            else
+                button = "Help";
             button2 = "What should I do?";
         }
 
@@ -1056,37 +1060,42 @@ namespace AAModClassic._Unofficial.Desert
         {
             if (firstButton)
             {
-                /*
-                ResetBools();
-                ChatNumber += 1;
-                if (ChatNumber > 21)
+                Player player = Main.LocalPlayer;
+
+                if (!player.GetModPlayer<AAPlayer>().AnubisBook && NPCExtensions.BeenKilled<Greed>())
                 {
-                    ChatNumber = 0;
+                    int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
+                    if (Item >= 0)
+                    {
+                        player.inventory[Item].stack--;
+                        if (player.inventory[Item].stack <= 0)
+                        {
+                            player.inventory[Item] = new Item();
+                        }
+
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
+
+                        SoundEngine.PlaySound(SoundID.Chat);
+                        return;
+                    }
                 }
-                */
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<AAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                {
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost");
+                    return;
+                }
+
+                Main.npcChatText = Legendscribe.GuideChat();
             }
             else
             {
+                if (Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook)
+                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetText("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.CompleteFoundBook");
+                else
+                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetText("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Complete");
                 LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
-                /*
-                Player player = Main.LocalPlayer;
-                int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
-                if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
-                {
-                    player.inventory[Item].stack--;
-                    if (player.inventory[Item].stack <= 0)
-                    {
-                        player.inventory[Item] = new Item();
-                    }
-
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
-
-                    SoundEngine.PlaySound(SoundID.Chat);
-                    return;
-                }
-                Main.npcChatText = BossChat();
-                */
             }
         }
 
