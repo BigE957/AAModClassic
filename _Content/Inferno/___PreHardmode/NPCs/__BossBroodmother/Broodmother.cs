@@ -8,12 +8,15 @@ using AAModClassic.CrossMod;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,10 +26,14 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
     [AutoloadBossHead]
     public class Broodmother : ModNPC
     {
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("The Broodmother");
             Main.npcFrameCount[NPC.type] = 6;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -58,9 +65,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public int FrameTex = 0;
 
-        public Texture2D Tex = null;
-        public Texture2D Glow = null;
-
         public int damage = 0;
 
         public override void FindFrame(int frameHeight)
@@ -79,6 +83,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     }
                 }
             }
+            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            if (FrameTex >= 1)
+                NPC.frame.X = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            else
+                NPC.frame.X = 0;
+
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -139,19 +149,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (FrameTex == 0)
-            {
-                Tex = Mod.GetTexture(Texture);
-                Glow = Mod.GetTexture("Glowmasks/Broodmother_Glow");
-            }
-            else
-            {
-                Tex = Mod.GetTexture(Texture + "0");
-                Glow = Mod.GetTexture("Glowmasks/Broodmother0_Glow");
-            }			
-
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, ColorUtils.COLOR_GLOWPULSE, true);
+            //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, drawColor, true);
+            //BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, ColorUtils.COLOR_GLOWPULSE, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
+            spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
             return false;
         }
 
