@@ -322,8 +322,6 @@ namespace AAModClassic._Unofficial.Desert
             if (!QuestSystem.Questlines.TryGetValue("LegendscribeQuestline", out var questline))
                 return;
 
-            OnInitialize();
-
             questline.Started = true;
             float maxDepth = FillDepthValues("MushroomMonarch", 0);
             DepthValues.TryAdd("FeudalFungus", 0);
