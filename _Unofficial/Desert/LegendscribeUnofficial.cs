@@ -430,7 +430,7 @@ namespace AAModClassic._Unofficial.Desert
                             int num172 = Main.rand.Next(4);
                             for (int m = 0; m < 3 + num172; m++)
                             {
-                                int num173 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, 216, -NPC.direction, 1f);
+                                int num173 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, DustID.PirateStaff, -NPC.direction, 1f);
                                 Main.dust[num173].velocity /= 2f;
                                 Main.dust[num173].scale = 0.8f;
                             }
@@ -706,7 +706,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num200 = 0;
                     }
-                    else if (NPC.frameCounter == 216.0 && Main.netMode != 1)
+                    else if (NPC.frameCounter == 216.0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         num203 = 70;
                     }
@@ -718,7 +718,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num200 = 0;
                     }
-                    else if (NPC.frameCounter != 320.0 || Main.netMode == 1)
+                    else if (NPC.frameCounter != 320.0 || Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         num200 = NPC.frameCounter < 420.0 ? NPC.frameCounter % 16.0 < 8.0 ? num166 - 2 : 0 : 0;
                     }
@@ -730,7 +730,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num201 = 0;
                     }
-                    else if (NPC.frameCounter != 70.0 || Main.netMode == 1)
+                    else if (NPC.frameCounter != 70.0 || Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         num201 = !(NPC.frameCounter < 160.0) ? NPC.frameCounter < 166.0 ? num166 - 5 : NPC.frameCounter < 186.0 ? num166 - 4 : NPC.frameCounter < 200.0 ? num166 - 5 : !(NPC.frameCounter < 320.0) ? NPC.frameCounter < 326.0 ? num166 - 1 : 0 : 0 : NPC.frameCounter % 16.0 < 8.0 ? num166 - 2 : 0;
                     }
@@ -793,7 +793,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num206 = num166 - 5;
                     }
-                    else if (NPC.frameCounter == 40.0 && Main.netMode != 1)
+                    else if (NPC.frameCounter == 40.0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         num207 = 45;
                     }
@@ -821,7 +821,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num206 = num166 - 5;
                     }
-                    else if (NPC.frameCounter == 100.0 && Main.netMode != 1)
+                    else if (NPC.frameCounter == 100.0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         num207 = 45;
                     }
@@ -849,7 +849,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num206 = num166 - 5;
                     }
-                    else if (NPC.frameCounter != 160.0 || Main.netMode == 1)
+                    else if (NPC.frameCounter != 160.0 || Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         num206 = NPC.frameCounter < 220.0 ? num166 - 4 : NPC.frameCounter < 226.0 ? num166 - 5 : 0;
                     }
