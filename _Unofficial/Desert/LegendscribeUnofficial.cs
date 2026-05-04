@@ -1050,7 +1050,7 @@ namespace AAModClassic._Unofficial.Desert
         {
             int Item = Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
             if (!Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Item >= 0)
-                button = "Found you book";
+                button = "Found your book";
             else
                 button = "Help";
             button2 = "What should I do?";
