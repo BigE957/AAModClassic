@@ -1048,8 +1048,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            int Item = Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
-            if (!Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Item >= 0)
+            if (!Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0)
                 button = "Found your book";
             else
                 button = "Help";
