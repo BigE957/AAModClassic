@@ -158,6 +158,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 {
                     NPC.active = false;
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0);
+                    return;
                 }
             }
             if (Main.netMode != 1)
@@ -208,9 +209,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             for (int tY = tileY; tY < tileY + 17; tY++)
             {
                 if (Main.tile[tileX, tY] == null)
-                {
-                    //Main.tile[tileX, tY] = new Tile();
-                }
+                    continue;
                 if (Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType] && !TileID.Sets.Platforms[Main.tile[tileX, tY].TileType] || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     return false;

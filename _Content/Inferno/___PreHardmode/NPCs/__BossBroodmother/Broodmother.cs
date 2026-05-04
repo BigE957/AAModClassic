@@ -141,12 +141,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         {
             if (FrameTex == 0)
             {
-                Tex = Mod.GetTexture("NPCs/Bosses/Broodmother/Broodmother");
+                Tex = Mod.GetTexture(Texture);
                 Glow = Mod.GetTexture("Glowmasks/Broodmother_Glow");
             }
             else
             {
-                Tex = Mod.GetTexture("NPCs/Bosses/Broodmother/Broodmother0");
+                Tex = Mod.GetTexture(Texture + "0");
                 Glow = Mod.GetTexture("Glowmasks/Broodmother0_Glow");
             }			
 
