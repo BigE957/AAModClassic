@@ -1,4 +1,6 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Utilities;
 using Humanizer;
 using Microsoft.Xna.Framework;
@@ -16,9 +18,9 @@ using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
+using static AAModClassic._Unofficial.Desert.UIParallaxBackground;
 
 namespace AAModClassic._Unofficial.Desert
 {
@@ -36,7 +38,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public static UIHorizontalList QuestList;
         public static HorizontalUIScrollbar QuestListScrollBar;
-        public static FrameableUIImage QuestListBackground;
+        public static UIParallaxBackground QuestListBackground;
 
         public static Dictionary<string, int> DepthValues;
         public static Dictionary<string, QuestNode> Nodes;
@@ -68,10 +70,6 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void OnInitialize()
         {
-            RemoveAllChildren();
-            if (!QuestSystem.Questlines.ContainsKey("LegendscribeQuestline"))
-                return;
-
             Color outerBorder = Color.Black;
             Color outerBack = Color.DarkGoldenrod;
 
@@ -81,7 +79,11 @@ namespace AAModClassic._Unofficial.Desert
             Color labelBorder = Color.Black;
             Color labelBack = Color.Gold;
 
+            if (!QuestSystem.Questlines.ContainsKey("LegendscribeQuestline"))
+                return;
+
             currentQuestID = "MushroomMonarch";
+
             Area = new()
             {
                 HAlign = 0.5f,
@@ -109,7 +111,7 @@ namespace AAModClassic._Unofficial.Desert
                 VAlign = 1f,
                 HAlign = 0.5f,
             };
-            QuestListScrollBar.MaxWidth.Pixels = QuestListScrollBar.Width.Pixels = 800;
+            QuestListScrollBar.MaxWidth.Pixels = QuestListScrollBar.Width.Pixels = 824;
             QuestListScrollBar.Height.Pixels = 20;
             Area.Append(QuestListScrollBar);
 
@@ -117,15 +119,18 @@ namespace AAModClassic._Unofficial.Desert
             QuestList.Width.Pixels = 840;
             QuestList.Height.Pixels = 295;
 
-            Asset<Texture2D> tex = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Desert/LegendscribeUIBG");
-            
-            QuestListBackground = new(tex)
-            {
-                ImageScale = Vector2.One * 0.5f,
-                NormalizedOrigin = Vector2.UnitY * 0.25f,
-                //VAlign = 0.5f
-            };
-            QuestListBackground.Width.Pixels = QuestListBackground.MaxWidth.Pixels = tex.Size().X / 2;
+            Main.instance.LoadBackground(0);
+            Asset<Texture2D> tex = TextureAssets.Background[0];
+            Main.instance.LoadBackground(22);
+            Asset<Texture2D> farBack = TextureAssets.Background[22];
+            Main.instance.LoadBackground(208);
+            Asset<Texture2D> mediumBack = TextureAssets.Background[208];
+            Main.instance.LoadBackground(218);
+            Asset<Texture2D> nearBack = TextureAssets.Background[218];
+
+            QuestListBackground = new(tex, [new(farBack, 0.2f, new(0,-30), Color.White * 0.666f), new(farBack, 0.25f, new(56, 10)), new(mediumBack, 0.4f, new(0, 40)), new(nearBack, 1f, new(0, 110))], 0.5f);
+            QuestListBackground.MaxWidth.Pixels = QuestListBackground.Width.Pixels = 3000;
+            QuestListBackground.Height.Pixels = QuestList.Height.Pixels;
             QuestList.Add(QuestListBackground);
 
             QuestList.SetScrollbar(QuestListScrollBar);
@@ -162,10 +167,10 @@ namespace AAModClassic._Unofficial.Desert
 
             #region Quest Description
             float descWidth = 320;
-            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(currentQuest == null ? "Salutations" : currentQuest.Description.Value, descWidth - 40);
+            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(currentQuest == null ? "Salutations" : currentQuest.DescriptionIncomplete.Value, descWidth - 40);
 
             QuestDescriptionText = new(wrapped);
-            QuestDescriptionText.Width.Pixels = descWidth - 40;
+            QuestDescriptionText.Width.Pixels = descWidth - 20;
             QuestDescriptionText.Height.Pixels = FontAssets.MouseText.Value.MeasureString(QuestDescriptionText.Text).Y;
 
             QuestDescriptionArea = new()
@@ -174,12 +179,13 @@ namespace AAModClassic._Unofficial.Desert
                 BackgroundColor = outerBack,
                 BorderColor = outerBorder,
             };
-            QuestDescriptionArea.Width.Pixels = descWidth;
+            QuestDescriptionArea.Width.Pixels = descWidth + 10;
             QuestDescriptionArea.Height.Pixels = 190;
             QuestDescriptionArea.Top.Pixels = 52;
 
             QuestDescriptionList = new();
-            QuestDescriptionList.Width.Pixels = descWidth - 40;
+            QuestDescriptionList.PaddingTop = QuestDescriptionList.PaddingRight = 0f;
+            QuestDescriptionList.Width.Pixels = descWidth - 10;
             QuestDescriptionList.Height.Pixels = QuestDescriptionArea.Height.Pixels;
 
             QuestDescriptionScrollBar = new()
@@ -288,7 +294,6 @@ namespace AAModClassic._Unofficial.Desert
             QuestDetailsArea.Append(QuestRewardsArea);
             #endregion
 
-
             Area.Append(QuestDetailsArea);
 
             Append(Area);
@@ -315,8 +320,6 @@ namespace AAModClassic._Unofficial.Desert
         {
             if (!QuestSystem.Questlines.TryGetValue("LegendscribeQuestline", out var questline))
                 return;
-
-            OnInitialize();
 
             questline.Started = true;
             float maxDepth = FillDepthValues("MushroomMonarch", 0);
@@ -558,7 +561,8 @@ namespace AAModClassic._Unofficial.Desert
             QuestTitle.SetText(currentQuest.Name.Value);
 
             float descWidth = 320;
-            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(currentQuest.Description.Value, descWidth - 40);
+            string desc = (currentQuest.IsComplete && currentQuest.DescriptionComplete != null ? currentQuest.DescriptionComplete : currentQuest.DescriptionIncomplete).Value;
+            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(desc, descWidth - 40);
             QuestDescriptionText.SetText(wrapped);
             QuestDescriptionText.Height.Pixels = FontAssets.MouseText.Value.MeasureString(QuestDescriptionText.Text).Y;
 
@@ -845,14 +849,68 @@ namespace AAModClassic._Unofficial.Desert
 
             var drawPos = new Vector2(Width.Pixels / 2f, Height.Pixels / 2f) + Parent.GetDimensions().Position();
 
-            var bird = TextureAssets.Npc[NPCID.Grebe2].Value;
-            int drawY = ((int)(Main.GlobalTimeWrappedHourly * 8)) % 4;
-            var frame = bird.Frame(1, 15, 0, 11 + drawY);
-            var effects = SpriteEffects.None;
-            if (birdVelocity.X > 0)
-                effects = SpriteEffects.FlipVertically;
+            Texture2D bird;
+            int drawY;
+            Rectangle frame;
+            SpriteEffects effects;
+            bool canRotate = true;
+            switch (NodeID)
+            {
+                case 2:
+                case 7:
+                case 9:
+                case 10:
+                    bird = TextureAssets.Npc[NPCID.Grebe2].Value;
+                    drawY = ((int)(Main.GlobalTimeWrappedHourly * 8)) % 4;
+                    frame = bird.Frame(1, 15, 0, 11 + drawY);
+                    effects = SpriteEffects.None;
+                    break;
+                case 8:
+                    bird = TextureAssets.Npc[ModContent.NPCType<HorusHawk>()].Value;
+                    drawY = ((int)(Main.GlobalTimeWrappedHourly * 8)) % 4;
+                    frame = bird.Frame(1, 4, 0, drawY);
+                    effects = SpriteEffects.None;
+                    break;
+                case 11:
+                    bird = TextureAssets.Npc[ModContent.NPCType<RabbitcopterSoldier>()].Value;
+                    drawY = ((int)(Main.GlobalTimeWrappedHourly * 8)) % 4;
+                    frame = bird.Frame(1, 4, 0, drawY);
+                    effects = SpriteEffects.None;
+                    canRotate = false;
+                    break;
+                default:
+                    int npcID;
+                    switch(NodeID % 3)
+                    {
+                        case 0:
+                            npcID = NPCID.YellowDragonfly;
+                            break;
+                        case 1:
+                            npcID = NPCID.OrangeDragonfly;
+                            break;
+                        default:
+                            npcID = NPCID.BlackDragonfly;
+                            break;
+                    }
+                    bird = TextureAssets.Npc[npcID].Value;
+                    drawY = ((int)(Main.GlobalTimeWrappedHourly * 16)) % 4;
+                    frame = bird.Frame(1, 4, 0, drawY);
+                    effects = SpriteEffects.None;
+                    break;
+            }
 
-            spriteBatch.Draw(bird, drawPos + birdOffset, frame, Color.White, birdVelocity.ToRotation() + MathHelper.Pi, frame.Size() * 0.5f, 1f, effects, 0);
+            if (canRotate)
+            {
+                if (birdVelocity.X > 0)
+                    effects = (effects == SpriteEffects.None ? SpriteEffects.FlipVertically : SpriteEffects.None);
+            }
+            else
+            {
+                if (birdVelocity.X > 0)
+                    effects = (effects == SpriteEffects.None ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+            }
+
+            spriteBatch.Draw(bird, drawPos + birdOffset, frame, Color.White, (canRotate ? birdVelocity.ToRotation() + MathHelper.Pi : 0), frame.Size() * 0.5f, 1f, effects, 0);
         }
     }
 
@@ -1144,6 +1202,38 @@ namespace AAModClassic._Unofficial.Desert
 
         public IEnumerator<UIElement> GetEnumerator() => ((IEnumerable<UIElement>)_items).GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<UIElement>)_items).GetEnumerator();
+    }
+
+    public class UIParallaxBackground(Asset<Texture2D> background, List<BackgroundLayer> layers, float imageScale) : UIElement
+    {
+        public struct BackgroundLayer(Asset<Texture2D> tex, float strength, Vector2 off, Color color = default)
+        {
+            public Asset<Texture2D> Texture = tex;
+            public float ParallazStrength = strength;
+            public Vector2 Offset = off;
+            public Color Color = color == default ? Color.White : color;
+        }
+
+        public List<BackgroundLayer> Layers = layers;
+        public Asset<Texture2D> Background = background;
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Background.Value, GetOuterDimensions().ToRectangle(), Color.White);
+
+            Rectangle parentArea = Parent.Parent.GetInnerDimensions().ToRectangle();
+            float width = parentArea.Width;
+            float diff = (GetInnerDimensions().Position().X - parentArea.TopLeft().X);
+
+            foreach (var layer in Layers)
+            {
+                float texWidth = layer.Texture.Width() * imageScale;
+                for (float i = -width + (diff * layer.ParallazStrength); i <= (width + texWidth); i += texWidth)
+                {
+                    spriteBatch.Draw(layer.Texture.Value, parentArea.TopLeft() + new Vector2(i, (parentArea.Height / 2)) + layer.Offset, null, layer.Color, 0, layer.Texture.Size() * 0.5f, imageScale, 0, 0);
+                }
+            }           
+        }
     }
 
     public class LegendscribeQuestUISystem : ModSystem

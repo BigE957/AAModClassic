@@ -430,7 +430,7 @@ namespace AAModClassic._Unofficial.Desert
                             int num172 = Main.rand.Next(4);
                             for (int m = 0; m < 3 + num172; m++)
                             {
-                                int num173 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, 216, -NPC.direction, 1f);
+                                int num173 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, DustID.PirateStaff, -NPC.direction, 1f);
                                 Main.dust[num173].velocity /= 2f;
                                 Main.dust[num173].scale = 0.8f;
                             }
@@ -706,7 +706,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num200 = 0;
                     }
-                    else if (NPC.frameCounter == 216.0 && Main.netMode != 1)
+                    else if (NPC.frameCounter == 216.0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         num203 = 70;
                     }
@@ -718,7 +718,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num200 = 0;
                     }
-                    else if (NPC.frameCounter != 320.0 || Main.netMode == 1)
+                    else if (NPC.frameCounter != 320.0 || Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         num200 = NPC.frameCounter < 420.0 ? NPC.frameCounter % 16.0 < 8.0 ? num166 - 2 : 0 : 0;
                     }
@@ -730,7 +730,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num201 = 0;
                     }
-                    else if (NPC.frameCounter != 70.0 || Main.netMode == 1)
+                    else if (NPC.frameCounter != 70.0 || Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         num201 = !(NPC.frameCounter < 160.0) ? NPC.frameCounter < 166.0 ? num166 - 5 : NPC.frameCounter < 186.0 ? num166 - 4 : NPC.frameCounter < 200.0 ? num166 - 5 : !(NPC.frameCounter < 320.0) ? NPC.frameCounter < 326.0 ? num166 - 1 : 0 : 0 : NPC.frameCounter % 16.0 < 8.0 ? num166 - 2 : 0;
                     }
@@ -793,7 +793,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num206 = num166 - 5;
                     }
-                    else if (NPC.frameCounter == 40.0 && Main.netMode != 1)
+                    else if (NPC.frameCounter == 40.0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         num207 = 45;
                     }
@@ -821,7 +821,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num206 = num166 - 5;
                     }
-                    else if (NPC.frameCounter == 100.0 && Main.netMode != 1)
+                    else if (NPC.frameCounter == 100.0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         num207 = 45;
                     }
@@ -849,7 +849,7 @@ namespace AAModClassic._Unofficial.Desert
                     {
                         num206 = num166 - 5;
                     }
-                    else if (NPC.frameCounter != 160.0 || Main.netMode == 1)
+                    else if (NPC.frameCounter != 160.0 || Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         num206 = NPC.frameCounter < 220.0 ? num166 - 4 : NPC.frameCounter < 226.0 ? num166 - 5 : 0;
                     }
@@ -1048,7 +1048,10 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            button = "Smth";
+            if (!Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0)
+                button = "Found your book";
+            else
+                button = "Help";
             button2 = "What should I do?";
         }
 
@@ -1056,37 +1059,42 @@ namespace AAModClassic._Unofficial.Desert
         {
             if (firstButton)
             {
-                /*
-                ResetBools();
-                ChatNumber += 1;
-                if (ChatNumber > 21)
+                Player player = Main.LocalPlayer;
+
+                if (!player.GetModPlayer<AAPlayer>().AnubisBook && NPCExtensions.BeenKilled<Greed>())
                 {
-                    ChatNumber = 0;
+                    int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
+                    if (Item >= 0)
+                    {
+                        player.inventory[Item].stack--;
+                        if (player.inventory[Item].stack <= 0)
+                        {
+                            player.inventory[Item] = new Item();
+                        }
+
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
+                        player.GetModPlayer<AAPlayer>().AnubisBook = true;
+                        SoundEngine.PlaySound(SoundID.Chat);
+                        return;
+                    }
                 }
-                */
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<AAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                {
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost");
+                    return;
+                }
+
+                Main.npcChatText = Legendscribe.GuideChat();
             }
             else
             {
+                if (Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook)
+                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.FoundBook");
+                else
+                    QuestSystem.Questlines["LegendscribeQuestline"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.Complete");
                 LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
-                /*
-                Player player = Main.LocalPlayer;
-                int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
-                if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
-                {
-                    player.inventory[Item].stack--;
-                    if (player.inventory[Item].stack <= 0)
-                    {
-                        player.inventory[Item] = new Item();
-                    }
-
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
-
-                    SoundEngine.PlaySound(SoundID.Chat);
-                    return;
-                }
-                Main.npcChatText = BossChat();
-                */
             }
         }
 

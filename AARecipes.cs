@@ -22,6 +22,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Armor;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
@@ -34,6 +35,7 @@ using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Mushrooms;
@@ -93,6 +95,7 @@ namespace AAModClassic
             AddMushroomPotionRecipes();
             AddModdedMushroomPotionRecipes();
             AddTransmuterRecipes();
+            AlterZenithRecipe();
 
             #region Materials
             Recipe recipe = GetNewRecipe(ItemID.HallowedBar, 1);
@@ -240,6 +243,20 @@ namespace AAModClassic
             recipe.AddTile(ModContent.TileType<RazewoodSink_Tile>());
             recipe.Register();
             #endregion
+        }
+
+        private static void AlterZenithRecipe()
+        {
+            foreach(Recipe recipe in Main.recipe)
+            {
+                if (!recipe.HasResult(ItemID.Zenith))
+                    continue;
+
+                recipe.AddIngredient(ModContent.ItemType<RiftShredder>());
+                recipe.AddIngredient(ModContent.ItemType<Amenomuraku>());
+                recipe.RemoveIngredient(ItemID.StarWrath);
+                recipe.AddIngredient(ModContent.ItemType<ReignOfFire>());
+            }
         }
 
         private static void RemoveNightsEdgeRecipe()

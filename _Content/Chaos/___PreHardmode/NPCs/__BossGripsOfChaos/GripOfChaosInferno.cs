@@ -2,6 +2,7 @@ using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossSta
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -59,7 +60,10 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
         {
             int blueGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosMire>());
             if (blueGripExists == 0)
+            {
                 AAWorld.downedGrips = true;
+                GripsOfChaosKilled.KilledGripsCondition.Complete();
+            }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

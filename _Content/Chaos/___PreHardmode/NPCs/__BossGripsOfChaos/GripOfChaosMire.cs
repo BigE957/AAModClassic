@@ -1,6 +1,7 @@
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Achievements;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -38,7 +39,10 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
         {
             int redGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosInferno>());
             if (redGripExists == 0)
+            {
                 AAWorld.downedGrips = true;
+                GripsOfChaosKilled.KilledGripsCondition.Complete();
+            }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

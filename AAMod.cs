@@ -2,9 +2,12 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weap
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
@@ -12,7 +15,10 @@ using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Dev.Invoker;
+using AAModClassic.Items.Melee;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
@@ -27,6 +33,7 @@ using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
+using Terraria.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -258,6 +265,19 @@ namespace AAModClassic
                     }
                     Logger.Warn("added item name: " + modItem.DisplayName);
                 }
+            }
+
+            var field = typeof(FinalFractalHelper).GetField("_fractalProfiles", BindingFlags.Static | BindingFlags.NonPublic);
+            if(field != null)
+            {
+                var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
+                profiles.Add(ModContent.ItemType<FleshrendClaymore>(), new(52f, Color.Crimson));
+                profiles.Add(ModContent.ItemType<TrueFleshrendClaymore>(), new(56f, Color.Crimson));
+                profiles.Add(ModContent.ItemType<ReignOfFire>(), new(56f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<Amenomuraku>(), new(64f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<RiftShredder>(), new(56f, Color.Red));
+                profiles.Add(ModContent.ItemType<BreakingDawn>(), new(56f, Color.Yellow));
+                field.SetValue(null, profiles);
             }
 
             isFullyReady = true;

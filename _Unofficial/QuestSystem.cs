@@ -21,9 +21,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -70,7 +67,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<MushroomMonarch>(), false)
                 ],
                 ["GripsOfChaos"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<MushroomMonarch>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<MushroomMonarch>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -79,7 +77,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<FeudalFungus>(), false)
                 ],
                 ["GripsOfChaos"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<FeudalFungus>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<FeudalFungus>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -88,7 +87,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => AAWorld.downedGrips, false)
                 ],
                 ["Broodmother", "Hydra"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GripOfChaosInferno>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GripOfChaosInferno>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -97,7 +97,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<Broodmother>(), false)
                 ],
                 ["SubzeroSerpent", "DesertDjinn"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Broodmother>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Broodmother>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -106,7 +107,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<HydraBody>(), false)
                 ],
                 ["SubzeroSerpent", "DesertDjinn"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<HydraHead1>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<HydraHead1>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -115,7 +117,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<DesertDjinn>(), false)
                 ],
                 ["Sagittarius"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<DesertDjinn>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<DesertDjinn>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -124,7 +127,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>(), false)
                 ],
                 ["Sagittarius"],
-                ModContent.Request<Texture2D>("AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head_Boss")
+                ModContent.Request<Texture2D>("AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head_Boss"),
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -133,7 +137,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<Sag>(), false)
                 ],
                 ["Anubis"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Sag>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Sag>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -142,7 +147,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<Anubis>(), false)
                 ],
                 ["Athena", "Greed"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AnubisUnreleased>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AnubisUnreleased>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -151,7 +157,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<Athena>(), false)
                 ],
                 ["Rajah"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Athena>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Athena>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -160,7 +167,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<Greed>(), false)
                 ],
                 ["Rajah"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Greed>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Greed>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -169,7 +177,8 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<Rajah>(), false)
                 ],
                 [/*"ForsakenAnubis"*/],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Rajah>()]]
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Rajah>()]],
+                hasCompleteText: true
             );
 
             Questlines[legendscribeQuestID].UnlockedQuests.Add("MushroomMonarch");
@@ -181,8 +190,8 @@ namespace AAModClassic._Unofficial
                     Questlines[legendscribeQuestID].Quests[id].QuestRequirements.Add(quest.ID);
             }
 
-            LegendscribeQuestUISystem.questUI.Initialize();
-
+            LegendscribeQuestUISystem.questUI.OnInitialize();
+            LegendscribeQuestUISystem.questUI.OnActivate();
             #endregion
         }
 
@@ -408,10 +417,10 @@ namespace AAModClassic._Unofficial
 
         public bool Started = false;
 
-        public void AddQuest(string id, List<QuestObjective> objectives, string[] gates, Asset<Texture2D> icon, bool autoStart = false, List<Item> rewards = null, List<Item> repeatRewards = null)
+        public void AddQuest(string id, List<QuestObjective> objectives, string[] gates, Asset<Texture2D> icon, bool autoStart = false, List<Item> rewards = null, List<Item> repeatRewards = null, bool hasCompleteText = false)
         {
             string path = "Mods.AAModClassic.UI.Quests." + ID + "." + id + ".";
-            Quests.Add(id, new Quest(ID, id, Language.GetText(path + "Name"), Language.GetText(path + "Description"), Language.GetText(path + "Tasks"), objectives, gates, icon, autoStart, rewards, repeatRewards, Language.GetText(path + "ExtraRewards")));
+            Quests.Add(id, new Quest(ID, id, Language.GetText(path + "Name"), Language.GetText(path + (hasCompleteText ? "Description" : "Description.Incomplete")), Language.GetText(path + "Tasks"), objectives, gates, icon, autoStart, rewards, repeatRewards, Language.GetText(path + "ExtraRewards"), hasCompleteText ? Language.GetText(path + "Description.Complete") : null));
         }
     }
 
@@ -425,7 +434,11 @@ namespace AAModClassic._Unofficial
         /// <summary>
         /// The description of the quest
         /// </summary>
-        public LocalizedText Description;
+        public LocalizedText DescriptionIncomplete;
+        /// <summary>
+        /// The description of the quest
+        /// </summary>
+        public LocalizedText DescriptionComplete;
         /// <summary>
         /// The tasks section
         /// </summary>
@@ -513,10 +526,11 @@ namespace AAModClassic._Unofficial
         public bool IsRepeatable => Rewards != null;
         #endregion
 
-        internal Quest(string questline, string id, LocalizedText name, LocalizedText description, LocalizedText tasks, List<QuestObjective> objectives, string[] gates, Asset<Texture2D> icon, bool autoStart = false, List<Item> rewards = null, List<Item> repeatRewards = null, LocalizedText extraRewards = null)
+        internal Quest(string questline, string id, LocalizedText name, LocalizedText description, LocalizedText tasks, List<QuestObjective> objectives, string[] gates, Asset<Texture2D> icon, bool autoStart = false, List<Item> rewards = null, List<Item> repeatRewards = null, LocalizedText extraRewards = null, LocalizedText descriptionComplete = null)
         {
             Name = name;
-            Description = description;
+            DescriptionIncomplete = description;
+            DescriptionComplete = descriptionComplete ?? description;
             Tasks = tasks;
             ExtraRewardDesc = extraRewards;
             QuestLine = questline;
