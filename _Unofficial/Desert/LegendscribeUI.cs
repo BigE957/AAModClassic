@@ -294,7 +294,6 @@ namespace AAModClassic._Unofficial.Desert
             QuestDetailsArea.Append(QuestRewardsArea);
             #endregion
 
-
             Area.Append(QuestDetailsArea);
 
             Append(Area);
