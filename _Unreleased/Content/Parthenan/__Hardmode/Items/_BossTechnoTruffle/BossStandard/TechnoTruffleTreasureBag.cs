@@ -52,11 +52,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
         {
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TechnoTruffleMask>(), 7));
 
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CyberneticEgg>(), 7));
-
-            itemLoot.Add(ItemDropRule.Common(ItemID.SoulofSight, 1, 25, 40));
-
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<FulguriteBar>(), 1, 40, 76));
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, ItemID.SoulofFright, ItemID.SoulofSight, ItemID.SoulofMight));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MetallicTruffle>()));
         }

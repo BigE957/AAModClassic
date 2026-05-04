@@ -4,6 +4,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Pets;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -290,7 +291,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 NPC.oldPos[m] = NPC.oldPos[m - 1];
             }
             NPC.oldPos[0] = NPC.position;			
-        }     
+        }
+
+        public Color purple;
 
         public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool leftHead)
         {
@@ -301,17 +304,26 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 				BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { null, NeckTexture.Value, null }, 0, neckOrigin, connector, NeckTexture.Value.Height - 10f, null, 1f, false, null);					
 				spriteBatch.Draw(headTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
 				spriteBatch.Draw(glowMaskTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
-			}
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    spriteBatch.Draw(HeadGlowmask.Value, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, purple, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+            }
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            purple = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position));
+
             if (HeadBlue != null)
                 DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, HeadBlue.NPC, drawColor, false);
             if (HeadRed != null)
                 DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, HeadRed.NPC, drawColor, true); 			
-			BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, false);		         
-		    return false;
+			BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, false);
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                BaseDrawing.DrawTexture(spriteBatch, Glowmask1.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, purple, false);
+                BaseDrawing.DrawTexture(spriteBatch, Glowmask2.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, Color.White, false);
+            }
+            return false;
         }
     }
 }
