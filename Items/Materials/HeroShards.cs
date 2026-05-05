@@ -19,13 +19,5 @@ namespace AAModClassic.Items.Materials
 			Item.value = Item.sellPrice(0, 1, 0, 0);
 			Item.rare = ItemRarityID.Yellow;
 		}
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(2);
-            recipe.AddIngredient(ItemID.BrokenHeroSword);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-        }
     }
 }

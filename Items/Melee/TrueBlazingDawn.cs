@@ -52,7 +52,9 @@ namespace AAModClassic.Items.Melee
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<BlazingDawn>(), 1);
-                recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
+                recipe.AddIngredient(ItemID.SoulofFright, 20);
+                recipe.AddIngredient(ItemID.SoulofMight, 20);
+                recipe.AddIngredient(ItemID.SoulofSight, 20);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }

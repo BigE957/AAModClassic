@@ -1,4 +1,10 @@
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
@@ -6,8 +12,10 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
@@ -16,9 +24,11 @@ using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Items.Melee;
+using AAModClassic.Items.Melee.Gem;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
@@ -271,12 +281,82 @@ namespace AAModClassic
             if(field != null)
             {
                 var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
+
+                profiles.Add(ModContent.ItemType<TerraBladeEX>(), new(74f, AAColor.TerraGlow));
                 profiles.Add(ModContent.ItemType<FleshrendClaymore>(), new(52f, Color.Crimson));
                 profiles.Add(ModContent.ItemType<TrueFleshrendClaymore>(), new(56f, Color.Crimson));
+
+                profiles.Add(ModContent.ItemType<Lolkat>(), new(98f, AAColor.Rainbow1));
+
+                profiles.Add(ModContent.ItemType<StarWrathEX>(), new(58f, Color.Magenta));
+
+                profiles.Add(ModContent.ItemType<Apocalypse>(), new(54f, Color.Orange));
+
+                profiles.Add(ModContent.ItemType<PrismaticGreatsword>(), new(60f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<Poppy>(), new(44f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<AmethystGreatsword>(), new(50f, Color.MediumPurple));
+                profiles.Add(ModContent.ItemType<AmethystSaber>(), new(44f, Color.MediumPurple));
+                profiles.Add(ModContent.ItemType<TopazGreatsword>(), new(50f, Color.LightGoldenrodYellow));
+                profiles.Add(ModContent.ItemType<TopazSaber>(), new(44f, Color.LightGoldenrodYellow));
+                profiles.Add(ModContent.ItemType<SapphireGreatsword>(), new(50f, Color.Aquamarine));
+                profiles.Add(ModContent.ItemType<SapphireSaber>(), new(44f, Color.Aquamarine));
+                profiles.Add(ModContent.ItemType<EmeraldGreatsword>(), new(50f, Color.Green));
+                profiles.Add(ModContent.ItemType<EmeraldSaber>(), new(44f, Color.Green));
+                profiles.Add(ModContent.ItemType<RubyGreatsword>(), new(50f, Color.IndianRed));
+                profiles.Add(ModContent.ItemType<RubySaber>(), new(44f, Color.IndianRed));
+                profiles.Add(ModContent.ItemType<AmberGreatsword>(), new(50f, Color.Orange));
+                profiles.Add(ModContent.ItemType<AmberSaber>(), new(44f, Color.Orange));
+                profiles.Add(ModContent.ItemType<DiamondGreatsword>(), new(50f, Color.White));
+                profiles.Add(ModContent.ItemType<DiamondSaber>(), new(44f, Color.White));
+                profiles.Add(ItemID.BeamSword, new(52f, Color.Yellow));
+
+                profiles.Add(ModContent.ItemType<BladeOfEvil>(), new(68f, AAColor.Jevil));
+
+                profiles.Add(ModContent.ItemType<ChaosSlayerEX>(), new(86f, AAColor.Shen3));
+                profiles.Add(ModContent.ItemType<ChaosSlayer>(), new(90f, AAColor.Shen2));
                 profiles.Add(ModContent.ItemType<ReignOfFire>(), new(56f, Color.OrangeRed));
                 profiles.Add(ModContent.ItemType<Amenomuraku>(), new(64f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<PerfectChaos>(), new(120f, AAColor.Shen));
+                profiles.Add(ModContent.ItemType<Masamune>(), new(62f, AAColor.Yamata));
+                profiles.Add(ModContent.ItemType<Chaos>(), new(90f, AAColor.Shen2));
+                profiles.Add(ModContent.ItemType<TrueBlazingDawn>(), new(86f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<BlazingDawn>(), new(62f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<FlamingFury>(), new(50f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<OceanRazor>(), new(40f, Color.DarkBlue));
+                profiles.Add(ModContent.ItemType<DoomiteSaber>(), new(60f, Color.Red));
+                profiles.Add(ModContent.ItemType<DesertScimitar>(), new(70f, Color.SandyBrown));
+                profiles.Add(ModContent.ItemType<TrueAbyssalTwilight>(), new(76f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<AbyssalTwilight>(), new(60f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<ExilesKatana>(), new(66f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<IceLongsword>(), new(64f, Color.AliceBlue));
+
+                profiles.Add(ModContent.ItemType<InfinityBlade>(), new(84f, Color.Red));
                 profiles.Add(ModContent.ItemType<RiftShredder>(), new(56f, Color.Red));
                 profiles.Add(ModContent.ItemType<BreakingDawn>(), new(56f, Color.Yellow));
+
+                profiles.Add(ModContent.ItemType<Verdict>(), new(92f, Color.SeaGreen));
+                profiles.Add(ModContent.ItemType<Judgment>(), new(72f, Color.Blue));
+                profiles.Add(ModContent.ItemType<SultansScimitar>(), new(66f, Color.SandyBrown));
+
+                profiles.Add(ModContent.ItemType<SagittariusLeg>(), new(92f, Color.Red));
+
+                profiles.Add(ModContent.ItemType<RomulusTazesaber>(), new(54f, Color.Purple));
+
+                profiles.Add(ModContent.ItemType<SubzeroSlasher>(), new(56f, Color.Snow));
+
+                profiles.Add(ModContent.ItemType<Olympia>(), new(52f, Color.Turquoise));
+                profiles.Add(ModContent.ItemType<SkycutterKopis>(), new(50f, Color.Turquoise));
+                profiles.Add(ItemID.SilverBroadsword, new(38f, Color.Silver));
+                profiles.Add(ItemID.TungstenBroadsword, new(38f, Color.LightSeaGreen));
+
+                profiles.Add(ModContent.ItemType<Excalihare>(), new(80f, AAColor.Rainbow1));
+                //TODO: this item got a prequel in lost sea. add that here when the time is right
+
+                profiles.Add(ModContent.ItemType<CarnalCrusher>(), new(90f, Color.Crimson));
+
+                profiles.Add(ModContent.ItemType<TrueCopperShortswordEX>(), new(36f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<TrueCopperShortsword>(), new(64f, AAColor.Rainbow1));
+
                 field.SetValue(null, profiles);
             }
 

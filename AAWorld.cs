@@ -112,6 +112,7 @@ namespace AAModClassic
         //Messages
         public static bool AMessage;
         public static bool Empowered;
+        public static bool HeroRelicMessage;
         //Boss Bools
         public static bool Ancients;
         public static bool downedGrips;
@@ -1359,8 +1360,10 @@ namespace AAModClassic
                 if (!AMessage)
                 {
                     AMessage = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo1"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo2"), Color.Orange.R, Color.Orange.G, Color.Orange.B);
                 }
+                
             }       
 
             if (downedAllAncients && !previousDownedAllAncients)

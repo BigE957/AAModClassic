@@ -547,6 +547,14 @@ namespace AAModClassic.Globals
                 npc.DropLoot(ModContent.ItemType<GoldenCarrot>());
             }
 
+            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && (npc.type == NPCID.SwampThing || npc.type == NPCID.Frankenstein))
+            {
+                if (Main.rand.NextFloat() <= .4f)
+                {
+                    npc.DropLoot(ModContent.ItemType<HeroShards>(), Main.rand.Next(2, 4));
+                }
+            }
+
             if (IsBunny(npc) && NPC.downedGolemBoss)
             {
                 if (Main.rand.NextBool(80))
