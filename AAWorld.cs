@@ -63,6 +63,10 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosW
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Terrarium.World.Tiles;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 
 namespace AAModClassic
 {
@@ -92,6 +96,7 @@ namespace AAModClassic
         public static bool Luminite;
         public static bool DarkMatter;
         public static bool HallowedOre;
+        public static bool FulguriteOre;
         public static bool Dynaskull;
         public static bool ChaosOres;
         public static bool RadiumOre;
@@ -123,6 +128,8 @@ namespace AAModClassic
 
         public static bool downedAncient => downedAkuma || downedYamata || downedZero;
         public static bool downedSAncient => downedShen;
+        public static bool downedAnySiegeUnits => NPCExtensions.BeenKilled<Retriever>() || NPCExtensions.BeenKilled<OrthrusXBody>() || NPCExtensions.BeenKilled<RaiderUltima>();
+        public static bool downedAllSiegeUnits => NPCExtensions.BeenKilled<Retriever>() && NPCExtensions.BeenKilled<OrthrusXBody>() && NPCExtensions.BeenKilled<RaiderUltima>();
         public static bool downedAkuma => (NPCExtensions.BeenKilled<Akuma>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
         public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool zeroUS;
@@ -210,6 +217,7 @@ namespace AAModClassic
             ChaosOres = downedGrips;
             Dynaskull = NPC.downedBoss3;
             HallowedOre = NPC.downedMechBossAny;
+            FulguriteOre = downedAnySiegeUnits;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
             Luminite = NPC.downedMoonlord;
             RadiumOre = downedEquinox;
@@ -340,6 +348,7 @@ namespace AAModClassic
             ChaosOres = downedGrips;
             Dynaskull = NPC.downedBoss3;
             HallowedOre = NPC.downedMechBossAny;
+            FulguriteOre = downedAnySiegeUnits;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
             Luminite = NPC.downedMoonlord;
             RadiumOre = downedEquinox;
@@ -1295,6 +1304,18 @@ namespace AAModClassic
                         int tilesY = WorldGen.genRand.Next((int)(y * .3f), (int)(y * .75f));
                         WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(4, 9), (ushort)ModContent.TileType<HallowedOre_Tile>());
                     }
+                }
+            }
+
+            if (downedAnySiegeUnits)
+            {
+                if (FulguriteOre == false)
+                {
+                    FulguriteOre = true;
+                    if (Main.netMode != 1) 
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedSiegeUnitAnyInfo"), Color.MediumPurple);
+                    for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
+                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<FulguriteShard_Tile>());
                 }
             }
 
