@@ -1220,6 +1220,7 @@ namespace AAModClassic._Unofficial.Desert
             tag.Add("HasDiedToForsakenAnubis", HasLostToForsakenAnubis);
             tag.Add("HasDiedMultipleTimesToForsakenAnubis", HasLostMultipleTimesToForsakenAnubis);
             tag.Add("HasSpokenToAnubisAfterDyingToForsakenAnubis", HasSpokenToAnubisAfterDyingToForsakenAnubis);
+            tag.Add("HasSpokenToAnubisPostForsakenAnubis", HasSpokenToAnubisPostForsakenAnubis);
         }
 
         public override void LoadData(TagCompound tag)
@@ -1232,6 +1233,8 @@ namespace AAModClassic._Unofficial.Desert
                 HasLostMultipleTimesToForsakenAnubis = false;
             if (!tag.TryGet("HasSpokenToAnubisAfterDyingToForsakenAnubis", out HasSpokenToAnubisAfterDyingToForsakenAnubis))
                 HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
+            if (!tag.TryGet("HasSpokenToAnubisPostForsakenAnubis", out HasSpokenToAnubisPostForsakenAnubis))
+                HasSpokenToAnubisPostForsakenAnubis = false;
         }
     }
 }
