@@ -621,6 +621,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
                         int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
+                        if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
+                            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostMultipleTimesToForsakenAnubis = true;
+                        else
+                            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis = true;
                         NPC.active = false;
                     }
                     return false;

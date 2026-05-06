@@ -195,7 +195,7 @@ namespace AAModClassic._Unofficial.Desert
 
             #region Quest Description
             float descWidth = 320;
-            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(CurrentQuest == null ? "Salutations" : CurrentQuest.DescriptionIncomplete.Value, descWidth - 40);
+            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(CurrentQuest == null ? "Salutations" : CurrentQuest.DescriptionIncomplete.Format(Main.LocalPlayer.name), descWidth - 40);
 
             QuestDescriptionText = new(wrapped);
             QuestDescriptionText.Width.Pixels = descWidth - 20;
@@ -597,7 +597,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestTitle.SetText(CurrentQuest.Name.Value);
 
             float descWidth = 320;
-            string desc = (CurrentQuest.IsComplete && CurrentQuest.DescriptionComplete != null ? CurrentQuest.DescriptionComplete : CurrentQuest.DescriptionIncomplete).Value;
+            string desc = (CurrentQuest.IsComplete && CurrentQuest.DescriptionComplete != null ? CurrentQuest.DescriptionComplete : CurrentQuest.DescriptionIncomplete).Format(Main.LocalPlayer.name);
             var wrapped = FontAssets.MouseText.Value.CreateWrappedText(desc, descWidth - 40);
             QuestDescriptionText.SetText(wrapped);
             QuestDescriptionText.Height.Pixels = FontAssets.MouseText.Value.MeasureString(QuestDescriptionText.Text).Y;

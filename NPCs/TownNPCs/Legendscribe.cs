@@ -607,7 +607,7 @@ namespace AAModClassic.NPCs.TownNPCs
             else if (AnubisF)
             {
                 return NPCExtensions.BeenKilled<ForsakenAnubis>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisN1") + player.name + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisN2");
+                    Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisN").FormatWith(player.name);
             }
             else if (AthenaA)
             {

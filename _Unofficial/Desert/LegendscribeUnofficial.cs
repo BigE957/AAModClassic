@@ -33,6 +33,7 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 
 namespace AAModClassic._Unofficial.Desert
@@ -1048,11 +1049,15 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            if (!Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0)
+            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<ForsakenAnubis>();
+            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
+            if (!fAnubisTime && hasGreedBook)
                 button = "Found your book";
             else
                 button = "Help";
-            button2 = "What should I do?";
+
+            if(!NPC.downedMoonlord || NPCExtensions.BeenKilled<ForsakenAnubis>())
+                button2 = "What's next?";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -1060,6 +1065,19 @@ namespace AAModClassic._Unofficial.Desert
             if (firstButton)
             {
                 Player player = Main.LocalPlayer;
+
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<AAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                {
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost");
+                    return;
+                }
+
+                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<ForsakenAnubis>())
+                {
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.Help");
+                    return;
+                }
 
                 if (!player.GetModPlayer<AAPlayer>().AnubisBook && NPCExtensions.BeenKilled<Greed>())
                 {
@@ -1079,12 +1097,6 @@ namespace AAModClassic._Unofficial.Desert
                         return;
                     }
                 }
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<AAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
-                {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost");
-                    return;
-                }
 
                 Main.npcChatText = Legendscribe.GuideChat();
             }
@@ -1100,6 +1112,39 @@ namespace AAModClassic._Unofficial.Desert
 
         public override string GetChat()
         {
+            AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
+
+            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<ForsakenAnubis>())
+            {
+                if (!p.HasLostToForsakenAnubis)
+                {
+                    if (!p.HasSpokenToAnubisPostMoonLord)
+                    {
+                        p.HasSpokenToAnubisPostMoonLord = true;
+                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
+                    }
+                    else
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PreFight.Repeat");
+                }
+                else
+                {
+                    if (!p.HasSpokenToAnubisAfterDyingToForsakenAnubis)
+                    {
+                        p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.First");
+                    }
+                    else if(p.HasLostMultipleTimesToForsakenAnubis)
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
+                    else
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.Repreat.FirstDeath" + Main.rand.Next(2));
+                }
+            }
+            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<ForsakenAnubis>())
+            {
+                p.HasSpokenToAnubisPostForsakenAnubis = true;
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostVictory");
+            }
+
             return Legendscribe.LegendscribeDialogue(NPC);
         }
 
@@ -1159,5 +1204,34 @@ namespace AAModClassic._Unofficial.Desert
         }
         #endregion
 
+    }
+
+    public class AnubisDialoguePlayer : ModPlayer
+    {
+        internal bool HasSpokenToAnubisPostMoonLord = false;
+        internal bool HasLostToForsakenAnubis = false;
+        internal bool HasLostMultipleTimesToForsakenAnubis = false;
+        internal bool HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
+        internal bool HasSpokenToAnubisPostForsakenAnubis = false;
+
+        public override void SaveData(TagCompound tag)
+        {
+            tag.Add("HasSpokenToAnubisPostMoonLord", HasSpokenToAnubisPostMoonLord);
+            tag.Add("HasDiedToForsakenAnubis", HasLostToForsakenAnubis);
+            tag.Add("HasDiedMultipleTimesToForsakenAnubis", HasLostMultipleTimesToForsakenAnubis);
+            tag.Add("HasSpokenToAnubisAfterDyingToForsakenAnubis", HasSpokenToAnubisAfterDyingToForsakenAnubis);
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            if (!tag.TryGet("HasSpokenToAnubisPostMoonLord", out HasSpokenToAnubisPostMoonLord))
+                HasSpokenToAnubisPostMoonLord = false;
+            if (!tag.TryGet("HasDiedToForsakenAnubis", out HasLostToForsakenAnubis))
+                HasLostToForsakenAnubis = false;
+            if (!tag.TryGet("HasDiedMultipleTimesToForsakenAnubis", out HasLostMultipleTimesToForsakenAnubis))
+                HasLostMultipleTimesToForsakenAnubis = false;
+            if (!tag.TryGet("HasSpokenToAnubisAfterDyingToForsakenAnubis", out HasSpokenToAnubisAfterDyingToForsakenAnubis))
+                HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
+        }
     }
 }
