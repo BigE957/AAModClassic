@@ -3,16 +3,27 @@ using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.AH.Ashe;
+using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Equinox;
 using AAModClassic.NPCs.Bosses.Greed;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Sag;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -57,8 +68,8 @@ namespace AAModClassic._Unofficial
 
         public static void InitializeAllQuestlines()
         {
-            #region Legendscribe Questline
-            string legendscribeQuestID = "LegendscribeQuestline";
+            #region Legendscribe Earlygame Questline
+            string legendscribeQuestID = "LegendscribeEarlyGame";
             AddQuestline(legendscribeQuestID, "Legendscribe");
 
             Questlines[legendscribeQuestID].AddQuest(
@@ -193,11 +204,168 @@ namespace AAModClassic._Unofficial
             LegendscribeQuestUISystem.questUI.OnInitialize();
             LegendscribeQuestUISystem.questUI.OnActivate();
             #endregion
+
+            #region Legendscribe Lategame Questline
+            legendscribeQuestID = "LegendscribeLateGame";
+            AddQuestline(legendscribeQuestID, "Legendscribe");
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "ForsakenAnubis",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<ForsakenAnubis>(), false)
+                ],
+                ["GreedA", "AthenaA"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<ForsakenAnubis>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "AthenaA",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<AthenaA>(), false)
+                ],
+                ["Equinox"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AthenaA>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "GreedA",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<GreedA>(), false)
+                ],
+                ["Equinox"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GreedA>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "Equinox",
+                [
+                    new FlagObjective(() => AAWorld.downedEquinox, false)
+                ],
+                ["Sisters"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<DaybringerHead>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "Sisters",
+                [
+                    new FlagObjective(() => AAWorld.downedSisters, false)
+                ],
+                ["Akuma", "Yamata", "Zero"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Ashe>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "Akuma",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<Akuma>(), false)
+                ],
+                ["Shen", "SoulOfCthulhu"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Akuma>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "Yamata",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<YamataBody>(), false)
+                ],
+                ["Shen", "SoulOfCthulhu"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<YamataHead>()]], 
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "Zero",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<Zero>(), false)
+                ],
+                ["InfinityZero", "SoulOfCthulhu"],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Zero>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "Shen",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<Shen>(), false)
+                ],
+                [],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Shen>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "InfinityZero",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<InfinityZero>(), false)
+                ],
+                [],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<InfinityZero>()]],
+                hasCompleteText: true
+            );
+
+            Questlines[legendscribeQuestID].AddQuest(
+                "SoulOfCthulhu",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<SoulOfCthulhu>(), false)
+                ],
+                [],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<SoulOfCthulhu>()]],
+                hasCompleteText: true
+            );
+
+            //Questlines[legendscribeQuestID].UnlockedQuests.Add("ForsakenAnubis");
+
+            foreach (Quest quest in Questlines[legendscribeQuestID].Quests.Values)
+            {
+                foreach (string id in quest.QuestUnlocks)
+                    Questlines[legendscribeQuestID].Quests[id].QuestRequirements.Add(quest.ID);
+            }
+            #endregion
         }
 
         public override void PostSetupContent()
         {
             InitializeAllQuestlines();
+        }
+
+        public override void PostWorldLoad()
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
+            {
+                Questlines["LegendscribeLateGame"].AddQuest(
+                "InfinityZero",
+                [
+                    new FlagObjective(() => NPCExtensions.BeenKilled<InfinityZero>(), false)
+                ],
+                [],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<InfinityZero>()]],
+                hasCompleteText: true
+            );
+
+                Questlines["LegendscribeLateGame"].AddQuest(
+                    "SoulOfCthulhu",
+                    [
+                        new FlagObjective(() => NPCExtensions.BeenKilled<SoulOfCthulhu>(), false)
+                    ],
+                    [],
+                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<SoulOfCthulhu>()]],
+                    hasCompleteText: true
+                );
+            }
+            else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
+            {
+                Questlines["LegendscribeLateGame"].Quests.Remove("InfinityZero");
+                Questlines["LegendscribeLateGame"].Quests.Remove("SoulOfCthulhu");
+            }
+
+            LegendscribeQuestUISystem.questUI.OnInitialize();
+            LegendscribeQuestUISystem.questUI.OnActivate();
         }
 
         public override void PostUpdateEverything()

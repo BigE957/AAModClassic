@@ -1,8 +1,8 @@
 ﻿using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Utilities;
-using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -13,7 +13,6 @@ using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
@@ -29,60 +28,79 @@ namespace AAModClassic._Unofficial.Desert
         /// <summary>
         /// The current subquest to display
         /// </summary>
-        public static string currentQuestID = "";
-        public static Quest currentQuest => currentQuestID == "" ? null : QuestSystem.Questlines["LegendscribeQuestline"].Quests[currentQuestID];
-        public static UIPanel Area;
+        private static string CurrentQuestID = "";
+
+        internal static Questline CurrentQuestline => NPCExtensions.BeenKilled<ForsakenAnubis>() ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
+        internal static Quest CurrentQuest => CurrentQuestID == "" ? null : CurrentQuestline.Quests[CurrentQuestID];
+        internal static UIPanel Area;
 
         //Node List Side
-        public static UIPanel QuestListArea;
+        internal static UIPanel QuestListArea;
 
-        public static UIHorizontalList QuestList;
-        public static HorizontalUIScrollbar QuestListScrollBar;
-        public static UIParallaxBackground QuestListBackground;
+        internal static UIHorizontalList QuestList;
+        internal static HorizontalUIScrollbar QuestListScrollBar;
+        internal static UIParallaxBackground QuestListBackground;
 
-        public static Dictionary<string, int> DepthValues;
-        public static Dictionary<string, QuestNode> Nodes;
-        public static List<(string NodeKey1, string NodeKey2, FrameableUIImage line)> Lines;
+        internal static Dictionary<string, int> DepthValues;
+        internal static Dictionary<string, QuestNode> Nodes;
+        internal static List<(string NodeKey1, string NodeKey2, FrameableUIImage line)> Lines;
 
         //Details Side
-        public static UIPanel QuestDetailsArea;
+        internal static UIPanel QuestDetailsArea;
 
-        public static UITextPanel<string> QuestTitle;
-        public static UIPanel QuestDescriptionArea;
-        public static UIText QuestDescriptionText;
-        public static UIList QuestDescriptionList;
-        public static UIScrollbar QuestDescriptionScrollBar;
+        internal static UITextPanel<string> QuestTitle;
+        internal static UIPanel QuestDescriptionArea;
+        internal static UIText QuestDescriptionText;
+        internal static UIList QuestDescriptionList;
+        internal static UIScrollbar QuestDescriptionScrollBar;
 
-        public static UITextPanel<string> QuestTasksHeader;
-        public static UIPanel QuestTasksArea;
-        public static UIText QuestTasksText;
-        public static UIList QuestTasksList;
-        public static UIScrollbar QuestTasksScrollBar;
+        internal static UITextPanel<string> QuestTasksHeader;
+        internal static UIPanel QuestTasksArea;
+        internal static UIText QuestTasksText;
+        internal static UIList QuestTasksList;
+        internal static UIScrollbar QuestTasksScrollBar;
 
-        public static UITextPanel<string> QuestRewardsHeader;
-        public static UIPanel QuestRewardsArea;
-        public static List<UIPanel> QuestRewards;
+        internal static UITextPanel<string> QuestRewardsHeader;
+        internal static UIPanel QuestRewardsArea;
+        internal static List<UIPanel> QuestRewards;
 
-        public static UIPanel mouseTextPanel;
-        public static UIText mouseText;
-
-        //public static float GeneralScale => MathHelper.Lerp(0.8f, 0.7f, Utils.GetLerpValue(800f, 730f, Main.screenWidth, true)) * Main.UIScale;
+        internal static UIPanel MouseTextPanel;
+        internal static UIText MouseText;
 
         public override void OnInitialize()
         {
-            Color outerBorder = Color.Black;
-            Color outerBack = Color.DarkGoldenrod;
-
-            Color innerBorder = Color.Cyan;
-            Color innerBack = Color.Black;
-
-            Color labelBorder = Color.Black;
-            Color labelBack = Color.Gold;
-
-            if (!QuestSystem.Questlines.ContainsKey("LegendscribeQuestline"))
+            if (!QuestSystem.Questlines.ContainsKey("LegendscribeEarlyGame"))
                 return;
 
-            currentQuestID = "MushroomMonarch";
+            Color outerBorder;
+            Color outerBack;
+
+            Color innerBorder;
+            Color innerBack;
+
+            Color labelBack;
+
+            if (CurrentQuestline.ID == "LegendscribeEarlyGame")
+            {
+                outerBorder = Color.Black;
+                outerBack = Color.DarkGoldenrod;
+                innerBorder = Color.Cyan;
+                innerBack = Color.Black;
+                labelBack = Color.Gold;
+
+                CurrentQuestID = "MushroomMonarch";
+            }
+            else
+            {
+                outerBorder = Color.Black;
+                outerBack = Color.DarkOliveGreen;
+                innerBorder = Color.Lime;
+                innerBack = Color.Black;
+                labelBack = Color.YellowGreen;
+
+                CurrentQuestID = "ForsakenAnubis";
+            }
+            
 
             Area = new()
             {
@@ -120,7 +138,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestList.Height.Pixels = 295;
 
             Main.instance.LoadBackground(0);
-            Asset<Texture2D> tex = TextureAssets.Background[0];
+            Asset<Texture2D> tex = CurrentQuestline.ID == "LegendscribeEarlyGame" ? TextureAssets.Background[0] : TextureAssets.BlackTile;
             Main.instance.LoadBackground(22);
             Asset<Texture2D> farBack = TextureAssets.Background[22];
             Main.instance.LoadBackground(208);
@@ -128,7 +146,17 @@ namespace AAModClassic._Unofficial.Desert
             Main.instance.LoadBackground(218);
             Asset<Texture2D> nearBack = TextureAssets.Background[218];
 
-            QuestListBackground = new(tex, [new(farBack, 0.2f, new(0,-30), Color.White * 0.666f), new(farBack, 0.25f, new(56, 10)), new(mediumBack, 0.4f, new(0, 40)), new(nearBack, 1f, new(0, 110))], 0.5f);
+            Color forsakenTint = Color.Lerp(Color.White, new(0.2f, 0.5f, 0.2f), 0.5f);
+
+            Color baseColor = CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.White : forsakenTint;
+
+            QuestListBackground = new(tex, 
+            [
+                new(farBack, 0.2f, new(0,-30), baseColor * 0.666f), 
+                new(farBack, 0.25f, new(56, 10), baseColor), 
+                new(mediumBack, 0.4f, new(0, 40), baseColor), 
+                new(nearBack, 1f, new(0, 110), baseColor)
+            ], 0.5f);
             QuestListBackground.MaxWidth.Pixels = QuestListBackground.Width.Pixels = 3000;
             QuestListBackground.Height.Pixels = QuestList.Height.Pixels;
             QuestList.Add(QuestListBackground);
@@ -152,7 +180,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestDetailsArea.Height.Pixels = 295;
 
             #region Quest Title
-            QuestTitle = new(currentQuest == null ? "Hi" : currentQuest.Name.Value, 0.66f, true)
+            QuestTitle = new(CurrentQuest == null ? "Hi" : CurrentQuest.Name.Value, 0.66f, true)
             {
                 HAlign = 0.5f,
                 BackgroundColor = labelBack
@@ -167,7 +195,7 @@ namespace AAModClassic._Unofficial.Desert
 
             #region Quest Description
             float descWidth = 320;
-            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(currentQuest == null ? "Salutations" : currentQuest.DescriptionIncomplete.Value, descWidth - 40);
+            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(CurrentQuest == null ? "Salutations" : CurrentQuest.DescriptionIncomplete.Value, descWidth - 40);
 
             QuestDescriptionText = new(wrapped);
             QuestDescriptionText.Width.Pixels = descWidth - 20;
@@ -220,7 +248,7 @@ namespace AAModClassic._Unofficial.Desert
             #endregion
 
             #region Quest Tasks
-            wrapped = FontAssets.MouseText.Value.CreateWrappedText(currentQuest == null ? "Greetings" : currentQuest.Tasks.Value, 320 - 40);
+            wrapped = FontAssets.MouseText.Value.CreateWrappedText(CurrentQuest == null ? "Greetings" : CurrentQuest.Tasks.Value, 320 - 40);
             List<int> insertIndexes = [];
             for (var i = 0; i < wrapped.Length; i++)
                 if (i != wrapped.Length - 1 && wrapped[i] == '\n' && wrapped[i + 1] != '-')
@@ -299,36 +327,44 @@ namespace AAModClassic._Unofficial.Desert
             Append(Area);
 
             #region Fake Mouse Text
-            mouseTextPanel = new()
+            MouseTextPanel = new()
             {
                 BackgroundColor = Color.Transparent,
                 BorderColor = Color.Transparent
             };
 
-            mouseText = new("")
+            MouseText = new("")
             {
                 TextColor = Color.Transparent,
                 ShadowColor = Color.Transparent
             };
 
-            mouseTextPanel.Append(mouseText);
-            Append(mouseTextPanel);
+            MouseTextPanel.Append(MouseText);
+            Append(MouseTextPanel);
             #endregion
         }
 
         public override void OnActivate()
         {
-            if (!QuestSystem.Questlines.TryGetValue("LegendscribeQuestline", out var questline))
+            if (!QuestSystem.Questlines.ContainsKey("LegendscribeEarlyGame"))
                 return;
 
-            questline.Started = true;
-            float maxDepth = FillDepthValues("MushroomMonarch", 0);
-            DepthValues.TryAdd("FeudalFungus", 0);
-
-            if (currentQuest != null)
+            CurrentQuestline.Started = true;
+            float maxDepth;
+            if (CurrentQuestline.ID == "LegendscribeEarlyGame")
             {
-                SwitchDisplayedQuest(currentQuest.ID);
-                var viewPos = DepthValues.Count == 0 ? 0 : DepthValues[currentQuest.ID] / (float)DepthValues.Values.Max();
+                maxDepth = FillDepthValues("MushroomMonarch", 0);
+                DepthValues.TryAdd("FeudalFungus", 0);
+            }
+            else
+            {
+                maxDepth = FillDepthValues("ForsakenAnubis", 0);
+            }
+
+            if (CurrentQuest != null)
+            {
+                SwitchDisplayedQuest(CurrentQuest.ID);
+                var viewPos = DepthValues.Count == 0 ? 0 : DepthValues[CurrentQuest.ID] / (float)DepthValues.Values.Max();
                 QuestListScrollBar.ViewPosition = viewPos * QuestListScrollBar.ViewSize * 1.25f;
                 QuestDescriptionScrollBar.ViewPosition = 0f;
                 QuestTasksScrollBar.ViewPosition = 0f;
@@ -345,7 +381,7 @@ namespace AAModClassic._Unofficial.Desert
 
             for (var i = 0; i < DepthValues.Count; i++)
             {
-                var quest = questline.Quests[depths[i].Key];
+                var quest = CurrentQuestline.Quests[depths[i].Key];
 
                 var xPosition = 80 + DepthValues[quest.ID] / maxDepth * QuestListBackground.Width.Pixels * 0.9f;
                 if (i != 0)
@@ -360,14 +396,14 @@ namespace AAModClassic._Unofficial.Desert
                 yPosition += Main.rand.NextFloat(-openHeight / (1f + depthNodeCount), openHeight / (1f + depthNodeCount));
 
                 Vector2 placementPos = new(xPosition, yPosition);
-                QuestNode node = new(quest.ID, placementPos, i);
+                QuestNode node = new(CurrentQuestline.ID, quest.ID, placementPos, i);
                 node.Width.Pixels = 48;
                 node.Height.Pixels = 48;
 
                 foreach (var gateID in quest.QuestUnlocks)
                 {
                     FrameableUIImage uiLine = new(line);
-                    uiLine.Color = Color.LightSkyBlue;
+                    uiLine.Color = CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.LightSkyBlue : Color.Gold;
                     uiLine.NormalizedOrigin.X = 0.5f;
                     uiLine.NormalizedOrigin.Y = 0.5f;
                     uiLine.Width.Pixels = 4;
@@ -386,11 +422,11 @@ namespace AAModClassic._Unofficial.Desert
         {
             if (Area.GetDimensions().ToRectangle().Contains(Main.MouseScreen.ToPoint()))
                 Main.LocalPlayer.mouseInterface = true;
-            mouseText.SetText("");
+            MouseText.SetText("");
 
             base.Update(gameTime);
 
-            foreach(Quest q in QuestSystem.Questlines["LegendscribeQuestline"].Quests.Values)
+            foreach(Quest q in CurrentQuestline.Quests.Values)
             {
                 if(q.IsComplete && q.Active && !q.EverTurnedIn)
                 {
@@ -399,15 +435,15 @@ namespace AAModClassic._Unofficial.Desert
                     foreach (string id in q.QuestUnlocks)
                     {
                         bool canUnlock = true;
-                        foreach (string gate in QuestSystem.Questlines["LegendscribeQuestline"].Quests[id].QuestRequirements)
+                        foreach (string gate in CurrentQuestline.Quests[id].QuestRequirements)
                         {
                             if (id == q.ID)
                                 continue;
-                            if (!QuestSystem.Questlines["LegendscribeQuestline"].Quests[gate].EverTurnedIn)
+                            if (!CurrentQuestline.Quests[gate].EverTurnedIn)
                                 canUnlock = false;
                         }
                         if (canUnlock)
-                            QuestSystem.Questlines["LegendscribeQuestline"].UnlockedQuests.Add(id);
+                            CurrentQuestline.UnlockedQuests.Add(id);
                     }
                     continue;
                 }
@@ -418,7 +454,7 @@ namespace AAModClassic._Unofficial.Desert
                 bool unlocked = true;
                 foreach(string key in q.QuestRequirements)
                 {
-                    if(!QuestSystem.Questlines["LegendscribeQuestline"].Quests[key].IsComplete)
+                    if(!CurrentQuestline.Quests[key].IsComplete)
                     {
                         unlocked = false;
                         break;
@@ -438,13 +474,13 @@ namespace AAModClassic._Unofficial.Desert
                 line.Rotation = startToEnd.ToRotation();
                 line.ImageScale = new(startToEnd.Length() / 500f, 4);
 
-                if (QuestSystem.Questlines["LegendscribeQuestline"].Quests[NodeIndex1].EverTurnedIn)
-                    line.Color = Color.LightSkyBlue;
+                if (CurrentQuestline.Quests[NodeIndex1].EverTurnedIn)
+                    line.Color = CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.LightSkyBlue : Color.LightGreen;
                 else
-                    line.Color = Color.Navy;
+                    line.Color = CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.Navy : Color.SeaGreen;
             }
 
-            var RewardsList = currentQuest == null ? null : currentQuest.EverTurnedIn && currentQuest.RepeatRewards != null ? currentQuest.RepeatRewards : currentQuest.Rewards;
+            var RewardsList = CurrentQuest == null ? null : CurrentQuest.EverTurnedIn && CurrentQuest.RepeatRewards != null ? CurrentQuest.RepeatRewards : CurrentQuest.Rewards;
 
             if (RewardsList != null)
             {
@@ -453,7 +489,7 @@ namespace AAModClassic._Unofficial.Desert
                     if (QuestRewards[i].IsMouseHovering)
                     {
                         if (RewardsList[i].type == ItemID.Book)
-                            mouseText.SetText(currentQuest.ExtraRewardDesc.Value);
+                            MouseText.SetText(CurrentQuest.ExtraRewardDesc.Value);
                         else
                         {
                             var item = RewardsList[i];
@@ -491,19 +527,19 @@ namespace AAModClassic._Unofficial.Desert
                                     text += line;
                                 }
                             }
-                            mouseText.SetText(text);
+                            MouseText.SetText(text);
                         }
                     }
                 }
             }
 
             #region Mouse Text Updates
-            if (mouseText.Text != "")
+            if (MouseText.Text != "")
             {
-                mouseTextPanel.Left.Pixels = Main.MouseScreen.X + 10;
-                mouseTextPanel.Top.Pixels = Main.MouseScreen.Y + 10;
+                MouseTextPanel.Left.Pixels = Main.MouseScreen.X + 10;
+                MouseTextPanel.Top.Pixels = Main.MouseScreen.Y + 10;
                 // measure string doesnt account for chat tags, we must doe this ourselves
-                var text = mouseText.Text;
+                var text = MouseText.Text;
                 while (text.Contains('['))
                 {
                     var startIndex = text.IndexOf('[');
@@ -512,26 +548,26 @@ namespace AAModClassic._Unofficial.Desert
                     text = text.Insert(startIndex, "   ");
                 }
                 var textSize = FontAssets.MouseText.Value.MeasureString(text);
-                mouseTextPanel.Width.Pixels = textSize.X + 25;
-                mouseTextPanel.Height.Pixels = textSize.Y + 15;
+                MouseTextPanel.Width.Pixels = textSize.X + 25;
+                MouseTextPanel.Height.Pixels = textSize.Y + 15;
 
-                var right = mouseTextPanel.Left.Pixels + mouseTextPanel.Width.Pixels;
+                var right = MouseTextPanel.Left.Pixels + MouseTextPanel.Width.Pixels;
                 if (right > Main.screenWidth)
                 {
-                    mouseTextPanel.Left.Pixels -= right - Main.screenWidth;
+                    MouseTextPanel.Left.Pixels -= right - Main.screenWidth;
                 }
 
-                mouseTextPanel.BackgroundColor = Color.CadetBlue with { A = (byte)(255 * 0.8f) };
-                mouseTextPanel.BorderColor = Color.Black;
-                mouseText.TextColor = Color.White;
-                mouseText.ShadowColor = Color.Black;
+                MouseTextPanel.BackgroundColor = Color.CadetBlue with { A = (byte)(255 * 0.8f) };
+                MouseTextPanel.BorderColor = Color.Black;
+                MouseText.TextColor = Color.White;
+                MouseText.ShadowColor = Color.Black;
             }
             else
             {
-                mouseTextPanel.BackgroundColor = Color.Transparent;
-                mouseTextPanel.BorderColor = Color.Transparent;
-                mouseText.TextColor = Color.Transparent;
-                mouseText.ShadowColor = Color.Transparent;
+                MouseTextPanel.BackgroundColor = Color.Transparent;
+                MouseTextPanel.BorderColor = Color.Transparent;
+                MouseText.TextColor = Color.Transparent;
+                MouseText.ShadowColor = Color.Transparent;
             }
             #endregion
         }
@@ -546,22 +582,22 @@ namespace AAModClassic._Unofficial.Desert
             else
                 DepthValues.Add(myID, depth);
 
-            var count = QuestSystem.Questlines["LegendscribeQuestline"].Quests[myID].QuestUnlocks.Length;
+            var count = CurrentQuestline.Quests[myID].QuestUnlocks.Length;
             var depths = new int[count];
             for (var i = 0; i < count; i++)
-                depths[i] = FillDepthValues(QuestSystem.Questlines["LegendscribeQuestline"].Quests[myID].QuestUnlocks[i], depth + 1);
+                depths[i] = FillDepthValues(CurrentQuestline.Quests[myID].QuestUnlocks[i], depth + 1);
 
             return count == 0 ? depth : depths.Max();
         }
 
         public static void SwitchDisplayedQuest(string id)
         {
-            currentQuestID = id;
+            CurrentQuestID = id;
 
-            QuestTitle.SetText(currentQuest.Name.Value);
+            QuestTitle.SetText(CurrentQuest.Name.Value);
 
             float descWidth = 320;
-            string desc = (currentQuest.IsComplete && currentQuest.DescriptionComplete != null ? currentQuest.DescriptionComplete : currentQuest.DescriptionIncomplete).Value;
+            string desc = (CurrentQuest.IsComplete && CurrentQuest.DescriptionComplete != null ? CurrentQuest.DescriptionComplete : CurrentQuest.DescriptionIncomplete).Value;
             var wrapped = FontAssets.MouseText.Value.CreateWrappedText(desc, descWidth - 40);
             QuestDescriptionText.SetText(wrapped);
             QuestDescriptionText.Height.Pixels = FontAssets.MouseText.Value.MeasureString(QuestDescriptionText.Text).Y;
@@ -598,7 +634,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestRewards.Clear();
             QuestRewardsArea.RemoveAllChildren();
 
-            var RewardsList = (currentQuest.EverTurnedIn || forceToRepeatable) && currentQuest.RepeatRewards != null ? currentQuest.RepeatRewards : currentQuest.Rewards;
+            var RewardsList = (CurrentQuest.EverTurnedIn || forceToRepeatable) && CurrentQuest.RepeatRewards != null ? CurrentQuest.RepeatRewards : CurrentQuest.Rewards;
 
             if (RewardsList != null)
             {
@@ -640,7 +676,7 @@ namespace AAModClassic._Unofficial.Desert
 
         private static void UpdateTasksText()
         {
-            var quest = currentQuest;
+            var quest = CurrentQuest;
 
             var split = quest.Tasks.Value.Split('\n');
             var combined = "";
@@ -678,11 +714,12 @@ namespace AAModClassic._Unofficial.Desert
         }
     }
 
-    public class QuestNode(string id, Vector2 pos, int nodeID) : UIElement
+    public class QuestNode(string questline, string id, Vector2 pos, int nodeID) : UIElement
     {
         public FrameableUIImage Node;
         public FrameableUIImage Icon;
 
+        public string Questline = questline;
         public string ID = id;
         public Vector2 Position = pos;
         private int NodeID = nodeID;
@@ -702,7 +739,7 @@ namespace AAModClassic._Unofficial.Desert
         private Vector2 birdVelocity = Main.rand.NextVector2CircularEdge(4, 4);
         private Vector2 fishAcceleration = Vector2.Zero;
 
-        bool isSelected => LegendscribeQuestUI.currentQuest == null ? false : LegendscribeQuestUI.currentQuest.ID == ID;
+        bool isSelected => LegendscribeQuestUI.CurrentQuest == null ? false : LegendscribeQuestUI.CurrentQuest.ID == ID;
         int selectedCounter = 0;
         int hoverCounter = 0;
         float floatiness => MathHelper.Clamp(MathUtils.SineInOutEasing(hoverCounter / 30f), 0f, 1f);
@@ -710,7 +747,12 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void OnInitialize()
         {
-            var node = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/AnubisCircle").Value;
+            Texture2D node;
+            if(LegendscribeQuestUI.CurrentQuestline.ID == "LegendscribeEarlyGame")
+                node = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/AnubisCircle", AssetRequestMode.ImmediateLoad).Value;
+            else
+                node = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/ForsakenCircle", AssetRequestMode.ImmediateLoad).Value;
+
             Node = new(node)
             {
                 HAlign = 0.5f,
@@ -723,7 +765,7 @@ namespace AAModClassic._Unofficial.Desert
             Node.Top.Pixels = 24;
             Node.Left.Pixels = 24;
 
-            Icon = new(QuestSystem.Questlines["LegendscribeQuestline"].Quests[ID].Icon)
+            Icon = new(QuestSystem.Questlines[Questline].Quests[ID].Icon)
             {
                 NormalizedOrigin = Vector2.One * 0.5f
             };
@@ -742,24 +784,24 @@ namespace AAModClassic._Unofficial.Desert
             base.Update(gameTime);
             //fishOffset = Vector2.Zero;
             Icon.NormalizedOrigin = Vector2.One * 0.5f;
-            Icon.Width.Pixels = QuestSystem.Questlines["LegendscribeQuestline"].Quests[ID].Icon.Width();
-            Icon.Height.Pixels = QuestSystem.Questlines["LegendscribeQuestline"].Quests[ID].Icon.Height();
+            Icon.Width.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Width();
+            Icon.Height.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Height();
             Icon.Top.Pixels = 23;
             Icon.Left.Pixels = 23;
 
             Node.ImageScale = Vector2.One * (0.5f + scalePower * 0.25f + ((MathF.Sin((Main.GlobalTimeWrappedHourly + NodeID) * 10) / 2f + 0.5f) / 40f));
-            Node.Color = QuestSystem.Questlines["LegendscribeQuestline"].UnlockedQuests.Contains(ID) ? Color.White : Color.Gray;
+            Node.Color = QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID) ? Color.White : Color.Gray;
             Node.Rotation += 0.025f * (NodeID % 2 == 0 ? -1 : 1);
 
             Icon.ImageScale = Vector2.One * (1f + scalePower * 0.5f);
-            Icon.Color = QuestSystem.Questlines["LegendscribeQuestline"].UnlockedQuests.Contains(ID) ? Color.White : Color.Black;
+            Icon.Color = QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID) ? Color.White : Color.Black;
 
             Left.Pixels = Position.X + (float)Math.Sin(Main.GlobalTimeWrappedHourly / 3f + Position.Y) * 8f * (1 - floatiness);
             Top.Pixels = Position.Y + (float)Math.Sin(Main.GlobalTimeWrappedHourly + Position.Y) * 12f * (1 - floatiness);
 
             if (IsMouseHovering)
             {
-                LegendscribeQuestUI.mouseText.SetText(QuestSystem.Questlines["LegendscribeQuestline"].Quests[ID].Name.Value);
+                LegendscribeQuestUI.MouseText.SetText(QuestSystem.Questlines[Questline].Quests[ID].Name.Value);
                 if (hoverCounter < 30)
                     hoverCounter++;
             }
@@ -776,7 +818,7 @@ namespace AAModClassic._Unofficial.Desert
 
             bubbles ??= [];
 
-            if (QuestSystem.Questlines["LegendscribeQuestline"].Quests[ID].Active && (int)(Main.GlobalTimeWrappedHourly * 60) % 5 == 0)
+            if (QuestSystem.Questlines[Questline].Quests[ID].Active && (int)(Main.GlobalTimeWrappedHourly * 60) % 5 == 0)
                 bubbles.Add(new(new(Main.rand.NextFloat(-40, 30), 48), new(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -4))));
             for (var i = 0; i < bubbles.Count; i++)
             {
@@ -794,7 +836,7 @@ namespace AAModClassic._Unofficial.Desert
 
             birdOffset += birdVelocity;
 
-            if (QuestSystem.Questlines["LegendscribeQuestline"].Quests[ID].EverTurnedIn)
+            if (QuestSystem.Questlines[Questline].Quests[ID].EverTurnedIn)
             {
                 var buffer = 60;
                 var areaSize = new Vector2(Parent.Width.Pixels, LegendscribeQuestUI.QuestList.Height.Pixels);
@@ -838,13 +880,13 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void LeftClick(UIMouseEvent evt)
         {
-            if (QuestSystem.Questlines["LegendscribeQuestline"].UnlockedQuests.Contains(ID))
+            if (QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID))
                 LegendscribeQuestUI.SwitchDisplayedQuest(ID);
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            if (!QuestSystem.Questlines["LegendscribeQuestline"].UnlockedQuests.Contains(ID))
+            if (!QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID))
                 return;
 
             var drawPos = new Vector2(Width.Pixels / 2f, Height.Pixels / 2f) + Parent.GetDimensions().Position();
@@ -1219,7 +1261,7 @@ namespace AAModClassic._Unofficial.Desert
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Background.Value, GetOuterDimensions().ToRectangle(), Color.White);
+            spriteBatch.Draw(Background.Value, GetOuterDimensions().ToRectangle(), Color.Black);
 
             Rectangle parentArea = Parent.Parent.GetInnerDimensions().ToRectangle();
             float width = parentArea.Width;
