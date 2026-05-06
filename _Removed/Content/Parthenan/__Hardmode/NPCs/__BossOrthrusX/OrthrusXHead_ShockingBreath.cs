@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
-    internal class OrthrusXHeadBlue_ShockingBreath : ModProjectile
+    internal class OrthrusXHead_ShockingBreath : ModProjectile
     {
         public override void SetStaticDefaults()
         {

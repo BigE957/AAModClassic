@@ -82,8 +82,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public OrthrusXBody Body => bodyNPC != null && bodyNPC.ModNPC is OrthrusXBody ? (OrthrusXBody)bodyNPC.ModNPC : null;
         public NPC bodyNPC = null;
-        public int Target = -1;
-        public NPC Lock = null;
+        public OrthrusXHead_OrthrusReticle Reticle = null;
         public bool redHead = false;
         public int damage = 0;
 
@@ -148,24 +147,30 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
                 if (Main.netMode != 1)
                 {
+                    NPC.localAI[1]++;
                     internalAI[0]++;
-                    if (!redHead && Target == -1 && internalAI[0] >= 150)
+                    if (!redHead && (Reticle == null || Reticle.NPC.type != ModContent.NPCType<OrthrusXHead_OrthrusReticle>() || Reticle.NPC.active == false) && internalAI[0] % 300 >= 150)
                     {
-                        Target = NPC.NewNPC(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusXHeadBlue_OrthrusReticle>());
-                        Lock = Main.npc[Target];
-                        Lock.netUpdate = true;
+                        NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusXHead_OrthrusReticle>(), 0);
+                        Reticle = npc.ModNPC as OrthrusXHead_OrthrusReticle;
+                        Reticle.NPC.netUpdate = true;
+                        Reticle.NPC.ai[0] = NPC.whoAmI;
+                        Reticle.NPC.target = NPC.target;
                         NPC.netUpdate = true;
                     }
 
                     if (targetPlayer != null)
                     {
                         Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
+                        if (Reticle != null)
+                            dir = Vector2.Normalize(Reticle.NPC.Center - NPC.Center);
+
                         if (redHead)
                         {
                             dir *= 12f;
                             if (internalAI[0] % 10 == 0)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHeadBlue_Spark>(), NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_Spark>(), NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
 
                             }
                         }
@@ -173,12 +178,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                         {
                             if (internalAI[0] % 300 == 0)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHeadBlue_ShockingBreath>(), NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_ShockingBreath>(), NPC.damage / (Main.expertMode ? 2 : 4), 0f, Main.myPlayer);
+                                Reticle.NPC.active = false;
                             }
                         }
                     }
-
-                    else if (NPC.localAI[1] >= 200) //pick random spot to move head to
+                    
+                    if (NPC.localAI[1] >= 200) //pick random spot to move head to
                     {
                         NPC.localAI[1] = 0;
                         NPC.ai[2] = Main.rand.Next(-movementVariance, movementVariance);

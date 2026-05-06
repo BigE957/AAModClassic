@@ -296,8 +296,8 @@ namespace AAModClassic
                 profiles.Add(ModContent.ItemType<Poppy>(), new(44f, AAColor.Rainbow1));
                 profiles.Add(ModContent.ItemType<AmethystGreatsword>(), new(50f, Color.MediumPurple));
                 profiles.Add(ModContent.ItemType<AmethystSaber>(), new(44f, Color.MediumPurple));
-                profiles.Add(ModContent.ItemType<TopazGreatsword>(), new(50f, Color.LightGoldenrodYellow));
-                profiles.Add(ModContent.ItemType<TopazSaber>(), new(44f, Color.LightGoldenrodYellow));
+                profiles.Add(ModContent.ItemType<TopazGreatsword>(), new(50f, Main.OurFavoriteColor));
+                profiles.Add(ModContent.ItemType<TopazSaber>(), new(44f, Main.OurFavoriteColor));
                 profiles.Add(ModContent.ItemType<SapphireGreatsword>(), new(50f, Color.Aquamarine));
                 profiles.Add(ModContent.ItemType<SapphireSaber>(), new(44f, Color.Aquamarine));
                 profiles.Add(ModContent.ItemType<EmeraldGreatsword>(), new(50f, Color.Green));
