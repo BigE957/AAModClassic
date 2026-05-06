@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<!-- Import tModLoader mod properties -->
 	<Import Project="..\tModLoader.targets" />
@@ -7,16 +7,6 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
-	<ItemGroup>
-	  <AdditionalFiles Remove="Removed\**" />
-	  <Compile Remove="Removed\**" />
-	  <EmbeddedResource Remove="Removed\**" />
-	  <None Remove="Removed\**" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Localization\zh-Hans\" />
-	  <Folder Include="Localization\ru-RU\" />
-	</ItemGroup>
 
 	<!-- References -->
 
