@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
-    public class OrthrusXHeadBlue_OrthrusReticle : ModNPC
+    public class OrthrusXHead_OrthrusReticle : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -41,15 +41,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void AI()
         {
-            NPC body = Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<OrthrusXHead>(), -1)];
-            OrthrusXHead orthrus = (OrthrusXHead)body.ModNPC;
-
+            OrthrusXHead orthrus = Main.npc[(int)NPC.ai[0]].ModNPC as OrthrusXHead;
             Player player = Main.player[NPC.target];
-
-            if (Main.netMode != 1)
-            {
-                NPC.ai[0]++;
-            }
 
             NPC.rotation += .1f;
 
@@ -58,40 +51,33 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 NPC.TargetClosest();
             }
 
-            if (orthrus.internalAI[0] >= 300)
+            if (NPC.alpha > 0)
             {
-                if (NPC.alpha < 255)
-                {
-                    NPC.scale += .5f;
-                    NPC.alpha += 5;
-                }
-                else
-                {
-                    orthrus.internalAI[0] = 0;
-                    body.netUpdate = true;
-                    NPC.active = false;
-                    NPC.netUpdate = true;
-                }
+                NPC.scale += .5f;
+                NPC.alpha -= 5;
             }
             else
             {
-                if (orthrus.internalAI[0] > 240)
-                {
-                    NPC.velocity *= 0;
-                    NPC.netUpdate = true;
-                }
-                else
-                {
-                    NPC.Center = player.Center;
-                }
-                if (NPC.scale > 1f)
-                {
-                    NPC.scale -= .5f;
-                }
-                else
-                {
-                    NPC.scale = 1f;
-                }
+                NPC.alpha = 0;
+            }
+
+            if (orthrus.internalAI[0] % 300 > 240)
+            {
+                NPC.velocity *= 0;
+                NPC.netUpdate = true;
+            }
+            else
+            {
+                NPC.Center = player.Center;
+            }
+
+            if (NPC.scale > 1f)
+            {
+                NPC.scale -= .5f;
+            }
+            else
+            {
+                NPC.scale = 1f;
             }
         }
     }
