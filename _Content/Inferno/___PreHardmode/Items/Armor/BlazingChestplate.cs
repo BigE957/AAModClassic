@@ -1,3 +1,4 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
@@ -36,7 +37,7 @@ Forged in the flames of the blazing sun"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<KindledChestplate>());
             recipe.AddIngredient(ItemID.Coral, 8);
-            recipe.AddIngredient(ItemID.FossilOre, 8);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 16);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

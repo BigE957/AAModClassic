@@ -1,8 +1,9 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
@@ -49,7 +50,7 @@ Forged in the flames of the blazing sun"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<KindledHelmet>());
             recipe.AddIngredient(ItemID.Coral, 5);
-            recipe.AddIngredient(ItemID.FossilOre, 5);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

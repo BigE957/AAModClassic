@@ -838,6 +838,8 @@ namespace AAModClassic.Globals
 		{
             int result = 0;
             int stack = 1;
+            // these both allow weird tierskipping im killing them
+            /*
             if(extractType == ItemID.SlushBlock)
             {
                 if(Main.rand.NextBool(50))
@@ -876,8 +878,9 @@ namespace AAModClassic.Globals
                     }
                 }
             }
+            */
 
-            if(Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManOre)
+            if (Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManOre)
             {
                 if(extractType == ItemID.DesertFossil || extractType == ItemID.SlushBlock || extractType == ItemID.SiltBlock)
                 {
@@ -908,6 +911,8 @@ namespace AAModClassic.Globals
                     {
                         result = 1242;
                     }
+                    // removed to disallow tierskipping
+                    /*
                     else if (Main.rand.NextBool(30))
                     {
                         if(Main.rand.NextBool(2))
@@ -945,6 +950,7 @@ namespace AAModClassic.Globals
                             }
                         }
                     }
+                    */
                     else if (Main.rand.NextBool(300))
                     {
                         switch(Main.rand.Next(8))
