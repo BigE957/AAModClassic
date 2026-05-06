@@ -19,21 +19,28 @@ base
 -subzero serpent now properly chooses a random segment sprite to use per segment
 -fixed subzero serpents head being fully opaque
 -removed the old ones charms hotkey effect as it is redundant
+-tiershifted dynaskull ore; it now generates post-evils. every recipe that previously used sturdy fossil now uses 2x dynaskull ore
+--1.4 tiershifted fossil ore, this keeps everything in line with intended balance
+-tiershifted hero relic; all aa items that use broken hero swords now use hero relics (except for the true copper and tin shortswords). they can no longer be crafted from broken hero swords, and now drop from frankensteins and swamp things after all 3 mechs have been defeated. a main.newtext message has been added to telegraph this
+--ditto but for broken hero sword
 -
 
 removed
 -re-added the parthenan[sic], a fulgarian research site located near the left ocean
+-re-added the siege units, a set of three mech boss alts based on the hydra, the broodmother, and the grips of chaos
 -the red mushroom biome once again generates in the world with redone generation for stability
 -added the ancient hydra trishot
 -re-added the dragon serpent necklace
+-re-added fulgurite ore, and all of its items
 -
 
 unreleased
 -reworked anubis
+-unfortunately added techno truffle
 -added infinity zero with all of their created drops
 -added the soul of cthulhu with all of their created drops
 -added the lost keep, with a new miniboss: biolite core
---note: all three of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
+--note: all of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
 -added the lost ship. not to be confused with the lost sea, this ship is located inside one of the oceans
 -finished constructing the pit. no other pit content has been added, as none was ever completed
 -after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu

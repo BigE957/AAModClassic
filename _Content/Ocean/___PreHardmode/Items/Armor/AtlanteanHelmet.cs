@@ -1,12 +1,13 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Buffs;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic.Buffs;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
@@ -64,7 +65,7 @@ Allows to breath underwater"); */
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanHelmet>());
             recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
-            recipe.AddIngredient(ItemID.FossilOre, 5);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

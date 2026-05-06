@@ -1,9 +1,10 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
@@ -59,7 +60,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             recipe.AddIngredient(ModContent.ItemType<DarkDoomiteHelmet>());
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddIngredient(ItemID.Coral, 5);
-            recipe.AddIngredient(ItemID.FossilOre, 5);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 10);
             recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();

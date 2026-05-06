@@ -1,10 +1,11 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
@@ -46,7 +47,7 @@ It vibrates with the powers of Atlantis"); */
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanChestplate>());
             recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 8);
-            recipe.AddIngredient(ItemID.FossilOre, 8);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 16);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
