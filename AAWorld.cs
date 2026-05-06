@@ -63,6 +63,10 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosW
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Terrarium.World.Tiles;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 
 namespace AAModClassic
 {
@@ -92,6 +96,7 @@ namespace AAModClassic
         public static bool Luminite;
         public static bool DarkMatter;
         public static bool HallowedOre;
+        public static bool FulguriteOre;
         public static bool Dynaskull;
         public static bool ChaosOres;
         public static bool RadiumOre;
@@ -112,6 +117,7 @@ namespace AAModClassic
         //Messages
         public static bool AMessage;
         public static bool Empowered;
+        public static bool HeroRelicMessage;
         //Boss Bools
         public static bool Ancients;
         public static bool downedGrips;
@@ -122,6 +128,8 @@ namespace AAModClassic
 
         public static bool downedAncient => downedAkuma || downedYamata || downedZero;
         public static bool downedSAncient => downedShen;
+        public static bool downedAnySiegeUnits => NPCExtensions.BeenKilled<Retriever>() || NPCExtensions.BeenKilled<OrthrusXBody>() || NPCExtensions.BeenKilled<RaiderUltima>();
+        public static bool downedAllSiegeUnits => NPCExtensions.BeenKilled<Retriever>() && NPCExtensions.BeenKilled<OrthrusXBody>() && NPCExtensions.BeenKilled<RaiderUltima>();
         public static bool downedAkuma => (NPCExtensions.BeenKilled<Akuma>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
         public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool zeroUS;
@@ -209,6 +217,7 @@ namespace AAModClassic
             ChaosOres = downedGrips;
             Dynaskull = NPC.downedBoss3;
             HallowedOre = NPC.downedMechBossAny;
+            FulguriteOre = downedAnySiegeUnits;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
             Luminite = NPC.downedMoonlord;
             RadiumOre = downedEquinox;
@@ -339,6 +348,7 @@ namespace AAModClassic
             ChaosOres = downedGrips;
             Dynaskull = NPC.downedBoss3;
             HallowedOre = NPC.downedMechBossAny;
+            FulguriteOre = downedAnySiegeUnits;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
             Luminite = NPC.downedMoonlord;
             RadiumOre = downedEquinox;
@@ -1297,6 +1307,18 @@ namespace AAModClassic
                 }
             }
 
+            if (downedAnySiegeUnits)
+            {
+                if (FulguriteOre == false)
+                {
+                    FulguriteOre = true;
+                    if (Main.netMode != 1) 
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedSiegeUnitAnyInfo"), Color.MediumPurple);
+                    for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
+                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<FulguriteShard_Tile>());
+                }
+            }
+
             if (downedSisters)
             {
                 if (!DiscordOres)
@@ -1359,8 +1381,10 @@ namespace AAModClassic
                 if (!AMessage)
                 {
                     AMessage = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo1"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo2"), Color.Orange.R, Color.Orange.G, Color.Orange.B);
                 }
+                
             }       
 
             if (downedAllAncients && !previousDownedAllAncients)

@@ -50,10 +50,10 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
             Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(ModContent.ItemType<Poppy>(), 1);
             recipe.AddIngredient(ModContent.ItemType<AmethystGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TopazGreatsword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SapphireGreatsword>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EmeraldGreatsword>(), 1);
             recipe.AddIngredient(ModContent.ItemType<RubyGreatsword>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<SapphireGreatsword>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<TopazGreatsword>(), 1);
             recipe.AddIngredient(ModContent.ItemType<AmberGreatsword>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiamondGreatsword>(), 1);
             recipe.AddIngredient(ItemID.BeamSword);

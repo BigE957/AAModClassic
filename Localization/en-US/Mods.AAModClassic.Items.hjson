@@ -10804,3 +10804,193 @@ RasScepter: {
 	DisplayName: Ras Scepter
 	Tooltip: ""
 }
+
+CyberneticBell: {
+	DisplayName: Cybernetic Bell
+	Tooltip: ""
+}
+
+CyberneticClaw: {
+	DisplayName: Cybernetic Claw
+	Tooltip: ""
+}
+
+StormPendant: {
+	DisplayName: Storm Pendant
+	Tooltip: ""
+}
+
+BlueOrthrusXMask: {
+	DisplayName: Blue Orthrus X Mask
+	Tooltip: ""
+}
+
+OrthrusXTreasureBag: {
+	DisplayName: Orthrus X Treasure Bag
+	Tooltip: ""
+}
+
+OrthrusXTrophy: {
+	DisplayName: Orthrus X Trophy
+	Tooltip: ""
+}
+
+RedOrthrusXMask: {
+	DisplayName: Red Orthrus X Mask
+	Tooltip: ""
+}
+
+ScrapHeap: {
+	DisplayName: Scrap Heap
+	Tooltip: ""
+}
+
+HoloCape: {
+	DisplayName: Holo Cape
+	Tooltip: ""
+}
+
+RaiderUltimaTreasureBag: {
+	DisplayName: Raider Ultima Treasure Bag
+	Tooltip: ""
+}
+
+RaiderUltimaTrophy: {
+	DisplayName: Raider Ultima Trophy
+	Tooltip: ""
+}
+
+CyberneticEgg: {
+	DisplayName: Cybernetic Egg
+	Tooltip: ""
+}
+
+StormClaw: {
+	DisplayName: Storm Claw
+	Tooltip: ""
+}
+
+RetrieverMask: {
+	DisplayName: Retriever Mask
+	Tooltip: ""
+}
+
+RetrieverTreasureBag: {
+	DisplayName: Retriever Treasure Bag
+	Tooltip: ""
+}
+
+RetrieverTrophy: {
+	DisplayName: Retriever Trophy
+	Tooltip: ""
+}
+
+MetallicTruffle: {
+	DisplayName: Metallic Truffle
+	Tooltip: ""
+}
+
+TechnoTruffleMask: {
+	DisplayName: Techno Truffle Mask
+	Tooltip: ""
+}
+
+TechnoTruffleTreasureBag: {
+	DisplayName: Techno Truffle Treasure Bag
+	Tooltip: ""
+}
+
+TechnoTruffleTrophy: {
+	DisplayName: Techno Truffle Trophy
+	Tooltip: ""
+}
+
+CyberneticShroom: {
+	DisplayName: Cybernetic Shroom
+	Tooltip: ""
+}
+
+FulguriteChestplate: {
+	DisplayName: Fulgurite Chestplate
+	Tooltip: ""
+}
+
+FulguriteHelmetMage: {
+	DisplayName: Fulgurite Helmet Mage
+	Tooltip: ""
+}
+
+FulguriteHelmetMelee: {
+	DisplayName: Fulgurite Helmet Melee
+	Tooltip: ""
+}
+
+FulguriteHelmetRanged: {
+	DisplayName: Fulgurite Helmet Ranged
+	Tooltip: ""
+}
+
+FulguriteLeggings: {
+	DisplayName: Fulgurite Leggings
+	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: Fulgurite Bar
+	Tooltip: ""
+}
+
+FulguriteShard: {
+	DisplayName: Fulgurite Shard
+	Tooltip: ""
+}
+
+FulguritePitchet: {
+	DisplayName: Fulgurite Pitchet
+	Tooltip: ""
+}
+
+CyberBaton: {
+	DisplayName: Cyber Baton
+	Tooltip: ""
+}
+
+FulguriteTazerblaster: {
+	DisplayName: Fulgurite Tazerblaster
+	Tooltip: ""
+}
+
+FulguriteTazesaber: {
+	DisplayName: Fulgurite Tazesaber
+	Tooltip: ""
+}
+
+StormJavelin: {
+	DisplayName: Storm Javelin
+	Tooltip: ""
+}
+
+MadnessTruffle: {
+	DisplayName: Madness Truffle
+	Tooltip: ""
+}
+
+OrthrusXMask: {
+	DisplayName: Orthrus X Mask
+	Tooltip: ""
+}
+
+SiegeBox: {
+	DisplayName: Siege Box
+	Tooltip: ""
+}
+
+StormCharm: {
+	DisplayName: Storm Charm
+	Tooltip: ""
+}
+
+StormRiot: {
+	DisplayName: Storm Riot
+	Tooltip: ""
+}

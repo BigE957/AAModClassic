@@ -1,8 +1,11 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Crimson.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
@@ -26,18 +29,24 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Armor;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Melee;
+using AAModClassic.Items.Melee.Gem;
 using AAModClassic.Items.Mushrooms;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Vanity.Alphakip;
@@ -95,7 +104,7 @@ namespace AAModClassic
             AddMushroomPotionRecipes();
             AddModdedMushroomPotionRecipes();
             AddTransmuterRecipes();
-            AlterZenithRecipe();
+            RemoveZenithRecipe();
 
             #region Materials
             Recipe recipe = GetNewRecipe(ItemID.HallowedBar, 1);
@@ -116,6 +125,32 @@ namespace AAModClassic
             #endregion
 
             #region Equipment
+            recipe = GetNewRecipe(ItemID.Zenith, 1);
+            recipe.AddIngredient(ModContent.ItemType<TerraBladeEX>());
+            recipe.AddIngredient(ModContent.ItemType<Lolkat>());
+            recipe.AddIngredient(ModContent.ItemType<StarWrathEX>());
+            recipe.AddIngredient(ItemID.InfluxWaver);
+            recipe.AddIngredient(ModContent.ItemType<Apocalypse>());
+            recipe.AddIngredient(ItemID.Seedler);
+            recipe.AddIngredient(ItemID.Starfury);
+            recipe.AddIngredient(ItemID.BeeKeeper);
+            recipe.AddIngredient(ItemID.Terragrim);
+            recipe.AddIngredient(ModContent.ItemType<PrismaticGreatsword>());
+            recipe.AddIngredient(ModContent.ItemType<BladeOfEvil>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosSlayerEX>());
+            recipe.AddIngredient(ModContent.ItemType<InfinityBlade>()); //TODO: make this rift shredder in non-unofficial worlds... somehow
+            recipe.AddIngredient(ModContent.ItemType<Verdict>());
+            recipe.AddIngredient(ModContent.ItemType<SagittariusLeg>());
+            recipe.AddIngredient(ModContent.ItemType<RomulusTazesaber>());
+            recipe.AddIngredient(ModContent.ItemType<SubzeroSlasher>());
+            recipe.AddIngredient(ModContent.ItemType<Olympia>());
+            recipe.AddIngredient(ModContent.ItemType<Excalihare>());
+            recipe.AddIngredient(ModContent.ItemType<CarnalCrusher>());
+            recipe.AddIngredient(ModContent.ItemType<TrueCopperShortswordEX>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
+
             recipe = GetNewRecipe(ItemID.TerraBlade, 1);
             recipe.AddIngredient(ModContent.ItemType<TrueFleshrendClaymore>(), 1);
             recipe.AddIngredient(ItemID.TrueExcalibur, 1);
@@ -155,7 +190,7 @@ namespace AAModClassic
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
 
-            recipe = GetNewRecipe(ItemID.Arkhalis);
+            recipe = GetNewRecipe(ItemID.Terragrim);
             recipe.AddIngredient(ItemID.EnchantedSword);
             recipe.AddIngredient(ItemID.Muramasa);
             recipe.AddTile(TileID.Anvils);
@@ -245,17 +280,14 @@ namespace AAModClassic
             #endregion
         }
 
-        private static void AlterZenithRecipe()
+        private static void RemoveZenithRecipe()
         {
             foreach(Recipe recipe in Main.recipe)
             {
                 if (!recipe.HasResult(ItemID.Zenith))
                     continue;
 
-                recipe.AddIngredient(ModContent.ItemType<RiftShredder>());
-                recipe.AddIngredient(ModContent.ItemType<Amenomuraku>());
-                recipe.RemoveIngredient(ItemID.StarWrath);
-                recipe.AddIngredient(ModContent.ItemType<ReignOfFire>());
+                recipe.DisableRecipe();
             }
         }
 

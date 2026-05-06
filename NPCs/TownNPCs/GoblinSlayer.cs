@@ -1,5 +1,6 @@
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.GoblinSlayer;
+using AAModClassic.Items.Materials;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -457,6 +458,13 @@ namespace AAModClassic.NPCs.TownNPCs
                 items[nextSlot].shopCustomPrice = new int?(25);
                 items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
                 nextSlot++;
+                if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
+                {
+                    items[nextSlot] = new Item(ModContent.ItemType<HeroShards>());
+                    items[nextSlot].shopCustomPrice = new int?(30);
+                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
+                    nextSlot++;
+                }
                 if (DownedBools.downedMoth)
                 {
                     items[nextSlot] = new Item(ItemID.BrokenHeroSword);

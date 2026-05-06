@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -161,6 +162,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
                 }
                 npc.velocity.X *= 0.93f;
             }
+        }
+
+        public static SpriteEffects SpriteEffectDirection(this NPC npc, bool flip = false) 
+        {
+            if (flip)
+                return npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            else
+                return npc.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Content.Mire.World.Biomes.Water;
+using AAModClassic._Removed.Content.Parthenan.World.Biomes.Water;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
@@ -27,6 +29,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
         public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<StormSurfaceBgStyle>();
+
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<StormWaterStyle>();
     }
 
     public class StormSky : CustomSky

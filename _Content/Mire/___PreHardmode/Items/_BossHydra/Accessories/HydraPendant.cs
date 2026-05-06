@@ -1,4 +1,4 @@
-using AAModClassic._Removed.Content.Tinkers.___PreHardmode.Items.Accessories;
+using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using Terraria;
 using Terraria.ModLoader;
 

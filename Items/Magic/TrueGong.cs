@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Magic
 {
@@ -59,7 +60,7 @@ namespace AAModClassic.Items.Magic
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Gong>());
-            recipe.AddIngredient(ItemID.BrokenHeroSword);
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();
         }

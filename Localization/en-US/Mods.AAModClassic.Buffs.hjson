@@ -1488,3 +1488,13 @@ PaperBomb_Buff: {
 	DisplayName: Paper Bomb_ Buff
 	Description: Mods.AAModClassic.Buffs.PaperBomb_Buff.Description
 }
+
+CyberneticEgg_Buff: {
+	DisplayName: Cybernetic Egg_ Buff
+	Description: Mods.AAModClassic.Buffs.CyberneticEgg_Buff.Description
+}
+
+CyberBaton_Buff: {
+	DisplayName: Cyber Baton_ Buff
+	Description: Mods.AAModClassic.Buffs.CyberBaton_Buff.Description
+}
