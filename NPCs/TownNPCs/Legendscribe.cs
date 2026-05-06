@@ -539,8 +539,6 @@ namespace AAModClassic.NPCs.TownNPCs
             }
         }
 
-        public static bool DoG => (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "downedDoG", false, true);
-
         public string BossChat()
         {
             Player player = Main.LocalPlayer;
@@ -618,13 +616,6 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (GreedA)
             {
-                if (ModSupport.GetMod("CalamityMod") != null)
-                {
-                    if (DoG && NPCExtensions.BeenKilled<GreedA>())
-                    {
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GreedACalamityMod");
-                    }
-                }
                 return NPCExtensions.BeenKilled<GreedA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAN");
             }
@@ -791,6 +782,14 @@ namespace AAModClassic.NPCs.TownNPCs
             int ConfusedZombie = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "ConfusedZombie").NPC.type);
             if (ConfusedZombie >= 0)
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat31"));
+
+            if (ModLoader.TryGetMod("CalamityMod", out var cal))
+            {
+                if (NPCExtensions.BeenKilled<GreedA>() && (bool)cal.Call("GetBossDowned", "devourerofgods"))
+                {
+                    chat.Add("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GreedACalamityMod");
+                }
+            }
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
