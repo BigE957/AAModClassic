@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DesertFossil, 15);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 15);
             recipe.AddIngredient(ItemID.Sandstone, 20);
             recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 5);
             recipe.AddTile(TileID.Anvils);

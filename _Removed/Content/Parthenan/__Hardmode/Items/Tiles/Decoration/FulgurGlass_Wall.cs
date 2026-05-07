@@ -14,8 +14,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
 		public override void SetStaticDefaults()
 		{
             Main.wallHouse[Type] = true;
-			//TODOSIEGE
-            //ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Fulgurite Glass Wall>();
 			AddMapEntry(new Color(40, 0, 50));
             
 		}

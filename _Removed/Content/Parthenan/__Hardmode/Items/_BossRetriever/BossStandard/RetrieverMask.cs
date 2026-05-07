@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
+    //TODO: glowmask for head costume
 	public class RetrieverMask : BaseAAItem
 	{
 		public override void SetStaticDefaults()

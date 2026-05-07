@@ -33,7 +33,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
-			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 62);
+			int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.PurpleTorch);
 		}
 
 		public override void AddRecipes()

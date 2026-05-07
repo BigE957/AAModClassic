@@ -1,3 +1,4 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -41,7 +42,7 @@ namespace AAModClassic.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DesertFossil, 10);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 10);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
