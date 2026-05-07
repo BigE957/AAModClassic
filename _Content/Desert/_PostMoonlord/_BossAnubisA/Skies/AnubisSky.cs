@@ -10,7 +10,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.Backgrounds
+namespace AAModClassic._Content.Desert._PostMoonlord._BossAnubisA.Skies
 {
     public class AnubisSkyScene : ModSceneEffect
     {
@@ -42,10 +42,10 @@ namespace AAModClassic.Backgrounds
 
         public override void OnLoad()
         {
-            BeamTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AnubisBeam");
+            BeamTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Desert/_PostMoonlord/_BossAnubisA/Skies/AnubisBeam");
             for (int i = 0; i < RuneTex.Length; i++)
             {
-                RuneTex[i] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Runes/Rune" + i);
+                RuneTex[i] = ModContent.Request<Texture2D>("AAModClassic/_Content/Desert/_PostMoonlord/_BossAnubisA/Skies/Runes/Rune" + i);
             }
         }
 

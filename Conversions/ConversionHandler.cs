@@ -1,11 +1,10 @@
-using AAModClassic.Conversions;
 using System;
 using System.Threading;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic
+namespace AAModClassic.Conversions
 {
     public enum ConversionType
     {

@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 {
     public class VoidBiomeZone : ModBiome
     {
-        public override string MapBackground => "AAModClassic/Map/VoidMap";
+        public override string MapBackground => "AAModClassic/_Content/Void/World/Biomes/Backgrounds/VoidMap";
 
         public override bool IsBiomeActive(Player player)
         {

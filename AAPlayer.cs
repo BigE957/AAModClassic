@@ -74,6 +74,7 @@ using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Universe;
 using AAModClassic.Mounts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

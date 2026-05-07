@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 {
     public class InfernoBiome : ModBiome
     {
-        public override string MapBackground => "AAModClassic/Map/InfernoMap";
+        public override string MapBackground => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
 
         public override bool IsBiomeActive(Player player)
         {

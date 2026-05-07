@@ -11,6 +11,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.Items.Banners;
 using AAModClassic.Items.Usable;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {

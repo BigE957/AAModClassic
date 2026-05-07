@@ -10,7 +10,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.Backgrounds
+namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies
 {
     public class AkumaSkyScene : ModSceneEffect
     {
@@ -42,7 +42,7 @@ namespace AAModClassic.Backgrounds
 
         public bool Active;
         public float Intensity;
-        private readonly UnifiedRandom _random = new UnifiedRandom();
+        private readonly UnifiedRandom _random = new();
 
         private readonly float num = 1200f;
 
@@ -52,8 +52,8 @@ namespace AAModClassic.Backgrounds
 
         public override void OnLoad()
         {
-            SunTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun");
-            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor");
+            SunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaSun");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaAMeteor");
             SkyTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex");
         }
 

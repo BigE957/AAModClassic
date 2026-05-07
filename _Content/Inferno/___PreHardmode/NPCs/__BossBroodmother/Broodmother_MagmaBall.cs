@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 {

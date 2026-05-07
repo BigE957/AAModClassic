@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA
 {

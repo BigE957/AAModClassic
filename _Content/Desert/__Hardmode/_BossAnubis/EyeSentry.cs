@@ -8,6 +8,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Desert.__Hardmode._BossAnubis
 {

@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA
 {

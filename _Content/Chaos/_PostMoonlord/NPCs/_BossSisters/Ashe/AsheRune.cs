@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Shaders;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe
 {

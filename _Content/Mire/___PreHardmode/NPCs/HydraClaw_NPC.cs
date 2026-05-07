@@ -2,6 +2,7 @@ using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using System;
 using Terraria;

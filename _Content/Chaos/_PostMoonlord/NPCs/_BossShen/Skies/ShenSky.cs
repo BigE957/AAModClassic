@@ -4,26 +4,27 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.Backgrounds
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Skies
 {
-    public class ShenASkyScene : ModSceneEffect
+    public class ShenSkyScene : ModSceneEffect
     {
         public override SceneEffectPriority Priority => (SceneEffectPriority)11;
 
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<ShenA>());
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<Shen>()) && !NPC.AnyNPCs(ModContent.NPCType<ShenA>());
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:ShenASky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:ShenSky", isActive);
         }
     }
 
-    public class ShenASky : CustomSky
+    public class ShenSky : CustomSky
     {
         public bool Active;
         public float Intensity;
@@ -47,10 +48,9 @@ namespace AAModClassic.Backgrounds
 
         public override void OnLoad()
         {
-            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor");
-            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenSky");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/Skies/ShenMeteor");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/Skies/ShenBg");
         }
-
         public override void Update(GameTime gameTime)
         {
             if (Active)
@@ -61,7 +61,6 @@ namespace AAModClassic.Backgrounds
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
-
             for (int i = 0; i < Meteors.Length; i++)
             {
                 Meteor[] expr_60_cp_0_cp_0 = Meteors;
@@ -84,14 +83,19 @@ namespace AAModClassic.Backgrounds
             return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
         }
 
+        readonly AAMod mod = AAMod.instance;
+
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
             Texture2D MeteorTexture = MeteorTex.Value;
             Texture2D SkyTexture = SkyTex.Value;
+
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
+                spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                 spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
             }
+
             int num = -1;
             int num2 = 0;
 
@@ -136,8 +140,7 @@ namespace AAModClassic.Backgrounds
         public override void Activate(Vector2 position, params object[] args)
         {
             Intensity = 0.002f;
-            Active = true;
-            Meteors = new Meteor[150];
+            Active = true; Meteors = new Meteor[150];
             for (int i = 0; i < Meteors.Length; i++)
             {
                 float num = i / (float)Meteors.Length;
@@ -178,17 +181,17 @@ namespace AAModClassic.Backgrounds
         }
     }
 
-    public class ShenASkyData : ScreenShaderData
+    public class ShenSkyData : ScreenShaderData
     {
         private int ShenIndex;
 
-        public ShenASkyData(string passName) : base(passName)
+        public ShenSkyData(string passName) : base(passName)
         {
         }
 
         private void UpdateShenIndex()
         {
-            int ShenType = AAMod.instance.Find<ModNPC>("ShenA").Type;
+            int ShenType = AAMod.instance.Find<ModNPC>("Shen").Type;
             if (ShenIndex >= 0 && Main.npc[ShenIndex].active && Main.npc[ShenIndex].type == ShenType)
             {
                 return;

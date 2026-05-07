@@ -12,7 +12,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.Backgrounds
+namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA.Skies
 {
     public class AthenaSkyScene : ModSceneEffect
     {

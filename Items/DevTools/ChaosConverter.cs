@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Conversions;
 
 namespace AAModClassic.Items.DevTools
 {

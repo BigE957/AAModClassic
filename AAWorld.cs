@@ -75,6 +75,7 @@ using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content._Dev.World.Biomes;
 using AAModClassic._Content.Hell.World.Biomes;
+using AAModClassic.Conversions;
 
 namespace AAModClassic
 {

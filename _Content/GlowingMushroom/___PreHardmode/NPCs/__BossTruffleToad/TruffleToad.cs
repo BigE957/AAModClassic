@@ -15,6 +15,7 @@ using AAModClassic.Music;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {

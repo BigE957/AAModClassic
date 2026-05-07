@@ -1,5 +1,6 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
