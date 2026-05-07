@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Melee;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Boss.Akuma   //where is located
 {

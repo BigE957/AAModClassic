@@ -26,7 +26,6 @@ using AAModClassic.Items.Magic;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Walls.Bricks;
-using AAModClassic.Items.Melee;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Utilities;
@@ -76,6 +75,7 @@ using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content._Dev.World.Biomes;
 using AAModClassic._Content.Hell.World.Biomes;
 using AAModClassic.Conversions;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic
 {

@@ -59,7 +59,6 @@ using AAModClassic.Items.Dev;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Items.Dev.RuneBook;
 using AAModClassic.Items.Dev.Tools;
-using AAModClassic.Items.Melee;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Apawn;

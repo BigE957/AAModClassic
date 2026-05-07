@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic.Items.Magic;
-using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
 using Terraria.GameContent.ItemDropRules;

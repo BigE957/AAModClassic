@@ -25,6 +25,7 @@ base
 --ditto but for broken hero sword
 -turned the material transmuter into a vanity tile named the ritual altar. certain functionality from it has been distributed across shimmer and the chlorophyte extractinator
 --nearly all of its recipes were made redundant by time. some recipes without any analogue have been removed as the intent with this change was closer to vanilla parity rather than preserving the function of the tile. if you really want to convert cursed flames to ichor, install fargos
+-perfect chaos chain no longer draws its flail head 1000 times per frame
 -
 
 removed

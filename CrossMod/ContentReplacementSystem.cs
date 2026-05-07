@@ -26,8 +26,8 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarc
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Throwing;
 using System.Collections.Generic;
@@ -85,7 +85,7 @@ namespace AAModClassic.CrossMod
             #region Boss Drops
             ModContent.ItemType<Mushium>(),
             ModContent.ItemType<MushiumBar>(),
-            ModContent.ItemType<MushMace>(),
+            ModContent.ItemType<Mushmace>(),
             ModContent.ItemType<Musharang>(),
             ModContent.ItemType<Mushbow>(),
             ModContent.ItemType<Mushpick>(),

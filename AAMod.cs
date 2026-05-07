@@ -1,25 +1,41 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA.Skies;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Skies;
+using AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Crimson.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA.Skies;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Parthenan.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
 using AAModClassic.Base.BaseMod;
@@ -32,8 +48,6 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Dev.Invoker;
-using AAModClassic.Items.Melee;
-using AAModClassic.Items.Melee.Gem;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
@@ -289,13 +303,13 @@ namespace AAModClassic
             {
                 var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
 
-                profiles.Add(ModContent.ItemType<TerraBladeEX>(), new(74f, AAColor.TerraGlow));
+                profiles.Add(ModContent.ItemType<TrueTerraBlade>(), new(74f, AAColor.TerraGlow));
                 profiles.Add(ModContent.ItemType<FleshrendClaymore>(), new(52f, Color.Crimson));
                 profiles.Add(ModContent.ItemType<TrueFleshrendClaymore>(), new(56f, Color.Crimson));
 
-                profiles.Add(ModContent.ItemType<Lolkat>(), new(98f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<TheLolkat>(), new(98f, AAColor.Rainbow1));
 
-                profiles.Add(ModContent.ItemType<StarWrathEX>(), new(58f, Color.Magenta));
+                profiles.Add(ModContent.ItemType<CosmicFury>(), new(58f, Color.Magenta));
 
                 profiles.Add(ModContent.ItemType<Apocalypse>(), new(54f, Color.Orange));
 
@@ -325,14 +339,14 @@ namespace AAModClassic
                 profiles.Add(ModContent.ItemType<Amenomuraku>(), new(64f, Color.LightBlue));
                 profiles.Add(ModContent.ItemType<PerfectChaos>(), new(120f, AAColor.Shen));
                 profiles.Add(ModContent.ItemType<Masamune>(), new(62f, AAColor.Yamata));
-                profiles.Add(ModContent.ItemType<Chaos>(), new(90f, AAColor.Shen2));
-                profiles.Add(ModContent.ItemType<TrueBlazingDawn>(), new(86f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<Chaos_Item>(), new(90f, AAColor.Shen2));
+                profiles.Add(ModContent.ItemType<DraconianDawn>(), new(86f, Color.OrangeRed));
                 profiles.Add(ModContent.ItemType<BlazingDawn>(), new(62f, Color.OrangeRed));
                 profiles.Add(ModContent.ItemType<FlamingFury>(), new(50f, Color.OrangeRed));
                 profiles.Add(ModContent.ItemType<OceanRazor>(), new(40f, Color.DarkBlue));
                 profiles.Add(ModContent.ItemType<DoomiteSaber>(), new(60f, Color.Red));
                 profiles.Add(ModContent.ItemType<DesertScimitar>(), new(70f, Color.SandyBrown));
-                profiles.Add(ModContent.ItemType<TrueAbyssalTwilight>(), new(76f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<DreadTwilight>(), new(76f, Color.LightBlue));
                 profiles.Add(ModContent.ItemType<AbyssalTwilight>(), new(60f, Color.LightBlue));
                 profiles.Add(ModContent.ItemType<ExilesKatana>(), new(66f, Color.LightBlue));
                 profiles.Add(ModContent.ItemType<IceLongsword>(), new(64f, Color.AliceBlue));
@@ -361,7 +375,7 @@ namespace AAModClassic
 
                 profiles.Add(ModContent.ItemType<CarnalCrusher>(), new(90f, Color.Crimson));
 
-                profiles.Add(ModContent.ItemType<TrueCopperShortswordEX>(), new(36f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<UltimaShortsword>(), new(36f, AAColor.Rainbow1));
                 profiles.Add(ModContent.ItemType<TrueCopperShortsword>(), new(64f, AAColor.Rainbow1));
 
                 field.SetValue(null, profiles);
