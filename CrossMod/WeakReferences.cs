@@ -217,10 +217,10 @@ namespace AAModClassic.CrossMod
                 // Mushroom Monarch
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/MBarHead"),
-                    AAMod.GetTexture("Healthbars/MBarBody"),
-                    AAMod.GetTexture("Healthbars/MBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/MBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/MBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/MBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Firebrick,
                     Color.Firebrick,
@@ -233,10 +233,10 @@ namespace AAModClassic.CrossMod
                 // Feudal Fungus
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/FBarHead"),
-                    AAMod.GetTexture("Healthbars/FBarBody"),
-                    AAMod.GetTexture("Healthbars/FBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/FBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/FBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/FBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.DarkCyan,
                     Color.DarkCyan,
@@ -249,10 +249,10 @@ namespace AAModClassic.CrossMod
                 // Grip of Chaos (Red)
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/RGCBarHead"),
-                    AAMod.GetTexture("Healthbars/RGCBarBody"),
-                    AAMod.GetTexture("Healthbars/RGCBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/RGCBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/RGCBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/RGCBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.DarkOrange,
                     Color.DarkOrange,
@@ -265,10 +265,10 @@ namespace AAModClassic.CrossMod
                 // Grip of Chaos (Blue)
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/BGCBarHead"),
-                    AAMod.GetTexture("Healthbars/BGCBarBody"),
-                    AAMod.GetTexture("Healthbars/BGCBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BGCBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BGCBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BGCBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Indigo,
                     Color.Indigo,
@@ -281,10 +281,10 @@ namespace AAModClassic.CrossMod
                 // The Broodmother
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/BMBarHead"),
-                    AAMod.GetTexture("Healthbars/BMBarBody"),
-                    AAMod.GetTexture("Healthbars/BMBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BMBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BMBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BMBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.DarkOrange,
                     Color.DarkOrange,
@@ -297,10 +297,10 @@ namespace AAModClassic.CrossMod
                 // Hydra
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/HydraBarHead"),
-                    AAMod.GetTexture("Healthbars/HydraBarBody"),
-                    AAMod.GetTexture("Healthbars/HydraBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HydraBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HydraBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HydraBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Indigo,
                     Color.Indigo,
@@ -313,10 +313,10 @@ namespace AAModClassic.CrossMod
                 // Subzero Serpent
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/SSBarHead"),
-                    AAMod.GetTexture("Healthbars/SSBarBody"),
-                    AAMod.GetTexture("Healthbars/SSBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SSBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SSBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SSBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Cyan,
                     Color.Cyan,
@@ -329,10 +329,10 @@ namespace AAModClassic.CrossMod
                 // Desert Djinn
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/DDBarHead"),
-                    AAMod.GetTexture("Healthbars/DDBarBody"),
-                    AAMod.GetTexture("Healthbars/DDBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/DDBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/DDBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/DDBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.IndianRed,
                     Color.IndianRed,
@@ -344,10 +344,10 @@ namespace AAModClassic.CrossMod
 
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/SagBarHead"),
-                    AAMod.GetTexture("Healthbars/SagBarBody"),
-                    AAMod.GetTexture("Healthbars/SagBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SagBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SagBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SagBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Red,
                     Color.Red,
@@ -360,10 +360,10 @@ namespace AAModClassic.CrossMod
                 //Anubis
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/AnuBarHead"),
-                    AAMod.GetTexture("Healthbars/AnuBarBody"),
-                    AAMod.GetTexture("Healthbars/AnuBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AnuBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AnuBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AnuBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Cyan,
                     Color.Cyan,
@@ -376,10 +376,10 @@ namespace AAModClassic.CrossMod
                 // Greed
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/GreedBarHead"),
-                    AAMod.GetTexture("Healthbars/GreedBarBody"),
-                    AAMod.GetTexture("Healthbars/GreedBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/GreedBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/GreedBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/GreedBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Goldenrod,
                     Color.Goldenrod,
@@ -392,10 +392,10 @@ namespace AAModClassic.CrossMod
                 // Rajah
                     yabhb.Call("hbStart");
                     yabhb.Call("hbSetTexture",
-                        AAMod.GetTexture("Healthbars/RajahBarHead"),
-                        AAMod.GetTexture("Healthbars/RajahBarBody"),
-                        AAMod.GetTexture("Healthbars/RajahBarTail"),
-                        AAMod.GetTexture("Healthbars/BarFill"));
+                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarHead").Value,
+                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarBody").Value,
+                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarTail").Value,
+                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                     yabhb.Call("hbSetColours",
                         Color.Orange,
                         Color.Orange,
@@ -408,10 +408,10 @@ namespace AAModClassic.CrossMod
                 //Forsaken Anubis
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/FAnuBarHead"),
-                    AAMod.GetTexture("Healthbars/FAnuBarBody"),
-                    AAMod.GetTexture("Healthbars/FAnuBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/FAnuBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/FAnuBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/FAnuBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.MediumAquamarine,
                     Color.MediumAquamarine,
@@ -424,10 +424,10 @@ namespace AAModClassic.CrossMod
                 // Worm King Greed
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/WKGBarHead"),
-                    AAMod.GetTexture("Healthbars/WKGBarBody"),
-                    AAMod.GetTexture("Healthbars/WKGBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/WKGBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/WKGBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/WKGBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Goldenrod,
                     Color.Goldenrod,
@@ -440,10 +440,10 @@ namespace AAModClassic.CrossMod
                 // Daybringer
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/DBBarHead"),
-                    AAMod.GetTexture("Healthbars/DBBarBody"),
-                    AAMod.GetTexture("Healthbars/DBBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/DBBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/DBBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/DBBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Cyan,
                     Color.Cyan,
@@ -456,10 +456,10 @@ namespace AAModClassic.CrossMod
                 // Nightcrawler
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/NCBarHead"),
-                    AAMod.GetTexture("Healthbars/NCBarBody"),
-                    AAMod.GetTexture("Healthbars/NCBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/NCBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/NCBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/NCBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.MediumBlue,
                     Color.MediumBlue,
@@ -472,10 +472,10 @@ namespace AAModClassic.CrossMod
                 // Haruka Yamata
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/HarukaBarHead"),
-                    AAMod.GetTexture("Healthbars/HarukaBarBody"),
-                    AAMod.GetTexture("Healthbars/HarukaBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     new Color(122, 157, 152),
                     new Color(122, 157, 152),
@@ -488,9 +488,9 @@ namespace AAModClassic.CrossMod
                 // Haruka Yamata (Awakened)
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTextureSmall",
-                    AAMod.GetTexture("Healthbars/HarukaBar2Head"),
-                    AAMod.GetTexture("Healthbars/HarukaBar2Body"),
-                    AAMod.GetTexture("Healthbars/HarukaBar2Tail"),
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBar2Head").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBar2Body").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBar2Tail").Value,
                     null);
                 yabhb.Call("hbSetColours",
                     new Color(122, 157, 152),
@@ -501,9 +501,9 @@ namespace AAModClassic.CrossMod
                 // Wrath Haruka
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTextureSmall",
-                    AAMod.GetTexture("Healthbars/HarukaBar2Head"),
-                    AAMod.GetTexture("Healthbars/HarukaBar2Body"),
-                    AAMod.GetTexture("Healthbars/HarukaBar2Tail"),
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBar2Head").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBar2Body").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/HarukaBar2Tail").Value,
                     null);
                 yabhb.Call("hbSetColours",
                     new Color(122, 157, 152),
@@ -514,9 +514,9 @@ namespace AAModClassic.CrossMod
                 // Ashe Akuma
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTextureSmall",
-                    AAMod.GetTexture("Healthbars/AsheBar2Head"),
-                    AAMod.GetTexture("Healthbars/AsheBar2Body"),
-                    AAMod.GetTexture("Healthbars/AsheBar2Tail"),
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AsheBar2Head").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AsheBar2Body").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AsheBar2Tail").Value,
                     null);
                 yabhb.Call("hbSetColours",
                     Color.OrangeRed,
@@ -527,9 +527,9 @@ namespace AAModClassic.CrossMod
                 // Fury Ashe
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTextureSmall",
-                    AAMod.GetTexture("Healthbars/AsheBar2Head"),
-                    AAMod.GetTexture("Healthbars/AsheBar2Body"),
-                    AAMod.GetTexture("Healthbars/AsheBar2Tail"),
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AsheBar2Head").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AsheBar2Body").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AsheBar2Tail").Value,
                     null);
                 yabhb.Call("hbSetColours",
                     Color.OrangeRed,
@@ -540,10 +540,10 @@ namespace AAModClassic.CrossMod
                 // Yamata
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/YamataBarHead"),
-                    AAMod.GetTexture("Healthbars/YamataBarBody"),
-                    AAMod.GetTexture("Healthbars/YamataBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/YamataBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/YamataBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/YamataBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Purple,
                     Color.Purple,
@@ -556,10 +556,10 @@ namespace AAModClassic.CrossMod
                 // Yamata Awakened
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/YamataABarHead"),
-                    AAMod.GetTexture("Healthbars/YamataABarBody"),
-                    AAMod.GetTexture("Healthbars/YamataABarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/YamataABarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/YamataABarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/YamataABarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.MediumVioletRed,
                     Color.MediumVioletRed,
@@ -572,10 +572,10 @@ namespace AAModClassic.CrossMod
                 // Akuma; Draconian Demon
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/AkumaBarHead"),
-                    AAMod.GetTexture("Healthbars/AkumaBarBody"),
-                    AAMod.GetTexture("Healthbars/AkumaBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AkumaBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AkumaBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AkumaBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Yellow,
                     Color.Yellow,
@@ -588,10 +588,10 @@ namespace AAModClassic.CrossMod
                 // Akuma Awakened; Blazing Fury Incarnate
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/AkumaABarHead"),
-                    AAMod.GetTexture("Healthbars/AkumaBarBody"),
-                    AAMod.GetTexture("Healthbars/AkumaABarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AkumaABarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AkumaBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/AkumaABarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.DeepSkyBlue,
                     Color.DeepSkyBlue,
@@ -604,10 +604,10 @@ namespace AAModClassic.CrossMod
                 // Zero
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/ZeroBarHead"),
-                    AAMod.GetTexture("Healthbars/ZeroBarBody"),
-                    AAMod.GetTexture("Healthbars/ZeroBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ZeroBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ZeroBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ZeroBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Red,
                     Color.Red,
@@ -620,10 +620,10 @@ namespace AAModClassic.CrossMod
                 // ZER0 PR0T0C0L
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/ZeroABarHead"),
-                    AAMod.GetTexture("Healthbars/ZeroBarBody"),
-                    AAMod.GetTexture("Healthbars/ZeroABarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ZeroABarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ZeroBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ZeroABarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Red,
                     Color.Red,
@@ -635,10 +635,10 @@ namespace AAModClassic.CrossMod
 
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/SRajahBarHead"),
-                    AAMod.GetTexture("Healthbars/SRajahBarBody"),
-                    AAMod.GetTexture("Healthbars/SRajahBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SRajahBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SRajahBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/SRajahBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Gold,
                     Color.Gold,
@@ -651,10 +651,10 @@ namespace AAModClassic.CrossMod
                 // Shen
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/ShenBarHead"),
-                    AAMod.GetTexture("Healthbars/ShenBarBody"),
-                    AAMod.GetTexture("Healthbars/ShenBarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ShenBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ShenBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ShenBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Purple,
                     Color.Purple,
@@ -667,10 +667,10 @@ namespace AAModClassic.CrossMod
                 //Shen Awakened
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
-                    AAMod.GetTexture("Healthbars/ShenABarHead"),
-                    AAMod.GetTexture("Healthbars/ShenABarBody"),
-                    AAMod.GetTexture("Healthbars/ShenABarTail"),
-                    AAMod.GetTexture("Healthbars/BarFill"));
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ShenABarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ShenABarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/ShenABarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
                 yabhb.Call("hbSetColours",
                     Color.Silver,
                     Color.Silver,

@@ -198,7 +198,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox
 
                 Utils.DrawLaser(
                     spritebatch,
-                    Mod.GetTexture("_Content/Stars/_PostMoonlord/NPCs/_BossEquinox/DayBringerBlast_Beam"),
+                    ModContent.Request<Texture2D>("AAModClassic/_Content/Stars/_PostMoonlord/NPCs/_BossEquinox/DayBringerBlast_Beam").Value,
                     start - Main.screenPosition,
                     end - Main.screenPosition,
                     new Vector2(Projectile.ai[1]),

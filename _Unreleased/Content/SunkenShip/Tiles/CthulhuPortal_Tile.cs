@@ -44,8 +44,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 
         public override void SpecialDraw(int x, int y, SpriteBatch spriteBatch)
         {
-            Texture2D PortalTex = Mod.GetTexture("_Unreleased/Content/SunkenShip/Tiles/CthulhuPortal_Tile_Portal");
-            Texture2D PortalTex2 = Mod.GetTexture("_Unreleased/Content/SunkenShip/Tiles/CthulhuPortal_Tile_Portal2");
+            Texture2D PortalTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/Tiles/CthulhuPortal_Tile_Portal").Value;
+            Texture2D PortalTex2 = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/Tiles/CthulhuPortal_Tile_Portal2").Value;
 
             spriteBatch.Draw(PortalTex, new Point(x, y).ToWorldCoordinates() - Main.screenPosition, null, AAColor.Cthulhu, -Main.GlobalTimeWrappedHourly, PortalTex.Size() * 0.5f, 1f, 0, 0);
             spriteBatch.Draw(PortalTex2, new Point(x, y).ToWorldCoordinates() - Main.screenPosition, null, AAColor.Cthulhu, Main.GlobalTimeWrappedHourly, PortalTex2.Size() * 0.5f, 1f, 0, 0);

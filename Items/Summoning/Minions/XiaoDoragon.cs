@@ -266,12 +266,12 @@ namespace AAModClassic.Items.Summoning.Minions
 
             if (Projectile.spriteDirection == 1)
             {
-                tex = Mod.GetTexture("Items/Summoning/Minions/XiaoDoragonBlue");
+                tex = ModContent.Request<Texture2D>("AAModClassic/Items/Summoning/Minions/XiaoDoragonBlue").Value;
             }
 
             if (hasTarget)
             {
-                tex = Mod.GetTexture("Items/Summoning/Minions/XiaoDoragonA");
+                tex = ModContent.Request<Texture2D>("AAModClassic/Items/Summoning/Minions/XiaoDoragonA").Value;
                 BaseDrawing.DrawAfterimage(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true);
             }
 
@@ -280,7 +280,7 @@ namespace AAModClassic.Items.Summoning.Minions
 
             if (hasTarget)
             {
-                Texture2D g = Mod.GetTexture("Glowmasks/XiaoDoragon_Glow");
+                Texture2D g = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/XiaoDoragon_Glow").Value;
                 BaseDrawing.DrawTexture(Main.spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, AAColor.Shen2, true);
                 BaseDrawing.DrawAfterimage(Main.spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true, 0, 0, AAColor.Shen2);
             }

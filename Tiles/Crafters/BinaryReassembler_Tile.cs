@@ -69,7 +69,7 @@ namespace AAModClassic.Tiles.Crafters
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/BinaryReassemblerTile_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BinaryReassemblerTile_Glow").Value;
             int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
 
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, White);

@@ -31,7 +31,7 @@ namespace AAModClassic.Walls.Bricks
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            BaseDrawing.DrawWallTexture(spriteBatch, Mod.GetTexture("Glowmasks/DoomstoneBrickWall_Glow"), i, j, false, AAGlobalTile.GetBlankColorDim);
+            BaseDrawing.DrawWallTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomstoneBrickWall_Glow").Value, i, j, false, AAGlobalTile.GetBlankColorDim);
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

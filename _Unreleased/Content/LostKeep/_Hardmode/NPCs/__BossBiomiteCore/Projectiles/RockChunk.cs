@@ -50,7 +50,7 @@ public class RockChunk : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Texture2D texture = AAMod.instance.GetTexture("_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/Projectiles/RockChunk" + Projectile.ai[1]);
+		Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/Projectiles/RockChunk" + Projectile.ai[1]).Value;
 		BaseDrawing.DrawTexture(Main.spriteBatch, texture, 0, Projectile, lightColor, drawCentered: true);
 		return false;
 	}

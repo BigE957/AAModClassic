@@ -127,7 +127,7 @@ Shines with the light of a starry night sky"); */
         {
             if(BrokenShield > 0)
             {
-                Texture2D texture = Mod.GetTexture("Items/Armor/Radium/RadiumShield");
+                Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumShield").Value;
                 spriteBatch.Draw(texture, npc.Top + Vector2.UnitY * -30 - Main.screenPosition, null, Color.White, 0f, texture.Size() * .5f, 1f + (.1f * (float)Math.Sin(yetAnotherTrigCounter)), SpriteEffects.None, 0f);
             }
             

@@ -533,7 +533,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D WheelTex = ModContent.Request<Texture2D>(Texture + "_Wheel").Value;
             Texture2D RingTex = ModContent.Request<Texture2D>(Texture + "_DeityCircle").Value;
             Texture2D RitualTex = ModContent.Request<Texture2D>(Texture + "_DeityRitual").Value;
-            Texture2D Rift = Mod.GetTexture("_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift");
+            Texture2D Rift = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift").Value;
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
             Vector2 origin8 = new Vector2(RitualTex.Width, RitualTex.Height) / 2f;
             int y6 = 0;

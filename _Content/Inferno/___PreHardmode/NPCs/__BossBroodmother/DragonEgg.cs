@@ -103,7 +103,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/BroodEgg_Glow"), 0, NPC, GetGlowAlpha());
+			BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BroodEgg_Glow").Value, 0, NPC, GetGlowAlpha());
         }		
     }
 }

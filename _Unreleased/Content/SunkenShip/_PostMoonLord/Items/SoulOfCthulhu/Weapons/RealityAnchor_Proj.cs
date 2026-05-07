@@ -201,7 +201,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override bool PreDraw(ref Color lightColor)
         {
 			
-            Texture2D texture = Mod.GetTexture("AAModClassic/_Unreleased/Projectiles/SoC/Anchor_Chain");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/AAModClassic/_Unreleased/Projectiles/SoC/Anchor_Chain").Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

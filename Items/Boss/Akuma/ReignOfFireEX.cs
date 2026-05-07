@@ -55,7 +55,7 @@ Reign of Fire EX"); */
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/ReignOfFire_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ReignOfFire_Glow").Value;
             spriteBatch.Draw
             (
                 texture,

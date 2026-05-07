@@ -1137,9 +1137,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenA
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/WrathHaruka_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/WrathHaruka_Glow").Value;
 
-            Texture2D Slash = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Haruka/HarukaSlash");
+            Texture2D Slash = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Haruka/HarukaSlash").Value;
             if (internalAI[0] == AISTATE_SPIN)
             {
                 if(strikebackproj > 0)
@@ -1154,7 +1154,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenA
                 if(internalAI[4] < 90)
                 {
                     Vector2 playerLocation = Main.player[NPC.target].Center;
-                    Texture2D texture = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Haruka/Danger!");
+                    Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Haruka/Danger!").Value;
                     float scaleFactor = 1f + internalAI[4] / 30f;
                     float scaleFactor2 = (float)Math.Cos(6.2831855f * (internalAI[4] / 60f));
                     if(scaleFactor < 2.2f)

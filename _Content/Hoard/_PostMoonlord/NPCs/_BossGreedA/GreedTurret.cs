@@ -118,7 +118,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 70, 70);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("_Content/Hoard/__Hardmode/NPCs/_BossGreed/GreedSpawn"), 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, 0, NPC.spriteDirection, 4, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/__Hardmode/NPCs/_BossGreed/GreedSpawn").Value, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, 0, NPC.spriteDirection, 4, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
             return false;
         }
     }

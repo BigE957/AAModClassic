@@ -198,7 +198,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius
 
                 Utils.DrawLaser(
                     spritebatch,
-                    Mod.GetTexture("NPCs/Bosses/Sag/SagBlast_Beam"),
+                    ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Sag/SagBlast_Beam").Value,
                     start - Main.screenPosition,
                     end - Main.screenPosition,
                     new Vector2(Projectile.ai[1]),

@@ -232,7 +232,7 @@ namespace AAModClassic.Items.Summoning.Minions
 		public override bool PreDraw(ref Color lightColor)
 		{
 			Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
-			Texture2D Glow = Mod.GetTexture("Items/Summoning/Minions/ChaosConstructEye");
+			Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Items/Summoning/Minions/ChaosConstructEye").Value;
 
 			Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
 

@@ -1,6 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -29,8 +30,8 @@ namespace AAModClassic.Projectiles.Akuma
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 64, 64);
-            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb1"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
-            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/SunOrb1").Value, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/SunOrb").Value, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
 

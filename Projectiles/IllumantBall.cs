@@ -48,7 +48,7 @@ namespace AAModClassic.Projectiles
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D chainTex = Mod.GetTexture("Chains/IllumantBall_Chain");
+            Texture2D chainTex = ModContent.Request<Texture2D>("AAModClassic/Chains/IllumantBall_Chain").Value;
             if (Main.instance.IsActive)
                 for (int m = 0; m < 2; m++)
                     BaseDrawing.DrawChain(Main.spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);

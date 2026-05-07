@@ -3,6 +3,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
+using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.__Hardmode.Items.Consumables
 {
     public class VoidKey : BaseAAItem
@@ -26,7 +27,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Consumables
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,

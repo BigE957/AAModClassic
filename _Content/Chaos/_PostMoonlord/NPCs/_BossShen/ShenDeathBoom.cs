@@ -74,12 +74,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
             if (Projectile.ai[0] == 1)
             {
-                Tex = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathBoomR");
+                Tex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathBoomR").Value;
             }
             else
             if (Projectile.ai[0] == 1)
             {
-                Tex = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathBoomB");
+                Tex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathBoomB").Value;
             }
             BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Projectile.GetAlpha(Color.White), true);
             return false;

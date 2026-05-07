@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items.Tiles.Decoration
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            if (glowTex == null) glowTex = Mod.GetTexture("Glowmasks/Transmuter_Glow");
+            if (glowTex == null) glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Transmuter_Glow").Value;
             if (glowTex != null && tile != null && tile.HasTile && tile.TileType == Type)
             {
                 int width = 16, height = 16;

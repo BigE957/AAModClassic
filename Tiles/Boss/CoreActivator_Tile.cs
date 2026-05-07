@@ -48,7 +48,7 @@ public class CoreActivator_Tile : ModTile
 	public override void PostDraw(int x, int y, SpriteBatch sb)
 	{
 		Tile tile = Main.tile[x, y];
-		Texture2D texture = Mod.GetTexture("Glowmasks/CoreActivator_Glow");
+		Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CoreActivator_Glow").Value;
 		int frameY = ((tile != null && tile.HasTile) ? (tile.TileFrameY + Main.tileFrame[Type] * 36) : 0);
 		BaseDrawing.DrawTileTexture(sb, texture, x, y, 16, 16, tile.TileFrameX, frameY, slopeDraw: false, flipTex: false, ignoreHalfBricks: false, null, White);
 	}

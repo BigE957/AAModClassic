@@ -246,10 +246,10 @@ namespace AAModClassic._Unreleased._Aggregate.inferno.npcs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D biteAni = Mod.GetTexture("_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamBite");
-            Texture2D shootAni = Mod.GetTexture("_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamFireball");
-            Texture2D Reanimation = Mod.GetTexture("_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamReanimation");
-            Texture2D dedAni = Mod.GetTexture("_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamDed");
+            Texture2D biteAni = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamBite").Value;
+            Texture2D shootAni = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamFireball").Value;
+            Texture2D Reanimation = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamReanimation").Value;
+            Texture2D dedAni = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/NPCs/Enemies/Inferno/Magmalgam/MagmalgamDed").Value;
             var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (biteAttack == false && fireballAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {

@@ -125,8 +125,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray2");
-            Texture2D texture2D21 = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;
@@ -306,8 +306,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray2");
-            Texture2D texture2D21 = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDeathray3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

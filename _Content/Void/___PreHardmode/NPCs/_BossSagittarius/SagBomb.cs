@@ -63,7 +63,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 11, 0, 0);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, lightColor, true);
-            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Glowmasks/SagBomb_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SagBomb_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
             return false;
         }
 

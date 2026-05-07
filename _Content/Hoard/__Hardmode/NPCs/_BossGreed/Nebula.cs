@@ -49,17 +49,17 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed
         {
             if (Projectile.ai[0] == 0)
             {
-                t = Mod.GetTexture("_Content/Hoard/__Hardmode/NPCs/_BossGreed/NebulaA");
+                t = ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/__Hardmode/NPCs/_BossGreed/NebulaA").Value;
                 c = Color.HotPink;
             }
             else if (Projectile.ai[0] == 1)
             {
-                t = Mod.GetTexture("_Content/Hoard/__Hardmode/NPCs/_BossGreed/NebulaD");
+                t = ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/__Hardmode/NPCs/_BossGreed/NebulaD").Value;
                 c = Color.Blue;
             }
             else
             {
-                t = Mod.GetTexture("_Content/Hoard/__Hardmode/NPCs/_BossGreed/NebulaH");
+                t = ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/__Hardmode/NPCs/_BossGreed/NebulaH").Value;
                 c = Color.Red;
             }
         }

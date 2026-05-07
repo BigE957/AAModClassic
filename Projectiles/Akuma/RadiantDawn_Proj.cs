@@ -211,7 +211,7 @@ namespace AAModClassic.Projectiles.Akuma
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/RadiantDawnP_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RadiantDawnP_Glow").Value;
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
             BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);

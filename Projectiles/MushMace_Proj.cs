@@ -1,6 +1,7 @@
 using System;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -135,7 +136,7 @@ namespace AAModClassic.Projectiles
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            BaseDrawing.DrawChain(Main.spriteBatch, Mod.GetTexture("Chains/MushMaceChain"), 0, Projectile.Center, Main.player[Projectile.owner].Center);
+            BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Chains/MushMaceChain").Value, 0, Projectile.Center, Main.player[Projectile.owner].Center);
             return true;
         }
     }

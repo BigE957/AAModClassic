@@ -115,8 +115,8 @@ namespace AAModClassic.Projectiles.Akuma
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture2D14 = Mod.GetTexture("Projectiles/Akuma/Daystorm");
-            Texture2D Glow = Mod.GetTexture("Glowmasks/DaystormP_Glow");
+            Texture2D texture2D14 = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/Daystorm").Value;
+            Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DaystormP_Glow").Value;
             SpriteEffects spriteEffects = SpriteEffects.None;
             if (Projectile.spriteDirection == -1)
             {

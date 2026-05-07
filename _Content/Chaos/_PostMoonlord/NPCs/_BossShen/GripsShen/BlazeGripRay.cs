@@ -196,8 +196,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/GripsShen/BlazeGripRay2");
-            Texture2D texture2D21 = Mod.GetTexture("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/GripsShen/BlazeGripRay3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/GripsShen/BlazeGripRay2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/GripsShen/BlazeGripRay3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

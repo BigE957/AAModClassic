@@ -113,7 +113,7 @@ namespace AAModClassic.Projectiles
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            Texture2D texture = Mod.GetTexture("Chains/GlacierBreaker_Chain");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/GlacierBreaker_Chain").Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

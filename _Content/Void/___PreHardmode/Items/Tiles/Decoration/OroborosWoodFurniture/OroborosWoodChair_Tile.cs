@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Orobo
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/OroborosChair_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.Red, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(ModContent.Request<Texture2D>("AAModClassic/Glowmasks/OroborosChair_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.Red, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

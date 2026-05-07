@@ -39,7 +39,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)
             {
@@ -65,7 +65,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)

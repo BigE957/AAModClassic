@@ -547,11 +547,6 @@ namespace AAModClassic
             ResetItemTexture(512);
         }
 
-        public static Texture2D GetGlowmask(string Name)
-        {
-            return ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + Name + "_Glow").Value;
-        }
-
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)
         {
             Tile tile = Main.tile[i, j];
@@ -762,8 +757,6 @@ namespace AAModClassic
 
     public static class ModUtils
     {
-        public static Texture2D GetTexture(this Mod mod, string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
-
         public static SoundStyle GetLegacySoundSlot(this Mod mod, SoundType type, string path)
         {
             if (type == SoundType.Sound)

@@ -85,7 +85,7 @@ namespace AAModClassic.Items.Dev.RuneBook
         public override bool PreDraw(ref Color lightColor)
         {
             shooter = Main.projectile[(int)Projectile.ai[0]];
-            Texture2D projectiletex = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/NovaRay");
+            Texture2D projectiletex = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/NovaRay").Value;
             DrawLaser(Main.spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
             
             return false;

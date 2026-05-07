@@ -34,7 +34,7 @@ namespace AAModClassic.Walls.Bricks
             }
             else
             {
-                BaseDrawing.DrawWallTexture(spriteBatch, Mod.GetTexture("Walls/Bricks/DarkmatterWall"), x, y, true);
+                BaseDrawing.DrawWallTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Walls/Bricks/DarkmatterWall").Value, x, y, true);
             }
             return false;
         }

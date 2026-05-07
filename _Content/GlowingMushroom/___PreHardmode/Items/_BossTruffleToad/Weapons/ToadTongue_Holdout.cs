@@ -172,7 +172,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            Texture2D texture = Mod.GetTexture("Chains/ToadTongue_Chain");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/ToadTongue_Chain").Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

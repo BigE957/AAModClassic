@@ -34,8 +34,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord._BossAnubisA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 64, 64);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("_Content/Desert/_PostMoonlord/_BossAnubisA/ForsakenSun1"), 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, -NPC.rotation, NPC.spriteDirection, 1, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("_Content/Desert/_PostMoonlord/_BossAnubisA/ForsakenSun"), 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 1, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/_Content/Desert/_PostMoonlord/_BossAnubisA/ForsakenSun1").Value, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, -NPC.rotation, NPC.spriteDirection, 1, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/_Content/Desert/_PostMoonlord/_BossAnubisA/ForsakenSun").Value, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 1, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
             return false;
         }
 

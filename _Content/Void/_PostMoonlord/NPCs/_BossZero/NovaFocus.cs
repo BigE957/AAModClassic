@@ -134,7 +134,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/NovaFocus_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NovaFocus_Glow").Value;
             BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC, 1, 1, 6, true, 0, 0, Color.DarkRed, NPC.frame);
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor);
             BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, AAColor.COLOR_WHITEFADE1);

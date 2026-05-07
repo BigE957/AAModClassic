@@ -23,7 +23,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("_Unreleased/Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Glowmasks/" + GetType().Value.Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask.Value = glowMasks;
             }

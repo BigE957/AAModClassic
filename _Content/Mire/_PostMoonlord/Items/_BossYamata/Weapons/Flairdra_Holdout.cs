@@ -145,7 +145,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 }
             }
 
-            Texture2D texture = Mod.GetTexture("Chains/Flairdra_Chain");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/Flairdra_Chain").Value;
             
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

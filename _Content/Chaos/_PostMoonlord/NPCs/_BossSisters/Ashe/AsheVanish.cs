@@ -56,8 +56,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/AsheVanish_Glow2");
-            Texture2D eyeTex = Mod.GetTexture("Glowmasks/AsheVanish_Glow1");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AsheVanish_Glow2").Value;
+            Texture2D eyeTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AsheVanish_Glow1").Value;
 
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);

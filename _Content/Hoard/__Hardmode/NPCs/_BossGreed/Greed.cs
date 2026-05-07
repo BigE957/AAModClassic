@@ -883,7 +883,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D glow = Mod.GetTexture("Glowmasks/GreedBody_Glow");
+            Texture2D glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GreedBody_Glow").Value;
 
             NPC.position.Y += NPC.height * 0.5f;
 

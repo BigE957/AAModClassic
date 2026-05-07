@@ -57,7 +57,7 @@ namespace AAModClassic.Tiles.Boxes
             Texture2D Tex = TextureAssets.Tile[Type].Value;
             if (!Main.dayTime)
             {
-                Tex = Mod.GetTexture("Tiles/Boxes/StarsBox_Night_Tile");
+                Tex = ModContent.Request<Texture2D>("AAModClassic/Tiles/Boxes/StarsBox_Night_Tile").Value;
             }
             BaseDrawing.DrawTileTexture(spriteBatch, Tex, x, y, width, height, frameX, frameY, false, false, false, null);
             return false;

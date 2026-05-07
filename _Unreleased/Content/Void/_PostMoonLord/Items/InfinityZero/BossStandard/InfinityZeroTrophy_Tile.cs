@@ -38,7 +38,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == this.Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("_Unreleased/Glowmasks/IZTrophy_Glow");
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Glowmasks/IZTrophy_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
             }
         }

@@ -87,8 +87,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D Tex2 = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/RiftZ2");
-            Texture2D Tex3 = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/RiftZ3");
+            Texture2D Tex2 = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/RiftZ2").Value;
+            Texture2D Tex3 = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/RiftZ3").Value;
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, Tex.Width, Tex.Height, 0, 0);
             Rectangle frame1 = BaseDrawing.GetFrame(Projectile.frame, Tex2.Width, Tex2.Height, 0, 0);
             Rectangle frame2 = BaseDrawing.GetFrame(Projectile.frame, Tex3.Width, Tex3.Height, 0, 0);

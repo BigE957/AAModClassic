@@ -603,7 +603,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D glow = Mod.GetTexture("Glowmasks/GreedA_Glow");
+            Texture2D glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GreedA_Glow").Value;
 
             NPC.position.Y += NPC.height * 0.5f;
 
@@ -1007,7 +1007,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D glow = Mod.GetTexture("Glowmasks/GreedABody_Glow");
+            Texture2D glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GreedABody_Glow").Value;
 
             NPC.position.Y += NPC.height * 0.5f;
 

@@ -110,8 +110,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("_Content/Hoard/__Hardmode/NPCs/_BossGreed/DesireBeam_Beam");
-            Texture2D texture2D21 = Mod.GetTexture("_Content/Hoard/__Hardmode/NPCs/_BossGreed/DesireBeam_End");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/__Hardmode/NPCs/_BossGreed/DesireBeam_Beam").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/__Hardmode/NPCs/_BossGreed/DesireBeam_End").Value;
             float num228 = LaserLength;
             Color color44 = Color.White * 0.8f;
             Texture2D arg_AF99_1 = texture2D19;

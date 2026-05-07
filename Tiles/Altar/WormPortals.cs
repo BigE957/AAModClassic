@@ -39,9 +39,9 @@ namespace AAModClassic.Tiles.Altar
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
 
-            Texture2D DBPortal = Mod.GetTexture("Tiles/Altar/DBPortal");
-            Texture2D DBPortalBack = Mod.GetTexture("Tiles/Altar/DBPortalBack");
-            Texture2D DBEyes = Mod.GetTexture("Tiles/Altar/DBPortalEyes");
+            Texture2D DBPortal = ModContent.Request<Texture2D>("AAModClassic/Tiles/Altar/DBPortal").Value;
+            Texture2D DBPortalBack = ModContent.Request<Texture2D>("AAModClassic/Tiles/Altar/DBPortalBack").Value;
+            Texture2D DBEyes = ModContent.Request<Texture2D>("AAModClassic/Tiles/Altar/DBPortalEyes").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, DBPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             BaseDrawing.DrawTexture(spriteBatch, DBPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
@@ -162,9 +162,9 @@ namespace AAModClassic.Tiles.Altar
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
 
-            Texture2D NCPortal = Mod.GetTexture("Tiles/Altar/NCPortal");
-            Texture2D NCPortalBack = Mod.GetTexture("Tiles/Altar/NCPortalBack");
-            Texture2D NCEyes = Mod.GetTexture("Tiles/Altar/NCPortalEyes");
+            Texture2D NCPortal = ModContent.Request<Texture2D>("AAModClassic/Tiles/Altar/NCPortal").Value;
+            Texture2D NCPortalBack = ModContent.Request<Texture2D>("AAModClassic/Tiles/Altar/NCPortalBack").Value;
+            Texture2D NCEyes = ModContent.Request<Texture2D>("AAModClassic/Tiles/Altar/NCPortalEyes").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, NCPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             BaseDrawing.DrawTexture(spriteBatch, NCPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);

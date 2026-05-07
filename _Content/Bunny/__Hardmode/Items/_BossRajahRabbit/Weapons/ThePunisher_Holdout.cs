@@ -122,7 +122,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Mod.GetTexture("Chains/Punisher_Chain");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/Punisher_Chain").Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

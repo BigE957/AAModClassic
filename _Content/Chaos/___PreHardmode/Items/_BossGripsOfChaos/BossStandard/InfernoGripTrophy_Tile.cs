@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
             //TODO: tile glowmask standardization
-            //Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/GripRedTrophy_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //Main.spriteBatch.Draw(ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GripRedTrophy_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 	}
 }

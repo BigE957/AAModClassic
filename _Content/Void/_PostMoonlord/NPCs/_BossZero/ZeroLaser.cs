@@ -138,8 +138,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroLaser2");
-            Texture2D texture2D21 = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroLaser3");
+            Texture2D texture2D20 = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroLaser2").Value;
+            Texture2D texture2D21 = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroLaser3").Value;
             float num223 = Projectile.localAI[1];
             Color color44 = AAColor.COLOR_WHITEFADE1 * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

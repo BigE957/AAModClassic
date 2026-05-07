@@ -93,9 +93,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D Shield = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShield");
-            Texture2D Ring = Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShieldRing");
-            Texture2D RingGlow = Mod.GetTexture("Glowmasks/ZeroShieldRing_Glow");
+            Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShield").Value;
+            Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShieldRing").Value;
+            Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroShieldRing_Glow").Value;
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
@@ -103,7 +103,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
             if (NPC.downedMoonlord)
             {
-                BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/ZeroDeactivated_Glow"), 0, NPC, GetGlowAlpha());
+                BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroDeactivated_Glow").Value, 0, NPC, GetGlowAlpha());
             }
             BaseDrawing.DrawTexture(spriteBatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
             BaseDrawing.DrawTexture(spriteBatch, Ring, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), drawColor, true);

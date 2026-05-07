@@ -149,7 +149,7 @@ namespace AAModClassic.Projectiles
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Mod.GetTexture("Chains/ChaosChain_Chain");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/ChaosChain_Chain").Value;
 
             BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
             return true;

@@ -878,7 +878,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox
                 if (NPC.type == ModContent.NPCType<NightcrawlerBody>()) { texName += "NightcrawlerBodyBig"; }
                 else
                 if (NPC.type == ModContent.NPCType<NightcrawlerTail>()) { texName += "NightcrawlerTailBig"; }
-                tex = Mod.GetTexture(texName);
+                tex = ModContent.Request<Texture2D>("AAModClassic/" + texName).Value;
 
                 int diff = Main.LocalPlayer.miscCounter % 50;
                 float diffFloat = diff / 50f;

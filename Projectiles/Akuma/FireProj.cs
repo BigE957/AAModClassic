@@ -68,11 +68,11 @@ namespace AAModClassic.Projectiles.Akuma
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Mod.GetTexture("Projectiles/Akuma/FireProj1");
-			if (Projectile.ai[0] == 2f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj2");
-			if (Projectile.ai[0] == 3f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj3");
-			if (Projectile.ai[0] == 4f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj4");
-			if (Projectile.ai[0] == 5f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj5");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/FireProj1").Value;
+			if (Projectile.ai[0] == 2f) texture = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/FireProj2").Value;
+			if (Projectile.ai[0] == 3f) texture = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/FireProj3").Value;
+			if (Projectile.ai[0] == 4f) texture = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/FireProj4").Value;
+			if (Projectile.ai[0] == 5f) texture = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/FireProj5").Value;
             Main.spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
                         new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
                         new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);

@@ -36,7 +36,7 @@ namespace AAModClassic.Projectiles.Monarch
             BaseDrawing.AddLight(Projectile.Center, new Color(9, 60, 128));
 
             BaseDrawing.DrawTexture(Main.spriteBatch, texture, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
-            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Glowmasks/GlowingSporrow_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GlowingSporrow_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, Color.White, true);
         }
         protected float maxTicks = 45f;
 

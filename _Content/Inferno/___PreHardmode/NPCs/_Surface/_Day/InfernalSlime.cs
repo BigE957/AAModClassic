@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
-            spriteBatch.Draw(Mod.GetTexture("Glowmasks/InfernalSlime_Glow"), new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
+            spriteBatch.Draw(ModContent.Request<Texture2D>("AAModClassic/Glowmasks/InfernalSlime_Glow").Value, new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
             NPC.frame, Color.White, NPC.rotation,
             new Vector2(NPC.width * 0.5f, NPC.height * 0.5f), 1f, spriteEffects, 0f);
         }

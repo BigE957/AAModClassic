@@ -487,10 +487,10 @@ public class Core : ModNPC
 
     public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
-		Texture2D texture = AAMod.instance.GetTexture("_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/CoreBack");
+		Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/CoreBack").Value;
 		Texture2D texture2 = TextureAssets.Npc[Type].Value;
-		Texture2D texture3 = AAMod.instance.GetTexture("_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/CoreShell");
-		Texture2D texture4 = AAMod.instance.GetTexture("_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/CoreGlow");
+		Texture2D texture3 = ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/CoreShell").Value;
+		Texture2D texture4 = ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/__Hardmode/NPCs/_BossBiomiteCore/CoreGlow").Value;
 		Rectangle frame = BaseDrawing.GetFrame(frameShell, 156, 128, 0, 0);
 		Rectangle frame2 = BaseDrawing.GetFrame((int)NPC.ai[3] - 1, 156, 128, 0, 0);
 		Rectangle frame3 = BaseDrawing.GetFrame(0, 156, 128, 0, 0);

@@ -47,7 +47,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         }
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/FeudalFungusIGoNow_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/FeudalFungusIGoNow_Glow").Value;
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
 

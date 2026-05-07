@@ -32,7 +32,7 @@ namespace AAModClassic.Projectiles.Flasks
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = Mod.GetTexture("Projectiles/Flasks/ForestFlask");
+            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Flasks/ForestFlask").Value;
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, tex.Width, tex.Height, 0, 2);
             BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, lightColor, true);
             return false;

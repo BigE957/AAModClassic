@@ -142,8 +142,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
 
         public override void PostDrawTiles()
         {
-            CthulhuFog.Update(Mod.GetTexture("_Unreleased/Content/SunkenShip/Biomes/CthulhuSky_Clouds"));
-            CthulhuFog.Draw(Mod.GetTexture("_Unreleased/Content/SunkenShip/Biomes/CthulhuSky_Clouds"), false, Color.White, true);
+            CthulhuFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/Biomes/CthulhuSky_Clouds").Value);
+            CthulhuFog.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/Biomes/CthulhuSky_Clouds").Value, false, Color.White, true);
         }
     }
 }

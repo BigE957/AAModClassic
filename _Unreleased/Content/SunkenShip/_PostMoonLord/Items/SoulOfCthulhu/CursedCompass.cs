@@ -84,7 +84,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
             ArrowSpin += .008f;
-            Texture2D Arrow = mod.GetTexture("Items/BossSummons/CursedCompass_Arrow");
+            Texture2D Arrow = ModContent.Request<Texture2D>("AAModClassic/Items/BossSummons/CursedCompass_Arrow").Value;
             Vector2 offsetPositon = new Vector2(item.position.X, item.position.Y - 2);
             spriteBatch.Draw(Arrow, position, null, drawColor, CthulhuFightable? ArrowSpin : 0, origin, scale, SpriteEffects.None, 0f);
         }
@@ -92,7 +92,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             ArrowSpin += .008f;
             Texture2D texture2D13 = Main.itemTexture[item.type];
-            Texture2D Arrow = mod.GetTexture("Items/BossSummons/CursedCompass_Arrow");
+            Texture2D Arrow = ModContent.Request<Texture2D>("AAModClassic/Items/BossSummons/CursedCompass_Arrow").Value;
             Vector2 position = item.position - Main.screenPosition + new Vector2(item.width / 2, item.height - texture2D13.Height * 0.5f + 2f);
             Vector2 offsetPositon = new Vector2(item.position.X, item.position.Y - 2);
             spriteBatch.Draw(Arrow, position, null, Main.DiscoColor, CthulhuFightable ? ArrowSpin : rotation, texture2D13.Size() * 0.5f, scale, SpriteEffects.None, 0f);

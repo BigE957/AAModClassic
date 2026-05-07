@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
             Tile tile = Main.tile[x, y];
             if (tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("Glowmasks/IncineriteOre_Tile_Glow");
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/IncineriteOre_Tile_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetIncineriteColorDim);
             }
         }

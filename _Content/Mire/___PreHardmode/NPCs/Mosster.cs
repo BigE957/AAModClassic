@@ -60,7 +60,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
-            spriteBatch.Draw(Mod.GetTexture("Glowmasks/Mosster_Glow"), new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
+            spriteBatch.Draw(ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Mosster_Glow").Value, new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
             NPC.frame, Color.White, NPC.rotation,
             new Vector2(NPC.width * 0.5f, NPC.height * 0.5f), 1f, spriteEffects, 0f);
         }

@@ -68,7 +68,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/BlazeGrip_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazeGrip_Glow").Value;
 
             int shader = 0;
             if (NPC.ai[0] == 0)

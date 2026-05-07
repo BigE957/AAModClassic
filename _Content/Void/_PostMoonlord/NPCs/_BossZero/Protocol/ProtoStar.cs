@@ -199,7 +199,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
 
                 Utils.DrawLaser(
                     spritebatch,
-                    Mod.GetTexture("_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ProtoStar_Beam"),
+                    ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ProtoStar_Beam").Value,
                     start - Main.screenPosition,
                     end - Main.screenPosition,
                     new Vector2(Projectile.ai[1]),

@@ -88,7 +88,7 @@ namespace AAModClassic.Projectiles.Akuma
         public override bool PreDraw(ref Color lightColor)
         {
 			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-			if (Projectile.ai[1] == -1f) texture = Mod.GetTexture("Projectiles/Akuma/MorningGloryPhantom");
+			if (Projectile.ai[1] == -1f) texture = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Akuma/MorningGloryPhantom").Value;
             Main.spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
                         new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
                         new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);

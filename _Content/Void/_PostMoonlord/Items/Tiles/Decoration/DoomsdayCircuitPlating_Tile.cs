@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Tile tile = Main.tile[x, y];
             if (tile != null && tile.HasTile && tile.TileType == Type)
             {
-                Texture2D glowTex = Mod.GetTexture("Glowmasks/ApocalyptiteTile_Glow");
+                Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ApocalyptiteTile_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
             }
         }

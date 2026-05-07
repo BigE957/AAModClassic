@@ -289,7 +289,7 @@ namespace AAModClassic.Projectiles.Zero
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/Protocol_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Protocol_Glow").Value;
             float Eggroll = Math.Abs(Main.GameUpdateCount) / 0.5f;
             float Pie = 1f * (float)Math.Sin(Eggroll);
             Color color1 = Color.Lerp(Color.Red, Color.Black, Pie);

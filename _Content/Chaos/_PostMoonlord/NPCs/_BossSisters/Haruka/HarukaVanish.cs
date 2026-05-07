@@ -137,7 +137,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Haruka
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/HarukaVanish_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/HarukaVanish_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, NPC.GetAlpha(drawColor), true);
             BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, Color.White, true);

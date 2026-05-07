@@ -56,8 +56,8 @@ namespace AAModClassic.Tiles.Crafters
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/ChaosCrucible_Glow");
-            Texture2D Sphere = Mod.GetTexture("Glowmasks/ChaosCrucible_Sphere");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ChaosCrucible_Glow").Value;
+            Texture2D Sphere = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ChaosCrucible_Sphere").Value;
             int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
 
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, White);

@@ -375,7 +375,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             SetColor();
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/GreedMinion_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GreedMinion_Glow").Value;
 
             if (MinionType == 27 && NPC.ai[3] > 300)
             {

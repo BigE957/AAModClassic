@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Ore
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/PrismOre_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), new Color(Main.DiscoR / 3, Main.DiscoG / 3, Main.DiscoB / 3), 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PrismOre_Glow").Value, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), new Color(Main.DiscoR / 3, Main.DiscoG / 3, Main.DiscoB / 3), 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

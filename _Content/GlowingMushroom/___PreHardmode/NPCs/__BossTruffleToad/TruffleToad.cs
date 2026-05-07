@@ -627,7 +627,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D GlowTex = Mod.GetTexture("Glowmasks/TruffleToad_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TruffleToad_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, ColorUtils.COLOR_GLOWPULSE, true);
