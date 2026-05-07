@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Content.__PLACEHOLDER.ore;
-using AAModClassic._Content._EX;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;

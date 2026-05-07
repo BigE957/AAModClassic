@@ -9,10 +9,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
     public class StormJavelin_Proj : ModProjectile
     {
         public short customGlowMask = 0;
-        //TODO
-        /*
+
         public override void SetStaticDefaults()
         {
+            //TODO
+            /*
             if (Main.netMode != 2)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
@@ -25,10 +26,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
                 TextureAssets.GlowMask.Value = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
-            // DisplayName.SetDefault("Bolt Javelin");
+            */
+            // DisplayName.SetDefault("Storm Javelin");
             Main.projFrames[Projectile.type] = 3;
         }
-        */
 
         public override void SetDefaults()
         {
@@ -36,7 +37,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
             Projectile.height = 24;
             Projectile.friendly = true;
             Projectile.aiStyle = 1;
-            Projectile.DamageType = DamageClass.Ranged; //TODO: the item deals melee. which?
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;      //this is how many enemy this projectile penetrate before desapear
             Projectile.extraUpdates = 1;
             AIType = ProjectileID.BoneJavelin;

@@ -108,11 +108,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         {
             if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                //TODO
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusBodyGore1"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusBodyGore2"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusBodyGore3"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusBodyGore4"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusBodyGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusBodyGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusBodyGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusBodyGore4").Type, 1f);
             }
         }
 

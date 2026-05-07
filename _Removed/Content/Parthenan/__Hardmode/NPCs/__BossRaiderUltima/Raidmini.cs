@@ -59,10 +59,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         {
             if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                //TODO
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaidMiniGore1"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaidMiniGore2"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaidMiniGore3"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaidMiniGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaidMiniGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaidMiniGore3").Type, 1f);
             }
         }
 

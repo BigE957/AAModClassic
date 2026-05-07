@@ -7,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._EX
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     class EternalTwilight_YamataPhantom : ModProjectile
     {

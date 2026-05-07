@@ -200,7 +200,7 @@ namespace AAModClassic._Unreleased
 
                 if (grassCount > grassCountThreshold && regularBlockCount > (solidCount.Value * 0.9))
                 {
-                    //TODO: this worldgen has to truth nuke the stupid logs
+                    //TODO: this worldgen has to truth nuke the stupid fairy logs
                     attempts = 0;
                     SurfaceMushroomGen_Refactored biome = new SurfaceMushroomGen_Refactored();
                     biome.Place(origin, GenVars.structures);
