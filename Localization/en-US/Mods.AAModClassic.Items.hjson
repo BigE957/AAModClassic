@@ -10994,3 +10994,8 @@ StormRiot: {
 	DisplayName: Storm Riot
 	Tooltip: ""
 }
+
+RitualAltar: {
+	DisplayName: Ritual Altar
+	Tooltip: ""
+}

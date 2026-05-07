@@ -103,7 +103,6 @@ namespace AAModClassic
             AddPotionRecipes();
             AddMushroomPotionRecipes();
             AddModdedMushroomPotionRecipes();
-            AddTransmuterRecipes();
             RemoveZenithRecipe();
 
             #region Materials
@@ -843,69 +842,6 @@ namespace AAModClassic
                 }
             }
             #endregion
-        }
-        #endregion
-
-        #region Transmuter
-        private static void AddTransmuterRecipes()
-        {
-            #region Biomes
-            TransmuteRecipe(ItemID.Ebonwood, ItemID.Shadewood);
-            TransmuteRecipe(ItemID.EbonstoneBlock, ItemID.CrimstoneBlock);
-            TransmuteRecipe(ItemID.DemoniteBar, ItemID.CrimtaneBar);
-            TransmuteRecipe(ItemID.ShadowScale, ItemID.TissueSample);
-            TransmuteRecipe(ItemID.VileMushroom, ItemID.ViciousMushroom);
-            TransmuteRecipe(ItemID.CursedFlame, ItemID.Ichor);
-            TransmuteRecipe(ItemID.CorruptionKey, ItemID.CrimsonKey);
-
-            TransmuteRecipe(ItemID.SoulofNight, ItemID.SoulofLight);
-
-            TransmuteRecipe((short)ModContent.ItemType<ScorchedScale>(), (short)ModContent.ItemType<HydraHide>());
-            TransmuteRecipe((short)ModContent.ItemType<Hotshroom>(), (short)ModContent.ItemType<Darkshroom>());
-            TransmuteRecipe((short)ModContent.ItemType<DragonFire>(), (short)ModContent.ItemType<Bogtoxin>());
-            TransmuteRecipe((short)ModContent.ItemType<SoulOfSmite>(), (short)ModContent.ItemType<SoulOfSpite>());
-            TransmuteRecipe((short)ModContent.ItemType<InfernoKey>(), (short)ModContent.ItemType<MireKey>());
-            #endregion
-
-            #region Bars
-            TransmuteRecipe(ItemID.CopperBar, ItemID.TinBar);
-            TransmuteRecipe(ItemID.LeadBar, ItemID.IronBar);
-            TransmuteRecipe(ItemID.SilverBar, ItemID.TungstenBar);
-            TransmuteRecipe(ItemID.GoldBar, ItemID.PlatinumBar);
-            TransmuteRecipe(ItemID.CobaltBar, ItemID.PalladiumBar);
-            TransmuteRecipe(ItemID.MythrilBar, ItemID.OrichalcumBar);
-            TransmuteRecipe(ItemID.AdamantiteBar, ItemID.TitaniumBar);
-
-            TransmuteRecipe((short)ModContent.ItemType<AbyssiumBar>(), (short)ModContent.ItemType<IncineriteBar>());
-            TransmuteRecipe((short)ModContent.ItemType<DeepAbyssiumBar>(), (short)ModContent.ItemType<RadiantIncineriteBar>());
-            TransmuteRecipe((short)ModContent.ItemType<DaybreakIncineriteBar>(), (short)ModContent.ItemType<EventideAbyssiumOre>());
-            #endregion
-
-            #region Ores
-            TransmuteRecipe(ItemID.CopperOre, ItemID.TinOre);
-            TransmuteRecipe(ItemID.LeadOre, ItemID.IronOre);
-            TransmuteRecipe(ItemID.SilverOre, ItemID.TungstenOre);
-            TransmuteRecipe(ItemID.GoldOre, ItemID.PlatinumOre);
-            TransmuteRecipe(ItemID.DemoniteOre, ItemID.CrimtaneOre);
-            TransmuteRecipe(ItemID.CobaltOre, ItemID.PalladiumOre);
-            TransmuteRecipe(ItemID.MythrilOre, ItemID.OrichalcumOre);
-            TransmuteRecipe(ItemID.TitaniumOre, ItemID.AdamantiteOre);
-
-            TransmuteRecipe((short)ModContent.ItemType<AbyssiumOre>(), (short)ModContent.ItemType<IncineriteOre>());
-            #endregion
-        }
-
-        private static void TransmuteRecipe(short item, short item2)
-        { 
-            Recipe recipe = GetNewRecipe(item2);
-            recipe.AddIngredient(item, 2);
-            recipe.AddTile(ModContent.TileType<Transmuter_Tile>());
-            recipe.Register();
-
-            recipe = GetNewRecipe(item);
-            recipe.AddIngredient(item2, 2);
-            recipe.AddTile(ModContent.TileType<Transmuter_Tile>());
-            recipe.Register();
         }
         #endregion
 

@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Misc._Hardmode.Items.Pets
+namespace AAModClassic._Content._Misc.__Hardmode.Items.Pets
 {
     public class PaperBomb_Buff : ModBuff
 	{

@@ -1,5 +1,6 @@
 using AAModClassic.Tiles;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Blocks
@@ -24,8 +25,10 @@ namespace AAModClassic.Items.Blocks
 
         public override void SetStaticDefaults()
         {
-          // DisplayName.SetDefault("Torchstone");
-          // Tooltip.SetDefault("Warm to the touch");
+            // DisplayName.SetDefault("Torchstone");
+            // Tooltip.SetDefault("Warm to the touch");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.StoneBlock, 1);
         }
 
     }

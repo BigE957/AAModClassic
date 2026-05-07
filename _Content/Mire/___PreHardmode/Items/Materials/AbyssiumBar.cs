@@ -1,4 +1,6 @@
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,6 +12,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Abyssium Bar");
             // Tooltip.SetDefault("Solid Darkness");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<AbyssiumBar>(), ModContent.ItemType<IncineriteBar>());
         }
 
         public override void SetDefaults()
