@@ -63,21 +63,18 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void OnKill()
         {
-            //TODO
-            /*
-            if (NPC.type == Mod.Find<ModNPC>("OrthrusHead2").Type)
+            if (redHead)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusHeadGoreB"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGoreR").Type, 1f);
             }
             else
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusHeadGoreR"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGoreB").Type, 1f);
             }
-            Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusHeadGore1"), 1f);
-            Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusHeadGore2"), 1f);
-            Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusHeadGore3"), 1f);
-            Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/OrthrusHeadGore4"), 1f);
-            */
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore1").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore2").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore3").Type, 1f);
+            Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore4").Type, 1f);
         }
 
         public OrthrusXBody Body => bodyNPC != null && bodyNPC.ModNPC is OrthrusXBody ? (OrthrusXBody)bodyNPC.ModNPC : null;

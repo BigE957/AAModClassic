@@ -64,7 +64,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 				}
 			}
 			Projectile.Center = headNPC.Center;
-            //TODO: is this right??
             //BaseAI.LookAt(Projectile.Center + Projectile.velocity, Projectile.Center, ref Projectile.rotation, ref Projectile.spriteDirection, 2, 0f, 0.1f, false);
             BaseAI.LookAt(Projectile.Center + Projectile.velocity, Projectile, 2, 0f, 0.1f, false);
 

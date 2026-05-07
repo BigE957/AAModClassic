@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -37,13 +38,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Storm Chest");
 			AddMapEntry(new Color(200, 200, 200), name, MapChestName);
-			//TODOSIEGE
-			//DustType = ModContent.DustType<Dusts.FulgurChest>();
+			DustType = ModContent.DustType<FulguriteDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
-            TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Doom Chest";
-            //TODOSIEGE
-			//RegisterItemDrop(ModContent.ItemType<DoomChest>());
+            TileID.Sets.BasicChest[Type] = true;
         }
 
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

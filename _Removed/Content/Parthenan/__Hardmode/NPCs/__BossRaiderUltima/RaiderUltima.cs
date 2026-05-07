@@ -126,16 +126,15 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         {
             if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                //TODO
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore1"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore2"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore3"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore4"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore5"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore6"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGore7"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGoreJaw"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RaiderGoreHorn"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore5").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore6").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore7").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGoreJaw").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGoreHorn").Type, 1f);
             }
         }
 

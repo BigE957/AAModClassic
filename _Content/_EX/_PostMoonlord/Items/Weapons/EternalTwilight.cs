@@ -7,7 +7,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 
-namespace AAModClassic._Content._EX
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class EternalTwilight : BaseAAItem
 	{

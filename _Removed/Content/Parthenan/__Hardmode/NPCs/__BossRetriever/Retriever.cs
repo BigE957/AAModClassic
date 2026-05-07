@@ -96,13 +96,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
         {
             if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                //TODO
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RetrieverGore1"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RetrieverGore2"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RetrieverGore3"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RetrieverGore4"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RetrieverGore5"), 1f);
-                //Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/RetrieverGore6"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RetrieverGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RetrieverGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RetrieverGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RetrieverGore4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RetrieverGore5").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RetrieverGore6").Type, 1f);
             }
         }
 
