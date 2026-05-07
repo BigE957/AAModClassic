@@ -12,6 +12,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 
 namespace AAModClassic.Backgrounds
 {
+    /*
     //TODO: look over this. theres like 20 assorted cloud cs files and i hate them
     // also texture isnt used. thats weird? so all clouds are the same tex? that doesnt seem intentional
     public class FogOverlay(string textureName, string shaderName = "Default", EffectPriority priority = EffectPriority.VeryLow, RenderLayers layer = RenderLayers.All) : Overlay(priority, layer)
@@ -117,4 +118,5 @@ namespace AAModClassic.Backgrounds
             return new Color(newR, newG, newB, newA);
         }
     }
+    */
 }
