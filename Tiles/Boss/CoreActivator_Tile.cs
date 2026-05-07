@@ -1,3 +1,4 @@
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs._BossBiomiteCore;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
@@ -62,7 +63,7 @@ public class CoreActivator_Tile : ModTile
 			CoreWorld.PrismCharged = false;
 			return true;
 		}
-		if (BasePlayer.HasItem(localPlayer, num) && !NPC.AnyNPCs(ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>()))
+		if (BasePlayer.HasItem(localPlayer, num) && !NPC.AnyNPCs(ModContent.NPCType<Core>()))
 		{
 			for (int k = 0; k < 50; k++)
 			{
@@ -70,7 +71,7 @@ public class CoreActivator_Tile : ModTile
 				if (item != null && item.type == num && item.stack >= 1)
 				{
 					item.stack--;
-					SpawnBoss(localPlayer, ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>(), localPlayer.Center);
+					SpawnBoss(localPlayer, ModContent.NPCType<Core>(), localPlayer.Center);
 				}
 			}
 		}

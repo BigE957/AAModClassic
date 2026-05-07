@@ -1,3 +1,4 @@
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
@@ -219,7 +220,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadMoonRune>()));
 
-            LeadingConditionRule shenDefeated = new(new AAModClassic.NPCs.Bosses.Akuma.Awakened.AkumaA.ShenDefeated());
+            LeadingConditionRule shenDefeated = new(new AkumaA.ShenDefeated());
 
             shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
 

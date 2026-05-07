@@ -1,3 +1,4 @@
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs._BossBiomiteCore;
 using System.IO;
 //using AAModClassic.NPCs.Bosses.Core;
 using Terraria;
@@ -13,7 +14,7 @@ public class CoreWorld : ModSystem
 
 	public override void PostUpdateWorld()
 	{
-		PedestalActive = NPC.AnyNPCs(ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>());
+		PedestalActive = NPC.AnyNPCs(ModContent.NPCType<Core>());
 	}
 
 	public override void NetSend(BinaryWriter writer)

@@ -1,6 +1,6 @@
-﻿using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Utilities;
 using System;
 using Terraria;

@@ -8,13 +8,13 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon
 {

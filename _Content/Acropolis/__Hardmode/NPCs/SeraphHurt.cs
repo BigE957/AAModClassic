@@ -1,6 +1,6 @@
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
-using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

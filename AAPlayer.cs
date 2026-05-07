@@ -10,6 +10,7 @@ using AAModClassic._Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
@@ -24,6 +25,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
@@ -38,11 +40,13 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -55,6 +59,7 @@ using AAModClassic.Items.Dev;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Items.Dev.RuneBook;
 using AAModClassic.Items.Dev.Tools;
+using AAModClassic.Items.Melee;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Apawn;
@@ -69,10 +74,6 @@ using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Universe;
 using AAModClassic.Mounts;
-using AAModClassic.NPCs.Bosses.AH.Ashe;
-using AAModClassic.NPCs.Bosses.Akuma;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -1531,7 +1532,7 @@ namespace AAModClassic
 
             #endregion
 
-            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Equinox.DaybringerHead>()) || NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Equinox.NightcrawlerHead>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>()) || NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>()))
             {
                 TimeScale = 0;
             }
@@ -4578,7 +4579,7 @@ namespace AAModClassic
 
                 if (drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/AH/Ashe/AsheShield").Value;
+                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Ashe/AsheShield").Value;
                     int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, red, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
                 }

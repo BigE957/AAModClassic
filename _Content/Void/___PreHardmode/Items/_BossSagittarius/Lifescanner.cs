@@ -4,10 +4,10 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
 
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius

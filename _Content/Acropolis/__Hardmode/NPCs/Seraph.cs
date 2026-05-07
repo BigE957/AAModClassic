@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Terraria.Localization;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Items.Banners;
 using AAModClassic.Dusts;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {

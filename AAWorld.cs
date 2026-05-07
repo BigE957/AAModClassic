@@ -1,7 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Keep;
 using AAModClassic.Tiles.Ore;
@@ -32,13 +31,6 @@ using AAModClassic.Items.Melee;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Utilities;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.NPCs.Bosses.Akuma;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Bosses.Zero;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
@@ -67,6 +59,14 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 
 namespace AAModClassic
 {

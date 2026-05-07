@@ -1,6 +1,6 @@
-﻿using AAModClassic._Content.Hoard.Projectiles;
+﻿using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
+using AAModClassic._Content.Hoard.Projectiles;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Greed;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -5,7 +5,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
-using AAModClassic.NPCs.Bosses.Sag;
+using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
 using Terraria.Achievements;
 using Terraria.GameContent.Achievements;
 using Terraria.ModLoader;

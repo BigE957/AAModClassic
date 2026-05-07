@@ -1,4 +1,4 @@
-﻿using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

@@ -1,13 +1,13 @@
-﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+﻿using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;

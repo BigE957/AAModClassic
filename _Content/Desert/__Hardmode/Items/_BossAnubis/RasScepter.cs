@@ -5,11 +5,11 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 using Terraria.ID;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Anubis;
 using AAModClassic.UI.WorldGen;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis
 {

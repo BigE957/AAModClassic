@@ -1,6 +1,5 @@
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Utilities;
 using System;
 using Terraria;

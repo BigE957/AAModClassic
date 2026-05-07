@@ -1,10 +1,18 @@
 
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
+using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
@@ -12,12 +20,6 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Greed;
-using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -129,7 +131,7 @@ namespace AAModClassic.NPCs.TownNPCs
             for (int k = 0; k < 255; k++)
             {
                 Player player = Main.player[k];
-                if (player.active && !NPC.AnyNPCs(ModContent.NPCType<Bosses.Anubis.Anubis>()) && 
+                if (player.active && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && 
                     !NPC.AnyNPCs(ModContent.NPCType<FATransition>()) &&
                     !NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) &&
                     !NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
@@ -427,7 +429,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override bool PreAI()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Bosses.Anubis.Anubis>()) ||
+            if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<FATransition>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))

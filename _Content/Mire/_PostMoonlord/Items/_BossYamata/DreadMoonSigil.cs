@@ -1,3 +1,4 @@
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
@@ -5,7 +6,6 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

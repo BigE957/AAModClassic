@@ -1,4 +1,5 @@
-﻿using AAModClassic.NPCs.Bosses.Rajah;
+﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using System;
 using System.Text.Json;
 using System.Threading;

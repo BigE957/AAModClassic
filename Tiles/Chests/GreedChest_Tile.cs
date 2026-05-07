@@ -1,7 +1,8 @@
+using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
-using AAModClassic.NPCs.Bosses.Greed;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -79,7 +80,7 @@ namespace AAModClassic.Tiles.Chests
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
                     AAWorld.OpenedChest = 2;
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.GreedChest.GreedChest3"), Color.Goldenrod);
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<NPCs.Bosses.Greed.Greed>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                 }
             }
             dustType = this.DustType;

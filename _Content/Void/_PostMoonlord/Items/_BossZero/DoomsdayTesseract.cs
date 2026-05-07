@@ -9,11 +9,11 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {

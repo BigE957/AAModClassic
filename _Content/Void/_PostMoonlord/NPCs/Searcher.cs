@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Zero;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

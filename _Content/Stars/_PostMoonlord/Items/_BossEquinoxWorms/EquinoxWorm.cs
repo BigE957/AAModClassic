@@ -6,9 +6,9 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Equinox;
 using AAModClassic.Tiles.Altar;
 using AAModClassic.Globals;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms
 {

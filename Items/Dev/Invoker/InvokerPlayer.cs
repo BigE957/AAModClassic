@@ -7,12 +7,12 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader.IO;
 using Terraria.GameInput;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.Buffs;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 
 namespace AAModClassic.Items.Dev.Invoker
 {

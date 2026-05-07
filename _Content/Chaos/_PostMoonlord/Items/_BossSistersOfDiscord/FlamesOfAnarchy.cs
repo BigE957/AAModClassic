@@ -5,16 +5,16 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
-using AAModClassic.NPCs.Bosses.AH;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.AH.Haruka;
-using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Haruka;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
 {

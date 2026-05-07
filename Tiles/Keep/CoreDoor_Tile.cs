@@ -1,4 +1,4 @@
-using AAModClassic.NPCs.Bosses.Core;
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs._BossBiomiteCore;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;

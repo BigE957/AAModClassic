@@ -1,10 +1,10 @@
-﻿using AAModClassic.Backgrounds;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Akuma;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Zero;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.Water;
 using Terraria;
 using Terraria.ModLoader;

@@ -1,4 +1,4 @@
-﻿using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+﻿using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

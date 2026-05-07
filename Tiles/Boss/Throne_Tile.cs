@@ -1,4 +1,4 @@
-using AAModClassic.NPCs.Bosses.Lucifer;
+using AAModClassic._Content.Hell._BossLucifer;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

@@ -7,8 +7,9 @@ using Microsoft.Xna.Framework;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Potions;
-using AAModClassic.NPCs.Bosses.Rajah;
 using Terraria.Audio;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
 {

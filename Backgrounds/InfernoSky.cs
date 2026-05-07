@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -120,7 +121,7 @@ namespace AAModClassic.Backgrounds
             }
             int num = -1;
             int num2 = 0;
-            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.Akuma>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()))
             {
                 for (int i = 0; i < Meteors.Length; i++)
                 {

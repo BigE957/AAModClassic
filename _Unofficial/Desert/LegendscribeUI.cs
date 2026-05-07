@@ -1,7 +1,7 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.NPCs.Bosses.Rajah;
+﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

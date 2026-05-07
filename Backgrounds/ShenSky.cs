@@ -1,4 +1,4 @@
-﻿using AAModClassic.NPCs.Bosses.Shen;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
