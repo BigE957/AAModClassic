@@ -1,17 +1,24 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-using Terraria.Audio;
-using System;
-using ReLogic.Utilities;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Utilities;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {
     public class SagRing : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Projectile.type] = 4;
+        }
+        
+        public override void SetDefaults()
         {
             Projectile.width = 80;
             Projectile.height = 80;
@@ -22,7 +29,6 @@ namespace AAModClassic.NPCs.Bosses.Sag
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;
-            Main.projFrames[Projectile.type] = 4;
             Projectile.timeLeft = 500;
         }
 		
@@ -30,8 +36,13 @@ namespace AAModClassic.NPCs.Bosses.Sag
 		{
 			return Color.White;
 		}
-		
-		public override void AI()
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            SoundEngine.PlaySound(in SoundID.Item94, Projectile.position);
+        }
+
+        public override void AI()
         {
             Lighting.AddLight(Projectile.Center, .7f, 0f, 0f);
             SoundEngine.TryGetActiveSound(SlotId.FromFloat(Projectile.localAI[0]), out ActiveSound activeSound);
@@ -101,14 +112,14 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 float num730 = 55f * num728;
                 float num731 = 11f * num728;
                 float num732 = 0.5f;
-                int num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.5f);
+                int num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch, 0f, 0f, 100, default, 0.5f);
                 Main.dust[num733].noGravity = true;
                 Main.dust[num733].velocity *= 2f;
                 Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
                 Main.dust[num733].velocity = Main.dust[num733].velocity / 2f + Vector2.Normalize(Main.dust[num733].position - Projectile.Center);
                 if (Main.rand.NextBool(2))
                 {
-                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.9f);
+                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch, 0f, 0f, 100, default, 0.9f);
                     Main.dust[num733].noGravity = true;
                     Main.dust[num733].velocity *= 1.2f;
                     Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
@@ -116,7 +127,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 }
                 if (Main.rand.NextBool(4))
                 {
-                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.7f);
+                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch, 0f, 0f, 100, default, 0.7f);
                     Main.dust[num733].noGravity = true;
                     Main.dust[num733].velocity *= 1.2f;
                     Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
