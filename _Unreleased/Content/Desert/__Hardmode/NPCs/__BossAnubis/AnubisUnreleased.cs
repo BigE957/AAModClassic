@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
+﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
@@ -8,7 +9,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Music;
-using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;

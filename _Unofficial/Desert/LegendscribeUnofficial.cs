@@ -1,10 +1,10 @@
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly;
 using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -1176,7 +1176,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<JudgementNPC>();
+            projType = ModContent.ProjectileType<Legendscribe_Judgement_Proj>();
             attackDelay = 5;
         }
 

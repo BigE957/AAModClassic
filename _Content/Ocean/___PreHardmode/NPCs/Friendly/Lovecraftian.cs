@@ -2,6 +2,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
@@ -17,13 +18,11 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
 	public class Lovecraftian : ModNPC
 	{
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/Lovecraftian";
-
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 26;
@@ -456,7 +455,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 }
                 else
                 {
-                    if (!BasePlayer.HasItem(player, ModContent.ItemType<Items.Flasks.SquidList>()))
+                    if (!BasePlayer.HasItem(player, ModContent.ItemType<SquidList>()))
                     {
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SquidListChat");
                         int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<SquidList>(), 1, false, 0, false, false);
@@ -481,12 +480,12 @@ namespace AAModClassic.NPCs.TownNPCs
             int nextSlot = 0;
             if (AAWorld.squid1 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.PurityFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<PurityFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid2 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.AshJar>());
+                items[nextSlot] = new Item(ModContent.ItemType<AshJar>());
                 nextSlot++;
             }
             if (AAWorld.squid3 >= 5)
@@ -496,7 +495,7 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             if (AAWorld.squid4 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.CorruptionFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<CorruptionFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid5 >= 5)
@@ -506,22 +505,22 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             if (AAWorld.squid6 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.HallowFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<HallowFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid7 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.VoidFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<VoidFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid8 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.Fungicide>());
+                items[nextSlot] = new Item(ModContent.ItemType<Fungicide>());
                 nextSlot++;
             }
             if (AAWorld.squid9 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Usable.SporeSac>());
+                items[nextSlot] = new Item(ModContent.ItemType<SporeSac>());
                 nextSlot++;
             }
             if (AAWorld.squid10 >= 5)

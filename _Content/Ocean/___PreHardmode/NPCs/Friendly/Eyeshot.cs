@@ -3,7 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
 
 {
     public class EyeShot : ModProjectile

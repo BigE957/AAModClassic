@@ -8,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content._Events
 {
     [AutoloadHead]
 	public class GoblinSlayer : ModNPC
@@ -21,8 +21,6 @@ namespace AAModClassic.NPCs.TownNPCs
         public static bool Pumpkin = false;
         public static bool Frost = false;
         public static bool Martian = false;
-
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/GoblinSlayer";
 
         //public override bool IsLoadingEnabled(Mod mod)
 		//{

@@ -13,17 +13,26 @@ using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Shox;
 using Terraria.Localization;
+using AAModClassic.Items.Vanity.Tied;
+using AAModClassic.Items.Vanity.Tails;
+using AAModClassic.Items.Vanity.Alphakip;
+using AAModClassic.Items.Vanity.Dallin;
+using AAModClassic.Items.Vanity.Gibs;
+using AAModClassic.Items.Vanity.Charlie;
+using AAModClassic.Items.Dev.Invoker;
+using AAModClassic.Items.Vanity.Blazen;
+using AAModClassic.Items.Vanity.Cerberus;
+using AAModClassic.Items.Vanity.CC;
+using AAModClassic.Items.Vanity.Beg;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
-	public class Alpha : ModNPC
+	public class LargeLetter : ModNPC
 	{
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/Alpha";
-
         //public override bool IsLoadingEnabled(Mod mod)
 		//{
-		//	name = "Mudfish";
+		//	name = "Large Letter";
 		//	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		//}
 
@@ -61,7 +70,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		}
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)
         {
 			for (int k = 0; k < 255; k++)
 			{
@@ -74,19 +83,19 @@ namespace AAModClassic.NPCs.TownNPCs
 			return false;
 		}
 
-		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
+		public override List<string> SetNPCNameList()
 		{
             return ["Big E"];
         }
 
         public override string GetChat()
         {
-            WeightedRandom<string> chat = new WeightedRandom<string>();
+            WeightedRandom<string> chat = new();
 
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat1"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat2"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat3"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat4"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Chat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Chat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Chat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Chat4"));
 
 			return chat;
 		}
@@ -102,8 +111,8 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaButton1");
-			button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaButton2");
+			button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Button1");
+			button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Button2");
 		}
 
 		public static bool VanityShop = true;
@@ -140,20 +149,20 @@ namespace AAModClassic.NPCs.TownNPCs
 				items[nextSlot].shopCustomPrice = new int?(10);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Beg.BegBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<BegBag>());
 				items[nextSlot].shopCustomPrice = new int?(10);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
 
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.CC.CCBox>());
+				items[nextSlot] = new Item(ModContent.ItemType<CCBox>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Cerberus.InvokerBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<InvokerBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Blazen.BlazenBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<BlazenBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -165,7 +174,7 @@ namespace AAModClassic.NPCs.TownNPCs
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Tied.OldMagiciansHat>());
+				items[nextSlot] = new Item(ModContent.ItemType<OldMagiciansHat>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -173,16 +182,16 @@ namespace AAModClassic.NPCs.TownNPCs
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Tails.TailsToolbox>());
+				items[nextSlot] = new Item(ModContent.ItemType<TailsToolbox>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
 
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Alphakip.AlphaBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<AlphaBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Dallin.FezLordsBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<FezLordsBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -190,11 +199,11 @@ namespace AAModClassic.NPCs.TownNPCs
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Gibs.GibsBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<GibsBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Charlie.CharlieBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<CharlieBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -218,7 +227,7 @@ namespace AAModClassic.NPCs.TownNPCs
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<Items.Dev.Invoker.InvokerStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<InvokerStaff>());
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
@@ -340,7 +349,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<AAModClassic.Projectiles.AmphibiousProjectile>();
+            projType = ModContent.ProjectileType<Projectiles.AmphibiousProjectile>();
             attackDelay = 1;
         }
 

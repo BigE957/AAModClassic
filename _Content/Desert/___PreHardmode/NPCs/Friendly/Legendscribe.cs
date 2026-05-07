@@ -1,4 +1,3 @@
-
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
@@ -36,7 +35,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
 	public class Legendscribe : ModNPC
@@ -581,9 +580,9 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             else if (AnubisB)
             {
-                if (!BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                if (!BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost"); 
                 }
 
@@ -812,12 +811,12 @@ namespace AAModClassic.NPCs.TownNPCs
             #endregion
 
             #region progression
-            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
             {
                 if (!mPlayer.GivenAnuSummon)
                 {
                     mPlayer.GivenAnuSummon = true;
-                    player.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    player.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat");
                 }
             }
@@ -861,7 +860,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<JudgementNPC>();
+            projType = ModContent.ProjectileType<Legendscribe_Judgement_Proj>();
             attackDelay = 5;
         }
 

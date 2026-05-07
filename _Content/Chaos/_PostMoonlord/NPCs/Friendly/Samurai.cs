@@ -16,13 +16,11 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.Friendly
 {
     [AutoloadHead]
 	public class Samurai : ModNPC
 	{
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/Samurai";
-
         //public override string[] AltTextures => new string[] { "AAModClassic/NPCs/TownNPCs/SamuraiParty" };
 
         //public override bool IsLoadingEnabled(Mod mod)
@@ -172,7 +170,7 @@ namespace AAModClassic.NPCs.TownNPCs
             items[nextSlot] = new Item(ModContent.ItemType<LuckyCracker>());
             items[nextSlot].value = 2000000;
 			nextSlot++;
-            items[nextSlot] = new Item(ModContent.ItemType<Items.Potions.RoninPotion>());
+            items[nextSlot] = new Item(ModContent.ItemType<RoninPotion>());
             items[nextSlot].value = 50000;
 			nextSlot++;
 			items[nextSlot] = new Item(ItemID.Sake);

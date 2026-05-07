@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
 {
-    public class JudgementNPC : ModProjectile
+    public class Legendscribe_Judgement_Proj : ModProjectile
     {
     	
     	public override void SetStaticDefaults()

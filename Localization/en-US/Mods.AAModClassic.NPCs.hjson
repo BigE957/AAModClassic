@@ -1,17 +1,17 @@
 GlobalNPCInfo.NPCarrive: " have awoken!"
 
 TownNPCs: {
-	Alpha: {
-		AlphaButton1: Vanity Shop
-		AlphaButton2: Weapon Shop
-		AlphaChat1: Hope you don't mind me hanging around. I had to deal with a LOT of bad code to get here. Could do with a break.
-		AlphaChat2:
+	LargeLetter: {
+		Button1: Vanity Shop
+		Button2: Weapon Shop
+		Chat1: Hope you don't mind me hanging around. I had to deal with a LOT of bad code to get here. Could do with a break.
+		Chat2:
 			'''
 			A fun fact? Hmm, well I've never met my father. They say he vanished a long time ago. He's a real...
 			Mr. E.
 			'''
-		AlphaChat3: You're looking for a fish? No clue who you're talking about, pal.
-		AlphaChat4: Look at me! I'm Big E! I've always been here, and I'll always be!
+		Chat3: You're looking for a fish? No clue who you're talking about, pal.
+		Chat4: Look at me! I'm Big E! I've always been here, and I'll always be!
 	}
 
 	Anubis: {
@@ -862,3 +862,20 @@ OrthrusXHead2.DisplayName: Orthrus X Head2
 OrthrusXHead.DisplayName: Orthrus X Head
 OrthrusXHeadBlue_OrthrusReticle.DisplayName: Orthrus X Head Blue_ Orthrus Reticle
 OrthrusXHead_OrthrusReticle.DisplayName: Orthrus X Head_ Orthrus Reticle
+
+LargeLetter: {
+	DisplayName: Large Letter
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+
+	Census.SpawnCondition: Conditions unknown
+}

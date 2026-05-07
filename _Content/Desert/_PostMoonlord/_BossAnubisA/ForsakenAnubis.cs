@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
+﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
@@ -6,7 +7,6 @@ using AAModClassic._Unofficial.Desert;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.NPCs.TownNPCs;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -620,7 +620,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord._BossAnubisA
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<NPCs.TownNPCs.Legendscribe>());
+                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
                             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostMultipleTimesToForsakenAnubis = true;

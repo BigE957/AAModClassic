@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
+﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
@@ -422,7 +423,7 @@ namespace AAModClassic._Content.Desert.__Hardmode._BossAnubis
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisFalse"), Color.Gold);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<NPCs.TownNPCs.Legendscribe>());
+                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
                     }
@@ -459,7 +460,7 @@ namespace AAModClassic._Content.Desert.__Hardmode._BossAnubis
             if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>(true))
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
             else
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<NPCs.TownNPCs.Legendscribe>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

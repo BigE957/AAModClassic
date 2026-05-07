@@ -14,13 +14,11 @@ using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 
-namespace AAModClassic.NPCs.TownNPCs
+namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
     public class Mushman : ModNPC
     {
-        public override string Texture => "AAModClassic/NPCs/TownNPCs/Mushman";
-
         //public override bool IsLoadingEnabled(Mod mod)
         //{
         //    name = "Mushman";
@@ -86,7 +84,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 for (int j = num4 + 2; j < num5 + 2; j++)
                 {
-                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<AAModClassic.Tiles.Plants.MadnessShroom_Tile>()))
+                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<MadnessShroom_Tile>()))
                     {
                         num++;
                     }
@@ -279,7 +277,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.Mushrooms.Orange>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Orange>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
