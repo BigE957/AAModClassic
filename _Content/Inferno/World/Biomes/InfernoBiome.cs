@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
         {
             SunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Sun");
             DemonSunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/DemonSun");
-            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaMeteor");
             SkyTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex");
         }
 

@@ -50,8 +50,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA.Skies
 
         public override void OnLoad()
         {
-            BoltTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt");
-            FlashTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash");
+            BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/_BossAthenaA/Skies/AthenaBolt");
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/_BossAthenaA/Skies/AthenaFlash");
             FogTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/FogTex");
         }
 
