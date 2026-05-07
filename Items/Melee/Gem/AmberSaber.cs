@@ -1,3 +1,4 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,9 +35,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Amber, 5);   
-            recipe.AddIngredient(ItemID.DesertFossil, 12); //TODO: WE HAVE TO DO SOMETHING ABT THIS
-            // in 1.4 they made desert fossils pre-boss. in 1.3 theyre post-evils
-            // tiershift dynaskull?
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 12);
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();
 
