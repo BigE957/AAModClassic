@@ -85,24 +85,30 @@ TownNPCs: {
 		downedRajahN: Hey, you know those bunnies that hop around all the time? I uh... I wouldn't harass them if I were you. There's a legend around here of a sort of 'Guardian' of sorts that protects from the danger. Why is it a legend? Because apparently nobody has fought this thing and lived. Neat story, eh?
 		downedAnubisFAnubisY: You did good, pal. I'm pretty impressed, even though I was still holding back. Huh? My full power..? Like I said earlier, some things should stay locked away for your own good.
 		downedAnubisFAnubisN: I want a rematch, {0}. Not because of my pride, either. I need to make sure you're ready for what's ahead. Meet me in the desert and fight again. And be ready.
+
 		UnofficialInterim: {
 			Help: Sorry, bud, but until you prove yourself by beating me, I won't be offering anymore help.
 			PreFight.Repeat: I'm afraid this is something that can't wait. Unless you're able to prove you're ready for what's to come, I won't be helping you any further.
+
 			PostLose: {
 				First: Tough luck, bud. You're gonna need more than that if you want to face what lies ahead. Don't worry, I'll be up for another rematch whenever you're ready!
+
 				Repeat: {
 					FirstDeath: {
 						0: Why not give fighting me another go? Your only chance to proceed is through beating me.
 						1: Don't tell me you're willing to quit after one lose. C'mon, let's go for a round two!
 					}
+
 					MultipleDeaths: {
 						0: Your tenacity's strong, but tenacity alone won't be enough for what's to come. C'mon, let's go again!
 						1: That was a good try, bud. Keep at it. I don't doubt you'll prove youself to me.
 					}
 				}
 			}
+
 			PostVictory: Haha! Now that was something else! I knew you had it in you. I've got no doubt you're ready to face what lies ahead.
 		}
+
 		downedAthenaAY: Huh? What's a Varian you ask? That's something I haven't heard in years...so long ago that I barely even remember the name. Although I do recall something about another one kicking around somewhere...
 		downedAthenaAN: Hey, did that annoying little witch find you? Sorry for telling her where you were, she wouldn't stop screeching in my ear. Anyways, looks like Athena wants a rematch. Stay on your guard, bud. This seems like a trap...
 		GreedACalamityMod: Ya know, you duking it out with the Devourer of Gods reminded me of Greed a bit...I mean think about it. They both have wormhole capabilities and they both adapt to what they eat. Could they possibly be...nah, that'd be rediculous...or..?

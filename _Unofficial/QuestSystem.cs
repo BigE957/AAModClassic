@@ -588,7 +588,7 @@ namespace AAModClassic._Unofficial
         public void AddQuest(string id, List<QuestObjective> objectives, string[] gates, Asset<Texture2D> icon, bool autoStart = false, List<Item> rewards = null, List<Item> repeatRewards = null, bool hasCompleteText = false)
         {
             string path = "Mods.AAModClassic.UI.Quests." + ID + "." + id + ".";
-            Quests.Add(id, new Quest(ID, id, Language.GetText(path + "Name"), Language.GetText(path + (hasCompleteText ? "Description" : "Description.Incomplete")), Language.GetText(path + "Tasks"), objectives, gates, icon, autoStart, rewards, repeatRewards, Language.GetText(path + "ExtraRewards"), hasCompleteText ? Language.GetText(path + "Description.Complete") : null));
+            Quests.Add(id, new Quest(ID, id, Language.GetText(path + "Name"), Language.GetText(path + (hasCompleteText ? "Description.Incomplete" : "Description")), Language.GetText(path + "Tasks"), objectives, gates, icon, autoStart, rewards, repeatRewards, Language.GetText(path + "ExtraRewards"), hasCompleteText ? Language.GetText(path + "Description.Complete") : null));
         }
     }
 
