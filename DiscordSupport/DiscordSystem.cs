@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AAModClassic.NPCs.Bosses.Rajah;
+using System;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -157,6 +158,9 @@ public class DiscordSystem : ModSystem
         for (int i = 0; i < Main.maxNPCs; i++)
         {
             var npc = Main.npc[i];
+            if (npc.active && (npc.type == ModContent.NPCType<Rajah>() || npc.type == ModContent.NPCType<SupremeRajah>()))
+                return "Fighting Earth's Greatest Defender";
+
             if (npc.active && npc.boss)
                 return $"Fighting {npc.FullName}";
         }
