@@ -22,7 +22,6 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
-using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Base.NPCs;

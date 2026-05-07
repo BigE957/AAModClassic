@@ -1,5 +1,4 @@
-﻿using AAModClassic.Backgrounds;
-using AAModClassic.Music;
+﻿using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
 

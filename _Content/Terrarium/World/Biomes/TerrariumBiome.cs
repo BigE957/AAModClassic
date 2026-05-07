@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Terrarium.World.Biomes.Waters;
-using AAModClassic.Backgrounds;
 using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
