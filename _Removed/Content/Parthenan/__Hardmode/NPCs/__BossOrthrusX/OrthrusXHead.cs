@@ -106,7 +106,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 				return;
             if (!bodyNPC.active)
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghosting'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -145,7 +145,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) 
                     targetPlayer = null; //deliberately set to null
 
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.localAI[1]++;
                     internalAI[0]++;

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,6 +7,13 @@ namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class Depthsand : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Depthsand");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.SandBlock, 1);
+        }
+
         public override void SetDefaults()
         {
 
@@ -21,11 +29,5 @@ namespace AAModClassic._Content.Mire.World.Tiles
             Item.rare = ItemRarityID.Green;
             Item.createTile = ModContent.TileType<Depthsand_Tile>(); //put your CustomBlock Tile name
         }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Depthsand");
-        }
-
     }
 }

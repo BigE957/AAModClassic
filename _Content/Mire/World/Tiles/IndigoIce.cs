@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,6 +26,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Indigo Ice");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.IceBlock, 1);
         }
 
     }

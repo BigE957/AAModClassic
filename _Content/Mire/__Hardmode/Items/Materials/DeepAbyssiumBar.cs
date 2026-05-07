@@ -1,5 +1,8 @@
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,6 +10,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 {
     public class DeepAbyssiumBar : BaseAAItem
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Deep Abyssium Bar");
+            // Tooltip.SetDefault("It's a wonder you can even see it, it's so dark");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<DeepAbyssiumBar>(), ModContent.ItemType<RadiantIncineriteBar>());
+        }
+
         public override void SetDefaults()
         {
 
@@ -22,12 +33,6 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
             Item.consumable = true;
             Item.createTile = ModContent.TileType<DeepAbyssiumBar_Tile>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Deep Abyssium Bar");
-            // Tooltip.SetDefault("It's a wonder you can even see it, it's so dark");
         }
 
 		public override void AddRecipes()

@@ -8,9 +8,9 @@ using Terraria.ObjectData;
 using Terraria.ID;
 
 
-namespace AAModClassic.Tiles.Crafters
+namespace AAModClassic._Content.Chaos.___PreHardmode.Items.Tiles.Decoration
 {
-    public class Transmuter_Tile : ModTile
+    public class RitualAltar_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -26,7 +26,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Material Transmuter");
+            // name.SetDefault("Ritual Altar");
             AddMapEntry(new Color(20, 20, 20), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
@@ -67,7 +67,7 @@ namespace AAModClassic.Tiles.Crafters
             {
                 int width = 16, height = 16;
                 int frameX = tile != null && tile.HasTile ? tile.TileFrameX : 0;
-                int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
+                int frameY = tile != null && tile.HasTile ? tile.TileFrameY + Main.tileFrame[Type] * 54 : 0;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, width, height, frameX, frameY, false, false, false, null, GetColor);
                 for (int m = 0; m < 3; m++)
                 {

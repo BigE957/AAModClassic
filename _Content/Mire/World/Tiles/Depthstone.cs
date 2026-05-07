@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,6 +27,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
         {
             // DisplayName.SetDefault("Depthstone");
             // Tooltip.SetDefault("Dank");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.StoneBlock, 1);
         }
 
     }

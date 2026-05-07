@@ -1,5 +1,6 @@
 using AAModClassic.Tiles;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Blocks
@@ -24,7 +25,9 @@ namespace AAModClassic.Items.Blocks
 
         public override void SetStaticDefaults()
         {
-          // DisplayName.SetDefault("Hardened Torchsand");
+            // DisplayName.SetDefault("Hardened Torchsand");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.HardenedSand, 1);
         }
 
     }
