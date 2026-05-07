@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Bases
+namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
     internal abstract class FallingBlock : ModTile
     {

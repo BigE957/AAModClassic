@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Bases
+namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
     abstract class FallingProjectile : ModProjectile
     {

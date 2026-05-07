@@ -1,5 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Bases;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

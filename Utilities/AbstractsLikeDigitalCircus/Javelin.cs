@@ -6,7 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Bases
+namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
     public abstract class Javelin : ModProjectile
     {
