@@ -526,5 +526,41 @@ namespace AAModClassic.Utilities
                 return Fail();
             }
         }
+
+        public class InWorld : GenAction
+        {
+            public InWorld()
+            {
+            }
+
+            public override bool Apply(Point origin, int x, int y, params object[] args)
+            {
+                if (x < 0 || x > Main.maxTilesX || y < 0 || y > Main.maxTilesY)
+                    return Fail();
+                return UnitApply(origin, x, y, args);
+            }
+        }
+
+        public class ConvertTile : GenAction
+        {
+            int conversionType = -1;
+            public ConvertTile(int type)
+            {
+                conversionType = type;
+            }
+
+            public override bool Apply(Point origin, int x, int y, params object[] args)
+            {
+                if (conversionType == -1)
+                    return Fail();
+
+                if (x < 0 || x > Main.maxTilesX || y < 0 || y > Main.maxTilesY)
+                    return Fail();
+
+                WorldGen.Convert(x, y, conversionType, 1, true, true);
+
+                return UnitApply(origin, x, y, args);
+            }
+        }
     }
 }

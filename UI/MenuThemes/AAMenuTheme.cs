@@ -1,5 +1,6 @@
-﻿using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Backgrounds;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.Void.World.Biomes;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;

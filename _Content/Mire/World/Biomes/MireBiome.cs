@@ -17,7 +17,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Biomes
 {
-    public class MireBiomeZone : ModBiome
+    public class MireBiome : ModBiome
     {
         public override string MapBackground => "AAModClassic/Map/MireMap";
 

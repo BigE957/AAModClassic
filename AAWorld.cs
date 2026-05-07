@@ -5,7 +5,6 @@ using AAModClassic.Tiles;
 using AAModClassic.Tiles.Keep;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.UI.WorldGen;
-using AAModClassic.World;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -47,7 +46,6 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
-using AAModClassic.Backgrounds;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
 using AAModClassic._Content.Inferno.World.Tiles;
@@ -67,6 +65,16 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic._Unreleased.Content.LostKeep.Biomes;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic._Content._Dev.World.Biomes;
+using AAModClassic._Content.Hell.World.Biomes;
 
 namespace AAModClassic
 {
@@ -106,11 +114,11 @@ namespace AAModClassic
         public static bool DiscordOres;
         public static bool ChaosStripes;
         private int infernoSide = 0;
-        private Vector2 infernoPos = new Vector2(0, 0);
-        private Vector2 mirePos = new Vector2(0, 0);
+        private Vector2 infernoPos = new(0, 0);
+        private Vector2 mirePos = new(0, 0);
         private Vector2 InfernoCenter = -Vector2.One;
         private Vector2 MireCenter = -Vector2.One;
-        public static Vector2 shipPos = new Vector2(0, 0);
+        public static Vector2 shipPos = new(0, 0);
         public string nums = "1234567890";
         public static bool ModContentGenerated;
 
@@ -394,7 +402,7 @@ namespace AAModClassic
         //Idt this is actually needed
         public override void NetSend(BinaryWriter writer)
         {
-            BitsByte flags = new BitsByte();
+            BitsByte flags = new();
             flags[0] = StarActive;
             flags[1] = downedGrips;
             flags[2] = ModContentGenerated;
@@ -405,7 +413,7 @@ namespace AAModClassic
             flags[7] = AnubisAwakened;
             writer.Write(flags);
 
-            BitsByte flags2 = new BitsByte();
+            BitsByte flags2 = new();
             flags2[0] = downedSisters;
             flags2[1] = downedEquinox;
             flags2[2] = ChaosStripes;
@@ -873,12 +881,12 @@ namespace AAModClassic
             progress.Set(0.1f);
             VoidHeight = 120;
             progress.Set(0.4f);
-            Point center = new Point((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, center.Y = VoidHeight);
+            Point center = new((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, center.Y = VoidHeight);
             WHERESDAVOIDAT = center;
             progress.Set(0.5f);
-            Point oldposition = new Point(1, 1);
+            Point oldposition = new(1, 1);
             progress.Set(0.6f);
-            List<Point> posIslands = new List<Point>();
+            List<Point> posIslands = new();
             progress.Set(0.7f);
             int IslandNumber = 2;
             if (GetWorldSize() != 1)
@@ -888,7 +896,7 @@ namespace AAModClassic
 
             for (int i = 0; i < IslandNumber; i++)
             {
-                Point position = new Point(
+                Point position = new(
                     center.X + (WorldGen.genRand.Next(35, 55) * (WorldGen.genRand.NextBool() ? -1 : 1)),
                     center.Y + (WorldGen.genRand.Next(35, 55) * (WorldGen.genRand.NextBool() ? -1 : 1)));
 
@@ -910,7 +918,7 @@ namespace AAModClassic
                 {
                     for (int FuckWorldGen = 0; FuckWorldGen < 6; ++FuckWorldGen)
                     {
-                        Point randompoint = new Point(
+                        Point randompoint = new(
                             posIslands[k].X + WorldGen.genRand.Next(-30, 31),
                             posIslands[k].Y + WorldGen.genRand.Next(7, 42));
                         WorldGen.TileRunner(randompoint.X, randompoint.Y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(6, 13), ModContent.TileType<ApocalyptiteOre_Tile>(), false, 0f, 0f, false, true);
@@ -1316,7 +1324,7 @@ namespace AAModClassic
                 if (FulguriteOre == false)
                 {
                     FulguriteOre = true;
-                    if (Main.netMode != 1) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient) 
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedSiegeUnitAnyInfo"), Color.MediumPurple);
                     for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
                         WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<FulguriteShard_Tile>());
@@ -1510,10 +1518,10 @@ namespace AAModClassic
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildInferno");
 
             {
-                Point origin = new Point((int)infernoPos.X, (int)infernoPos.Y);
+                Point origin = new((int)infernoPos.X, (int)infernoPos.Y);
                 origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-                InfernoBiome biome = new InfernoBiome();
-                InfernoDelete delete = new InfernoDelete();
+                InfernoGeneration biome = new();
+                InfernoDelete delete = new();
                 delete.Place(origin, GenVars.structures);
                 biome.Place(origin, GenVars.structures);
             }
@@ -1521,10 +1529,10 @@ namespace AAModClassic
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildMire");
 
             {
-                Point origin = new Point((int)mirePos.X, (int)mirePos.Y);
+                Point origin = new((int)mirePos.X, (int)mirePos.Y);
                 origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-                MireDelete delete = new MireDelete();
-                MireBiome biome = new MireBiome();
+                MireDelete delete = new();
+                MireGeneration biome = new();
                 delete.Place(origin, GenVars.structures);
                 biome.Place(origin, GenVars.structures);
             }
@@ -1536,8 +1544,8 @@ namespace AAModClassic
                 return;
 
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildMire");
-            Point origin = new Point((int)mirePos.X, (int)mirePos.Y);
-            BogwoodCon biome = new BogwoodCon();
+            Point origin = new((int)mirePos.X, (int)mirePos.Y);
+            BogwoodCon biome = new();
             biome.Place(origin, GenVars.structures);
         }
 
@@ -1546,10 +1554,10 @@ namespace AAModClassic
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
-            Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
+            Point origin = new((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
             origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
             new TerrariumDelete().Place(origin, GenVars.structures);
-            new TerrariumSphere().Place(origin, GenVars.structures);
+            new TerrariumGeneration().Place(origin, GenVars.structures);
         }
 
         private static void LostKeep(GenerationProgress progress)
@@ -1561,23 +1569,23 @@ namespace AAModClassic
             if (Main.dungeonX < Main.maxTilesX / 2)
                 val = new((int)((float)Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
 
-            new Keep().Place(val, GenVars.structures);
+            new LostKeepGeneration().Place(val, GenVars.structures);
         }
 
         private static void Acropolis(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAcropolis");
-            Point origin = new Point((int)(Main.maxTilesX * 0.65f), ModLoader.HasMod("Remnants") ? 75 : 100);
-            Acropolis biome = new Acropolis();
+            Point origin = new((int)(Main.maxTilesX * 0.65f), ModLoader.HasMod("Remnants") ? 75 : 100);
+            AcropolisGeneration biome = new AcropolisGeneration();
             biome.Place(origin, GenVars.structures);
         }
 
         private static void Hoard(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildHoard");
-            Point origin = new Point((int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.275f : 0.3f)), (int)(Main.maxTilesY * (ModLoader.HasMod("Remnants") ?  0.75f : 0.65f)));
-            Hoard biome = new Hoard();
-            HoardClear delete = new HoardClear();
+            Point origin = new((int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.275f : 0.3f)), (int)(Main.maxTilesY * (ModLoader.HasMod("Remnants") ?  0.75f : 0.65f)));
+            HoardGeneration biome = new();
+            HoardClear delete = new();
             delete.Place(origin, GenVars.structures);
             biome.Place(origin, GenVars.structures);
         }
@@ -1585,19 +1593,19 @@ namespace AAModClassic
         private static void EquinoxAlt(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildEquinoxAlt");
-            Point origin = new Point((int)(Main.maxTilesX * 0.15f), 100);
-            Equinox biome = new Equinox();
+            Point origin = new((int)(Main.maxTilesX * 0.15f), 100);
+            EquinoxShrineGeneration biome = new();
             biome.Place(origin, GenVars.structures);
         }
 
         private static void EnderShrine()
         {
-            Point origin = new Point((int)(Main.maxTilesX * 0.2f), (int)(Main.maxTilesY * 0.75f));
+            Point origin = new((int)(Main.maxTilesX * 0.2f), (int)(Main.maxTilesY * 0.75f));
             if (Main.dungeonX > Main.maxTilesX / 2)
             {
                 origin = new Point((int)(Main.maxTilesX * 0.8f), (int)(Main.maxTilesY * 0.75f));
             }
-            World.Crystal biome = new World.Crystal();
+            CrystalOfMemoriesGeneration biome = new();
             biome.Place(origin, GenVars.structures);
         }
 
@@ -1610,13 +1618,13 @@ namespace AAModClassic
 
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
-                Point origin = new Point(Main.maxTilesX - offset, Main.maxTilesY - 170);
-                new PitTeaser().Place(origin, GenVars.structures);
+                Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 170);
+                new PitTeaserGeneration().Place(origin, GenVars.structures);
             }
             else
             {
-                Point origin = new Point(Main.maxTilesX - offset, Main.maxTilesY - 200);
-                new Pit().Place(origin, GenVars.structures);
+                Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 200);
+                new PitGeneration().Place(origin, GenVars.structures);
             }
         }
 

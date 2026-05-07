@@ -1441,8 +1441,8 @@ namespace AAModClassic
 
             if (BasePlayer.HasAccessory(Player, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
             {
-                TextureAssets.Sun = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/DemonSun");
-                TextureAssets.Sun3 = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/DemonSunEclipse");
+                TextureAssets.Sun = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/DemonSun");
+                TextureAssets.Sun3 = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/DemonSunEclipse");
             }
             else
             {

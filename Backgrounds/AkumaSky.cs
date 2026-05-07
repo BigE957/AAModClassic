@@ -46,15 +46,15 @@ namespace AAModClassic.Backgrounds
 
         private readonly float num = 1200f;
 
-        public static Asset<Texture2D> SunTex;
-        public static Asset<Texture2D> MeteorTex;
-        public static Asset<Texture2D> SkyTex;
+        private static Asset<Texture2D> SunTex;
+        private static Asset<Texture2D> MeteorTex;
+        private static Asset<Texture2D> SkyTex;
 
         public override void OnLoad()
         {
             SunTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun");
             MeteorTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor");
-            SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex");
+            SkyTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex");
         }
 
         public override void Update(GameTime gameTime)

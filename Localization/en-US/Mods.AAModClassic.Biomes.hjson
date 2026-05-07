@@ -3,9 +3,19 @@ AcropolisBiomeZone: {
 	TownNPCDialogueName: the Acropolis
 }
 
+AcropolisBiome: {
+	DisplayName: Acropolis Biome
+	TownNPCDialogueName: the Acropolis Biome
+}
+
 HoardBiomeZone: {
 	DisplayName: Hoard
 	TownNPCDialogueName: the Hoard
+}
+
+HoardBiome: {
+	DisplayName: Hoard Biome
+	TownNPCDialogueName: the Hoard Biome
 }
 
 InfernoBiomeZone: {
@@ -13,9 +23,19 @@ InfernoBiomeZone: {
 	TownNPCDialogueName: the Inferno
 }
 
+InfernoBiome: {
+	DisplayName: Inferno Biome
+	TownNPCDialogueName: the Inferno Biome
+}
+
 MireBiomeZone: {
 	DisplayName: Mire
 	TownNPCDialogueName: the Mire
+}
+
+MireBiome: {
+	DisplayName: Mire Biome
+	TownNPCDialogueName: the Mire Biome
 }
 
 MushroomBiomeZone: {
@@ -38,9 +58,19 @@ RisingSunPagodaBiomeZone: {
 	TownNPCDialogueName: the Rising Sun Pagoda
 }
 
+RisingSunPagodaBiome: {
+	DisplayName: Rising Sun Pagoda Biome
+	TownNPCDialogueName: the Rising Sun Pagoda Biome
+}
+
 TerrariumBiomeZone: {
 	DisplayName: Terrarium
 	TownNPCDialogueName: the Terrarium
+}
+
+TerrariumBiome: {
+	DisplayName: Terrarium Biome
+	TownNPCDialogueName: the Terrarium Biome
 }
 
 VoidBiomeZone: {
@@ -53,7 +83,22 @@ LostKeepBiomeZone: {
 	TownNPCDialogueName: the Lost Keep
 }
 
+LostKeepBiome: {
+	DisplayName: Lost Keep Biome
+	TownNPCDialogueName: the Lost Keep Biome
+}
+
 StormBiomeZone: {
 	DisplayName: Storm Biome Zone
 	TownNPCDialogueName: the Storm Biome Zone
+}
+
+RedMushroomBiome: {
+	DisplayName: Red Mushroom Biome
+	TownNPCDialogueName: the Red Mushroom Biome
+}
+
+StarsBiome: {
+	DisplayName: Stars Biome
+	TownNPCDialogueName: the Stars Biome
 }

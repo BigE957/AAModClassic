@@ -1,4 +1,5 @@
-﻿using AAModClassic._Removed;
+﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Parthenan.World;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
@@ -7,7 +8,6 @@ using AAModClassic._Unreleased.Content.SunkenShip.World;
 using AAModClassic.CrossMod;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
-using AAModClassic.World;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -114,7 +114,7 @@ namespace AAModClassic._Unreleased
             StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<FulguritePlating_Tile>()] + tileCounts[ModContent.TileType<FulguriteBrick_Tile>()] + tileCounts[ModContent.TileType<FulgurGlass_Tile>()];
         }
 
-        private void Mush_Refactored(GenerationProgress progress)
+        private static void Mush_Refactored(GenerationProgress progress)
         {
             progress.Message = "Growing Shrooms";
 
@@ -212,7 +212,7 @@ namespace AAModClassic._Unreleased
         }
 
         // kept for posterity
-        private void Mush(GenerationProgress progress)
+        private static void Mush(GenerationProgress progress)
         {
             progress.Message = "Growing Shrooms";
 
@@ -222,12 +222,12 @@ namespace AAModClassic._Unreleased
             {
                 Point origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
                 origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-                SurfaceMushroom biome = new SurfaceMushroom();
+                RedMushroomGeneration biome = new();
                 biome.Place(origin, GenVars.structures);
             }
         }
 
-        private void ParthenanIsland(GenerationProgress progress)
+        private static void ParthenanIsland(GenerationProgress progress)
         {
             progress.Message = "Storming the Parthenan";
 

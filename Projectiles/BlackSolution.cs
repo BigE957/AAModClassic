@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.World.Conversions;
+using AAModClassic.Conversions;
 
 namespace AAModClassic.Projectiles
 {

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.__Hardmode.NPCs._BossBiomiteCore;
+using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using System.IO;
 //using AAModClassic.NPCs.Bosses.Core;
 using Terraria;

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.__Hardmode.NPCs._BossBiomiteCore;
+using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Materials;
