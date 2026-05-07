@@ -20,6 +20,13 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
     {
         public static Asset<Texture2D> Glowmask;
 
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
+
         public override void SetDefaults()
         {
 			base.SetDefaults();
@@ -29,13 +36,6 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             NPC.buffImmune[BuffID.OnFire] = true;			
 
 			offsetBasePoint = new Vector2(-240f, 0f);			
-        }
-
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-
-            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void HitEffect(NPC.HitInfo hit)

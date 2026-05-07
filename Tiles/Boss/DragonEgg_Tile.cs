@@ -7,11 +7,11 @@ using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Ranged;
-using AAModClassic.Items.Melee;
 using AAModClassic.Items.Magic;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Tiles.Boss
 {

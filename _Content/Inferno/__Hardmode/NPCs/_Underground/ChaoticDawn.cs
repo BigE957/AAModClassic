@@ -1,5 +1,5 @@
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic.Items.Banners;
-using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

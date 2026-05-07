@@ -6,8 +6,8 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Zero;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Melee;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic.Items.Boss.Zero
 {

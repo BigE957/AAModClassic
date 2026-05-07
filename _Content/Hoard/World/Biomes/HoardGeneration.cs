@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
+using AAModClassic._Content.Parthenan.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Ranged;
@@ -163,7 +164,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
                 }
                 else if (specialItem == 2)
                 {
-                    type = ModContent.ItemType<Items.Melee.RomulusTazesaber>();
+                    type = ModContent.ItemType<RomulusTazesaber>();
                 }
                 else if (specialItem == 3)
                 {

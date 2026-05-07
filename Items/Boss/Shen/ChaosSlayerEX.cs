@@ -1,5 +1,5 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic.Globals;
-using AAModClassic.Items.Melee;
 using AAModClassic.Projectiles.Shen;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;

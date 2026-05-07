@@ -549,7 +549,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<EyeShot>();
+            projType = ModContent.ProjectileType<Lovecraftian_LovecraftianEye>();
             attackDelay = 1;
         }
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)

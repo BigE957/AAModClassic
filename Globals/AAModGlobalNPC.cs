@@ -1,10 +1,13 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hell.__Hardmode.Items.Materials;
@@ -54,7 +57,6 @@ using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Currency;
 using AAModClassic.Items.Materials;
-using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Items.Summoning;
@@ -426,7 +428,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < 0.01f)
                 {
-                    npc.DropLoot(ModContent.ItemType<AncientPoker>());
+                    npc.DropLoot(ModContent.ItemType<AquaLance>());
                 }
             }
 

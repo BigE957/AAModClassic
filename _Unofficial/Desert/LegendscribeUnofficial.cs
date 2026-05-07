@@ -1176,7 +1176,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<Legendscribe_Judgement_Proj>();
+            projType = ModContent.ProjectileType<Legendscribe_Judgement>();
             attackDelay = 5;
         }
 

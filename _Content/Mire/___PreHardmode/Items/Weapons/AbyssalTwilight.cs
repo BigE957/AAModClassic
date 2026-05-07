@@ -1,4 +1,6 @@
-using AAModClassic.Items.Melee;
+using AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

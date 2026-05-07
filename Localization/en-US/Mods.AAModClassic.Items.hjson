@@ -10999,3 +10999,118 @@ RitualAltar: {
 	DisplayName: Ritual Altar
 	Tooltip: ""
 }
+
+ScytheOfEvil: {
+	DisplayName: Scythe Of Evil
+	Tooltip: ""
+}
+
+CosmicFury: {
+	DisplayName: Cosmic Fury
+	Tooltip: ""
+}
+
+FinalChaos: {
+	DisplayName: Final Chaos
+	Tooltip: ""
+}
+
+PerfectChaosChain: {
+	DisplayName: Perfect Chaos Chain
+	Tooltip: ""
+}
+
+PerfectChaosYari: {
+	DisplayName: Perfect Chaos Yari
+	Tooltip: ""
+}
+
+ScourgeOfTheShadows: {
+	DisplayName: Scourge Of The Shadows
+	Tooltip: ""
+}
+
+TheLolkat: {
+	DisplayName: The Lolkat
+	Tooltip: ""
+}
+
+TrueTerraBlade: {
+	DisplayName: True Terra Blade
+	Tooltip: ""
+}
+
+UltimaShortsword: {
+	DisplayName: Ultima Shortsword
+	Tooltip: ""
+}
+
+ManaBlade: {
+	DisplayName: Mana Blade
+	Tooltip: ""
+}
+
+Chaos_Item: {
+	DisplayName: Chaos_ Item
+	Tooltip: ""
+}
+
+AquaLance: {
+	DisplayName: Aqua Lance
+	Tooltip: ""
+}
+
+IlluminantFlail: {
+	DisplayName: Illuminant Flail
+	Tooltip: ""
+}
+
+DraconianDawn: {
+	DisplayName: Draconian Dawn
+	Tooltip: ""
+}
+
+SunHalberd: {
+	DisplayName: Sun Halberd
+	Tooltip: ""
+}
+
+MadnessSaber: {
+	DisplayName: Madness Saber
+	Tooltip: ""
+}
+
+DreadTwilight: {
+	DisplayName: Dread Twilight
+	Tooltip: ""
+}
+
+Mushmace: {
+	DisplayName: Mushmace
+	Tooltip: ""
+}
+
+TheDragonsBreath: {
+	DisplayName: The Dragons Breath
+	Tooltip: ""
+}
+
+DarkmatterSlasher: {
+	DisplayName: Darkmatter Slasher
+	Tooltip: ""
+}
+
+RealityShredders: {
+	DisplayName: Reality Shredders
+	Tooltip: ""
+}
+
+HarmonyShortsword: {
+	DisplayName: Harmony Shortsword
+	Tooltip: ""
+}
+
+TerraBroadsword: {
+	DisplayName: Terra Broadsword
+	Tooltip: ""
+}

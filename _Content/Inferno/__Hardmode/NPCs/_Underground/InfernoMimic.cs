@@ -1,5 +1,5 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
-using AAModClassic.Items.Melee;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunLance>()));
+            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>()));
         }
     }
 }
