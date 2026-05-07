@@ -265,6 +265,8 @@ namespace AAModClassic
         {
             WeakReferences.PerformModSupport();
 
+            SetupBannerNPCs();
+
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
             foreach(ModItem modItem in this.GetContent<ModItem>())
