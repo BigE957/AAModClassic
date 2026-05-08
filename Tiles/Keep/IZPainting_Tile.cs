@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles.Keep;
 
 public class IZPainting_Tile : ModTile
 {
-	public override string HighlightTexture => "AAModClassic/Textures/LargeKeepPainting_Highlight";
+	public override string HighlightTexture => "AAModClassic/Tiles/Keep/LargeKeepPainting_Highlight";
 
 	public override void SetStaticDefaults()
 	{

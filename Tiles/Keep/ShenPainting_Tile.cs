@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles.Keep;
 
 public class ShenPainting_Tile : ModTile
 {
-	public override string HighlightTexture => "AAModClassic/Textures/LargeKeepPainting2_Highlight";
+	public override string HighlightTexture => "AAModClassic/Tiles/Keep/LargeKeepPainting2_Highlight";
 
 	public override void SetStaticDefaults()
 	{

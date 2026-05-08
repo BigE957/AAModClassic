@@ -10,7 +10,7 @@ namespace AAModClassic.Tiles.Keep;
 
 public class LuciferPainting_Tile : ModTile
 {
-	public override string HighlightTexture => "AAModClassic/Textures/KeepPainting_Highlight";
+	public override string HighlightTexture => "AAModClassic/Tiles/Keep/KeepPainting_Highlight";
 
 	public override void SetStaticDefaults()
 	{

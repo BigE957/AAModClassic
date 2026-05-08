@@ -471,7 +471,7 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<TruffleToad_LargeFungusBubble>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ProtoStar", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
 
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Bolt", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Flash", AssetRequestMode.ImmediateLoad).Value);

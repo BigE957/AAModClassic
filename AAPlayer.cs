@@ -4557,10 +4557,10 @@ namespace AAModClassic
 
                 if (drawPlayer.GetModPlayer<AAPlayer>().ShieldScale > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield").Value;
+                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusShield").Value;
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.ZeroShield, true);
 
-                    Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusRing").Value;
+                    Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusRing").Value;
                     BaseDrawing.DrawTexture(Main.spriteBatch, Ring, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
 
                     Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SagittariusFreeRing_Glow").Value;
@@ -4578,14 +4578,14 @@ namespace AAModClassic
 
                 if (cbuff > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost1").Value;
+                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/CBoost1").Value;
                     if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost2>()))
                     {
-                        Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost2").Value;
+                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/CBoost2").Value;
                     }
                     if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost3>()))
                     {
-                        Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost3").Value;
+                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/CBoost3").Value;
                     }
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), Main.DiscoColor, true);
                 }
