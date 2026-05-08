@@ -1,7 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
@@ -83,7 +83,7 @@ You may only have a maximum of 2 tool types active"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<AkumaTerratool>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DraconianTerratool>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DreadTerratool>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);

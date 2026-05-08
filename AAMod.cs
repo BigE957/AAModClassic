@@ -52,7 +52,6 @@ using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Projectiles;
@@ -76,6 +75,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 
 namespace AAModClassic
 {

@@ -3,7 +3,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Akuma;
+using AAModClassic._Content.Inferno.Projectiles;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
 {
@@ -79,7 +79,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
             target.immune[Projectile.owner] = 5;
             { }
             target.AddBuff(BuffID.Daybreak, 200);
-            int proj = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<FireProjBoom>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            int proj = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaExplosion>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Main.projectile[proj].DamageType = DamageClass.Ranged;
 
         }

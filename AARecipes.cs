@@ -48,7 +48,6 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Wea
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Summoning;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Boss.Akuma;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

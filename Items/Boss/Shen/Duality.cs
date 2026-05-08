@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;

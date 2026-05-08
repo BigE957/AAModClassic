@@ -1,7 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Projectiles.Shen;
 using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
@@ -66,7 +66,7 @@ Inflicts Daybroken and Moonraze"); */
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<AbyssalYari>());
-			recipe.AddIngredient(ModContent.ItemType<SunSpear>());
+			recipe.AddIngredient(ModContent.ItemType<SunPartisan>());
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

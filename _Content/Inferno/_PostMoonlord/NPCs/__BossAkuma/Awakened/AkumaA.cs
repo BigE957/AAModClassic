@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -622,7 +622,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AkumaBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AkumaTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaATrophy>(), 10));
 
