@@ -209,11 +209,18 @@ namespace AAModClassic
                     {
                         for (int m = 0; m < 4; m++)
                         {
-                            ModNPC npc = GetNPC(m == 0 ? "Wyrmling" : (m == 1 ? "WyrmlingBody" : (m == 2 ? "WyrmlingTail1" : "WyrmlingTail2")));
+                            ModNPC npc = m switch
+                            {
+                                0 => ModContent.GetInstance<WyrmlingHead>(),
+                                1 => ModContent.GetInstance<WyrmlingBody>(),
+                                2 => ModContent.GetInstance<WyrmlingTail1>(),
+                                _ => ModContent.GetInstance<WyrmlingTail2>(),
+                            };
+
                             if (npc != null)
                             {
                                 npc.Banner = ModContent.NPCType<WyrmlingHead>();
-                                npc.BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.WyrmlingBanner>();
+                                npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
@@ -222,34 +229,48 @@ namespace AAModClassic
                     {
                         for (int m = 0; m < 5; m++)
                         {
-                            ModNPC npc = GetNPC(m == 0 ? "Wyrm" : (m == 1 ? "WyrmBody1" : (m == 2 ? "WyrmBody2" : (m == 3 ? "WyrmBody3" : "WyrmBody4"))));
+                            ModNPC npc = m switch
+                            {
+                                0 => ModContent.GetInstance<WyrmHead>(),
+                                1 => ModContent.GetInstance<WyrmBody1>(),
+                                2 => ModContent.GetInstance<WyrmBody2>(),
+                                3 => ModContent.GetInstance<WyrmBody3>(),
+                                _ => ModContent.GetInstance<WyrmBody4>(),
+                            };
+
                             if (npc != null)
                             {
                                 npc.Banner = ModContent.NPCType<WyrmHead>();
-                                npc.BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.WyrmBanner>();
+                                npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
                     }
-                    else if (name.Contains("Snake"))
+                    else if (name.Contains("SnowSerpent"))
                     {
                         for (int m = 0; m < 3; m++)
                         {
-                            ModNPC npc = GetNPC(m == 0 ? "SnakeHead" : (m == 1 ? "SnakeBody" : "SnakeTail"));
+                            ModNPC npc = m switch
+                            {
+                                0 => ModContent.GetInstance<SnowSerpentHead>(),
+                                1 => ModContent.GetInstance<SnowSerpentBody>(),
+                                _ => ModContent.GetInstance<SnowSerpentTail>(),
+                            };
+
                             if (npc != null)
                             {
                                 npc.Banner = ModContent.NPCType<SnowSerpentHead>();
-                                npc.BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnakeBanner>();
+                                npc.BannerItem = ModContent.ItemType<Items.Banners.SnakeBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
                     }
                     else
                     {
-                        ModNPC npc = GetNPC(name);
+                        ModNPC npc = mod.Find<ModNPC>(name);
                         if (npc != null)
                         {
-                            npc.Banner = mod.Find<ModNPC>(name).Type;
+                            npc.Banner = npc.Type;
                             npc.BannerItem = mod.Find<ModItem>(name + "Banner").Type;
                             bannerToItem[npc.Banner] = npc.BannerItem;
                         }
@@ -263,14 +284,6 @@ namespace AAModClassic
                 instance.Logger.InfoFormat(e.Message);
                 instance.Logger.InfoFormat(e.StackTrace);
             }
-        }
-
-        //TODO: Maim and Murder, maybe..
-        private static ModNPC GetNPC(string npcName)
-        {
-            if (ModContent.TryFind<ModNPC>(npcName, out var modnpc))
-                return modnpc;
-            return null;
         }
 
         public override void PostSetupContent()
