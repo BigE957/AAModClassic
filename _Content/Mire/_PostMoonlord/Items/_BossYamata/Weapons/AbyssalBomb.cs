@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Magic;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {

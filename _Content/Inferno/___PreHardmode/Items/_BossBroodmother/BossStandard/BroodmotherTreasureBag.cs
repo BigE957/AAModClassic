@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
 
             if (ContentReplacementSystem.NeedToReplaceContent)
-                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
+                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScorchedEgg>(), 7));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragontamersCloak>()));

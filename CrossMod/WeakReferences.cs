@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content.__PLACEHOLDER.ore;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Weapons;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
@@ -87,6 +89,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Madness.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Madness.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
@@ -129,8 +132,10 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStan
 using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
+using AAModClassic._Content.Terra.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
 using AAModClassic._Content.Terrarium.Buffs;
@@ -138,6 +143,7 @@ using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
@@ -155,7 +161,6 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.EFish;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Dev;
-using AAModClassic.Items.Magic;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Ranged;
@@ -1961,7 +1966,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<AtlanteanTrident>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<BlazePike>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<DoomStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<GelWand>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FlamingGelWand>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<GunkWand>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Psychic, ModContent.ItemType<MadnessStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<Windfury>(), true);
@@ -1981,16 +1986,16 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TrueTerraRose>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<ForsakenStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<OreStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<WandOfSparkingEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<WandOfSparkingEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<WandOfSparkingEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<StarburstWand>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<StarburstWand>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<StarburstWand>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<StarStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<WandOfSparkingEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SubzeroStaff>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<SubzeroStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<StarburstWand>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<SubzeroStormStaff>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<SubzeroStormStaff>(), true);
 
                 //Tomes
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DragonsBreath>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<BlazingBreath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Ice, ModContent.ItemType<Icicle>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<VenomSpray>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<BogBomb>(), true);
@@ -2018,7 +2023,7 @@ namespace AAModClassic.CrossMod
                 //Other
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandLamp>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Volley>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ElectricitySpell>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ElectricityShard>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Etheral>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<EtheralEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<AncientArcanum>(), true);

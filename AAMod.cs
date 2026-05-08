@@ -47,6 +47,7 @@ using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.Dev.Invoker;
+using AAModClassic.Projectiles;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
@@ -467,8 +468,8 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/_BossAthenaA/Skies/AthenaBolt", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/_BossAthenaA/Skies/AthenaFlash", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShield", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<RadiumStar>().Texture, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<StarStaff_Star2>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<TruffleToad_LargeFungusBubble>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ProtoStar", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);

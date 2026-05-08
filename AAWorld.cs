@@ -22,7 +22,6 @@ using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Tiles.Chests;
-using AAModClassic.Items.Magic;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Walls.Bricks;
@@ -76,6 +75,7 @@ using AAModClassic._Content._Dev.World.Biomes;
 using AAModClassic._Content.Hell.World.Biomes;
 using AAModClassic.Conversions;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 
 namespace AAModClassic
 {

@@ -11114,3 +11114,28 @@ TerraBroadsword: {
 	DisplayName: Terra Broadsword
 	Tooltip: ""
 }
+
+StarburstWand: {
+	DisplayName: Starburst Wand
+	Tooltip: ""
+}
+
+SubzeroStormStaff: {
+	DisplayName: Subzero Storm Staff
+	Tooltip: ""
+}
+
+FlamingGelWand: {
+	DisplayName: Flaming Gel Wand
+	Tooltip: ""
+}
+
+ElectricityShard: {
+	DisplayName: Electricity Shard
+	Tooltip: ""
+}
+
+BlazingBreath: {
+	DisplayName: Blazing Breath
+	Tooltip: ""
+}
