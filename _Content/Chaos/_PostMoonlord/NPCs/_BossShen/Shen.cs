@@ -12,7 +12,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
@@ -24,6 +23,8 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Projectiles;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 {
@@ -852,15 +853,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenDoragonTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenMask>(), 7));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenDoragonMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosScale>(), 1, 20, 30));
 
-            int[] lootTable = { ModContent.ItemType<ChaosSlayer>(), ModContent.ItemType<MeteorStrike>(), ModContent.ItemType<Skyfall>(), ModContent.ItemType<Astroid>(), ModContent.ItemType<DraconicRipper>(), ModContent.ItemType<FlamingTwilight>(), ModContent.ItemType<ShenTerratool>(), ModContent.ItemType<Timesplitter>() };
+            int[] lootTable = { ModContent.ItemType<ChaosSlayer>(), ModContent.ItemType<MeteorStrike>(), ModContent.ItemType<Skyfall>(), ModContent.ItemType<Asteroid>(), ModContent.ItemType<DraconicRipper>(), ModContent.ItemType<FlamingTwilight>(), ModContent.ItemType<DiscordianTerratool>(), ModContent.ItemType<Timesplitter>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             npcLoot.Add(notExpertRule);

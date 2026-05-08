@@ -11414,3 +11414,43 @@ TheVortex: {
 	DisplayName: The Vortex
 	Tooltip: ""
 }
+
+Ikari: {
+	DisplayName: Ikari
+	Tooltip: ""
+}
+
+ShenDoragonAMask: {
+	DisplayName: Shen Doragon A Mask
+	Tooltip: ""
+}
+
+ShenDoragonATrophy: {
+	DisplayName: Shen Doragon A Trophy
+	Tooltip: ""
+}
+
+ShenDoragonMask: {
+	DisplayName: Shen Doragon Mask
+	Tooltip: ""
+}
+
+ShenDoragonTreasureBag: {
+	DisplayName: Shen Doragon Treasure Bag
+	Tooltip: ""
+}
+
+ShenDoragonTrophy: {
+	DisplayName: Shen Doragon Trophy
+	Tooltip: ""
+}
+
+DiscordianTerratool: {
+	DisplayName: Discordian Terratool
+	Tooltip: ""
+}
+
+Asteroid: {
+	DisplayName: Asteroid
+	Tooltip: ""
+}
