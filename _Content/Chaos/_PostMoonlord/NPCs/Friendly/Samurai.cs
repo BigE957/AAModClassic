@@ -1,3 +1,4 @@
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
@@ -7,7 +8,6 @@ using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
-using AAModClassic.Items.Potions;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
@@ -203,7 +203,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.Friendly
                     nextSlot++;
                 }
             }
-            if (!Main.dayTime)
+            else
             {
                 if (Main.hardMode == true)
                 {
@@ -212,8 +212,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.Friendly
                 }
             }
 
-            items[nextSlot] = new Item(ModContent.ItemType<OrderSolution>());
-            nextSlot++;
+            if (Main.hardMode == true)
+            {
+                items[nextSlot] = new Item(ModContent.ItemType<OrderSolution>());
+                nextSlot++;
+            }
         }
 
 		public override void OnKill()

@@ -1,8 +1,8 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -766,9 +766,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D currentWingTex1 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenWingBack").Value;
-            Texture2D currentWingTex2 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenWingFront").Value;
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenA_Glow").Value;
+            Texture2D currentWingTex1 = ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenWingBack").Value;
+            Texture2D currentWingTex2 = ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenWingFront").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenA_Glow").Value;
 
             //offset
             NPC.position.Y += 130f;

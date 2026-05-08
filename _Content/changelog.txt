@@ -27,6 +27,9 @@ base
 --nearly all of its recipes were made redundant by time. some recipes without any analogue have been removed as the intent with this change was closer to vanilla parity rather than preserving the function of the tile. if you really want to convert cursed flames to ichor, install fargos
 -perfect chaos chain no longer draws its flail head 1000 times per frame
 -renamed "Dragon's Breath" (the prehm inferno tome) to "Blazing Breath" to prevent confusion with The Dragon's Breath (the hardmode yoyo)
+-the mushman is now locked to hardmode, as strange plants were made hardmode exclusive in 1.4
+-grand healing and mana potions are now crafted in groups of 4
+-
 
 removed
 -re-added the parthenan[sic], a fulgarian research site located near the left ocean

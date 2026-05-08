@@ -3,9 +3,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

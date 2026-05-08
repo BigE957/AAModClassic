@@ -1,5 +1,5 @@
 using AAModClassic._Content.Crimson.___PreHardmode.Items.Tools;
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Crimson.__Hardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Scalpel>());
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

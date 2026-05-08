@@ -2,11 +2,11 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Items.Boss;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Projectiles;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

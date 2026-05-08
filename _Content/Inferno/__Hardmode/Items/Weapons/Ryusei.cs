@@ -1,5 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Yogan>());
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

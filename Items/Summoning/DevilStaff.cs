@@ -1,6 +1,6 @@
 using AAModClassic._Content.Hell.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -65,7 +65,7 @@ namespace AAModClassic.Items.Summoning
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DemonStaff>(), 1);
             recipe.AddIngredient(ModContent.ItemType<PureEvil>(), 3);
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

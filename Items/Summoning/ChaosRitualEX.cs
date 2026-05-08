@@ -1,5 +1,5 @@
-﻿using AAModClassic.Buffs;
-using AAModClassic.Items.Boss;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic.Buffs;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;

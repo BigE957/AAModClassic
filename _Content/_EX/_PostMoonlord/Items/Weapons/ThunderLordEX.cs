@@ -5,8 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using AAModClassic.Projectiles;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -30,11 +30,11 @@ Storm Rifle EX"); */
             Item.useTime = 2; 
             Item.useAnimation = 6; 
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SThunderBullet>();
+            Item.shoot = ModContent.ProjectileType<SThunderBullet>();
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Thunderlord");
+            Item.UseSound = new SoundStyle("Sounds/Thunderlord");
             Item.autoReuse = true; 
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;

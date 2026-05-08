@@ -5,8 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Projectiles;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -45,7 +45,7 @@ Super Skullshot EX"); */
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name).Value;
+            Texture2D texture = ModContent.Request<Texture2D>("Glowmasks/" + GetType().Name).Value;
             spriteBatch.Draw
             (
                 texture,

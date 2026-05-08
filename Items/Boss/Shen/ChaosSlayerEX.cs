@@ -1,3 +1,4 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Shen;

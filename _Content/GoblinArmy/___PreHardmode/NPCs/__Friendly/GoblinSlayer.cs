@@ -1,6 +1,7 @@
-using AAModClassic.Items.Accessories;
+using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
+using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Items.Armor.GoblinSlayer;
-using AAModClassic.Items.Materials;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -458,7 +459,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
                 nextSlot++;
                 if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
                 {
-                    items[nextSlot] = new Item(ModContent.ItemType<HeroShards>());
+                    items[nextSlot] = new Item(ModContent.ItemType<HeroRelics>());
                     items[nextSlot].shopCustomPrice = new int?(30);
                     items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
                     nextSlot++;
@@ -755,7 +756,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
                 items[nextSlot].shopCustomPrice = new int?(50);
                 items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
                 nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<Energy_Conduit>());
+                items[nextSlot] = new Item(ModContent.ItemType<EnergyConduit>());
                 items[nextSlot].shopCustomPrice = new int?(50);
                 items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
                 nextSlot++;

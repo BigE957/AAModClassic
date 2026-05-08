@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Tiles.Plants;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 
 namespace AAModClassic.Tiles
 {
@@ -32,8 +33,8 @@ namespace AAModClassic.Tiles
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1000))
             {
                 int style = Main.rand.Next(5);
-                if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), false, style))
-                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), style, 0, -1, -1);
+                if (PlaceObject(i, j - 1, ModContent.TileType<MadnessMushroom_Tile>(), false, style))
+                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessMushroom_Tile>(), style, 0, -1, -1);
             }
         }
 

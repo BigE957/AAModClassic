@@ -1,8 +1,8 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -56,7 +56,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/AkumaRoar");
+            NPC.DeathSound = new SoundStyle("Sounds/AkumaRoar");
             Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -676,17 +676,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             {
                 if (NPC.ai[0] == 0 || NPC.ai[0] == 1 || NPC.ai[0] == 5 || NPC.ai[0] == 9)
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA1").Value;
+                    AkumaTex = ModContent.Request<Texture2D>("_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA1").Value;
                 }
                 else
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA").Value;
+                    AkumaTex = ModContent.Request<Texture2D>("_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA").Value;
                 }
             }
 
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaA_Glow").Value;
-            Texture2D glowTex1 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaA1_Glow").Value;
-            Texture2D glowTex2 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaABody_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>("Glowmasks/AkumaA_Glow").Value;
+            Texture2D glowTex1 = ModContent.Request<Texture2D>("Glowmasks/AkumaA1_Glow").Value;
+            Texture2D glowTex2 = ModContent.Request<Texture2D>("Glowmasks/AkumaABody_Glow").Value;
             
             int shader;
             if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
@@ -746,7 +746,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             }
             else
             {
-                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("Sounds/AkumaRoar"), NPC.Center);
             }
         }
 

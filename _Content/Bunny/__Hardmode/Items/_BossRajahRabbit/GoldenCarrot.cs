@@ -6,8 +6,8 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Potions;
 using Terraria.Audio;
+using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 

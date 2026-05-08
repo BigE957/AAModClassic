@@ -4,6 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Boss;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 

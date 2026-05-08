@@ -1,5 +1,5 @@
-using AAModClassic._Content._Dev.World.Tiles;
-using AAModClassic.Items.Pets;
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+using AAModClassic.Items.Dev.DevTile.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

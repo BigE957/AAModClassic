@@ -3,8 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using AAModClassic.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 
 namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 {
@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RaiderLance>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

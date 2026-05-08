@@ -1,4 +1,4 @@
-using AAModClassic.Items.Boss;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

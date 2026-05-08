@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Alphakip.Shiny;
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 
 namespace AAModClassic.Items.Vanity.Alphakip
 {
@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Vanity.Alphakip
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishDiverMask>());
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishDiverJacket>());
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishDiverBoots>());
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MudkipBallS>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishBall>());
                 if (Main.hardMode)
                 {
                     player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyKipronWings>());
@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Vanity.Alphakip
 			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FishDiverMask>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FishDiverJacket>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FishDiverBoots>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MudkipBall>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MudFishBall>());
             if (Main.hardMode)
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<KipronWings>());

@@ -1,5 +1,5 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terra.__Hardmode.Items.Weapons;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

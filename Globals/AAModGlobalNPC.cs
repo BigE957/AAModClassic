@@ -1,6 +1,7 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
+using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
@@ -9,6 +10,8 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Materials;
+using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
+using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hell.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger;
@@ -26,6 +29,8 @@ using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Materials;
+using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
+using AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night;
@@ -39,10 +44,14 @@ using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night;
 using AAModClassic._Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets;
+using AAModClassic._Content.PirateInvasion.__Hardmode.Items.Currency;
+using AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic._Content.SolarEclipse.__Hardmode.Items.Currency;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
@@ -54,8 +63,6 @@ using AAModClassic._Content.Void.__Hardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Accessories;
-using AAModClassic.Items.Currency;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Ranged.Ammo;
@@ -474,7 +481,7 @@ namespace AAModClassic.Globals
 
                 if (Main.rand.NextFloat() < .03f)
                 {
-                    npc.DropLoot(ModContent.ItemType<Energy_Conduit>());
+                    npc.DropLoot(ModContent.ItemType<EnergyConduit>());
                 }
             }
 
@@ -554,7 +561,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() <= .4f)
                 {
-                    npc.DropLoot(ModContent.ItemType<HeroShards>(), Main.rand.Next(2, 4));
+                    npc.DropLoot(ModContent.ItemType<HeroRelics>(), Main.rand.Next(2, 4));
                 }
             }
 

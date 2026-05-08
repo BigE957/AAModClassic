@@ -6,8 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Summoning
 {

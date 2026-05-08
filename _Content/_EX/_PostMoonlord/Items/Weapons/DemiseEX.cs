@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using AAModClassic.Projectiles;
 using AAModClassic.Items.Boss;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

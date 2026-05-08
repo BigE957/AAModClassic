@@ -98,9 +98,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 "_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaRock", "_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaRock1", "_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaRock2"
             });
 
-            Texture2D Rock = mod.GetTexture(RockType);
+            Texture2D Rock = ModContent.Request<Texture2D>(RockType);
             float rot = projectile.rotation;
-            BaseDrawing.DrawTexture(spriteBatch, mod.GetTexture(RockType), 0, projectile, projectile.GetAlpha(Color.White));
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(RockType), 0, projectile, projectile.GetAlpha(Color.White));
             return false;
         }*/
     }

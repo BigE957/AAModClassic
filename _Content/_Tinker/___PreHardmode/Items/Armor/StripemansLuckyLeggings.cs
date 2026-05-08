@@ -1,5 +1,5 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Potions;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

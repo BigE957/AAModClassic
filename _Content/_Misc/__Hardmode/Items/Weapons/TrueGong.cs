@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using AAModClassic.Items.Materials;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 {
@@ -61,7 +61,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Gong>());
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();
         }

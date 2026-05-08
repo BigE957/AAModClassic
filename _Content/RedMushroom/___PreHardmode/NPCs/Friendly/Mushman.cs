@@ -4,15 +4,16 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAModClassic.Items.Mushrooms;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;
-using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
 using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {
@@ -84,7 +85,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             {
                 for (int j = num4 + 2; j < num5 + 2; j++)
                 {
-                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<MadnessShroom_Tile>()))
+                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<MadnessMushroom_Tile>()))
                     {
                         num++;
                     }
@@ -161,7 +162,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
                 Player player = Main.LocalPlayer;
 
-                int Special = player.FindItem(ModContent.ItemType<MadnessShroom>());
+                int Special = player.FindItem(ModContent.ItemType<MadnessMushroom>());
                 int Item = player.FindItem(ItemID.StrangePlant1);
                 int Item2 = player.FindItem(ItemID.StrangePlant2);
                 int Item3 = player.FindItem(ItemID.StrangePlant3);
@@ -193,7 +194,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = SpecialChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Rainbow>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<RainbowMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -263,7 +264,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Red>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<RedAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -277,7 +278,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Orange>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<OrangeAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -291,7 +292,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Yellow>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<YellowAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -305,7 +306,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Green>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GreenAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -319,7 +320,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Green>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GreenAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -333,7 +334,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Green>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GreenAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -347,7 +348,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Blue>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<BlueAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -361,7 +362,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Blue>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<BlueAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -375,7 +376,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Blue>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<BlueAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -389,7 +390,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Purple>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<PurpleAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -403,7 +404,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Purple>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<PurpleAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -417,7 +418,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Gray>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GrayAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -431,7 +432,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Pink>(), 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<PinkAlchemicalMushroom>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;

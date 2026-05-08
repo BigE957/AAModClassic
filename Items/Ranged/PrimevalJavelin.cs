@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Ranged
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<DynaskullJavelin>());
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

@@ -1,7 +1,7 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Mire.Buffs;
-using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;

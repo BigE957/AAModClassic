@@ -1,6 +1,6 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Boss;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
