@@ -215,7 +215,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FeudalFungusTrophy>(), 10));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowingSporeSac>(), 1, 30, 35));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowingSporeBag>(), 1, 30, 35));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

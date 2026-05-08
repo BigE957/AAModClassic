@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 {
-    public class GlowingSporeSac : BaseAAItem
+    public class GlowingSporeBag : BaseAAItem
 	{
         public override void SetDefaults()
         {
@@ -28,7 +28,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Glowing Spore Sack");
+            // DisplayName.SetDefault("Glowing Spore Bag");
             // Tooltip.SetDefault(@"Spreads Glowing Mushrooms");
         }
 
@@ -41,7 +41,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<GlowingSporeSac_Proj>();
+                Item.shoot = ModContent.ProjectileType<GlowingSporeBag_Proj>();
                 Item.shootSpeed = 9f;
             }
             else
@@ -54,7 +54,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == ModContent.ProjectileType<GlowingSporeSac_Proj> ())
+            if (type == ModContent.ProjectileType<GlowingSporeBag_Proj> ())
             {
                 Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 4);
                 return false;

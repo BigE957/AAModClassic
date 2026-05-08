@@ -9,12 +9,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 {
-    public class GlowingSporeSac_Proj : ModProjectile
+    public class GlowingSporeBag_Proj : ModProjectile
     {
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("GlowingSporeSac");
+            // DisplayName.SetDefault("Glowing Spore Bag");
         }
 
         public override void SetDefaults()

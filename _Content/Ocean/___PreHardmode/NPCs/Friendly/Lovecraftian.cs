@@ -390,8 +390,8 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
                     if (AAWorld.squid10 == 4)
                     {
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat1") + Main.npc[Mushman].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat2");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GlowingSporeSac>(), 5);
-                        Main.npcChatCornerItem = ModContent.ItemType<GlowingSporeSac>();
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GlowingSporeBag>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<GlowingSporeBag>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -536,7 +536,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
             }
             if (AAWorld.squid10 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<GlowingSporeSac>());
+                items[nextSlot] = new Item(ModContent.ItemType<GlowingSporeBag>());
                 nextSlot++;
             }
             if (AAWorld.squid11 >= 5)
