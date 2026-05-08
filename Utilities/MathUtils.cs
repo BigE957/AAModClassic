@@ -68,6 +68,10 @@ namespace AAModClassic.Utilities
         public static float SineOutEasing(float amount) => (float)Math.Sin(amount * MathF.PI / 2f);
         public static float SineInOutEasing(float amount) => (0f - ((float)Math.Cos(amount * MathF.PI) - 1f)) / 2f;
         public static float SineBumpEasing(float amount) => (float)Math.Sin(amount * MathF.PI);
+
+        public static float PolyInEasing(float amount, float degree) => (float)Math.Pow(amount, degree);
+        public static float PolyOutEasing(float amount, float degree) => 1f - (float)Math.Pow(1f - amount, degree);
+        public static float PolyInOutEasing(float amount, float degree) => amount < 0.5f ? (float)Math.Pow(2, degree - 1) * (float)Math.Pow(amount, degree) : 1f - (float)Math.Pow(-2 * amount + 2, degree) / 2f;
     }
 
     public class BezierCurve(params Vector2[] controls)
