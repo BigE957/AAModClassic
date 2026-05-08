@@ -30,6 +30,7 @@ base
 -the mushman is now locked to hardmode, as strange plants were made hardmode exclusive in 1.4
 -grand healing and mana potions are now crafted in groups of 4
 -order solution is now only sold by the samurai in hardmode
+-renamed the yoyo Vortex to The Vortex
 -
 
 removed

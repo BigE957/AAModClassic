@@ -1,8 +1,10 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -538,7 +540,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CrucibleScale>(), 1, 20, 30));
 
-            int[] lootTable = { ModContent.ItemType<AkumaTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<LungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunSpear>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<SunStorm>(), ModContent.ItemType<SunStaff>(), ModContent.ItemType<DragonSlasher>() };
+            int[] lootTable = { ModContent.ItemType<DraconianTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<AncientLungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunPartisan>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<Sunstorm>(), ModContent.ItemType<SolarStaff>(), ModContent.ItemType<DragonShiv>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             npcLoot.Add(notExpertRule);

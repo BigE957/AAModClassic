@@ -6,7 +6,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using AAModClassic.Projectiles.Zero;
 using AAModClassic.Buffs;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Blocks;
@@ -22,6 +21,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hoard.Projectiles;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 {
@@ -312,7 +312,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         float ai = Main.rand.Next(100);
                         Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(3.1415f * 2));
                         Vector2 vector84 = Vector2.Normalize(vector83.RotatedByRandom(0.8)) * 14f;
-                        int id = NewProjectile(Projectile.position.X + Projectile.velocity.X, Projectile.position.Y  + Projectile.velocity.Y, vector84.X * 2, vector84.Y * 2, ModContent.ProjectileType<ZeroTaze>(), (int) (Projectile.damage * .02f), 0f, Main.myPlayer, vector83.ToRotation(), ai);
+                        int id = NewProjectile(Projectile.position.X + Projectile.velocity.X, Projectile.position.Y  + Projectile.velocity.Y, vector84.X * 2, vector84.Y * 2, ModContent.ProjectileType<Gigataser_Gigatase>(), (int) (Projectile.damage * .02f), 0f, Main.myPlayer, vector83.ToRotation(), ai);
                         Main.projectile[id].timeLeft = 30;
                     }
                     Projectile.localAI[0] ++;

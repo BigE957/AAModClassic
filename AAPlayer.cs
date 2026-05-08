@@ -59,7 +59,6 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Terra.Projectiles;
-using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Aves;
@@ -69,7 +68,6 @@ using AAModClassic.Items.Vanity.Delly;
 using AAModClassic.Items.Vanity.Gibs;
 using AAModClassic.Items.Vanity.Grox;
 using AAModClassic.Items.Vanity.Hallam;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Universe;
 using AAModClassic.Mounts;
@@ -95,6 +93,8 @@ using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 
 namespace AAModClassic
 {

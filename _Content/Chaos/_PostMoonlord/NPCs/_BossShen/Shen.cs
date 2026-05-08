@@ -16,7 +16,6 @@ using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Inferno.World.Tiles;
@@ -24,6 +23,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenAH;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Projectiles;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 {

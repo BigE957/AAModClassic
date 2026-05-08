@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Zero;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Dyes
 {

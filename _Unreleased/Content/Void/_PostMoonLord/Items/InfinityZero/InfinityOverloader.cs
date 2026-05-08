@@ -12,7 +12,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Boss.Zero;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;

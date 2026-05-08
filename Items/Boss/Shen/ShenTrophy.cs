@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Trophy;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
 
 namespace AAModClassic.Items.Boss.Shen
 {

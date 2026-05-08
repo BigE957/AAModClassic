@@ -1,4 +1,4 @@
-using AAModClassic.Projectiles.Akuma.Lung;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<LungHead>()] > 0) modPlayer.LungMinion = true;
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<AncientLungStaff_LungHead>()] > 0) modPlayer.LungMinion = true;
             if (!modPlayer.LungMinion)
             {
                 player.DelBuff(buffIndex);

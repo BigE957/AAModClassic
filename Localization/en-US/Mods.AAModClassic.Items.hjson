@@ -11329,3 +11329,88 @@ AlienRifle: {
 	DisplayName: Alien Rifle
 	Tooltip: ""
 }
+
+DraconianFury: {
+	DisplayName: Draconian Fury
+	Tooltip: ""
+}
+
+AkumaTreasureBag: {
+	DisplayName: Akuma Treasure Bag
+	Tooltip: ""
+}
+
+DraconianTerratool: {
+	DisplayName: Draconian Terratool
+	Tooltip: ""
+}
+
+AncientLungStaff: {
+	DisplayName: Ancient Lung Staff
+	Tooltip: ""
+}
+
+DragonShiv: {
+	DisplayName: Dragon Shiv
+	Tooltip: ""
+}
+
+SolarStaff: {
+	DisplayName: Solar Staff
+	Tooltip: ""
+}
+
+SunPartisan: {
+	DisplayName: Sun Partisan
+	Tooltip: ""
+}
+
+Sunstorm: {
+	DisplayName: Sunstorm
+	Tooltip: ""
+}
+
+YearOfTheDragon: {
+	DisplayName: Year Of The Dragon
+	Tooltip: ""
+}
+
+SingularityArrow: {
+	DisplayName: Singularity Arrow
+	Tooltip: ""
+}
+
+UnstablePowerCell: {
+	DisplayName: Unstable Power Cell
+	Tooltip: ""
+}
+
+ZeroTreasureBag: {
+	DisplayName: Zero Treasure Bag
+	Tooltip: ""
+}
+
+DoomsdayTerratool: {
+	DisplayName: Doomsday Terratool
+	Tooltip: ""
+}
+
+BlackHoleBlaster: {
+	DisplayName: Black Hole Blaster
+	Tooltip: ""
+}
+
+BrokenZeroWeapon: {
+	DisplayName: Broken Zero Weapon
+	Tooltip: ""
+}
+
+NovaFocus: {
+	DisplayName: Nova Focus
+	Tooltip: ""
+}
+
+TheVortex: {
+	DisplayName: The Vortex
+	Tooltip: ""
+}
