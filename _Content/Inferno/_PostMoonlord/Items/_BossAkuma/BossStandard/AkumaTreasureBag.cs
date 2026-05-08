@@ -1,9 +1,8 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

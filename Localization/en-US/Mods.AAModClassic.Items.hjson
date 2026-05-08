@@ -11374,3 +11374,43 @@ YearOfTheDragon: {
 	DisplayName: Year Of The Dragon
 	Tooltip: ""
 }
+
+SingularityArrow: {
+	DisplayName: Singularity Arrow
+	Tooltip: ""
+}
+
+UnstablePowerCell: {
+	DisplayName: Unstable Power Cell
+	Tooltip: ""
+}
+
+ZeroTreasureBag: {
+	DisplayName: Zero Treasure Bag
+	Tooltip: ""
+}
+
+DoomsdayTerratool: {
+	DisplayName: Doomsday Terratool
+	Tooltip: ""
+}
+
+BlackHoleBlaster: {
+	DisplayName: Black Hole Blaster
+	Tooltip: ""
+}
+
+BrokenZeroWeapon: {
+	DisplayName: Broken Zero Weapon
+	Tooltip: ""
+}
+
+NovaFocus: {
+	DisplayName: Nova Focus
+	Tooltip: ""
+}
+
+TheVortex: {
+	DisplayName: The Vortex
+	Tooltip: ""
+}

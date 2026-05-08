@@ -1,5 +1,5 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Vanity.Mask;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

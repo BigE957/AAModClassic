@@ -1,13 +1,15 @@
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Tools;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -209,20 +211,20 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
 
             int[] lootTable = 
             { 
-                ModContent.ItemType<Battery>(), 
-                ModContent.ItemType<ZeroArrow>(), 
-                ModContent.ItemType<Vortex>(), 
+                ModContent.ItemType<UnstablePowerCell>(), 
+                ModContent.ItemType<SingularityArrow>(), 
+                ModContent.ItemType<TheVortex>(), 
                 ModContent.ItemType<EventHorizon>(), 
-                ModContent.ItemType<AAModClassic.Items.Boss.Zero.RealityCannon>(), 
-                ModContent.ItemType<AAModClassic.Items.Boss.Zero.RiftShredder>(), 
-                ModContent.ItemType<AAModClassic.Items.Boss.Zero.VoidStar>(), 
-                ModContent.ItemType<AAModClassic.Items.Boss.Zero.TeslaHand>(), 
+                ModContent.ItemType<Items._BossZero.Weapons.RealityCannon>(), 
+                ModContent.ItemType<Items._BossZero.Weapons.RiftShredder>(), 
+                ModContent.ItemType<Items._BossZero.Weapons.VoidStar>(), 
+                ModContent.ItemType<BrokenZeroWeapon>(), 
                 ModContent.ItemType<StallionsStar>(), 
-                ModContent.ItemType<ZeroTerratool>(), 
+                ModContent.ItemType<DoomsdayTerratool>(), 
                 ModContent.ItemType<DoomPortal>(), 
                 ModContent.ItemType<Gigataser>(), 
-                ModContent.ItemType<AAModClassic.Items.Boss.Zero.OmegaVolley>(), 
-                ModContent.ItemType<AAModClassic.Items.Boss.Zero.GenocideCannon>() };
+                ModContent.ItemType<Items._BossZero.Weapons.OmegaVolley>(), 
+                ModContent.ItemType<Items._BossZero.Weapons.GenocideCannon>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             //TODO: BRING HIM BACK PLEASEEEEEEE

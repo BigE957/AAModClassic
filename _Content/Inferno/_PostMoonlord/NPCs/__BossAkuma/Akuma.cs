@@ -1,11 +1,10 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;

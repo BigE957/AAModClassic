@@ -1,5 +1,6 @@
-﻿using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic.Items.Vanity.Mask;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

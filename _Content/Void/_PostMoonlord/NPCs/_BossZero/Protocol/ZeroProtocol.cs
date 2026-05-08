@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Titles;
-using AAModClassic.Items.Boss.Zero;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -18,6 +17,7 @@ using AAModClassic.Utilities;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
 {
@@ -123,7 +123,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ZeroBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ZeroTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroTrophy>(), 10));
 

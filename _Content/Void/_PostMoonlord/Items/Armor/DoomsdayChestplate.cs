@@ -5,7 +5,6 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Boss.Zero;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 
 

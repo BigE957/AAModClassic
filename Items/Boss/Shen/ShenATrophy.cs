@@ -1,4 +1,4 @@
-using AAModClassic.Tiles.Trophy;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

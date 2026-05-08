@@ -29,6 +29,7 @@ using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos.__Hardmode.NPCs;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
@@ -156,6 +157,8 @@ using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
@@ -170,9 +173,7 @@ using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning;
-using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.Projectiles.Shen;
-using AAModClassic.Projectiles.Zero;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -1153,7 +1154,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<DoomsdayTesseract>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(),
+                        ModContent.ItemType<ZeroTrophy>(),
                         ModContent.ItemType<ZeroMask>(),
                         ModContent.ItemType<ZeroBox>()
                     },
@@ -1168,7 +1169,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<ERROR_NULL>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Zero.ZeroATrophy>()
+                        ModContent.ItemType<ZeroATrophy>()
                     },
                     ["customPortrait"] = GetPortrait("ZeroProtocol"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedZero && Main.expertMode)
@@ -1904,7 +1905,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<GameRaider>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Darksprayer>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Darksprayer>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Items.Boss.Zero.GenocideCannon>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<_Content.Void._PostMoonlord.Items._BossZero.Weapons.GenocideCannon>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Independence>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<YearOfTheDragon>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<YearOfTheDragon>(), true);
@@ -2108,7 +2109,7 @@ namespace AAModClassic.CrossMod
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Astroid_Proj>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Daycrusher_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EmperorFlairon_Holdout>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Flairdra_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<PerfectChaosChain_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<TheAvenger_Holdout>());

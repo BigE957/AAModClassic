@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using AAModClassic.Globals;
 using Terraria.ID;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Boss.Zero;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {

@@ -8,7 +8,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {

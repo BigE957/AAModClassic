@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles.Zero;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs
 {
@@ -63,7 +63,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-                    int projType = ModContent.ProjectileType<Neutralizer>();
+                    int projType = ModContent.ProjectileType<Neutralizer_DeathBeam>();
 
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                     {

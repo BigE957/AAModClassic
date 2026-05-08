@@ -1,4 +1,4 @@
-using AAModClassic.Projectiles.Zero;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -226,7 +226,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook
             if (Projectile.ai[0] == 0f)
             {
                 float scaleFactor3 = 8f;
-				int num658 = ModContent.ProjectileType<Neutralizer>();
+				int num658 = ModContent.ProjectileType<Neutralizer_DeathBeam>();
 				if (flag25 && Projectile.ai[1] == 0f)
 				{
 					Projectile.ai[1] += 1f;
