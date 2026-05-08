@@ -620,7 +620,8 @@ namespace AAModClassic
                     Main.projectile[projID].friendly = friendly;
                     Main.projectile[projID].hostile = hostile;
                 }
-                if (Main.netMode == NetmodeID.Server) MNet.SendBaseNetMessage(0, owner, projID, friendly, hostile);
+                if (Main.netMode == NetmodeID.Server)
+                    BaseNet.WriteToPacket(AAMod.instance.GetPacket(), 0, owner, projID, friendly, hostile).Send();
             }
             else
             if (msg == MsgType.SyncAI) //sync AI array

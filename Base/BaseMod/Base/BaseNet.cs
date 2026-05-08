@@ -1,3 +1,6 @@
+using AAModClassic.Projectiles;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Base.BaseMod.Base
@@ -44,7 +47,8 @@ namespace AAModClassic.Base.BaseMod.Base
             ai2[2] = (byte)aitype;
             ai2[3] = (byte)ai.Length;
             for(int m = 4; m < ai2.Length; m++){ ai2[m] = ai[m - 4]; }
-            MNet.SendBaseNetMessage(1, ai2);
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                BaseNet.WriteToPacket(AAMod.instance.GetPacket(), 1, ai2).Send();
         }
     }
 }

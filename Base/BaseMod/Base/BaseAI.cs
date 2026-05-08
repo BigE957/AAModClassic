@@ -2765,7 +2765,8 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 proj.friendly = (hostility == 1 || hostility == 2);
                 proj.hostile = (hostility == -1 || hostility == 2);
-                if (Main.netMode != NetmodeID.SinglePlayer) { MNet.SendBaseNetMessage(0, proj.owner, proj.identity, proj.friendly, proj.hostile); }
+                if (Main.netMode != NetmodeID.SinglePlayer)
+                    BaseNet.WriteToPacket(AAMod.instance.GetPacket(), 0, proj.owner, proj.identity, proj.friendly, proj.hostile).Send();
             }
             proj.netUpdate2 = true;
             Main.projectile[projectileID] = proj;
