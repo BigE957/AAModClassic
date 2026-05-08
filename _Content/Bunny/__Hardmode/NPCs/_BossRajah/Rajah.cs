@@ -9,7 +9,6 @@ using Terraria.ModLoader;
 using System.IO;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Potions;
 using AAModClassic.Globals;
 using AAModClassic.CrossMod;
 using Terraria.Localization;
@@ -27,6 +26,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
 {
@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
             NPC.knockBackResist = 0f;
             NPC.npcSlots = 1000f;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/Rajah");
+            NPC.DeathSound = new SoundStyle("Sounds/Rajah");
             NPC.value = Item.sellPrice(0, 1, 10, 0);
             NPC.boss = true;
             NPC.netAlways = true;
@@ -113,7 +113,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
         public void Roar(int timer)
         {
             roarTimer = timer;
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
+            SoundEngine.PlaySound(new SoundStyle("Sounds/Rajah"), NPC.Center);
         }
 
         public Vector2 WeaponPos;
@@ -1135,17 +1135,17 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
             string path = isSupreme ? "/_PostMoonlord/NPCs/_BossRajahA/Supreme" : "/__Hardmode/NPCs/_BossRajah/";
             if (internalAI[1] == 0)
             {
-                RajahTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny" + path + "Rajah" + IsRoaring + "_Fly").Value;
-                Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Rajah" + IsRoaring + "_Fly_Glow").Value;
-                SupremeGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Glow").Value;
-                SupremeEyes = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Eyes").Value;
+                RajahTex = ModContent.Request<Texture2D>("_Content/Bunny" + path + "Rajah" + IsRoaring + "_Fly").Value;
+                Glow = ModContent.Request<Texture2D>("Glowmasks/Rajah" + IsRoaring + "_Fly_Glow").Value;
+                SupremeGlow = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Glow").Value;
+                SupremeEyes = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Eyes").Value;
             }
             else
             {
-                RajahTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny" + path + "Rajah" + IsRoaring).Value;
-                Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Rajah" + IsRoaring + "_Glow").Value;
-                SupremeGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Glow").Value;
-                SupremeEyes = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Eyes").Value;
+                RajahTex = ModContent.Request<Texture2D>("_Content/Bunny" + path + "Rajah" + IsRoaring).Value;
+                Glow = ModContent.Request<Texture2D>("Glowmasks/Rajah" + IsRoaring + "_Glow").Value;
+                SupremeGlow = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Glow").Value;
+                SupremeEyes = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Eyes").Value;
             }
         }
         public float auraPercent = 0f;
@@ -1173,14 +1173,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
             }
             if (NPC.ai[3] != 0 && NPC.ai[3] < 6) //If holding a weapon
             {
-                ArmTex = ModContent.Request<Texture2D>("AAModClassic/" + WeaponTexture()).Value;
+                ArmTex = ModContent.Request<Texture2D>(WeaponTexture()).Value;
                 Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
                 BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
             }
             BaseDrawing.DrawTexture(spriteBatch, RajahTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, drawColor, true);
             if (NPC.ai[3] == 6) //If Rabbits Wrath
             {
-                ArmTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/NPCs/_BossRajahA/RabbitsWrath").Value;
+                ArmTex = ModContent.Request<Texture2D>("_Content/Bunny/_PostMoonlord/NPCs/_BossRajahA/RabbitsWrath").Value;
                 Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
                 BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
             }

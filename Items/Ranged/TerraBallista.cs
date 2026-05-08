@@ -1,5 +1,5 @@
 using System;
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Ranged
 	        Recipe recipe = CreateRecipe();
 	        recipe.AddIngredient(ModContent.ItemType<TrueDeathlyLongbow>());
             recipe.AddIngredient(ItemID.HallowedRepeater);
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 	        recipe.Register();
 	    }

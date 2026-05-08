@@ -1,5 +1,7 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
@@ -8,6 +10,7 @@ using AAModClassic._Content.Crimson.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Crimson.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.Dungeon.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
@@ -42,15 +45,12 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
-using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Mushrooms;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Vanity.Alphakip;
 using AAModClassic.Items.Vanity.Anarchy;
@@ -782,7 +782,7 @@ namespace AAModClassic
 
                 // Rainbow recipes
                 recipe = GetNewRecipe(potion.Item1);
-                recipe.AddIngredient(ModContent.ItemType<Rainbow>());
+                recipe.AddIngredient(ModContent.ItemType<RainbowMushroom>());
                 recipe.AddIngredient(ItemID.BottledWater);
                 recipe.AddTile(TileID.Bottles);
                 recipe.Register();
@@ -792,7 +792,6 @@ namespace AAModClassic
         private static void AddModdedMushroomPotionRecipes()
         {
             #region GRealm
-
             if (ModLoader.TryGetMod("Grealm", out var GRealm))
             {
                 // Potion created, mushrooms required, amount of mushrooms required
@@ -831,7 +830,7 @@ namespace AAModClassic
 
                     // Rainbow recipes
                     recipe = GetNewRecipe(GRealm, potion.Item1);
-                    recipe.AddIngredient(ModContent.ItemType<Rainbow>());
+                    recipe.AddIngredient(ModContent.ItemType<RainbowMushroom>());
                     if (potion.Item1 == "BloodbathPotion" || potion.Item1 == "ChitinPotion")
                     {
                         recipe.AddIngredient(ItemID.BottledWater);

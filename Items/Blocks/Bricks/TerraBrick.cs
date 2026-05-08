@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Tiles.Bricks;
 using Terraria;
 using Terraria.ID;
@@ -31,7 +31,7 @@ public class TerraBrick : BaseAAItem
 	{
 		Recipe val = CreateRecipe(300);
 		val.AddIngredient(ModContent.ItemType<KeepBrick>(), 300);
-		val.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
+		val.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
 		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}

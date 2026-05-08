@@ -9,7 +9,6 @@ using AAModClassic.Items.Vanity.Aves;
 using AAModClassic.Items.Vanity.Hallam;
 using AAModClassic.Items.Vanity.Fazer;
 using AAModClassic.Items.Vanity.Moon;
-using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Shox;
 using Terraria.Localization;
@@ -23,6 +22,7 @@ using AAModClassic.Items.Vanity.Blazen;
 using AAModClassic.Items.Vanity.Cerberus;
 using AAModClassic.Items.Vanity.CC;
 using AAModClassic.Items.Vanity.Beg;
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
@@ -332,7 +332,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 
 		public override void OnKill()
 		{
-			Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<MudkipBall>());
+			Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<MudFishBall>());
 		}
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)

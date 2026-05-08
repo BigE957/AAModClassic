@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Boss;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Ranged
 {

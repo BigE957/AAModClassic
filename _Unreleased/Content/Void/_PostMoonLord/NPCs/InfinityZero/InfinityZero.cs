@@ -1,9 +1,9 @@
-﻿using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss;
-using AAModClassic.Items.Potions;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;

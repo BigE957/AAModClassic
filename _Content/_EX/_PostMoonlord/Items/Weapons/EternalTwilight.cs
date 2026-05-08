@@ -4,8 +4,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

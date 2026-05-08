@@ -1,10 +1,9 @@
-using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -20,6 +19,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaA;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -110,7 +110,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.frame = BaseDrawing.GetFrame(0, frameWidth, frameHeight, 0, 2);
             frameBottom = BaseDrawing.GetFrame(frameCount, frameWidth, 54, 0, 2);
             frameHead = BaseDrawing.GetFrame(frameCount, frameWidth, 118, 0, 2);
-            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
+            NPC.DeathSound = new SoundStyle("Sounds/YamataRoar");
             NPC.chaseable = false;
             NPC.value = Item.sellPrice(0, 40, 0, 0);
             Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
@@ -220,7 +220,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadMoonRune>()));
 
-            LeadingConditionRule shenDefeated = new(new AkumaA.ShenDefeated());
+            LeadingConditionRule shenDefeated = new(new ShenDefeated());
 
             shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
 
@@ -1004,11 +1004,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 string texRoot = "NPCs/Bosses/Yamata/Awakened/YamataA";
                 textures = new Texture2D[5];
-                textures[0] = mod.GetTexture(texRoot + "LegCap");
-                textures[1] = mod.GetTexture(texRoot + "LegSegment");
-                textures[2] = mod.GetTexture(texRoot + "LegCapR");
-                textures[3] = mod.GetTexture(texRoot + "LegSegmentR");
-                textures[4] = mod.GetTexture(texRoot + "Foot");
+                textures[0] = ModContent.Request<Texture2D>(texRoot + "LegCap");
+                textures[1] = ModContent.Request<Texture2D>(texRoot + "LegSegment");
+                textures[2] = ModContent.Request<Texture2D>(texRoot + "LegCapR");
+                textures[3] = ModContent.Request<Texture2D>(texRoot + "LegSegmentR");
+                textures[4] = ModContent.Request<Texture2D>(texRoot + "Foot");
             }
             Vector2 drawPos = position - new Vector2(0f, velOffsetY);
             Color lightColor = npc.GetAlpha(BaseDrawing.GetLightColor(Center));

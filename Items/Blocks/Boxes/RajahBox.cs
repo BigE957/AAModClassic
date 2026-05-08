@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Potions;
+using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

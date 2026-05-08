@@ -9,7 +9,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Potions;
 using AAModClassic.Globals;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
@@ -24,6 +23,7 @@ using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenAH;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Projectiles;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 {
@@ -59,7 +59,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/ShenRoar");
+            NPC.DeathSound = new SoundStyle("Sounds/ShenRoar");
             Music = MusicManagementSystem.MusicSlots["Shen"];
             SceneEffectPriority = (SceneEffectPriority)11;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -136,7 +136,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             }
             else
             {
-                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ShenRoar"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("Sounds/ShenRoar"), NPC.Center);
             }
         }
 
@@ -868,8 +868,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D currentTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlue").Value : TextureAssets.Npc[NPC.type].Value;
-            Texture2D currentWingTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlueWings").Value : ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonWings").Value;
+            Texture2D currentTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlue").Value : TextureAssets.Npc[NPC.type].Value;
+            Texture2D currentWingTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlueWings").Value : ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonWings").Value;
 
             //offset
             NPC.position.Y += 130f;

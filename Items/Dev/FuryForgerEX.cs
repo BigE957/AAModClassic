@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Projectiles;
-using AAModClassic.Items.Boss;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Dev
@@ -36,7 +36,7 @@ Fury Forger EX"); */
 		
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Forge"), player.Center);
+            SoundEngine.PlaySound(new SoundStyle("Sounds/Forge"), player.Center);
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(player.velocity.X, player.velocity.Y) - spread / 2;
             double deltaAngle = spread / 12f;

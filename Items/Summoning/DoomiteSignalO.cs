@@ -1,5 +1,5 @@
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Buffs;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -63,7 +63,7 @@ namespace AAModClassic.Items.Summoning
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<DoomiteSignalC>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

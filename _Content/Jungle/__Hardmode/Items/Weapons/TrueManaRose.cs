@@ -1,6 +1,6 @@
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Materials;
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -70,7 +70,7 @@ Right Clicking fires a piercing rose"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ManaRose>(), 1);
             recipe.AddIngredient(ModContent.ItemType<PlanteraPetal>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

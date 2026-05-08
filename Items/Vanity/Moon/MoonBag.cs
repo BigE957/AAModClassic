@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Items.Vanity.Moon.Shiny;
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 
 namespace AAModClassic.Items.Vanity.Moon
 {
@@ -32,7 +33,7 @@ namespace AAModClassic.Items.Vanity.Moon
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonWings>());
             }
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<Pets.LunaminiJar>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonBeeInAJar>());
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonHood>());

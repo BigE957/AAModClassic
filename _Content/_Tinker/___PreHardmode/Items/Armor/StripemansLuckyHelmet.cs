@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
-using AAModClassic.Items.Potions;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 
 
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor

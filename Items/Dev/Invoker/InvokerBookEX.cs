@@ -5,8 +5,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using AAModClassic.Items.Vanity.Cerberus;
-using AAModClassic.Items.Boss;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.Items.Dev.Invoker
 {

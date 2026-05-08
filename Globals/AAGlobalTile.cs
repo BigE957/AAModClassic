@@ -5,8 +5,6 @@ using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles.Plants;
-using AAModClassic.Items.Potions.LuckyPotions;
 using AAModClassic.Tiles;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Tiles.Altar;
@@ -19,6 +17,9 @@ using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria.ModLoader.IO;
 using System.Linq;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
+using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPotions;
 
 namespace AAModClassic.Globals
 {
@@ -254,9 +255,9 @@ namespace AAModClassic.Globals
                 {
                     int style = Main.rand.Next(5);
 
-                    if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), false, style))
+                    if (PlaceObject(i, j - 1, ModContent.TileType<MadnessMushroom_Tile>(), false, style))
                     {
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), style, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessMushroom_Tile>(), style, 0, -1, -1);
                     }
                 }
             }
@@ -411,7 +412,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyIronskinPotion>();
+                            int rarepotion = ModContent.ItemType<LuckyIronskinPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -431,7 +432,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckySwiftnessPotion>();
+                            int rarepotion = ModContent.ItemType<LuckySwiftnessPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -447,7 +448,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyCalmingPotion>();
+                            int rarepotion = ModContent.ItemType<LuckyCalmingPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -485,7 +486,7 @@ namespace AAModClassic.Globals
                         {
                             if(Main.rand.NextBool(100))
                             {
-                                int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckySummoningPotion>();
+                                int rarepotion = ModContent.ItemType<LuckySummoningPotion>();
                                 itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                             }
                             else
@@ -497,7 +498,7 @@ namespace AAModClassic.Globals
                         {
                             if(Main.rand.NextBool(100))
                             {
-                                int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyThornsPotion>();
+                                int rarepotion = ModContent.ItemType<LuckyThornsPotion>();
                                 itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                             }
                             else
@@ -518,7 +519,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyRegenerationPotion>();
+                            int rarepotion = ModContent.ItemType<LuckyRegenerationPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -538,7 +539,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckySwiftnessPotion>();
+                            int rarepotion = ModContent.ItemType<LuckySwiftnessPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -570,7 +571,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyEndurancePotion>();
+                            int rarepotion = ModContent.ItemType<LuckyEndurancePotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -614,7 +615,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyThornsPotion>();
+                            int rarepotion = ModContent.ItemType<LuckyThornsPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -694,7 +695,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyThornsPotion>();
+                            int rarepotion = ModContent.ItemType<LuckyThornsPotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -726,7 +727,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.NextBool(100))
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyRagePotion>();
+                            int rarepotion = ModContent.ItemType<LuckyRagePotion>();
                             itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
@@ -740,7 +741,7 @@ namespace AAModClassic.Globals
                         {
                             if(Main.rand.NextBool(100))
                             {
-                                int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyLifeforcePotion>();
+                                int rarepotion = ModContent.ItemType<LuckyLifeforcePotion>();
                                 itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                             }
                             else

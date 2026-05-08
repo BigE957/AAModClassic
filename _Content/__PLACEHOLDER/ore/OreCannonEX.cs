@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Boss;
 using AAModClassic._Content.__PLACEHOLDER.ore.projs;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore
 {

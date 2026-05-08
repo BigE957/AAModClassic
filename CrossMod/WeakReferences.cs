@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.__PLACEHOLDER.ore;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Weapons;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Weapons;
@@ -163,7 +164,6 @@ using AAModClassic.Items.Boss.EFish;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Dev;
 using AAModClassic.Items.Materials;
-using AAModClassic.Items.Potions;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Throwing;
