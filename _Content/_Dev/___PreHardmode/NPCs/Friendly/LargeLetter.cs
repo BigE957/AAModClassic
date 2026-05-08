@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAModClassic.Items.Dev;
 using AAModClassic.Items.Vanity.Delly;
 using AAModClassic.Items.Vanity.Aves;
 using AAModClassic.Items.Vanity.Hallam;
@@ -24,6 +23,7 @@ using AAModClassic.Items.Vanity.Cerberus;
 using AAModClassic.Items.Vanity.CC;
 using AAModClassic.Items.Vanity.Beg;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
+using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 {

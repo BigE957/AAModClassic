@@ -1,4 +1,4 @@
-using AAModClassic.Items.Dev.RuneBook;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
 using Terraria;
 using Terraria.ModLoader;
 

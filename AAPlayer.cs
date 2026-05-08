@@ -1,5 +1,8 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
+using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
+using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
 using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories;
@@ -56,9 +59,6 @@ using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Terra.Projectiles;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Dev;
-using AAModClassic.Items.Dev.RuneBook;
-using AAModClassic.Items.Dev.Tools;
 using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Apawn;
@@ -1826,7 +1826,7 @@ namespace AAModClassic
                 float slotscanuse = Player.maxMinions - Player.slotsMinions;
                 if (slotscanuse > 1)
                 {
-                    bool RuneControl = Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>()] > 1;
+                    bool RuneControl = Player.ownedProjectileCounts[ModContent.ProjectileType<BunnyRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<DiscordRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<EnergyRune>()] > 1;
                     bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] > 1;
                     if (RuneControl || RuneControlEX)
                     {
@@ -1838,17 +1838,17 @@ namespace AAModClassic
                     }
                     if (CCBook)
                     {
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>()] < 1 && slotscanuse > 1f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<BunnyRune>()] < 1 && slotscanuse > 1f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<BunnyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>()] < 1 && slotscanuse > 2f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<DiscordRune>()] < 1 && slotscanuse > 2f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(50), 4f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<DiscordRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(50), 4f, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>()] < 1 && slotscanuse > 3f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<EnergyRune>()] < 1 && slotscanuse > 3f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(100), 2f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<EnergyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(100), 2f, Player.whoAmI, 0f, 0f);
                         }
                     }
                     if (CCBookEX)

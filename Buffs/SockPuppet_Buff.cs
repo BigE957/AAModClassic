@@ -1,4 +1,4 @@
-using AAModClassic.Items.Dev.Minions;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<SockPuppet>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<SockStaff_SockPuppet>()] > 0)
 			{
 				modPlayer.Sock = true;
 			}

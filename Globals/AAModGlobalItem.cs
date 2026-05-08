@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Boss.Akuma;
-using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Blocks;
@@ -29,6 +28,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
+using AAModClassic._Content._Dev.Invoker;
 
 namespace AAModClassic.Globals
 {

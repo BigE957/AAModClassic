@@ -1,4 +1,4 @@
-using AAModClassic.Items.Dev.Minions;
+using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Squirrel1>()] + player.ownedProjectileCounts[ModContent.ProjectileType<Squirrel2>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<MagicAcorn_Squirrel1>()] + player.ownedProjectileCounts[ModContent.ProjectileType<MagicAcorn_Squirrel2>()] > 0)
 			{
 				modPlayer.Squirrel = true;
 			}

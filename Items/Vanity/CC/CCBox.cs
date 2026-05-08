@@ -1,6 +1,6 @@
+using AAModClassic._Content._Dev.World.Tiles;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
-using AAModClassic.Items.Dev.DevTile.Tiles;
 using AAModClassic.Items.Vanity.CC.Shiny;
 using Terraria;
 using Terraria.ID;

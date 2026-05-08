@@ -1,8 +1,8 @@
+using AAModClassic._Content._Dev.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Terrarium.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Dev.DevTile.Tiles;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Tiles.Furniture.Keep;
 using AAModClassic.Tiles.Furniture.Terra;

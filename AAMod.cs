@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.Invoker;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
@@ -46,7 +47,6 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Projectiles;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
@@ -508,9 +508,9 @@ namespace AAModClassic
             ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligulaLegs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligulaLegs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Head", EquipType.Head, name: "onoHead", equipTexture: new Items.Vanity.Ohno.OnoHead());
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Body", EquipType.Body, name: "onoBody", equipTexture: new Items.Vanity.Ohno.OnoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;

@@ -1,4 +1,4 @@
-using AAModClassic.Items.Dev.Invoker;
+using AAModClassic._Content._Dev.Invoker;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
