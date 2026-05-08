@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
-using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

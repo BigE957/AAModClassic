@@ -1543,3 +1543,13 @@ RoninPotion_Buff: {
 	DisplayName: Ronin Potion_ Buff
 	Description: Mods.AAModClassic.Buffs.RoninPotion_Buff.Description
 }
+
+DynaskullJavelin_DynaEnergy: {
+	DisplayName: Dynaskull Javelin_ Dyna Energy
+	Description: Mods.AAModClassic.Buffs.DynaskullJavelin_DynaEnergy.Description
+}
+
+PrimevalJavelin_DynaEnergy: {
+	DisplayName: Primeval Javelin_ Dyna Energy
+	Description: Mods.AAModClassic.Buffs.PrimevalJavelin_DynaEnergy.Description
+}

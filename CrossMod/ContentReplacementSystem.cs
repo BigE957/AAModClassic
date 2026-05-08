@@ -28,7 +28,6 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Ranged;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -86,7 +85,7 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<MushiumBar>(),
             ModContent.ItemType<Mushmace>(),
             ModContent.ItemType<Musharang>(),
-            ModContent.ItemType<Mushbow>(),
+            ModContent.ItemType<MushroomBow>(),
             ModContent.ItemType<Mushpick>(),
             ModContent.ItemType<Mushmallet>(),
 

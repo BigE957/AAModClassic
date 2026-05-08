@@ -5,7 +5,6 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

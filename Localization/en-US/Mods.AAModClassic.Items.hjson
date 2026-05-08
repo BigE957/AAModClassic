@@ -11274,3 +11274,58 @@ SporeBag: {
 	DisplayName: Spore Bag
 	Tooltip: ""
 }
+
+PerfectChaosBustershot: {
+	DisplayName: Perfect Chaos Bustershot
+	Tooltip: ""
+}
+
+PerfectChaosJavelin: {
+	DisplayName: Perfect Chaos Javelin
+	Tooltip: ""
+}
+
+FlareMinigun: {
+	DisplayName: Flare Minigun
+	Tooltip: ""
+}
+
+HKMP5: {
+	DisplayName: H K M P5
+	Tooltip: ""
+}
+
+GlowingSporeBag: {
+	DisplayName: Glowing Spore Bag
+	Tooltip: ""
+}
+
+DragonsSpine: {
+	DisplayName: Dragons Spine
+	Tooltip: ""
+}
+
+MushroomBow: {
+	DisplayName: Mushroom Bow
+	Tooltip: ""
+}
+
+DoomPistol: {
+	DisplayName: Doom Pistol
+	Tooltip: ""
+}
+
+EnergyCell: {
+	DisplayName: Energy Cell
+	Tooltip: ""
+}
+
+LaserRifle: {
+	DisplayName: Laser Rifle
+	Tooltip: ""
+}
+
+AlienRifle: {
+	DisplayName: Alien Rifle
+	Tooltip: ""
+}

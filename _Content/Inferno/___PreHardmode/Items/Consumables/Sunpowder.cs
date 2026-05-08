@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +10,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
     {
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<Projectiles.Sunpowder>();
+            Item.shoot = ModContent.ProjectileType<Sunpowder_Proj>();
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 4f;
             Item.width = 16;

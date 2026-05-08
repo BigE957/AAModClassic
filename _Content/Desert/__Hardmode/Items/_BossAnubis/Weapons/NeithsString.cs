@@ -3,8 +3,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Items.Ranged;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {

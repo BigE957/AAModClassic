@@ -3,7 +3,6 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
-using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
 using Terraria.GameContent.ItemDropRules;
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Consumables
             (
                 1,
                 ModContent.ItemType<Voidsaber>(),
-                ModContent.ItemType<DoomGun>(),
+                ModContent.ItemType<DoomPistol>(),
                 ModContent.ItemType<DoomStaff>(),
                 ModContent.ItemType<ProbeControlUnit>()
             )

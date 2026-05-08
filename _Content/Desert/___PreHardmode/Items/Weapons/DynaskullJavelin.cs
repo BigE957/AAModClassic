@@ -1,4 +1,6 @@
-using AAModClassic.Items.Ranged;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,7 +41,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.BoneJavelin, 500);
-            recipe.AddIngredient(ModContent.ItemType<DragonSpine>(), 500);
+            recipe.AddIngredient(ModContent.ItemType<DragonsSpine>(), 500);
             recipe.AddIngredient(ModContent.ItemType<Winterbreak>(), 500);
             recipe.AddIngredient(ModContent.ItemType<Incapacitator>(), 500);
             recipe.AddTile(TileID.DemonAltar);

@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Ranged;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Boss.Akuma
 {

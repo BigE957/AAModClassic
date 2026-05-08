@@ -1,4 +1,6 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
@@ -9,7 +11,6 @@ using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Dungeon.__Hardmode.Items.Materials;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
@@ -31,6 +32,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Materials;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency;
+using AAModClassic._Content.MartianMadness.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night;
@@ -64,8 +66,6 @@ using AAModClassic._Content.Void._PostMoonlord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Materials;
-using AAModClassic.Items.Ranged;
-using AAModClassic.Items.Ranged.Ammo;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Usable;
 using AAModClassic.Utilities;
@@ -441,26 +441,26 @@ namespace AAModClassic.Globals
 
             if (npc.type == NPCID.Probe)
             {
-                npc.DropLoot(ModContent.ItemType<Energy_Cell>(), Main.rand.Next(3, 12));
+                npc.DropLoot(ModContent.ItemType<EnergyCell>(), Main.rand.Next(3, 12));
             }
 
             if (npc.type == NPCID.TheDestroyer)
             {
-                npc.DropLoot(ModContent.ItemType<Energy_Cell>(), Main.rand.Next(8, 16));
+                npc.DropLoot(ModContent.ItemType<EnergyCell>(), Main.rand.Next(8, 16));
 
                 if (Main.rand.NextFloat() < .34f)
                 {
-                    npc.DropLoot(ModContent.ItemType<Laser_Rifle>());
+                    npc.DropLoot(ModContent.ItemType<LaserRifle>());
                 }
             }
 
             if (npc.type == NPCID.SkeletronPrime)
             {
-                npc.DropLoot(ModContent.ItemType<Energy_Cell>(), Main.rand.Next(8, 16));
+                npc.DropLoot(ModContent.ItemType<EnergyCell>(), Main.rand.Next(8, 16));
 
                 if (Main.rand.NextFloat() < .34f)
                 {
-                    npc.DropLoot(ModContent.ItemType<Laser_Rifle>());
+                    npc.DropLoot(ModContent.ItemType<LaserRifle>());
                 }
             }
 
@@ -468,7 +468,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .1f)
                 {
-                    npc.DropLoot(ModContent.ItemType<HK_MP5>());
+                    npc.DropLoot(ModContent.ItemType<HKMP5>());
                 }
             }
 
@@ -476,7 +476,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .12f)
                 {
-                    npc.DropLoot(ModContent.ItemType<Alien_Rifle>());
+                    npc.DropLoot(ModContent.ItemType<AlienRifle>());
                 }
 
                 if (Main.rand.NextFloat() < .03f)

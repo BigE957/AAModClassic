@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,7 +16,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
 
 		public override void SetDefaults()
 		{
-			Item.shoot = ModContent.ProjectileType<Projectiles.OrangeSolution>() - ProjectileID.PureSpray;
+			Item.shoot = ModContent.ProjectileType<OrangeSolution_Proj>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

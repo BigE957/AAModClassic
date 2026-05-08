@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AAModClassic._Content.Inferno.Projectiles;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

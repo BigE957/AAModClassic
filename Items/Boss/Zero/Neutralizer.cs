@@ -6,8 +6,8 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Ranged;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Boss.Zero
 {

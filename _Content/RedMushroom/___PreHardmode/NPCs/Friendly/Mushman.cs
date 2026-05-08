@@ -12,9 +12,9 @@ using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
-using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {

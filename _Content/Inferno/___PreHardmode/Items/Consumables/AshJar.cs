@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -16,7 +17,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
             Item.consumable = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = ModContent.ProjectileType<Projectiles.OrangeSolution>();
+            Item.shoot = ModContent.ProjectileType<OrangeSolution_Proj>();
             Item.shootSpeed = 1f;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 0, 1, 0);
@@ -47,7 +48,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<Projectiles.OrangeSolution>();
+                Item.shoot = ModContent.ProjectileType<OrangeSolution_Proj>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

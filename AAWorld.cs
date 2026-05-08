@@ -22,7 +22,6 @@ using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Tiles.Chests;
-using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Walls.Bricks;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
@@ -76,6 +75,7 @@ using AAModClassic._Content.Hell.World.Biomes;
 using AAModClassic.Conversions;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
 
 namespace AAModClassic
 {
@@ -1083,7 +1083,7 @@ namespace AAModClassic
                 }
                 else if (ChestNumber == 1)
                 {
-                    VoidLoot(ModContent.ItemType<DoomGun>(), chest);
+                    VoidLoot(ModContent.ItemType<DoomPistol>(), chest);
                 }
                 else if (ChestNumber == 2)
                 {

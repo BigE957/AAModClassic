@@ -1146,6 +1146,7 @@ SnakeStaff_SerpentBody.DisplayName: Snake Staff_ Serpent Body
 SnakeStaff_SerpentHead.DisplayName: Snake Staff_ Serpent Head
 SnakeStaff_SerpentTail.DisplayName: Snake Staff_ Serpent Tail
 SnowflakeShuriken_Proj.DisplayName: Snowflake Shuriken_ Proj
+Snowflake.DisplayName: Snowflake
 ArtifactOfJudgement_EyeOfJudgement.DisplayName: Artifact Of Judgement_ Eye Of Judgement
 DesertStaff_DesertBlast.DisplayName: Desert Staff_ Desert Blast
 DesertStaff_FragBlast.DisplayName: Desert Staff_ Frag Blast
@@ -1400,3 +1401,37 @@ DarkmatterSpinblade_EnergyBlade.DisplayName: Darkmatter Spinblade_ Energy Blade
 DarkmatterSpinblade_Proj.DisplayName: Darkmatter Spinblade_ Proj
 PurityFlask_Proj.DisplayName: Purity Flask_ Proj
 VoidFlask_Proj.DisplayName: Void Flask_ Proj
+PerfectChaosBustershot_ChaosShot1.DisplayName: Perfect Chaos Bustershot_ Chaos Shot1
+PerfectChaosBustershot_ChaosShot2.DisplayName: Perfect Chaos Bustershot_ Chaos Shot2
+PerfectChaosBustershot_ChaosShot3.DisplayName: Perfect Chaos Bustershot_ Chaos Shot3
+PerfectChaosJavelin_PerfectChaosBlast.DisplayName: Perfect Chaos Javelin_ Perfect Chaos Blast
+PerfectChaosJavelin_Proj.DisplayName: Perfect Chaos Javelin_ Proj
+SharkLauncher_Shark.DisplayName: Shark Launcher_ Shark
+M79Round_Proj.DisplayName: M79 Round_ Proj
+ChaosBustershot_ChaosShot1.DisplayName: Chaos Bustershot_ Chaos Shot1
+ChaosJavelin_ChaosBlast.DisplayName: Chaos Javelin_ Chaos Blast
+FossilBoneslinger_AmberArrow.DisplayName: Fossil Boneslinger_ Amber Arrow
+GlowingSporeBag_Proj.DisplayName: Glowing Spore Bag_ Proj
+TheVulcano_FlareOfEvil.DisplayName: The Vulcano_ Flare Of Evil
+TheVulcano_VulcanExplosion.DisplayName: The Vulcano_ Vulcan Explosion
+DragonsSpine_Proj.DisplayName: Dragons Spine_ Proj
+Bubbleshot_FuckingBubbles.DisplayName: Bubbleshot_ Fucking Bubbles
+OceanWhaler_OceanHarpoon.DisplayName: Ocean Whaler_ Ocean Harpoon
+DoomiteAssaultBlaster_DoomiteVortex.DisplayName: Doomite Assault Blaster_ Doomite Vortex
+DoomiteHolobow_HoloArrow.DisplayName: Doomite Holobow_ Holo Arrow
+Incapacitator_Proj.DisplayName: Incapacitator_ Proj
+SingularityCannon_Singularity.DisplayName: Singularity Cannon_ Singularity
+DragonArrow_Proj.DisplayName: Dragon Arrow_ Proj
+OrangeSolution_Proj.DisplayName: Orange Solution_ Proj
+Sunpowder_Proj.DisplayName: Sunpowder_ Proj
+EnergyCell_Proj.DisplayName: Energy Cell_ Proj
+ChaosArrow_Proj.DisplayName: Chaos Arrow_ Proj
+ReaperArrow_Proj.DisplayName: Reaper Arrow_ Proj
+DragonfireArrow_Proj.DisplayName: Dragonfire Arrow_ Proj
+DragonfireBullet_Proj.DisplayName: Dragonfire Bullet_ Proj
+DragonfireDart_Proj.DisplayName: Dragonfire Dart_ Proj
+DaybreakBullet_Proj.DisplayName: Daybreak Bullet_ Proj
+ElectricityShard_Proj.DisplayName: Electricity Shard_ Proj
+DarkmatterArrow_Proj.DisplayName: Darkmatter Arrow_ Proj
+RadiumArrow_Proj.DisplayName: Radium Arrow_ Proj
+TerraArrow_Proj.DisplayName: Terra Arrow_ Proj

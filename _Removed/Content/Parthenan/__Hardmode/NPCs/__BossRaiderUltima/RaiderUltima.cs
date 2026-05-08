@@ -7,7 +7,6 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

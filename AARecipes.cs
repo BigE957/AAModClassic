@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
-using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;

@@ -21,7 +21,7 @@ base
 -removed the old ones charms hotkey effect as it is redundant
 -tiershifted dynaskull ore; it now generates post-evils. every recipe that previously used sturdy fossil now uses 2x dynaskull ore
 --1.4 tiershifted fossil ore, this keeps everything in line with intended balance
--tiershifted hero relic; all aa items that use broken hero swords now use hero relics (except for the true copper and tin shortswords). they can no longer be crafted from broken hero swords, and now drop from frankensteins and swamp things after all 3 mechs have been defeated. a main.newtext message has been added to telegraph this
+-tiershifted hero relics; all aa items that use broken hero swords now use hero relics (except for the true copper and tin shortswords). they can no longer be crafted from broken hero swords, and now drop from frankensteins and swamp things after all 3 mechs have been defeated. a main.newtext message has been added to telegraph this
 --ditto but for broken hero sword
 -turned the material transmuter into a vanity tile named the ritual altar. certain functionality from it has been distributed across shimmer and the chlorophyte extractinator
 --nearly all of its recipes were made redundant by time. some recipes without any analogue have been removed as the intent with this change was closer to vanilla parity rather than preserving the function of the tile. if you really want to convert cursed flames to ichor, install fargos
@@ -29,6 +29,7 @@ base
 -renamed "Dragon's Breath" (the prehm inferno tome) to "Blazing Breath" to prevent confusion with The Dragon's Breath (the hardmode yoyo)
 -the mushman is now locked to hardmode, as strange plants were made hardmode exclusive in 1.4
 -grand healing and mana potions are now crafted in groups of 4
+-order solution is now only sold by the samurai in hardmode
 -
 
 removed

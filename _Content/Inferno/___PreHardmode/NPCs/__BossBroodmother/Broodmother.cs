@@ -6,7 +6,6 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Ranged;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
