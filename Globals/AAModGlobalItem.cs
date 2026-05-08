@@ -28,6 +28,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Globals
 {

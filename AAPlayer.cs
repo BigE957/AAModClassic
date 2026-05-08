@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
 using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories;
@@ -56,7 +57,6 @@ using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Armor.Terra.Projectiles;
 using AAModClassic.Items.Boss.Akuma;
 using AAModClassic.Items.Dev;
-using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Items.Dev.RuneBook;
 using AAModClassic.Items.Dev.Tools;
 using AAModClassic.Items.Potions;

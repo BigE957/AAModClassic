@@ -19,11 +19,11 @@ using AAModClassic.Items.Vanity.Alphakip;
 using AAModClassic.Items.Vanity.Dallin;
 using AAModClassic.Items.Vanity.Gibs;
 using AAModClassic.Items.Vanity.Charlie;
-using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Items.Vanity.Blazen;
 using AAModClassic.Items.Vanity.Cerberus;
 using AAModClassic.Items.Vanity.CC;
 using AAModClassic.Items.Vanity.Beg;
+using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 {

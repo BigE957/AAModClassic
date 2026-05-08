@@ -1,4 +1,3 @@
-using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -6,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Dev
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
     public class GameRaider : BaseAAItem
     {
@@ -31,7 +30,7 @@ namespace AAModClassic.Items.Dev
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 25f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.GameRocket>();
+            Item.shoot = ModContent.ProjectileType<GameRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
         }

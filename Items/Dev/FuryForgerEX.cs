@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Projectiles;
 using AAModClassic.Items.Boss;
+using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Dev
 {

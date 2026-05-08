@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Dev
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
     public class PineBreaker : BaseAAItem
 	{
@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Dev
 			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Pine>();
+			Item.shoot = ModContent.ProjectileType<Pine>();
 			Item.shootSpeed = 9f;
             Item.expert = true; 
             Item.expertOnly = true;

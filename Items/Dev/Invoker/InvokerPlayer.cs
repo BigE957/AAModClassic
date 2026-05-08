@@ -13,6 +13,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Dev.Invoker
 {

@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic.Buffs;
+using AAModClassic.Items.Dev.Invoker;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Dev.Invoker
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
 	public class InvokerStaff : BanishDamageItem
 	{

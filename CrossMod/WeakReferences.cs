@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.__PLACEHOLDER.ore;
+using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Weapons;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;

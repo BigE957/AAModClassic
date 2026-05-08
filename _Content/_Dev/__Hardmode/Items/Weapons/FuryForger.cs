@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System;
 using AAModClassic.Projectiles;
 
-namespace AAModClassic.Items.Dev
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
     public class FuryForger : BaseAAItem
 	{

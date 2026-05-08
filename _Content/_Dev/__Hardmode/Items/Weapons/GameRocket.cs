@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
     public class GameRocket : ModProjectile
 	{
