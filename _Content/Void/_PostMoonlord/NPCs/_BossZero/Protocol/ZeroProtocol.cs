@@ -194,7 +194,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
             }
             if (NPC.life <= 0 && !Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.Cheat"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.Cheat"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
         }
 
@@ -528,7 +528,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
                         
                         if (NPC.ai[1]++ == 100)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.4"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.4"), Color.Red.R, Color.Red.G, Color.Red.B);
                             if (ShootDir == new Vector2(0,0)) ShootDir = NPC.DirectionTo(player.Center);
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 60f * ShootDir, 10f * ShootDir, ModContent.ProjectileType<EchoRay>(), 100, 3f, Main.myPlayer, 0, NPC.whoAmI);
                             NPC.ai[3] = 1f;
@@ -570,16 +570,16 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
             {
                 if(NPC.ai[2] == 10)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.1"), Color.Red.R, Color.Red.G, Color.Red.B);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.2"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.1"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.2"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 if(NPC.ai[2] == 40)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3").WithFormatArgs(Main.SavePath.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3").WithFormatArgs(Main.SavePath.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 if(NPC.ai[2] == 110)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(@"[Y]", Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(@"[Y]", Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI/2;
                 if(NPC.ai[2] % (NPC.life < NPC.lifeMax / 2? 60:80) == 20)
@@ -703,11 +703,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
                     {
                         if (player.dead || !player.active)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Kill"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Kill"), Color.Red.R, Color.Red.G, Color.Red.B);
                         }
                         else if (tooFar)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Despawn"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Despawn"), Color.Red.R, Color.Red.G, Color.Red.B);
                         }
                         PlayerDead = true;
                     }

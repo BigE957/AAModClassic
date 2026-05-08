@@ -165,17 +165,17 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.ThreeQuarters"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.ThreeQuarters"), new Color(45, 46, 70));
                     threeQuarterHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Half"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Half"), new Color(45, 46, 70));
                     HalfHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Quarter"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Quarter"), new Color(45, 46, 70));
                     quarterHealth = true;
                 }
             }
@@ -183,17 +183,17 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.ThreeQuarters"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.ThreeQuarters"), new Color(45, 46, 70));
                     threeQuarterHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Half"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Half"), new Color(45, 46, 70));
                     HalfHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Quarter"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Quarter"), new Color(45, 46, 70));
                     quarterHealth = true;
                 }
             }
@@ -375,7 +375,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (Main.netMode != NetmodeID.MultiplayerClient && !flag)
                 {
                     flag = true;
-                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Despawn.Daytime"), new Color(45, 46, 70));
+                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Despawn.Daytime"), new Color(45, 46, 70));
                 }
                 NPC.alpha += 10;
                 if (NPC.alpha >= 255)
@@ -413,7 +413,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     NoFlyCountDown = 0;
                     NoFly4U = true;
 
-                    if (NPC.type == ModContent.NPCType<YamataBody>()) if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NoFly"), new Color(45, 46, 70));
+                    if (NPC.type == ModContent.NPCType<YamataBody>()) if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NoFly"), new Color(45, 46, 70));
                 }
 
                 float dist = NPC.Distance(playerTarget.Center);
@@ -423,7 +423,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     {
                         if (!FirstLine)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Teleport"), new Color(45, 46, 70));
+                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Teleport"), new Color(45, 46, 70));
                             FirstLine = true;
                         }
                     }
@@ -487,7 +487,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             if (Main.netMode != NetmodeID.MultiplayerClient && !loludide)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Kill"), new Color(45, 46, 70));
+                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Kill"), new Color(45, 46, 70));
                 loludide = true;
             }
 

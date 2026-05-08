@@ -304,7 +304,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote1 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.Repeat"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote1 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.Repeat"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote1 = true;
                 }
@@ -315,7 +315,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.Repeat"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.Repeat"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -326,7 +326,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.Repeat"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.Repeat"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -337,7 +337,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(!Quote4 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.First." + (player.Male ? "Male" : "Female")) : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.Repeat"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote4 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.First." + (player.Male ? "Male" : "Female")) : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.Repeat"), new Color(45, 46, 70));
                     QuoteSaid = true;
                     Quote4 = true;
                 }

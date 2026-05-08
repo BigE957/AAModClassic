@@ -85,7 +85,7 @@ Uses Bullets and Bones as ammo
                 Item.useAnimation = 15;
                 Item.useTime = 5;
                 Item.reuseDelay = 17;
-                Item.useAmmo = AAMod.BoneAmmo;
+                Item.useAmmo = ItemID.Bone;
                 Item.damage = 375;
             }
             else

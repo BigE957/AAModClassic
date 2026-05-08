@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
                 RespawnArms1 = true;
 
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
+                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
                 NPC.netUpdate = true;
             }
             if (NPC.life <= (int)(NPC.lifeMax * .33f) && !RespawnArms2 && Main.netMode != NetmodeID.MultiplayerClient)
@@ -101,7 +101,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
                 NPC.ai[1] = 0;
                 RespawnArms2 = true;
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
+                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
                 NPC.netUpdate = true;
             }
 
@@ -118,7 +118,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
                 if (!Main.expertMode)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.NotExpert"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.NotExpert"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
             }
         }
@@ -165,7 +165,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
         {
             if (Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Expert"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Expert"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (NPC.BeenKilled(true))
                 {
                     int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ZeroProtocol>(), 0, 0, 0, 0, 0, NPC.target);

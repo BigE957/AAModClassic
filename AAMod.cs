@@ -38,7 +38,6 @@ using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
-using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
@@ -58,8 +57,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria;
-using Terraria.Audio;
-using Terraria.Chat;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.Graphics;
@@ -76,23 +73,21 @@ namespace AAModClassic
     public partial class AAMod : Mod
     {
         // Miscellaneous
-        public static int Coin = -1;
-        public static int GoblinSoul = -1;
-        public static int BloodRune = -1;
-        public static int PirateBooty = -1;
-        public static int MonsterSoul = -1;
-        public static int HalloweenTreat = -1;
-        public static int ChristmasCheer = -1;
-        public static int MartianCredit = -1;
-        public static int DustIDSlashFX;
-
-        public static int BoneAmmo = 10000;
+        internal static int AncientCoin = -1;
+        internal static int GoblinSoul = -1;
+        internal static int BloodRune = -1;
+        internal static int PirateBooty = -1;
+        internal static int MonsterSoul = -1;
+        internal static int HalloweenTreat = -1;
+        internal static int ChristmasCheer = -1;
+        internal static int MartianCredit = -1;
+        internal static int DustIDSlashFX; //TODO: This thing never gets set but is used once inside Overhaul cross mod. No clue what to make of it...
 
         // Hotkeys
-        public static ModKeybind AccessoryAbilityKey;
-        public static ModKeybind ArmorAbilityKey;
-        public static ModKeybind Rift;
-        public static ModKeybind RiftReturn;
+        internal static ModKeybind AccessoryAbilityKey;
+        internal static ModKeybind ArmorAbilityKey;
+        internal static ModKeybind Rift;
+        internal static ModKeybind RiftReturn;
 
         // UI
         internal UserInterface TerratoolInterface;
@@ -107,9 +102,6 @@ namespace AAModClassic
         internal TerratoolEXUI TerratoolEXState;
 
         internal static AAMod instance;
-        public static AAMod self = null;
-
-        public static bool isFullyReady;
 
         public AAMod()
         {
@@ -140,8 +132,8 @@ namespace AAModClassic
                     }
 
                     var data = new Color[16 * 16 * 3];
-                    GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData<Color>(data);
-                    TextureAssets.Item[instance.Find<ModItem>(name + "Banner").Type].Value.SetData<Color>(data);
+                    GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData(data);
+                    TextureAssets.Item[instance.Find<ModItem>(name + "Banner").Type].Value.SetData(data);
                     fx += 16;
                 }
             }
@@ -393,8 +385,6 @@ namespace AAModClassic
 
                 field.SetValue(null, profiles);
             }
-
-            isFullyReady = true;
         }
 
         public static void PremultiplyTexture(Texture2D texture)
@@ -413,7 +403,7 @@ namespace AAModClassic
             Logger.InfoFormat("{0} AA log", Name);
 
             instance = this;
-            Coin = CustomCurrencyManager.RegisterCurrency(new Items.Currency.ACoin(ModContent.ItemType<Items.Currency.AncientCoin>()));
+            AncientCoin = CustomCurrencyManager.RegisterCurrency(new Items.Currency.ACoin(ModContent.ItemType<Items.Currency.AncientCoin>()));
             GoblinSoul = CustomCurrencyManager.RegisterCurrency(new Items.Currency.GSouls(ModContent.ItemType<Items.Currency.GoblinSoul>()));
             BloodRune = CustomCurrencyManager.RegisterCurrency(new Items.Currency.BRune(ModContent.ItemType<Items.Currency.BloodRune>()));
             PirateBooty = CustomCurrencyManager.RegisterCurrency(new Items.Currency.PBooty(ModContent.ItemType<Items.Currency.PirateBooty>()));
@@ -422,7 +412,6 @@ namespace AAModClassic
             ChristmasCheer = CustomCurrencyManager.RegisterCurrency(new Items.Currency.CCheer(ModContent.ItemType<Items.Currency.ChristmasCheer>()));
             MartianCredit = CustomCurrencyManager.RegisterCurrency(new Items.Currency.MCredit(ModContent.ItemType<Items.Currency.MartianCredit>()));
 
-            BoneAmmo = ItemID.Bone;
             if (Main.rand == null)
                 Main.rand = new UnifiedRandom();
 
@@ -440,8 +429,8 @@ namespace AAModClassic
             AccessoryAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.AccessoryAbilityKey"), "U");
             ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.ArmorAbilityKey"), "Y"); 
             
-            Terraria.On_Wiring.ActuateForced += Wiring_ActuateForced;
-            Terraria.On_Wiring.Actuate += Actuate;
+            On_Wiring.ActuateForced += Wiring_ActuateForced;
+            On_Wiring.Actuate += Actuate;
 
             if (!Main.dedServ)
             {
@@ -536,7 +525,7 @@ namespace AAModClassic
             BackgroundTextureLoader.AddBackgroundTexture(this, "AAModClassic/BlankTex");
         }
 
-        public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = new Dictionary<int, Asset<Texture2D>>();
+        public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = [];
 
         public void ReplaceItemTexture(int id, string texturePath)
         {
@@ -546,17 +535,16 @@ namespace AAModClassic
 
         public void ResetItemTexture(int id)
         {
-            if (vanillaTextureBackups.ContainsKey(id))
-            {
-                TextureAssets.Item[id] = vanillaTextureBackups[id];
-            }
+            if (vanillaTextureBackups.TryGetValue(id, out Asset<Texture2D> value))
+                TextureAssets.Item[id] = value;
         }
 
         public override void Unload()
         {
             if (!Main.dedServ)
             {
-                UnloadClient();
+                ResetItemTexture(3460);
+                ResetItemTexture(512);
             }
 
             instance = null;
@@ -564,14 +552,6 @@ namespace AAModClassic
             RiftReturn = null;
             AccessoryAbilityKey = null;
             ArmorAbilityKey = null;
-
-            isFullyReady = false;
-        }
-
-        public void UnloadClient()
-        {
-            ResetItemTexture(3460);
-            ResetItemTexture(512);
         }
 
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)
@@ -594,26 +574,6 @@ namespace AAModClassic
                 return false;
             }
             return orig(i, j);
-        }
-
-        public static void Chat(string s, Color color, bool sync = true)
-        {
-            Chat(s, color.R, color.G, color.B, sync);
-        }
-
-        /*
-         * Sends the given string to chat, with the given color values.
-         */
-        public static void Chat(string s, byte colorR = 255, byte colorG = 255, byte colorB = 255, bool sync = true)
-        {
-            if (!AAConfigClient.Instance.NoBossDialogue)
-            {
-                if (Main.netMode == NetmodeID.SinglePlayer) { Main.NewText(s, colorR, colorG, colorB); }
-                else
-                if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }
-                else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-                if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
-            }
         }
 
         public override void HandlePacket(BinaryReader bb, int whoAmI)

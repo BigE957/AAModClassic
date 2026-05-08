@@ -312,13 +312,9 @@ namespace AAModClassic.CrossMod.Overhaul
         
         public static void OnHitFX(Player player, Entity target, bool crit, Color colour, bool glow = false)
         {
-            Vector2 source = player.MountedCenter + new Vector2(
-                Main.rand.NextFloatDirection() * 16f,
-                Main.rand.NextFloatDirection() * 16f
-                );
+            Vector2 source = player.MountedCenter + new Vector2(Main.rand.NextFloatDirection() * 16f, Main.rand.NextFloatDirection() * 16f);
             Vector2 dir = (target.Center - source).SafeNormalize(Vector2.Zero);
-            Dust d = Dust.NewDustPerfect(target.Center - dir * 30f,
-                AAMod.DustIDSlashFX, dir * 15f, 0, colour, (crit ? 1.5f : 1f));
+            Dust d = Dust.NewDustPerfect(target.Center - dir * 30f, AAMod.DustIDSlashFX, dir * 15f, 0, colour, (crit ? 1.5f : 1f));
             d.noLight = glow;
         }
 
