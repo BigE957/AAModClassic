@@ -121,8 +121,6 @@ namespace AAModClassic
             instance = this;
         }
 
-        public static Texture2D GetTexture(string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
-
         public static void SetupBannerItemTextures()
         {
             if (Main.netMode == NetmodeID.Server || Main.dedServ) return; //don't do any texture stuff on a server lol
@@ -280,6 +278,8 @@ namespace AAModClassic
             WeakReferences.PerformModSupport();
 
             SetupBannerNPCs();
+
+            SetupBannerItemTextures();
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
