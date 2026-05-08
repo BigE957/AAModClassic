@@ -45,7 +45,7 @@ When player has 3 minion slots, it summons bunny, discord and energy rune."); */
             if(hideVisual)
             {
                 modPlayer.CCBook = false;
-                player.ClearBuff(ModContent.BuffType<Buffs.CCRune_Buff>());
+                player.ClearBuff(ModContent.BuffType<CCRune_Buff>());
             }
         }
     }

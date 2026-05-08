@@ -1,3 +1,4 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;

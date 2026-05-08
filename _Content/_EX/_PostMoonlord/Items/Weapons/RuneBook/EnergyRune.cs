@@ -36,7 +36,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook
             bool flag64 = Projectile.type == ModContent.ProjectileType<EnergyRune>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<Buffs.CCRune_Buff>(), 3600);
+            player.AddBuff(ModContent.BuffType<CCRune_Buff>(), 3600);
             if (!modPlayer.CCBook)
             {
                 Projectile.active = false;

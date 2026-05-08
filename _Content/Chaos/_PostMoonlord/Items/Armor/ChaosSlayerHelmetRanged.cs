@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;

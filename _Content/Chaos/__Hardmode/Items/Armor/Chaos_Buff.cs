@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
     public class Chaos_Buff : ModBuff
     {

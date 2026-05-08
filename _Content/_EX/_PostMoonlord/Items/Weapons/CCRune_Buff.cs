@@ -2,7 +2,7 @@ using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class CCRune_Buff : ModBuff
 	{

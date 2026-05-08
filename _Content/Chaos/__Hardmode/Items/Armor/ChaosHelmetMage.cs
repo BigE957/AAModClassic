@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Buffs;
 using AAModClassic.Items.Materials;
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Armor;
 

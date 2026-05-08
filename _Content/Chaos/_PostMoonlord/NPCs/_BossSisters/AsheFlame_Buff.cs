@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters
 {
     public class AsheFlame_Buff : ModBuff
 	{

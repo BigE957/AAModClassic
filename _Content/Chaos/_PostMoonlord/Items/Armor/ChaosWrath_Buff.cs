@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     public class ChaosWrath_Buff : ModBuff
     {

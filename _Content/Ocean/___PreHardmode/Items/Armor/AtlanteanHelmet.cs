@@ -3,7 +3,6 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;

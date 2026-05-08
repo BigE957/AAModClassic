@@ -1,3 +1,4 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -93,7 +94,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire_Buff>(), 210);
+            target.AddBuff(ModContent.BuffType<CursedHellfire_Buff>(), 210);
         }
 
         public override void OnKill(int timeleft)

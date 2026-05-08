@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class CursedHellfire_Buff : ModBuff
 	{

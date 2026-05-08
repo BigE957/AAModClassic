@@ -1,8 +1,9 @@
+using AAModClassic.Items.Ranged;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Ranged
+namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
 {
     public class DynaskullJavelin : BaseAAItem
     {

@@ -2,9 +2,9 @@ using AAModClassic.Globals;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
 {
-    public class DynaEnergy1_Buff : ModBuff
+    public class DynaEnergy2_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
@@ -14,7 +14,7 @@ namespace AAModClassic.Buffs
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-            npc.GetGlobalNPC<AAModGlobalNPC>().DynaEnergy1 = true;
+            npc.GetGlobalNPC<AAModGlobalNPC>().DynaEnergy2 = true;
         }
 	}
 }

@@ -93,6 +93,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic
 {
@@ -1830,11 +1832,11 @@ namespace AAModClassic
                     bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] > 1;
                     if (RuneControl || RuneControlEX)
                     {
-                        Player.ClearBuff(ModContent.BuffType<Buffs.CCRune_Buff>());
+                        Player.ClearBuff(ModContent.BuffType<CCRune_Buff>());
                     }
-                    if (Player.FindBuffIndex(ModContent.BuffType<Buffs.CCRune_Buff>()) == -1)
+                    if (Player.FindBuffIndex(ModContent.BuffType<CCRune_Buff>()) == -1)
                     {
-                        Player.AddBuff(ModContent.BuffType<Buffs.CCRune_Buff>(), 3600, true);
+                        Player.AddBuff(ModContent.BuffType<CCRune_Buff>(), 3600, true);
                     }
                     if (CCBook)
                     {

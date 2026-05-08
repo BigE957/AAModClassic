@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     public class Atlantean_Buff : ModBuff
     {

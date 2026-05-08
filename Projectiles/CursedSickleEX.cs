@@ -1,5 +1,5 @@
 using System;
-using AAModClassic.Buffs;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

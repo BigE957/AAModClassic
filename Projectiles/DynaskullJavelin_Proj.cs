@@ -1,3 +1,4 @@
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic.Buffs;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
