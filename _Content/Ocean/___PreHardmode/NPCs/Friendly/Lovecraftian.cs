@@ -1,15 +1,26 @@
+using AAModClassic._Content.Corruption.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Crimson.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Jungle.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Ocean.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Purity.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Terrarium.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Flasks;
-using AAModClassic.Items.Usable;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -358,8 +369,8 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
                     if (AAWorld.squid9 == 4)
                     {
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat1") + Main.npc[Mushman].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat2");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<SporeSac>(), 5);
-                        Main.npcChatCornerItem = ModContent.ItemType<SporeSac>();
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<SporeBag>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<SporeBag>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -455,10 +466,10 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
                 }
                 else
                 {
-                    if (!BasePlayer.HasItem(player, ModContent.ItemType<SquidList>()))
+                    if (!BasePlayer.HasItem(player, ModContent.ItemType<LovecraftiansResearchList>()))
                     {
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SquidListChat");
-                        int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<SquidList>(), 1, false, 0, false, false);
+                        int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<LovecraftiansResearchList>(), 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
                             NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 1f, 0f, 0f, 0, 0, 0);
@@ -520,7 +531,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
             }
             if (AAWorld.squid9 >= 5)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<SporeSac>());
+                items[nextSlot] = new Item(ModContent.ItemType<SporeBag>());
                 nextSlot++;
             }
             if (AAWorld.squid10 >= 5)

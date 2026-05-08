@@ -29,7 +29,6 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Ranged;
-using AAModClassic.Items.Throwing;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

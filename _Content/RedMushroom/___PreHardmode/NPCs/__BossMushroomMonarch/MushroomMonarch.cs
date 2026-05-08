@@ -1,8 +1,8 @@
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Usable;
 using AAModClassic.Music;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -375,7 +375,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchTrophy>(), 10));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SporeSac>(), 1, 30, 35));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SporeBag>(), 1, 30, 35));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

@@ -11249,3 +11249,28 @@ HeroRelics: {
 	DisplayName: Hero Relics
 	Tooltip: ""
 }
+
+ScorchedSaw: {
+	DisplayName: Scorched Saw
+	Tooltip: ""
+}
+
+SpookySawblade: {
+	DisplayName: Spooky Sawblade
+	Tooltip: ""
+}
+
+DarkmatterSpinblade: {
+	DisplayName: Darkmatter Spinblade
+	Tooltip: ""
+}
+
+LovecraftiansResearchList: {
+	DisplayName: Lovecraftians Research List
+	Tooltip: ""
+}
+
+SporeBag: {
+	DisplayName: Spore Bag
+	Tooltip: ""
+}

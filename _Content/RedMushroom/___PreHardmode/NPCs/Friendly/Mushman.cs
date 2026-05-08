@@ -14,6 +14,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarc
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {
@@ -481,7 +482,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             nextSlot++;
             items[nextSlot] = new Item(ItemID.GlowingMushroom);
             nextSlot++;
-            items[nextSlot] = new Item(ModContent.ItemType<SporeSac>());
+            items[nextSlot] = new Item(ModContent.ItemType<SporeBag>());
             nextSlot++;
             items[nextSlot] = new Item(ItemID.RecallPotion);
             nextSlot++;
