@@ -6,9 +6,9 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class EFlairon_Proj : ModProjectile
+    public class EmperorFlairon_Holdout : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -47,7 +47,7 @@ namespace AAModClassic.Projectiles.EFish
                 Projectile.direction = -1;
             }
             Main.player[Projectile.owner].itemRotation = (vector54 * -1f * Projectile.direction).ToRotation();
-            Projectile.spriteDirection = (vector54.X > 0f) ? -1 : 1;
+            Projectile.spriteDirection = vector54.X > 0f ? -1 : 1;
             if (Projectile.ai[0] == 0f && vector54.Length() > 400f)
             {
                 Projectile.ai[0] = 1f;

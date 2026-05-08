@@ -4,31 +4,27 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class FancyTruffle : BaseAAItem
+    public class FishnadoStaff : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Fancy Truffle");
-			// Tooltip.SetDefault("Attracts a royal creature which flourishes in water & combat");
-        }    
-		public override void SetDefaults()
-		{
-			Item.CloneDefaults(ItemID.ScalyTruffle);
-			Item.width = 32;
-			Item.height = 30;
-			Item.value = 500000;
-			Item.rare = ItemRarityID.Purple;
-			Item.mountType = Mod.Find<ModMount>("PrinceFishron").Type;
+			// DisplayName.SetDefault("Fishnado Staff");
 		}
 
-
+		public override void SetDefaults()
+		{
+			Item.CloneDefaults(ItemID.TempestStaff);
+			Item.damage = 150;
+			Item.rare = ItemRarityID.Purple;
+			Item.shoot = ModContent.ProjectileType<FishnadoStaff_Fishnado>();
+        }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.ShrimpyTruffle);
+            recipe.AddIngredient(ItemID.TempestStaff);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();

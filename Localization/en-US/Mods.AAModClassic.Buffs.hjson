@@ -1498,3 +1498,48 @@ CyberBaton_Buff: {
 	DisplayName: Cyber Baton_ Buff
 	Description: Mods.AAModClassic.Buffs.CyberBaton_Buff.Description
 }
+
+CerberusWhistle_Buff: {
+	DisplayName: Cerberus Whistle_ Buff
+	Description: Mods.AAModClassic.Buffs.CerberusWhistle_Buff.Description
+}
+
+K9Collar_Buff: {
+	DisplayName: K9 Collar_ Buff
+	Description: Mods.AAModClassic.Buffs.K9Collar_Buff.Description
+}
+
+MoonBeeInAJar_Buff: {
+	DisplayName: Moon Bee In A Jar_ Buff
+	Description: Mods.AAModClassic.Buffs.MoonBeeInAJar_Buff.Description
+}
+
+MudFishBall_Buff: {
+	DisplayName: Mud Fish Ball_ Buff
+	Description: Mods.AAModClassic.Buffs.MudFishBall_Buff.Description
+}
+
+RoyalStar_Buff: {
+	DisplayName: Royal Star_ Buff
+	Description: Mods.AAModClassic.Buffs.RoyalStar_Buff.Description
+}
+
+ShinyFishBall_Buff: {
+	DisplayName: Shiny Fish Ball_ Buff
+	Description: Mods.AAModClassic.Buffs.ShinyFishBall_Buff.Description
+}
+
+FishnadoStaff_Buff: {
+	DisplayName: Fishnado Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.FishnadoStaff_Buff.Description
+}
+
+LuckyCracker_CrasyLucky: {
+	DisplayName: Lucky Cracker_ Crasy Lucky
+	Description: Mods.AAModClassic.Buffs.LuckyCracker_CrasyLucky.Description
+}
+
+RoninPotion_Buff: {
+	DisplayName: Ronin Potion_ Buff
+	Description: Mods.AAModClassic.Buffs.RoninPotion_Buff.Description
+}

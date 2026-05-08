@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class EFlairon : BaseAAItem
+    public class EmperorFlairon : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.EFish
             Item.CloneDefaults(ItemID.Flairon);
             Item.damage = 350;
             Item.rare = ItemRarityID.Purple;
-            Item.shoot = ModContent.ProjectileType<Projectiles.EFish.EFlairon_Proj>();
+            Item.shoot = ModContent.ProjectileType<EmperorFlairon_Holdout>();
         }
 
 

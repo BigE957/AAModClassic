@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class EFishWings : BaseAAItem
+    public class EmperorFishronWings : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

@@ -704,68 +704,68 @@ namespace AAModClassic
 
         private static void AddMushroomPotionRecipes()
         {
+            string red = "RedAlchemicalMushroom";
+            string orange = "OrangeAlchemicalMushroom";
+            string yellow = "YellowAlchemicalMushroom";
+            string green = "GreenAlchemicalMushroom";
+            string blue = "BlueAlchemicalMushroom";
+            string purple = "PurpleAlchemicalMushroom";
+            string pink = "PinkAlchemicalMushroom";
+            string brown = "BrownAlchemicalMushroom";
+            string gray = "GrayAlchemicalMushroom";
+
             // Potion created, required mushrooms, amount of potions created
             List<Tuple<short, string[], int>> potions = new List<Tuple<short, string[], int>>()
             {
-                // Blue
-                Tuple.Create(ItemID.CalmingPotion, new string[] { "Blue" }, 2),
-                Tuple.Create(ItemID.FeatherfallPotion, new string[] { "Blue" }, 2),
-                Tuple.Create(ItemID.FlipperPotion, new string[] { "Blue" }, 2),
-                Tuple.Create(ItemID.GillsPotion, new string[] { "Blue" }, 2),
-                Tuple.Create(ItemID.InvisibilityPotion, new string[] { "Blue" }, 2),
-                Tuple.Create(ItemID.RecallPotion, new string[] { "Blue" }, 4),
-                Tuple.Create(ItemID.WaterWalkingPotion, new string[] { "Blue" }, 2),
-                Tuple.Create(ItemID.WormholePotion, new string[] { "Blue" }, 2),
+                Tuple.Create(ItemID.InfernoPotion, new string[] { red }, 1),
+                Tuple.Create(ItemID.LifeforcePotion, new string[] { red }, 1),
+                Tuple.Create(ItemID.RagePotion, new string[] { red }, 2),
+                Tuple.Create(ItemID.WrathPotion, new string[] { red }, 2),
 
-                // Brown
-                Tuple.Create(ItemID.BuilderPotion, new string[] { "Brown"}, 2),
-                Tuple.Create(ItemID.CratePotion, new string[] { "Brown" }, 2),
+                Tuple.Create(ItemID.ArcheryPotion, new string[] { orange }, 2),
+                Tuple.Create(ItemID.HunterPotion, new string[] { orange }, 2),
+                Tuple.Create(ItemID.TrapsightPotion, new string[] { orange }, 2),
 
-                // Green
-                Tuple.Create(ItemID.FishingPotion, new string[] { "Green" }, 2),
-                Tuple.Create(ItemID.NightOwlPotion, new string[] { "Green" }, 2),
-                Tuple.Create(ItemID.SonarPotion, new string[] { "Green" }, 2),
-                Tuple.Create(ItemID.SummoningPotion, new string[] { "Green" }, 2),
-                Tuple.Create(ItemID.SwiftnessPotion, new string[] { "Green" }, 2),
-                Tuple.Create(ItemID.ThornsPotion, new string[] { "Green" }, 2),
-                Tuple.Create(ItemID.TitanPotion, new string[] { "Green" }, 2),
+                Tuple.Create(ItemID.IronskinPotion, new string[] { yellow }, 2),
+                Tuple.Create(ItemID.ShinePotion, new string[] { yellow }, 2),
+                Tuple.Create(ItemID.SpelunkerPotion, new string[] { yellow }, 2),
+                Tuple.Create(ItemID.WarmthPotion, new string[] { yellow }, 2),
 
-                // Gray
-                Tuple.Create(ItemID.AmmoReservationPotion, new string[] { "Gray" } , 2),
-                Tuple.Create(ItemID.EndurancePotion, new string[] { "Gray" }, 2),
-                Tuple.Create(ItemID.MiningPotion, new string[] { "Gray" }, 2),
+                Tuple.Create(ItemID.FishingPotion, new string[] { green }, 2),
+                Tuple.Create(ItemID.NightOwlPotion, new string[] { green }, 2),
+                Tuple.Create(ItemID.SonarPotion, new string[] { green }, 2),
+                Tuple.Create(ItemID.SummoningPotion, new string[] { green }, 2),
+                Tuple.Create(ItemID.SwiftnessPotion, new string[] { green }, 2),
+                Tuple.Create(ItemID.ThornsPotion, new string[] { green }, 2),
+                Tuple.Create(ItemID.TitanPotion, new string[] { green }, 2),
 
-                // Orange
-                Tuple.Create(ItemID.ArcheryPotion, new string[] { "Orange" }, 2),
-                Tuple.Create(ItemID.HunterPotion, new string[] { "Orange" }, 2),
-                Tuple.Create(ItemID.TrapsightPotion, new string[] { "Orange" }, 2),
+                Tuple.Create(ItemID.CalmingPotion, new string[] { blue }, 2),
+                Tuple.Create(ItemID.FeatherfallPotion, new string[] { blue }, 2),
+                Tuple.Create(ItemID.FlipperPotion, new string[] { blue }, 2),
+                Tuple.Create(ItemID.GillsPotion, new string[] { blue }, 2),
+                Tuple.Create(ItemID.InvisibilityPotion, new string[] { blue }, 2),
+                Tuple.Create(ItemID.RecallPotion, new string[] { blue }, 4),
+                Tuple.Create(ItemID.WaterWalkingPotion, new string[] { blue }, 2),
+                Tuple.Create(ItemID.WormholePotion, new string[] { blue }, 2),
 
-                // Pink
-                Tuple.Create(ItemID.HeartreachPotion, new string[] { "Pink" }, 2),
-                Tuple.Create(ItemID.ManaRegenerationPotion, new string[] { "Pink" }, 2),
-                Tuple.Create(ItemID.RegenerationPotion, new string[] { "Pink" }, 2),
+                Tuple.Create(ItemID.BattlePotion, new string[] { purple }, 2),
+                Tuple.Create(ItemID.GravitationPotion, new string[] { purple }, 2),
+                Tuple.Create(ItemID.MagicPowerPotion, new string[] { purple }, 2),
+                Tuple.Create(ItemID.ObsidianSkinPotion, new string[] { purple }, 2),
+                Tuple.Create(ItemID.TeleportationPotion, new string[] { purple }, 2),
 
-                // Purple
-                Tuple.Create(ItemID.BattlePotion, new string[] { "Purple" }, 2),
-                Tuple.Create(ItemID.GravitationPotion, new string[] { "Purple" }, 2),
-                Tuple.Create(ItemID.MagicPowerPotion, new string[] { "Purple" }, 2),
-                Tuple.Create(ItemID.ObsidianSkinPotion, new string[] { "Purple" }, 2),
-                Tuple.Create(ItemID.TeleportationPotion, new string[] { "Purple" }, 2),
+                Tuple.Create(ItemID.HeartreachPotion, new string[] { pink }, 2),
+                Tuple.Create(ItemID.ManaRegenerationPotion, new string[] { pink }, 2),
+                Tuple.Create(ItemID.RegenerationPotion, new string[] { pink }, 2),
 
-                // Red
-                Tuple.Create(ItemID.InfernoPotion, new string[] { "Red" }, 1),
-                Tuple.Create(ItemID.LifeforcePotion, new string[] { "Red" }, 1),
-                Tuple.Create(ItemID.RagePotion, new string[] { "Red" }, 2),
-                Tuple.Create(ItemID.WrathPotion, new string[] { "Red" }, 2),
+                Tuple.Create(ItemID.BuilderPotion, new string[] { brown }, 2),
+                Tuple.Create(ItemID.CratePotion, new string[] { brown }, 2),
 
-                // Yellow
-                Tuple.Create(ItemID.IronskinPotion, new string[] { "Yellow" }, 2),
-                Tuple.Create(ItemID.ShinePotion, new string[] { "Yellow" }, 2),
-                Tuple.Create(ItemID.SpelunkerPotion, new string[] { "Yellow" }, 2),
-                Tuple.Create(ItemID.WarmthPotion, new string[] { "Yellow" }, 2),
-                
-                // Multiple
-                Tuple.Create(ItemID.GenderChangePotion, new string[] { "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Gray", "Brown", "Pink" }, 2)
+                Tuple.Create(ItemID.AmmoReservationPotion, new string[] { gray } , 2),
+                Tuple.Create(ItemID.EndurancePotion, new string[] { gray }, 2),
+                Tuple.Create(ItemID.MiningPotion, new string[] { gray }, 2),
+
+                Tuple.Create(ItemID.GenderChangePotion, new string[] { red, orange, yellow, green, blue, purple, pink, brown, gray }, 2)
             };
             Recipe recipe;
 

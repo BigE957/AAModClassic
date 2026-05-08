@@ -1,10 +1,9 @@
-using AAModClassic.Projectiles.EFish;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class Fishnado_Buff : ModBuff
+    public class FishnadoStaff_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
@@ -17,7 +16,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Fishnado>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<FishnadoStaff_Fishnado>()] > 0)
 			{
 				modPlayer.Fishnado = true;
 			}

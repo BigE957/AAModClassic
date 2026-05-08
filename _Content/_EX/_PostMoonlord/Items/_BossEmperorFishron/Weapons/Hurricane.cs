@@ -7,7 +7,7 @@ using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.Items.Boss.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
     public class Hurricane : BaseAAItem
     {

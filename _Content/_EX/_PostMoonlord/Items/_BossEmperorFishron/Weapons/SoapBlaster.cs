@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.Items.Boss.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
     public class SoapBlaster : BaseAAItem
     {
@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Boss.EFish
 			float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;
 			float num83 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
 			float num84 = (float)Math.Sqrt(num82 * num82 + num83 * num83);
-			if ((float.IsNaN(num82) && float.IsNaN(num83)) || (num82 == 0f && num83 == 0f))
+			if (float.IsNaN(num82) && float.IsNaN(num83) || num82 == 0f && num83 == 0f)
 			{
 				num82 = player.direction;
 				num83 = 0f;

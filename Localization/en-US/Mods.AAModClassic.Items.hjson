@@ -11139,3 +11139,113 @@ BlazingBreath: {
 	DisplayName: Blazing Breath
 	Tooltip: ""
 }
+
+MoonBeeInAJar: {
+	DisplayName: Moon Bee In A Jar
+	Tooltip: ""
+}
+
+MudFishBall: {
+	DisplayName: Mud Fish Ball
+	Tooltip: ""
+}
+
+ShinyFishBall: {
+	DisplayName: Shiny Fish Ball
+	Tooltip: ""
+}
+
+EmperorFishronWings: {
+	DisplayName: Emperor Fishron Wings
+	Tooltip: ""
+}
+
+EmperorFlairon: {
+	DisplayName: Emperor Flairon
+	Tooltip: ""
+}
+
+BlueAlchemicalMushroom: {
+	DisplayName: Blue Alchemical Mushroom
+	Tooltip: ""
+}
+
+BrownAlchemicalMushroom: {
+	DisplayName: Brown Alchemical Mushroom
+	Tooltip: ""
+}
+
+GrayAlchemicalMushroom: {
+	DisplayName: Gray Alchemical Mushroom
+	Tooltip: ""
+}
+
+GreenAlchemicalMushroom: {
+	DisplayName: Green Alchemical Mushroom
+	Tooltip: ""
+}
+
+OrangeAlchemicalMushroom: {
+	DisplayName: Orange Alchemical Mushroom
+	Tooltip: ""
+}
+
+PinkAlchemicalMushroom: {
+	DisplayName: Pink Alchemical Mushroom
+	Tooltip: ""
+}
+
+PurpleAlchemicalMushroom: {
+	DisplayName: Purple Alchemical Mushroom
+	Tooltip: ""
+}
+
+RainbowMushroom: {
+	DisplayName: Rainbow Mushroom
+	Tooltip: ""
+}
+
+RedAlchemicalMushroom: {
+	DisplayName: Red Alchemical Mushroom
+	Tooltip: ""
+}
+
+YellowAlchemicalMushroom: {
+	DisplayName: Yellow Alchemical Mushroom
+	Tooltip: ""
+}
+
+GodlySoul: {
+	DisplayName: Godly Soul
+	Tooltip: ""
+}
+
+LegendarySoul: {
+	DisplayName: Legendary Soul
+	Tooltip: ""
+}
+
+MythicalSoul: {
+	DisplayName: Mythical Soul
+	Tooltip: ""
+}
+
+UnrealSoul: {
+	DisplayName: Unreal Soul
+	Tooltip: ""
+}
+
+EnergyConduit: {
+	DisplayName: Energy Conduit
+	Tooltip: ""
+}
+
+MadnessMushroom: {
+	DisplayName: Madness Mushroom
+	Tooltip: ""
+}
+
+HeroRelics: {
+	DisplayName: Hero Relics
+	Tooltip: ""
+}

@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.EFish
+namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class Fishnado : ModProjectile
+    public class FishnadoStaff_Fishnado : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -33,10 +33,10 @@ namespace AAModClassic.Projectiles.EFish
                     Projectile.frame = 0;
                 }
             }
-            bool flag64 = Projectile.type == ModContent.ProjectileType<Fishnado>();
+            bool flag64 = Projectile.type == ModContent.ProjectileType<FishnadoStaff_Fishnado>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<Buffs.Fishnado_Buff>(), 3600);
+            player.AddBuff(ModContent.BuffType<FishnadoStaff_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead)
@@ -104,7 +104,7 @@ namespace AAModClassic.Projectiles.EFish
             {
                 Vector2 vector2 = ownerMinionAttackTargetNPC.position + ownerMinionAttackTargetNPC.Size * value;
                 float num12 = Vector2.Distance(vector2, center);
-                if (((Vector2.Distance(center, vector) > num12 && num12 < num10) || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, ownerMinionAttackTargetNPC.position, ownerMinionAttackTargetNPC.width, ownerMinionAttackTargetNPC.height))
+                if ((Vector2.Distance(center, vector) > num12 && num12 < num10 || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, ownerMinionAttackTargetNPC.position, ownerMinionAttackTargetNPC.width, ownerMinionAttackTargetNPC.height))
                 {
                     num10 = num12;
                     vector = vector2;
@@ -120,7 +120,7 @@ namespace AAModClassic.Projectiles.EFish
                     {
                         Vector2 vector3 = nPC.position + nPC.Size * value;
                         float num13 = Vector2.Distance(vector3, center);
-                        if (((Vector2.Distance(center, vector) > num13 && num13 < num10) || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC.position, nPC.width, nPC.height))
+                        if ((Vector2.Distance(center, vector) > num13 && num13 < num10 || !flag) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC.position, nPC.width, nPC.height))
                         {
                             num10 = num13;
                             vector = vector3;
