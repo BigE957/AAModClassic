@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Magic
             Item.noMelee = true;
             Item.knockBack = 4;
 			Item.mana = 13;             
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/MOARGONG"); 
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/MOARGONG"); 
             Item.autoReuse = true;
             Item.shoot = ProjectileID.TopazBolt;
 			Item.shootSpeed = 10f;

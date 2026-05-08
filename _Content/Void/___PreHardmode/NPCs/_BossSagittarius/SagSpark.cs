@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Glitch"), Projectile.Center);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"), Projectile.Center);
         }
     }
 }

@@ -69,7 +69,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Collision.HitTiles(Projectile.position, oldVelocity, Projectile.width, Projectile.height);
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Glitch"), Projectile.Center);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"), Projectile.Center);
             return true;
         }
     }

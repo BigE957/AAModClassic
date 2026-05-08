@@ -769,14 +769,4 @@ namespace AAModClassic
             }
         }
     }
-
-    public static class ModUtils
-    {
-        public static SoundStyle GetLegacySoundSlot(this Mod mod, SoundType type, string path)
-        {
-            if (type == SoundType.Sound)
-                return new SoundStyle("AAModClassic/" + path);
-            return new();
-        }
-    }
 }

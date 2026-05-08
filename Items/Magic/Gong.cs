@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Magic
             Item.noMelee = true;
             Item.knockBack = 4;
 			Item.mana = 8;             
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/GONG");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/GONG");
             Item.autoReuse = true;
             Item.shoot = ProjectileID.TopazBolt;
 			Item.shootSpeed = 10f;

@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             NPC.npcSlots = 0;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
             Music = MusicManagementSystem.MusicSlots["Yamata"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -157,7 +157,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
             Laugh();
 
-            var roarSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
+            var roarSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
 
             Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
             float num433 = 6f;

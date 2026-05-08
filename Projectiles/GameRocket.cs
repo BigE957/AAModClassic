@@ -97,7 +97,7 @@ namespace AAModClassic.Projectiles
         public override void OnKill(int timeLeft)
         {
             int pieCut = 20;
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Moo"), Projectile.Center);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Moo"), Projectile.Center);
             Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<GameBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
             for (int m = 0; m < pieCut; m++)
             {

@@ -59,7 +59,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/ShenRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/ShenRoar");
             Music = MusicManagementSystem.MusicSlots["Shen"];
             SceneEffectPriority = (SceneEffectPriority)11;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -136,7 +136,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             }
             else
             {
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/ShenRoar"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ShenRoar"), NPC.Center);
             }
         }
 

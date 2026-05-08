@@ -55,8 +55,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
             NPC.lavaImmune = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Zerohit");
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/ZeroDeath");
+            NPC.HitSound = new SoundStyle("AAModClassic/Sounds/Zerohit");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/ZeroDeath");
             Music = MusicManagementSystem.MusicSlots["Zero_Awakened"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             NPC.netAlways = true;

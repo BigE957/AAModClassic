@@ -147,7 +147,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
-                    SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar"), NPC.position);
+                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), NPC.position);
                     Vector2 position = NPC.Center + Vector2.One * -20f;
                     int num84 = 40;
                     int height3 = num84;

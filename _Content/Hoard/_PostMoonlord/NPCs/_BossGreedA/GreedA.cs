@@ -182,7 +182,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA
                         internalAI[1] = 0;
                         if (!Main.dedServ)
                         {
-                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(Terraria.Audio.SoundType.Sound, "Sounds/Custom/Quake1") with { Volume = 0.7f, PitchVariance = 0.1f });
+                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Custom/Quake1") with { Volume = 0.7f, PitchVariance = 0.1f });
                         }
                         int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X, player.Center.Y - 100, 0f, 0f, ModContent.ProjectileType<WarningPro>(), 43, 0, Main.myPlayer, NPC.life > (int)(NPC.lifeMax * 0.5f) ? 0 : 1, 0);
                         Main.projectile[proj].netUpdate = true;

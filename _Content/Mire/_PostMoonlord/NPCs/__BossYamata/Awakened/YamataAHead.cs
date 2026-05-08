@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.npcSlots = 0;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
             Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
             NPC.knockBackResist *= 0.05f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)

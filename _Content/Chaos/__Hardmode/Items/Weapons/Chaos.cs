@@ -2,6 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Melee
 {
@@ -28,7 +31,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Chaos_ChaosBeam>();
+			Item.shoot = ModContent.ProjectileType<Chaos_ChaosBeam>();
             Item.shootSpeed = 14f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

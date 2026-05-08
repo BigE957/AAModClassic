@@ -67,7 +67,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.chaseable = true;
 			Music = MusicManagementSystem.MusicSlots["InfinityZero"];
 			NPC.HitSound = SoundID.NPCHit44;
-			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
+			NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
         }
 
@@ -144,7 +144,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				}
 				if (roarTimer == 180)
 				{
-					SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar"), NPC.Center);
+					SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
 				}
 			}
 
@@ -161,7 +161,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         Vector2 tele = new Vector2(player.Center.X, player.Center.Y);
                         NPC.Center = tele;
                         NPC.dontTakeDamage = false;
-                        SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar"), NPC.Center);
+                        SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
                     }
                 }
                 else //you're close to the player, so make sure you're visible!
