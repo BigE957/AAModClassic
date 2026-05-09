@@ -10,8 +10,8 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.Items.Banners;
-using AAModClassic.Items.Usable;
 using AAModClassic.Utilities;
+using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {
@@ -418,7 +418,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             else
                 DropItem(NPC, ModContent.ItemType<CovetiteCrystal>(), 1, 5, 30, true);
 
-            NPC.DropLoot(ModContent.ItemType<GreedKey>(), .05f);
+            NPC.DropLoot(ModContent.ItemType<GildedKey>(), .05f);
         }
 
         /*

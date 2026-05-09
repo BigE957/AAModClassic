@@ -1,7 +1,7 @@
+using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
-using AAModClassic.Items.Armor.GoblinSlayer;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -208,15 +208,15 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             int nextSlot = 0;
             if (Goblin)
             {
-                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayerHelm>());
+                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayersHelmet>());
                 items[nextSlot].shopCustomPrice = new int?(10);
                 items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
                 nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayerChest>());
+                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayersChestplate>());
                 items[nextSlot].shopCustomPrice = new int?(15);
                 items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
                 nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayerGreaves>());
+                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayersLeggings>());
                 items[nextSlot].shopCustomPrice = new int?(12);
                 items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
                 nextSlot++;

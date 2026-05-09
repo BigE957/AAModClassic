@@ -10,6 +10,7 @@ using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
@@ -340,14 +341,14 @@ namespace AAModClassic.Globals
             */
             if (DynaEnergy1)
             {
-                Projectile.NewProjectile(npc.GetSource_Death(), npc.position, Vector2.Zero, ModContent.ProjectileType<Projectiles.DynaEnergy>(), 60, 1, Main.myPlayer);
+                Projectile.NewProjectile(npc.GetSource_Death(), npc.position, Vector2.Zero, ModContent.ProjectileType<DynaskullJavelin_DynaEnergy>(), 60, 1, Main.myPlayer);
             }
 
             if (DynaEnergy2)
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    Projectile.NewProjectile(npc.GetSource_Death(), npc.position, Vector2.Zero, ModContent.ProjectileType<Projectiles.DynaEnergy>(), 60, 1, Main.myPlayer);
+                    Projectile.NewProjectile(npc.GetSource_Death(), npc.position, Vector2.Zero, ModContent.ProjectileType<DynaskullJavelin_DynaEnergy>(), 60, 1, Main.myPlayer);
                 }
             }
 

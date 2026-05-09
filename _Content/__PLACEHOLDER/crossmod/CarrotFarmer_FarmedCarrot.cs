@@ -3,13 +3,13 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Thorium
+namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 {
-    public class FarmedCarrot : ModProjectile
+    public class CarrotFarmer_FarmedCarrot : ModProjectile
 	{
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Carrot");
+            // DisplayName.SetDefault("Farmed Carrot");
 		}
 
 		public override void SetDefaults()

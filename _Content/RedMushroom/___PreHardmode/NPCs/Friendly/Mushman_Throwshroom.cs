@@ -1,9 +1,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {
-    public class Throwshroom : ModProjectile
+    public class Mushman_Throwshroom : ModProjectile
     {
 
         public override void SetDefaults()

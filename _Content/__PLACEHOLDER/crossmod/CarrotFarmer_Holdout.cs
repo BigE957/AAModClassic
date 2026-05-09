@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Thorium
+namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 {
     public class CarrotFarmer_Holdout : ModProjectile
     {
@@ -155,8 +155,8 @@ namespace AAModClassic.Projectiles.Thorium
         {
             Player player = Main.player[Projectile.owner];
 
-            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
-            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
+            Projectile.position.X = player.Center.X - Projectile.width / 2f;
+            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
         }
     }
 
@@ -190,8 +190,8 @@ namespace AAModClassic.Projectiles.Thorium
         {
             Player player = Main.player[Projectile.owner];
 
-            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
-            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
+            Projectile.position.X = player.Center.X - Projectile.width / 2f;
+            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
         }
     }
 
@@ -234,7 +234,7 @@ namespace AAModClassic.Projectiles.Thorium
                 rot -= 0.20f;
             }
 
-            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + (Projectile.ai[0] * (6.28f / 2)));
+            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + Projectile.ai[0] * (6.28f / 2));
 
             for (int m = 0; m < 5; m++)
             {

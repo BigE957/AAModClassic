@@ -2,8 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Armor;
+using AAModClassic._Content.Jungle.__Hardmode.Items.Armor;
 
-namespace AAModClassic.Items.Armor.Paints
+namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class TerraPaint : BaseAAItem

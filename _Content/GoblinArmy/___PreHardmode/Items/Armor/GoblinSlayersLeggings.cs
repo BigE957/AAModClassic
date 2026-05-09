@@ -3,10 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.GoblinSlayer
+namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class GoblinSlayerGreaves : BaseAAItem
+	public class GoblinSlayersLeggings : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

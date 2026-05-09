@@ -11604,3 +11604,23 @@ SwarmSolution: {
 	DisplayName: Swarm Solution
 	Tooltip: ""
 }
+
+GoblinSlayersChestplate: {
+	DisplayName: Goblin Slayers Chestplate
+	Tooltip: ""
+}
+
+GoblinSlayersHelmet: {
+	DisplayName: Goblin Slayers Helmet
+	Tooltip: ""
+}
+
+GoblinSlayersLeggings: {
+	DisplayName: Goblin Slayers Leggings
+	Tooltip: ""
+}
+
+GildedKey: {
+	DisplayName: Gilded Key
+	Tooltip: ""
+}

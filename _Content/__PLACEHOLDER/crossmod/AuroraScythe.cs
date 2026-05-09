@@ -1,23 +1,23 @@
 using System.Collections.Generic;
 using AAModClassic.CrossMod;
-using AAModClassic.Projectiles.Thorium;
 using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Thorium.Healer
+namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 {
-	public class CarrotFarmer : CrossoverItem
+    public class AuroraScythe : CrossoverItem
 	{
 		public override void SetStaticDefaults()
 		{
-			crossoverModName = "ThoriumMod";
-            // DisplayName.SetDefault("Carrot Farmer");
-            /* Tooltip.SetDefault(@"Spins a Carrot Scythe around you that shreds through enemies
-Scythes fire off carrots while spun
+			crossoverModName = "Thorium";
+            // DisplayName.SetDefault("Aurora Scythe");
+            /* Tooltip.SetDefault(@"Spins a frostburning scythe around you that shreds through enemies
+Scythes inflict frostburn on contact
 Grants 1 soul essence on direct hit"); */			
 		}
 
@@ -26,18 +26,19 @@ Grants 1 soul essence on direct hit"); */
             Item.width = 40;
             Item.height = 40;
             Item.maxStack = Item.CommonMaxStack;
-            Item.rare = ItemRarityID.Yellow;
-            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = ItemRarityID.Orange;
+            Item.value = Item.sellPrice(0, 5, 50, 50);
+
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.UseSound = SoundID.Item1;
-            Item.damage = 80;
-            Item.knockBack = 9;
+            Item.damage = 24;
+            Item.knockBack = 6;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<CarrotFarmer_Holdout>();
+            Item.shoot = ModContent.ProjectileType<AuroraScythe_Holdout>();
             Item.shootSpeed = 0.1f;
 		}
 		
@@ -45,21 +46,21 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerEffect>(), damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<AuroraScytheEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            damage.Flat *= ((ModSupportPlayer)player.GetModPlayer<ModSupportPlayer>()).Thorium_radiantBoost;
+            damage.Flat *= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantBoost;
         }
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
 		{
-			if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer<ModSupportPlayer>()).Thorium_radiantCrit)
+			if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
 			{
-				modifiers.SetCrit();
+                modifiers.SetCrit();
 			}
 		}
 
@@ -90,6 +91,21 @@ Grants 1 soul essence on direct hit"); */
             };
             list.Insert(index2, colorLine);
 			base.ModifyTooltips(list);
+        }
+
+        public override void AddRecipes()
+        {
+            if (ModSupport.GetMod("ThoriumMod") == null) return;
+            Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.IceSickle);
+            recipe.AddIngredient(ItemID.AdamantiteBar, 8);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
+			recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.IceSickle);
+            recipe.AddIngredient(ItemID.TitaniumBar, 8);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
         }
     }
 }

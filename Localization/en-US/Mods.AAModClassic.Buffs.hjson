@@ -1578,3 +1578,8 @@ TartarusReaper_CursedHellfire: {
 	DisplayName: Tartarus Reaper_ Cursed Hellfire
 	Description: Mods.AAModClassic.Buffs.TartarusReaper_CursedHellfire.Description
 }
+
+DynaskullJavelin_DynaEnergyBuff: {
+	DisplayName: Dynaskull Javelin_ Dyna Energy Buff
+	Description: Mods.AAModClassic.Buffs.DynaskullJavelin_DynaEnergyBuff.Description
+}

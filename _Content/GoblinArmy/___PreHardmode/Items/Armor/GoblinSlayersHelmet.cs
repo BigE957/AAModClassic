@@ -6,10 +6,10 @@ using Terraria.Localization;
 using System;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Armor.GoblinSlayer
+namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GoblinSlayerHelm : BaseAAItem
+	public class GoblinSlayersHelmet : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Armor.GoblinSlayer
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<GoblinSlayerChest>() && legs.type == ModContent.ItemType<GoblinSlayerGreaves>();
+			return body.type == ModContent.ItemType<GoblinSlayersChestplate>() && legs.type == ModContent.ItemType<GoblinSlayersLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -42,8 +42,8 @@ namespace AAModClassic.Items.Armor.GoblinSlayer
             {
                 num = 0;
             }
-            Vector2 vector = new Vector2(3 * player.direction - ((player.direction == 1) ? 1 : 0), -11.5f * player.gravDir) + Vector2.UnitY * player.gfxOffY + player.Size / 2f + Main.OffsetsPlayerHeadgear[num];
-            Vector2 vector2 = new Vector2(3 * player.shadowDirection[1] - ((player.direction == 1) ? 1 : 0), -11.5f * player.gravDir) + player.Size / 2f + Main.OffsetsPlayerHeadgear[num];
+            Vector2 vector = new Vector2(3 * player.direction - (player.direction == 1 ? 1 : 0), -11.5f * player.gravDir) + Vector2.UnitY * player.gfxOffY + player.Size / 2f + Main.OffsetsPlayerHeadgear[num];
+            Vector2 vector2 = new Vector2(3 * player.shadowDirection[1] - (player.direction == 1 ? 1 : 0), -11.5f * player.gravDir) + player.Size / 2f + Main.OffsetsPlayerHeadgear[num];
             Vector2 vector3 = Vector2.Zero;
             if (player.mount.Active && player.mount.Cart)
             {

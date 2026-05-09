@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Usable
+namespace AAModClassic._Content.Hoard.__Hardmode.Items.Consumables
 {
-    public class GreedKey : BaseAAItem
+    public class GildedKey : BaseAAItem
     {
 		public override void SetStaticDefaults()
 		{

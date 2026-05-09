@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAModClassic.Items.Armor.Paints
+namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     public class OrichalcumPaint : BaseAAItem

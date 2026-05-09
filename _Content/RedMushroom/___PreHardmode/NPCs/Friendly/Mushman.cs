@@ -7,7 +7,6 @@ using Terraria.Utilities;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;
-using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
@@ -551,7 +550,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<Throwshroom>();
+            projType = ModContent.ProjectileType<Mushman_Throwshroom>();
             attackDelay = 1;
         }
 

@@ -3,10 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Armor.GoblinSlayer
+namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class GoblinSlayerChest : BaseAAItem
+	public class GoblinSlayersChestplate : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
