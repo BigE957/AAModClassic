@@ -30,7 +30,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 25f;
-            Item.shoot = ModContent.ProjectileType<GameRocket>();
+            Item.shoot = ModContent.ProjectileType<GameRaider_GameRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
         }
@@ -53,7 +53,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
             {
                 position += muzzleOffset;
             }
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<GameRocket>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<GameRaider_GameRocket>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
             return false;
         }
     }

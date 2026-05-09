@@ -92,7 +92,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters;
-using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 
@@ -2700,7 +2699,7 @@ namespace AAModClassic
 
                         if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AlphakipTerratool>());
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ExtravagantTerratool>());
                         }
 
                         spawnedDevItems = true;
@@ -2952,7 +2951,7 @@ namespace AAModClassic
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Cerberus.InvokerBag>());
                         if (dropType >= 3)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<InvokerStaff>());
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AleisterStaff>());
                         }
                         spawnedDevItems = true;
                         break;

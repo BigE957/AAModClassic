@@ -4,7 +4,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {

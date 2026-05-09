@@ -3,7 +3,6 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Projectiles;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo;
@@ -65,7 +64,7 @@ Fires an explosive ghast skull every other shot"); */
 
             if (shoot >= 2)
             {
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<GhastSkull>(), (int)(damage * 1.0), knockback, player.whoAmI);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<TrueDeathlyLongbow_GhastSkull>(), (int)(damage * 1.0), knockback, player.whoAmI);
                 shoot = 0;
             }
             shoot = 0;

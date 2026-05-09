@@ -34,7 +34,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.PonyShot>();
+			Item.shoot = ModContent.ProjectileType<PoniumStaff_PonyShot>();
 			Item.shootSpeed = 9f;
             Item.expert = true; Item.expertOnly = true;
 		}

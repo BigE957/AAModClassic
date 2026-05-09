@@ -30,7 +30,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.shootSpeed = 9f;
             Item.value = 500000;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.SoulSiphon>();
+            Item.shoot = ModContent.ProjectileType<SoulSiphon_Proj>();
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)

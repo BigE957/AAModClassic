@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
 
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<Projectiles.DynaskullJavelin_Proj>();
+            Item.shoot = ModContent.ProjectileType<DynaskullJavelin_Proj>();
             Item.shootSpeed = 12f;
             Item.damage = 40;
             Item.knockBack = 5f;

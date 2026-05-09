@@ -16,7 +16,7 @@ namespace AAModClassic._Content._Dev.World.Tiles
 			Main.tileLavaDeath[Type] = false;
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
 			TileObjectData.addTile(Type);
-			RegisterItemDrop(ModContent.ItemType<InvokerBook>());
+			RegisterItemDrop(ModContent.ItemType<AleisterBook>());
 			LocalizedText modTranslation = CreateMapEntryName();
 			// modTranslation.SetDefault("Aleister Book");
 			AddMapEntry(Color.Gold, modTranslation);
@@ -28,12 +28,12 @@ namespace AAModClassic._Content._Dev.World.Tiles
 			Player localPlayer = Main.LocalPlayer;
 			localPlayer.noThrow = 2;
 			localPlayer.cursorItemIconEnabled = true;
-			localPlayer.cursorItemIconID = ModContent.ItemType<InvokerBook>();
+			localPlayer.cursorItemIconID = ModContent.ItemType<AleisterBook>();
 		}
 
         public override bool RightClick(int i, int j)
 		{
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, ModContent.ItemType<InvokerBook>(), 1, false, 0, false, false);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, ModContent.ItemType<AleisterBook>(), 1, false, 0, false, false);
             WorldGen.KillTile(i, j, false, false, true);
             return true;
 		}

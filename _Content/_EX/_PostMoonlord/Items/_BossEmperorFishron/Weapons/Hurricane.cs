@@ -3,7 +3,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
@@ -67,7 +66,7 @@ Tsunami EX"); */
 				}
 				if (Main.rand.NextBool(8))
 				{
-					type = ModContent.ProjectileType<OceanicArrow>();
+					type = ModContent.ProjectileType<Hurricane_OceanicArrow>();
 				}
 				else
 				{

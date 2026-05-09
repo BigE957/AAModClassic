@@ -1558,3 +1558,23 @@ DoomPortal_Buff: {
 	DisplayName: Doom Portal_ Buff
 	Description: Mods.AAModClassic.Buffs.DoomPortal_Buff.Description
 }
+
+AleisterStaff_BeBanished: {
+	DisplayName: Aleister Staff_ Be Banished
+	Description: Mods.AAModClassic.Buffs.AleisterStaff_BeBanished.Description
+}
+
+ConflagrateStaff_Buff: {
+	DisplayName: Conflagrate Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.ConflagrateStaff_Buff.Description
+}
+
+DapperAcorn_Buff: {
+	DisplayName: Dapper Acorn_ Buff
+	Description: Mods.AAModClassic.Buffs.DapperAcorn_Buff.Description
+}
+
+TartarusReaper_CursedHellfire: {
+	DisplayName: Tartarus Reaper_ Cursed Hellfire
+	Description: Mods.AAModClassic.Buffs.TartarusReaper_CursedHellfire.Description
+}

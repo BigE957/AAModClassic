@@ -43,7 +43,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.rare = ItemRarityID.Lime;
             Item.autoReuse = true;   //if it's capable of autoswing.
             Item.useTurn = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Ryugen>();
+            Item.shoot = ModContent.ProjectileType<Doragonburedo_Ryugen>();
         }
     }
 }

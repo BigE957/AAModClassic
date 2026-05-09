@@ -54,7 +54,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<Projectiles.TitanAxe>();
+                Item.shoot = ModContent.ProjectileType<TitanAxe_Proj>();
                 Item.noMelee = true;
                 Item.noUseGraphic = true;
             }

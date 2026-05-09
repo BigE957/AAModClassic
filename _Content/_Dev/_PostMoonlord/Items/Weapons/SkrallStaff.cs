@@ -33,7 +33,7 @@ It's the stick that's magic. The diamond is just for show
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Crystal>();
+			Item.shoot = ModContent.ProjectileType<SkrallStaff_Crystal>();
 			Item.shootSpeed = 20f;
 		}
 
@@ -64,7 +64,7 @@ It's the stick that's magic. The diamond is just for show
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true; //so the item's animation doesn't do damage
                 Item.damage = 270;
-                Item.shoot = ModContent.ProjectileType<Projectiles.BigCrystal>();
+                Item.shoot = ModContent.ProjectileType<SkrallStaff_BigCrystal>();
                 Item.shootSpeed = 15f;
             }
             else
@@ -74,7 +74,7 @@ It's the stick that's magic. The diamond is just for show
                 Item.useTime = 5;
                 Item.useAnimation = 5;
                 Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-                Item.shoot = ModContent.ProjectileType<Projectiles.Crystal>();
+                Item.shoot = ModContent.ProjectileType<SkrallStaff_Crystal>();
                 Item.damage = 170;
                 Item.noMelee = false;
                 Item.shootSpeed = 20f;

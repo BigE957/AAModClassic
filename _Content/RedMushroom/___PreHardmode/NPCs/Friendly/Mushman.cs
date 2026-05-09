@@ -7,7 +7,6 @@ using Terraria.Utilities;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;
-using AAModClassic.Items.Usable;
 using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;

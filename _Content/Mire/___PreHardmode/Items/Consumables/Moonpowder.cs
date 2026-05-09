@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 	{
 		public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<AAModClassic.Projectiles.Moonpowder>();
+            Item.shoot = ModContent.ProjectileType<Moonpowder_Proj>();
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 4f;
             Item.width = 16;

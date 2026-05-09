@@ -1,4 +1,3 @@
-using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -37,7 +36,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
 
         public override void OnKill(int timeLeft)
         {
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X * 0, Projectile.velocity.Y * 0, ModContent.ProjectileType<SingularityVortex>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X * 0, Projectile.velocity.Y * 0, ModContent.ProjectileType<SingularityCannon_SingularityVortex>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override bool PreDraw(ref Color lightColor)

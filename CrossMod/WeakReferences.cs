@@ -1712,7 +1712,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<SwimmingHydra>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfEvil>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<BladeOfEvil>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSP>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfNight>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSPEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<CarnalCrusher>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Chaos_Item>(), true);
@@ -1722,7 +1722,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<DreadTwilight>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Firestorm>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryForger>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryForgerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryGreatforger>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Judgment>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<RomulusTazesaber>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<SkycutterKopis>(), true);
@@ -1865,7 +1865,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Skyfall>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Skyfall>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Skystrike>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TrueTerraBallista>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<UnityBallista>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<Windfury>(), true);
 
                 //Crossbows
@@ -1883,8 +1883,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<HKMP5>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosBustershot>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Scourge>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<StormRifle>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ThunderLord>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ThunderLordEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<TheSquirter>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DraconicRipper>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<DraconicRipper>(), true);
@@ -2026,8 +2026,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandLamp>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Volley>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ElectricityShard>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Etheral>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<EtheralEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Ethereal>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Light>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<AncientArcanum>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<AncientArcanum>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<AncientArcanum>(), true);
@@ -2061,7 +2061,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<HallowStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<TrueHallowStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MagicAcorn>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MagicAcornEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<DapperAcorn>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraGauntlet>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<AncientLungStaff>(), true);

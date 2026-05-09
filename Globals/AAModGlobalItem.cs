@@ -1038,7 +1038,7 @@ namespace AAModClassic.Globals
         }
         public override bool CanUseItem(Item item, Player player)
         {
-            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<InvokerStaff>() && player.altFunctionUse == 2))
+            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<AleisterStaff>() && player.altFunctionUse == 2))
             {
                 return false;
             }

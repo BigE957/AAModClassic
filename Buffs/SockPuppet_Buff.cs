@@ -1,4 +1,4 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 

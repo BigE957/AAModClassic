@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		
 		public override void Update(Player player, ref int buffIndex)
 		{
-			if (player.HeldItem.type != ModContent.ItemType<GrimReaperScytheEX>())
+			if (player.HeldItem.type != ModContent.ItemType<SoulShredder>())
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;
