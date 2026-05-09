@@ -1,4 +1,4 @@
-using AAModClassic.Projectiles;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

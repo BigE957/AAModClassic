@@ -192,7 +192,7 @@ namespace AAModClassic._Content._Dev.Invoker
 				if(soul == ModContent.NPCType<ShenA>()) soulcount ++;
 				if(soul == ModContent.NPCType<SupremeRajah>()) soulcount ++;
 			}
-			if(soulcount >= 5)//(WorldTypeSystem.WorldType == AAWorldType.Beta ? 4 : 5))
+			if(soulcount >= 5)
 			{
 				DarkCaligula = true;
 			}
@@ -242,7 +242,7 @@ namespace AAModClassic._Content._Dev.Invoker
 			}
 			if (SpringInvoker)
 			{
-				if (Math.Abs(Player.velocity.X) < 0.05 && Math.Abs(Player.velocity.Y) < 0.05 && (Player.itemAnimation == 0 || Player.inventory[Player.selectedItem].type == ModContent.ItemType<InvokerStaff>()))
+				if (Math.Abs(Player.velocity.X) < 0.05 && Math.Abs(Player.velocity.Y) < 0.05 && (Player.itemAnimation == 0 || Player.inventory[Player.selectedItem].type == ModContent.ItemType<AleisterStaff>()))
 				{
 					if(Player.lifeRegen < 0) Player.lifeRegen /= 2;
 					if (Player.lifeRegenTime > 90 && Player.lifeRegenTime < 1800)

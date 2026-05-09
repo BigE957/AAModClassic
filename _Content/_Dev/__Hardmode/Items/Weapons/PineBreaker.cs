@@ -31,7 +31,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Pine>();
+			Item.shoot = ModContent.ProjectileType<PineBreaker_Pine>();
 			Item.shootSpeed = 9f;
             Item.expert = true; 
             Item.expertOnly = true;

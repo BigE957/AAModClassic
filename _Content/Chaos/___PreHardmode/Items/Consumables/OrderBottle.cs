@@ -1,4 +1,4 @@
-using AAModClassic.Projectiles;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

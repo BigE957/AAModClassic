@@ -4,7 +4,6 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAModClassic.Projectiles;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
@@ -31,7 +30,7 @@ Right Click to unleash demon blades that fall from the sky"); */
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.DemiseSphere>();
+			Item.shoot = ModContent.ProjectileType<Demise_DemiseSphere>();
             Item.shootSpeed = 9f;
 		}
 
@@ -48,14 +47,14 @@ Right Click to unleash demon blades that fall from the sky"); */
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.noMelee = false;
-                Item.shoot = ModContent.ProjectileType<Projectiles.DemiseBlade>();
+                Item.shoot = ModContent.ProjectileType<Demise_DemiseBlade>();
             }
             else
             {
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.shoot = ModContent.ProjectileType<Projectiles.DemiseSphere>();
+                Item.shoot = ModContent.ProjectileType<Demise_DemiseSphere>();
             }
             return base.CanUseItem(player);
         }
@@ -85,7 +84,7 @@ Right Click to unleash demon blades that fall from the sky"); */
                     float num83 = vector13.Y;
                     float speedX5 = num82;
                     float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<DemiseBlade>(), damage * 3 / 2, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<Demise_DemiseBlade>(), damage * 3 / 2, knockback, Main.myPlayer);
                 }
             }
             else
@@ -93,7 +92,7 @@ Right Click to unleash demon blades that fall from the sky"); */
                 for (int i = 0; i < 3; i++)
                 {
                     Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<DemiseSphere>(), damage, knockback, player.whoAmI);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Demise_DemiseSphere>(), damage, knockback, player.whoAmI);
                 }
             }
             return false;

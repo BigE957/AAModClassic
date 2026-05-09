@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using System;
-using AAModClassic.Projectiles;
+using AAModClassic._Content._Dev.Projectiles;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
@@ -54,8 +54,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
                 for (int i = 0; i < 4; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), ModContent.ProjectileType<SparkFury>(), Item.damage, 1.25f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), ModContent.ProjectileType<SparkFury>(), Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), ModContent.ProjectileType<FurySpark>(), Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), ModContent.ProjectileType<FurySpark>(), Item.damage, 1.25f, player.whoAmI, 0f, 0f);
                 }
             }
             target.AddBuff(BuffID.OnFire, 200);

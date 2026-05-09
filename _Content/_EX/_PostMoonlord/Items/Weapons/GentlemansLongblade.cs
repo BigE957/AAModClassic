@@ -1,6 +1,5 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic.Items.Boss;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -33,7 +32,7 @@ Gentleman's Rapier EX"); */
 			Item.knockBack = 3;
 			Item.value = 100000;
 			Item.rare = ItemRarityID.Purple;
-            Item.shoot = ModContent.ProjectileType<Projectiles.TopHat>();
+            Item.shoot = ModContent.ProjectileType<GentlemansRapier_TopHat>();
             Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.shootSpeed = 50f;

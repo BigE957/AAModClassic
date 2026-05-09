@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Boss;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -34,7 +33,7 @@ Blade of Night EX"); */
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.UmbreonSPProjectile>();
+			Item.shoot = ModContent.ProjectileType<BladeOfNight_NightSlash>();
 			Item.shootSpeed = 18f;
             Item.expert = true; Item.expertOnly = true;
 
@@ -61,7 +60,7 @@ Blade of Night EX"); */
 		public override void AddRecipes()
         {
 		    Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<UmbreonSP>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<BladeOfNight>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
             recipe.AddTile(TileID.LunarCraftingStation); // (null, "ModTileID");
 		    recipe.Register();

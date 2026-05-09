@@ -1,5 +1,4 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

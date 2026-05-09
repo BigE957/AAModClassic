@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.UseSound = SoundID.Item34;
             Item.value = 1000000;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<AcidFlame>(); //idk why but all the guns in the vanilla source have this
+            Item.shoot = ModContent.ProjectileType<AbyssalEruption_AcidFlame>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 20f;
             Item.useAmmo = 23;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
@@ -60,7 +60,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             for (int i = 0; i < 3; i++)
             {
                 Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(10));
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<AcidFlame>(), damage, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<AbyssalEruption_AcidFlame>(), damage, knockback, player.whoAmI);
             }
             shoot++;
 
@@ -68,7 +68,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
             if (shoot >= 6)
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AcidFlame>(), damage * 2, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AbyssalEruption_AcidFlame>(), damage * 2, knockback, player.whoAmI);
                 shoot = 0;
             }
             shoot = 0;

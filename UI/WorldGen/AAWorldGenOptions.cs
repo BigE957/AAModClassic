@@ -132,7 +132,7 @@ namespace AAModClassic.UI.WorldGen
 
             string[] array5 = new string[3] {
                 ModContent.GetInstance<YamataHead>().BossHeadTexture,
-                ModContent.GetInstance<ShenAMask>().Texture,
+                ModContent.GetInstance<ShenDoragonAMask>().Texture,
                 ModContent.GetInstance<AkumaMask>().Texture,
             };
 

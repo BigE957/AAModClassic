@@ -1,4 +1,4 @@
-using AAModClassic.Projectiles;
+using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 			Item.consumable = true;
 			Item.useTime = 28;
 			Item.useAnimation = 28;
-			Item.shoot = ModContent.ProjectileType<IndigoSolution>();
+			Item.shoot = ModContent.ProjectileType<IndigoSolution_Proj>();
 			Item.shootSpeed = 1f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = Item.sellPrice(0, 0, 1, 0);
@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<IndigoSolution>();
+                Item.shoot = ModContent.ProjectileType<IndigoSolution_Proj>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

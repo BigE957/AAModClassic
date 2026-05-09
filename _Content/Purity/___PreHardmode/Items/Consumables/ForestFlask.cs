@@ -1,3 +1,4 @@
+using AAModClassic._Content.Purity.__Hardmode.Items.Consumables;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +15,7 @@ namespace AAModClassic._Content.Purity.___PreHardmode.Items.Consumables
             Item.consumable = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = ModContent.ProjectileType<Projectiles.ForestSolution>();
+            Item.shoot = ModContent.ProjectileType<DeepGreenSolution_Proj>();
             Item.shootSpeed = 1f;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 0, 1, 0);
@@ -44,7 +45,7 @@ namespace AAModClassic._Content.Purity.___PreHardmode.Items.Consumables
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<Projectiles.ForestSolution>();
+                Item.shoot = ModContent.ProjectileType<DeepGreenSolution_Proj>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

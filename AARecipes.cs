@@ -49,7 +49,6 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Wea
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Vanity.Alphakip;
 using AAModClassic.Items.Vanity.Anarchy;
@@ -138,7 +137,7 @@ namespace AAModClassic
             recipe.AddIngredient(ItemID.Terragrim);
             recipe.AddIngredient(ModContent.ItemType<PrismaticGreatsword>());
             recipe.AddIngredient(ModContent.ItemType<BladeOfEvil>());
-            recipe.AddIngredient(ModContent.ItemType<ChaosSlayerEX>());
+            recipe.AddIngredient(ModContent.ItemType<Ikari>());
             recipe.AddIngredient(ModContent.ItemType<InfinityBlade>()); //TODO: make this rift shredder in non-unofficial worlds... somehow
             recipe.AddIngredient(ModContent.ItemType<Verdict>());
             recipe.AddIngredient(ModContent.ItemType<SagittariusLeg>());

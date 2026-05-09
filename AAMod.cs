@@ -52,7 +52,6 @@ using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Projectiles;
 using AAModClassic.UI;
 using AAModClassic.UI.Core;
@@ -76,6 +75,7 @@ using Terraria.UI;
 using Terraria.Utilities;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 
 namespace AAModClassic
 {
@@ -347,7 +347,7 @@ namespace AAModClassic
 
                 profiles.Add(ModContent.ItemType<BladeOfEvil>(), new(68f, AAColor.Jevil));
 
-                profiles.Add(ModContent.ItemType<ChaosSlayerEX>(), new(86f, AAColor.Shen3));
+                profiles.Add(ModContent.ItemType<Ikari>(), new(86f, AAColor.Shen3));
                 profiles.Add(ModContent.ItemType<ChaosSlayer>(), new(90f, AAColor.Shen2));
                 profiles.Add(ModContent.ItemType<ReignOfFire>(), new(56f, Color.OrangeRed));
                 profiles.Add(ModContent.ItemType<Amenomuraku>(), new(64f, Color.LightBlue));
@@ -476,7 +476,6 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/_BossAthenaA/Skies/AthenaBolt", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/_BossAthenaA/Skies/AthenaFlash", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShield", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<RadiumStar>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<StarStaff_Star2>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<TruffleToad_LargeFungusBubble>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ProtoStar", AssetRequestMode.ImmediateLoad).Value);

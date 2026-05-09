@@ -1,5 +1,4 @@
 ﻿using System;
-using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -83,7 +82,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             SoundEngine.PlaySound(SoundID.Item89);
 
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<SparkBoom3>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<StarburstWant_SparkLargeExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
         }
     }
 }

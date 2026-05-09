@@ -227,14 +227,14 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<InvokerStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<AleisterStaff>());
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
 				}
 				if (NPC.downedMoonlord)
 				{
-					items[nextSlot] = new Item(ModContent.ItemType<AmphibianLongsword>());
+					items[nextSlot] = new Item(ModContent.ItemType<ExtravagantLongsword>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
@@ -250,15 +250,15 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<DuckstepGun>());
+					items[nextSlot] = new Item(ModContent.ItemType<DuckstepLauncher>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<EnderStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<ConflagrateStaff>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<Etheral>());
+					items[nextSlot] = new Item(ModContent.ItemType<Ethereal>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
@@ -278,7 +278,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<GrimReaperScythe>());
+					items[nextSlot] = new Item(ModContent.ItemType<ScytheOfTheGrimReaper>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
@@ -310,7 +310,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<ThunderLord>());
+					items[nextSlot] = new Item(ModContent.ItemType<StormRifle>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
@@ -322,7 +322,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<UmbreonSP>());
+					items[nextSlot] = new Item(ModContent.ItemType<BladeOfNight>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 					nextSlot++;
@@ -349,7 +349,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<Projectiles.AmphibiousProjectile>();
+            projType = ModContent.ProjectileType<ExtravagantLongsword_BigE>();
             attackDelay = 1;
         }
 

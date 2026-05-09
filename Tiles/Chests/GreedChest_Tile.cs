@@ -1,3 +1,4 @@
+using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
@@ -189,7 +190,7 @@ namespace AAModClassic.Tiles.Chests
             {
                 if (isLocked)
                 {
-                    int key = ModContent.ItemType<Items.Usable.GreedKey>();
+                    int key = ModContent.ItemType<GildedKey>();
                     if (player.ConsumeItem(key) && Chest.Unlock(left, top))
                     {
                         if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -252,7 +253,7 @@ namespace AAModClassic.Tiles.Chests
                 {
                     player.cursorItemIconID = ModContent.ItemType<GreedChest>();
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
-                        player.cursorItemIconID = ModContent.ItemType<Items.Usable.GreedKey>();
+                        player.cursorItemIconID = ModContent.ItemType<GildedKey>();
                     player.cursorItemIconText = "";
                 }
             }

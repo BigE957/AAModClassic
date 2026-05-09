@@ -17,7 +17,6 @@ using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
-using AAModClassic.Items.Thorium.Healer;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
@@ -27,6 +26,7 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStan
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.__PLACEHOLDER.crossmod;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
 {

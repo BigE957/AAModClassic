@@ -23,7 +23,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
-            Item.shoot = ModContent.ProjectileType<Projectiles.TimeTeller>();
+            Item.shoot = ModContent.ProjectileType<TimeTeller_Holdout>();
         }
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)

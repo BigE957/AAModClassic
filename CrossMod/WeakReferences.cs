@@ -30,6 +30,7 @@ using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos.__Hardmode.NPCs;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
@@ -170,10 +171,8 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Items.Blocks.Boxes;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Summoning;
-using AAModClassic.Projectiles.Shen;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -1201,8 +1200,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<ChaosSigil>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<ShenTrophy>(),
-                        ModContent.ItemType<ShenMask>(),
+                        ModContent.ItemType<ShenDoragonTrophy>(),
+                        ModContent.ItemType<ShenDoragonMask>(),
                         ModContent.ItemType<ShenBox>()
                     },
                     ["customPortrait"] = GetPortrait("Shen")
@@ -1216,8 +1215,8 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<ChaosRune>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<ShenATrophy>(),
-                        ModContent.ItemType<ShenAMask>(),
+                        ModContent.ItemType<ShenDoragonATrophy>(),
+                        ModContent.ItemType<ShenDoragonAMask>(),
                         ModContent.ItemType<ShenAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("ShenA"),
@@ -1713,7 +1712,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<SwimmingHydra>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfEvil>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<BladeOfEvil>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSP>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfNight>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSPEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<CarnalCrusher>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Chaos_Item>(), true);
@@ -1723,7 +1722,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<DreadTwilight>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Firestorm>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryForger>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryForgerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<FuryGreatforger>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Judgment>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<RomulusTazesaber>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<SkycutterKopis>(), true);
@@ -1755,10 +1754,10 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<FinalChaos>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosSlayer>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosSlayer>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosSlayerEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<ChaosSlayerEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosSlayerEX>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<ChaosSlayerEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Ikari>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<Ikari>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Ikari>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Ikari>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<PerfectChaos>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<PerfectChaos>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Masamune>(), true);
@@ -1823,8 +1822,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<ChaosChain>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<IlluminantFlail>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Ryusei>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Astroid>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Astroid>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Asteroid>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Asteroid>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Daycrusher>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<EmperorFlairon>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Flairdra>(), true);
@@ -1866,7 +1865,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Skyfall>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Skyfall>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Skystrike>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TrueTerraBallista>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<UnityBallista>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<Windfury>(), true);
 
                 //Crossbows
@@ -1884,8 +1883,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Explosive, ModContent.ItemType<HKMP5>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<ChaosBustershot>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Scourge>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<StormRifle>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ThunderLord>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ThunderLordEX>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<TheSquirter>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<DraconicRipper>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<DraconicRipper>(), true);
@@ -2027,8 +2026,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<SandLamp>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Volley>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Thunder, ModContent.ItemType<ElectricityShard>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Etheral>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<EtheralEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Ethereal>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<Light>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<AncientArcanum>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<AncientArcanum>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<AncientArcanum>(), true);
@@ -2062,7 +2061,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<HallowStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Holy, ModContent.ItemType<TrueHallowStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MagicAcorn>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<MagicAcornEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<DapperAcorn>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraGauntlet>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Nature, ModContent.ItemType<TerraStaff>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<AncientLungStaff>(), true);
@@ -2106,7 +2105,7 @@ namespace AAModClassic.CrossMod
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<IlluminantFlail_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Ryusei_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<ThePunisher_Holdout>());
-                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Astroid_Proj>());
+                thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Asteroid_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<Daycrusher_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EmperorFlairon_Holdout>());
                 thorium.Call("AddFlailProjectileID", ModContent.ProjectileType<EventHorizon_Holdout>());

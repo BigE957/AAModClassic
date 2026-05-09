@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -593,9 +593,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ShenCache>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ShenDoragonTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenATrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenDoragonATrophy>(), 10));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
 

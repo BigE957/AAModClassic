@@ -4,7 +4,6 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 		    	offsetAngle = startAngle + deltaAngle * i;
 		    	Projectile.NewProjectile(source, position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
             }
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Shadowshot>(), (int)(damage * 1.0f), knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<AbyssalShadowshot_Shadowshot>(), (int)(damage * 1.0f), knockback, Main.myPlayer);
             return false;
 		}
 

@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D Vortex = ModContent.Request<Texture2D>(ModContent.GetInstance<SingularityVortex>().Texture + "_1").Value;
+            Texture2D Vortex = ModContent.Request<Texture2D>(ModContent.GetInstance<SingularityCannon_SingularityVortex>().Texture + "_Back").Value;
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
             BaseDrawing.DrawTexture(Main.spriteBatch, Vortex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -RingRotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);

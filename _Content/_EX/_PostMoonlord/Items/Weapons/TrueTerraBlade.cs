@@ -5,7 +5,6 @@ using Terraria.ModLoader;
 using AAModClassic.Items.Materials;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic.Projectiles;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -29,7 +28,7 @@ Terra Blade EX"); */
 			Item.useTime = 21;
 			Item.width = 62;
 			Item.height = 74;
-			Item.shoot = ModContent.ProjectileType<TerraShotEX>();
+			Item.shoot = ModContent.ProjectileType<TrueTerraBlade_UnityBeam>();
 			Item.shootSpeed = 7f;
 			Item.knockBack = 7f;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

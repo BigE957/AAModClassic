@@ -1490,3 +1490,126 @@ RiftShredder_RiftSlash.DisplayName: Rift Shredder_ Rift Slash
 TheVortex_Holdout.DisplayName: The Vortex_ Holdout
 TheVortex_Proj.DisplayName: The Vortex_ Proj
 VoidStar_StarVortex.DisplayName: Void Star_ Star Vortex
+Ikari_BladeOfAbyssalWrath.DisplayName: Ikari_ Blade Of Abyssal Wrath
+Ikari_BladeOfBlazingFury.DisplayName: Ikari_ Blade Of Blazing Fury
+Ikari_BladeOfUnyieldingChaos.DisplayName: Ikari_ Blade Of Unyielding Chaos
+Asteroid_Holdout.DisplayName: Asteroid_ Holdout
+Asteroid_Meteorite.DisplayName: Asteroid_ Meteorite
+ChaosSlayer_BladeOfChaos.DisplayName: Chaos Slayer_ Blade Of Chaos
+ChaosSlayer_BladeOfFury.DisplayName: Chaos Slayer_ Blade Of Fury
+ChaosSlayer_BladeOfWrath.DisplayName: Chaos Slayer_ Blade Of Wrath
+DraconicRipper_AkumaTooth.DisplayName: Draconic Ripper_ Akuma Tooth
+DraconicRipper_ShenDoragonTooth.DisplayName: Draconic Ripper_ Shen Doragon Tooth
+DraconicRipper_YamataTooth.DisplayName: Draconic Ripper_ Yamata Tooth
+FlamingTwilight_DiscordianInferno.DisplayName: Flaming Twilight_ Discordian Inferno
+MeteorStrike_Meteor.DisplayName: Meteor Strike_ Meteor
+MeteorStrike_MeteorBlue.DisplayName: Meteor Strike_ Meteor Blue
+MeteorStrike_MeteorRed.DisplayName: Meteor Strike_ Meteor Red
+Skyfall_ProjBlue.DisplayName: Skyfall_ Proj Blue
+Skyfall_ProjRed.DisplayName: Skyfall_ Proj Red
+Timesplitter_CosmicBlow.DisplayName: Timesplitter_ Cosmic Blow
+Timesplitter_Holdout.DisplayName: Timesplitter_ Holdout
+AleisterStaff_InvokedDamage.DisplayName: Aleister Staff_ Invoked Damage
+AleisterStaff_InvokedHeal.DisplayName: Aleister Staff_ Invoked Heal
+AleisterStaff_InvokedRune.DisplayName: Aleister Staff_ Invoked Rune
+AleisterStaff_Proj.DisplayName: Aleister Staff_ Proj
+GameRaider_GameRocket.DisplayName: Game Raider_ Game Rocket
+GameRaider_MooBoom.DisplayName: Game Raider_ Moo Boom
+PineBreaker_Pine.DisplayName: Pine Breaker_ Pine
+FurySpark.DisplayName: Fury Spark
+Chronos_Holdout.DisplayName: Chronos_ Holdout
+CursedSickle_Holdout.DisplayName: Cursed Sickle_ Holdout
+FreedomStar_Holdout.DisplayName: Freedom Star_ Holdout
+GibsFemur_AngryFemur.DisplayName: Gibs Femur_ Angry Femur
+MobianBuster_Holdout.DisplayName: Mobian Buster_ Holdout
+SoulSiphon_Proj.DisplayName: Soul Siphon_ Proj
+TartarusReaper_Holdout.DisplayName: Tartarus Reaper_ Holdout
+TimeTeller_Holdout.DisplayName: Time Teller_ Holdout
+TitanAxe_Proj.DisplayName: Titan Axe_ Proj
+TitanSlayer_Proj.DisplayName: Titan Slayer_ Proj
+BladeOfNight_NightSlash.DisplayName: Blade Of Night_ Night Slash
+ConflagrateStaff_ConflagrateConstruct.DisplayName: Conflagrate Staff_ Conflagrate Construct
+CursedSickle_Proj.DisplayName: Cursed Sickle_ Proj
+Demise_DemiseBlade.DisplayName: Demise_ Demise Blade
+Demise_DemiseExplosion.DisplayName: Demise_ Demise Explosion
+Demise_DemiseSphere.DisplayName: Demise_ Demise Sphere
+Doragonburedo_Ryugen.DisplayName: Doragonburedo_ Ryugen
+DuckstepLauncher_Duck.DisplayName: Duckstep Launcher_ Duck
+DuckstepLauncher_Ducksplosion.DisplayName: Duckstep Launcher_ Ducksplosion
+DuckstepLauncher_DucksplosionAlt.DisplayName: Duckstep Launcher_ Ducksplosion Alt
+Ethereal_Deathray.DisplayName: Ethereal_ Deathray
+Ethereal_Holdout.DisplayName: Ethereal_ Holdout
+ExtravagantLongsword_BigBoom.DisplayName: Extravagant Longsword_ Big Boom
+ExtravagantLongsword_BigE.DisplayName: Extravagant Longsword_ Big E
+ExtravagantLongswordS_BigE.DisplayName: Extravagant Longsword S_ Big E
+GentlemansRapier_TopHat.DisplayName: Gentlemans Rapier_ Top Hat
+MobianBuster_MobianChargedShot.DisplayName: Mobian Buster_ Mobian Charged Shot
+MobianBuster_MobianShot.DisplayName: Mobian Buster_ Mobian Shot
+Placeholder_SoonTM.DisplayName: Placeholder_ Soon T M
+PoniumStaff_PonyShot.DisplayName: Ponium Staff_ Pony Shot
+PoniumStaff_Ponysplosion.DisplayName: Ponium Staff_ Ponysplosion
+ScytheOfTheGrimReaper_Proj.DisplayName: Scythe Of The Grim Reaper_ Proj
+SkrallStaff_BigCrystal.DisplayName: Skrall Staff_ Big Crystal
+SkrallStaff_Crystal.DisplayName: Skrall Staff_ Crystal
+SoulSiphon_Heal.DisplayName: Soul Siphon_ Heal
+StormRifle_ThunderSpark.DisplayName: Storm Rifle_ Thunder Spark
+TimeTeller_Time.DisplayName: Time Teller_ Time
+UmbralReaper_VoidSpear.DisplayName: Umbral Reaper_ Void Spear
+UmbralReaper_VoidWave.DisplayName: Umbral Reaper_ Void Wave
+BlackSolution_Proj.DisplayName: Black Solution_ Proj
+Hurricane_OceanicArrow.DisplayName: Hurricane_ Oceanic Arrow
+Catastrophe_CatastropheBlade.DisplayName: Catastrophe_ Catastrophe Blade
+Catastrophe_CatastropheExplosion.DisplayName: Catastrophe_ Catastrophe Explosion
+Catastrophe_CatastropheSphere.DisplayName: Catastrophe_ Catastrophe Sphere
+DapperAcorn_DapperSquirrel1.DisplayName: Dapper Acorn_ Dapper Squirrel1
+DapperAcorn_DapperSquirrel2.DisplayName: Dapper Acorn_ Dapper Squirrel2
+DapperAcorn_Fez.DisplayName: Dapper Acorn_ Fez
+DapperAcorn_Fezsplosion.DisplayName: Dapper Acorn_ Fezsplosion
+DapperAcorn_TopHat.DisplayName: Dapper Acorn_ Top Hat
+ExquisiteExtravagantGreatblade_BiggerE.DisplayName: Exquisite Extravagant Greatblade_ Bigger E
+ExquisiteExtravagantGreatbladeS_BiggerE.DisplayName: Exquisite Extravagant Greatblade S_ Bigger E
+FreedomStar_FreedomChargedShot.DisplayName: Freedom Star_ Freedom Charged Shot
+FreedomStar_FreedomShot.DisplayName: Freedom Star_ Freedom Shot
+FreedomStar_PlasmaBall.DisplayName: Freedom Star_ Plasma Ball
+Light_Deathray.DisplayName: Light_ Deathray
+Light_Holdout.DisplayName: Light_ Holdout
+PoniumUltiscepter_PonyShot.DisplayName: Ponium Ultiscepter_ Pony Shot
+PoniumUltiscepter_Ponysplosion.DisplayName: Ponium Ultiscepter_ Ponysplosion
+PrismeowSpectrum_LegendaryRainbowCat.DisplayName: Prismeow Spectrum_ Legendary Rainbow Cat
+ScourgeOfTheShadows_CursedFireball.DisplayName: Scourge Of The Shadows_ Cursed Fireball
+SoccOnAStick_SockDudeFromBaldis.DisplayName: Socc On A Stick_ Sock Dude From Baldis
+SoccOnAStick_SockPuppet.DisplayName: Socc On A Stick_ Sock Puppet
+SoulShredder_Proj.DisplayName: Soul Shredder_ Proj
+StarburstWant_SparkLargeExplosion.DisplayName: Starburst Want_ Spark Large Explosion
+StarburstWant_SparkMediumExplosion.DisplayName: Starburst Want_ Spark Medium Explosion
+SupremeHellshot_Hellshot.DisplayName: Supreme Hellshot_ Hellshot
+TartarusReaper_Proj.DisplayName: Tartarus Reaper_ Proj
+ThunderLord_SuperchargedThunderbullet.DisplayName: Thunder Lord_ Supercharged Thunderbullet
+ThunderLord_ThunderBoom.DisplayName: Thunder Lord_ Thunder Boom
+ThunderLord_Thundershot.DisplayName: Thunder Lord_ Thundershot
+ThunderLord_Thunderstrike.DisplayName: Thunder Lord_ Thunderstrike
+TitanSlayer_Slash.DisplayName: Titan Slayer_ Slash
+TrueTerraBlade_UnityBeam.DisplayName: True Terra Blade_ Unity Beam
+ChaosBaton_BlazeBlast.DisplayName: Chaos Baton_ Blaze Blast
+YellowSolution_Proj.DisplayName: Yellow Solution_ Proj
+TrueDeathlyLongbow_GhastBoom.DisplayName: True Deathly Longbow_ Ghast Boom
+TrueDeathlyLongbow_GhastSkull.DisplayName: True Deathly Longbow_ Ghast Skull
+BladeOfEvil_FlareOfEvil.DisplayName: Blade Of Evil_ Flare Of Evil
+Fireball_Explosion.DisplayName: Fireball_ Explosion
+LimeSolution_Proj.DisplayName: Lime Solution_ Proj
+SwarmSolution_Proj.DisplayName: Swarm Solution_ Proj
+Moonpowder_Proj.DisplayName: Moonpowder_ Proj
+IndigoSolution_Proj.DisplayName: Indigo Solution_ Proj
+AbyssalShadowshot_Shadowshot.DisplayName: Abyssal Shadowshot_ Shadowshot
+AbyssalEruption_AcidBall.DisplayName: Abyssal Eruption_ Acid Ball
+AbyssalEruption_AcidFlame.DisplayName: Abyssal Eruption_ Acid Flame
+DeepGreenSolution_Proj.DisplayName: Deep Green Solution_ Proj
+BrownSolution_Proj.DisplayName: Brown Solution_ Proj
+WhiteSolution_Proj.DisplayName: White Solution_ Proj
+DarkmatterSlasher_DarkmatterWave.DisplayName: Darkmatter Slasher_ Darkmatter Wave
+DarkmatterSlasher_RealityTear.DisplayName: Darkmatter Slasher_ Reality Tear
+SingularityCannon_SingularityVortex.DisplayName: Singularity Cannon_ Singularity Vortex
+CarrotFarmer_FarmedCarrot.DisplayName: Carrot Farmer_ Farmed Carrot
+DragonsClaw_Holdout.DisplayName: Dragons Claw_ Holdout
+DynaskullJavelin_DynaEnergy.DisplayName: Dynaskull Javelin_ Dyna Energy
+Mushman_Throwshroom.DisplayName: Mushman_ Throwshroom

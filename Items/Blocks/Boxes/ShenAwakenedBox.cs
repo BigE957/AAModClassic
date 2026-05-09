@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Tiles.Boxes;
-using AAModClassic.Items.Boss.Shen;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
 
 namespace AAModClassic.Items.Blocks.Boxes
 {

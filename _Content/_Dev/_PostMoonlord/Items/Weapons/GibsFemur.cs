@@ -27,7 +27,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 24;
             Item.useTime = 24;
-            Item.shoot = ModContent.ProjectileType<Projectiles.GibsFemur>();
+            Item.shoot = ModContent.ProjectileType<GibsFemur_AngryFemur>();
 			Item.width = 32;
             Item.height = 32;
             Item.noMelee = true;

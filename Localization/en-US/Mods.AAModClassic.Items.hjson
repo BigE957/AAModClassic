@@ -11414,3 +11414,213 @@ TheVortex: {
 	DisplayName: The Vortex
 	Tooltip: ""
 }
+
+Ikari: {
+	DisplayName: Ikari
+	Tooltip: ""
+}
+
+ShenDoragonAMask: {
+	DisplayName: Shen Doragon A Mask
+	Tooltip: ""
+}
+
+ShenDoragonATrophy: {
+	DisplayName: Shen Doragon A Trophy
+	Tooltip: ""
+}
+
+ShenDoragonMask: {
+	DisplayName: Shen Doragon Mask
+	Tooltip: ""
+}
+
+ShenDoragonTreasureBag: {
+	DisplayName: Shen Doragon Treasure Bag
+	Tooltip: ""
+}
+
+ShenDoragonTrophy: {
+	DisplayName: Shen Doragon Trophy
+	Tooltip: ""
+}
+
+DiscordianTerratool: {
+	DisplayName: Discordian Terratool
+	Tooltip: ""
+}
+
+Asteroid: {
+	DisplayName: Asteroid
+	Tooltip: ""
+}
+
+AleisterBook: {
+	DisplayName: Aleister Book
+	Tooltip: ""
+}
+
+AleisterStaff: {
+	DisplayName: Aleister Staff
+	Tooltip: ""
+}
+
+GRealmAdvertisement: {
+	DisplayName: G Realm Advertisement
+	Tooltip: ""
+}
+
+ExtravagantTerratool: {
+	DisplayName: Extravagant Terratool
+	Tooltip: ""
+}
+
+BladeOfNight: {
+	DisplayName: Blade Of Night
+	Tooltip: ""
+}
+
+ConflagrateStaff: {
+	DisplayName: Conflagrate Staff
+	Tooltip: ""
+}
+
+DuckstepLauncher: {
+	DisplayName: Duckstep Launcher
+	Tooltip: ""
+}
+
+Ethereal: {
+	DisplayName: Ethereal
+	Tooltip: ""
+}
+
+ExtravagantLongsword: {
+	DisplayName: Extravagant Longsword
+	Tooltip: ""
+}
+
+ExtravagantLongswordS: {
+	DisplayName: Extravagant Longsword S
+	Tooltip: ""
+}
+
+ScytheOfTheGrimReaper: {
+	DisplayName: Scythe Of The Grim Reaper
+	Tooltip: ""
+}
+
+StormRifle: {
+	DisplayName: Storm Rifle
+	Tooltip: ""
+}
+
+TheBookOfTheLaw: {
+	DisplayName: The Book Of The Law
+	Tooltip: ""
+}
+
+Catastrophe: {
+	DisplayName: Catastrophe
+	Tooltip: ""
+}
+
+ConflagrateScythe: {
+	DisplayName: Conflagrate Scythe
+	Tooltip: ""
+}
+
+DapperAcorn: {
+	DisplayName: Dapper Acorn
+	Tooltip: ""
+}
+
+DuckstepREMIX: {
+	DisplayName: Duckstep R E M I X
+	Tooltip: ""
+}
+
+ExquisiteExtravagantGreatblade: {
+	DisplayName: Exquisite Extravagant Greatblade
+	Tooltip: ""
+}
+
+ExquisiteExtravagantGreatbladeS: {
+	DisplayName: Exquisite Extravagant Greatblade S
+	Tooltip: ""
+}
+
+FuryGreatforger: {
+	DisplayName: Fury Greatforger
+	Tooltip: ""
+}
+
+Light: {
+	DisplayName: Light
+	Tooltip: ""
+}
+
+PoniumUltiscepter: {
+	DisplayName: Ponium Ultiscepter
+	Tooltip: ""
+}
+
+PrismeowSpectrum: {
+	DisplayName: Prismeow Spectrum
+	Tooltip: ""
+}
+
+SoccOnAStick: {
+	DisplayName: Socc On A Stick
+	Tooltip: ""
+}
+
+SoulShredder: {
+	DisplayName: Soul Shredder
+	Tooltip: ""
+}
+
+SupremeHellshot: {
+	DisplayName: Supreme Hellshot
+	Tooltip: ""
+}
+
+TartarusReaper: {
+	DisplayName: Tartarus Reaper
+	Tooltip: ""
+}
+
+TitanSlayer: {
+	DisplayName: Titan Slayer
+	Tooltip: ""
+}
+
+UnityBallista: {
+	DisplayName: Unity Ballista
+	Tooltip: ""
+}
+
+SwarmSolution: {
+	DisplayName: Swarm Solution
+	Tooltip: ""
+}
+
+GoblinSlayersChestplate: {
+	DisplayName: Goblin Slayers Chestplate
+	Tooltip: ""
+}
+
+GoblinSlayersHelmet: {
+	DisplayName: Goblin Slayers Helmet
+	Tooltip: ""
+}
+
+GoblinSlayersLeggings: {
+	DisplayName: Goblin Slayers Leggings
+	Tooltip: ""
+}
+
+GildedKey: {
+	DisplayName: Gilded Key
+	Tooltip: ""
+}

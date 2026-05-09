@@ -23,7 +23,7 @@ namespace AAModClassic._Content.Evil.__Hardmode.Items.Weapons
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.EvilFlare>();
+            Item.shoot = ModContent.ProjectileType<BladeOfEvil_FlareOfEvil>();
             Item.shootSpeed = 9;
         }
 

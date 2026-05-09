@@ -58,13 +58,13 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             {
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
-                Item.shoot = ModContent.ProjectileType<Projectiles.VoidWave>();
+                Item.shoot = ModContent.ProjectileType<UmbralReaper_VoidWave>();
             }
             else
             {
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.shoot = ModContent.ProjectileType<Projectiles.VoidSpear>();
+                Item.shoot = ModContent.ProjectileType<UmbralReaper_VoidSpear>();
             }
             return base.CanUseItem(player);
 		}

@@ -7,8 +7,6 @@ using Terraria.Utilities;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;
-using AAModClassic.Items.Usable;
-using AAModClassic.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
@@ -57,6 +55,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
         {
+            if (!Main.hardMode)
+                return false;
             if (WorldGen.roomY2 > Main.worldSurface)
             {
                 return false;
@@ -552,7 +552,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<Throwshroom>();
+            projType = ModContent.ProjectileType<Mushman_Throwshroom>();
             attackDelay = 1;
         }
 

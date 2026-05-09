@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;
 using AAModClassic.Items.Usable;
 using AAModClassic.Tiles.Ore;
-using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Blocks;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
@@ -29,6 +28,7 @@ using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev.Invoker;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories;
 
 namespace AAModClassic.Globals
 {
@@ -1038,7 +1038,7 @@ namespace AAModClassic.Globals
         }
         public override bool CanUseItem(Item item, Player player)
         {
-            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<InvokerStaff>() && player.altFunctionUse == 2))
+            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<AleisterStaff>() && player.altFunctionUse == 2))
             {
                 return false;
             }

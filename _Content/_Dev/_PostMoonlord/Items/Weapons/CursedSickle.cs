@@ -34,7 +34,7 @@ Left click to swing the scythe"); */
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.CursedSickle>();
+            Item.shoot = ModContent.ProjectileType<CursedSickle_Holdout>();
             Item.shootSpeed = 0.1f;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		}
@@ -62,14 +62,14 @@ Left click to swing the scythe"); */
             {
                 Item.noMelee = false;
                 Item.noUseGraphic = false;
-                Item.shoot = ModContent.ProjectileType<Projectiles.CursedSickleProj>();
+                Item.shoot = ModContent.ProjectileType<CursedSickle_Proj>();
                 Item.shootSpeed = 7f;
             }
             else
             {
                 Item.noMelee = true;
                 Item.noUseGraphic = true;
-                Item.shoot = ModContent.ProjectileType<Projectiles.CursedSickle>();
+                Item.shoot = ModContent.ProjectileType<CursedSickle_Holdout>();
                 Item.shootSpeed = 0.1f;
             }
             return base.CanUseItem(player);
@@ -83,7 +83,7 @@ Left click to swing the scythe"); */
             }
             for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<Projectiles.CursedSickleEffect>(), damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<CursedSickleEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}
