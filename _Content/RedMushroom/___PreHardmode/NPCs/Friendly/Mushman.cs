@@ -55,6 +55,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
         {
+            if (!Main.hardMode)
+                return false;
             if (WorldGen.roomY2 > Main.worldSurface)
             {
                 return false;
