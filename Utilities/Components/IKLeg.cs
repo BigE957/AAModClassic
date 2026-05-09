@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.DevTools
+namespace AAModClassic.Utilities.Components
 {
     public enum LegState
     {
@@ -23,16 +24,23 @@ namespace AAModClassic._Content._Dev.DevTools
         public IKLeg PairedLeg;  // Diagonal partner
         public IKLeg SisterLeg;  // Same-side partner
 
-        public Vector2 OriginOffset;
-        public float BaseLengthA;
-        public float BaseLengthB;
-        public bool FrontSet;
-        public bool LeftSet;
+        public Vector2 OriginOffset { get; private set; }
+        public float BaseLengthA { get; private set; }
+        public float BaseLengthB { get; private set; }
+        public bool FrontSet { get; private set; }
+        public bool LeftSet { get; private set; }
+
+        private readonly float GroundVisualOffset = 0;
+        private readonly int StepWidth = 0;
+        private readonly float StompVolumeStrength = 0.4f;
+
         public bool ForceLocked;
 
+        // Desired foot position
         private static float DesiredOutwardScale => 1.2f;
         private static float DesiredDownScale => 0.9f;
 
+        // Minimum acceptable grip distance
         private static float TooCloseMinFraction => 0.85f;
         private float TooCloseMinDist => LengthA * TooCloseMinFraction;
 
@@ -40,15 +48,15 @@ namespace AAModClassic._Content._Dev.DevTools
         private static float MaxExtensionBase => 0.90f; // releases when over-extended
         private static float MaxExtSisterReduction => 0.15f; // sister stepping tightens this
         private static float TrailingExtPenalty => 0.20f; // extra tightening for trailing back legs
-        private static float MinExtensionBase => 0.26f; // releases when too compressed
+        private static float MinExtensionBase => 0.4f; // releases when too compressed
         private static float MinExtSisterReduction => 0.16f; // sister stepping loosens this
         private static float LagThresholdBase => 40f;   // pixels trailing leg lags before a step fires
-        private static float LeadingLagThreshold => 60f; // pixels desired can be ahead of a leading foot before stepping
+        private static float LeadingMinExtension => 50f;   // foot must be this far ahead of Start before the leading leg will hold; releases when it drops below this
 
         // Step animation.
-        private static float StepArcHeight => 11.2f; // peak lift during a normal step
+        private static float StepArcHeight => 24f; // peak lift during a normal step
         private static float StepSnapArcHeight => 4.5f;  // lift during the post-fall MoveTowards snap
-        private static float StepBaseTime => 0.30f; // seconds for a full step at rest
+        private static float StepBaseTime => 0.40f; // seconds for a full step at rest
         private static float StepFastTimeReduction => 0.12f; // max time reduction at high body speed
         private static float StepFastSpeedMin => 4f;    // speed at which reduction begins
         private static float StepFastSpeedMax => 8f;    // speed at which max reduction is reached
@@ -62,7 +70,6 @@ namespace AAModClassic._Content._Dev.DevTools
         private static float LandingStabDuration => 0.30f; // seconds the ground-stab animation plays
 
         // Visual.
-        private static float GroundPierceDepth => 7f;    // pixels End extends below LegTip normally
         private static float LandingStabExtraDepth => 10f;   // additional pierce on landing (ease-in)
 
         // Hanging / flail.
@@ -73,10 +80,12 @@ namespace AAModClassic._Content._Dev.DevTools
         private static float FlailGripForgetTime => 10f;   // FallTime before previous grip is cleared
         private static float DroopSpeed => 4.2f;   // pixels/frame the leg droops when gripless on ground
 
-        // Velocity offset: trailing legs shift their desired grab toward the direction of travel.
+        // Velocity offset
         private static float VelocityOffsetThreshold => 2f;   // body speed needed to apply offset
         private static float VelocityOffsetAmount => 140f; // pixels of lateral shift
-        private static float LeadingVelocityLead => 12;
+
+        // Leading leg extension
+        private static float LeadingExtendReach => 0.90f;
 
         public Vector2 Start => Body.Center + OriginOffset;
         public Vector2 Middle;
@@ -101,9 +110,17 @@ namespace AAModClassic._Content._Dev.DevTools
         public int Direction => LeftSet ? -1 : 1;
         public float SisterInfluence => SisterLeg?.LatchedOn == true ? SisterLeg.StrideTimer : 1f;
 
-        private float VelocityXOffset => Math.Abs(Body.velocity.X) > VelocityOffsetThreshold && Body.velocity.X * Direction < 0f ? Math.Sign(Body.velocity.X) * VelocityOffsetAmount : 0f;
+        private float VelocityXOffset
+        {
+            get
+            {
+                if (Math.Abs(Body.velocity.X) > VelocityOffsetThreshold && Body.velocity.X * Direction < 0f)
+                    return Math.Sign(Body.velocity.X) * VelocityOffsetAmount * Math.Clamp(Math.Abs(Body.velocity.X) / VelocityOffsetThreshold, 0f, 1f);
+                return 0f;
+            }
+        }
 
-        public IKLeg(Entity body, Vector2 originOffset, float lengthA, float lengthB, bool frontSet, bool leftSet)
+        public IKLeg(Entity body, Vector2 originOffset, float lengthA, float lengthB, bool frontSet, bool leftSet, int visualYOffset = 0, int footWidth = 8, float stompVolumeMult = 0.4f)
         {
             Body = body;
             OriginOffset = originOffset;
@@ -111,9 +128,12 @@ namespace AAModClassic._Content._Dev.DevTools
             BaseLengthB = lengthB;
             FrontSet = frontSet;
             LeftSet = leftSet;
-            LegTip = Start + Vector2.UnitY * MaxLength;
-            Middle = Start + Vector2.UnitY * LengthA;
+            Middle = Start + Vector2.UnitX * LengthA * Direction;
+            LegTip = Middle + Vector2.UnitY * LengthB;
             End = LegTip;
+            GroundVisualOffset = visualYOffset;
+            StepWidth = footWidth;
+            StompVolumeStrength = stompVolumeMult;
         }
 
         public void Update()
@@ -123,12 +143,15 @@ namespace AAModClassic._Content._Dev.DevTools
             if (GrabDelay > 0f)
                 GrabDelay--;
 
+            bool wasLatched = LatchedOn;
             LatchedOn = GrabPosition.HasValue && Vector2.Distance(LegTip, GrabPosition.Value) < 10f;
             if (LatchedOn)
                 LegTip = GrabPosition.Value;
 
             if (LatchedOn)
             {
+                if (!wasLatched)
+                    Land();
                 HandlePlanted();
             }
             else
@@ -142,7 +165,7 @@ namespace AAModClassic._Content._Dev.DevTools
                     HandleMoving();
             }
 
-            End = LegTip + Vector2.UnitY * GroundPierceDepth;
+            End = LegTip + Vector2.UnitY * GroundVisualOffset;
             if (LatchedOn && StepTimer < 1f)
                 End.Y += LandingStabExtraDepth * (float)Math.Pow(StepTimer, 2f);
 
@@ -211,26 +234,19 @@ namespace AAModClassic._Content._Dev.DevTools
             if (PreviousGrabPosition.HasValue)
             {
                 float progress = MathUtils.PolyInOutEasing(1f - StrideTimer, 2f);
-                LegTip = Vector2.Lerp(PreviousGrabPosition.Value, GrabPosition!.Value, progress);
+                LegTip = Vector2.Lerp(PreviousGrabPosition.Value, GrabPosition.Value, progress);
                 LegTip.Y -= StepArcHeight * (float)Math.Sin((1f - StrideTimer) * MathHelper.Pi);
             }
             else
             {
                 float speed = LandSnapBaseSpeed + Utils.GetLerpValue(LandSnapFallStart, LandSnapFallEnd, FallTime, true) * LandSnapFallBonus;
-                LegTip = LegTip.MoveTowards(GrabPosition!.Value, speed);
+                LegTip = LegTip.MoveTowards(GrabPosition.Value, speed);
                 LegTip.Y -= StepSnapArcHeight * Utils.GetLerpValue(0f, 50f, Math.Abs(LegTip.X - GrabPosition.Value.X), true);
             }
 
             float stepTime = StepBaseTime - StepFastTimeReduction * Utils.GetLerpValue(StepFastSpeedMin, StepFastSpeedMax, Math.Abs(Body.velocity.X), true);
             StrideTimer -= 1f / (60f * stepTime);
-
-            if (Vector2.Distance(Start, GrabPosition!.Value) > MaxLength)
-            {
-                ReleaseGrip();
-                return;
-            }
-
-            if (StrideTimer <= 0f)
+            if (StrideTimer <= 0.1f)
                 Land();
 
             StepTimer = 1f;
@@ -240,21 +256,29 @@ namespace AAModClassic._Content._Dev.DevTools
         private void Land()
         {
             StrideTimer = 0f;
-            LegTip = GrabPosition!.Value;
+            LegTip = GrabPosition.Value;
             LatchedOn = true;
             StepTimer = 1f;
+            float stepEffectForce = FallTime == 0 ? 0.5f : 2f;
             FallTime = 0f;
 
-            // TODO: Add Stomp Sounds + Effects
-            // float volume = Utils.GetLerpValue(0.5f, 1f, stepEffectForce);
-            // SoundEngine.PlaySound(StepSound with { Volume = volume * 0.4f }, LegTip);
-            // Collision.HitTiles(LegTip, Vector2.Zero, 9, 9);
+            float volume = stepEffectForce * StompVolumeStrength;
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Stomp") with { Volume = volume, MaxInstances = 10, Pitch = Main.rand.NextFloat(-0.1f, 0.33f) }, LegTip);
+            Collision.HitTiles(LegTip - Vector2.UnitX * (StepWidth / 2), Vector2.Zero, StepWidth, 12);
         }
 
         private void ReleaseGrip()
         {
             if (PairedLeg != null && PairedLeg.GrabDelay < 1f && GrabDelay < 1f)
+            {
                 GrabDelay = GrabDelayOnRelease;
+                PairedLeg.GrabDelay = GrabDelayOnRelease;
+            }
+
+            if (SisterLeg != null && SisterLeg.GrabDelay < 1f)
+            {
+                SisterLeg.GrabDelay = GrabDelayOnRelease;
+            }
 
             StrideTimer = 1f;
             PreviousGrabPosition = GrabPosition ?? LegTip;
@@ -266,10 +290,14 @@ namespace AAModClassic._Content._Dev.DevTools
         {
             noDelay = false;
 
+            if (SisterLeg != null && !SisterLeg.LatchedOn && SisterLeg.State != LegState.Hanging)
+                return false;
+
             float extension = Vector2.Distance(LegTip, Start);
             bool isLeading = Math.Sign(Body.velocity.X) == Direction;
 
             float maxExt = MaxExtensionBase - SisterInfluence * MaxExtSisterReduction;
+
             if (!FrontSet && !isLeading)
                 maxExt -= (1f - SisterInfluence) * TrailingExtPenalty;
 
@@ -279,11 +307,9 @@ namespace AAModClassic._Content._Dev.DevTools
             float minExt = MinExtensionBase - SisterInfluence * MinExtSisterReduction;
             float lagThresh = (0.25f + SisterInfluence * 0.75f) * LagThresholdBase;
 
-            // Too extended: foot is being dragged out of reach.
             if (extension > MaxLength * maxExt)
                 return true;
 
-            // Too compressed: body has moved over the foot.
             if (extension < MaxLength * minExt)
             {
                 noDelay = true;
@@ -291,13 +317,9 @@ namespace AAModClassic._Content._Dev.DevTools
             }
 
             // Foot has been left too far behind the body laterally.
-            // Leading legs use a separate check: how far the geometric desired position
-            // has moved ahead of the current foot in the direction of travel. This fires
-            // much sooner than waiting for the body to fully overtake the foot.
             if (isLeading)
             {
-                float baseDesiredX = Start.X + Direction * LengthB * DesiredOutwardScale;
-                if ((baseDesiredX - LegTip.X) * Direction > LeadingLagThreshold)
+                if ((DesiredGrabPosition.X - LegTip.X) * Direction > LeadingMinExtension)
                 {
                     noDelay = true;
                     return true;
@@ -319,10 +341,18 @@ namespace AAModClassic._Content._Dev.DevTools
 
         private void UpdateDesiredGrabPosition()
         {
-            DesiredGrabPosition = Start + new Vector2(Direction * LengthB * DesiredOutwardScale, LengthA * DesiredDownScale);
-            DesiredGrabPosition.X += VelocityXOffset;
-            if (Body.velocity.X * Direction > 0f && Math.Abs(Body.velocity.X) > VelocityOffsetThreshold)
-                DesiredGrabPosition.X += Body.velocity.X * LeadingVelocityLead;
+            bool isLeading = Body.velocity.X * Direction > 0f;
+            bool moving = Math.Abs(Body.velocity.X) > VelocityOffsetThreshold;
+
+            if (isLeading && moving)
+            {
+                DesiredGrabPosition = Start + new Vector2(Direction * MaxLength * LeadingExtendReach, LengthA * DesiredDownScale);
+            }
+            else
+            {
+                DesiredGrabPosition = Start + new Vector2(Direction * LengthB * DesiredOutwardScale, LengthA * DesiredDownScale);
+                DesiredGrabPosition.X += VelocityXOffset;
+            }
         }
 
         private void FindGrabPosition()
@@ -332,26 +362,32 @@ namespace AAModClassic._Content._Dev.DevTools
 
             bool isLeading = Math.Sign(Body.velocity.X) == Direction;
 
-            Vector2 shoulder = Start;
-            Vector2 target = DesiredGrabPosition;
-
-            if (isLeading)
-            {
-                shoulder.X += Body.velocity.X * 40f;
-                target.X += Body.velocity.X * 10f;
-                target.Y -= 20f;
-
-                if (Vector2.Distance(target, Start) > MaxLength) target = Start + Vector2.Normalize(target - Start) * MaxLength;
-                if (Vector2.Distance(shoulder, Start) > MaxLength) shoulder = Start + Vector2.UnitX * Direction * MaxLength;
-            }
-
-            Point? best = RaycastToTile(shoulder, target);
+            Point? best = null;
             bool tooClose = false;
 
-            if (best.HasValue && TileToGripPoint(best.Value).Distance(Start) < TooCloseMinDist)
+            if (isLeading && Math.Abs(Body.velocity.X) > VelocityOffsetThreshold)
             {
-                tooClose = true;
-                best = null;
+                float castX = Direction * MaxLength * LeadingExtendReach;
+                best = RaycastToTile(Start + new Vector2(castX, -16f), Start + new Vector2(castX, MaxLength));
+                if (best.HasValue && TileToGripPoint(best.Value).Distance(Start) < TooCloseMinDist)
+                {
+                    tooClose = true;
+                    best = null;
+                }
+            }
+
+            if (best == null && !tooClose)
+            {
+                Vector2 target = DesiredGrabPosition;
+                if (Vector2.Distance(target, Start) > MaxLength)
+                    target = Start + Vector2.Normalize(target - Start) * MaxLength;
+
+                best = RaycastToTile(Start, target);
+                if (best.HasValue && TileToGripPoint(best.Value).Distance(Start) < TooCloseMinDist)
+                {
+                    tooClose = true;
+                    best = null;
+                }
             }
 
             if (best == null && !tooClose)
@@ -525,77 +561,23 @@ namespace AAModClassic._Content._Dev.DevTools
 
             End = origin + toTarget;
         }
-    }
 
-    public class YamataLegTest : ModSystem
-    {
-        public override void Load()
+        public void DrawDebug(SpriteBatch spritebatch)
         {
-            On_Main.DrawNPCs += DrawYamataLegTest;
-        }
-
-        IKLeg[] TestLegs = null;
-
-        public override void PreUpdateWorld()
-        {
-            if (TestLegs == null)
+            Color c = (FrontSet, LeftSet) switch
             {
-                TestLegs = new IKLeg[4];
-                TestLegs[0] = new(Main.LocalPlayer, new(-60, -60), 100, 75, true, true); //Back Left
-                TestLegs[1] = new(Main.LocalPlayer, new(60, -60), 100, 75, true, false); //Back Right
-                TestLegs[2] = new(Main.LocalPlayer, new(-20, -60), 75, 75, true, true); //Front Left
-                TestLegs[3] = new(Main.LocalPlayer, new(20, -60), 75, 75, true, false); //Front Right
+                (true, true) => Color.Red,
+                (true, false) => Color.Yellow,
+                (false, true) => Color.Green,
+                _ => Color.Blue
+            };
 
-                TestLegs[0].SisterLeg = TestLegs[3];
-                TestLegs[3].SisterLeg = TestLegs[0];
+            Texture2D line = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Desert/Line").Value;
+            float startToMid = Start.AngleTo(Middle);
+            Main.spriteBatch.Draw(line, Start - Main.screenPosition, null, c.MultiplyRGB(Color.White * 0.5f), startToMid, new Vector2(0, line.Height / 2f), new Vector2(LengthA / line.Width, 4), 0, 0);
 
-                TestLegs[0].PairedLeg = TestLegs[2];
-                TestLegs[2].PairedLeg = TestLegs[0];
-
-                TestLegs[1].SisterLeg = TestLegs[2];
-                TestLegs[2].SisterLeg = TestLegs[1];
-
-                TestLegs[1].PairedLeg = TestLegs[3];
-                TestLegs[3].PairedLeg = TestLegs[1];
-            }
-
-            foreach (IKLeg leg in TestLegs)
-                leg.Update();
-        }
-
-        private void DrawYamataLegTest(On_Main.orig_DrawNPCs orig, Main self, bool behindTiles)
-        {
-            orig(self, behindTiles);
-            if (TestLegs != null)
-            {
-                int i = 0;
-                foreach (IKLeg leg in TestLegs)
-                {
-                    Color c = i switch
-                    {
-                        0 => Color.Red,
-                        1 => Color.Yellow,
-                        2 => Color.Green,
-                        _ => Color.Blue
-                    };
-                    Texture2D line = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Desert/Line").Value;
-                    float startToMid = leg.Start.AngleTo(leg.Middle);
-                    Main.spriteBatch.Draw(line, leg.Start - Main.screenPosition, null, c.MultiplyRGB(Color.White * 0.5f), startToMid, new Vector2(0, line.Height / 2f), new Vector2(leg.LengthA / line.Width, 4), 0, 0);
-
-                    float midToEnd = leg.Middle.AngleTo(leg.LegTip);
-                    Main.spriteBatch.Draw(line, leg.Middle - Main.screenPosition, null, c, midToEnd, new Vector2(0, line.Height / 2f), new Vector2(leg.LengthB / line.Width, 4), 0, 0);
-                    i++;
-                }
-            }
-        }
-
-        public static Vector2 InverseKinematic(Vector2 start, Vector2 end, float lengthA, float lengthB, bool flip)
-        {
-            float dist = Vector2.Distance(start, end);
-            float angle = (float)Math.Acos(Math.Clamp((dist * dist + lengthA * lengthA - lengthB * lengthB) / (2f * dist * lengthA), -1f, 1));
-            if (flip)
-                angle *= -1;
-            return start + (angle + start.AngleTo(end)).ToRotationVector2() * lengthA;
+            float midToEnd = Middle.AngleTo(End);
+            Main.spriteBatch.Draw(line, Middle - Main.screenPosition, null, c, midToEnd, new Vector2(0, line.Height / 2f), new Vector2(LengthB / line.Width, 4), 0, 0);
         }
     }
 }
