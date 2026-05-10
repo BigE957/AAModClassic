@@ -195,7 +195,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 			}
 		}
 
-        internal void DrawYamataLeg(SpriteBatch spritebatch, Vector2 start, Vector2 middle, Vector2 end, bool left, bool front)
+        internal void DrawYamataLeg(SpriteBatch spritebatch, NPC yamata, Vector2 start, Vector2 middle, Vector2 end, bool left, bool front)
         {
             bool awakened = (NPC.ModNPC is YamataABody);
 
@@ -224,20 +224,20 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             for (int i = 0; i < dist; i += legSegment.Height)
             {
                 Vector2 worldPos = middle + dir * i;
-                spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult), dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
+                spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
             }
 
-            spritebatch.Draw(legCap, middle - Main.screenPosition, null, Lighting.GetColor(middle.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult), dir.ToRotation() - MathHelper.PiOver2, legCap.Size() * 0.5f, 1f, effects, 0);
+            spritebatch.Draw(legCap, middle - Main.screenPosition, null, Lighting.GetColor(middle.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legCap.Size() * 0.5f, 1f, effects, 0);
 
             dist = (int)start.Distance(middle);
             dir = start.DirectionTo(middle);
             for (int i = 0; i < dist; i += legSegment.Height)
             {
                 Vector2 worldPos = start + dir * i;
-                spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult), dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
+                spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
             }
 
-            spritebatch.Draw(foot, end - Main.screenPosition, null, Lighting.GetColor(end.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult), 0f, foot.Size() * 0.5f, 1f, effects, 0);
+            spritebatch.Draw(foot, end - Main.screenPosition, null, Lighting.GetColor(end.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, 0f, foot.Size() * 0.5f, 1f, effects, 0);
         }
 
     }

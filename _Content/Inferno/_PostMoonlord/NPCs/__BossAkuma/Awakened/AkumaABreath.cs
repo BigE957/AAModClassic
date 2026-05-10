@@ -1,13 +1,37 @@
 ﻿using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    internal class AkumaABreath : ModProjectile
+    internal class AkumaABreath : FireProj
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override MulticolorShift ColorShift
+        {
+            get
+            {
+                Color color = new(95, 120, 255, 200);
+                Color color2 = new(50, 180, 255, 70);
+                Color color3 = Color.Lerp(new Color(95, 160, 255, 100), color2, 0.25f);
+                Color color4 = new(33, 125, 202, 100);
+
+                return new MulticolorShift
+                ([
+                    new(Color.Transparent, 0f,   0.1f),   // fade in
+                    new(color,             0f,   0.1f),   // to color2
+                    new(color2,            0.15f, 0.35f), // hold then to color3
+                    new(color3,            0f,   0.15f),  // to color4
+                    new(color4,            0f,   0.15f)   // to final
+                ]);
+            }
+        }
+
+        public override int DustType => DustID.IceTorch;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blazing Fury");
@@ -28,10 +52,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override void AI()
         {
-            if (Projectile.timeLeft > 60)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                Projectile.timeLeft = 60;
+                base.AI();
+                return;
             }
+
             if (Projectile.ai[0] > 7f)
             {
                 float num296 = 1f;

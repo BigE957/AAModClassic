@@ -151,8 +151,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         {
             //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, drawColor, true);
             //BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, ColorUtils.COLOR_GLOWPULSE, true);
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
-            spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0f);
+            spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0f);
             return false;
         }
 

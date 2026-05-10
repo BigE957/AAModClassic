@@ -1,13 +1,31 @@
 ﻿using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    internal class AkumaBreath : ModProjectile
+    internal class AkumaBreath : FireProj
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override MulticolorShift ColorShift 
+        { get {
+            Color color = new(176, 7, 65, 200);
+            Color color2 = new(255, 205, 20, 70);
+            Color color3 = Color.Lerp(new Color(176, 7, 65, 100), color2, 0.25f);
+            Color color4 = new(80, 80, 80, 100);
+
+            return new MulticolorShift
+            ([
+                new(Color.Transparent, 0f,   0.1f),   // fade in
+                new(color,             0f,   0.1f),   // to color2
+                new(color2,            0.15f, 0.35f), // hold then to color3
+                new(color3,            0f,   0.15f),  // to color4
+                new(color4,            0f,   0.15f)   // to final
+            ]);
+        }} 
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blazing Fury");
@@ -23,55 +41,52 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;
             Projectile.alpha = 60;
-            Projectile.timeLeft = 100;
+            Projectile.timeLeft = 60;
         }
 
         public override void AI()
         {
-            if (Projectile.timeLeft > 60)
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                Projectile.timeLeft = 60;
+                base.AI();
+                return;
             }
+
             if (Projectile.ai[0] > 7f)
             {
-                float num296 = 1f;
+                float scale = 1f;
                 if (Projectile.ai[0] == 8f)
                 {
-                    num296 = 0.25f;
+                    scale = 0.25f;
                 }
                 else if (Projectile.ai[0] == 9f)
                 {
-                    num296 = 0.5f;
+                    scale = 0.5f;
                 }
                 else if (Projectile.ai[0] == 10f)
                 {
-                    num296 = 0.75f;
+                    scale = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
-                int num297 = ModContent.DustType<Dusts.AkumaDust>();
                 if (Main.rand.NextBool(2))
                 {
                     for (int num298 = 0; num298 < 4; num298++)
                     {
-                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, num297, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
-                        Main.dust[num299].noGravity = true;
+                        int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+                        Main.dust[d].noGravity = true;
                         if (Main.rand.NextBool(3))
                         {
-                            Dust expr_DD5D_cp_0 = Main.dust[num299];
-                            Main.dust[num299].scale *= 2f;
-                            expr_DD5D_cp_0.velocity.X *= 2f;
-                            Dust expr_DD7D_cp_0 = Main.dust[num299];
-                            expr_DD7D_cp_0.velocity.Y *= 2f;
+                            Main.dust[d].scale *= 2f;
+                            Main.dust[d].velocity.X *= 2f;
+                            Main.dust[d].velocity.Y *= 2f;
                         }
-                        Dust expr_DDE2_cp_0 = Main.dust[num299];
-                        expr_DDE2_cp_0.velocity.X *= 1.2f;
-                        Dust expr_DE02_cp_0 = Main.dust[num299];
-                        expr_DE02_cp_0.velocity.Y *= 1.2f;
-                        Main.dust[num299].scale *= num296;
-                        Main.dust[num299].velocity += Projectile.velocity;
-                        if (!Main.dust[num299].noGravity)
+                        Main.dust[d].velocity.X *= 1.2f;
+                        Main.dust[d].velocity.Y *= 1.2f;
+                        Main.dust[d].scale *= scale;
+                        Main.dust[d].velocity += Projectile.velocity;
+                        if (!Main.dust[d].noGravity)
                         {
-                            Main.dust[num299].velocity *= 0.5f;
+                            Main.dust[d].velocity *= 0.5f;
                         }
                     }
                 }

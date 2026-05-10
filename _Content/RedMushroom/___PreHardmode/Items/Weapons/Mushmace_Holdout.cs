@@ -136,7 +136,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Chains/MushMaceChain").Value, 0, Projectile.Center, Main.player[Projectile.owner].Center);
+            BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Chains/MushMaceChain").Value, Projectile.Center, Main.player[Projectile.owner].Center);
             return true;
         }
     }

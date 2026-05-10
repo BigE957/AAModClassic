@@ -183,7 +183,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/ChaosChainEX_Chain").Value;
-            BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
+            BaseDrawing.DrawChain(Main.spriteBatch, texture, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f);
             Texture2D headTex = Projectile.ai[0] == 1f ? SphereTexture.Value : SawTexture.Value;
             Rectangle frame = new(0, 0, SawTexture.Value.Width, SawTexture.Value.Height);
             BaseDrawing.DrawTexture(Main.spriteBatch, headTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);

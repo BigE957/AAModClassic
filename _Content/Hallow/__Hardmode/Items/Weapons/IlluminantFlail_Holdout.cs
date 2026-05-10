@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
             Texture2D chainTex = ModContent.Request<Texture2D>("AAModClassic/Chains/IllumantBall_Chain").Value;
             if (Main.instance.IsActive)
                 for (int m = 0; m < 2; m++)
-                    BaseDrawing.DrawChain(Main.spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
+                    BaseDrawing.DrawChain(Main.spriteBatch, chainTex, Projectile.Center, Main.player[Projectile.owner].Center);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, true);
             return true;
         }

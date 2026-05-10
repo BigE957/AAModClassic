@@ -657,7 +657,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 {
                     string ArmTex = Texture + "_Arm";
                     Texture2D ArmTex2D = ModContent.Request<Texture2D>(ArmTex).Value;
-                    BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, start, end, ArmTex2D.Height - 10f, null, 1f, false, null);
+
+                    Vector2 dir = start.DirectionTo(end);
+                    float length = Vector2.Distance(start, end);
+                    for (int i = 0; i < length; i += (ArmTex2D.Height - 10))
+                    {
+                        Vector2 drawPos = start + dir * i;
+                        spriteBatch.Draw(ArmTex2D, drawPos - Main.screenPosition, null, Lighting.GetColor(drawPos.ToTileCoordinates()), dir.ToRotation() - MathHelper.PiOver2, ArmTex2D.Size() * 0.5f, 1f, 0, 0);
+                    }
                 }
             }
         }

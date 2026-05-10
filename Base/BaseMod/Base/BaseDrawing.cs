@@ -721,138 +721,21 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        public static void DrawChain(object sb, Texture2D texture, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
+        public static void DrawChain(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f)
         {
-            DrawChain(sb, new Texture2D[] { texture, texture, texture }, shader, start, end, Jump, overrideColor, scale, drawEndsUnder, OnDrawTex);
-        }
-
-        //code written by Yoraiz0r, heavily edited by GroxTheGreat
-        /*
-         * Draws a chain from the start position to the end position using the texture provided.
-         * 
-         * textures : an array of 3 textures: the 'start' texture, the segment texture and the 'end' texture.
-         * start : the starting point of the chain.
-         * end : the ending point of the chain.
-         * Jump : The amount to 'jump' to draw the next piece of chain. If -1, will use the texture height.
-         * overrideColor : the color to draw the chain with.
-         * scale : the scalar of the chain.
-         * drawEndsUnder : If true, the end textures will be drawn under the segment texture. Otherwise, drawn above it.
-         * OnDrawTex : If not null, called when the chain draws a texture. Return true to draw the chain piece, false to not draw it. Parameters, in order:
-         *             1 - The texture.
-         *             2 - The world position of the chain.
-         *             3 - The draw position of the chain.
-         *             4 - The center of the texture.
-         *             5 - The frame of the texture being used.
-         *             6 - The color the texture is being drawn.
-         *             7 - The rotation of the chain.
-         *             8 - The scale of the chain.
-         *             9 - The count of this chain piece in the entire thing. (-1 for start tex, -2 for end tex)
-         */
-        public static void DrawChain(object sb, Texture2D[] textures, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
-        {
-            if (Jump <= 0f)
-                Jump = (textures[1].Height - 2f) * scale;
-            Vector2 dir = end - start;
-            dir.Normalize();
+            if(Jump <= 0)
+                Jump = (texture.Height - 2f) * scale;
+            Vector2 dir = start.DirectionTo(end);
             float length = Vector2.Distance(start, end);
-            float Way = 0f;
-            float rotation = BaseUtility.RotationTo(start, end) - 1.57f;
-            int texID = 0;
-            int maxTextures = textures.Length - 2;
-            int currentChain = 0;
-            int iterCap = 100;
-            int iters = 0;
-
-            while (Way < length)
+            for (int i = 0; i < length; i += (texture.Height - 10))
             {
-                if (iters++ > iterCap)
-                    break;
-
-                float texWidth;
-                float texHeight;
-                Vector2 texCenter;
-                Vector2 v;
-                Color lightColor;
-                Action drawEnds = () =>
-                {
-                    if (textures[0] != null && Way == 0f)
-                    {
-                        float texWidth2 = (float)textures[0].Width;
-                        float texHeight2 = (float)textures[0].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = start - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(start + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[0], start + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -1)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                    if (textures[maxTextures + 1] != null && Way + Jump >= length)
-                    {
-                        float texWidth2 = (float)textures[maxTextures + 1].Width;
-                        float texHeight2 = (float)textures[maxTextures + 1].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = end - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(end + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[maxTextures + 1], end + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -2)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                };
-                texWidth = (float)textures[1].Width;
-                texHeight = (float)textures[1].Height;
-                texCenter = new Vector2(texWidth / 2f, texHeight / 2f) * scale;
-
-                v = (start + dir * Way) + texCenter;
-                if (InDrawZone(v))
-                {
-                    v -= Main.screenPosition;
-                    if ((Way == 0f || Way + Jump >= length) && drawEndsUnder) { drawEnds(); }
-                    lightColor = (overrideColor != null ? (Color)overrideColor : GetLightColor((start + dir * Way) + texCenter));
-                    texID++;
-                    if (texID >= maxTextures) { texID = 0; }
-                    if (OnDrawTex != null && !OnDrawTex(textures[texID + 1], (start + dir * Way) + texCenter, v - texCenter, texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, scale, currentChain)) { }
-                    else
-                    {
-                        if (sb is List<DrawData>)
-                        {
-                            DrawData dd = new DrawData(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                            dd.shader = shader;
-                            ((List<DrawData>)sb).Add(dd);
-                        }
-                        else
-                        if (sb is SpriteBatch)
-                        {
-                            ((SpriteBatch)sb).Draw(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                        }
-                    }
-                    currentChain++;
-                    if ((Way == 0f || Way + Jump >= length) && !drawEndsUnder) { drawEnds(); }
-                }
-                Way += Jump;
+                Vector2 drawPos = start + dir * i;
+                Color c;
+                if (overrideColor.HasValue)
+                    c = overrideColor.Value;
+                else
+                    c = Lighting.GetColor(drawPos.ToTileCoordinates());
+                spriteBatch.Draw(texture, drawPos - Main.screenPosition, null, c, dir.ToRotation() - MathHelper.PiOver2, texture.Size() * 0.5f, scale, 0, 0);
             }
         }
 

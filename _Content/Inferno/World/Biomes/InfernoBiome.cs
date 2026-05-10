@@ -359,7 +359,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/InfernoDesertBG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Inferno/World/Biomes/Backgrounds/InfernoDesertBG");
         }
 
     }

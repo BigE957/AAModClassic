@@ -1,12 +1,36 @@
 ﻿using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 {
-    internal class ShenABreath : ModProjectile
+    internal class ShenABreath : FireProj
     {
+        public override MulticolorShift ColorShift
+        {
+            get
+            {
+                Color color = new Color(190, 80, 255, 200);
+                Color color2 = new Color(210, 150, 255, 70);
+                Color color3 = Color.Lerp(new Color(170, 90, 255, 100), color2, 0.25f);
+                Color color4 = new Color(130, 50, 180, 100);
+
+                return new MulticolorShift
+                ([
+                    new(Color.Transparent, 0f,   0.1f),   // fade in
+                    new(color,             0f,   0.1f),   // to color2
+                    new(color2,            0.15f, 0.35f), // hold then to color3
+                    new(color3,            0f,   0.15f),  // to color4
+                    new(color4,            0f,   0.15f)   // to final
+                ]);
+            }
+        }
+
+        public override int DustType => ModContent.DustType<Dusts.Discord_Dust>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fire Breath");
@@ -22,16 +46,18 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;
             Projectile.alpha = 255;
-            Projectile.timeLeft = 100;
+            Projectile.timeLeft = 60;
             Projectile.tileCollide = false;
         }
 
         public override void AI()
         {
-            if (Projectile.timeLeft > 60)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                Projectile.timeLeft = 60;
+                base.AI();
+                return;
             }
+
             if (Projectile.ai[0] > 7f)
             {
                 float num296 = 1f;

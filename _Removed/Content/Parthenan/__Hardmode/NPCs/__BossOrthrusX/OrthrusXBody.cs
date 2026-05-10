@@ -300,7 +300,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             {
                 Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y) + new Vector2(leftHead ? -37 : 37, -28);
                 Vector2 connector = head.Center - new Vector2(NeckTexture.Value.Width * 0.5f, 0f);
-				BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { null, NeckTexture.Value, null }, 0, neckOrigin, connector, NeckTexture.Value.Height - 10f, null, 1f, false, null);					
+                Vector2 dir = neckOrigin.DirectionTo(connector);
+                float length = Vector2.Distance(neckOrigin, connector);
+                for (int i = 0; i < length; i += (NeckTexture.Value.Height - 10))
+                {
+                    Vector2 drawPos = neckOrigin + dir * i;
+                    spriteBatch.Draw(NeckTexture.Value, drawPos - Main.screenPosition, null, Lighting.GetColor(drawPos.ToTileCoordinates()), dir.ToRotation() - MathHelper.PiOver2, NeckTexture.Size() * 0.5f, 1f, 0, 0);
+                }
 				spriteBatch.Draw(headTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
 				spriteBatch.Draw(glowMaskTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))

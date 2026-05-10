@@ -151,7 +151,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         {
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/ChaosChain_Chain").Value;
 
-            BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
+            BaseDrawing.DrawChain(Main.spriteBatch, texture, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f);
             return true;
         }
     }

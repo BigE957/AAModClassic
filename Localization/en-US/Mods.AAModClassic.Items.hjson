@@ -628,7 +628,7 @@ DoomsdayHelmetSummoner: {
 	Tooltip: ""
 }
 
-DracoHelm: {
+DraconianSunHelmet: {
 	DisplayName: Draconian Sun Kabuto
 	Tooltip:
 		'''
@@ -639,7 +639,7 @@ DracoHelm: {
 		'''
 }
 
-DracoLeggings: {
+DraconianSunLeggings: {
 	DisplayName: Draconian Sun Greaves
 	Tooltip:
 		'''
@@ -651,7 +651,7 @@ DracoLeggings: {
 		'''
 }
 
-DracoPlate: {
+DraconianSunChestplate: {
 	DisplayName: Draconian Sun Dao
 	Tooltip:
 		'''
@@ -4117,7 +4117,7 @@ DjinnLamp: {
 	Tooltip: Summons the Desert Djinn
 }
 
-DraconianRune: {
+DraconianSunRune: {
 	DisplayName: Draconian Sun Rune
 	Tooltip:
 		'''
@@ -4128,7 +4128,7 @@ DraconianRune: {
 		'''
 }
 
-DraconianSigil: {
+DraconianSunSigil: {
 	DisplayName: Draconian Sun Sigil
 	Tooltip:
 		'''
@@ -9945,21 +9945,6 @@ RazewoodLeggings: {
 	Tooltip: ""
 }
 
-DraconainSunHelmet: {
-	DisplayName: Draconain Sun Helmet
-	Tooltip: ""
-}
-
-DraconianSunChestplate: {
-	DisplayName: Draconian Sun Chestplate
-	Tooltip: ""
-}
-
-DraconianSunLeggings: {
-	DisplayName: Draconian Sun Leggings
-	Tooltip: ""
-}
-
 TribalChestplate: {
 	DisplayName: Tribal Chestplate
 	Tooltip: ""
@@ -10677,16 +10662,6 @@ GlowingMushpick: {
 
 UnityPickaxe: {
 	DisplayName: Unity Pickaxe
-	Tooltip: ""
-}
-
-DraconianSunRune: {
-	DisplayName: Draconian Sun Rune
-	Tooltip: ""
-}
-
-DraconianSunSigil: {
-	DisplayName: Draconian Sun Sigil
 	Tooltip: ""
 }
 
@@ -11622,5 +11597,10 @@ GoblinSlayersLeggings: {
 
 GildedKey: {
 	DisplayName: Gilded Key
+	Tooltip: ""
+}
+
+DraconainSunHelmet: {
+	DisplayName: Draconain Sun Helmet
 	Tooltip: ""
 }

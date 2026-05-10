@@ -190,7 +190,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     targetPos = Main.player[NPC.target].Center;
                     MovementWorm(targetPos, 15f, 0.13f); //original movement
                     SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
-                    AAAI.BreatheFire(NPC, true, ModContent.ProjectileType<AkumaABreath>(), 2, 4);
                     if (NPC.HasBuff(BuffID.Wet))
                     {
                         fireTimer++;
@@ -212,7 +211,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     }
                     else
                     {
-                        AAAI.BreatheFire(NPC, true, ModContent.ProjectileType<AkumaBreath>(), 2, 4);
+                        AAAI.BreatheFire(NPC, true, ModContent.ProjectileType<AkumaABreath>(), 2, 4);
                     }
                     if (++NPC.ai[1] > 240)
                     {
@@ -676,17 +675,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             {
                 if (NPC.ai[0] == 0 || NPC.ai[0] == 1 || NPC.ai[0] == 5 || NPC.ai[0] == 9)
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA1").Value;
+                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA1").Value;
                 }
                 else
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA").Value;
+                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA").Value;
                 }
             }
 
-            Texture2D glowTex = ModContent.Request<Texture2D>("Glowmasks/AkumaA_Glow").Value;
-            Texture2D glowTex1 = ModContent.Request<Texture2D>("Glowmasks/AkumaA1_Glow").Value;
-            Texture2D glowTex2 = ModContent.Request<Texture2D>("Glowmasks/AkumaABody_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaA_Glow").Value;
+            Texture2D glowTex1 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaA1_Glow").Value;
+            Texture2D glowTex2 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaABody_Glow").Value;
             
             int shader;
             if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)

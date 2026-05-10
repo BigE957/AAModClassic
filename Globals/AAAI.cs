@@ -173,7 +173,7 @@ namespace AAModClassic.Globals
                 PlayerPosX = npc.velocity.X;
                 PlayerPosY = npc.velocity.Y;
             }
-            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, Main.myPlayer);
+            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, ai1: npc.whoAmI);
         }
 
         public static void AIShadowflameGhost(NPC npc, ref float[] ai, bool speedupOverTime = false, float distanceBeforeTakeoff = 660f, float velIntervalX = 0.3f, float velMaxX = 7f, float velIntervalY = 0.2f, float velMaxY = 4f, float velScalarY = 4f, float velScalarYMax = 15f, float velIntervalXTurn = 0.4f, float velIntervalYTurn = 0.4f, float velIntervalScalar = 0.95f, float velIntervalMaxTurn = 5f)

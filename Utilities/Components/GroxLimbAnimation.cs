@@ -38,13 +38,13 @@ namespace AAModClassic.Utilities.Components
     public class LegInfo : LimbInfo
     {
         Vector2 velocity, legOrigin;
-        private float velOffsetY = 0f;
+        public float VelOffsetY { get; private set; } = 0f;
         private readonly float distanceToMove = 120f, distanceToMoveX = 50f;
         private readonly bool flying = false;
-        private bool leftLeg = false;
+        public bool leftLeg = false;
 
         Vector2 pointToStandOn = default;
-        Vector2 legJoint = default;
+        public Vector2 LegJoint { get; private set; } = default;
         public static Asset<Texture2D>[] normalTextures = [];
         public static Asset<Texture2D>[] awakenedTextures = [];
 
@@ -86,7 +86,7 @@ namespace AAModClassic.Utilities.Components
         {
             movementRatio += 0.04f;
             movementRatio = Math.Max(0f, Math.Min(1f, movementRatio));
-            velOffsetY = BaseUtility.MultiLerp(movementRatio, 0f, 30f, 0f);
+            VelOffsetY = BaseUtility.MultiLerp(movementRatio, 0f, 30f, 0f);
         }
 
         public void MoveLegWalking(NPC npc, Vector2 standOnPoint)
@@ -137,7 +137,7 @@ namespace AAModClassic.Utilities.Components
                 }
             }
             Vector2 bodyConnector = GetBodyConnector(npc);
-            legJoint = Vector2.Lerp(position, bodyConnector, 0.3f) + new Vector2(leftLeg ? 30 : 0f, -30);
+            LegJoint = Vector2.Lerp(position, bodyConnector, 0.3f) + new Vector2(leftLeg ? 30 : 0f, -30);
             oldPosition = position;
         }
 
@@ -163,24 +163,26 @@ namespace AAModClassic.Utilities.Components
 
         public Vector2 GetBodyConnector(NPC npc) => npc.Center + (npc.ModNPC is YamataABody yamataA ? yamataA.topVisualOffset : Vector2.Zero) + new Vector2(limbType == 3 || limbType == 1 ? -40f : 40f, 0f);
 
+        /*
         public void DrawLeg(SpriteBatch sb, NPC npc)
         {
-            Vector2 drawPos = position - new Vector2(0f, velOffsetY);
+            Vector2 drawPos = position - new Vector2(0f, VelOffsetY);
             Color lightColor = npc.GetAlpha(BaseDrawing.GetLightColor(Center));
             bool awakened = npc.type == ModContent.NPCType<YamataABody>();
             Asset<Texture2D>[] textures = awakened ? awakenedTextures : normalTextures;
             if (!leftLeg)
             {
-                BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[3].Value, null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
-                BaseDrawing.DrawChain(sb, new Texture2D[] { textures[2].Value, textures[3].Value, textures[2].Value }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
+                BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[3].Value, null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), LegJoint, 0f, null, 1f, false, null);
+                BaseDrawing.DrawChain(sb, new Texture2D[] { textures[2].Value, textures[3].Value, textures[2].Value }, 0, LegJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
             }
             else
             {
-                BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[1].Value, null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
-                BaseDrawing.DrawChain(sb, new Texture2D[] { textures[0].Value, textures[1].Value, textures[0].Value }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
+                BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[1].Value, null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), LegJoint, 0f, null, 1f, false, null);
+                BaseDrawing.DrawChain(sb, new Texture2D[] { textures[0].Value, textures[1].Value, textures[0].Value }, 0, LegJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
             }
             BaseDrawing.DrawTexture(sb, textures[4].Value, 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
         }
+        */
     }
 
 }

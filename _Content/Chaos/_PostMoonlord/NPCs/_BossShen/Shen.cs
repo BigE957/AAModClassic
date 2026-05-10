@@ -1,30 +1,32 @@
 ﻿
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenAH;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Projectiles;
+using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Music;
+using AAModClassic.UI.Titles;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
+using System.Security.Cryptography;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using Terraria.Localization;
-using AAModClassic.UI.Titles;
-using AAModClassic.Music;
-using AAModClassic.Utilities;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenAH;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.Projectiles;
-using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 {
@@ -137,7 +139,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
             }
             else
             {
-                SoundEngine.PlaySound(new SoundStyle("Sounds/ShenRoar"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ShenRoar"), NPC.Center);
             }
         }
 
@@ -327,7 +329,22 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
                     break;
 
                 case 1: //Fire Breath
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<ShenABreath>(), ref NPC.ai[2], 5, NPC.damage / 2, 13, false, new Vector2(167 * NPC.direction, 0));
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        Vector2 to = player.Center;
+                        NPC.ai[2]--;
+                        if (NPC.ai[2] <= 0)
+                        {
+                            Vector2 from = NPC.Center + new Vector2(167 * NPC.direction, 0);
+                            //float rot = BaseUtility.RotationTo(NPC.Center, to);
+                            //from = BaseUtility.RotateVector(NPC.Center, from, rot);
+                            BaseAI.FireProjectile(to, from, ModContent.ProjectileType<ShenABreath>(), damage, 0f, 13);
+
+                            NPC.ai[2] = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 3 : 5;
+                            NPC.netUpdate = true;
+                        }
+                    }
+                    //BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<ShenABreath>(), ref NPC.ai[2], 5, NPC.damage / 2, 13, false, new Vector2(167, 0));
                     if (++NPC.ai[1] > 120)
                     {
                         NPC.ai[0]++;
@@ -869,8 +886,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D currentTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlue").Value : TextureAssets.Npc[NPC.type].Value;
-            Texture2D currentWingTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlueWings").Value : ModContent.Request<Texture2D>("_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonWings").Value;
+            Texture2D currentTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlue").Value : TextureAssets.Npc[NPC.type].Value;
+            Texture2D currentWingTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlueWings").Value : ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonWings").Value;
 
             //offset
             NPC.position.Y += 130f;

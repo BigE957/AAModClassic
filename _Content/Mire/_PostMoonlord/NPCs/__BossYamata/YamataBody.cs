@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -793,14 +794,19 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && unofficialLegs != null)
             {
                 foreach (IKLeg leg in unofficialLegs)
-                    DrawYamataLeg(spriteBatch, leg.Start, leg.Middle, leg.End, leg.LeftSet, leg.FrontSet);
+                    DrawYamataLeg(spriteBatch, NPC, leg.Start, leg.Middle, leg.End, leg.LeftSet, leg.FrontSet);
             }
             else if (legs != null && legs.Length == 4)
             {
-                legs[2].DrawLeg(sb, NPC); //back legs
-                legs[3].DrawLeg(sb, NPC);
-                legs[0].DrawLeg(sb, NPC); //front legs
-                legs[1].DrawLeg(sb, NPC);
+                for(int i = 3; i >= 0; i--)
+                {
+                    var leg = legs[i];
+                    Vector2 start = leg.GetBodyConnector(NPC);
+                    Vector2 middle = leg.LegJoint;
+                    Vector2 end = leg.position - new Vector2(0f, leg.VelOffsetY);
+
+                    DrawYamataLeg(spriteBatch, NPC, start, middle, end, leg.leftLeg, i <= 1);
+                }
             }
 
             DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head2, drawColor, false);
