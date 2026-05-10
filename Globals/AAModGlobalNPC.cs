@@ -65,7 +65,7 @@ using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.NPCs;
-using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Void.__Hardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs;
@@ -1095,7 +1095,7 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                if (NPCExtensions.BeenKilled<Sag>())
+                if (NPCExtensions.BeenKilled<Sagittarius>())
                 {
                     pool.Add(ModContent.NPCType<ShadowScout>(), .005f);
                 }

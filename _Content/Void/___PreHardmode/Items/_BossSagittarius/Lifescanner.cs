@@ -7,7 +7,7 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius
@@ -36,7 +36,7 @@ Can only be used in the Void"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Sag>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Sagittarius>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -48,7 +48,7 @@ Can only be used in the Void"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<Sag>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Sagittarius>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;

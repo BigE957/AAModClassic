@@ -56,9 +56,6 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
@@ -76,6 +73,9 @@ using AAModClassic.Conversions;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 
 namespace AAModClassic
 {
@@ -1157,7 +1157,7 @@ namespace AAModClassic
 
         public override void PostUpdateWorld()
         {
-            if (NPCExtensions.BeenKilled<ForsakenAnubis>() && !AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
+            if (NPCExtensions.BeenKilled<AnubisA>() && !AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
             {
                 if (HeraldTimer > 0)
                 {

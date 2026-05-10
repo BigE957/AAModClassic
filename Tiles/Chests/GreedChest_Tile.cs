@@ -1,6 +1,6 @@
 using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Blocks;
@@ -63,7 +63,7 @@ namespace AAModClassic.Tiles.Chests
 
         public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual)
         {
-            bool greed = NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>());
+            bool greed = NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()) || NPC.AnyNPCs(ModContent.NPCType<SparkOfDesire>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>());
             if (!greed)
             {
                 if (AAWorld.OpenedChest == 2)
@@ -81,7 +81,7 @@ namespace AAModClassic.Tiles.Chests
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
                     AAWorld.OpenedChest = 2;
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.GreedChest.GreedChest3"), Color.Goldenrod);
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                 }
             }
             dustType = this.DustType;

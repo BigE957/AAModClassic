@@ -1,17 +1,17 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
@@ -131,9 +131,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             {
                 Player player = Main.player[k];
                 if (player.active && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && 
-                    !NPC.AnyNPCs(ModContent.NPCType<FATransition>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
+                    !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) &&
+                    !NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
                 {
                     return true;
                 }
@@ -314,17 +313,17 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 button2 = AnubisFT;
                 AnubisF = true;
             }
-            else if (ChatNumber == 13 && NPC.downedMoonlord && NPCExtensions.BeenKilled<ForsakenAnubis>() && NPCExtensions.BeenKilled<Athena>())
+            else if (ChatNumber == 13 && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<Athena>())
             {
                 button2 = AthenaAT;
                 AthenaA = true;
             }
-            else if (ChatNumber == 14 && NPC.downedMoonlord && NPCExtensions.BeenKilled<ForsakenAnubis>() && NPCExtensions.BeenKilled<Greed>())
+            else if (ChatNumber == 14 && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<GreedHead>())
             {
                 button2 = GreedAT;
                 GreedA = true;
             }
-            else if (ChatNumber == 15 && NPCExtensions.BeenKilled<GreedA>() && NPCExtensions.BeenKilled<AthenaA>())
+            else if (ChatNumber == 15 && NPCExtensions.BeenKilled<GreedAHead>() && NPCExtensions.BeenKilled<AthenaA>())
             {
                 button2 = EquinoxT;
                 Equinox = true;
@@ -429,9 +428,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
         public override bool PreAI()
         {
             if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<FATransition>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
+                NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
             {
                 TPDust();
                 NPC.active = false;
@@ -596,7 +594,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             }
             else if (Greed)
             {
-                return NPCExtensions.BeenKilled<Greed>() ? (player.GetModPlayer<AAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedYBookY") : 
+                return NPCExtensions.BeenKilled<GreedHead>() ? (player.GetModPlayer<AAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedYBookY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedYBookN")) :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedN");
             }
@@ -607,7 +605,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             }
             else if (AnubisF)
             {
-                return NPCExtensions.BeenKilled<ForsakenAnubis>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisY") :
+                return NPCExtensions.BeenKilled<AnubisA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisY") :
                     Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisN").FormatWith(player.name);
             }
             else if (AthenaA)
@@ -617,7 +615,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             }
             else if (GreedA)
             {
-                return NPCExtensions.BeenKilled<GreedA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAY") :
+                return NPCExtensions.BeenKilled<GreedAHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAN");
             }
             else if (Equinox)
@@ -786,7 +784,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
 
             if (ModLoader.TryGetMod("CalamityMod", out var cal))
             {
-                if (NPCExtensions.BeenKilled<GreedA>() && (bool)cal.Call("GetBossDowned", "devourerofgods"))
+                if (NPCExtensions.BeenKilled<GreedAHead>() && (bool)cal.Call("GetBossDowned", "devourerofgods"))
                 {
                     chat.Add("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GreedACalamityMod");
                 }
@@ -821,7 +819,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 }
             }
 
-            if (NPCExtensions.BeenKilled<ForsakenAnubis>() && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
+            if (NPCExtensions.BeenKilled<AnubisA>() && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
             {
                 if (!mPlayer.GivenWormIdol)
                 {

@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -30,7 +30,7 @@ namespace AAModClassic._Unofficial.Desert
         /// </summary>
         private static string CurrentQuestID = "";
 
-        internal static Questline CurrentQuestline => NPCExtensions.BeenKilled<ForsakenAnubis>() ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
+        internal static Questline CurrentQuestline => NPCExtensions.BeenKilled<AnubisA>() ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
         internal static Quest CurrentQuest => CurrentQuestID == "" ? null : CurrentQuestline.Quests[CurrentQuestID];
         internal static UIPanel Area;
 

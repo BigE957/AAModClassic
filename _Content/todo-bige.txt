@@ -1,5 +1,5 @@
 base
-- Do a look-over on Sagittarius, Biomite Core, Lucifer, Anubis, Athena, Greed, AnubisA, AthenaA, GreedA, 
+- Do a look-over on Lucifer,
   Equinox, Sisters, Akuma, Zero, RajahA, and Shen
 
 removed

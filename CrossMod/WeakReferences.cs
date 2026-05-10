@@ -11,9 +11,9 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
@@ -49,13 +49,13 @@ using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossSta
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
@@ -71,10 +71,10 @@ using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
@@ -156,7 +156,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
@@ -882,7 +882,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Sagittarius
-                AddBoss(bossChecklist, mod, "Sagittarius", (Func<bool>)(() => NPCExtensions.BeenKilled<Sag>()), ModContent.NPCType<Sag>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Sagittarius", (Func<bool>)(() => NPCExtensions.BeenKilled<Sagittarius>()), ModContent.NPCType<Sagittarius>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Sagittarius.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Sagittarius.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Lifescanner>() + "]"),
@@ -904,7 +904,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>() + "]"),
                     ["despawnMessage"] = (Func<NPC, LocalizedText>)((NPC npc) => {
-                        if (NPC.AnyNPCs(ModContent.NPCType<FATransition>()))
+                        if (NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
                     }),
@@ -920,14 +920,14 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Biomite Core
-                AddMiniBoss(bossChecklist, mod, "BiomiteCore", (Func<bool>)(() => NPCExtensions.BeenKilled<Core>()), ModContent.NPCType<Core>(), new Dictionary<string, object>()
+                AddMiniBoss(bossChecklist, mod, "BiomiteCore", (Func<bool>)(() => NPCExtensions.BeenKilled<BiomiteCore>()), ModContent.NPCType<BiomiteCore>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "BiomiteCore.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "BiomiteCore.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<BiomePrism>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "BiomiteCore.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<BiomePrism>(),
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
-                        string path = ModContent.GetInstance<Core>().Texture;
+                        string path = ModContent.GetInstance<BiomiteCore>().Texture;
                         Texture2D coreTex = ModContent.Request<Texture2D>(path).Value;
                         Rectangle coreFrame = coreTex.Frame(1, 8);
                         Texture2D shellTex = ModContent.Request<Texture2D>(path + "Shell").Value;
@@ -960,7 +960,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Greed
-                AddBoss(bossChecklist, mod, "Greed", (Func<bool>)(() => NPCExtensions.BeenKilled<Greed>()), new List<int>() { ModContent.NPCType<Greed>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Greed", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Greed.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
@@ -994,7 +994,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Forsaken Anubis
-                AddBoss(bossChecklist, mod, "ForsakenAnubis", (Func<bool>)(() => NPCExtensions.BeenKilled<ForsakenAnubis>()), ModContent.NPCType<ForsakenAnubis>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ForsakenAnubis", (Func<bool>)(() => NPCExtensions.BeenKilled<AnubisA>()), ModContent.NPCType<AnubisA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ForsakenAnubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ForsakenAnubis.Spawn"),
@@ -1022,12 +1022,12 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<AthenaAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("AthenaA"),
-                    ["availability"] = (Func<bool>)(() => NPCExtensions.BeenKilled<ForsakenAnubis>())
+                    ["availability"] = (Func<bool>)(() => NPCExtensions.BeenKilled<AnubisA>())
                 });
                 #endregion
 
                 #region Worm King Greed
-                AddBoss(bossChecklist, mod, "GreedA", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedA>()), ModContent.NPCType<GreedA>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "GreedA", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedAHead>()), ModContent.NPCType<GreedAHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "GreedA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "GreedA.Spawn"),
@@ -1038,7 +1038,7 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<GreedAwakenedBox>()
                     },
                     ["customPortrait"] = GetPortrait("GreedA"),
-                    ["availability"] = (Func<bool>)(() => NPCExtensions.BeenKilled<ForsakenAnubis>())
+                    ["availability"] = (Func<bool>)(() => NPCExtensions.BeenKilled<AnubisA>())
                 });
                 #endregion
 
@@ -1291,10 +1291,10 @@ namespace AAModClassic.CrossMod
                 fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (Func<bool>)(() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (Func<bool>)(() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DjinnLamp", (Func<bool>)(() => NPCExtensions.BeenKilled<DesertDjinn>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (Func<bool>)(() => NPCExtensions.BeenKilled<Sag>()), 200000);
+                fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (Func<bool>)(() => NPCExtensions.BeenKilled<Sagittarius>()), 200000);
                 fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "Scepter", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), 400000);
                 fargos.Call("AddSummon", BossProgressionValues["Athena"], "AAModClassic", "Owl", (Func<bool>)(() => NPCExtensions.BeenKilled<Athena>()), 500000);
-                fargos.Call("AddSummon", BossProgressionValues["Greed"], "AAModClassic", "GoldenGrub", (Func<bool>)(() => NPCExtensions.BeenKilled<Greed>()), 500000);
+                fargos.Call("AddSummon", BossProgressionValues["Greed"], "AAModClassic", "GoldenGrub", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedHead>()), 500000);
                 fargos.Call("AddSummon", BossProgressionValues["RajahRabbit"], "AAModClassic", "GoldenCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<Rajah>()), 600000);
                 fargos.Call("AddSummon", BossProgressionValues["EquinoxWorms"], "AAModClassic", "EquinoxWorm", (Func<bool>)(() => AAWorld.downedEquinox), 1000000);
                 fargos.Call("AddSummon", BossProgressionValues["SistersOfDiscord"], "AAModClassic", "FlamesOfAnarchy", (Func<bool>)(() => AAWorld.downedSisters), 1000000);
@@ -1616,18 +1616,18 @@ namespace AAModClassic.CrossMod
 
                 redemption.Call("addElementNPC", (int)ElementalID.Wind, ModContent.NPCType<Athena>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<Greed>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<GreedHead>());
                 redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<GreedBody>());
 
                 //Post-ML
-                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<ForsakenAnubis>());
-                redemption.Call("addElementNPC", (int)ElementalID.Arcane, ModContent.NPCType<ForsakenAnubis>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<AnubisA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Arcane, ModContent.NPCType<AnubisA>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Wind, ModContent.NPCType<AthenaA>());
                 redemption.Call("addElementNPC", (int)ElementalID.Thunder, ModContent.NPCType<AthenaA>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<GreedA>());
-                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<GreedA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<GreedAHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<GreedAHead>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<DaybringerHead>());
                 redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<DaybringerBody>());

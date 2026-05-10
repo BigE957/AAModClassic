@@ -1,10 +1,10 @@
 base
--rework how unbreakable tiles work. ideally, no more breakable tiles as tiles, make breakability tile data? unbreakable exclusive tiles can be obtained and built with. terraformer can break unbreakables
+-FINISH THIS DIPSHIT rework how unbreakable tiles work. ideally, no more breakable tiles as tiles, make breakability tile data? unbreakable exclusive tiles can be obtained and built with. terraformer can break unbreakables
 -
 
 removed
--port siege units, with all gear 
--port techno truffle who is legally not a siege unit so he has to be listed separately
+-DONE port siege units, with all gear 
+-DONE port techno truffle who is legally not a siege unit so he has to be listed separately
 -port the early hm ore alts
 -port emperor fishron
 -bring back the underground void 
@@ -40,7 +40,7 @@ unofficial
 -
 
 crossmod
--rename goozma to whatever the aa slime boss was named 
+-rename goozma to whatever the aa slime boss was named (amalgamation)
 
 notes
 -
