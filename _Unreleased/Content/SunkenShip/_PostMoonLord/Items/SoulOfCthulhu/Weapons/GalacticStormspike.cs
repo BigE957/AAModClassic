@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
@@ -43,5 +44,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 			int pID = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI);
 			return false;
 		}
-	}
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<RealityBar>(), 5);
+            recipe.AddIngredient(ItemID.ShadowbeamStaff, 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
+        }
+    }
 }

@@ -1,8 +1,9 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -62,30 +63,30 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
 		public override void RightClick(Player player)
 		{
-            if (Main.rand.NextBool(7))
-            {
-                //TODOIZ erm, maskless bozo alert
-                player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<ZeroMask>());
-            }
             if (Main.rand.NextFloat() < 0.01f)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<Infinitium>(), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<EXSoul>());
-            string[] lootTable = 
-            {
-                "Genocide",
-                "Nova",
-                "Sagittarius",
-                "TotalDestruction",
-                "Annihilator"
-                //"RiftShredder",
-                //"VoidStar",
-            };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_FromThis(), Mod.Find<ModItem>(lootTable[loot]).Type);
         }
-	}
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            int[] lootTable =
+            {
+                ModContent.ItemType<Genocide>(),
+                ModContent.ItemType<Nova>(),
+                ModContent.ItemType<Sagittarius>(),
+                ModContent.ItemType<TotalDestruction>(),
+                ModContent.ItemType<Annihilator>(),
+                ModContent.ItemType<InfinityBlade>()
+            };
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Infinitium>(), 1, 35, 45));
+            //TODOIZ erm, maskless bozo alert
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
+
+        }
+    }
 }

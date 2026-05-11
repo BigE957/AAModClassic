@@ -1,4 +1,6 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,23 +38,28 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 			return true;
 		}
 
-        //TODOSOC
-        /*
-		public override void OpenBossBag(Player player)
-		{
+        public override void RightClick(Player player)
+        {
             if (Main.rand.NextFloat() < 0.01f)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<EXSoul>());
-            string[] lootTable = 
-            {
-                "CthulhuCannon"
-            };
-            int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Item.GetSource_FromThis(), Mod.Find<ModItem>(lootTable[loot]).Type);
         }
-        */
-	}
+
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            int[] lootTable =
+            {
+                ModContent.ItemType<RealityAnchor>(),
+                ModContent.ItemType<SquidStorm>(),
+                ModContent.ItemType<CthulhuCannon>(),
+                ModContent.ItemType<GalacticStormspike>(),
+            };
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RealityBar>(), 1, 35, 45));
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
+        }
+    }
 }

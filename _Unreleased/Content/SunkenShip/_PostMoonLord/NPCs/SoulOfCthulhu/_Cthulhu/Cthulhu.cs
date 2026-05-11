@@ -1,3 +1,4 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
@@ -15,6 +16,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
@@ -263,15 +265,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void OnKill()
         {
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(ModContent.ItemType<SoulOfCthulhuTreasureBag>());
-                AAWorld_Unreleased.downedSoC = true;
-            }
-            else
-            {
+            if (!Main.expertMode)
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.Cheater"), Color.DarkCyan);
-            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            LeadingConditionRule expert = new(new Conditions.IsExpert());
+
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SoulOfCthulhuTreasureBag>()));
+
+            expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+
+            npcLoot.Add(expert);
         }
 
         int ShootThis;

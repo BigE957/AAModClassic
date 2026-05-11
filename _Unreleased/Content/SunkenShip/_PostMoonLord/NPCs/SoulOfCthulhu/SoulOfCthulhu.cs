@@ -1,3 +1,5 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
@@ -15,6 +17,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
@@ -98,23 +101,27 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void OnKill()
         {
             if (Main.expertMode)
-            {
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<CthulhuPortal>(), 0, 0);
-            }
             else
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("RealityBar").Type, 25, 35);
-                string[] lootTable =
-                {
-                    "RealityAnchor",
-                    "SquidStorm",
-                    "CthulhuCannon",
-                    "GalacticStormspike",
-                };
                 AAWorld_Unreleased.downedSoC = true;
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            int[] lootTable =
+            {
+                ModContent.ItemType<RealityAnchor>(),
+                ModContent.ItemType<SquidStorm>(),
+                ModContent.ItemType<CthulhuCannon>(),
+                ModContent.ItemType<GalacticStormspike>(),
+            };
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RealityBar>(), 1, 25, 35));
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(notExpertRule);
         }
 
         int oneTime = 0;

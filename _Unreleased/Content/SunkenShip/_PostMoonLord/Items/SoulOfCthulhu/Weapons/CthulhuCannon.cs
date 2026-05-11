@@ -1,6 +1,7 @@
-using System.Collections.Generic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -10,11 +11,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 {
     public class CthulhuCannon : ModItem
     {
-	    public override void SetStaticDefaults()
-	    {
-		    // DisplayName.SetDefault("Cthulhu Cannon");
-		    // Tooltip.SetDefault("Fires reality-breaking bombs");
-	    }
+        public override void SetStaticDefaults()
+        {
+            //DisplayName.SetDefault("Cthulhu Cannon");
+            //Tooltip.SetDefault(@"Fires reality-breaking bombs\nRequires Cannonballs");
+        }
 
         public override void SetDefaults()
         {
@@ -29,12 +30,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.knockBack = 0f;
             Item.value = 5000000;
             Item.UseSound = SoundID.Item11;
+            Item.useAmmo = ItemID.Cannonball;
             Item.autoReuse = true;
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>();
-            Item.useAmmo = AmmoID.Rocket;
         }
-    
+
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
@@ -44,6 +45,21 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                     line2.OverrideColor = AAColor.Cthulhu;
                 }
             }
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile.NewProjectile(Item.GetSource_FromThis(), position, velocity, ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
+            return false;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<RealityBar>(), 5);
+            recipe.AddIngredient(ItemID.Cannon, 1);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
         }
     }
 }

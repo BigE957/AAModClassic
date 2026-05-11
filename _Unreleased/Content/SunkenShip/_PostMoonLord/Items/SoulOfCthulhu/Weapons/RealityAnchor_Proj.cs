@@ -1,6 +1,9 @@
-using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,6 +25,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;
+            Projectile.tileCollide = false;
         }
 
         public int BoomTimer = 0;
@@ -29,174 +33,117 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void AI()
         {
-            if (Projectile.velocity.Y > 0)
+            if (Main.rand.NextFloat() < 1f)
             {
-                BoomTimer++;
+                Dust dust1;
+                Dust dust2;
+                Vector2 position = Projectile.position;
+                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<CthulhuAuraDust>())];
+                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<CthulhuAuraDust>())];
+                dust1.noGravity = true;
+                dust2.noGravity = true;
             }
-            else
+            if (Projectile.timeLeft == 120)
             {
-                BoomTimer = 0;
+                Projectile.ai[0] = 1f;
             }
-            if (Projectile.ai[0] == 0f)
-            {
-                Projectile.ai[1] += 1f;
 
-                if (Projectile.ai[1] >= 10f)
-                {
-                    Projectile.velocity.Y = Projectile.velocity.Y + 0.5f;
-                    if (Projectile.velocity.Y < 0f)
-                    {
-
-                        Projectile.velocity.Y = Projectile.velocity.Y + 0.35f;
-                    }
-                    Projectile.velocity.X = Projectile.velocity.X * 0.95f;
-                    if (Projectile.velocity.Y > 16f)
-                    {
-                        Projectile.velocity.Y = 16f;
-                    }
-                    if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 800f)
-                    {
-                        Projectile.ai[0] = 1f;
-                    }
-                }
-                else if (Projectile.ai[1] >= 30f)
-                {
-                    Projectile.ai[0] = 1f;
-                    Projectile.ai[1] = 0f;
-                    Projectile.netUpdate = true;
-                }
-            }
-            else
+            if (Main.player[Projectile.owner].dead)
             {
-                Projectile.tileCollide = false;
-                float num41 = 16f;
-                float num42 = 4f;
-                Vector2 vector2 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
-                float num43 = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - vector2.X;
-                float num44 = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - vector2.Y;
-                float num45 = (float)Math.Sqrt((double)(num43 * num43 + num44 * num44));
-                if (num45 > 3000f)
+                Projectile.Kill();
+                return;
+            }
+
+            Main.player[Projectile.owner].itemAnimation = 5;
+            Main.player[Projectile.owner].itemTime = 5;
+
+            if (Projectile.alpha == 0)
+            {
+                if (Projectile.position.X + (Projectile.width / 2) > Main.player[Projectile.owner].position.X + (Main.player[Projectile.owner].width / 2))
                 {
-                    Projectile.Kill();
-                }
-                num45 = num41 / num45;
-                num43 *= num45;
-                num44 *= num45;
-                Vector2 vector3 = new Vector2(num43, num44) - Projectile.velocity;
-                if (vector3 != Vector2.Zero)
-                {
-                    Vector2 value = vector3;
-                    value.Normalize();
-                    Projectile.velocity += value * Math.Min(num42, vector3.Length());
+                    Main.player[Projectile.owner].ChangeDir(1);
                 }
                 else
                 {
-                    if (Projectile.velocity.X < num43)
-                    {
-                        Projectile.velocity.X = Projectile.velocity.X + num42;
-                        if (Projectile.velocity.X < 0f && num43 > 0f)
-                        {
-                            Projectile.velocity.X = Projectile.velocity.X + num42;
-                        }
-                    }
-                    else if (Projectile.velocity.X > num43)
-                    {
-                        Projectile.velocity.X = Projectile.velocity.X - num42;
-                        if (Projectile.velocity.X > 0f && num43 < 0f)
-                        {
-                            Projectile.velocity.X = Projectile.velocity.X - num42;
-                        }
-                    }
-                    if (Projectile.velocity.Y < num44)
-                    {
-                        Projectile.velocity.Y = Projectile.velocity.Y + num42;
-                        if (Projectile.velocity.Y < 0f && num44 > 0f)
-                        {
-                            Projectile.velocity.Y = Projectile.velocity.Y + num42;
-                        }
-                    }
-                    else if (Projectile.velocity.Y > num44)
-                    {
-                        Projectile.velocity.Y = Projectile.velocity.Y - num42;
-                        if (Projectile.velocity.Y > 0f && num44 < 0f)
-                        {
-                            Projectile.velocity.Y = Projectile.velocity.Y - num42;
-                        }
-                    }
-                }
-                if (Main.myPlayer == Projectile.owner)
-                {
-                    Rectangle rectangle = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
-                    Rectangle value2 = new Rectangle((int)Main.player[Projectile.owner].position.X, (int)Main.player[Projectile.owner].position.Y, Main.player[Projectile.owner].width, Main.player[Projectile.owner].height);
-                    if (rectangle.Intersects(value2))
-                    {
-                        Projectile.Kill();
-                    }
+                    Main.player[Projectile.owner].ChangeDir(-1);
                 }
             }
+            Vector2 vector14 = new Vector2(Projectile.position.X + (Projectile.width * 0.5f), Projectile.position.Y + (Projectile.height * 0.5f));
+            float num166 = Main.player[Projectile.owner].position.X + (Main.player[Projectile.owner].width / 2) - vector14.X;
+            float num167 = Main.player[Projectile.owner].position.Y + (Main.player[Projectile.owner].height / 2) - vector14.Y;
+            float num168 = (float)Math.Sqrt((num166 * num166) + (num167 * num167));
             if (Projectile.ai[0] == 0f)
             {
-                Vector2 velocity = Projectile.velocity;
-                velocity.Normalize();
-                Projectile.rotation = (float)Math.Atan2(velocity.Y, velocity.X) + 1.57f;
-                return;
+                if (num168 > 700f)
+                {
+                    Projectile.ai[0] = 1f;
+                }
+                else if (num168 > 500f)
+                {
+                    Projectile.ai[0] = 1f;
+                }
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+                Projectile.ai[1] += 1f;
+                if (Projectile.ai[1] > 5f)
+                {
+                    Projectile.alpha = 0;
+                }
+                if (Projectile.ai[1] > 8f)
+                {
+                    Projectile.ai[1] = 8f;
+                }
+                if (Projectile.ai[1] >= 10f)
+                {
+                    Projectile.ai[1] = 15f;
+                    Projectile.velocity.Y = Projectile.velocity.Y + 0.3f;
+                }
+                if (Projectile.velocity.X < 0f)
+                {
+                    Projectile.spriteDirection = -1;
+                }
+                else
+                {
+                    Projectile.spriteDirection = 1;
+                }
             }
-            Vector2 vector4 = Projectile.Center - Main.player[Projectile.owner].Center;
-            vector4.Normalize();
-            Projectile.rotation = (float)Math.Atan2(vector4.Y, vector4.X) + 1.57f;
-            return;
+            else if (Projectile.ai[0] == 1f)
+            {
+                Projectile.tileCollide = false;
+                Projectile.rotation = (float)Math.Atan2(num167, num166) - 1.57f;
+                float num169 = 30f;
+
+                if (num168 < 50f)
+                {
+                    Projectile.Kill();
+                }
+                num168 = num169 / num168;
+                num166 *= num168;
+                num167 *= num168;
+                Projectile.velocity.X = num166;
+                Projectile.velocity.Y = num167;
+                if (Projectile.velocity.X < 0f)
+                {
+                    Projectile.spriteDirection = 1;
+                }
+                else
+                {
+                    Projectile.spriteDirection = -1;
+                }
+
+            }
         }
 
-
-        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
-            //target.AddBuff(BuffID.Daybreak, 600);
-        }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            width = 30;
-            height = 30;
-            return true;
-        }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-            if (BoomTimer > 180 && Boom)
+            int ProjID = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RealityAnchor_RealityBurstHuge>(), (int)(Projectile.damage * 1.5f), 0);
+            Main.projectile[ProjID].rotation = Projectile.rotation;
+            Projectile.ai[0] = 1f;
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                Boom = false;
-
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 30, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstHuge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.ai[0] = 1f;
-                return false;
-            }
-            if (BoomTimer > 120 && Boom)
-            {
-                Boom = false;
-
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstLarge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.ai[0] = 1f;
-                return false;
-            }
-            if (BoomTimer > 60 && Boom)
-            {
-                Boom = false;
-
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 10, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstMedium>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.ai[0] = 1f;
-                return false;
-            }
-            else
-            {
-                Boom = false;
-
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 5, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstSmall>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.ai[0] = 1f;
-                return false;
+                NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, ProjID, 1f, 0f, 0f, 0, 0, 0);
             }
         }
-		
- 
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
@@ -233,6 +180,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 }
             }
             return true;
+        }
+
+        public override void PostDraw(Color lightColor)
+        {
+            Texture2D GlowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Anchor_Glow").Value;
+
+            BaseDrawing.DrawTexture(Main.spriteBatch, GlowTex, 0, Projectile, Color.White);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, GlowTex, 0, Projectile, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
         }
     }
 }

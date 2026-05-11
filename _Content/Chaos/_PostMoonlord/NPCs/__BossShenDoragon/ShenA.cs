@@ -594,17 +594,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ShenDoragonTreasureBag>()));
+            LeadingConditionRule expert = new(new Conditions.IsExpert());
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenDoragonATrophy>(), 10));
+            expert.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<ShenDoragonTreasureBag>()));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+            expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenDoragonATrophy>(), 10));
+
+            expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingShenA());
 
-            firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosRune>()));
+            expert.OnSuccess(firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosRune>())))
 
-            npcLoot.Add(firstKill);
+            npcLoot.Add(expert);
         }
 
         public class FirstTimeKillingShenA : IItemDropRuleCondition, IProvideItemConditionDescription

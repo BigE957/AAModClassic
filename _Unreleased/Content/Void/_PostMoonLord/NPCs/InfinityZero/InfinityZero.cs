@@ -1,7 +1,10 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -15,6 +18,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -250,26 +254,33 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
             AAPlayer.IZKills += 1;
             AAWorld_Unreleased.downedIZ = true;
-            if (Main.expertMode)
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            int[] lootTable =
             {
-                NPC.DropLoot(ModContent.ItemType<InfinityZeroTreasureBag>());
-            }
-            else
-            {
-                NPC.DropLoot(ModContent.ItemType<Infinitium>(), 25, 35);
-                string[] lootTable =
-                {
-                    "Genocide",
-                    "Nova",
-                    "Sagittarius",
-                    "TotalDestruction",
-                    "Annihilator",
-                    "InfinityBlade"
-                };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(ModContent.ItemType<EXSoul>());
-            }
+                ModContent.ItemType<Genocide>(),
+                ModContent.ItemType<Nova>(),
+                ModContent.ItemType<Sagittarius>(),
+                ModContent.ItemType<TotalDestruction>(),
+                ModContent.ItemType<Annihilator>(),
+                ModContent.ItemType<InfinityBlade>()
+            };
+
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<InfinityZeroTreasureBag>()));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Infinitium>(), 1, 25, 35));
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule expertRule = new(new Conditions.IsExpert());
+
+            expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+
+            npcLoot.Add(notExpertRule);
+            npcLoot.Add(expertRule);
         }
 
         public override void BossLoot(ref int potionType)
