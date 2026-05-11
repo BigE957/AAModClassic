@@ -1,8 +1,12 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,6 +15,130 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     public class EyeOfAzathoth : ModNPC
     {
+        /*
+        public override void SetStaticDefaults()
+        {
+            Main.npcFrameCount[Type] = 4;
+        }
+        */
+        public override void SetDefaults()
+        {
+            NPC.width = 78;
+            NPC.height = 120;
+            NPC.value = 0;
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 5000;
+            NPC.defense = 130;
+            NPC.damage = 60;
+            NPC.HitSound = SoundID.NPCHit31;
+            NPC.DeathSound = SoundID.NPCDeath35;
+            NPC.knockBackResist = 0f;
+            NPC.noTileCollide = true;
+            NPC.defense = 130; //keep defense at 130
+            NPC.noGravity = true;
+            Main.npcFrameCount[Type] = 4;
+        }
+
+        public int body = -1;
+        public float rotValue = -1f;
+        public bool spawnedDust = false;
+        public bool fireAttack = false;
+
+        public override void AI()
+        {
+            if (body == -1)
+            {
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<DeityBrain>(), 500f, null);
+                if (npcID >= 0) body = npcID;
+            }
+            if (body == -1)
+            {
+                BaseAI.KillNPCWithLoot(NPC);
+                return;
+            }
+            NPC brain = Main.npc[body];
+            NPC.target = brain.target;
+            Player targetPlayer = Main.player[NPC.target];
+
+            if (brain == null || brain.life <= 0 || !brain.active || brain.type != ModContent.NPCType<DeityBrain>()) 
+            {
+                BaseAI.KillNPCWithLoot(NPC); 
+                return;
+            }
+
+            if (Main.netMode != NetmodeID.Server && !spawnedDust)
+            {
+                spawnedDust = true;
+                for (int m = 0; m < 20; m++)
+                {
+                    int dustID = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0, -1f, 0, default(Color), 1f);
+                    Main.dust[dustID].noGravity = true;
+                    Main.dust[dustID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
+                    Main.dust[dustID].velocity *= 2f;
+                }
+            }
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
+            {
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
+            }
+            NPC.oldPos[0] = NPC.position;
+
+            int EoACount = ((DeityBrain)brain.ModNPC).EyeCount;
+            bool outer = NPC.ai[0] % 2 == 0;
+            rotValue = (NPC.ai[0] * (MathHelper.TwoPi / EoACount)) + (NPC.ai[1] * (outer ? -0.025f : 0.04f));
+            //rotValue += 0.05f;
+            while (rotValue > MathHelper.TwoPi) 
+                rotValue -= (float)Math.PI * 2f;
+            int dist = outer ? 280 : 180;
+            NPC.Center = BaseUtility.RotateVector(brain.Center, brain.Center + new Vector2(dist, 0f), rotValue);
+            NPC.position.Y -= 48;
+
+            NPC.spriteDirection = (NPC.position.X - NPC.oldPos[1].X) < 0 ? 1 : -1;
+            NPC.rotation = 0;// (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
+
+            NPC.ai[1]++;
+            int aiTimerFire = (NPC.ai[0] % 3 == 0 ? 50 : NPC.ai[0] % 2 == 0 ? 150 : 100); //aiTimerFire is different per head by using whoAmI (which is usually different) 
+
+            if (targetPlayer != null && NPC.ai[1] % aiTimerFire == 0)
+            {
+                //fireAttack = true;
+                for (int i = 0; i < 5; ++i)
+                {
+                    Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
+                    dir *= 5f;
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X * 3, dir.Y * 3, ModContent.ProjectileType<DeityEye_DeityFlames>(), (int)(NPC.damage * .8f), 0f, Main.myPlayer);
+                }
+            }
+
+            if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.miscTimer % 2 == 0)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0, -1f, 0, default(Color), 1f);
+            }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color dColor)
+        {
+            Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
+            if (Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
+            {
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2f, 0.9f, 2, true, 0f, 0f, lightColor);
+            }
+            Texture2D texture8 = TextureAssets.Npc[NPC.type].Value;
+            Texture2D PupilTex = ModContent.Request<Texture2D>(Texture + "_Pupil").Value;
+            Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Vector2 origin15 = new(40f, 40f);
+            Vector2 value33 = new(30f, 30f);
+            Vector2 arg_A019_0 = NPC.Center;
+            Point point4 = NPC.Center.ToTileCoordinates();
+            spriteBatch.Draw(texture8, NPC.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), dColor, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
+            Vector2 value34 = Utils.Vector2FromElipse(NPC.DirectionTo(Main.player[NPC.target].Center), value33);
+            spriteBatch.Draw(Glow, NPC.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), AAColor.Cthulhu2, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(PupilTex, NPC.Center - Main.screenPosition + value34, null, AAColor.Cthulhu2, NPC.rotation, PupilTex.Size() / 2f, 1f, SpriteEffects.None, 0f);
+            return false;
+        }
+
+        /* Old Version, Kept cause the new version might suck shit
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Eye of Azathoth");
@@ -517,5 +645,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Main.spriteBatch.Draw(texture2D30, NPC.Center - Main.screenPosition + value34, null, alpha11, NPC.rotation, texture2D30.Size() / 2f, NPC.localAI[2], SpriteEffects.None, 0f);
             return false;
         }
+        */
     }
 }

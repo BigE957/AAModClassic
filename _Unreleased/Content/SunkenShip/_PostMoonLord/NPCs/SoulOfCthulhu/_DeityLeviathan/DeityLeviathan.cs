@@ -1,11 +1,14 @@
-using System;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
+using AAModClassic.Dusts;
+using AAModClassic.Music;
+using AAModClassic.Tiles.Altar;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-using Terraria.Audio;
 using Terraria.ModLoader;
-using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
@@ -261,22 +264,32 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 player = Main.player[NPC.target];
                 NPC.netUpdate = true;
             }
-            if (player.dead || Vector2.Distance(player.Center, vector) > 5600f)
+            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>());
+
+            if (player.dead || Vector2.Distance(player.Center, NPC.Center) > 5600f || !BossAlive)
             {
-                NPC.velocity.Y = NPC.velocity.Y - 0.4f;
-                if (NPC.timeLeft > 10)
+                NPC.velocity *= .8f;
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    NPC.timeLeft = 10;
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
                 }
-                if (NPC.ai[0] > 4f)
+                NPC.alpha += 12;
+                if (NPC.alpha > 255)
                 {
-                    NPC.ai[0] = 5f;
+                    NPC.active = false;
                 }
-                else
+                return;
+            }
+            if (NPC.alpha != 0)
+            {
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    NPC.ai[0] = 0f;
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
                 }
-                NPC.ai[2] = 0f;
             }
             bool flag6 = player.position.Y < 800f || player.position.Y > Main.worldSurface * 16.0 || player.position.X > 6400f && player.position.X < Main.maxTilesX * 16 - 6400;
             if (flag6)

@@ -1,8 +1,11 @@
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,7 +25,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             NPC.width = 24;
             NPC.height = 24;
-            NPC.aiStyle = NPCAIStyleID.PlanteraTentacle;
+            NPC.aiStyle = -1;
             NPC.damage = 60;
             NPC.defense = 20;
             NPC.lifeMax = 1000;
@@ -36,8 +39,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (AAModGlobalNPC.Rose < 0)
             {
-                //TODOSOC
-                //NPC.StrikeNPCNoInteraction(9999, 0f, 0, false, false, false);
+                NPC.StrikeInstantKill();
                 NPC.netUpdate = true;
                 return;
             }
@@ -168,6 +170,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            int rose = NPC.FindFirstNPC(ModContent.NPCType<DeityRose>());
+            if (rose != -1)
+                BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Chain").Value, Main.npc[rose].Center, NPC.Center);
+            return true;
         }
     }
 }

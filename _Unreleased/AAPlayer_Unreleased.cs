@@ -110,7 +110,7 @@ namespace AAModClassic._Unreleased
                     }
                 }
             }
-            if (!ZoneShip || NPC.AnyNPCs(ModContent.NPCType<UDUNFUKED>()) || NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()))
+            if (!ZoneShip || NPC.AnyNPCs(ModContent.NPCType<UDUNFUKED>()) || NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()))
             {
                 CthulhuCountdown = 10800;
             }

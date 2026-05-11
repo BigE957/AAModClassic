@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -73,7 +74,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 SoundEngine.PlaySound(SoundID.Item34, NPC.position);
                 //TODOSOC this proj has to be ported
-                int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 1.6f, NPC.velocity.Y * 1.6f, ModContent.ProjectileType<AFireProjHostile>(), 20, 0, Main.myPlayer);
+                int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 1.6f, NPC.velocity.Y * 1.6f, ModContent.ProjectileType<DeityEye_DeityFlames>(), 20, 0, Main.myPlayer);
                 Main.projectile[proj2].damage = NPC.damage / 3;
                 fireAttack = false;
 
@@ -355,11 +356,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor, true);
 
             //draw glow/glow afterimage
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, AAColor.Cthulhu2);
-            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, AAColor.Cthulhu2, true);
 
             return false;
         }
@@ -444,10 +444,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
-            
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, AAColor.Cthulhu2);
-            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor, true);
+
+            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, Color.White, true);// AAColor.Cthulhu2);
+            Vector2 offset = new Vector2(0, GlowTex.Height / 4f - 1.5f);
+            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, offset.X, offset.Y, AAColor.Cthulhu2);
 
             return false;
         }
@@ -533,11 +534,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor, true);
 
             //draw glow/glow afterimage
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, AAColor.Cthulhu2);
-            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, Color.White, true);
+            Vector2 offset = new Vector2(0, GlowTex.Height / 4f - 1.5f);
+            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, offset.X, offset.Y, AAColor.Cthulhu2);
 
             return false;
         }

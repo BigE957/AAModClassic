@@ -723,11 +723,16 @@ namespace AAModClassic.Base.BaseMod.Base
 
         public static void DrawChain(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f)
         {
-            if(Jump <= 0)
-                Jump = (texture.Height - 2f) * scale;
+            if (Jump <= 0)
+            {
+                if(texture.Height > 2)
+                    Jump = (texture.Height - 2f) * scale;
+                else
+                    Jump = texture.Height * scale;
+            }
             Vector2 dir = start.DirectionTo(end);
             float length = Vector2.Distance(start, end);
-            for (int i = 0; i < length; i += (texture.Height - 10))
+            for (float i = 0; i < length; i += (int)Jump)
             {
                 Vector2 drawPos = start + dir * i;
                 Color c;

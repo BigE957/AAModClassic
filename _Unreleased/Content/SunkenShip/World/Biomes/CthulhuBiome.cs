@@ -1,5 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan;
@@ -37,6 +39,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<DeityEaterTail>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
                 (Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC);
 
             if (SkyManager.Instance["AAModClassic:CthulhuSky"] != null && ((isActive && useCthulhu) != SkyManager.Instance["AAModClassic:CthulhuSky"].IsActive()))
@@ -203,6 +208,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<DeityEaterTail>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
                 (Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC);
 
             if (!backgroundFog && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false)) 

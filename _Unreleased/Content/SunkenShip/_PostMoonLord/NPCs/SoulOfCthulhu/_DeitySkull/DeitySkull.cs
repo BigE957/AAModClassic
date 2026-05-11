@@ -1,10 +1,13 @@
-using System;
-using System.IO;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Tiles.Altar;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -43,6 +46,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Music = MusicManagementSystem.MusicSlots["SoC"];
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
             NPC.lavaImmune = true;
+            NPC.alpha = 255;
         }
 
         public override void SendExtraAI(BinaryWriter writer)
@@ -100,6 +104,39 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.defense = NPC.defDefense;
             bool expert = Main.expertMode;
             HandTimer--;
+
+            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>());
+
+            if (!BossAlive)
+            {
+                NPC.velocity *= .8f;
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+                NPC.alpha += 12;
+                if (NPC.alpha > 255)
+                {
+                    NPC.active = false;
+                }
+            }
+
+            if (NPC.alpha != 0)
+            {
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+            }
+            NPC.alpha -= 12;
+            if (NPC.alpha < 0)
+            {
+                NPC.alpha = 0;
+            }
 
             if (NPC.type == ModContent.NPCType<DeitySkull>() && (!NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand1>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand2>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand3>()) || !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand4>()) && !NPC.AnyNPCs(ModContent.NPCType<DeitySkull_Hand5>())) && HandTimer <= 0)
             {

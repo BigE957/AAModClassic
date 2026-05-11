@@ -94,7 +94,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void AI()
         {
-
             if (NPC.alpha != 0)
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
@@ -123,22 +122,23 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Music = 0;
             }
             EyeCount = (Main.expertMode ? 20 : 15);
-            totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
-            if (Main.netMode != 1 && NPC.localAI[0] == 0f)
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)
             {
                 NPC.localAI[0] = 1f;
-                for (int num761 = 0; EyeCount < 20; num761++)
+                for (int num761 = 0; num761 < EyeCount; num761++)
                 {
                     float num762 = NPC.Center.X;
                     float num763 = NPC.Center.Y;
                     num762 += (float)Main.rand.Next(-NPC.width, NPC.width);
                     num763 += (float)Main.rand.Next(-NPC.height, NPC.height);
-                    int num764 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)num762, (int)num763, ModContent.NPCType<EyeOfAzathoth>(), 0, 0f, 0f, 0f, 0f, 255);
+                    int num764 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)num762, (int)num763, ModContent.NPCType<EyeOfAzathoth>(), 0, num761);
                     Main.npc[num764].velocity = new Vector2((float)Main.rand.Next(-30, 31) * 0.1f, (float)Main.rand.Next(-30, 31) * 0.1f);
                     Main.npc[num764].netUpdate = true;
                 }
             }
-            if (Main.netMode != 1)
+            totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
+
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.TargetClosest(true);
                 int num765 = 6000;
@@ -146,20 +146,21 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     NPC.active = false;
                     NPC.life = 0;
-                    if (Main.netMode == 2)
+                    if (Main.netMode == NetmodeID.Server)
                     {
-                        NetMessage.SendData(23, -1, -1, null, NPC.whoAmI, 0f, 0f, 0f, 0, 0, 0);
+                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, NPC.whoAmI, 0f, 0f, 0f, 0, 0, 0);
                     }
                 }
             }
-            if (NPC.ai[0] < 0f)
+            bool phase2 = NPC.ai[0] < 0f;
+            if (phase2)
             {
                 if (NPC.localAI[2] == 0f)
                 {
                     SoundEngine.PlaySound(SoundID.NPCHit1, NPC.position);
                     NPC.localAI[2] = 1f;
-                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/_Unreleased/DeityBrain1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/_Unreleased/DeityBrain2").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain1").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain2").Type, 1f);
                     for (int num766 = 0; num766 < 20; num766++)
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
@@ -185,7 +186,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.velocity.Y = (NPC.velocity.Y * 50f + num768) / 51f;
                 if (NPC.ai[0] == -1f)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         NPC.localAI[1] += 1f;
                         if (NPC.justHit)
@@ -193,7 +194,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             NPC.localAI[1] -= (float)Main.rand.Next(5);
                         }
                         int num771 = 60 + Main.rand.Next(120);
-                        if (Main.netMode != 0)
+                        if (Main.netMode != NetmodeID.SinglePlayer)
                         {
                             num771 += Main.rand.Next(30, 90);
                         }
@@ -209,7 +210,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                                 num772++;
                                 num773 = (int)Main.player[NPC.target].Center.X / 16;
                                 num774 = (int)Main.player[NPC.target].Center.Y / 16;
-                                if (Main.rand.Next(2) == 0)
+                                if (Main.rand.NextBool(2))
                                 {
                                     num773 += Main.rand.Next(7, 13);
                                 }
@@ -217,7 +218,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                                 {
                                     num773 -= Main.rand.Next(7, 13);
                                 }
-                                if (Main.rand.Next(2) == 0)
+                                if (Main.rand.NextBool(2))
                                 {
                                     num774 += Main.rand.Next(7, 13);
                                 }
@@ -247,7 +248,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 else if (NPC.ai[0] == -2f)
                 {
                     NPC.velocity *= 0.9f;
-                    if (Main.netMode != 0)
+                    if (Main.netMode != NetmodeID.SinglePlayer)
                     {
                         NPC.ai[3] += 15f;
                     }
@@ -269,7 +270,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 else if (NPC.ai[0] == -3f)
                 {
-                    if (Main.netMode != 0)
+                    if (Main.netMode != NetmodeID.SinglePlayer)
                     {
                         NPC.ai[3] -= 15f;
                     }
@@ -308,7 +309,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 if (NPC.ai[0] == 0f)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         int num779 = 0;
                         for (int num780 = 0; num780 < 200; num780++)
@@ -409,28 +410,28 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 int num121 = 0;
                 while ((double)num121 < hit.Damage / (double)NPC.lifeMax * 3.0)
                 {
-                    if (Main.rand.Next(3) == 0)
+                    if (Main.rand.NextBool(3))
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, Color.Transparent, 0.75f);
                     }
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         Dust dust39 = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default(Color), 1f)];
                         dust39.noGravity = true;
                     }
                     for (int num122 = 0; num122 < NPC.oldPos.Length; num122++)
                     {
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             if (NPC.oldPos[num122] == Vector2.Zero)
                             {
                                 break;
                             }
-                            if (Main.rand.Next(3) == 0)
+                            if (Main.rand.NextBool(3))
                             {
                                 Dust.NewDust(NPC.oldPos[num122], NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, Color.Transparent, 0.75f);
                             }
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.NextBool(2))
                             {
                                 Dust dust40 = Main.dust[Dust.NewDust(NPC.oldPos[num122], NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default(Color), 1f)];
                                 dust40.noGravity = true;
@@ -453,7 +454,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate >= 1)
+            else if (projectile.penetrate > 1) //TODO: Was >= but that made everything be affected
             {
                 projectile.damage *= (int).2;
             }

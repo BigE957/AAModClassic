@@ -66,6 +66,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SoulOfCthulhu>(), 0);
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate = true;
+                Main.npc[npcID].target = NPC.target;
             }
 
             NPC.active = false;

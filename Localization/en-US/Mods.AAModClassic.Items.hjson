@@ -9592,7 +9592,7 @@ SoulOfCthulhuTreasureBag: {
 
 CursedCompass: {
 	DisplayName: Cursed Compass
-	Tooltip: ""
+	Tooltip: An old Compass. Who knows what it's for?
 }
 
 CthulhuCannon: {

@@ -19,6 +19,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
             Projectile.timeLeft = 300;
+            Main.projFrames[Type] = 4;
         }
 
         public override void AI()

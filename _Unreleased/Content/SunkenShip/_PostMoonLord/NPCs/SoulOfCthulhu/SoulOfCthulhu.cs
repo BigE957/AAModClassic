@@ -67,7 +67,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if ((Main.netMode == 2 || Main.dedServ))
+            if ((Main.netMode == NetmodeID.Server || Main.dedServ))
             {
                 writer.Write((short)customAI[0]);
                 writer.Write((short)customAI[1]);
@@ -79,7 +79,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 customAI[0] = reader.ReadSingle();
                 customAI[1] = reader.ReadSingle();
@@ -176,41 +176,47 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
                 customAI[3] = 0;
+                customAI[1] = 0;
             }
             else if (NPC.life < EaterSummon && customAI[2] == 1)
             {
                 customAI[2] = 2;
-                NPC.ai[1] = 3f;
+                NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
                 customAI[3] = 0;
+                customAI[1] = 0;
             }
             else if (NPC.life < BrainSummon && customAI[2] == 2)
             {
                 customAI[2] = 3;
-                NPC.ai[1] = 4f;
+                NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
                 customAI[3] = 0;
+                customAI[1] = 0;
             }
             else if (NPC.life < SkullSummon && customAI[2] == 3)
             {
                 customAI[2] = 4;
-                NPC.ai[1] = 5f;
+                NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
                 customAI[3] = 0;
+                customAI[1] = 0;
             }
             else if (NPC.life < RoseSummon && customAI[2] == 4)
             {
                 customAI[2] = 5;
-                NPC.ai[1] = 6f;
+                NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
                 customAI[3] = 0;
+                customAI[1] = 0;
             }
             else if (NPC.life < LeviathanSummon && customAI[2] == 5)
             {
                 customAI[2] = 6;
-                NPC.ai[1] = 7f;
+                NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
                 customAI[3] = 0;
+                customAI[1] = 0;
             }
 
             if (Main.player[NPC.target].dead)
@@ -578,9 +584,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 Main.rainTime = (int)((float)Main.rainTime * num3);
                 Main.raining = true;
-                if (Main.netMode == 2)
+                if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
                 }
             }
         }

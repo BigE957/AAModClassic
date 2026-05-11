@@ -72,20 +72,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public void SummonEnemy()
         {
-            int Enemy = Main.rand.Next(3);
+            int Enemy = Main.rand.Next(2);
 
-            switch (Enemy)
+            Enemy = Enemy switch
             {
-                case 0:
-                    Enemy = ModContent.NPCType<DeityDragon>();
-                    break;
-                case 1:
-                    Enemy = ModContent.NPCType<EyeOfAzathoth>();
-                    break;
-                default:
-                    Enemy = ModContent.NPCType<RiftVision>();
-                    break;
-            }
+                0 => ModContent.NPCType<DeityDragon>(),
+                _ => ModContent.NPCType<RiftVision>(),
+            };
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Enemy);

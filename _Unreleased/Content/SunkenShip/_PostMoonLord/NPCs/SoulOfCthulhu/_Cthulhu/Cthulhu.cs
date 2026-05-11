@@ -127,6 +127,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (NPC.ai[1] == 1f)
             {
+                NPC.dontTakeDamage = true;
                 BoomTimer++;
                 NPC.ai[3]++;
                 if (BoomTimer == 60)
@@ -177,7 +178,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[3] == 520)
                 {
                     Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeath>(), 0, 0, Main.myPlayer);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("Gores/_Unreleased/CthulhuGore").Type, 1.2f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
+                    NPC.dontTakeDamage = false;
                     NPC.life = 0;
                 }
                 return;

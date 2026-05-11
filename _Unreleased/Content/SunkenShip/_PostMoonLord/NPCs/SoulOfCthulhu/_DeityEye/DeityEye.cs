@@ -1,14 +1,17 @@
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.Audio;
-using Terraria.ModLoader;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Tiles.Altar;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye
 {
@@ -29,7 +32,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.width = 100;
             NPC.height = 110;
             NPC.aiStyle = -1;
-            NPC.defense = 100;
+            NPC.defense = 140;
             NPC.damage = 60;
             NPC.lifeMax = 150000;
             NPC.HitSound = SoundID.NPCHit1;
@@ -129,6 +132,37 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             float num406 = NPC.position.X + NPC.width / 2 - Main.player[NPC.target].position.X - Main.player[NPC.target].width / 2;
             float num407 = NPC.position.Y + NPC.height - 59f - Main.player[NPC.target].position.Y - Main.player[NPC.target].height / 2;
             float num408 = (float)Math.Atan2((double)num407, (double)num406) + 1.57f;
+            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>());
+            if (Main.player[NPC.target].dead || Vector2.Distance(Main.player[NPC.target].Center, NPC.Center) > 5600f || !BossAlive)
+            {
+                NPC.velocity *= .8f;
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+                NPC.alpha += 12;
+                if (NPC.alpha > 255)
+                {
+                    NPC.active = false;
+                }
+                return;
+            }
+            if (NPC.alpha != 0)
+            {
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+            }
+            NPC.alpha -= 12;
+            if (NPC.alpha < 0)
+            {
+                NPC.alpha = 0;
+            }
             if (num408 < 0f)
             {
                 num408 += 6.283f;
