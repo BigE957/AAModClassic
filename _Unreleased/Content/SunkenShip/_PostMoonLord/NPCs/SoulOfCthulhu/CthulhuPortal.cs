@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -58,9 +59,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (Speechtimer >= 360)
             {
-                if (Speechtimer < 1440)
+                if (!Spawned)
                 {
-                    NPC.alpha -= 3;
+                    NPC.alpha -= 1;
 
                     if (NPC.alpha <= 0)
                     {
@@ -70,10 +71,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 else
                 {
                     NPC.alpha += 3;
-                    if (NPC.alpha >= 255)
-                    {
-                        NPC.active = false;
-                    }
                 }
             }
 
@@ -111,6 +108,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 Main.NewText("PREPARE FOR YOU AND YOUR WORLD’S CATASTROPHIC DEMISE!", Color.DarkCyan);
                 SummonSoul();
+                Spawned = true;
             }
 
         }
@@ -119,11 +117,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Main.NewText("The Soul of Cthulhu shreds through reality into this world", Color.DarkCyan);
-                //TODOSOC
-                //int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Cthulhu>());
-                //Main.npc[npcID].Center = NPC.Center;
-                //Main.npc[npcID].netUpdate = true;
+                Main.NewText("Cthulhu has been Awakened", Color.DarkCyan);
+                int npcID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Cthulhu>());
+                Main.npc[npcID].Center = NPC.Center;
+                Main.npc[npcID].netUpdate = true;
             }
 
             NPC.active = false;

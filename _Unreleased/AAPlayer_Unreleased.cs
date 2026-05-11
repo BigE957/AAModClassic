@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -109,7 +110,7 @@ namespace AAModClassic._Unreleased
                     }
                 }
             }
-            if (!ZoneShip || NPC.AnyNPCs(ModContent.NPCType<UDUNFUKED>()))
+            if (!ZoneShip || NPC.AnyNPCs(ModContent.NPCType<UDUNFUKED>()) || NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()))
             {
                 CthulhuCountdown = 10800;
             }

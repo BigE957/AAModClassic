@@ -13,13 +13,17 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose;
 using AAModClassic.Music;
+using Terraria.Graphics.Shaders;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
+using AAModClassic.Utilities;
+using System.IO;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     [AutoloadBossHead]
     public class SoulOfCthulhu : ModNPC
     {
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul of Cthulhu");
@@ -35,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.defense = 150;
             NPC.lifeMax = 1000000;
             NPC.value = Item.buyPrice(35, 0, 0, 0);
-            NPC.DeathSound = SoundID.Item88;
+            NPC.DeathSound = SoundID.Item88;// new LegacySoundStyle(2, 88, Terraria.Audio.SoundType.Sound);
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["SoC"];
@@ -45,17 +49,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
 
         public bool LeaveLine = false;
-        public bool Pinch = false;
-        public bool Eye = false;
-        public bool Eater = false;
-        public bool Skull = false;
-        public bool Rose = false;
         public bool Leviathan = false;
         public bool Summon = false;
-        public bool Boss1 = false;
-        public bool Boss2 = false;
-        public bool Boss3 = false;
-        public bool Boss4 = false;
 
         public float Rotation = 0;
         public float AlphaTimer = 0;
@@ -63,19 +58,63 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public float scale = 0;
         public float RingRotation = 0;
         public float morphTimer = 0;
-        public bool Morph = false;
         public float RiftSpin = 0;
         public bool Morphed = false;
         public static bool ComeBack = false;
         public int ReturnTimer = 100;
 
+        public float[] customAI = new float[4];
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            if ((Main.netMode == 2 || Main.dedServ))
+            {
+                writer.Write((short)customAI[0]);
+                writer.Write((short)customAI[1]);
+                writer.Write((short)customAI[2]);
+                writer.Write((short)customAI[3]);
+            }
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            if (Main.netMode == 1)
+            {
+                customAI[0] = reader.ReadSingle();
+                customAI[1] = reader.ReadSingle();
+                customAI[2] = reader.ReadSingle();
+                customAI[3] = reader.ReadSingle();
+            }
+        }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             scale = 1.5f;
             return null;
         }
-        
+
+        public override void OnKill()
+        {
+            if (Main.expertMode)
+            {
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<CthulhuPortal>(), 0, 0);
+            }
+            else
+            {
+                NPC.DropLoot(Mod.Find<ModItem>("RealityBar").Type, 25, 35);
+                string[] lootTable =
+                {
+                    "RealityAnchor",
+                    "SquidStorm",
+                    "CthulhuCannon",
+                    "GalacticStormspike",
+                };
+                AAWorld_Unreleased.downedSoC = true;
+                int loot = Main.rand.Next(lootTable.Length);
+                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
+            }
+        }
 
         int oneTime = 0;
 
@@ -88,17 +127,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             modPlayer.Leave = false;
             NPC.rotation = NPC.velocity.X / 15f;
             Vector2 spawnAt = NPC.Center + new Vector2(0f, NPC.height / 2f);
-            float EyeSummon = NPC.lifeMax * .8f;
-            float EaterSummon = NPC.lifeMax * .6f;
-            float SkullSummon = NPC.lifeMax * .4f;
-            float LeviathanSummon = NPC.lifeMax * .2f;
-            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>());
-            EnemyTimer++;
-
-            if (EnemyTimer >= 600)
+            float EyeSummon = NPC.lifeMax * .85f;
+            float EaterSummon = NPC.lifeMax * .70f;
+            float BrainSummon = NPC.lifeMax * .55f;
+            float SkullSummon = NPC.lifeMax * .40f;
+            float RoseSummon = NPC.lifeMax * .25f;
+            float LeviathanSummon = NPC.lifeMax * .10f;
+            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>());
+            NPC.ai[3]++;
+            customAI[3]++;
+            if (NPC.ai[3] >= 600 && !BossAlive)
             {
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<Portal>(), 0, -NPC.velocity.X, -NPC.velocity.Y);
-                EnemyTimer = 0;
+                NPC.ai[3] = 0;
             }
 
 
@@ -110,24 +151,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (BossAlive)
             {
-                Morphed = true;
-                return;
-            }
-            else
-            {
-                Morphed = false;
-            }
-
-            if (Morphed)
-            {
                 NPC.alpha += 12;
                 if (NPC.alpha >= 140)
                 {
                     NPC.alpha = 140;
                 }
                 NPC.dontTakeDamage = true;
-
-                NPC.netUpdate = true;
+                NPC.Center = new Vector2(player.Center.X, player.Center.Y - 60);
                 return;
             }
             else
@@ -138,59 +168,51 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.alpha = 0;
                 }
                 NPC.dontTakeDamage = false;
-
-                NPC.netUpdate = true;
             }
 
-            if (NPC.ai[1] == 1f || NPC.ai[1] == 0f)
+            if (NPC.life < EyeSummon && customAI[2] == 0) //Spawn Eye boi
             {
-                NPC.dontTakeDamage = false;
-            }
-            else
-            {
-                NPC.dontTakeDamage = true;
-            }
-
-            if (NPC.life < EyeSummon && !Boss1) //Spawn Eye boi
-            {
-                Boss1 = true;
+                customAI[2] = 1;
                 NPC.ai[1] = 2f;
                 NPC.dontTakeDamage = true;
-                morphTimer = 0;
+                customAI[3] = 0;
             }
-            else if (NPC.life < EaterSummon && !Boss2)
+            else if (NPC.life < EaterSummon && customAI[2] == 1)
             {
-                Boss2 = true;
+                customAI[2] = 2;
                 NPC.ai[1] = 3f;
                 NPC.dontTakeDamage = true;
-                morphTimer = 0;
+                customAI[3] = 0;
             }
-            else if (NPC.life < SkullSummon && !Boss3)
+            else if (NPC.life < BrainSummon && customAI[2] == 2)
             {
-                Boss3 = true;
+                customAI[2] = 3;
                 NPC.ai[1] = 4f;
                 NPC.dontTakeDamage = true;
-                morphTimer = 0;
+                customAI[3] = 0;
             }
-            else if (NPC.life < LeviathanSummon && !Boss4)
+            else if (NPC.life < SkullSummon && customAI[2] == 3)
             {
-                Boss4 = true;
+                customAI[2] = 4;
+                NPC.ai[1] = 5f;
+                NPC.dontTakeDamage = true;
+                customAI[3] = 0;
+            }
+            else if (NPC.life < RoseSummon && customAI[2] == 4)
+            {
+                customAI[2] = 5;
+                NPC.ai[1] = 6f;
+                NPC.dontTakeDamage = true;
+                customAI[3] = 0;
+            }
+            else if (NPC.life < LeviathanSummon && customAI[2] == 5)
+            {
+                customAI[2] = 6;
                 NPC.ai[1] = 7f;
                 NPC.dontTakeDamage = true;
-                morphTimer = 0;
+                customAI[3] = 0;
             }
 
-            if (NPC.life <= NPC.lifeMax / 10)
-            {
-                Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
-                if (!Pinch)
-                {
-                    Pinch = true;
-                    Main.NewText("YOU", Color.DarkCyan);
-                    Main.NewText("WILL", Color.DarkCyan);
-                    Main.NewText("PERISH", Color.DarkCyan);
-                }
-            }
             if (Main.player[NPC.target].dead)
             {
                 NPC.TargetClosest(true);
@@ -214,7 +236,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Rotation += NPC.velocity.X * .01f;
                 RiftSpin -= NPC.velocity.X * .01f;
 
-                
+
                 NPC.rotation = NPC.velocity.X / 15f;
                 if (NPC.position.Y > Main.player[NPC.target].position.Y - 200f)
                 {
@@ -240,7 +262,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         NPC.velocity.Y = -2f;
                     }
                 }
-                if (NPC.position.X + NPC.width / 2 > Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 + 100f)
+                if (NPC.position.X + (float)(NPC.width / 2) > Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) + 100f)
                 {
                     if (NPC.velocity.X > 0f)
                     {
@@ -252,7 +274,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         NPC.velocity.X = 8f;
                     }
                 }
-                if (NPC.position.X + NPC.width / 2 < Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - 100f)
+                if (NPC.position.X + (float)(NPC.width / 2) < Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - 100f)
                 {
                     if (NPC.velocity.X < 0f)
                     {
@@ -291,10 +313,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         NPC.ai[1] = 0f;
                     }
                     NPC.rotation += NPC.direction * 0.7f;
-                    Vector2 vector44 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-                    float num441 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector44.X;
-                    float num442 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector44.Y;
-                    float num443 = (float)Math.Sqrt((double)(num441 * num441 + num442 * num442));
+                    Vector2 vector44 = new Vector2(NPC.position.X + ((float)NPC.width * 0.5f), NPC.position.Y + ((float)NPC.height * 0.5f));
+                    float num441 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector44.X;
+                    float num442 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector44.Y;
+                    float num443 = (float)Math.Sqrt((double)((num441 * num441) + (num442 * num442)));
                     float num4 = 5f + num443 / 100f;
                     if (num4 < 8.0)
                         num4 = 8f;
@@ -326,170 +348,79 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
                         Rotation += .2f;
                         RiftSpin -= .2f;
-                        morphTimer++;
+                        customAI[1]++;
 
-                        if (morphTimer > 300)
+                        if (customAI[1] > 300)
                         {
-
-                            if (Eye == false)
+                            if (customAI[0] == 0)
                             {
-                                Eye = true;
+                                Summon = true;
+                                customAI[0] = 1;
                                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEye>());
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
+                                return;
                             }
-                            
+                            if (customAI[0] == 1)
+                            {
+                                Summon = true;
+                                customAI[0] = 2;
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEater>());
+                                NPC.ai[2] = 0f;
+                                NPC.ai[1] = 0f;
+                                return;
+                            }
+                            if (customAI[0] == 2)
+                            {
+                                Summon = true;
+                                customAI[0] = 3;
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityBrain>());
+                                NPC.ai[2] = 0f;
+                                NPC.ai[1] = 0f;
+                                return;
+                            }
+                            if (customAI[0] == 3)
+                            {
+                                Summon = true;
+                                customAI[0] = 4;
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeitySkull>(), 0, 0, 1);
+                                NPC.ai[2] = 0f;
+                                NPC.ai[1] = 0f;
+                                return;
+                            }
+                            if (customAI[0] == 4)
+                            {
+                                Summon = true;
+                                customAI[0] = 5;
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityRose>());
+                                NPC.ai[2] = 0f;
+                                NPC.ai[1] = 0f;
+                                return;
+                            }
+                            if (customAI[0] == 5)
+                            {
+                                Summon = true;
+                                customAI[0] = 6;
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityLeviathan>());
+                                NPC.ai[2] = 0f;
+                                NPC.ai[1] = 0f;
+                                return;
+                            }
                         }
                     }
                     return;
                 }
                 if (NPC.ai[1] == 3f)
                 {
-                    Summon = true;
-                    NPC.velocity *= .8f;
-                    if (NPC.velocity.X < .5f || NPC.velocity.X > -.5f)
-                    {
-                        NPC.velocity.X = 0;
-                    }
-                    if (NPC.velocity.Y < .5f || NPC.velocity.Y > -.5f)
-                    {
-                        NPC.velocity.Y = 0;
-                    }
-
-                    if (NPC.velocity.X == 0 && NPC.velocity.Y == 0)
-                    {
-                        Rotation += .2f;
-                        RiftSpin -= .2f;
-                        morphTimer++;
-                        if (morphTimer > 300)
-                        {
-                            if (Eater == false)
-                            {
-                                Eater = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEater>());
-                                NPC.ai[2] = 0f;
-                                NPC.ai[1] = 0f;
-                            }
-                        }
-
-                    }
-
-                    return;
+                    Main.NewText("...good riddance...", Color.DarkCyan);
+                    NPC.ai[1] = 5f;
                 }
                 if (NPC.ai[1] == 4f)
                 {
-                    Summon = true;
-                    NPC.velocity *= .8f;
-                    if (NPC.velocity.X < .5f || NPC.velocity.X > -.5f)
-                    {
-                        NPC.velocity.X = 0;
-                    }
-                    if (NPC.velocity.Y < .5f || NPC.velocity.Y > -.5f)
-                    {
-                        NPC.velocity.Y = 0;
-                    }
-
-                    if (NPC.velocity.X == 0 && NPC.velocity.Y == 0)
-                    {
-
-                        Rotation += .2f;
-                        RiftSpin -= .2f;
-                        morphTimer++;
-                        if (morphTimer > 300)
-                        {
-                            if (Skull == false)
-                            {
-                                Skull = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeitySkull>(), 0, 0, 1);
-                                NPC.ai[2] = 0f;
-                                NPC.ai[1] = 0f;
-                            }
-                        }
-
-                    }
-
-
-                    return;
-                }
-
-                if (NPC.ai[1] == 6f)
-                {
-                    Summon = true;
-                    NPC.velocity *= .8f;
-                    if (NPC.velocity.X < .5f || NPC.velocity.X > -.5f)
-                    {
-                        NPC.velocity.X = 0;
-                    }
-                    if (NPC.velocity.Y < .5f || NPC.velocity.Y > -.5f)
-                    {
-                        NPC.velocity.Y = 0;
-                    }
-
-                    if (NPC.velocity.X == 0 && NPC.velocity.Y == 0)
-                    {
-                        Rotation += .2f;
-                        RiftSpin -= .2f;
-                        morphTimer++;
-                        if (morphTimer > 300)
-                        {
-                            if (Rose == false)
-                            {
-                                Rose = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityRose>());
-                                NPC.ai[2] = 0f;
-                                NPC.ai[1] = 0f;
-                            }
-                        }
-                    }
-
-
-                    return;
-                }
-
-                if (NPC.ai[1] == 7f)
-                {
-                    Summon = true;
-                    NPC.velocity *= .8f;
-                    if (NPC.velocity.X < .5f || NPC.velocity.X > -.5f)
-                    {
-                        NPC.velocity.X = 0;
-                    }
-                    if (NPC.velocity.Y < .5f || NPC.velocity.Y > -.5f)
-                    {
-                        NPC.velocity.Y = 0;
-                    }
-
-                    if (NPC.velocity.X == 0 && NPC.velocity.Y == 0)
-                    {
-                        Rotation += .2f;
-                        RiftSpin -= .2f;
-                        morphTimer++;
-                        if (morphTimer > 300)
-                        {
-                            if (Leviathan == false)
-                            {
-                                Leviathan = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityLeviathan>());
-                                NPC.ai[2] = 0f;
-                                NPC.ai[1] = 0f;
-                            }
-                        }
-                    }
-
-
-                    return;
-                }
-                if (NPC.ai[1] == 8f)
-                {
-                    Main.NewText("...good riddance...", Color.DarkCyan);
-                    NPC.ai[1] = 9f;
-                }
-                if (NPC.ai[1] == 9f)
-                {
                     Main.NewText("...do not return...", Color.DarkCyan);
-                    NPC.ai[1] = 9F;
+                    NPC.ai[1] = 5f;
                 }
-                if (NPC.ai[1] == 10f)
+                if (NPC.ai[1] == 5f)
                 {
                     NPC.alpha += 5;
                     {
@@ -502,38 +433,28 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
         }
 
-        public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
+        /*
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            if (!AAConfigClient.Instance.DisableAnticheat)
+            if (AAWorld.Anticheat)
             {
-                if (modifiers.GetDamage(item.damage, true) > NPC.lifeMax / 8)
+                if (damage > NPC.lifeMax / 8)
                 {
                     Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
-                    modifiers.TargetDamageMultiplier *= 0;
+                    damage = 0;
                 }
             }
         }
-
-        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
-        {
-            if (!AAConfigClient.Instance.DisableAnticheat)
-            {
-                if (modifiers.GetDamage(projectile.damage, true) > NPC.lifeMax / 8)
-                {
-                    Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
-                    modifiers.TargetDamageMultiplier *= 0;
-                }
-            }
-        }
+        */
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if(NPC.life <= 0)
+            if (NPC.life <= 0)
             {
                 Vector2 baseVelocity = NPC.velocity * Main.rand.NextFloat();
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * 2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * -2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);
-                for(int i = 0; i < 8; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     int num = 3 + i;
                     Vector2 extraVelo = Vector2.UnitY.RotatedBy(MathHelper.TwoPi / 8f * i) * -2f;
@@ -549,18 +470,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D RingTex = ModContent.Request<Texture2D>(Texture + "_DeityCircle").Value;
             Texture2D RitualTex = ModContent.Request<Texture2D>(Texture + "_DeityRitual").Value;
             Texture2D Rift = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift").Value;
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
-            Vector2 origin8 = new Vector2(RitualTex.Width, RitualTex.Height) / 2f;
-            int y6 = 0;
+            Vector2 origin8 = new Vector2((float)RitualTex.Width, (float)RitualTex.Height) / 2f;
+            int num214 = TextureAssets.Npc[NPC.type].Value.Height;
             Color color25 = Lighting.GetColor((int)(NPC.position.X + NPC.width * 0.5) / 16, (int)((NPC.position.Y + NPC.height * 0.5) / 16.0));
             Color? alpha4 = GetAlpha(color25);
-            Color color;
             Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
+            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>());
             if (Summon)
             {
                 Rotation += .2f;
                 RiftSpin -= .2f;
-                if (morphTimer < 300f)
+                if (customAI[3] < 300f)
                 {
                     alpha -= 5;
                 }
@@ -579,20 +501,30 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 scale = 1f - alpha / 255f;
                 RingRotation += 0.0149599658f;
                 Main.spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(RitualTex, vector38, null, AAColor.Cthulhu, RingRotation, origin8, scale * 0.42f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(RitualTex, vector38, null, AAColor.Cthulhu, RingRotation, origin8, scale, SpriteEffects.None, 0f);
                 Main.spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale * 0.42f, SpriteEffects.None, 0f);
             }
-            if (NPC.alpha > 0)
-            {
-                color = AAColor.Cthulhu;
-            }
+
+            int shader = 0;
+
+            if (BossAlive)
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             else
+                shader = 0;
+
+            BaseDrawing.DrawTexture(spriteBatch, Rift, 0, NPC.position, NPC.width, NPC.height, 1.5f, RiftSpin, 0, 1, new Rectangle(0, 0, Rift.Width, Rift.Height), AAColor.Cthulhu, true);
+
+            BaseDrawing.DrawTexture(spriteBatch, WheelTex, shader, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, WheelTex.Width, WheelTex.Height), drawColor, true);
+
+            BaseDrawing.DrawTexture(spriteBatch, texture2D13, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, texture2D13.Width, texture2D13.Height), drawColor, true);
+
+            if (BossAlive || Summon)
             {
-                color = drawColor;
+                BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, GlowTex.Width, GlowTex.Height), Color.White, true);
+
+                BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
             }
-            Main.spriteBatch.Draw(Rift, drawCenter - Main.screenPosition, new Rectangle?(new Rectangle(0, y6, Rift.Width, Rift.Height)), AAColor.Cthulhu, RiftSpin, new Vector2(Rift.Width / 2f, Rift.Height / 2f), 1.5f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(WheelTex, drawCenter - Main.screenPosition, new Rectangle?(new Rectangle(0, y6, WheelTex.Width, WheelTex.Height)), color, Rotation, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), NPC.scale, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(texture2D13, drawCenter - Main.screenPosition, new Rectangle?(new Rectangle(0, y6, texture2D13.Width, texture2D13.Height)), color, NPC.rotation, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), NPC.scale, SpriteEffects.None, 0f);
+
             return false;
         }
 
@@ -603,52 +535,52 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 int num = 86400;
                 int num2 = num / 24;
                 Main.rainTime = Main.rand.Next(num2 * 8, num);
-                if (Main.rand.NextBool(3))
+                if (Main.rand.Next(3) == 0)
                 {
                     Main.rainTime += Main.rand.Next(0, num2);
                 }
-                if (Main.rand.NextBool(4))
+                if (Main.rand.Next(4) == 0)
                 {
                     Main.rainTime += Main.rand.Next(0, num2 * 2);
                 }
-                if (Main.rand.NextBool(5))
+                if (Main.rand.Next(5) == 0)
                 {
                     Main.rainTime += Main.rand.Next(0, num2 * 2);
                 }
-                if (Main.rand.NextBool(6))
+                if (Main.rand.Next(6) == 0)
                 {
                     Main.rainTime += Main.rand.Next(0, num2 * 3);
                 }
-                if (Main.rand.NextBool(7))
+                if (Main.rand.Next(7) == 0)
                 {
                     Main.rainTime += Main.rand.Next(0, num2 * 4);
                 }
-                if (Main.rand.NextBool(8))
+                if (Main.rand.Next(8) == 0)
                 {
                     Main.rainTime += Main.rand.Next(0, num2 * 5);
                 }
                 float num3 = 1f;
-                if (Main.rand.NextBool(2))
+                if (Main.rand.Next(2) == 0)
                 {
                     num3 += 0.05f;
                 }
-                if (Main.rand.NextBool(3))
+                if (Main.rand.Next(3) == 0)
                 {
                     num3 += 0.1f;
                 }
-                if (Main.rand.NextBool(4))
+                if (Main.rand.Next(4) == 0)
                 {
                     num3 += 0.15f;
                 }
-                if (Main.rand.NextBool(5))
+                if (Main.rand.Next(5) == 0)
                 {
                     num3 += 0.2f;
                 }
                 Main.rainTime = (int)((float)Main.rainTime * num3);
                 Main.raining = true;
-                if (Main.netMode == NetmodeID.Server)
+                if (Main.netMode == 2)
                 {
-                    NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
+                    NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
                 }
             }
         }

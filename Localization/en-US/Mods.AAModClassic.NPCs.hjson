@@ -749,6 +749,7 @@ DeitySkull_Hand4.DisplayName: Deity Skull_ Hand4
 DeitySkull_Hand5.DisplayName: Deity Skull_ Hand5
 CthulhuPortal.DisplayName: Cthulhu Portal
 CthulhuSpawn.DisplayName: Cthulhu Spawn
+Cthulhu.DisplayName: Cthulhu
 DeityDragon.DisplayName: Deity Dragon
 DeityDragon_Arms.DisplayName: Deity Dragon_ Arms
 DeityDragon_Body1.DisplayName: Deity Dragon_ Body1
@@ -909,3 +910,4 @@ AshenDragonHead.DisplayName: Ashen Dragon Head
 AshenDragonTail.DisplayName: Ashen Dragon Tail
 FlameVortex.DisplayName: Flame Vortex
 NightCloud.DisplayName: Night Cloud
+DeityBrain.DisplayName: Deity Brain
