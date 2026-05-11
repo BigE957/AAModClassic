@@ -14,6 +14,7 @@ using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -50,6 +51,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public static Asset<Texture2D> Arms_Excalihare;
         public static Asset<Texture2D> Arms_FluffyFury;
         public static Asset<Texture2D> Arms_RabbitsWrath;
+        public static Asset<Texture2D> Arms_CottonCane;
         public static Asset<Texture2D> BlankTex;
 
         public override void SetStaticDefaults()
@@ -67,6 +69,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             Arms_Excalihare = ModContent.Request<Texture2D>(ATexture + "_Arms_Excalihare");
             Arms_FluffyFury = ModContent.Request<Texture2D>(ATexture + "_Arms_FluffyFury");
             Arms_RabbitsWrath = ModContent.Request<Texture2D>(ATexture + "_Arms_RabbitsWrath");
+            Arms_CottonCane = ModContent.Request<Texture2D>(Texture + "_Unofficial_Arms_CottonCane");
             BlankTex = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
         }
 
@@ -137,6 +140,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public void Roar(int timer)
         {
             roarTimer = timer;
+            //TODO: fix this
             //SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
         }
 
@@ -943,7 +947,6 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             if (internalAI[1] == 0)
             {
-                WeaponFrame = frameHeight * 5;
                 if (NPC.frameCounter++ > 3)
                 {
                     NPC.frame.Y += frameHeight;
@@ -953,10 +956,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         NPC.frame.Y = 0;
                     }
                 }
+                WeaponFrame = frameHeight * 5;
             }
             else
             {
-                WeaponFrame = NPC.frame.Y;
                 if (NPC.ai[0] == 0f)
                 {
                     if (internalAI[2] < -17f)
@@ -1001,6 +1004,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                             }
                         }
                     }
+                    WeaponFrame = NPC.frame.Y;
                 }
                 else if (NPC.ai[0] == 1f)
                 {
@@ -1053,6 +1057,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             if (internalAI[1] == 0) // is flying
                 currentHorizFrameOffset += rajahFrameWidth;
             NPC.frame.X = currentHorizFrameOffset;
+
+            NPC.spriteDirection = NPC.direction;
         }
 
         public override void OnKill()
@@ -1156,6 +1162,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 return Arms_RabbitsWrath;
             }
+            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[3] == 0) // cotton cane
+            {
+                return Arms_CottonCane;
+            }
             else
             {
                 return BlankTex;
@@ -1172,7 +1182,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             bool RageMode = !isSupreme && NPC.life < NPC.lifeMax / 7;
             bool SupremeRageMode = isSupreme && NPC.life < NPC.lifeMax / 7;
 
-            if (isSupreme && isDashing)
+            if (isSupreme && (isDashing || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && internalAI[4] == 1)))
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
             }
@@ -1185,22 +1195,24 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
             }
-            if (NPC.ai[3] != 0 && NPC.ai[3] < 6) //If holding a weapon
-            {
-                ArmTex = WeaponTexture().Value;
-                Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
-                //BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
-                spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, WeaponRectangle.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
-            }
+
+            // draw wep
+            ArmTex = WeaponTexture().Value;
+            Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && isSupreme)
+                WeaponRectangle.X = WeaponRectangle.Width;
+            spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, WeaponRectangle.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
+
+            // draw self
             //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, drawColor, true);
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            
             if (NPC.ai[3] == 6) //If Rabbits Wrath
             {
-                ArmTex = WeaponTexture().Value;
-                Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
                 //BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
                 spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             }
+
             if (RageMode)
             {
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
@@ -1208,6 +1220,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 //TODO: shader
                 spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             }
+
             if (SupremeRageMode)
             {
                 //BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
@@ -1223,6 +1236,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 //BaseDrawing.DrawTexture(spriteBatch, SupremeEyes.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
                 spriteBatch.Draw(SupremeEyes.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             }
+
             return false;
         }
 
