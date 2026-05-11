@@ -19,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tools
             Item.width = 38;
             Item.height = 48;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
 		    Item.pick = 200;
             Item.axe = 40;
             Item.tileBoost += 1;
@@ -27,7 +27,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tools
             Item.damage = 60;
             Item.knockBack = 4;
 
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 6;
             Item.useAnimation = 22;
 

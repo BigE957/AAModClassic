@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard
@@ -16,7 +17,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
         {
             Item.width = 22;
             Item.height = 26;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
     }

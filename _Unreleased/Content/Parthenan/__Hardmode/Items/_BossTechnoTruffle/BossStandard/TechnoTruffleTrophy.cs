@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard
 {
@@ -17,11 +18,11 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<TechnoTruffleTrophy_Tile>();
 		}
     }

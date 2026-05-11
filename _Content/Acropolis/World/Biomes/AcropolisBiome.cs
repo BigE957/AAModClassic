@@ -14,7 +14,5 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
         public override int Music => MusicManagementSystem.MusicSlots["Acropolis"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
-
     }
-
 }

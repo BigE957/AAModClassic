@@ -47,12 +47,12 @@ Can only be used at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("Stop waving that metal mushroom around like a psychopath.", new Color(216, 110, 40), false);
+                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Stop waving that metal mushroom around like a psychopath.", new Color(216, 110, 40), false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<TechnoTruffle>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("The Techno Truffle exists.", new Color(216, 110, 40), false);
+                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The Techno Truffle exists.", new Color(216, 110, 40), false);
                 return false;
             }
             return true;

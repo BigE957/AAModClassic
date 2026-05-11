@@ -526,6 +526,21 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
         }
 
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if(NPC.life <= 0)
+            {
+                Vector2 baseVelocity = NPC.velocity * Main.rand.NextFloat();
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * 2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * -2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);
+                for(int i = 0; i < 8; i++)
+                {
+                    int num = 3 + i;
+                    Vector2 extraVelo = Vector2.UnitY.RotatedBy(MathHelper.TwoPi / 8f * i) * -2f;
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + extraVelo, Mod.Find<ModGore>("SoCGore" + num).Type, 1.4f);
+                }
+            }
+        }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
@@ -581,7 +596,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             return false;
         }
 
-        private void RainStart()
+        private static void RainStart()
         {
             if (!Main.raining)
             {

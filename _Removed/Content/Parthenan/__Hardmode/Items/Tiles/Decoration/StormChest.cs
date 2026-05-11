@@ -21,8 +21,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 5;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Pink;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 500;
 			Item.createTile = ModContent.TileType<StormChest_Tile>();

@@ -38,7 +38,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
 
         public override void SetDefaults()
         {
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.width = 202;
             NPC.height = 196;
             NPC.noGravity = true;
@@ -70,7 +70,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write(internalAI[0]);
                 writer.Write(internalAI[1]);
@@ -84,7 +84,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 internalAI[0] = reader.ReadSingle();
                 internalAI[1] = reader.ReadSingle();
@@ -225,13 +225,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 {
                     NPC.velocity.Y -= 4;
                     NPC.netUpdate = true;
-                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
                     return;
                 }
                 return;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[0]++;
                 if (internalAI[0] >= 180)
@@ -275,7 +275,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
 
             if (internalAI[1] == AISTATE_ROCKETS)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     internalAI[2]++;
                     if (!NPC.AnyNPCs(ModContent.NPCType<RaiderUltima_RaiderRocket>()))
@@ -298,7 +298,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             }
             else if (internalAI[1] == AISTATE_SPAWNEGGS)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     projectileTimer++;
                     if (projectileTimer > 20)
@@ -318,7 +318,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             }
             else if (internalAI[1] == AISTATE_CHARGEATPLAYER)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (SelectPoint)
                     {
@@ -343,7 +343,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             }
             else if (internalAI[1] == AISTATE_SHOCKBOMB)
             {
-                if (Main.netMode != 1) //only fire bombs when (attempting to) fly above the player
+                if (Main.netMode != NetmodeID.MultiplayerClient) //only fire bombs when (attempting to) fly above the player
                 {
                     projectileTimer++;
                     if (projectileTimer >= projectileInterval && projectileTimer % 10 == 0)
@@ -358,12 +358,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                     }
                 }
             }
-            if (internalAI[5] == 1 && Main.netMode != 1)
+            if (internalAI[5] == 1 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[5] = 2;
                 NPC.netUpdate = true;
             }
-            else if (internalAI[5] == 2 && Main.netMode != 1)
+            else if (internalAI[5] == 2 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.netUpdate = false;
             }

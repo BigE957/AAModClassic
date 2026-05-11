@@ -1,21 +1,32 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration.Ancient;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration.Ancient;
 
-namespace AAModClassic._Unreleased.Content.Parthenan.World
+namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 {
+    public class ParthenanTexGenAssets : ModSystem
+    {
+        internal static TexGenData ParthenanTileData;
+        internal static TexGenData ParthenanWallData;
+
+        public override void OnModLoad()
+        {
+            ParthenanTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/ParthenanGen", AssetRequestMode.ImmediateLoad).Value);
+            ParthenanWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/ParthenanGen_Walls", AssetRequestMode.ImmediateLoad).Value);
+        }
+    }
     public class ParthenanGen : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
         {
             //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
-
-            Mod mod = AAMod.instance;
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
             colorToTile[new Color(0, 255, 0)] = ModContent.TileType<FulguritePlating_Tile>();
@@ -30,7 +41,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World
             colorToWall[new Color(255, 0, 255)] = ModContent.WallType<FulgurGlass_Wall>();
             colorToWall[Color.Black] = -1; //don't touch when genning				
 
-            TexGen gen = TexGen.GetTexGenerator(TexGenAssets_Unreleased.ParthenanTileData, colorToTile, TexGenAssets_Unreleased.ParthenanWallData, colorToWall);
+            TexGen gen = TexGen.GetTexGenerator(ParthenanTexGenAssets.ParthenanTileData, colorToTile, ParthenanTexGenAssets.ParthenanWallData, colorToWall);
 
             gen.Generate(origin.X, origin.Y, true, true);
             WorldGen.PlaceObject(origin.X + 37, origin.Y + 45, (ushort)ModContent.TileType<AncientDataBank_Tile>());

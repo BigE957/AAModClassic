@@ -29,7 +29,7 @@ Slim chance to fire 2 taserblasts at once"); */
 			Item.noMelee = true;
 			Item.knockBack = 2.5f;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item12;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<FulguriteTazerblaster_Taserblast>();

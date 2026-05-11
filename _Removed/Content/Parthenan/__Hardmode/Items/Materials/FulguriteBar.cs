@@ -19,14 +19,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
             Item.width = 30;
             Item.height = 24;
             Item.maxStack = 99;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 40, 0);
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 10;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Red;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<FulguriteBar_Tile>();
         }

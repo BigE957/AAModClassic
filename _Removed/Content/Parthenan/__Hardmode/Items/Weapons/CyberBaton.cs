@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<CyberBaton_CyberClaw>();
             Item.damage = 40;
@@ -30,7 +30,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.knockBack = 5f;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
             Item.noUseGraphic = true;

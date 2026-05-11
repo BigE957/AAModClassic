@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
             Item.width = 30;
             Item.height = 32;
             Item.value = Item.sellPrice(0, 18, 0, 0);
-            Item.rare = -12;
+            Item.rare = ItemRarityID.Expert;
             Item.expert = true; Item.expertOnly = true;
             Item.accessory = true;
             Item.defense = 6;

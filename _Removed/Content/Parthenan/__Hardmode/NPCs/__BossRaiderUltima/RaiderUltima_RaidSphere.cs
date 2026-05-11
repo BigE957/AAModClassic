@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima
@@ -18,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             Projectile.height = 26;
             Projectile.friendly = false;
             Projectile.tileCollide = true;
-            AIType = 48;
+            AIType = ProjectileID.ThrowingKnife;
             Projectile.hostile = true;
             Projectile.penetrate = 1;
         }

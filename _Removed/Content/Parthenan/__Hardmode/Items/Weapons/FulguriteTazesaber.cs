@@ -22,10 +22,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
 			Item.height = 48;
 			Item.useTime = 24;
 			Item.useAnimation = 24;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = 54000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item15;
 			Item.autoReuse = true;
 			Item.useTurn = true;

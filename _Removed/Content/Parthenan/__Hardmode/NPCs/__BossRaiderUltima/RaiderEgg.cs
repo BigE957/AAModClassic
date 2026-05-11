@@ -6,6 +6,7 @@ using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima
@@ -25,7 +26,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         {
             NPC.width = 34;
             NPC.height = 34;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 0;
             NPC.defense = 30;
             NPC.lavaImmune = true;
@@ -87,7 +88,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, 0, 0, ModContent.ProjectileType<RaiderUltima_RaiderExplosion>(), 30, 10, Main.myPlayer, 0, 0);
                 NPC.Transform(ModContent.NPCType<Raidmini>());
             }
-            if (Main.netMode != 1 && NPC.velocity.Y == 0f && Math.Abs(NPC.velocity.X) < 0.2 && NPC.ai[0] >= num1326 * 0.75)
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0f && Math.Abs(NPC.velocity.X) < 0.2 && NPC.ai[0] >= num1326 * 0.75)
             {
                 float num1327 = NPC.ai[0] - num1326 * 0.75f;
                 num1327 /= num1326 * 0.25f;

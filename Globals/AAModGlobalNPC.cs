@@ -69,6 +69,8 @@ using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
 using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Void.__Hardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs;
+using AAModClassic._Unreleased;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Materials;
@@ -1183,7 +1185,19 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if(spawnInfo.Player.GetModPlayer<AAPlayer>().StripeManSpawn)
+            if (spawnInfo.Player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+            {
+                ClearPoolWithExceptions(pool);
+
+                if (spawnInfo.Water)
+                {
+                    pool.Add(ModContent.NPCType<DimensionDiver>(), .06f);
+                    pool.Add(ModContent.NPCType<Squid>(), .06f);
+                    pool.Add(ModContent.NPCType<RiftShark>(), .08f);
+                }
+            }
+
+            if (spawnInfo.Player.GetModPlayer<AAPlayer>().StripeManSpawn)
             {
                 if(NPC.goldCritterChance >= 30) NPC.goldCritterChance = 30;
                 if(!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<AAPlayer>().luckycalm)

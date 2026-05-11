@@ -60,7 +60,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write(customAI[0]);
                 writer.Write(customAI[1]);
@@ -71,7 +71,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 customAI[0] = reader.ReadSingle();
                 customAI[1] = reader.ReadSingle();
@@ -172,7 +172,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             {
                 NPC.velocity.Y -= 4;
                 NPC.netUpdate2 = true;
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
                 return;
             }
 
@@ -185,7 +185,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 			int ShootLaserRate = 10;
 			offsetBasePoint.X = customAI[2];
 			
-            if (Main.netMode != 1 && NPC.ai[0] != 2 && NPC.ai[0] != 3)
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] != 2 && NPC.ai[0] != 3)
             {
                 int stopValue = 60;
                 NPC.ai[3]++;
@@ -197,7 +197,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 moveSpeed = 11f;
                 Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
-                if (Main.netMode != 1 && (Vector2.Distance(NPC.Center, point) < 10f || forceChange))
+                if (Main.netMode != NetmodeID.MultiplayerClient && (Vector2.Distance(NPC.Center, point) < 10f || forceChange))
                 {
                     NPC.ai[0] = 2;
                     NPC.ai[1] = targetPlayer.Center.X;
@@ -214,7 +214,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 Vector2 point = targetCenter - offsetBasePoint + new Vector2(0f, 250f);
                 MoveToPoint(point);
-                if (Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f)
+                if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f)
                 {
                     NPC.ai[0] = Dive1 ? 3 : 0;
                     NPC.ai[1] = Dive1 ? targetPlayer.Center.X : 0;
@@ -231,7 +231,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 Vector2 point = targetCenter + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
-                if (Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f)
+                if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f)
                 {
                     NPC.ai[0] = Dive2 ? 4 : 0;
                     NPC.ai[1] = Dive2 ? targetPlayer.Center.X : 0;
@@ -248,7 +248,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 Vector2 point = targetCenter + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
-                if (Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f)
+                if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f)
                 {
 					NPC.ai[0] = Dive3 ? 5 : 0;
                     NPC.ai[1] = Dive3 ? targetPlayer.Center.X : 0;
@@ -265,7 +265,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 Vector2 point = targetCenter + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
-                if (Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f)
+                if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f)
                 {
 					NPC.ai[0] = 0;
 					NPC.ai[1] = 0;
@@ -281,7 +281,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
 					customAI[0]++;
 					if(customAI[0] > 200)
@@ -305,7 +305,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
 					customAI[0]++;
 					if(customAI[0] > 200)
@@ -328,7 +328,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 moveSpeed = 8;
                 Vector2 point = targetPlayer.Center + offsetBasePoint;
                 MoveToPoint(point);
-                if (Main.netMode != 1 && (Vector2.Distance(NPC.Center, point) < 50f || forceChange))
+                if (Main.netMode != NetmodeID.MultiplayerClient && (Vector2.Distance(NPC.Center, point) < 50f || forceChange))
                 {
                     NPC.ai[1]++;
                     if (NPC.ai[1] > 150)

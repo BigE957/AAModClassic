@@ -223,7 +223,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 Lighting.AddLight((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16, 0.2f, 0.7f, 1.1f);
                 for (int num1017 = 0; num1017 < 10; num1017++)
                 {
-                    int num1018 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 31, 0f, 0f, 100, default(Color), 1.5f);
+                    int num1018 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke, 0f, 0f, 100, default(Color), 1.5f);
                     Main.dust[num1018].velocity *= 1.4f;
                     Main.dust[num1018].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * ((float)Main.rand.NextDouble() * 96f) + NPC.Center;
                 }

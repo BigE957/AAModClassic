@@ -4,7 +4,7 @@ using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Content.LostKeep.Biomes
+namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 {
     public class LostKeepBiome : ModBiome
     {

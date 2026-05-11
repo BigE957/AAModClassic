@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.Accessories
 {
@@ -17,7 +18,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
             Item.width = 26;
             Item.height = 26;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
             Item.defense = 8;

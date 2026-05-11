@@ -87,13 +87,6 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
 
             return true;
         }
-        public static int GetWorldSize()
-        {
-            if (Main.maxTilesX == 4200) { return 1; }
-            else if (Main.maxTilesX == 6400) { return 2; }
-            else if (Main.maxTilesX == 8400) { return 3; }
-            return 1; //unknown size, assume small
-        }
     }
 
     public class TerrariumGeneration : MicroBiome
@@ -101,8 +94,6 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
         public override bool Place(Point origin, StructureMap structures)
         {
             //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
-
-            Mod mod = AAMod.instance;
             int worldSize = GetWorldSize();
             int biomeRadius = worldSize == 3 ? 400 : worldSize == 2 ? 300 : 200;
 
@@ -164,11 +155,6 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
             gen.Generate(origin.X - (gen.width / 2), origin.Y, true, true);
 
             return true;
-        }
-        public static int GetWorldSize()
-        {
-            if (Main.maxTilesX <= 4200) { return 1; }
-            else { return 2; }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 			Item.width = 30;
 			Item.height = 20;
 			Item.value = 40000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.defense = 17;
 		}
 

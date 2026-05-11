@@ -27,7 +27,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         {
             NPC.width = 66;
             NPC.height = 56;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 30;
             NPC.lavaImmune = true;
             NPC.defense = 9;

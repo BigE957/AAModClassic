@@ -28,7 +28,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.lifeMax = 1000000;
             NPC.DeathSound = SoundID.Item88;
             NPC.knockBackResist = 0f;
-            NPC.boss = true;
+            //NPC.boss = true;
             NPC.noGravity = true;
             NPC.netAlways = true;
             NPC.noTileCollide = true;
@@ -43,13 +43,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            AAPlayer_Unreleased modPlayer = player.GetModPlayer<AAPlayer_Unreleased>();
+
+            if (player.dead || !player.active || !modPlayer.ZoneShip)
+                NPC.TargetClosest(true);
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000.0 || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000.0)
-            {
-                NPC.TargetClosest(true);
                 NPC.active = false;
-            }
+
             if (player.dead || !player.active || !modPlayer.ZoneShip)
             {
                 if (Line == false && Main.netMode != NetmodeID.MultiplayerClient)
@@ -57,7 +58,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Line = true;
                     Main.NewText("Do not return...", Color.DarkCyan);
                 }
-                
             }
             if (Line == true)
             {
@@ -93,8 +93,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
             Texture2D WheelTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Wheel").Value;;
             Texture2D Rift = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Portal").Value;
-            Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
-            int num214 = TextureAssets.Npc[NPC.type].Value.Height;
             int y6 = 0;
             Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
 
@@ -103,63 +101,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Main.spriteBatch.Draw(texture2D13, drawCenter - Main.screenPosition, new Rectangle?(new Rectangle(0, y6, texture2D13.Width, texture2D13.Height)), drawColor, NPC.rotation, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), NPC.scale, SpriteEffects.None, 0f);
 
             return false;
-        }
-
-        private void RainStart()
-        {
-            if (!Main.raining)
-            {
-                int num = 86400;
-                int num2 = num / 24;
-                Main.rainTime = Main.rand.Next(num2 * 8, num);
-                if (Main.rand.NextBool(3))
-                {
-                    Main.rainTime += Main.rand.Next(0, num2);
-                }
-                if (Main.rand.NextBool(4))
-                {
-                    Main.rainTime += Main.rand.Next(0, num2 * 2);
-                }
-                if (Main.rand.NextBool(5))
-                {
-                    Main.rainTime += Main.rand.Next(0, num2 * 2);
-                }
-                if (Main.rand.NextBool(6))
-                {
-                    Main.rainTime += Main.rand.Next(0, num2 * 3);
-                }
-                if (Main.rand.NextBool(7))
-                {
-                    Main.rainTime += Main.rand.Next(0, num2 * 4);
-                }
-                if (Main.rand.NextBool(8))
-                {
-                    Main.rainTime += Main.rand.Next(0, num2 * 5);
-                }
-                float num3 = 1f;
-                if (Main.rand.NextBool(2))
-                {
-                    num3 += 0.05f;
-                }
-                if (Main.rand.NextBool(3))
-                {
-                    num3 += 0.1f;
-                }
-                if (Main.rand.NextBool(4))
-                {
-                    num3 += 0.15f;
-                }
-                if (Main.rand.NextBool(5))
-                {
-                    num3 += 0.2f;
-                }
-                Main.rainTime = (int)((float)Main.rainTime * num3);
-                Main.raining = true;
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
-                }
-            }
         }
     }
 }

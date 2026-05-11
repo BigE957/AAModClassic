@@ -36,7 +36,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
             Projectile.width = 24;
             Projectile.height = 24;
             Projectile.friendly = true;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;      //this is how many enemy this projectile penetrate before desapear
             Projectile.extraUpdates = 1;

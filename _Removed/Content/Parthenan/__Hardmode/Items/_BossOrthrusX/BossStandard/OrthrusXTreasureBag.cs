@@ -26,7 +26,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true; Item.expertOnly = true;
         }
 

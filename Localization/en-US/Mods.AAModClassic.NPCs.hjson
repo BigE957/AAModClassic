@@ -758,18 +758,18 @@ EyeOfAzathoth.DisplayName: Eye Of Azathoth
 Portal.DisplayName: Portal
 RiftVision.DisplayName: Rift Vision
 SoulOfCthulhu.DisplayName: Soul Of Cthulhu
-UDUNFUKED.DisplayName: U D U N F U K E D
+UDUNFUKED.DisplayName: Lovecraftian Shadow
 InfinityCore.DisplayName: Infinity Core
 InfinityZero.DisplayName: Infinity Zero
-InfinityZeroHand1.DisplayName: Infinity Zero Hand1
-InfinityZeroHand2.DisplayName: Infinity Zero Hand2
-InfinityZeroSpawn1.DisplayName: Infinity Zero Spawn1
+InfinityZeroHand1.DisplayName: Zero
+InfinityZeroHand2.DisplayName: Zero
+InfinityZeroSpawn1.DisplayName: Infinity Zero
 Oblivion.DisplayName: Oblivion
 ShadowGhoul.DisplayName: Shadow Ghoul
 PigronMire.DisplayName: Pigron Mire
 YamataABody.DisplayName: Yamata No Orochi
 YamataBody.DisplayName: Yamata
-HarukaShadowPostHydra.DisplayName: Haruka Shadow Post Hydra
+HarukaShadowPostHydra.DisplayName: ???
 HydraBody.DisplayName: Hydra
 MurkySlime.DisplayName: Murky Slime
 Skulker.DisplayName: Skulker
@@ -879,3 +879,7 @@ LargeLetter: {
 
 	Census.SpawnCondition: Conditions unknown
 }
+
+DimensionDiver.DisplayName: Dimension Diver
+Squid.DisplayName: Squid
+RiftShark.DisplayName: Rift Shark

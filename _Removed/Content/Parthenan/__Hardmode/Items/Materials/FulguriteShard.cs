@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using Terraria.ID;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
 {
     public class FulguriteShard : BaseAAItem
@@ -21,8 +22,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 4;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.LightRed;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<FulguriteShard_Tile>();
             Item.value = 10000;

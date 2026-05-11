@@ -28,11 +28,11 @@ Can only be used at night"); */
             Item.width = 34;
             Item.height = 38;
             Item.maxStack = 20;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
         }
 
@@ -47,12 +47,12 @@ Can only be used at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("The bell rings, but nothing happens.", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The bell rings, but nothing happens.", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<RaiderUltima>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("The Raider hears the bell and keeps attempting to kill you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The Raider hears the bell and keeps attempting to kill you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             return true;

@@ -10,7 +10,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
+namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 {
     public class StormBiomeZone : ModBiome
     {
@@ -68,9 +68,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 
         public override void OnLoad()
         {
-            CloudTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Clouds");
-            BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Bolt");
-            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Flash");;
+            CloudTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Clouds");
+            BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Bolt");
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Flash");;
         }
 
         public override void Activate(Vector2 position, params object[] args)
@@ -245,17 +245,17 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/Backgrounds/StormBiome_BG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/StormBiome_BG");
         }
 
         public override int ChooseMiddleTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/Backgrounds/StormBiome_BG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/StormBiome_BG");
         }
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/Biomes/Backgrounds/StormBiome_BG");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/StormBiome_BG");
         }
     }
 }

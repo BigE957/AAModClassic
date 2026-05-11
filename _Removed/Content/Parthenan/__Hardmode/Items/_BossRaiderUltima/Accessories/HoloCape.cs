@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using Terraria.ID;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories
 {
@@ -22,7 +23,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
             Item.width = 66;
             Item.height = 78;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
             Item.defense = 5;

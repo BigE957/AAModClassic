@@ -15,7 +15,7 @@ namespace AAModClassic._Removed.Content.Parthenan
 
 		public override void SetDefaults()
 		{
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
@@ -24,7 +24,7 @@ namespace AAModClassic._Removed.Content.Parthenan
 			Item.createTile = ModContent.TileType<SiegeBox_Tile>();
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.value = 10000;
 			Item.accessory = true;
 		}

@@ -19,7 +19,7 @@ using Terraria.WorldBuilding;
 using static AAModClassic.Utilities.WorldGenUtils;
 using static Terraria.WorldBuilding.Actions;
 
-namespace AAModClassic._Unreleased.Content.LostKeep.Biomes
+namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 {
     internal class LostKeepTexGenAssets : ModSystem
     {
@@ -31,11 +31,11 @@ namespace AAModClassic._Unreleased.Content.LostKeep.Biomes
 
         public override void OnModLoad()
         {
-            KeepTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/Biomes/LostKeep", AssetRequestMode.ImmediateLoad).Value);
-            KeepWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/Biomes/LostKeepWall", AssetRequestMode.ImmediateLoad).Value);
-            KeepSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/Biomes/LostKeepSlope", AssetRequestMode.ImmediateLoad).Value);
-            KeepPlatformData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/Biomes/LostKeepPlatforms", AssetRequestMode.ImmediateLoad).Value);
-            KeepObjectData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/Biomes/LostKeepObjects", AssetRequestMode.ImmediateLoad).Value);
+            KeepTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeep", AssetRequestMode.ImmediateLoad).Value);
+            KeepWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepWall", AssetRequestMode.ImmediateLoad).Value);
+            KeepSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepSlope", AssetRequestMode.ImmediateLoad).Value);
+            KeepPlatformData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepPlatforms", AssetRequestMode.ImmediateLoad).Value);
+            KeepObjectData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepObjects", AssetRequestMode.ImmediateLoad).Value);
         }
     }
 
@@ -282,23 +282,6 @@ namespace AAModClassic._Unreleased.Content.LostKeep.Biomes
 			WorldGen.PlaceTile(origin.X + 167, origin.Y + 151, ModContent.TileType<Core_Tile>(), mute: true);
 			WorldGen.PlaceTile(origin.X + 140, origin.Y + 156, ModContent.TileType<Core_Tile>(), mute: true);
 			return true;
-		}
-
-		public static int GetWorldSize()
-		{
-			if (Main.maxTilesX == 4200)
-			{
-				return 1;
-			}
-			if (Main.maxTilesX == 6400)
-			{
-				return 2;
-			}
-			if (Main.maxTilesX == 8400)
-			{
-				return 3;
-			}
-			return 1;
 		}
 	}
 }

@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using Terraria.ID;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard
 {
     public class RaiderUltimaTrophy : BaseAAItem
@@ -20,11 +21,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = ModContent.TileType<RaiderUltimaTrophy_Tile>();
 		}
 

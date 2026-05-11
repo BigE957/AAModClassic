@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
         {
             Projectile.width = 102;
             Projectile.height = 102;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
             Projectile.timeLeft = 180;
             Projectile.knockBack = 10;

@@ -138,13 +138,6 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
             return true;
         }
-        public static int GetWorldSize()
-        {
-            if (Main.maxTilesX == 4200) { return 1; }
-            else if (Main.maxTilesX == 6400) { return 2; }
-            else if (Main.maxTilesX == 8400) { return 3; }
-            return 1; //unknown size, assume small
-        }
     }
 
     public class InfernoDelete : MicroBiome

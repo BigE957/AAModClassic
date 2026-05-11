@@ -481,8 +481,14 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ProtoStar", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
 
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Bolt", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/Biomes/StormBiome_Flash", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Bolt", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Flash", AssetRequestMode.ImmediateLoad).Value);
+
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/CthulhuPortal", AssetRequestMode.ImmediateLoad).Value);
+                //PremultiplyTexture(ModContent.Request<Texture2D>("NPCs/Bosses/SoC/CthulhuPortal2", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Portal", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/CthulhuSpawn", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/CthulhuCannon_CthulhuBoom", AssetRequestMode.ImmediateLoad).Value);
             });
 
             Filters.Scene["AAModClassic:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);

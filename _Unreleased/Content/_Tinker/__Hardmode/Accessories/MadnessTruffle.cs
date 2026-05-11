@@ -27,7 +27,7 @@ You know what? Just don't put it anywhere near your mouth."); */
             Item.width = 26;
             Item.height = 26;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
             Item.defense = 8;

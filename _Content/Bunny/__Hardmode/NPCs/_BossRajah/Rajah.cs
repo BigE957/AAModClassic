@@ -1135,17 +1135,17 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah
             string path = isSupreme ? "/_PostMoonlord/NPCs/_BossRajahA/Supreme" : "/__Hardmode/NPCs/_BossRajah/";
             if (internalAI[1] == 0)
             {
-                RajahTex = ModContent.Request<Texture2D>("_Content/Bunny" + path + "Rajah" + IsRoaring + "_Fly").Value;
-                Glow = ModContent.Request<Texture2D>("Glowmasks/Rajah" + IsRoaring + "_Fly_Glow").Value;
-                SupremeGlow = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Glow").Value;
-                SupremeEyes = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Eyes").Value;
+                RajahTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny" + path + "Rajah" + IsRoaring + "_Fly").Value;
+                Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Rajah" + IsRoaring + "_Fly_Glow").Value;
+                SupremeGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Glow").Value;
+                SupremeEyes = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Eyes").Value;
             }
             else
             {
-                RajahTex = ModContent.Request<Texture2D>("_Content/Bunny" + path + "Rajah" + IsRoaring).Value;
-                Glow = ModContent.Request<Texture2D>("Glowmasks/Rajah" + IsRoaring + "_Glow").Value;
-                SupremeGlow = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Glow").Value;
-                SupremeEyes = ModContent.Request<Texture2D>("Glowmasks/SupremeRajah" + IsRoaring + "_Eyes").Value;
+                RajahTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny" + path + "Rajah" + IsRoaring).Value;
+                Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Rajah" + IsRoaring + "_Glow").Value;
+                SupremeGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Glow").Value;
+                SupremeEyes = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SupremeRajah" + IsRoaring + "_Eyes").Value;
             }
         }
         public float auraPercent = 0f;

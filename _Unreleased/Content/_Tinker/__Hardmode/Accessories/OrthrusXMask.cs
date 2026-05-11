@@ -21,7 +21,7 @@ namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories
         {
             Item.width = 22;
             Item.height = 26;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
 

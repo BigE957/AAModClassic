@@ -27,7 +27,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write(internalAI[0]);
                 writer.Write(internalAI[1]);
@@ -40,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 internalAI[0] = reader.ReadSingle();
                 internalAI[1] = reader.ReadSingle();
@@ -66,7 +66,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.defense = 40;
             NPC.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
             NPC.value = Item.sellPrice(0, 12, 0, 0);
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.width = 66;
             NPC.height = 104;
             NPC.npcSlots = 1f;
@@ -161,7 +161,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     return;
                 }
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[2]++;
             }
@@ -233,7 +233,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 NPC.spriteDirection = 1;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (internalAI[3] != AISTATE_FLY)
                 {
@@ -260,7 +260,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             if (internalAI[3] == AISTATE_DASH)
             {
-                if (SelectPoint && Main.netMode != 1)
+                if (SelectPoint && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float Point = 300 * NPC.direction;
                     MovePoint = player.Center + new Vector2(Point, 0);
@@ -268,7 +268,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     NPC.netUpdate = true;
                 }
 
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     internalAI[0]++;
                 }
@@ -277,7 +277,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     MoveToPoint(MovePoint);
                     NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
                     Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, Color.LightCyan.R / 255, Color.LightCyan.G / 255, Color.LightCyan.B / 255);
-                    if (Vector2.Distance(NPC.Center, MovePoint) <= 0 && Main.netMode != 1)
+                    if (Vector2.Distance(NPC.Center, MovePoint) <= 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         NPC.rotation = 0;
                         internalAI[0] = 0;
@@ -324,7 +324,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            if (Main.netMode != 1 && internalAI[1] != AISTATE_SHOOT)
+            if (Main.netMode != NetmodeID.MultiplayerClient && internalAI[1] != AISTATE_SHOOT)
             {
                 internalAI[0]++;
                 if (internalAI[0] >= 180)

@@ -1323,43 +1323,43 @@ namespace AAModClassic.Base.BaseMod.Base
                 if (npc.velocity.Y < 0f && npc.velocity.Y > -max) { npc.velocity.Y = -max; }
             }
             npc.TargetClosest(true);
-            Action move = () =>
+            void move()
             {
                 if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
                 {
                     npc.velocity.X -= moveIntervalX;
                     if (npc.velocity.X > maxSpeedX) { npc.velocity.X -= moveIntervalX; }
                     else
-                    if (npc.velocity.X > 0f) { npc.velocity.X += moveIntervalX * 0.5f; }
+                        if (npc.velocity.X > 0f) { npc.velocity.X += moveIntervalX * 0.5f; }
                     if (npc.velocity.X < -maxSpeedX) { npc.velocity.X = -maxSpeedX; }
                 }
                 else
-                if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
-                {
-                    npc.velocity.X += moveIntervalX;
-                    if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += moveIntervalX; }
-                    else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= moveIntervalX * 0.5f; }
-                    if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
-                }
+                    if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
+                    {
+                        npc.velocity.X += moveIntervalX;
+                        if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += moveIntervalX; }
+                        else
+                            if (npc.velocity.X < 0f) { npc.velocity.X -= moveIntervalX * 0.5f; }
+                        if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
+                    }
                 if (npc.directionY == -1 && (double)npc.velocity.Y > -maxSpeedY)
                 {
                     npc.velocity.Y -= moveIntervalY;
                     if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y -= moveIntervalY; }
                     else
-                    if (npc.velocity.Y > 0f) { npc.velocity.Y += moveIntervalY * 0.5f; }
+                        if (npc.velocity.Y > 0f) { npc.velocity.Y += moveIntervalY * 0.5f; }
                     if ((double)npc.velocity.Y < -maxSpeedY) { npc.velocity.Y = -maxSpeedY; }
                 }
                 else
-                if (npc.directionY == 1 && (double)npc.velocity.Y < maxSpeedY)
-                {
-                    npc.velocity.Y += moveIntervalY;
-                    if ((double)npc.velocity.Y < -maxSpeedY) { npc.velocity.Y += moveIntervalY; }
-                    else
-                    if (npc.velocity.Y < 0f) { npc.velocity.Y -= moveIntervalY * 0.5f; }
-                    if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y = maxSpeedY; }
-                }
-            };
+                    if (npc.directionY == 1 && (double)npc.velocity.Y < maxSpeedY)
+                    {
+                        npc.velocity.Y += moveIntervalY;
+                        if ((double)npc.velocity.Y < -maxSpeedY) { npc.velocity.Y += moveIntervalY; }
+                        else
+                            if (npc.velocity.Y < 0f) { npc.velocity.Y -= moveIntervalY * 0.5f; }
+                        if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y = maxSpeedY; }
+                    }
+            }
             if (canBeBored) { ai[0] += 1f; }
             if (canBeBored && ai[0] > timeUntilBoredom)
             {

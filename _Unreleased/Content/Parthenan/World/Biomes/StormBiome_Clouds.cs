@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 
-namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
+namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 {
     public class StormSky_Clouds
     {

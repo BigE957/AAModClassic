@@ -38,7 +38,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write(internalAI[0]);
                 writer.Write(internalAI[1]);
@@ -48,7 +48,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 internalAI[0] = reader.ReadSingle();
                 internalAI[1] = reader.ReadSingle();
@@ -196,7 +196,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                     HeadBlue.NPC.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
                     HeadRed.NPC.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
                 }
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { NPC.active = false; NPC.netUpdate = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { NPC.active = false; NPC.netUpdate = true; }
                 return;
 			}
             else
@@ -210,7 +210,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 					{
 						
 					}
-                    else if(Main.netMode != 1)
+                    else if(Main.netMode != NetmodeID.MultiplayerClient)
 					{
 						internalAI[1] = AISTATE_FLY;
 						NPC.netUpdate = true;
@@ -243,7 +243,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                             HeadRed.NPC.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
                         }
                     }
-                    else if (Main.netMode != 1) //digs itself out of the ground
+                    else if (Main.netMode != NetmodeID.MultiplayerClient) //digs itself out of the ground
 					{
 						internalAI[1] = AISTATE_TURRET;							
 						NPC.netUpdate = true;

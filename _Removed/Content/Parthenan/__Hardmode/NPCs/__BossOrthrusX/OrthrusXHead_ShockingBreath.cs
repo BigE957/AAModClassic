@@ -54,7 +54,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             }
 
 			//Fun fact: this technique is what the shadowbeam staff does!
-			if(Main.netMode != 1 && Projectile.timeLeft % 3 == 0) //so it doesn't do this every tick, which would be laggy
+			if(Main.netMode != NetmodeID.MultiplayerClient && Projectile.timeLeft % 3 == 0) //so it doesn't do this every tick, which would be laggy
 			{
 				Projectile.Center = headNPC.Center; //reset to start chain movement
 				for(int m = 0; m < 18; m++) //this + velocity ends up ~540 in length, same as the texture

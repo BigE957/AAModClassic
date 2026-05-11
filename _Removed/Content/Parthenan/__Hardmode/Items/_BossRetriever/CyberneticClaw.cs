@@ -27,11 +27,11 @@ Only useable at night"); */
 			Item.width = 32;
 			Item.height = 24;
 			Item.maxStack = 20;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.UseSound = SoundID.Item44;
 			Item.consumable = true;
 		}
@@ -47,12 +47,12 @@ Only useable at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("The claw just lays limp in your hand.", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The claw just lays limp in your hand.", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<Retriever>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat("The Retriever is still trying to grab you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The Retriever is still trying to grab you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             return true;

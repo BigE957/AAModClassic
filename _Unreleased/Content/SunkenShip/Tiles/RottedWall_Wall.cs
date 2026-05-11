@@ -14,8 +14,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 		public override void SetStaticDefaults()
 		{
             Main.wallHouse[Type] = true;
-			//ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<RottedWall>();
-			AddMapEntry(new Color(39, 34, 8));
+			AddMapEntry(new Color(31, 26, 0));
 		}
 
         public override void KillWall(int i, int j, ref bool fail)

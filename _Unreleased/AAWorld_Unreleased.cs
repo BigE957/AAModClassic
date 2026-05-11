@@ -1,11 +1,12 @@
 ﻿using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
-using AAModClassic._Unreleased.Content.Parthenan.World;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
-using AAModClassic._Unreleased.Content.SunkenShip.World;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.CrossMod;
+using AAModClassic.Tiles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -29,14 +30,17 @@ namespace AAModClassic._Unreleased
 
         public static bool downedSoC;
         public static bool downedIZ;
+        public static bool Compass;
 
         public static int StormTiles = 0;
+        public static int ShipTiles = 0;
 
         #region stupid bullshit
         public override void PreWorldGen()
         {
             downedSoC = false;
             downedIZ = false;
+            Compass = false;
         }
 
         public override void SaveWorldData(TagCompound tag)
@@ -44,6 +48,7 @@ namespace AAModClassic._Unreleased
             var downedUnreleased = new List<string>();
             if (downedSoC) downedUnreleased.Add("SoC");
             if (downedIZ) downedUnreleased.Add("IZ");
+            if (Compass) downedUnreleased.Add("Compass");
 
             tag.Add("downedUnreleased", downedUnreleased);
         }
@@ -53,6 +58,7 @@ namespace AAModClassic._Unreleased
             var downedUnreleased = tag.GetList<string>("downedUnreleased");
             downedSoC = downedUnreleased.Contains("SoC");
             downedIZ = downedUnreleased.Contains("IZ");
+            Compass = downedUnreleased.Contains("Compass");
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -112,6 +118,7 @@ namespace AAModClassic._Unreleased
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
             StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<FulguritePlating_Tile>()] + tileCounts[ModContent.TileType<FulguriteBrick_Tile>()] + tileCounts[ModContent.TileType<FulgurGlass_Tile>()];
+            ShipTiles = tileCounts[ModContent.TileType<RottedDynastyWoodS_Tile>()] + tileCounts[ModContent.TileType<RottedPlatform_Tile>()];
         }
 
         private static void Mush_Refactored(GenerationProgress progress)
@@ -246,8 +253,7 @@ namespace AAModClassic._Unreleased
 
             Point origin = new Point((int)shipPos.X, (int)GenVars.worldSurfaceLow - 200);
             origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-            SunkenShipGen biome = new SunkenShipGen();
-            biome.Place(origin, GenVars.structures);
+            new SunkenShipGen().Place(origin, GenVars.structures);
         }
 
         public override void PostWorldGen()
