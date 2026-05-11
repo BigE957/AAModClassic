@@ -63,7 +63,7 @@ public class CoreActivator_Tile : ModTile
 			CoreWorld.PrismCharged = false;
 			return true;
 		}
-		if (BasePlayer.HasItem(localPlayer, num) && !NPC.AnyNPCs(ModContent.NPCType<Core>()))
+		if (BasePlayer.HasItem(localPlayer, num) && !NPC.AnyNPCs(ModContent.NPCType<BiomiteCore>()))
 		{
 			for (int k = 0; k < 50; k++)
 			{
@@ -71,7 +71,7 @@ public class CoreActivator_Tile : ModTile
 				if (item != null && item.type == num && item.stack >= 1)
 				{
 					item.stack--;
-					SpawnBoss(localPlayer, ModContent.NPCType<Core>(), localPlayer.Center);
+					SpawnBoss(localPlayer, ModContent.NPCType<BiomiteCore>(), localPlayer.Center);
 				}
 			}
 		}

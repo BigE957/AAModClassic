@@ -8,8 +8,8 @@ using Terraria.Localization;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Items.Banners;
 using AAModClassic.Dusts;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {

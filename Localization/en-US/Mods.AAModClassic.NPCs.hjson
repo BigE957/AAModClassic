@@ -603,6 +603,7 @@ PurityWeaver.DisplayName: Purity Weaver
 PurityWeaverBody.DisplayName: Terra Weaver
 PurityWeaverTail.DisplayName: Terra Weaver
 SagittariusMini.DisplayName: Shadow Scout
+Sagittarius.DisplayName: Sagittarius
 Scout.DisplayName: Void Scout
 Searcher1.DisplayName: Stone Searcher
 Vortex.DisplayName: Vortex
@@ -879,6 +880,21 @@ LargeLetter: {
 
 	Census.SpawnCondition: Conditions unknown
 }
+
+MinionRitual.DisplayName: Minion Ritual
+UraeusHead.DisplayName: Uraeus Head
+AnubisA.DisplayName: Anubis A
+AnubisForsakenTransition.DisplayName: Anubis Forsaken Transition
+CursedMinionCircle.DisplayName: Cursed Minion Circle
+GreedHead.DisplayName: Greed Head
+OreConstruct.DisplayName: Ore Construct
+SparkOfDesire.DisplayName: Spark Of Desire
+GreedAHead.DisplayName: Greed A Head
+SingularityOfDesire.DisplayName: Singularity Of Desire
+BiomiteCore.DisplayName: Biomite Core
+AthenaCloneDark.DisplayName: Athena Clone Dark
+AthenaCloneLight.DisplayName: Athena Clone Light
+ChargedOwlRune.DisplayName: Charged Owl Rune
 
 DimensionDiver.DisplayName: Dimension Diver
 Squid.DisplayName: Squid

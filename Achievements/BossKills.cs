@@ -5,7 +5,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
-using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using Terraria.Achievements;
 using Terraria.GameContent.Achievements;
 using Terraria.ModLoader;
@@ -107,7 +107,7 @@ namespace AAModClassic.Achievements
         public override void SetStaticDefaults()
         {
             Achievement.SetCategory(AchievementCategory.Slayer);
-            AddNPCKilledCondition(ModContent.NPCType<Sag>());
+            AddNPCKilledCondition(ModContent.NPCType<Sagittarius>());
         }
 
         public override Position GetDefaultPosition() => new After("MINER_FOR_FIRE");

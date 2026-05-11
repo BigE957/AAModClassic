@@ -71,7 +71,7 @@ public class CoreDoor_Tile : ModTile
 
 	public override void NearbyEffects(int i, int j, bool closer)
 	{
-		if (NPCExtensions.BeenKilled<Core>())
+		if (NPCExtensions.BeenKilled<BiomiteCore>())
 		{
 			Main.tileSolid[Type] = false;
 			_activated = false;

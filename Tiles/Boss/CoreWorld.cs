@@ -14,7 +14,7 @@ public class CoreWorld : ModSystem
 
 	public override void PostUpdateWorld()
 	{
-		PedestalActive = NPC.AnyNPCs(ModContent.NPCType<Core>());
+		PedestalActive = NPC.AnyNPCs(ModContent.NPCType<BiomiteCore>());
 	}
 
 	public override void NetSend(BinaryWriter writer)

@@ -1,15 +1,15 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
@@ -17,7 +17,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
-using AAModClassic._Content.Void.___PreHardmode.NPCs._BossSagittarius;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
@@ -146,10 +146,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Sagittarius",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Sag>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<Sagittarius>(), false)
                 ],
                 ["Anubis"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Sag>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Sagittarius>()]],
                 hasCompleteText: true
             );
 
@@ -176,10 +176,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Greed",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Greed>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<GreedHead>(), false)
                 ],
                 ["Rajah"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Greed>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GreedHead>()]],
                 hasCompleteText: true
             );
 
@@ -213,10 +213,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "ForsakenAnubis",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<ForsakenAnubis>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<AnubisA>(), false)
                 ],
                 ["GreedA", "AthenaA"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<ForsakenAnubis>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AnubisA>()]],
                 hasCompleteText: true
             );
 
@@ -233,10 +233,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "GreedA",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<GreedA>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<GreedAHead>(), false)
                 ],
                 ["Equinox"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GreedA>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GreedAHead>()]],
                 hasCompleteText: true
             );
 

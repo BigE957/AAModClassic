@@ -1,9 +1,9 @@
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -153,9 +153,8 @@ namespace AAModClassic._Unofficial.Desert
             {
                 Player player = Main.player[k];
                 if (player.active && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && 
-                    !NPC.AnyNPCs(ModContent.NPCType<FATransition>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
+                    !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) &&
+                    !NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
                 {
                     return true;
                 }
@@ -199,9 +198,8 @@ namespace AAModClassic._Unofficial.Desert
         public override bool PreAI()
         {
             if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<FATransition>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
+                NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
             {
                 TPDust();
                 NPC.active = false;
@@ -1035,14 +1033,14 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<ForsakenAnubis>();
+            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
             bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
             if (!fAnubisTime && hasGreedBook)
                 button = "Found your book";
             else
                 button = "Help";
 
-            if(!NPC.downedMoonlord || NPCExtensions.BeenKilled<ForsakenAnubis>())
+            if(!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
                 button2 = "What's next?";
         }
 
@@ -1059,13 +1057,13 @@ namespace AAModClassic._Unofficial.Desert
                     return;
                 }
 
-                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<ForsakenAnubis>())
+                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
                 {
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.Help");
                     return;
                 }
 
-                if (!player.GetModPlayer<AAPlayer>().AnubisBook && NPCExtensions.BeenKilled<Greed>())
+                if (!player.GetModPlayer<AAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
                 {
                     int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
                     if (Item >= 0)
@@ -1100,7 +1098,7 @@ namespace AAModClassic._Unofficial.Desert
         {
             AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
 
-            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<ForsakenAnubis>())
+            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
             {
                 if (!p.HasLostToForsakenAnubis)
                 {
@@ -1125,7 +1123,7 @@ namespace AAModClassic._Unofficial.Desert
                         return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.Repreat.FirstDeath" + Main.rand.Next(2));
                 }
             }
-            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<ForsakenAnubis>())
+            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
             {
                 p.HasSpokenToAnubisPostForsakenAnubis = true;
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostVictory");

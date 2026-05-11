@@ -1,13 +1,13 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
@@ -564,10 +564,10 @@ namespace AAModClassic.UI.Titles
         {
             IDtoTitle.Add(ModContent.NPCType<Anubis>(), Titles.Anubis);
             IDtoTitle.Add(ModContent.NPCType<Athena>(), Titles.Athena);
-            IDtoTitle.Add(ModContent.NPCType<Greed>(), Titles.Greed);
-            IDtoTitle.Add(ModContent.NPCType<ForsakenAnubis>(), Titles.AnubisF);
+            IDtoTitle.Add(ModContent.NPCType<GreedHead>(), Titles.Greed);
+            IDtoTitle.Add(ModContent.NPCType<AnubisA>(), Titles.AnubisF);
             IDtoTitle.Add(ModContent.NPCType<AthenaA>(), Titles.AthenaA);
-            IDtoTitle.Add(ModContent.NPCType<GreedA>(), Titles.WKGreed);
+            IDtoTitle.Add(ModContent.NPCType<GreedAHead>(), Titles.WKGreed);
             IDtoTitle.Add(ModContent.NPCType<Akuma>(), Titles.Akuma);
             IDtoTitle.Add(ModContent.NPCType<AkumaA>(), Titles.AkumaA);
             IDtoTitle.Add(ModContent.NPCType<YamataBody>(), Titles.Yamata);

@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Boss
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<SparkOfDesire>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>()))
             {
                 frame = 1;
             }
@@ -50,7 +50,7 @@ namespace AAModClassic.Tiles.Boss
 
         public override bool RightClick(int i, int j)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<SparkOfDesire>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>()))
             {
                 return true;
             }
@@ -64,13 +64,13 @@ namespace AAModClassic.Tiles.Boss
                     if (item != null && item.type == type && item.stack >= 1)
                     {
                         item.stack--;
-                        if (NPCExtensions.BeenKilled<Greed>())
+                        if (NPCExtensions.BeenKilled<GreedHead>())
                         {
-                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
+                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         }
                         else
                         {
-                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedSpawn>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
+                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SparkOfDesire>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         }
                     }
                 }

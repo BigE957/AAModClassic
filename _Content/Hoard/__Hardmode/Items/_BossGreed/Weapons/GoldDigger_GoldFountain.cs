@@ -1,4 +1,4 @@
-﻿using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
+﻿using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard.Projectiles;
 using AAModClassic.Globals;
 using Terraria;
@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons
 {
     public class GoldDigger_GoldFountain : ModProjectile
     {
-        public override string Texture => ModContent.GetInstance<GreedSpawn>().Texture;
+        public override string Texture => ModContent.GetInstance<SparkOfDesire>().Texture;
 
         public override void SetStaticDefaults()
         {

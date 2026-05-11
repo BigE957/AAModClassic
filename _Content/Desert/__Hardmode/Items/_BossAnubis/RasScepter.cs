@@ -8,8 +8,8 @@ using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.WorldGen;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic._Content.Desert.__Hardmode._BossAnubis;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis
 {
@@ -50,7 +50,7 @@ Can only be used in the desert on the surface
                 return true;
             }
 
-            if (NPC.AnyNPCs(ModContent.NPCType<FATransition>()) || NPC.AnyNPCs(ModContent.NPCType<FATransition2>()) || NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
             {
                 return true;
             }

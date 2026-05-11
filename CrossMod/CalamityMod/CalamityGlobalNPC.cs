@@ -1,15 +1,15 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs._BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs._BossAthenaA;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenAH;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Haruka;
-using AAModClassic._Content.Desert._PostMoonlord._BossAnubisA;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs._BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs._BossGreedA;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
@@ -35,10 +35,10 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<Athena>()) CalamityDR = 0.8f;
                 if(npc.type == ModContent.NPCType<OlympianDragon>()) CalamityDR = 0.8f;
 
-                if(npc.type == ModContent.NPCType<Greed>()) CalamityDR = 0.8f;
+                if(npc.type == ModContent.NPCType<GreedHead>()) CalamityDR = 0.8f;
 
-                if(npc.type == ModContent.NPCType<ForsakenAnubis>()) CalamityDR = 0.65f;
-                if(npc.type == ModContent.NPCType<CurseCircle>()) CalamityDR = 0.65f;
+                if(npc.type == ModContent.NPCType<AnubisA>()) CalamityDR = 0.65f;
+                if(npc.type == ModContent.NPCType<CursedMinionCircle>()) CalamityDR = 0.65f;
                 if(npc.type == ModContent.NPCType<CursedScarab>()) CalamityDR = 0.65f;
                 if(npc.type == ModContent.NPCType<CursedLocust>()) CalamityDR = 0.65f;
                 if(npc.type == ModContent.NPCType<Naddaha>()) CalamityDR = 0.65f;
@@ -63,8 +63,8 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<NightcrawlerHead>()) CalamityDR = 0.4f;
                 if(npc.type == ModContent.NPCType<NCCloud>()) CalamityDR = 0.6f;
                 
-                if(npc.type == ModContent.NPCType<GreedA>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<GreedMinion>()) CalamityDR = 0.7f;
+                if(npc.type == ModContent.NPCType<GreedAHead>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<OreConstruct>()) CalamityDR = 0.7f;
 
                 if(npc.type == ModContent.NPCType<SupremeRajah>()) CalamityDR = 0.6f;
 
