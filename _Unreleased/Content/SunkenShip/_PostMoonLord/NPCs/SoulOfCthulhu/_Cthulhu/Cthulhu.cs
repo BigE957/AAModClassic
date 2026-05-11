@@ -17,6 +17,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu
@@ -137,42 +138,42 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 if (NPC.ai[3] == 40)
                 {
-                    Main.NewText("AAAAAAAAAGGHHH….!!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.1"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 100)
                 {
-                    Main.NewText("NO!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.2"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 160)
                 {
-                    Main.NewText("NO!!!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.3"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 220)
                 {
-                    Main.NewText("IMPOSSIBLE", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.4"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 280)
                 {
-                    Main.NewText("BY THE NAME OF AZATHOTH!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.5"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 340)
                 {
-                    Main.NewText("I CURSE YOU AND YOUR WORLD!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.6"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 400)
                 {
-                    Main.NewText("MAY YOU AND YOUR KIND ROT IN THE DEPTHS OF THE OCEAN!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.7"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 460)
                 {
-                    Main.NewText("GRAAAAAAAAAAAHHH…!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.8"), Color.DarkCyan);
                 }
 
                 if (NPC.ai[3] == 520)
@@ -190,7 +191,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < EyeSummon && NPC.ai[2] == 0)
             {
                 NPC.ai[2] = 1;
-                Main.NewText("Cyaegha! Scorch this insignificant mortal with your flames of agony!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eye"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityEye").Type);
@@ -200,7 +201,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < EaterSummon && NPC.ai[2] == 1)
             {
                 NPC.ai[2] = 2;
-                Main.NewText("Cyaegha! Scorch this insignificant mortal with your flames of agony!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eater"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityEater").Type);
@@ -210,7 +211,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < BrainSummon && NPC.ai[2] == 2)
             {
                 NPC.ai[2] = 3;
-                Main.NewText("Lu'Kthu! Send your minions upon this pest to distract them!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Brain"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityBrain").Type);
@@ -220,7 +221,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < SkullSummon && NPC.ai[2] == 3)
             {
                 NPC.ai[2] = 4;
-                Main.NewText("Rhan-Tegoth! Crush this annoyance with your claws of pain!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Skull"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeitySkull").Type);
@@ -230,7 +231,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < RoseSummon && NPC.ai[2] == 4)
             {
                 NPC.ai[2] = 5;
-                Main.NewText("Ei'Lor! Devour my foe for me so I may destroy this world!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Rose"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityRose").Type);
@@ -240,7 +241,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < LeviathanSummon && NPC.ai[2] == 5)
             {
                 NPC.ai[2] = 6;
-                Main.NewText("THAT TEARS IT! VILE-OCT! DESTROY THIS INSIGNIFICANT PEST!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Leviathan"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityLeviathan").Type);
@@ -249,12 +250,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (NPC.life <= NPC.lifeMax / 10)
             {
-
-                Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
+                if(!AAConfigClient.Instance.DisablePinchThemes)
+                    Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
                 if (NPC.ai[2] == 6)
                 {
                     NPC.ai[2] = 7;
-                    Main.NewText("I SHALL NOT LOSE TO A MORTAL AGAIN. YOU WILL FEEL MY WRATH UPON YOUR WORLD!", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.LastStand"), Color.DarkCyan);
                 }
             }
         }
@@ -268,7 +269,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             else
             {
-                Main.NewText("Cheaters do not deserve the spoils of battle", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.Cheater"), Color.DarkCyan);
             }
         }
 

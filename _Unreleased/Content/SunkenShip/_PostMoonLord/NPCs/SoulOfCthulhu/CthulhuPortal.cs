@@ -3,6 +3,7 @@ using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
@@ -49,12 +50,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (Speechtimer == 180)
             {
-                Main.NewText("...you utter fool...", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.1"), Color.DarkCyan);
             }
 
             if (Speechtimer == 360)
             {
-                Main.NewText("thanks to you breaking that disgusting old ship’s wheel...", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.2"), Color.DarkCyan);
             }
 
             if (Speechtimer >= 360)
@@ -76,38 +77,38 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (Speechtimer == 540)
             {
-                Main.NewText("...I am now free...", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.3"), Color.DarkCyan);
             }
 
             if (Speechtimer == 720)
             {
-                Main.NewText("I should thank you, you simple-minded mortal...", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.4"), Color.DarkCyan);
             }
 
             if (Speechtimer == 900)
             {
-                Main.NewText("However, you stand in the way between me and this world’s impending destruction...", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.5"), Color.DarkCyan);
             }
 
             if (Speechtimer == 1080)
             {
-                Main.NewText("And after all, you DID kill my brother...such a shame he’s gone.", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.6"), Color.DarkCyan);
             }
 
             if (Speechtimer == 1260)
             {
-                Main.NewText("...so you must die.", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.7"), Color.DarkCyan);
             }
 
             if (Speechtimer == 1440)
             {
-                Main.NewText("YOU SHALL BE SLAIN BY ME, CTHULHU, COSMIC CALAMITY!", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.8"), Color.DarkCyan);
             }
 
             if (Speechtimer == 1620)
             {
-                Main.NewText("PREPARE FOR YOU AND YOUR WORLD’S CATASTROPHIC DEMISE!", Color.DarkCyan);
                 SummonSoul();
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.9"), Color.DarkCyan);
                 Spawned = true;
             }
 
@@ -117,7 +118,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Main.NewText("Cthulhu has been Awakened", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.Status"), Color.Magenta);
                 int npcID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Cthulhu>());
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate = true;

@@ -15,12 +15,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     public class EyeOfAzathoth : ModNPC
     {
-        /*
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 4;
         }
-        */
+
         public override void SetDefaults()
         {
             NPC.width = 78;
@@ -37,7 +36,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noTileCollide = true;
             NPC.defense = 130; //keep defense at 130
             NPC.noGravity = true;
-            Main.npcFrameCount[Type] = 4;
         }
 
         public int body = -1;

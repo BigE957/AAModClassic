@@ -11,6 +11,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     class CthulhuShot : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Type] = 4;
+        }
         public override void SetDefaults()
         {
             Projectile.width = 30;
@@ -18,8 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Projectile.hostile = true;
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
-            Projectile.timeLeft = 300;
-            Main.projFrames[Type] = 4;
+            Projectile.timeLeft = 300;    
         }
 
         public override void AI()

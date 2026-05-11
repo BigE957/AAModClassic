@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -69,8 +70,8 @@ namespace AAModClassic._Unreleased
                         int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<UDUNFUKED>());
                         Main.npc[n].target = Player.whoAmI;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                        {
-                            BaseUtility.Chat("UNHAND WHAT ISN'T YOURS, THIEF", Color.Cyan);
+                        {            
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.CompassSteal"), Color.Cyan);
                         }
                     }
                 }
@@ -80,23 +81,23 @@ namespace AAModClassic._Unreleased
                 CthulhuCountdown--;
                 if (CthulhuCountdown == 9500 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("...leave...", Color.Blue);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.1"), Color.Blue);
                 }
                 if (CthulhuCountdown == 7050 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("...Leave this forsaken place...", Color.DarkCyan);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.2"), Color.DarkCyan);
                 }
                 if (CthulhuCountdown == 5050 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("...you are trespassing upon things you cannot even comprehend...", Color.Cyan);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.3"), Color.Cyan);
                 }
                 if (CthulhuCountdown == 3000 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("...turn back now...", Color.Cyan);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.4"), Color.Cyan);
                 }
                 if (CthulhuCountdown == 1200 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("...leave.", Color.DarkCyan);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.5"), Color.DarkCyan);
                 }
                 if (CthulhuCountdown == 0)
                 {
@@ -106,7 +107,7 @@ namespace AAModClassic._Unreleased
                     Main.npc[n].target = Player.whoAmI;
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        BaseUtility.Chat("FACE THE WRATH OF THE OUTER GODS YOU INSIGNIFICANT SPECK", Color.Cyan);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.6"), Color.Cyan);
                     }
                 }
             }
@@ -119,7 +120,7 @@ namespace AAModClassic._Unreleased
                 Leave = false;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("...do not return...", Color.DarkCyan);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.Escape"), Color.DarkCyan);
                 }
             }
         }
