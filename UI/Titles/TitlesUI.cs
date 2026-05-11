@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
@@ -12,7 +12,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic.Globals;
@@ -574,12 +574,12 @@ namespace AAModClassic.UI.Titles
             IDtoTitle.Add(ModContent.NPCType<YamataABody>(), Titles.YamataA);
             IDtoTitle.Add(ModContent.NPCType<Zero>(), Titles.Zero);
             IDtoTitle.Add(ModContent.NPCType<ZeroProtocol>(), Titles.ZeroP);
-            IDtoTitle.Add(ModContent.NPCType<SupremeRajah>(), Titles.CRajah);
+            IDtoTitle.Add(ModContent.NPCType<RajahRabbitA>(), Titles.CRajah);
             IDtoTitle.Add(ModContent.NPCType<Shen>(), Titles.Shen);
             IDtoTitle.Add(ModContent.NPCType<ShenA>(), Titles.ShenA);
             IDtoTitle.Add(ModContent.NPCType<Ashe>(), Titles.AsheHaruka);
             IDtoTitle.Add(ModContent.NPCType<DaybringerHead>(), Titles.Equinox);
-            IDtoTitle.Add(ModContent.NPCType<Rajah>(), Titles.Rajah);
+            IDtoTitle.Add(ModContent.NPCType<RajahRabbit>(), Titles.Rajah);
         }
 
         public override bool PreAI(NPC npc)

@@ -1,6 +1,6 @@
 base
 - Do a look-over on Lucifer,
-  Equinox, Sisters, Akuma, Zero, RajahA, and Shen
+  Akuma, Zero, RajahA, and Shen
 
 removed
 -

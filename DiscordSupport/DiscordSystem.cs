@@ -1,5 +1,5 @@
-﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
 using System;
 using System.Text.Json;
 using System.Threading;
@@ -159,7 +159,7 @@ public class DiscordSystem : ModSystem
         for (int i = 0; i < Main.maxNPCs; i++)
         {
             var npc = Main.npc[i];
-            if (npc.active && (npc.type == ModContent.NPCType<Rajah>() || npc.type == ModContent.NPCType<SupremeRajah>()))
+            if (npc.active && (npc.type == ModContent.NPCType<RajahRabbit>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
                 return "Fighting Earth's Greatest Defender";
 
             if (npc.active && npc.boss)

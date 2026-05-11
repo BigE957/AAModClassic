@@ -1,4 +1,4 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Music;
 using AAModClassic.Utilities;

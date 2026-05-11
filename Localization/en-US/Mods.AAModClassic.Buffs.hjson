@@ -1583,3 +1583,8 @@ DynaskullJavelin_DynaEnergyBuff: {
 	DisplayName: Dynaskull Javelin_ Dyna Energy Buff
 	Description: Mods.AAModClassic.Buffs.DynaskullJavelin_DynaEnergyBuff.Description
 }
+
+FuryWitchs_AsheFlame: {
+	DisplayName: Fury Witchs_ Ashe Flame
+	Description: Mods.AAModClassic.Buffs.FuryWitchs_AsheFlame.Description
+}

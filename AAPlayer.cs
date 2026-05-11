@@ -15,7 +15,6 @@ using AAModClassic._Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Armor;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
@@ -45,7 +44,6 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
@@ -91,9 +89,11 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 
 namespace AAModClassic
 {
@@ -3132,13 +3132,13 @@ namespace AAModClassic
                         {
                             Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                             shoot *= 8f;
-                            int id = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AsheFire>(), Player.inventory[Player.selectedItem].damage, 5, Main.myPlayer, 0f, 1f);
+                            int id = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<Ashe_FireBomb>(), Player.inventory[Player.selectedItem].damage, 5, Main.myPlayer, 0f, 1f);
                             Main.projectile[id].DamageType = DamageClass.Magic;
                             Main.projectile[id].hostile = false;
                             Main.projectile[id].friendly = true;
                         }
                     }
-                    Player.AddBuff(ModContent.BuffType<AsheFlame_Buff>(), 900);
+                    Player.AddBuff(ModContent.BuffType<FuryWitchs_AsheFlame>(), 900);
                     AsheCooldown = 5400;
                 }
             }
@@ -4570,7 +4570,7 @@ namespace AAModClassic
 
                 if (drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Ashe/AsheShield").Value;
+                    Texture2D Shield = ModContent.Request<Texture2D>(ModContent.GetInstance<AsheRune>().Texture).Value;
                     int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, red, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
                 }

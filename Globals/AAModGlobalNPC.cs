@@ -6,9 +6,9 @@ using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Consumables;
@@ -58,7 +58,8 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Content.Snow.__Hardmode.Items.Consumables;
 using AAModClassic._Content.SolarEclipse.__Hardmode.Items.Currency;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs._Day;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs._Night;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
@@ -271,7 +272,7 @@ namespace AAModClassic.Globals
 
         public override void PostAI(NPC npc)
         {
-            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<SupremeRajah>() && IsBunny(npc))
+            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<RajahRabbitA>() && IsBunny(npc))
             {
                 npc.dontTakeDamage = true;
             }
@@ -1396,7 +1397,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
-                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<Rajah>()));
+                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<RajahRabbit>()));
                     shop.ActiveEntries.First(e => e.Item.type == ModContent.ItemType<GoldenCarrot>()).Item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
                     break;
                 case NPCID.Truffle:
@@ -1516,10 +1517,10 @@ namespace AAModClassic.Globals
                 npcCenter = player.Center;
             }
 
-            int RajahType = ModContent.NPCType<Rajah>();
+            int RajahType = ModContent.NPCType<RajahRabbit>();
             if (NPC.killCount[NPCID.Bunny] >= 1000)
             {
-                RajahType = ModContent.NPCType<SupremeRajah>();
+                RajahType = ModContent.NPCType<RajahRabbitA>();
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)

@@ -8,7 +8,8 @@ using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles.Altar;
 using AAModClassic.Globals;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms
 {

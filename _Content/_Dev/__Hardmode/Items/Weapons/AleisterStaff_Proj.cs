@@ -1,6 +1,4 @@
 using AAModClassic._Content._Dev.Invoker;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;

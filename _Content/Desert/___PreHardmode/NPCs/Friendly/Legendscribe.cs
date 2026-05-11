@@ -1,8 +1,8 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
@@ -348,7 +348,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 button2 = ZeroT;
                 Zero = true;
             }
-            else if (ChatNumber == 20 && NPCExtensions.BeenKilled<SupremeRajah>())
+            else if (ChatNumber == 20 && NPCExtensions.BeenKilled<RajahRabbitA>())
             {
                 button2 = RajahCT;
                 RajahC = true;
@@ -600,7 +600,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             }
             else if (Rajah)
             {
-                return NPCExtensions.BeenKilled<Rajah>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahY") :
+                return NPCExtensions.BeenKilled<RajahRabbit>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahN");
             }
             else if (AnubisF)

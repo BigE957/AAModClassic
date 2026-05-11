@@ -12,9 +12,9 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Haruka;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
 {

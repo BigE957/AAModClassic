@@ -571,8 +571,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
 
-            var effects = NPC.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-
             if (!Main.player[NPC.target].ZoneDesert)
             {
                 drawColor = Color.Goldenrod;
@@ -580,7 +578,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 BaseDrawing.DrawAfterimage(spriteBatch, texture, 0, NPC, 1, 1, 7, false, 0, 0, drawColor, NPC.frame, 15);
             }
 
-            spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             return false;
         }

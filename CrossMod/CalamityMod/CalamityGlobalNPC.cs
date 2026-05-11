@@ -1,12 +1,13 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.AwakenedShenAH;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Haruka;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.AwakenedShenAH;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsShen;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
@@ -14,7 +15,8 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using Terraria;
@@ -45,8 +47,8 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<HorusSentry>()) CalamityDR = 0.65f;
 
                 if(npc.type == ModContent.NPCType<Ashe>()) CalamityDR = 0.6f;
-                if(npc.type == ModContent.NPCType<AsheDragon>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<AsheOrbiter>()) CalamityDR = 0.7f;
+                if(npc.type == ModContent.NPCType<AshenDragonHead>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<FlameVortex>()) CalamityDR = 0.7f;
 
                 if(npc.type == ModContent.NPCType<Haruka>()) CalamityDR = 0.6f;
 
@@ -61,12 +63,12 @@ namespace AAModClassic.CrossMod.CalamityMod
 
                 if(npc.type == ModContent.NPCType<DaybringerHead>()) CalamityDR = 0.4f;
                 if(npc.type == ModContent.NPCType<NightcrawlerHead>()) CalamityDR = 0.4f;
-                if(npc.type == ModContent.NPCType<NCCloud>()) CalamityDR = 0.6f;
+                if(npc.type == ModContent.NPCType<NightCloud>()) CalamityDR = 0.6f;
                 
                 if(npc.type == ModContent.NPCType<GreedAHead>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<OreConstruct>()) CalamityDR = 0.7f;
 
-                if(npc.type == ModContent.NPCType<SupremeRajah>()) CalamityDR = 0.6f;
+                if(npc.type == ModContent.NPCType<RajahRabbitA>()) CalamityDR = 0.6f;
 
                 if(npc.type == ModContent.NPCType<AbyssGrip>()) CalamityDR = 0.2f;
                 if(npc.type == ModContent.NPCType<BlazeGrip>()) CalamityDR = 0.2f;

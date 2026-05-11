@@ -1,4 +1,4 @@
-﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic.Globals;

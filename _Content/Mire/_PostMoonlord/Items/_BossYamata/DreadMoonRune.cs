@@ -14,7 +14,7 @@ using AAModClassic.Utilities;
 using AAModClassic.CrossMod;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata
 {

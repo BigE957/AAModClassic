@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
@@ -16,7 +16,7 @@ using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
 using AAModClassic._Unofficial.Desert;
@@ -186,10 +186,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Rajah",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Rajah>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<RajahRabbit>(), false)
                 ],
                 [/*"ForsakenAnubis"*/],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Rajah>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<RajahRabbit>()]],
                 hasCompleteText: true
             );
 

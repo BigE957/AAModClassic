@@ -1,6 +1,6 @@
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
@@ -59,13 +59,13 @@ Non-consumable"); */
             /*if (WorldTypeSystem.WorldType == AAWorldType.Beta)
                 return false;
             */
-            return !(NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()));
+            return !(NPC.AnyNPCs(ModContent.NPCType<RajahRabbit>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>()));
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (!NPCExtensions.BeenKilled<SupremeRajah>())
+            if (!NPCExtensions.BeenKilled<RajahRabbitA>())
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText1"), 107, 137, 179);
             }
@@ -83,7 +83,7 @@ Non-consumable"); */
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText2") + Name + "!", 107, 137, 179);
             }
             int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SupremeRajah>(), false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.SupremeRajah"));
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<RajahRabbitA>(), false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.SupremeRajah"));
             return true;
         }
 

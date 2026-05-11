@@ -12,7 +12,7 @@ using AAModClassic.Utilities;
 using AAModClassic.CrossMod;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma
 {

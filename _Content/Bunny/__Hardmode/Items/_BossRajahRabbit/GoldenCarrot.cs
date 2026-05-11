@@ -8,8 +8,8 @@ using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.Audio;
 using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
 {
@@ -40,14 +40,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            return !(NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()));
+            return !(NPC.AnyNPCs(ModContent.NPCType<RajahRabbit>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>()));
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
-            SpawnBoss(player, ModContent.NPCType<Rajah>(), true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
+            SpawnBoss(player, ModContent.NPCType<RajahRabbit>(), true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
             return true;
         }
 

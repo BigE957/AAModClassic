@@ -1,18 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 {
     public class Sagittarius_VoidRay : ModProjectile
     {
-
         private const int chargeTime = 200;
         private const float muzzleDist = 1f;
         private const int hitboxSize = 4;
@@ -21,10 +22,13 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
         private Vector2 staPos; //visual laser start position
         private Vector2 endPos; //visual laser end position
 
+        public static Asset<Texture2D> Beam;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Void Ray");
+
+            Beam = ModContent.Request<Texture2D>(Texture + "_Beam");
         }
         public override void SetDefaults()
         {
@@ -198,7 +202,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
                 Utils.DrawLaser(
                     spritebatch,
-                    ModContent.Request<Texture2D>(Texture + "_Beam").Value,
+                    Beam.Value,
                     start - Main.screenPosition,
                     end - Main.screenPosition,
                     new Vector2(Projectile.ai[1]),

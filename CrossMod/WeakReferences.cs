@@ -18,10 +18,10 @@ using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
-using AAModClassic._Content.Bunny.__Hardmode.NPCs._BossRajah;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs._BossRajahA;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
@@ -35,10 +35,10 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossShen.GripsShen;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Ashe;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs._BossSisters.Haruka;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsShen;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Corruption.__Hardmode.Items.Weapons;
@@ -142,8 +142,10 @@ using AAModClassic._Content.Snow.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs._BossEquinox;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs._Day;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs._Night;
 using AAModClassic._Content.Terra.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs;
@@ -977,7 +979,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Rajah Rabbit
-                AddBoss(bossChecklist, mod, "RajahRabbit", (Func<bool>)(() => NPCExtensions.BeenKilled<Rajah>()), ModContent.NPCType<Rajah>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RajahRabbit", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbit>()), ModContent.NPCType<RajahRabbit>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbit.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbit.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenCarrot>() + "]"),
@@ -1176,7 +1178,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Champion Rajah Rabbit
-                AddBoss(bossChecklist, mod, "RajahRabbitR", (Func<bool>)(() => NPCExtensions.BeenKilled<SupremeRajah>()), ModContent.NPCType<SupremeRajah>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RajahRabbitR", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbitA>()), ModContent.NPCType<RajahRabbitA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbitR.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbitR.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<TenCaratCarrot>() + "]"),
@@ -1295,7 +1297,7 @@ namespace AAModClassic.CrossMod
                 fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "Scepter", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), 400000);
                 fargos.Call("AddSummon", BossProgressionValues["Athena"], "AAModClassic", "Owl", (Func<bool>)(() => NPCExtensions.BeenKilled<Athena>()), 500000);
                 fargos.Call("AddSummon", BossProgressionValues["Greed"], "AAModClassic", "GoldenGrub", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedHead>()), 500000);
-                fargos.Call("AddSummon", BossProgressionValues["RajahRabbit"], "AAModClassic", "GoldenCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<Rajah>()), 600000);
+                fargos.Call("AddSummon", BossProgressionValues["RajahRabbit"], "AAModClassic", "GoldenCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbit>()), 600000);
                 fargos.Call("AddSummon", BossProgressionValues["EquinoxWorms"], "AAModClassic", "EquinoxWorm", (Func<bool>)(() => AAWorld.downedEquinox), 1000000);
                 fargos.Call("AddSummon", BossProgressionValues["SistersOfDiscord"], "AAModClassic", "FlamesOfAnarchy", (Func<bool>)(() => AAWorld.downedSisters), 1000000);
                 fargos.Call("AddSummon", BossProgressionValues["Akuma"], "AAModClassic", "DraconianSigil", (Func<bool>)(() => AAWorld.downedAkuma), 1000000);
@@ -1304,7 +1306,7 @@ namespace AAModClassic.CrossMod
                 fargos.Call("AddSummon", BossProgressionValues["YamataA"], "AAModClassic", "DreadRune", (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode), 2000000);
                 fargos.Call("AddSummon", BossProgressionValues["Zero"], "AAModClassic", "ZeroTesseract", (Func<bool>)(() => AAWorld.downedZero), 1000000);
                 fargos.Call("AddSummon", BossProgressionValues["ZeroP"], "AAModClassic", "ZeroRune", (Func<bool>)(() => AAWorld.downedZero && Main.expertMode), 2000000);
-                fargos.Call("AddSummon", BossProgressionValues["RajahRabbitR"], "AAModClassic", "DiamondCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<SupremeRajah>()), 2500000);
+                fargos.Call("AddSummon", BossProgressionValues["RajahRabbitR"], "AAModClassic", "DiamondCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbitA>()), 2500000);
                 fargos.Call("AddSummon", BossProgressionValues["Shen"], "AAModClassic", "ChaosSigil", (Func<bool>)(() => AAWorld.downedShen), 2500000);
                 fargos.Call("AddSummon", BossProgressionValues["ShenA"], "AAModClassic", "ChaosRune", (Func<bool>)(() => AAWorld.downedShen && Main.expertMode), 4000000);
                 fargos.Call("AddSummon", BossProgressionValues["InfinityZero"], "AAModClassic", "InfinityOverloader", (Func<bool>)(() => NPCExtensions.BeenKilled<InfinityZero>()), 2500000);
