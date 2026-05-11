@@ -604,7 +604,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingShenA());
 
-            expert.OnSuccess(firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosRune>())))
+            expert.OnSuccess(firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosRune>())));
 
             npcLoot.Add(expert);
         }
