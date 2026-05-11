@@ -1,6 +1,6 @@
 base
 - Do a look-over on Lucifer,
-  Akuma, Zero, RajahA, and Shen
+  Akuma, Zero, and Shen
 
 removed
 -

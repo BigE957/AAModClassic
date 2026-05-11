@@ -1,5 +1,5 @@
 using System;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
-    public class CarrotFarmerR : ModProjectile
+    public class RajahRabbit_CarrotFarmer : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     for (i = 0; i < 30; i++)
                     {
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        int carrotType = rajah.isSupreme ? ModContent.ProjectileType<CarrotEXR>() : ModContent.ProjectileType<CarrotHostile>();
+                        int carrotType = rajah.isSupreme ? ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>() : ModContent.ProjectileType<RajahRabbit_Carrot>();
                         if (Main.rand.Next(rajah.isSupreme ? 10 : 15) == 0)
                         {
                             int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), carrotType, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);

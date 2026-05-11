@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
-    public class CarrowSplitR : ModProjectile
+    public class RajahRabbitA_CarrowSplit : ModProjectile
 	{
         public override void SetStaticDefaults()
         {

@@ -1,13 +1,11 @@
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
-    public class BaneTEXR : ModProjectile
+    public class RajahRabbit_BaneOfTheBunny: ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -16,12 +14,10 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
 
         public override void SetDefaults()
         {
-            Projectile.width = 32;
-            Projectile.height = 32;
-            Projectile.friendly = false;
+            Projectile.width = 16;
+            Projectile.height = 16;
             Projectile.hostile = true;
             Projectile.aiStyle = -1;
-            Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;
             Projectile.extraUpdates = 1;
         }
@@ -31,7 +27,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
         {
             Rectangle myRect = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
             bool flag3 = Projectile.Colliding(myRect, target.getRect());
-            target.AddBuff(ModContent.BuffType<SpearStuck_Buff>(), 2);
+            target.AddBuff(ModContent.BuffType<Buffs.SpearStuck_Buff>(), 2);
             if (flag3 && !StuckInEnemy)
             {
                 StuckInEnemy = true;
@@ -42,19 +38,12 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
             }
         }
 
-        public override void OnKill(int timeLeft)
-        {
-            if (Projectile.ai[0] == 1f)
-            {
-               ;
-            }
-        }
-
         public override void AI()
         {
+            int num972 = 25;
             if (Projectile.alpha > 0)
             {
-                Projectile.alpha -= 25;
+                Projectile.alpha -= num972;
             }
             if (Projectile.alpha < 0)
             {
@@ -66,6 +55,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
             }
             if (Projectile.ai[0] == 1f)
             {
+                Projectile.damage = 0;
                 Projectile.ignoreWater = true;
                 Projectile.tileCollide = false;
                 int num977 = 15;
@@ -80,10 +70,11 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
                 {
                     flag53 = true;
                 }
-                else if (Main.player[num978].active || !Main.player[num978].dead)
+                else if (Main.player[num978].active && !Main.player[num978].dead)
                 {
                     Projectile.Center = Main.player[num978].Center - Projectile.velocity * 2f;
                     Projectile.gfxOffY = Main.player[num978].gfxOffY;
+                    Main.player[num978].AddBuff(BuffID.Bleeding, 2);
                 }
                 else
                 {
@@ -94,12 +85,6 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
                     Projectile.Kill();
                 }
             }
-        }
-        public override bool PreDraw(ref Color lightColor)
-        {
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, lightColor, true);
-            return false;
         }
     }
 }

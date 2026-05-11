@@ -7,7 +7,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
@@ -459,11 +459,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         internalAI[3] = 0;
                         if (internalAI[1] == 0)
                         {
-                            if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon1>()) < 5)
+                            if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) < 5)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                             }
                             NPC.netUpdate = true;
                         }
@@ -475,32 +475,32 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                             }
                             if (NPC.ai[1] == 0)
                             {
-                                if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon1>()) < 5)
+                                if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) < 5)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             else if (NPC.ai[1] == 1)
                             {
-                                if (NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon2>()) < 5)
+                                if (NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>()) < 5)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             else if (NPC.ai[1] == 2)
                             {
-                                if (NPC.CountNPCS(ModContent.NPCType<BunnyBattler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon3>()) < 8)
+                                if (NPC.CountNPCS(ModContent.NPCType<RabidRabbit>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>()) < 8)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             NPC.ai[1] += 1;
@@ -523,7 +523,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 else if (NPC.ai[3] == 2) //Royal Scepter
                 {
                     int carrots = isSupreme ? 5 : 3;
-                    int carrotType = isSupreme ? ModContent.ProjectileType<CarrotEXR>() : ModContent.ProjectileType<CarrotHostile>();
+                    int carrotType = isSupreme ? ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>() : ModContent.ProjectileType<RajahRabbit_Carrot>();
                     float spread = 45f * 0.0174f * .5f;
                     Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                     dir *= ProjSpeed() + (isSupreme? 3 : 1);
@@ -543,7 +543,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
                 else if (NPC.ai[3] == 3) //Javelin
                 {
-                    int Javelin = isSupreme ? ModContent.ProjectileType<BaneTEXR>() : ModContent.ProjectileType<BaneR>();
+                    int Javelin = isSupreme ? ModContent.ProjectileType<RajahRabbitA_BaneOfTheSlaughterer>() : ModContent.ProjectileType<RajahRabbit_BaneOfTheBunny>();
                     if (internalAI[3] == (isSupreme ? 40 : 60))
                     {
                         float time = (player.Center - WeaponPos).Length() / ProjSpeed();
@@ -564,7 +564,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         internalAI[3] = 0;
                         Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                         dir *= ProjSpeed() + 3f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, ModContent.ProjectileType<ExcalihareR>(), damage, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, ModContent.ProjectileType<RajahRabbitA_Excalihare>(), damage, 5, Main.myPlayer);
                         NPC.netUpdate = true;
                     }
                 }
@@ -585,7 +585,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         for (int i = 0; i < Arrows; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<CarrowR>(), damage, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<RajahRabbitA_Carrow>(), damage, 5, Main.myPlayer);
                         }
                         NPC.netUpdate = true;
                     }
@@ -616,7 +616,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                             float num83 = vector13.Y;
                             float speedX5 = num82;
                             float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<CarrotEXR>(), damage, 6, Main.myPlayer, 0, 0);
+                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>(), damage, 6, Main.myPlayer, 0, 0);
                             Main.projectile[p].tileCollide = false;
                         }
                         NPC.netUpdate = true;
@@ -624,9 +624,9 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
                 else if (NPC.ai[3] == 7) //Carrot Farmer
                 {
-                    if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<CarrotFarmerR>()))
+                    if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<RajahRabbit_CarrotFarmer>()))
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerR>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<RajahRabbit_CarrotFarmer>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
                         NPC.netUpdate = true;
                     }
                 }

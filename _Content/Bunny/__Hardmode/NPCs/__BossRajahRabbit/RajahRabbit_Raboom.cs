@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
-    public class RabbitRocketBoomR : ModProjectile
+    public class RajahRabbit_Raboom : ModProjectile
     {
         public override void SetStaticDefaults()
         {

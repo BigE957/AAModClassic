@@ -7,9 +7,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
-    public class CarrowR : ModProjectile
+    public class RajahRabbitA_Carrow : ModProjectile
 	{
         public override void SetStaticDefaults()
         {
@@ -44,8 +44,8 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
             for (int i = 0; i < Split; i++)
             {
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<CarrowSplitR>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<CarrowSplitR>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<RajahRabbitA_CarrowSplit>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<RajahRabbitA_CarrowSplit>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
             for (int num468 = 0; num468 < 10; num468++)
             {

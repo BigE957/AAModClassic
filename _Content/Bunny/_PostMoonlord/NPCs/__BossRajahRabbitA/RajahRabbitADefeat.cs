@@ -8,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
     public class RajahRabbitADefeat : ModNPC
     {
