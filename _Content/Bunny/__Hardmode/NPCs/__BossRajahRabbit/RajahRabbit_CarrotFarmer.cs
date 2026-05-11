@@ -16,8 +16,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public override void SetDefaults()
         {
-            Projectile.width = 160;
-            Projectile.height = 156;
+            Projectile.width = 188;
+            Projectile.height = 188;
             Projectile.aiStyle = 0;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
@@ -45,20 +45,22 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC npcBody = Main.npc[(int)Projectile.ai[0]];
                 if (npcBody.type == ModContent.NPCType<RajahRabbit>())
                 {
-                    rajah = (RajahRabbit)npcBody.ModNPC;
+                    rajah = npcBody.ModNPC as RajahRabbit;
                 }
                 else if (npcBody.type == ModContent.NPCType<RajahRabbitA>())
                 {
-                    rajah = (RajahRabbitA)npcBody.ModNPC;
+                    rajah = npcBody.ModNPC as RajahRabbit;
                 }
             }
             if (rajah == null)
                 return;
 
-            if (!rajah.NPC.active || rajah.NPC.life <= 0 || rajah.NPC.ai[3] != 4)
+            if (!rajah.NPC.active || rajah.NPC.life <= 0 || rajah.NPC.ai[3] != 7)
             {
                 Projectile.Kill();
             }
+
+
 
             if (rajah.NPC.direction > 0)
             {
@@ -71,8 +73,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 Projectile.spriteDirection = -1;
             }
 
-            Projectile.position.X = rajah.WeaponPos.X - 95;
-            Projectile.position.Y = rajah.WeaponPos.Y - 93;
+            //Projectile.position.X = rajah.WeaponPos.X - 95;
+            //Projectile.position.Y = rajah.WeaponPos.Y - 93;
 
             Projectile.ai[1]++;
             if (Projectile.ai[1] >= 16)

@@ -32,6 +32,7 @@ base
 -order solution is now only sold by the samurai in hardmode
 -renamed the yoyo Vortex to The Vortex
 -rajah rabbits weapons no longer lag one frame behind him
+-slightly adjusted the positioning of rajahs held weapons
 -
 
 removed
