@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -12,11 +12,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
-    public class BunnyBattler : ModNPC
+    public class RabidRabbit : ModNPC
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Rabbid Rabbit");
+            // DisplayName.SetDefault("Rabid Rabbit");
             Main.npcFrameCount[NPC.type] = 6;
         }
 
@@ -86,29 +86,6 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             NPC.oldPos[0] = NPC.position;
 
             NPC.FadeInOutBasedOnAliveEntities(true, 0, 0, ModContent.NPCType<RajahRabbit>(), ModContent.NPCType<RajahRabbitA>());
-        }
-    }
-
-    public class BunnyBattler2 : BunnyBattler
-    {
-        public override string Texture => ModContent.GetInstance<BunnyBattler>().Texture;
-        public override void SetDefaults()
-        {
-            base.SetDefaults();
-            NPC.damage = 150;
-            NPC.defense = 70;
-            NPC.lifeMax = 1200;
-        }
-        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
-        {
-            modifiers.TargetDamageMultiplier /= 2;
-        }
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            if (NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>()))
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, true, 0f, 0f, AAColor.Rainbow2);
-
-            return false;
         }
     }
 }

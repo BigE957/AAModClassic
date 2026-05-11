@@ -12,8 +12,8 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 
 namespace AAModClassic._Content._Dev.Invoker
 {

@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0, 0), ModContent.ProjectileType<RabbitRocketBoomR>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0, 0), ModContent.ProjectileType<RajahRabbit_Raboom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
     }
 }

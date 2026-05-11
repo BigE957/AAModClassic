@@ -1,57 +1,59 @@
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
-    public class RabbitBoomEXR : ModProjectile
+    public class RajahRabbitA_ExcalihareBoom : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Bunnysplosion");     
-            Main.projFrames[Projectile.type] = 5;     
+            // DisplayName.SetDefault("Excalihare");     
+            Main.projFrames[Projectile.type] = 7;     
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 176;
-            Projectile.height = 176;
+            Projectile.width = 98;
+            Projectile.height = 98;
             Projectile.penetrate = -1;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
-            Projectile.timeLeft = 300;
-        }
-
-        public override void AI()
-        {
-            if (++Projectile.frameCounter >= 6)
-            {
-                Projectile.frameCounter = 0;
-                if (++Projectile.frame >= 5)
-                {
-                    Projectile.Kill();
-                }
-            }
-            Projectile.velocity.X *= 0.00f;
-            Projectile.velocity.Y *= 0.00f;
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return new Color(Color.White.R, Color.White.G, Color.White.B, 120);
+            return Main.DiscoColor;
+        }
+
+        public override void AI()
+        {
+            if (++Projectile.frameCounter >= 5)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 6)
+                {
+                    Projectile.Kill();
+
+                }
+            }
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
+
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Daybreak, 300);
+            target.AddBuff(ModContent.BuffType<InfinityOverload_Buff>(), 120);
         }
 
         public override void OnKill(int timeLeft)
         {
             Projectile.timeLeft = 0;
         }
+
     }
 }

@@ -1691,6 +1691,20 @@ NightcrawlerHead_NightDeathray.DisplayName: Nightcrawler Head_ Night Deathray
 NightcrawlerHead_NightLaser.DisplayName: Nightcrawler Head_ Night Laser
 NightcrawlerHead_NightScythe.DisplayName: Nightcrawler Head_ Night Scythe
 NightcrawlerHead_Nothing.DisplayName: Nightcrawler Head_ Nothing
+RajahRabbit_BaneOfTheBunny.DisplayName: Rajah Rabbit_ Bane Of The Bunny
+RajahRabbit_BunnyBattlerSummon.DisplayName: Rajah Rabbit_ Bunny Battler Summon
+RajahRabbit_BunnyBrawlerSummon.DisplayName: Rajah Rabbit_ Bunny Brawler Summon
+RajahRabbit_Carrot.DisplayName: Rajah Rabbit_ Carrot
+RajahRabbit_CarrotFarmer.DisplayName: Rajah Rabbit_ Carrot Farmer
+RajahRabbit_RabbitcopterSoldierSummon.DisplayName: Rajah Rabbit_ Rabbitcopter Soldier Summon
+RajahRabbit_Raboom.DisplayName: Rajah Rabbit_ Raboom
+RajahRabbitA_BaneOfTheSlaughterer.DisplayName: Rajah Rabbit A_ Bane Of The Slaughterer
+RajahRabbitA_Carrow.DisplayName: Rajah Rabbit A_ Carrow
+RajahRabbitA_CarrowSplit.DisplayName: Rajah Rabbit A_ Carrow Split
+RajahRabbitA_Excalihare.DisplayName: Rajah Rabbit A_ Excalihare
+RajahRabbitA_ExcalihareBoom.DisplayName: Rajah Rabbit A_ Excalihare Boom
+RajahRabbitA_GoldenCarrot.DisplayName: Rajah Rabbit A_ Golden Carrot
+RajahRabbitA_Raboom.DisplayName: Rajah Rabbit A_ Raboom
 CthulhuDeath.DisplayName: Cthulhu Death
 CthulhuDeathBoom.DisplayName: Cthulhu Death Boom
 CthulhuHurricane.DisplayName: Cthulhu Hurricane

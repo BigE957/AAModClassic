@@ -8,9 +8,9 @@ using Terraria.ModLoader;
 using AAModClassic.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
-    public class ExcalihareR : ModProjectile
+    public class RajahRabbitA_Excalihare : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
@@ -76,7 +76,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
                 Projectile.height = height;
                 Projectile.Center = Projectile.position;
             }
-            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoomR>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<RajahRabbitA_ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
             return false;
@@ -113,14 +113,14 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<InfinityOverload_Buff>(), 120);
-            int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoomR>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<RajahRabbitA_ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
         }
 
         public override void OnKill(int i)
         {
-            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoomR>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<RajahRabbitA_ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
         }

@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
+namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
-    public class RajahRabbitABookIt : ModProjectile
+    public class RajahRabbitALeave : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA
         }
         public override void SetDefaults()
         {
-            Projectile.damage = 100;
+            Projectile.damage = 0;
             Projectile.width = 130;
             Projectile.height = 220;
             Projectile.penetrate = -1;

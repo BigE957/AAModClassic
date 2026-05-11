@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
-using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahA;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using System;
 using System.Text.Json;
 using System.Threading;
