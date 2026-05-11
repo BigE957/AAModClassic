@@ -1,5 +1,9 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -16,14 +20,54 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 {
     public class ShipBiome : ModBiome
     {
+        private static readonly CthulhuSky_Clouds CthulhuFog = new(false);
+
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip = AAWorld_Unreleased.ShipTiles > 1 && player.wet;
+            return player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip = AAWorld_Unreleased.ShipTiles > 1;
+        }
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            bool useCthulhu = 
+                NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEaterTail>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) ||
+                (Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC);
+
+            if (SkyManager.Instance["AAModClassic:CthulhuSky"] != null && ((isActive && useCthulhu) != SkyManager.Instance["AAModClassic:CthulhuSky"].IsActive()))
+            {
+                if (isActive && useCthulhu)
+                    SkyManager.Instance.Activate("AAModClassic:CthulhuSky");
+                else
+                    SkyManager.Instance.Deactivate("AAModClassic:CthulhuSky");
+            }
+
+            CthulhuFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Width(), 1);
         }
 
         public override int Music => MusicManagementSystem.MusicSlots["Ship"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
+
+        private class CthulhuForegroundFogHandler : ModSystem
+        {
+            public override void Load()
+            {
+                On_Main.DrawInfernoRings += DrawFog;
+            }
+
+            private void DrawFog(On_Main.orig_DrawInfernoRings orig, Main self)
+            {
+                orig(self);
+
+                CthulhuFog.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Value, Color.White);
+            }
+        }
     }
 
     public class CthulhuSky : CustomSky
@@ -70,6 +114,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             {
                 _fogTimer2 = texture.Width();
             }
+
+            BGClouds.Update(texture.Width(), -1);
         }
 
         public override Color OnTileColor(Color inColor)
@@ -86,8 +132,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 spriteBatch.Draw(texture.Value, planetPos, null, Color.White * 0.9f * Intensity, 0f, new Vector2(texture.Width() >> 1, texture.Height() >> 1), 1f, SpriteEffects.None, 1f);
 
             }
-            BGClouds.Update(texture.Value);
-            BGClouds.Draw(texture.Value, true, new Color(130, 130, 130));
+            BGClouds.Draw(texture.Value, new Color(130, 130, 130));
         }
 
         public override float GetCloudAlpha()
@@ -112,12 +157,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 
         private void UpdateCthulhuSky()
         {
-
             int SoCType = ModContent.NPCType<SoulOfCthulhu>();
             if (SoCIndex >= 0 && Main.npc[SoCIndex].active && Main.npc[SoCIndex].type == SoCType)
-            {
                 return;
-            }
+
             SoCIndex = -1;
             for (int i = 0; i < Main.npc.Length; i++)
             {
@@ -126,10 +169,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                     SoCIndex = i;
                     break;
                 }
-            }
-            if (Main.LocalPlayer.ZoneBeach && !AAWorld_Unreleased.downedSoC && AAWorld.downedAllAncients)
-            {
-                return;
             }
         }
 
@@ -144,48 +183,47 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
         }
     }
 
-    public class CthulhuSky_Handler : ModSystem
-    {
-        private static readonly CthulhuSky_Clouds CthulhuFog = new(false);
-
-        public override void PostDrawTiles()
-        {
-            CthulhuFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Value);
-            CthulhuFog.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Value, false, Color.White, true);
-        }
-    }
-
     //TODO: Turn this into a ModSceneEffect and/or merge it into CthulhuSky
-    public class CthulhuSky_Clouds
+    public class CthulhuSky_Clouds(bool bg)
     {
-        public int fogOffsetX = 0;
+        public float fogOffsetX = 0;
         public float fadeOpacity = 0f;
         public float dayTimeOpacity = 0f;
-        public bool backgroundFog = false;
+        public bool backgroundFog = bg;
 
-        public CthulhuSky_Clouds(bool bg)
-        {
-            backgroundFog = bg;
-        }
-
-        public void Update(Texture2D texture)
+        public void Update(int width, float mult = 1f)
         {
             if (Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
-            bool CthulhuTime = Main.LocalPlayer.ZoneBeach && !Main.LocalPlayer.ZoneSkyHeight && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
-            if (!backgroundFog && (BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false) || AAWorld_Unreleased.downedSoC)) CthulhuTime = false;
+            bool useCthulhu =
+                NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEaterTail>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) ||
+                (Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC);
 
-            fogOffsetX += 1;
-            if (fogOffsetX >= texture.Width) fogOffsetX = 0;
-            if (CthulhuTime)
+            if (!backgroundFog && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false)) 
+                useCthulhu = false;
+
+            fogOffsetX = fogOffsetX + mult;
+            if (fogOffsetX >= width) 
+                fogOffsetX = fogOffsetX - width;
+            if (fogOffsetX <= -width)
+                fogOffsetX = fogOffsetX + width * 2;
+            if (useCthulhu)
             {
                 fadeOpacity += 0.05f;
-                if (fadeOpacity > 1f) fadeOpacity = 1f;
+                if (fadeOpacity > 1f) 
+                    fadeOpacity = 1f;
             }
             else
             {
                 fadeOpacity -= 0.05f;
-                if (fadeOpacity < 0f) fadeOpacity = 0f;
+                if (fadeOpacity < 0f) 
+                    fadeOpacity = 0f;
             }
             if (backgroundFog)
             {
@@ -198,30 +236,22 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             }
         }
 
-        public void Draw(Texture2D texture, bool dir, Color defaultColor, bool setSB = false)
+        public void Draw(Texture2D texture, Color defaultColor)
         {
             if (fadeOpacity == 0f) return; //don't draw if no fog
-            if (setSB) Main.spriteBatch.Begin();
 
-            Color bgColor = GetAlpha(defaultColor, 0.2f * fadeOpacity * dayTimeOpacity);
             Color fogColor = GetAlpha(defaultColor, 0.4f * fadeOpacity * dayTimeOpacity);
             int minX = -texture.Width;
             int minY = -texture.Height;
             int maxX = Main.screenWidth + texture.Width;
             int maxY = Main.screenHeight + texture.Height;
 
-
             for (int i = minX; i < maxX; i += texture.Width)
-            {
                 for (int j = minY; j < maxY; j += texture.Height)
-                {
-                    Main.spriteBatch.Draw(texture, new Rectangle(i + (dir ? -fogOffsetX : fogOffsetX), j, texture.Width, texture.Height), null, fogColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-                }
-            }
-            if (setSB) Main.spriteBatch.End();
+                    Main.spriteBatch.Draw(texture, new Vector2(i + fogOffsetX, j), null, fogColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
-        public Color GetAlpha(Color newColor, float alph)
+        public static Color GetAlpha(Color newColor, float alph)
         {
             int alpha = 255 - (int)(255 * alph);
             float alphaDiff = (255 - alpha) / 255f;

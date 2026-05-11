@@ -56,7 +56,7 @@ namespace AAModClassic._Unreleased
                 LoadClient();
             }
         }
-        public void LoadClient()
+        public static void LoadClient()
         {
             Filters.Scene["AAModClassic:CthulhuSky"] = new Filter(new MireSkyData("FilterMiniTower").UseColor(0f, 0.20f, 1f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:CthulhuSky"] = new CthulhuSky();

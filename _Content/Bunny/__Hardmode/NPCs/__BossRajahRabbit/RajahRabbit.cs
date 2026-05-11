@@ -81,7 +81,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             NPC.knockBackResist = 0f;
             NPC.npcSlots = 1000f;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("Sounds/Rajah");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/Rajah");
             NPC.value = Item.sellPrice(0, 1, 10, 0);
             NPC.boss = true;
             NPC.netAlways = true;
@@ -137,7 +137,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public void Roar(int timer)
         {
             roarTimer = timer;
-            //SoundEngine.PlaySound(new SoundStyle("Sounds/Rajah"), NPC.Center);
+            //SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
         }
 
         public Vector2 WeaponPos;

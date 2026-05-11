@@ -33,7 +33,7 @@ Storm Rifle EX"); */
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.UseSound = new SoundStyle("Sounds/Thunderlord");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Thunderlord");
             Item.autoReuse = true; 
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;

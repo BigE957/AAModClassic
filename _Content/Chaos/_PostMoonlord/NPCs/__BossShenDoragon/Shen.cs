@@ -61,7 +61,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("Sounds/ShenRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/ShenRoar");
             Music = MusicManagementSystem.MusicSlots["Shen"];
             SceneEffectPriority = (SceneEffectPriority)11;
             for (int k = 0; k < NPC.buffImmune.Length; k++)

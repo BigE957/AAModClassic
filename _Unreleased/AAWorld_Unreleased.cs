@@ -247,11 +247,16 @@ namespace AAModClassic._Unreleased
 
         private void Ship(GenerationProgress progress)
         {
-            shipSide = ((Main.dungeonX > Main.maxTilesX / 2) ? (-1) : (1));
-            shipPos.X = (shipSide == 1 ? (Main.maxTilesX - 90) : 90);
+            bool small = WorldGenUtils.GetWorldSize() == 1;
+            shipSide = (Main.dungeonX > Main.maxTilesX / 2 ? -1 : 1);
+            int dist = small ? 90 : 140;
+            shipPos.X = (shipSide == 1 ? Main.maxTilesX - dist : dist);
+            shipPos.Y = WorldGenUtils.GetFirstTileFloor((int)shipPos.X, 10, true);
+            if (!small)
+                shipPos.Y += 36;
             progress.Message = "Sinking the ship";
 
-            Point origin = new Point((int)shipPos.X, (int)GenVars.worldSurfaceLow - 200);
+            Point origin = new Point((int)shipPos.X, (int)shipPos.Y);
             origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
             new SunkenShipGen().Place(origin, GenVars.structures);
         }

@@ -15,7 +15,7 @@ namespace AAModClassic._Unreleased
     {
         public bool ZoneStorm = false;
         public bool ZoneShip = false;
-        public int CthulhuCountdown = 1800;
+        public int CthulhuCountdown = 10800;
         public bool Leave = false;
         public bool Compass = false;
 
@@ -55,7 +55,7 @@ namespace AAModClassic._Unreleased
 
         public override void PostUpdate()
         {
-            if (AAWorld_Unreleased.Compass == false && Compass == false)
+            if (!AAWorld_Unreleased.Compass && !Compass)
             {
                 if (Player.inventory.Any(i => i.type == ModContent.ItemType<CursedCompass>() && i.stack > 0))
                 {
@@ -74,24 +74,28 @@ namespace AAModClassic._Unreleased
                     }
                 }
             }
-            if (ZoneShip && Leave == false)
+            if (ZoneShip && !Leave)
             {
                 CthulhuCountdown--;
-                if (CthulhuCountdown == 1500 && Main.netMode != NetmodeID.MultiplayerClient)
+                if (CthulhuCountdown == 9500 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     BaseUtility.Chat("...leave...", Color.Blue);
                 }
-                if (CthulhuCountdown == 1050 && Main.netMode != NetmodeID.MultiplayerClient)
+                if (CthulhuCountdown == 7050 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     BaseUtility.Chat("...Leave this forsaken place...", Color.DarkCyan);
                 }
-                if (CthulhuCountdown == 550 && Main.netMode != NetmodeID.MultiplayerClient)
+                if (CthulhuCountdown == 5050 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     BaseUtility.Chat("...you are trespassing upon things you cannot even comprehend...", Color.Cyan);
                 }
-                if (CthulhuCountdown == 200 && Main.netMode != NetmodeID.MultiplayerClient)
+                if (CthulhuCountdown == 3000 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     BaseUtility.Chat("...turn back now...", Color.Cyan);
+                }
+                if (CthulhuCountdown == 1200 && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    BaseUtility.Chat("...leave.", Color.DarkCyan);
                 }
                 if (CthulhuCountdown == 0)
                 {
@@ -107,7 +111,7 @@ namespace AAModClassic._Unreleased
             }
             if (!ZoneShip || NPC.AnyNPCs(ModContent.NPCType<UDUNFUKED>()))
             {
-                CthulhuCountdown = 1800;
+                CthulhuCountdown = 10800;
             }
             if (!ZoneShip && Leave == true)
             {

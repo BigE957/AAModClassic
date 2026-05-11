@@ -56,7 +56,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("Sounds/AkumaRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/AkumaRoar");
             Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -745,7 +745,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             }
             else
             {
-                SoundEngine.PlaySound(new SoundStyle("Sounds/AkumaRoar"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), NPC.Center);
             }
         }
 

@@ -1,5 +1,6 @@
 using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Keep;
@@ -54,12 +55,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             colorToTile[Color.Black] = -1; //don't touch when genning		
 
             Dictionary<Color, int> colorToWall = [];
-            colorToWall[new Color(255, 0, 0)] = ModContent.WallType<RottedWall_Wall>();
+            colorToWall[new Color(255, 0, 0)] = ModContent.WallType<RottedFence>();
             colorToWall[new Color(255, 0, 255)] = ModContent.WallType<RottedWall_Wall>(); //Magenta
             colorToWall[new Color(255, 255, 0)] = ModContent.WallType<RottedWall_Wall>(); //Yellow
             colorToWall[new Color(0, 255, 0)] = ModContent.WallType<RottedWall_Wall>(); //Green
             colorToWall[new Color(255, 255, 255)] = ModContent.WallType<RottedWall_Wall>(); //White
             colorToWall[new Color(0, 255, 255)] = ModContent.WallType<RottedWall_Wall>(); //Cyan
+            colorToWall[new Color(0, 0, 255)] = WallID.Sail;
+            colorToWall[new Color(150, 150, 150)] = -2;
 
             colorToWall[Color.Black] = -1; //don't touch when genning				
 
@@ -75,14 +78,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             {
                 TexGenData tileTex = ModLoader.HasMod("ThoriumMod") ? SunkenShipTexGenAssets.BigShipThoriumTileData : SunkenShipTexGenAssets.BigShipTileData;
                 gen = TexGen.GetTexGenerator(tileTex, colorToTile, SunkenShipTexGenAssets.BigShipWallData, colorToWall, SunkenShipTexGenAssets.BigShipLiquidData);
-                int shipSide = ((Main.dungeonX > Main.maxTilesX / 2) ? (-1) : (1));
-                if (shipSide == 1)
-                    origin.X -= 120 * shipSide;
-                gen.Generate(origin.X, origin.Y, true, true);
 
-                for (int x = origin.X; x < origin.X + tileTex.Width; x++)
+                int newOriginX = origin.X - (gen.width / 2);
+                int newOriginY = origin.Y - (gen.height / 2) + 10;
+                gen.Generate(newOriginX, newOriginY, true, true);
+
+                for (int x = newOriginX; x < newOriginX + tileTex.Width; x++)
                 {
-                    for (int y = origin.Y; y < origin.Y + tileTex.Height; y++)
+                    for (int y = newOriginY; y < newOriginY + tileTex.Height; y++)
                     {
                         if (Main.tile[x, y].TileType == TileID.EmeraldGemspark)
                         {
@@ -92,7 +95,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                     }
                 }
 
-                WorldGen.PlaceChest(origin.X + 147, origin.Y + 47, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
+                WorldGen.PlaceChest(newOriginX + 66, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
             }
 
             return true;
