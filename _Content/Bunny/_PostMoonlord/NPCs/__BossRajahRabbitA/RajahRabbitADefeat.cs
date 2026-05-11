@@ -103,7 +103,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (Main.netMode == NetmodeID.SinglePlayer)
-                        BaseUtility.Chat(Language.GetOrRegister("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.Defeat.First.11.Singleplayer").FormatWith(Main.LocalPlayer.name), 107, 137, 179, true);
+                        BaseUtility.Chat(Language.GetOrRegister("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.Defeat.First.11.Singleplayer").Format(Main.LocalPlayer.name), 107, 137, 179, true);
                     else
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.Defeat.First.11.Multiplayer"), 107, 137, 179, true);
                 }
