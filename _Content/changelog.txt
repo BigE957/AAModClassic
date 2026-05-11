@@ -31,6 +31,7 @@ base
 -grand healing and mana potions are now crafted in groups of 4
 -order solution is now only sold by the samurai in hardmode
 -renamed the yoyo Vortex to The Vortex
+-rajah rabbits weapons no longer lag one frame behind him
 -
 
 removed
@@ -63,6 +64,10 @@ unofficial
 --subzero serpent will periodically summon an ice crystal above the players head, up to a cap of 3. this crystal shoots projectiles towards the player. it kinda sucks but it gives u smth to hit while shes offscreen so it feels fine
 --this is our interpretation of the code, with very minor polish added. since it was never complete and extremely buggy, it's hard to tell what decisions were or were not intentional. consequently, we have put this change under unofficial
 -the legendscribe is now much larger, and now boasts a custom ui instead of janky town npc options
+-rajah rabbit has recived some tweaks and fixes
+--rajah rabbit now holds the cotton cane when summoning minions
+--champion rajah now holds out the equivalent ex weapon for weapons he used in his original fight
+--champion rajahs trail when stomping now lasts the duration of the stomp instead of for one frame at the start of it
 -
 
 crossmod
