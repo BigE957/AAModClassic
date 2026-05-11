@@ -3,7 +3,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.Tiles.Altar;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

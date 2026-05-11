@@ -728,36 +728,36 @@ MireSoul.DisplayName: Mire Soul
 YamataAHeadFake.DisplayName: Yamata No Orochi
 YamataHeadFake1.DisplayName: Yamata
 YamataHeadFake2.DisplayName: Yamata
-DeityEater.DisplayName: Deity Eater
-DeityEaterBody.DisplayName: Deity Eater Body
-DeityEaterTail.DisplayName: Deity Eater Tail
-DeityEye.DisplayName: Deity Eye
-DeityLeviathan.DisplayName: Deity Leviathan
+DeityEater.DisplayName: Crom Cruach
+DeityEaterBody.DisplayName: Crom Cruach
+DeityEaterTail.DisplayName: Crom Cruach
+DeityEye.DisplayName: Cyaegha
+DeityLeviathan.DisplayName: Vile-Oct
 DeityShark.DisplayName: Deity Shark
-DeityShark2.DisplayName: Deity Shark2
+DeityShark2.DisplayName: Deity Shark
 LeviathanBubble.DisplayName: Leviathan Bubble
-DeityRose.DisplayName: Deity Rose
+DeityRose.DisplayName: Ei'lor
 DeityRoseClaws.DisplayName: Deity Rose Claws
-DeityRoseHook.DisplayName: Deity Rose Hook
-DeityRoseSpore.DisplayName: Deity Rose Spore
-DeitySkull.DisplayName: Deity Skull
-DeitySkull_Hand.DisplayName: Deity Skull_ Hand
-DeitySkull_Hand1.DisplayName: Deity Skull_ Hand1
-DeitySkull_Hand2.DisplayName: Deity Skull_ Hand2
-DeitySkull_Hand3.DisplayName: Deity Skull_ Hand3
-DeitySkull_Hand4.DisplayName: Deity Skull_ Hand4
-DeitySkull_Hand5.DisplayName: Deity Skull_ Hand5
-CthulhuPortal.DisplayName: Cthulhu Portal
-CthulhuSpawn.DisplayName: Cthulhu Spawn
-Cthulhu.DisplayName: Cthulhu
+DeityRoseHook.DisplayName: Ei'Lor's Claw
+DeityRoseSpore.DisplayName: Ei'Lor's Tentacle
+DeitySkull.DisplayName: Rhan-Tegoth
+DeitySkull_Hand.DisplayName: Tegoth's Claw
+DeitySkull_Hand1.DisplayName: Tegoth's Claw
+DeitySkull_Hand2.DisplayName: Tegoth's Claw
+DeitySkull_Hand3.DisplayName: Tegoth's Claw
+DeitySkull_Hand4.DisplayName: Tegoth's Claw
+DeitySkull_Hand5.DisplayName: Tegoth's Claw
+CthulhuPortal.DisplayName: Dark Portal
+CthulhuSpawn.DisplayName: Quantum Portal
+Cthulhu.DisplayName: Cthulhu, Cosmic Calamity
 DeityDragon.DisplayName: Deity Dragon
-DeityDragon_Arms.DisplayName: Deity Dragon_ Arms
-DeityDragon_Body1.DisplayName: Deity Dragon_ Body1
-DeityDragon_Body2.DisplayName: Deity Dragon_ Body2
-DeityDragon_Body3.DisplayName: Deity Dragon_ Body3
-DeityDragon_Tail.DisplayName: Deity Dragon_ Tail
+DeityDragon_Arms.DisplayName: Psyvern
+DeityDragon_Body1.DisplayName: Psyvern
+DeityDragon_Body2.DisplayName: Psyvern
+DeityDragon_Body3.DisplayName: Psyvern
+DeityDragon_Tail.DisplayName: Psyvern
 EyeOfAzathoth.DisplayName: Eye Of Azathoth
-Portal.DisplayName: Portal
+Portal.DisplayName: Rift Portal
 RiftVision.DisplayName: Rift Vision
 SoulOfCthulhu.DisplayName: Soul Of Cthulhu
 UDUNFUKED.DisplayName: Lovecraftian Shadow
@@ -775,24 +775,24 @@ HarukaShadowPostHydra.DisplayName: ???
 HydraBody.DisplayName: Hydra
 MurkySlime.DisplayName: Murky Slime
 Skulker.DisplayName: Skulker
-ChaoticDawn_NPC.DisplayName: Chaotic Dawn_ N P C
+ChaoticDawn_NPC.DisplayName: Chaotic Dawn
 InfernalGhoul.DisplayName: Infernal Ghoul
 PigronInferno.DisplayName: Pigron Inferno
 WyrmHead.DisplayName: Wyrm Head
-AncientLungBody.DisplayName: Ancient Lung Body
-AncientLungHead.DisplayName: Ancient Lung Head
-AncientLungTail.DisplayName: Ancient Lung Tail
+AncientLungBody.DisplayName: Ancient Lung
+AncientLungHead.DisplayName: Ancient Lung
+AncientLungTail.DisplayName: Ancient Lung
 FlameBrute.DisplayName: Flame Brute
 Singemander.DisplayName: Singemander
-WyrmlingHead.DisplayName: Wyrmling Head
-ScavengerHead.DisplayName: Scavenger Head
+WyrmlingHead.DisplayName: Wyrmling
+ScavengerHead.DisplayName: Scavenger
 TerraKnight.DisplayName: Terra Knight
 TerraCrawler.DisplayName: Terra Crawler
 TerraSphere.DisplayName: Terra Sphere
 TerraSquid.DisplayName: Terra Squid
-TerraWeaverBody.DisplayName: Terra Weaver Body
-TerraWeaverHead.DisplayName: Terra Weaver Head
-TerraWeaverTail.DisplayName: Terra Weaver Tail
+TerraWeaverBody.DisplayName: Terra Weaver
+TerraWeaverHead.DisplayName: Terra Weaver
+TerraWeaverTail.DisplayName: Terra Weaver
 UnityProbe.DisplayName: Unity Probe
 UnityWatcher.DisplayName: Unity Watcher
 PurityWeaverHead.DisplayName: Purity Weaver Head
@@ -812,14 +812,14 @@ FeudalFungusWakeUp.DisplayName: Feudal Fungus Wake Up
 GlowingMushling.DisplayName: Glowing Mushling
 MushroomMonarchAsleep.DisplayName: Mushroom Monarch Asleep
 MushroomMonarchWakeUp.DisplayName: Mushroom Monarch Wake Up
-RoyalRabbit_NPC.DisplayName: Royal Rabbit_ N P C
+RoyalRabbit_NPC.DisplayName: Royal Rabbit
 GripOfChaosInferno.DisplayName: Grip Of Chaos Inferno
 GripOfChaosMire.DisplayName: Grip Of Chaos Mire
 GregariousGlowshrooms.DisplayName: Gregarious Glowshrooms
 LuminousAccordyceps.DisplayName: Luminous Accordyceps
 DragonEgg.DisplayName: Dragon Egg
-DragonClaw_NPC.DisplayName: Dragon Claw_ N P C
-HydraClaw_NPC.DisplayName: Hydra Claw_ N P C
+DragonClaw_NPC.DisplayName: Dragon Claw
+HydraClaw_NPC.DisplayName: Hydra Claw
 SubzeroSerpentBody.DisplayName: Subzero Serpent Body
 SubzeroSerpentHead.DisplayName: Subzero Serpent Head
 SubzeroSerpentTail.DisplayName: Subzero Serpent Tail
@@ -915,5 +915,5 @@ SupremeBunnyBrawler.DisplayName: Supreme Bunny Brawler
 SupremeRabbitcopterSoldier.DisplayName: Supreme Rabbitcopter Soldier
 RabidRabbit.DisplayName: Rabid Rabbit
 SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
-DeityBrain.DisplayName: Deity Brain
-DeityRose_Urchin.DisplayName: Deity Rose_ Urchin
+DeityBrain.DisplayName: Lu'Kthu
+DeityRose_Urchin.DisplayName: Shadow Urchin

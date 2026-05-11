@@ -13,7 +13,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Soul of Cthulhu");
+            // DisplayName.SetDefault("Leviathan Bubble");
         }
 
         public override void SetDefaults()
