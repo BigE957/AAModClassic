@@ -198,6 +198,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
             }
 
+            //Both eater and brain get summoned at the same time due to faulty logic here, but its kinda aura so im leaving it
             if (NPC.life < EaterSummon && NPC.ai[2] == 1)
             {
                 NPC.ai[2] = 2;
