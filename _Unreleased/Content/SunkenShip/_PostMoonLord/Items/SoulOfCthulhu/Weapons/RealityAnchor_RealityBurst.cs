@@ -4,18 +4,18 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class RealityAnchor_RealityBurstMedium : ModProjectile
+    public class RealityAnchor_RealityBurst : ModProjectile
     {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Reality Burst");     //The English name of the projectile
-            Main.projFrames[Projectile.type] = 4;     //The recording mode
+            Main.projFrames[Projectile.type] = 5;     //The recording mode
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 112;
-            Projectile.height = 112;
+            Projectile.width = 176;
+            Projectile.height = 176;
             Projectile.penetrate = -1;
             Projectile.friendly = true;
             Projectile.hostile = false;
@@ -23,7 +23,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 12;
+            Projectile.localNPCHitCooldown = 8;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -36,7 +36,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             if (++Projectile.frameCounter >= 6)
             {
                 Projectile.frameCounter = 0;
-                if (++Projectile.frame >= 7)
+                if (++Projectile.frame >= 5)
                 {
                     Projectile.Kill();
 
@@ -46,7 +46,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Projectile.velocity.Y *= 0.00f;
 
         }
-        
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            //target.AddBuff(BuffID.Daybreak, 600);
+        }
+
         public override void OnKill(int timeLeft)
         {
             Projectile.timeLeft = 0;

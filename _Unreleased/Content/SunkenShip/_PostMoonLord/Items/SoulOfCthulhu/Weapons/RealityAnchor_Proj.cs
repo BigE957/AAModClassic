@@ -135,7 +135,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            int ProjID = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RealityAnchor_RealityBurstHuge>(), (int)(Projectile.damage * 1.5f), 0);
+            int ProjID = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RealityAnchor_RealityBurst>(), (int)(Projectile.damage * 1.5f), 0);
             Main.projectile[ProjID].rotation = Projectile.rotation;
             Projectile.ai[0] = 1f;
             if (Main.netMode == NetmodeID.MultiplayerClient)
