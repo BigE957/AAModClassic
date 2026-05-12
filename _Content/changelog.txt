@@ -68,6 +68,7 @@ unofficial
 -the legendscribe is now much larger, and now boasts a custom ui instead of janky town npc options
 -rajah rabbit has recived some tweaks and fixes
 --rajah rabbit now holds the cotton cane when summoning minions
+--rajah rabbit no longer swaps which hands he holds his weapons with when changing directions because thats weird 
 --champion rajah now holds out the equivalent ex weapon for weapons he used in his original fight
 --champion rajahs trail when stomping now lasts the duration of the stomp instead of for one frame at the start of it
 -

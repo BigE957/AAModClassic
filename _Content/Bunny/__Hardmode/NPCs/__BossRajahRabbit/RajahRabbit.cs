@@ -201,8 +201,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 damage = NPC.damage / 2;
             }
             AAModGlobalNPC.Rajah = NPC.whoAmI;
-            WeaponPos = new Vector2(NPC.Center.X + (NPC.direction == 1 ? -78 : 78), NPC.Center.Y - 9);
-            StaffPos = new Vector2(NPC.Center.X + (NPC.direction == 1 ? 78 : -78), NPC.Center.Y - 9);
+            WeaponPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
+            StaffPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
             if (Roaring) roarTimer--;
 
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.type == ModContent.NPCType<RajahRabbitA>() && isSupreme == false)
@@ -304,7 +304,6 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     return;
                 }
             }
-
 
             if (player.Center.X < NPC.Center.X)
             {
@@ -414,7 +413,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             if (NPC.target <= 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
-                NPC.TargetClosest(true);
+                NPC.TargetClosest(false);
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -641,9 +640,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     if (CurrentlyHeldProj != null)
                     {
                         CurrentlyHeldProj.Center = NPC.Center + NPC.velocity;
-                        CurrentlyHeldProj.Center += new Vector2(100, -16);
-                        if (NPC.spriteDirection == 1)
-                            CurrentlyHeldProj.Center += new Vector2(-200, 0);
+                        CurrentlyHeldProj.Center += new Vector2(0, -16);
+                        CurrentlyHeldProj.Center += new Vector2(100, 0) * NPC.spriteDirection;
 
                         if (internalAI[1] == 0) // account for anims
                         {
@@ -1107,7 +1105,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 currentHorizFrameOffset += rajahFrameWidth;
             NPC.frame.X = currentHorizFrameOffset;
 
-            NPC.spriteDirection = NPC.direction;
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.spriteDirection = NPC.direction;
+            else
+                NPC.spriteDirection = 1;
         }
 
         public override void OnKill()
