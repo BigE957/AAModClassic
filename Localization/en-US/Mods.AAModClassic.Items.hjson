@@ -9598,10 +9598,12 @@ CursedCompass: {
 		Faint whispers urge you to return to the Sunken Ship
 		Non-consumable
 		'''
+
 	AltText0: {
 		Ready: The compass' arrow spins rapidly, giving off an eerie vibe.
 		Downed: An old, broken compass harboring an eldritch curse.
 	}
+
 	AltText1: Summons the Cosmic Calamity
 }
 
@@ -11612,5 +11614,15 @@ GildedKey: {
 
 DraconainSunHelmet: {
 	DisplayName: Draconain Sun Helmet
+	Tooltip: ""
+}
+
+RealityBar: {
+	DisplayName: Reality Bar
+	Tooltip: ""
+}
+
+RealityAnchor: {
+	DisplayName: Reality Anchor
 	Tooltip: ""
 }

@@ -1239,6 +1239,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
             else if (SupremeRageMode)
             {
+                DrawingUtils.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
                 BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
             }
 
@@ -1271,10 +1272,12 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 //BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
                 spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                BaseDrawing.DrawAura(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
+                DrawingUtils.DrawAura(spriteBatch, Glowmask.Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
+                //BaseDrawing.DrawAura(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
                 //BaseDrawing.DrawTexture(spriteBatch, SupremeGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
                 spriteBatch.Draw(SupremeGlowmask.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                BaseDrawing.DrawAura(spriteBatch, SupremeGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
+                DrawingUtils.DrawAura(spriteBatch, SupremeGlowmask.Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
+                //BaseDrawing.DrawAura(spriteBatch, SupremeGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
                 return false;
             }
             else if (isSupreme)
