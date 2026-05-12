@@ -1,6 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
@@ -51,7 +51,12 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-			BaseDrawing.DrawProjectileSpear(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, null, 0f, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            float offsetX = -texture.Width * 0.5f;
+            Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
+            float offsetY = -Main.player[Projectile.owner].gfxOffY;
+            Vector2 offset = BaseUtility.RotateVector(Projectile.Center, Projectile.Center + new Vector2(Projectile.direction == -1 ? offsetX : offsetY, Projectile.direction == 1 ? offsetX : offsetY), Projectile.rotation - 2.355f) - Projectile.Center;
+            Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition + offset, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, Projectile.rotation, origin, Projectile.scale, Projectile.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 			return false;
 		}
 
