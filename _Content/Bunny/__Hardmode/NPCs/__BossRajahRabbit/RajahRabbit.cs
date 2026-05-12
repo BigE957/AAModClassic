@@ -250,6 +250,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
 
             Player player = Main.player[NPC.target];
+
+            // on player death
             if (NPC.target >= 0 && Main.player[NPC.target].dead)
             {
                 NPC.TargetClosest(true);
@@ -278,6 +280,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
             }
 
+            // on despawn
             if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 10000)
             {
                 NPC.TargetClosest(true);
@@ -436,7 +439,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 {
                     internalAI[3] = 0;
                     NPC.ai[2] = 0;
-                    if (ModSupport.GetMod("ThoriumMod") != null && Main.rand.NextBool(1)) //TODO: change back to 7
+                    if (ModSupport.GetMod("ThoriumMod") != null && Main.rand.NextBool(7))
                     {
                         NPC.ai[3] = 7;
                     }
@@ -1241,8 +1244,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
             else if (SupremeRageMode)
             {
-                DrawingUtils.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
                 //BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
+                DrawingUtils.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
             }
 
             // draw wep
@@ -1250,16 +1253,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && isSupreme)
                 WeaponRectangle.X = WeaponRectangle.Width;
-            spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, WeaponRectangle.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, WeaponRectangle.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             // draw self
             //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, drawColor, true);
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             
             if (NPC.ai[3] == 6) //If Rabbits Wrath
             {
                 //BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
-                spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             }
 
             if (RageMode)
@@ -1267,17 +1270,17 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
                 //BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Color.White, true);
                 //TODO: shader
-                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             }
 
             if (SupremeRageMode)
             {
                 //BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
-                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
                 DrawingUtils.DrawAura(spriteBatch, Glowmask.Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
                 //BaseDrawing.DrawAura(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
                 //BaseDrawing.DrawTexture(spriteBatch, SupremeGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
-                spriteBatch.Draw(SupremeGlowmask.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(SupremeGlowmask.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
                 DrawingUtils.DrawAura(spriteBatch, SupremeGlowmask.Value, NPC, auraPercent, overrideColor: Main.DiscoColor);
                 //BaseDrawing.DrawAura(spriteBatch, SupremeGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
                 return false;
@@ -1285,7 +1288,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             else if (isSupreme)
             {
                 //BaseDrawing.DrawTexture(spriteBatch, SupremeEyes.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
-                spriteBatch.Draw(SupremeEyes.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(SupremeEyes.Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             }
 
             return false;

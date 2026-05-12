@@ -175,7 +175,8 @@ namespace AAModClassic.Utilities
                                 if (slope == -1) { Mtile.IsHalfBlock = true; }
                                 else
                                 { Mtile.Slope = (SlopeType)(slope == -2 ? oldSlope : (byte)slope); }
-                            WorldGen.SquareTileFrame(x, y);
+                            if (WorldGen.InWorld(x, y)) 
+                                WorldGen.SquareTileFrame(x, y);
                         }
                         else
                         {
