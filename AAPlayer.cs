@@ -3982,8 +3982,59 @@ namespace AAModClassic
                     }
                     else if (baseAAItem.glowmaskDrawType == BaseAAItem.GLOWMASKTYPE_GUN)
                     {
-                        BaseDrawing.DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.GlowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
+                        DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.GlowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
                     }
+                }
+            }
+        }
+
+        private static void DrawHeldGun(PlayerDrawSet sb, int shader, Player drawPlayer, Color lightColor = default(Color), float scale = 0f, float xOffset = 0, float yOffset = 0, bool shakeX = false, bool shakeY = false, float shakeScalarX = 1.0f, float shakeScalarY = 1.0f, Rectangle? frame = null, int frameCount = 1, Texture2D overrideTex = null)
+        {
+            if (BaseDrawing.ShouldDrawHeldItem(drawPlayer))
+            {
+                Item item = drawPlayer.inventory[drawPlayer.selectedItem];
+                Texture2D tex = overrideTex != null ? overrideTex : TextureAssets.Item[item.type].Value;
+                int direction = drawPlayer.direction;
+                Vector2 position = drawPlayer.itemLocation;
+                float itemRotation = drawPlayer.itemRotation;
+                float itemScale = scale <= 0f ? item.scale : scale;
+                float gravDir = drawPlayer.gravDir;
+                Color wepColor = item.color;
+
+                if (frame == null)
+                    frame = new Rectangle(0, 0, tex.Width, tex.Height);
+                if (lightColor == default)
+                    lightColor = Lighting.GetColor(position.ToTileCoordinates());
+                SpriteEffects spriteEffect = direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+                if (gravDir == -1f)
+                {
+                    yOffset *= -1;
+                    spriteEffect = spriteEffect | SpriteEffects.FlipVertically;
+                }
+
+                Vector2 texOrigin = new((tex.Width / 2), (float)(tex.Height / 2) / frameCount);
+                yOffset += drawPlayer.gfxOffY;
+
+                Vector2 rotOrigin = new(-(float)xOffset, ((float)(tex.Height / 2) / frameCount) - yOffset);
+                if (direction == -1)
+                {
+                    rotOrigin = new((float)(tex.Width + xOffset), ((float)(tex.Height / 2) / frameCount) - yOffset);
+                }
+                Vector2 pos = new((int)(position.X - Main.screenPosition.X + texOrigin.X), (int)(position.Y - Main.screenPosition.Y + texOrigin.Y));
+
+                if (shakeX)
+                    pos.X += shakeScalarX * (Main.rand.Next(-5, 6) / 9f);
+                if (shakeY)
+                    pos.Y += shakeScalarY * (Main.rand.Next(-5, 6) / 9f);
+
+                DrawData dd = new(tex, pos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
+                dd.shader = shader;
+                sb.DrawDataCache.Add(dd);
+
+                if (wepColor != default)
+                {
+                    dd.shader = shader;
+                    sb.DrawDataCache.Add(dd);
                 }
             }
         }
