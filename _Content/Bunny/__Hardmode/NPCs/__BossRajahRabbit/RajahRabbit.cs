@@ -141,8 +141,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public void Roar(int timer)
         {
             roarTimer = timer;
-            //TODO: fix this
-            //SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
         }
 
         public Vector2 WeaponPos;
