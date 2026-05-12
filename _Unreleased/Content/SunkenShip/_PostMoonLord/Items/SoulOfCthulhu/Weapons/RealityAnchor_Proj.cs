@@ -144,47 +144,16 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             }
         }
 
-        // chain voodoo
         public override bool PreDraw(ref Color lightColor)
-        {
-			
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/AAModClassic/_Unreleased/Projectiles/SoC/Anchor_Chain").Value;
- 
-            Vector2 position = Projectile.Center;
-            Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
-            Rectangle? sourceRectangle = new Rectangle?();
-            Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
-            float num1 = texture.Height;
-            Vector2 vector24 = mountedCenter - position;
-            float rotation = (float)Math.Atan2(vector24.Y, vector24.X) - 1.57f;
-            bool flag = true;
-            if (float.IsNaN(position.X) && float.IsNaN(position.Y))
-                flag = false;
-            if (float.IsNaN(vector24.X) && float.IsNaN(vector24.Y))
-                flag = false;
-            while (flag)
-            {
-                if (vector24.Length() < num1 + 1.0)
-                {
-                    flag = false;
-                }
-                else
-                {
-                    Vector2 vector21 = vector24;
-                    vector21.Normalize();
-                    position += vector21 * num1;
-                    vector24 = mountedCenter - position;
-                    Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = Projectile.GetAlpha(color2);
-                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, color2, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
-                }
-            }
+        {		
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/RealityAnchor_Proj_Chain").Value;
+            BaseDrawing.DrawChain(Main.spriteBatch, texture, Projectile.Center, Main.player[Projectile.owner].MountedCenter);
             return true;
         }
 
         public override void PostDraw(Color lightColor)
         {
-            Texture2D GlowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Anchor_Glow").Value;
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(Main.spriteBatch, GlowTex, 0, Projectile, Color.White);
             BaseDrawing.DrawAfterimage(Main.spriteBatch, GlowTex, 0, Projectile, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
