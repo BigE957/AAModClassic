@@ -1236,6 +1236,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 DrawingUtils.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, NPC, overrideColor: Main.DiscoColor);
                 //BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
             }
+
             if (RageMode)
             {
                 Color RageColor = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Firebrick, drawColor, Color.Firebrick);

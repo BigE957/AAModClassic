@@ -34,6 +34,8 @@ base
 -rajah rabbits weapons no longer lag one frame behind him
 -slightly adjusted the positioning of rajahs held weapons
 -rajahs world-famous thorium exclusive attack, the FIRST ever modded boss attack to be incorporated when another mod is installed, finally functions
+-black hole beater bullets are shot much closer to the muzzle of the gun instead of from the air
+-black hole beater no longer fires one of its bullets without a rotation
 -
 
 removed
@@ -58,7 +60,6 @@ unreleased
 -
 
 unofficial
--unreleased: reworked anubis.
 -unreleased: Infinity Zero has been resprited (credit to Aria) as well as visually overhauled. Oblivion has also been resprited to match.
 -unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
 -subzero serpents biome variant heads have had unique sprites add (other than corruption variant, which already had one)
