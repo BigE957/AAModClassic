@@ -94,12 +94,12 @@ namespace AAModClassic.Utilities
                 offsetY2 = p.gfxOffY;
             }
             Vector2 position = codable.Center + new Vector2(0f, offsetY2);
+            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor(position.ToTileCoordinates());
             Vector2[] positions = (codable is NPC npc ? npc.oldPos : ((Projectile)codable).oldPos);
             if (positions.Length <= 2 || positions[0] == Vector2.Zero)
-                positions = [position, codable.velocity];
-            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor(position.ToTileCoordinates());
-
-            DrawAfterimage(sb, texture, positions, frame, lightColor, scale, [rotation], frame.Size() * 0.5f, spriteDirection == -1 ? SpriteEffects.FlipHorizontally : 0, distanceScalar, sizeScalar);
+                DrawAfterimageWithVelocity(sb, texture, position, codable.velocity, 10, frame, lightColor, scale, [rotation], frame.Size() * 0.5f, spriteDirection == -1 ? SpriteEffects.FlipHorizontally : 0, distanceScalar, sizeScalar);
+            else
+                DrawAfterimage(sb, texture, positions, frame, lightColor, scale, [rotation], frame.Size() * 0.5f, spriteDirection == -1 ? SpriteEffects.FlipHorizontally : 0, distanceScalar, sizeScalar);
         }
 
         public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, float scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
@@ -107,28 +107,29 @@ namespace AAModClassic.Utilities
             Vector2 velAddon = Vector2.Zero;
             Vector2 originalpos = positions[0];
             int imageCount = positions.Length;
-            if (positions.Length <= 2)
-                imageCount = 10;
 
             for (int i = 0; i < imageCount; i++)
             {
                 scale *= sizeScalar;
                 Color newColor = color * ((imageCount + 3 - i) / (float)(imageCount + 9));
-                if (positions.Length > 2)
-                {
-                    Vector2 position = Vector2.Lerp(originalpos, (i >= positions.Length ? positions[positions.Length - 1] : positions[i]), distanceScalar);
-                    float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
-                    sb.Draw(texture, position - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
-                }
-                else
-                {
-                    Vector2 velocity = positions[1];
-                    velAddon += velocity * distanceScalar;
-                    float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
-                    sb.Draw(texture, originalpos - velAddon - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
-                }
+                Vector2 position = Vector2.Lerp(originalpos, (i >= positions.Length ? positions[positions.Length - 1] : positions[i]), distanceScalar);
+                float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
+                sb.Draw(texture, position - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
             }
         }
 
+        public static void DrawAfterimageWithVelocity(this SpriteBatch sb, Texture2D texture, Vector2 position, Vector2 velocity, int imageCount, Rectangle? frame, Color color, float scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
+        {
+            Vector2 velAddon = Vector2.Zero;
+
+            for (int i = 0; i < imageCount; i++)
+            {
+                scale *= sizeScalar;
+                Color newColor = color * ((imageCount + 3 - i) / (float)(imageCount + 9));
+                velAddon += velocity * distanceScalar;
+                float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
+                sb.Draw(texture, position - velAddon - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
+            }
+        }
     }
 }
