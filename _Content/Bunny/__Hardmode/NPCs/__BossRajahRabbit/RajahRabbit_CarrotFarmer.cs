@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
 
 
-            if (rajah.NPC.direction > 0)
+            if (rajah.NPC.spriteDirection > 0)
             {
                 Projectile.rotation += 0.35f;
                 Projectile.spriteDirection = 1;

@@ -1,5 +1,8 @@
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -72,6 +75,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroMask>(), 7));
+
+            itemLoot.Add(unofficialRule);
+
             int[] lootTable =
             {
                 ModContent.ItemType<Genocide>(),
@@ -83,10 +92,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             };
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Infinitium>(), 1, 35, 45));
-            //TODOIZ erm, maskless bozo alert
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
-
         }
     }
 }

@@ -11626,3 +11626,43 @@ RealityAnchor: {
 	DisplayName: Reality Anchor
 	Tooltip: ""
 }
+
+RajahRabbitAMask: {
+	DisplayName: Rajah Rabbit A Mask
+	Tooltip: ""
+}
+
+AsheMask: {
+	DisplayName: Ashe Mask
+	Tooltip: ""
+}
+
+HarukaMask: {
+	DisplayName: Haruka Mask
+	Tooltip: ""
+}
+
+RaiderUltimaMask: {
+	DisplayName: Raider Ultima Mask
+	Tooltip: ""
+}
+
+InfinityZeroMask: {
+	DisplayName: Infinity Zero Mask
+	Tooltip: ""
+}
+
+ZeroAMask: {
+	DisplayName: Zero A Mask
+	Tooltip: ""
+}
+
+SoulOfCthulhuAMask: {
+	DisplayName: Soul Of Cthulhu A Mask
+	Tooltip: ""
+}
+
+SoulOfCthulhuMask: {
+	DisplayName: Soul Of Cthulhu Mask
+	Tooltip: ""
+}

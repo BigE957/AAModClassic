@@ -74,8 +74,8 @@ using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs;
 
 namespace AAModClassic
 {

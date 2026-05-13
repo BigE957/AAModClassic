@@ -2,6 +2,8 @@ using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
+using AAModClassic._Unofficial.Content.Bunny._PostMoonlord.Items._RajahA.BossStandard;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
@@ -43,6 +45,12 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitAMask>(), 7));
+
+            itemLoot.Add(unofficialRule);
+
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitMask>(), 7));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitsCloakOfSupremacy>()));

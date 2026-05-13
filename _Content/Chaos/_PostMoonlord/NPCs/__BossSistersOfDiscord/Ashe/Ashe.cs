@@ -3,9 +3,11 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Boss
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
+using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -573,6 +575,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AsheTrophy>(), 10));
+
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AsheMask>(), 7));
+
+            npcLoot.Add(unofficialRule);
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 

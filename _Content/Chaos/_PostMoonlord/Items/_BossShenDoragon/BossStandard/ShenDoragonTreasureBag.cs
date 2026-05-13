@@ -71,7 +71,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShenDoragonAMask>(), 7));
+            itemLoot.Add(ItemDropRule.OneFromOptions(7, ModContent.ItemType<ShenDoragonMask>(), ModContent.ItemType<ShenDoragonAMask>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosSoul>()));
 
