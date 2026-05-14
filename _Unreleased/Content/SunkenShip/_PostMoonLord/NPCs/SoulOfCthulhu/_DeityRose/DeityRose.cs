@@ -1,6 +1,7 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Music;
 using AAModClassic.Tiles.Altar;
 using Microsoft.Xna.Framework;
 using System;
@@ -40,6 +41,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.npcSlots = 16f;
             NPC.buffImmune[20] = true;
             NPC.alpha = 255;
+            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoC"];
         }
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
