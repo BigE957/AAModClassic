@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 else
                     rajah = null;
             }
-            if (rajah.NPC.ai[3] != 7|| rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
+            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.CarrotFarmer|| rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
                 Projectile.active = false;
 
             if (rajah.NPC.spriteDirection > 0)

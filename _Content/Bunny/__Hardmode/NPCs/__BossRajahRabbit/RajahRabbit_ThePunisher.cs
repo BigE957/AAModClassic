@@ -58,25 +58,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
                 else
                     rajah = null;
             }
-            if (rajah.NPC.ai[3] != 8 || rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
+            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.ThePunisher || rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
                 Projectile.active = false;
 
             Vector2 vector54 = rajah.WeaponPos - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
-            //Main.player[Projectile.owner].itemAnimation = 10;
-            //Main.player[Projectile.owner].itemTime = 10;
             float arg_1C53D_0 = vector54.X;
             if (vector54.X < 0f)
-            {
-                //Main.player[Projectile.owner].ChangeDir(1);
                 Projectile.direction = 1;
-            }
             else
-            {
-                //Main.player[Projectile.owner].ChangeDir(-1);
                 Projectile.direction = -1;
-            }
-            //Main.player[Projectile.owner].itemRotation = (vector54 * -1f * Projectile.direction).ToRotation();
             Projectile.spriteDirection = vector54.X > 0f ? -1 : 1;
             if (Projectile.ai[0] == 0f && vector54.Length() > 400f)
             {
