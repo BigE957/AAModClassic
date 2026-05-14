@@ -36,10 +36,12 @@ base
 -rajahs world-famous thorium exclusive attack, the FIRST ever modded boss attack to be incorporated when another mod is installed, finally functions
 -black hole beater bullets are shot much closer to the muzzle of the gun instead of from the air
 -black hole beater no longer fires one of its bullets without a rotation
--all trophy sprites have been updated to match 1.4.1s trophy resprites. as well, several trophy item or tile sprites have been adjusted to better match the boss you obtain them from or the placed trophy (a notable example of this is zero protocols trophy)
--certain trophies no longer have long horizontal holes in them
+-all trophy sprites have been updated to match 1.4.1s trophy resprites, and to fix sheeting errors. as well, several trophy item or tile sprites have been adjusted to better match the boss you obtain them from or the placed trophy (a notable example of this is zero protocols trophy)
 -the oni akuma and yamata no orochi masks are now obtainable
 -the regular shen doragon mask is now obtainable in expert mode
+-champion rajahs minions are now properly capped
+-rajah rabbit no longer randomly fails to summon minions
+-all of the rajah attacks that were meant to line up with his weapon-holding hand now properly do so
 -
 
 removed

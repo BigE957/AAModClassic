@@ -37,6 +37,22 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
     [AutoloadBossHead]
     public class RajahRabbit : ModNPC
     {
+        public ref float CurrentAttack => ref NPC.ai[3];
+
+        public enum RajahAttacks
+        {
+            Nothing = -1,
+            CottonCane = 0,
+            Bunzooka = 1,
+            RoyalScepter = 2,
+            BaneOfTheBunny = 3,
+            Excalihare = 4,
+            FluffyFury = 5,
+            RabbitsWrath = 6,
+            CarrotFarmer = 7,
+            ThePunisher = 8
+        }
+
         public int damage = 0;
 
         public static string ATexture = ModContent.GetInstance<RajahRabbitA>().Texture;
@@ -126,12 +142,13 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public Projectile CurrentlyHeldProj = null;
         public Vector2 MovePoint;
         public bool SelectPoint = false;
+        public Player TargetPlayer;
 
         /*
          * npc.ai[0] = Jump Timer
          * npc.ai[1] = Ground Minion Alternation
          * npc.ai[2] = Weapon Change timer
-         * npc.ai[3] = Weapon type
+         * CurrentAttack = Weapon type
          */
 
         public int roarTimer = 0;
@@ -145,7 +162,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         }
 
         public Vector2 WeaponPos;
-        public Vector2 StaffPos;
+        public bool DrawCottonCane = false;
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
@@ -201,8 +218,9 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
             AAModGlobalNPC.Rajah = NPC.whoAmI;
             WeaponPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
-            StaffPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
-            if (Roaring) roarTimer--;
+
+            if (Roaring) 
+                roarTimer--;
 
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.type == ModContent.NPCType<RajahRabbitA>() && isSupreme == false)
             {
@@ -212,7 +230,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             if (isSupreme)
             {
-                if (NPC.ai[3] != 0 && !DefenseLine && !NPCExtensions.BeenKilled<RajahRabbitA>() && Main.netMode != NetmodeID.MultiplayerClient)
+                if (CurrentAttack != (float)RajahAttacks.CottonCane && !DefenseLine && !NPCExtensions.BeenKilled<RajahRabbitA>() && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     DefenseLine = true;
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.PowerUp"), Color.MediumPurple);
@@ -248,13 +266,15 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
             }
 
-            Player player = Main.player[NPC.target];
+            if (NPC.target <= 0 || NPC.target == 255 || TargetPlayer.dead)
+                NPC.TargetClosest(false);
+            TargetPlayer = Main.player[NPC.target];
 
             // on player death
-            if (NPC.target >= 0 && Main.player[NPC.target].dead)
+            if (NPC.target >= 0 && TargetPlayer.dead)
             {
                 NPC.TargetClosest(true);
-                if (Main.player[NPC.target].dead)
+                if (TargetPlayer.dead)
                 {
                     if (isSupreme)
                     {
@@ -280,10 +300,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
 
             // on despawn
-            if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 10000)
+            if (Math.Abs(NPC.Center.X - TargetPlayer.Center.X) + Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 10000)
             {
                 NPC.TargetClosest(true);
-                if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 10000)
+                if (Math.Abs(NPC.Center.X - TargetPlayer.Center.X) + Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 10000)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Despawn"), 107, 137, 179);
                     if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -304,18 +324,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
             }
 
-            if (player.Center.X < NPC.Center.X)
-            {
+            if (TargetPlayer.Center.X < NPC.Center.X)
                 NPC.direction = 1;
-            }
             else
-            {
                 NPC.direction = -1;
-            }
 
             if (internalAI[4] == 0)
             {
-                if(player.Center.Y + player.height / 2 < NPC.Center.Y + NPC.height / 2 - 30f || Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 2000 || isDashing)
+                if(TargetPlayer.Center.Y + TargetPlayer.height / 2 < NPC.Center.Y + NPC.height / 2 - 30f || Math.Abs(NPC.Center.X - TargetPlayer.Center.X) + Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 2000 || isDashing)
                 {
                     NPC.noTileCollide = true;
                     NPC.noGravity = true;
@@ -336,7 +352,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC.noTileCollide = true;
                 NPC.noGravity = true;
                 isDashing = false;
-                if (player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
+                if (TargetPlayer.Center.Y + TargetPlayer.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
                 {
                     if(NPC.collideY && NPC.velocity.Y > 0)
                     {
@@ -361,7 +377,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     NPC.netUpdate = true;
                     return;
                 }
-                if(Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 1000)
+                if(Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 1000)
                 {
                     NPC.noTileCollide = true;
                     NPC.noGravity = true;
@@ -374,7 +390,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC.noTileCollide = true;
                 NPC.noGravity = true;
                 FlyAI();
-                if(Math.Abs(NPC.Center.X - player.Center.X) < 50f && player.position.Y > NPC.Center.Y + NPC.height / 2)
+                if(Math.Abs(NPC.Center.X - TargetPlayer.Center.X) < 50f && TargetPlayer.Center.Y > NPC.Center.Y + NPC.height / 2)
                 {
                     internalAI[4] = 3f;
                     NPC.netUpdate = true;
@@ -385,13 +401,13 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC.noTileCollide = true;
                 NPC.noGravity = true;
                 isDashing = true;
-                if(player.velocity.X == 0)
+                if(TargetPlayer.velocity.X == 0)
                 {
-                    NPC.velocity = (player.Center - NPC.Center) * .06f;
+                    NPC.velocity = (TargetPlayer.Center - NPC.Center) * .06f;
                 }
                 else
                 {
-                    NPC.velocity = (player.Center + new Vector2(100f * (player.velocity.X > 0? 1 : -1), 0) - NPC.Center) * .06f;
+                    NPC.velocity = (TargetPlayer.Center + new Vector2(100f * (TargetPlayer.velocity.X > 0? 1 : -1), 0) - NPC.Center) * .06f;
                 }
                 NPC.velocity = Vector2.Normalize(NPC.velocity) * 26f;
                 if(NPC.velocity.X > 10f) NPC.velocity.X = 10f;
@@ -403,16 +419,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC.noTileCollide = true;
                 NPC.noGravity = false;
                 isDashing = false;
-                if (player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
+                if (TargetPlayer.Center.Y + TargetPlayer.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
                 {
                     internalAI[0] = 0f;
                     internalAI[4] = 1f;
                 }
-            }
-
-            if (NPC.target <= 0 || NPC.target == 255 || Main.player[NPC.target].dead)
-            {
-                NPC.TargetClosest(false);
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -420,14 +431,49 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC.ai[2]++;
                 internalAI[3]++;
             }
+
+            WeaponPos = NPC.Center + NPC.velocity;
+            WeaponPos += new Vector2(0, -16);
+            WeaponPos += new Vector2(100, 0) * NPC.spriteDirection;
+            if (internalAI[1] == 0) // account for anims
+                WeaponPos.Y -= 26;
+            else
+            {
+                switch (NPC.frame.Y)
+                {
+                    case 0:
+                        break;
+                    case 220:
+                        WeaponPos.Y += 2;
+                        break;
+                    case 220 * 2:
+                        WeaponPos.Y += 6;
+                        break;
+                    case 220 * 3:
+                        break;
+                    case 220 * 4:
+                        WeaponPos.Y -= 20;
+                        break;
+                    case 220 * 5:
+                        WeaponPos.Y -= 26;
+                        break;
+                    case 220 * 6:
+                        WeaponPos.Y -= 22;
+                        break;
+                    case 220 * 7:
+                        WeaponPos.Y += 8;
+                        break;
+                }
+            }
+
             if (NPC.ai[2] >= 500)
             {
                 internalAI[3] = 0;
                 NPC.ai[2] = 0;
-                NPC.ai[3] = 0;
+                CurrentAttack = (float)RajahAttacks.CottonCane;
                 NPC.netUpdate = true;
             }
-            else if (NPC.ai[3] == 0 && NPC.ai[2] >= ChangeRate())
+            else if (CurrentAttack == (float)RajahAttacks.CottonCane && NPC.ai[2] >= ChangeRate())
             {
                 if (Main.rand.NextBool(5))
                 {
@@ -437,101 +483,122 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 {
                     internalAI[3] = 0;
                     NPC.ai[2] = 0;
-                    if (ModSupport.GetMod("ThoriumMod") != null && Main.rand.NextBool(7))
+
+                    List<RajahAttacks> elegibleAttacks =
+                    [
+                        RajahAttacks.Bunzooka,
+                        RajahAttacks.RoyalScepter,
+                        RajahAttacks.BaneOfTheBunny
+                    ];
+
+                    if (isSupreme)
                     {
-                        NPC.ai[3] = 7;
+                        elegibleAttacks.Add(RajahAttacks.Excalihare);
+                        elegibleAttacks.Add(RajahAttacks.FluffyFury);
+                        elegibleAttacks.Add(RajahAttacks.RabbitsWrath);
                     }
-                    else
-                    {
-                        if (isSupreme)
-                        {
-                            NPC.ai[3] = Main.rand.Next(7);
-                        }
-                        else
-                        {
-                            NPC.ai[3] = Main.rand.Next(4);
-                        }
-                    }
+                    if (ModSupport.GetMod("ThoriumMod") != null)
+                        elegibleAttacks.Add(RajahAttacks.CarrotFarmer);
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        elegibleAttacks.Add(RajahAttacks.ThePunisher);
+
+                    CurrentAttack = (float)elegibleAttacks[Main.rand.Next(elegibleAttacks.Count)];
+
+                    if (CurrentlyHeldProj != null)
+                        CurrentlyHeldProj.active = false;
+                    CurrentlyHeldProj = null;
                 }
                 NPC.netUpdate = true;
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (NPC.ai[3] == 0) //Minion Phase
+                if (CurrentAttack == (float)RajahAttacks.CottonCane) 
                 {
+                    // this kind of sucks but we cant use changeRateMinusOne = ChangeRate() - (ChangeRate() % 80) bcuz then the top instance will be 0 and nothing will be subtracted 
+                    int changeRateMinusOne = ChangeRate() - 80;
+                    if (isSupreme)
+                        changeRateMinusOne = ChangeRate() - 40;
+
+                    if ((internalAI[1] == 0 || NPC.ai[1] == 0) && NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + NPC.CountNPCS(ModContent.NPCType<SupremeRabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) >= 5)
+                        DrawCottonCane = false;
+                    else if (NPC.ai[1] == 1 && NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + NPC.CountNPCS(ModContent.NPCType<SupremeBunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>()) >= 5)
+                        DrawCottonCane = false;
+                    else if (NPC.ai[1] == 2 && NPC.CountNPCS(ModContent.NPCType<RabidRabbit>()) + NPC.CountNPCS(ModContent.NPCType<SupremeRabidRabbit>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>()) >= 8)
+                        DrawCottonCane = false;
+                    else if (NPC.ai[2] > changeRateMinusOne)
+                        DrawCottonCane = false;
+                    else
+                        DrawCottonCane = true;
+
                     if (internalAI[3] >= 80)
                     {
                         internalAI[3] = 0;
                         if (internalAI[1] == 0)
                         {
-                            if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) < 5)
+                            if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + NPC.CountNPCS(ModContent.NPCType<SupremeRabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) < 5)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                             }
                             NPC.netUpdate = true;
                         }
                         else
                         {
-                            if (NPC.ai[1] > 2)
-                            {
-                                NPC.ai[1] = 0;
-                            }
                             if (NPC.ai[1] == 0)
                             {
-                                if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) < 5)
+                                if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + NPC.CountNPCS(ModContent.NPCType<SupremeRabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>()) < 5)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_RabbitcopterSoldierSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             else if (NPC.ai[1] == 1)
                             {
-                                if (NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>()) < 5)
+                                if (NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + NPC.CountNPCS(ModContent.NPCType<SupremeBunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>()) < 5)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBrawlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             else if (NPC.ai[1] == 2)
                             {
-                                if (NPC.CountNPCS(ModContent.NPCType<RabidRabbit>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>()) < 8)
+                                if (NPC.CountNPCS(ModContent.NPCType<RabidRabbit>()) + NPC.CountNPCS(ModContent.NPCType<SupremeRabidRabbit>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>()) < 8)
                                 {
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_BunnyBattlerSummon>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
+
                             NPC.ai[1] += 1;
+                            if (NPC.ai[1] > 2)
+                                NPC.ai[1] = 0;
                             NPC.netUpdate = true;
                         }
                     }
                 }
-                else if (NPC.ai[3] == 1) //Bunzooka
+                else if (CurrentAttack == (float)RajahAttacks.Bunzooka)
                 {
                     if (internalAI[3] > 40)
                     {
                         internalAI[3] = 0;
                         int Rocket = isSupreme ? ModContent.ProjectileType<RajahRabbitA_RajahRocket>() : ModContent.ProjectileType<RajahRabbit_RajahRocket>();
-                        Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
+                        Vector2 dir = Vector2.Normalize(TargetPlayer.Center - WeaponPos);
                         dir *= ProjSpeed();
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Rocket, damage, 5, Main.myPlayer);
                         NPC.netUpdate = true;
                     }
                 }
-                else if (NPC.ai[3] == 2) //Royal Scepter
+                else if (CurrentAttack == (float)RajahAttacks.RoyalScepter)
                 {
                     int carrots = isSupreme ? 5 : 3;
                     int carrotType = isSupreme ? ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>() : ModContent.ProjectileType<RajahRabbit_Carrot>();
                     float spread = 45f * 0.0174f * .5f;
-                    Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
+                    Vector2 dir = Vector2.Normalize(TargetPlayer.Center - WeaponPos);
                     dir *= ProjSpeed() + (isSupreme? 3 : 1);
                     float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                     double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -547,13 +614,13 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         NPC.netUpdate = true;
                     }
                 }
-                else if (NPC.ai[3] == 3) //Javelin
+                else if (CurrentAttack == (float)RajahAttacks.BaneOfTheBunny)
                 {
                     int Javelin = isSupreme ? ModContent.ProjectileType<RajahRabbitA_BaneOfTheSlaughterer>() : ModContent.ProjectileType<RajahRabbit_BaneOfTheBunny>();
                     if (internalAI[3] == (isSupreme ? 40 : 60))
                     {
-                        float time = (player.Center - WeaponPos).Length() / ProjSpeed();
-                        Vector2 dir = Vector2.Normalize(player.Center + (isSupreme? player.velocity * time : Vector2.Zero) - WeaponPos);
+                        float time = (TargetPlayer.Center - WeaponPos).Length() / ProjSpeed();
+                        Vector2 dir = Vector2.Normalize(TargetPlayer.Center + (isSupreme? TargetPlayer.velocity * time : Vector2.Zero) - WeaponPos);
                         dir *= ProjSpeed();
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Javelin, damage, 5, Main.myPlayer);
                     }
@@ -563,23 +630,23 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     }
                     NPC.netUpdate = true;
                 }
-                else if (NPC.ai[3] == 4) //Excalihare
+                else if (CurrentAttack == (float)RajahAttacks.Excalihare)
                 {
                     if (internalAI[3] > 20)
                     {
                         internalAI[3] = 0;
-                        Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
+                        Vector2 dir = Vector2.Normalize(TargetPlayer.Center - WeaponPos);
                         dir *= ProjSpeed() + 3f;
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, ModContent.ProjectileType<RajahRabbitA_Excalihare>(), damage, 5, Main.myPlayer);
                         NPC.netUpdate = true;
                     }
                 }
-                else if (NPC.ai[3] == 5) //Fluffy Fury
+                else if (CurrentAttack == (float)RajahAttacks.FluffyFury)
                 {
                     int Arrows = Main.rand.Next(2, 4);
                     float spread = 45f * 0.0174f * .3f;
-                    float time = (player.Center - WeaponPos).Length() / ProjSpeed();
-                    Vector2 dir = Vector2.Normalize(player.Center + (isSupreme? player.velocity * time : Vector2.Zero) - WeaponPos);
+                    float time = (TargetPlayer.Center - WeaponPos).Length() / ProjSpeed();
+                    Vector2 dir = Vector2.Normalize(TargetPlayer.Center + (isSupreme? TargetPlayer.velocity * time : Vector2.Zero) - WeaponPos);
                     dir *= ProjSpeed() + (isSupreme? 3 : 1);
                     float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                     double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -596,16 +663,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         NPC.netUpdate = true;
                     }
                 }
-                else if (NPC.ai[3] == 6) //Rabbits Wrath
+                else if (CurrentAttack == (float)RajahAttacks.RabbitsWrath)
                 {
                     if (internalAI[3] > 5)
                     {
                         internalAI[3] = 0;
-                        Vector2 vector12 = new Vector2(player.Center.X, player.Center.Y);
+                        Vector2 vector12 = new Vector2(TargetPlayer.Center.X, TargetPlayer.Center.Y);
                         float num75 = 14f;
                         for (int num120 = 0; num120 < 3; num120++)
                         {
-                            Vector2 vector2 = player.Center + new Vector2(-(float)Main.rand.Next(0, 401) * player.direction, -600f);
+                            Vector2 vector2 = TargetPlayer.Center + new Vector2(-(float)Main.rand.Next(0, 401) * TargetPlayer.direction, -600f);
                             vector2.Y -= 120 * num120;
                             Vector2 vector13 = vector12 - vector2;
                             if (vector13.Y < 0f)
@@ -628,57 +695,28 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         NPC.netUpdate = true;
                     }
                 }
-                else if (NPC.ai[3] == 7) //Carrot Farmer
+                else if (CurrentAttack == (float)RajahAttacks.CarrotFarmer) 
                 {
-                    if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<RajahRabbit_CarrotFarmer>()))
+                    if (CurrentlyHeldProj == null || CurrentlyHeldProj.active == false)
                     {
-                        CurrentlyHeldProj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_CarrotFarmer>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
+                        CurrentlyHeldProj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), WeaponPos, Vector2.Zero, ModContent.ProjectileType<RajahRabbit_CarrotFarmer>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
                         NPC.netUpdate = true;
                     }
 
                     if (CurrentlyHeldProj != null)
                     {
-                        CurrentlyHeldProj.Center = NPC.Center + NPC.velocity;
-                        CurrentlyHeldProj.Center += new Vector2(0, -16);
-                        CurrentlyHeldProj.Center += new Vector2(100, 0) * NPC.spriteDirection;
-
-                        if (internalAI[1] == 0) // account for anims
-                        {
-                            CurrentlyHeldProj.position.Y -= 26;
-                        }
-                        else if (NPC.ai[0] == 0f)
-                        {
-                            switch (NPC.frame.Y)
-                            {
-                                case 0:
-                                    break;
-                                case 220:
-                                    CurrentlyHeldProj.position.Y += 2;
-                                    break;
-                                case 220 * 2:
-                                    CurrentlyHeldProj.position.Y += 6;
-                                    break;
-                                case 220 * 3:
-                                    break;
-                                case 220 * 4:
-                                    CurrentlyHeldProj.position.Y -= 20;
-                                    break;
-                                case 220 * 5:
-                                    CurrentlyHeldProj.position.Y -= 26;
-                                    break;
-                                case 220 * 6:
-                                    CurrentlyHeldProj.position.Y -= 22;
-                                    break;
-                                case 220 * 7:
-                                    CurrentlyHeldProj.position.Y += 8;
-                                    break;
-                            }
-                        }
+                        CurrentlyHeldProj.Center = WeaponPos;
                     }
                 }
-                else // clear everything when not attacking
+                else if (CurrentAttack == (float)RajahAttacks.ThePunisher)
                 {
-                    CurrentlyHeldProj = null;
+                    if (CurrentlyHeldProj == null || CurrentlyHeldProj.active == false)
+                    {
+                        float knockBack = isSupreme == true ? 7f : 6.5f;
+                        int type = isSupreme == true ? ModContent.ProjectileType<RajahRabbitA_TheAvenger>() : ModContent.ProjectileType<RajahRabbit_ThePunisher>();
+                        CurrentlyHeldProj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), WeaponPos, WeaponPos.DirectionTo(TargetPlayer.Center) * 15, type, damage, knockBack, Main.myPlayer, 0, 0, NPC.whoAmI);
+                        NPC.netUpdate = true;
+                    }
                 }
             }
 
@@ -774,7 +812,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                             internalAI[2] += 2;
                         }
                     }
-                    if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) > 800f)
+                    if (Math.Abs(NPC.Center.X - TargetPlayer.Center.X) > 800f)
                     {
                         internalAI[2] = -1f;
                     }
@@ -785,7 +823,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     else if (internalAI[2] == -1f)
                     {
                         NPC.TargetClosest(true);
-                        float longth = Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X);
+                        float longth = Math.Abs(NPC.Center.X - TargetPlayer.Center.X);
                         NPC.velocity.X = (6 + longth * .01f) * NPC.direction;
                         NPC.velocity.Y = -12.1f;
                         NPC.ai[0] = 1f;
@@ -814,7 +852,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 else
                 {
                     NPC.TargetClosest(true);
-                    if (NPC.position.X < Main.player[NPC.target].position.X && NPC.position.X + NPC.width > Main.player[NPC.target].position.X + Main.player[NPC.target].width)
+                    if (NPC.position.X < TargetPlayer.position.X && NPC.position.X + NPC.width > TargetPlayer.position.X + TargetPlayer.width)
                     {
                         NPC.velocity.X = NPC.velocity.X * 0.9f;
                         NPC.velocity.Y = NPC.velocity.Y + 0.4f;
@@ -823,12 +861,12 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     {
                         
                         float num626 = 3f;
-                        float longth = Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X);
+                        float longth = Math.Abs(NPC.Center.X - TargetPlayer.Center.X);
                         num626 = 3f + longth * .056f;
                         
-                        if (Main.player[NPC.target].velocity.X != 0)
+                        if (TargetPlayer.velocity.X != 0)
                         {
-                            num626 += Math.Abs(Main.player[NPC.target].velocity.X);
+                            num626 += Math.Abs(TargetPlayer.velocity.X);
                         }
 
                         if (NPC.direction < 0)
@@ -851,15 +889,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     }
                 }
 
-                Player player = Main.player[NPC.target];
-                if(player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f && NPC.velocity.Y > 0)
+                if(TargetPlayer.Center.Y + TargetPlayer.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f && NPC.velocity.Y > 0)
                 {
                     internalAI[4] = 4f;
                     NPC.ai[0] = 0;
                     NPC.netUpdate = true;
                     return;
                 }
-                else if(Math.Abs(NPC.Center.X - player.Center.X) < 50f && player.position.Y > NPC.Center.Y + NPC.height / 2)
+                else if(Math.Abs(NPC.Center.X - TargetPlayer.Center.X) < 50f && TargetPlayer.Center.Y > NPC.Center.Y + NPC.height / 2)
                 {
                     internalAI[4] = 3f;
                     NPC.ai[0] = 0;
@@ -875,7 +912,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             float speed = 14f;
             if (isSupreme)
             {
-                if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 1000)
+                if (Math.Abs(NPC.Center.X - TargetPlayer.Center.X) + Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 1000)
                 {
                     speed = 50f;
                     isDashing = true;
@@ -910,20 +947,20 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 speed = 20f;
             }
-            AISpaceOctopus(NPC, Main.player[NPC.target].Center, .35f, speed, 300);
+            AISpaceOctopus(NPC, TargetPlayer.Center, .35f, speed, 300);
             internalAI[1] = 0;
         }
 
-        public static void AISpaceOctopus(NPC npc, Vector2 targetCenter = default, float moveSpeed = 0.15f, float velMax = 5f, float hoverDistance = 250f)
+        public void AISpaceOctopus(NPC npc, Vector2 targetCenter = default, float moveSpeed = 0.15f, float velMax = 5f, float hoverDistance = 250f)
 		{
             float pos = 200f;
-            if(Main.player[npc.target].velocity.X == 0)
+            if(TargetPlayer.velocity.X == 0)
             {
                 pos = 0;
             }
             else
             {
-                pos = (Main.player[npc.target].velocity.X > 0? 1f: -1f) * 200f;
+                pos = (TargetPlayer.velocity.X > 0? 1f: -1f) * 200f;
             }
 			Vector2 wantedVelocity = targetCenter - npc.Center + new Vector2(pos, -hoverDistance);
 			float dist = (float)Math.Sqrt(wantedVelocity.X * wantedVelocity.X + wantedVelocity.Y * wantedVelocity.Y);
@@ -1187,31 +1224,31 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public Asset<Texture2D> WeaponTexture()
         {
-            if (NPC.ai[3] == 1) //Bunzooka
+            if (CurrentAttack == (float)RajahAttacks.Bunzooka)
             {
                 return Arms_Bunzooka;
             }
-            else if (NPC.ai[3] == 2) //Scepter
+            else if (CurrentAttack == (float)RajahAttacks.RoyalScepter)
             {
                 return Arms_RoyalScepter;
             }
-            else if (NPC.ai[3] == 3 && internalAI[3] <= (isSupreme ? 40 : 60)) //Javelin
+            else if (CurrentAttack == (float)RajahAttacks.BaneOfTheBunny && internalAI[3] <= (isSupreme ? 40 : 60))
             {
                 return Arms_BaneOfTheBunny;
             }
-            else if (NPC.ai[3] == 4) //Excalihare
+            else if (CurrentAttack == (float)RajahAttacks.Excalihare)
             {
                 return Arms_Excalihare;
             }
-            else if (NPC.ai[3] == 5) //Fluffy Fury
+            else if (CurrentAttack == (float)RajahAttacks.FluffyFury)
             {
                 return Arms_FluffyFury;
             }
-            else if (NPC.ai[3] == 6) //Rabbits Wrath
+            else if (CurrentAttack == (float)RajahAttacks.RabbitsWrath)
             {
                 return Arms_RabbitsWrath;
             }
-            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[3] == 0) // cotton cane
+            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && CurrentAttack == (float)RajahAttacks.CottonCane && DrawCottonCane)
             {
                 return Arms_CottonCane;
             }
@@ -1260,7 +1297,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, drawColor, true);
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
             
-            if (NPC.ai[3] == 6) //If Rabbits Wrath
+            if (CurrentAttack == (float)RajahAttacks.RabbitsWrath) //If Rabbits Wrath
             {
                 //BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
                 spriteBatch.Draw(ArmTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);

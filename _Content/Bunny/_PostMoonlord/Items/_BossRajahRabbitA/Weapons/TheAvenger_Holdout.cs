@@ -1,7 +1,8 @@
-using System;
 using AAModClassic._Content.Bunny.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -11,10 +12,14 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
 {
     public class TheAvenger_Holdout : ModProjectile
     {
-		public override void SetStaticDefaults()
+        public static Asset<Texture2D> Chain;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("The Avenger");
-		}
+            // DisplayName.SetDefault("The Avenger");
+
+            Chain = ModContent.Request<Texture2D>(Texture + "_Chain");
+        }
         public override void SetDefaults()
         {
             Projectile.width = 26;
@@ -113,7 +118,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/PunisherEX_Chain").Value;
+            Texture2D texture = Chain.Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

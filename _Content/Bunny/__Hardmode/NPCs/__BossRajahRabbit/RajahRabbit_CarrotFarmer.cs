@@ -44,23 +44,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 NPC npcBody = Main.npc[(int)Projectile.ai[0]];
                 if (npcBody.type == ModContent.NPCType<RajahRabbit>())
-                {
                     rajah = npcBody.ModNPC as RajahRabbit;
-                }
                 else if (npcBody.type == ModContent.NPCType<RajahRabbitA>())
-                {
                     rajah = npcBody.ModNPC as RajahRabbit;
-                }
+                else
+                    rajah = null;
             }
-            if (rajah == null)
-                return;
-
-            if (!rajah.NPC.active || rajah.NPC.life <= 0 || rajah.NPC.ai[3] != 7)
-            {
-                Projectile.Kill();
-            }
-
-
+            if (rajah.NPC.ai[3] != 7|| rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
+                Projectile.active = false;
 
             if (rajah.NPC.spriteDirection > 0)
             {
