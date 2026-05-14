@@ -167,9 +167,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
         public static SpriteEffects SpriteEffectDirection(this NPC npc, bool flip = false) 
         {
             if (flip)
-                return npc.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            else
                 return npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            else
+                return npc.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }
     }
 }

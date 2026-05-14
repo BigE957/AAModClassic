@@ -1,12 +1,15 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
@@ -61,9 +64,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             double rotationA = -0.15;
             for (int i = 0; i < Main.rand.Next(2, 4); i++)
             {
-                Vector2 vector = velocity.RotatedBy(rotationA, default);
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + vector.X * 4.8f - 0.2f * vector.Y, position.Y + vector.Y * 4.8f + 0.2f * vector.X, vector.X, vector.Y, ModContent.ProjectileType<BlackHoleBlaster_RedBullet>(), damage, knockback, player.whoAmI, 0f, 0f);
                 rotationA += Main.rand.NextFloat(0.02f, 0.1f);
+                Vector2 vector = velocity.RotatedBy(rotationA, default);
+                float randomArbitraryOffset = 2.8f;
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + vector.X * randomArbitraryOffset - 0.2f * vector.Y, position.Y + vector.Y * randomArbitraryOffset + 0.2f * vector.X, vector.X, vector.Y, ModContent.ProjectileType<BlackHoleBlaster_RedBullet>(), damage, knockback, player.whoAmI, 0f, 0f);
             }
             if (cooldown == 10)
             {

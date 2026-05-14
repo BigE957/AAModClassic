@@ -1,7 +1,9 @@
 using System;
 using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -11,10 +13,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 {
     public class ThePunisher_Holdout : ModProjectile
     {
+        public static Asset<Texture2D> Chain;
+
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("The Punisher");
-		}
+
+            Chain = ModContent.Request<Texture2D>(Texture + "_Chain");
+        }
         public override void SetDefaults()
         {
             Projectile.width = 26;
@@ -122,8 +128,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/Punisher_Chain").Value;
- 
+            Texture2D texture = Chain.Value;
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
             Rectangle? sourceRectangle = new Rectangle?();
@@ -151,6 +156,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
             }
+            
             return true;
         }
     }

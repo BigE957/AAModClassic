@@ -43,6 +43,7 @@ namespace AAModClassic.Utilities
             velocity = new Vector2(vxi, -initialYVelocity);
             return true;
         }
+
         public static float CircOutEasing(float amount) => (float)Math.Sqrt(1.0 - Math.Pow(amount - 1f, 2.0));
 
         public static float ExpInEasing(float amount)

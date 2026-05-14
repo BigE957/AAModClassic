@@ -1,3 +1,5 @@
+using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
@@ -10,6 +12,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -108,6 +111,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuMask>(), 7));
+
+            npcLoot.Add(unofficialRule);
+
             int[] lootTable =
             {
                 ModContent.ItemType<RealityAnchor>(),

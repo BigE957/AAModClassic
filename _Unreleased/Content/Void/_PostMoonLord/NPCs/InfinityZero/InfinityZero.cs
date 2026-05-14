@@ -1,5 +1,7 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -10,6 +12,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -269,6 +272,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             };
 
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<InfinityZeroTreasureBag>()));
+
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroMask>(), 7));
+
+            npcLoot.Add(unofficialRule);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

@@ -81,7 +81,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AkumaMask>(), 7));
+            itemLoot.Add(ItemDropRule.OneFromOptions(7, ModContent.ItemType<AkumaMask>(), ModContent.ItemType<AkumaAMask>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrucibleScale>(), 1, 30, 40));
 

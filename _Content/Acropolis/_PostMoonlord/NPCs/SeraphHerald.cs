@@ -1,3 +1,4 @@
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic.Base.BaseMod.Base;
@@ -10,7 +11,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
+namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
 {
     public class SeraphHerald : ModNPC
 	{

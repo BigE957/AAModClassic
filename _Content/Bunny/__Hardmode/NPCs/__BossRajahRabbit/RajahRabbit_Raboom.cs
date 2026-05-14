@@ -1,3 +1,4 @@
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -16,6 +17,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             Projectile.width = 98;
             Projectile.height = 98;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                Projectile.width = 52;
+                Projectile.height = 52;
+            }
             Projectile.penetrate = -1;
             Projectile.friendly = false;
             Projectile.hostile = true;

@@ -1,6 +1,8 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -112,6 +114,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<AsheMask>(), ModContent.ItemType<HarukaMask>()));
+
+            itemLoot.Add(unofficialRule);
+
             int[] lootTableA = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsBag>() };
             int[] lootTableH = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinBag>() };
 

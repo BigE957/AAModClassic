@@ -34,6 +34,14 @@ base
 -rajah rabbits weapons no longer lag one frame behind him
 -slightly adjusted the positioning of rajahs held weapons
 -rajahs world-famous thorium exclusive attack, the FIRST ever modded boss attack to be incorporated when another mod is installed, finally functions
+-black hole beater bullets are shot much closer to the muzzle of the gun instead of from the air
+-black hole beater no longer fires one of its bullets without a rotation
+-all trophy sprites have been updated to match 1.4.1s trophy resprites, and to fix sheeting errors. as well, several trophy item or tile sprites have been adjusted to better match the boss you obtain them from or the placed trophy (a notable example of this is zero protocols trophy)
+-the oni akuma and yamata no orochi masks are now obtainable
+-the regular shen doragon mask is now obtainable in expert mode
+-champion rajahs minions are now properly capped
+-rajah rabbit no longer randomly fails to summon minions
+-all of the rajah attacks that were meant to line up with his weapon-holding hand now properly do so
 -
 
 removed
@@ -52,13 +60,12 @@ unreleased
 -added the soul of cthulhu with all of their created drops
 -added the lost keep, with a new miniboss: biolite core
 --note: all of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
--added the lost ship. not to be confused with the lost sea, this ship is located inside one of the oceans
+-added the lost ship. not to be confused with the lost sea, this ship is located at the jungle-side ocean
 -finished constructing the pit. no other pit content has been added, as none was ever completed
 -after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
 -
 
 unofficial
--unreleased: reworked anubis.
 -unreleased: Infinity Zero has been resprited (credit to Aria) as well as visually overhauled. Oblivion has also been resprited to match.
 -unreleased: oblivion has special dialogue which can randomly occur after four kills, as well as knowing the player a little more personally in his first kill dialogue
 -subzero serpents biome variant heads have had unique sprites add (other than corruption variant, which already had one)
@@ -68,8 +75,11 @@ unofficial
 -the legendscribe is now much larger, and now boasts a custom ui instead of janky town npc options
 -rajah rabbit has recived some tweaks and fixes
 --rajah rabbit now holds the cotton cane when summoning minions
+--rajah rabbit no longer swaps which hands he holds his weapons with when changing directions because thats weird 
 --champion rajah now holds out the equivalent ex weapon for weapons he used in his original fight
 --champion rajahs trail when stomping now lasts the duration of the stomp instead of for one frame at the start of it
+-added boss masks for ashe, haruka, champ rajah, and zero protocol
+-unreleased: added boss masks for infinity zero, soul of cthulhu, and cosmic calamity
 -
 
 crossmod

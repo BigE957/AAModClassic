@@ -56,7 +56,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<YamataMask>(), 7));
+            itemLoot.Add(ItemDropRule.OneFromOptions(7, ModContent.ItemType<YamataMask>(), ModContent.ItemType<YamataAMask>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DreadScale>(), 1, 30, 40));
 
