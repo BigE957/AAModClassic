@@ -7,6 +7,7 @@ using System.IO;
 using Terraria.ID;
 using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
@@ -51,6 +52,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             //TODO
             //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
             //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            Music = MusicManagementSystem.MusicSlots["Siege"];
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
             NPC.boss = false;

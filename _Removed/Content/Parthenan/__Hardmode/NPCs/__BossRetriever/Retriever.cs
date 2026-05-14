@@ -3,6 +3,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -53,7 +54,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
             NPC.netAlways = true;
             //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("RetrieverBag").Type;
-            //Music = Mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Siege");
+            Music = MusicManagementSystem.MusicSlots["Siege"];
         }
 
         public float[] customAI = new float[3];

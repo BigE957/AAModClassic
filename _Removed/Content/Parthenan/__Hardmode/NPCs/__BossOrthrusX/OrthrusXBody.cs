@@ -4,6 +4,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Pets;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -89,8 +90,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.frame = BaseDrawing.GetFrame(frameCount, fWidth, fHeight, 0, 2);
             //bossBag = mod.ItemType("OrthrusBag");
             NPC.noTileCollide = false;
-            //TODO
-            //music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Siege");
+            Music = MusicManagementSystem.MusicSlots["Siege"];
         }
 
         public override void BossLoot(ref string name, ref int potionType)
