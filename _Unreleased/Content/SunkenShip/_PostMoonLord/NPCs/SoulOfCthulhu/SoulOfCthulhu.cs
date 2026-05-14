@@ -1,4 +1,3 @@
-using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
@@ -11,8 +10,9 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.Utilities;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -53,6 +53,120 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noGravity = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
+
+            if(!Main.dedServ)
+            {
+                Vector2 start = NPC.Center + new Vector2(14, 35).RotatedBy(Rotation);
+                int count = 12;
+                BigVine = VerletIntegration.CreateVerletChain(start, start + Vector2.UnitY * count * 6, count, 6);
+                
+                start = NPC.Center + new Vector2(-16, 36).RotatedBy(Rotation);
+                SmallVines = new VerletObject[5];
+                for (int i = 0; i < SmallVines.Length; i++)
+                {
+                    count = Main.rand.Next(5, 8);
+                    Vector2 myStart = start + Vector2.One * -4 * i;
+                    SmallVines[i] = VerletIntegration.CreateVerletChain(myStart, myStart + Vector2.UnitY * count * 6, count, 6);
+                }
+
+                BackVines = new VerletObject[8];
+                BackVineAngleOffsets = new float[8];
+
+                for (int i = 0; i < BackVines.Length; i++)
+                {
+                    count = Main.rand.Next(4, 7);
+                    BackVineAngleOffsets[i] = Main.rand.NextFloat(MathHelper.Pi / 16f - 0.05f, MathHelper.Pi / 16f + 0.05f);
+                    Vector2 myStart = NPC.Center + Vector2.UnitX.RotatedBy(Rotation + (MathHelper.TwoPi / BackVines.Length * i) + BackVineAngleOffsets[i]) * 44;
+                    BackVines[i] = VerletIntegration.CreateVerletChain(myStart, myStart + Vector2.UnitY * count * 6, count, 6);
+                }
+            }
+        }
+
+        private VerletObject BigVine = null;
+        private VerletObject[] SmallVines = null;
+        private VerletObject[] BackVines = null;
+        private float[] BackVineAngleOffsets = null;
+
+        private void UpdateVerlets()
+        {
+            Vector2 start = NPC.Center + new Vector2(14, 35).RotatedBy(Rotation);
+            BigVine.Points[0].Position = start;
+            VerletIntegration.VerletSimulation(BigVine);
+
+            start = NPC.Center + new Vector2(-18, 34).RotatedBy(Rotation);
+            for (int i = 0; i < SmallVines.Length; i++)
+            {
+                Vector2 myStart = start + Vector2.One.RotatedBy(Rotation) * -4 * i;
+                if (i % 2 != 0)
+                    myStart += Vector2.One.RotatedBy(Rotation + MathHelper.PiOver2) * 4;
+                SmallVines[i].Points[0].Position = myStart;
+                VerletIntegration.VerletSimulation(SmallVines[i]);
+            }
+
+            for (int i = 0; i < BackVines.Length; i++)
+            {
+                Vector2 myStart = NPC.Center + Vector2.UnitX.RotatedBy(Rotation + (MathHelper.TwoPi / BackVines.Length * i) + BackVineAngleOffsets[i]) * 42;
+                BackVines[i].Points[0].Position = myStart;
+                VerletIntegration.VerletSimulation(BackVines[i]);
+            }
+        }
+
+        private void DrawVines(SpriteBatch spriteBatch, Color drawColor)
+        {
+            Texture2D vinesAtlas = ModContent.Request<Texture2D>(Texture + "_Vines").Value;
+            foreach (var vine in SmallVines)
+            {
+                for (int i = 0; i < vine.Count - 1; i++)
+                {
+                    Vector2 start = vine.Positions[i];
+                    Vector2 end = vine.Positions[i + 1];
+                    Vector2 dir = start.DirectionTo(end);
+
+                    Rectangle frame = vinesAtlas.Frame(4, 4, 0, (i == vine.Count - 2 ? 3 : i % 3));
+                    if (i != vine.Count - 2)
+                        frame.Height -= 2;
+                    float stretch = Vector2.Distance(start, end) / frame.Height;
+                    stretch += 0.1f;
+                    spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                }
+            }
+
+            for (int i = 0; i < BigVine.Count - 1; i++)
+            {
+                Vector2 start = BigVine.Positions[i];
+                Vector2 end = BigVine.Positions[i + 1];
+                Vector2 dir = start.DirectionTo(end);
+
+                Rectangle frame = vinesAtlas.Frame(4, 4, 0, (i == BigVine.Count - 2 ? 3 : i % 3));
+                if (i != BigVine.Count - 2)
+                    frame.Height -= 2;
+                float stretch = Vector2.Distance(start, end) / frame.Height;
+                stretch += 0.1f;
+                spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+            }
+        }
+
+
+        private void DrawBackVines(SpriteBatch spriteBatch, Color drawColor)
+        {
+            Texture2D vinesAtlas = ModContent.Request<Texture2D>(Texture + "_Vines").Value;
+
+            foreach (var vine in BackVines)
+            {
+                for (int i = 0; i < vine.Count - 1; i++)
+                {
+                    Vector2 start = vine.Positions[i];
+                    Vector2 end = vine.Positions[i + 1];
+                    Vector2 dir = start.DirectionTo(end);
+
+                    Rectangle frame = vinesAtlas.Frame(4, 4, (i % 3 + 1), (i == vine.Count - 2 ? 3 : 2));
+                    if (i != vine.Count - 2)
+                        frame.Height -= 2;
+                    float stretch = Vector2.Distance(start, end) / frame.Height;
+                    stretch += 0.1f;
+                    spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                }
+            }
         }
 
         public bool LeaveLine = false;
@@ -456,6 +570,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
         }
 
+        public override void PostAI()
+        {
+            UpdateVerlets();
+        }
+
         /*
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
@@ -490,17 +609,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D WheelTex = ModContent.Request<Texture2D>(Texture + "_Wheel").Value;
+            Texture2D WheelTex = ModContent.Request<Texture2D>(Texture + (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "_Wheel_Unofficial" : "_Wheel")).Value;
             Texture2D RingTex = ModContent.Request<Texture2D>(Texture + "_DeityCircle").Value;
             Texture2D RitualTex = ModContent.Request<Texture2D>(Texture + "_DeityRitual").Value;
             Texture2D Rift = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift").Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
             Vector2 origin8 = new Vector2((float)RitualTex.Width, (float)RitualTex.Height) / 2f;
-            int num214 = TextureAssets.Npc[NPC.type].Value.Height;
-            Color color25 = Lighting.GetColor((int)(NPC.position.X + NPC.width * 0.5) / 16, (int)((NPC.position.Y + NPC.height * 0.5) / 16.0));
-            Color? alpha4 = GetAlpha(color25);
-            Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
             bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>());
             if (Summon)
             {
@@ -529,14 +644,16 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale * 0.42f, SpriteEffects.None, 0f);
             }
 
-            int shader = 0;
-
+            int shader;
             if (BossAlive)
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             else
                 shader = 0;
 
             BaseDrawing.DrawTexture(spriteBatch, Rift, 0, NPC.position, NPC.width, NPC.height, 1.5f, RiftSpin, 0, 1, new Rectangle(0, 0, Rift.Width, Rift.Height), AAColor.Cthulhu, true);
+
+            if (!BossAlive)
+                DrawBackVines(spriteBatch, drawColor);
 
             BaseDrawing.DrawTexture(spriteBatch, WheelTex, shader, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, WheelTex.Width, WheelTex.Height), drawColor, true);
 
@@ -548,6 +665,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
                 BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
             }
+
+            if (!BossAlive)
+                DrawVines(spriteBatch, drawColor);
 
             return false;
         }

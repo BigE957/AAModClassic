@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using Terraria;
 namespace AAModClassic.Utilities
 {
     public static class MathUtils
@@ -73,6 +74,11 @@ namespace AAModClassic.Utilities
         public static float PolyInEasing(float amount, float degree) => (float)Math.Pow(amount, degree);
         public static float PolyOutEasing(float amount, float degree) => 1f - (float)Math.Pow(1f - amount, degree);
         public static float PolyInOutEasing(float amount, float degree) => amount < 0.5f ? (float)Math.Pow(2, degree - 1) * (float)Math.Pow(amount, degree) : 1f - (float)Math.Pow(-2 * amount + 2, degree) / 2f;
+
+        public static Vector2 ClampMagnitude(this Vector2 v, float min, float max)
+        {
+            return v.SafeNormalize(Vector2.UnitY) * MathHelper.Clamp(v.Length(), min, max);
+        }
     }
 
     public class BezierCurve(params Vector2[] controls)

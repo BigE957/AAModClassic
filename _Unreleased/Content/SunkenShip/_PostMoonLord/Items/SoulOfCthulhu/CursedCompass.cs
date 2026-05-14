@@ -72,7 +72,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 if (player.whoAmI == Main.myPlayer) BaseUtility.Chat("The wheel doesn't do anything", Color.DarkCyan, false);
                 return false;
             }
-            return AAWorld.downedAllAncients;
+            return true;// AAWorld.downedAllAncients;
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
