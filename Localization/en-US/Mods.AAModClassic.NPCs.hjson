@@ -352,7 +352,7 @@ CursedLocust.DisplayName: Cursed Locust
 CursedScarab.DisplayName: Cursed Scarab
 FATransition.DisplayName: Anubis Legendscribe
 FATransition2.DisplayName: Anubis Legendscribe
-ForsakenAnubis.DisplayName: Anubis; Forsaken Judge
+AnubisA.DisplayName: Anubis; Forsaken Judge
 ForsakenSun.DisplayName: Forsaken Sun
 HorusHawk.DisplayName: Horus Hawk
 UraeusBody.DisplayName: Uraeus
@@ -451,9 +451,9 @@ BunnyBrawler.DisplayName: Bunny Brawler
 BunnyBrawler2.DisplayName: Bunny Brawler
 RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
 RabbitcopterSoldier2.DisplayName: Rabbitcopter Soldier
-Rajah.DisplayName: Rajah Rabbit
-SupremeRajahDefeat.DisplayName: Rajah Rabbit
-SupremeRajah.DisplayName: Rajah Rabbit; Champion of the Innocent
+RajahRabbit.DisplayName: Rajah Rabbit
+RajahRabbitADefeat.DisplayName: Rajah Rabbit
+RajahRabbitA.DisplayName: Rajah Rabbit; Champion of the Innocent
 Sag.DisplayName: Sagittarius
 IceCrystal.DisplayName: Ice Crystal
 SubzeroSerpent_Body.DisplayName: Subzero Serpent
@@ -884,7 +884,6 @@ LargeLetter: {
 
 MinionRitual.DisplayName: Minion Ritual
 UraeusHead.DisplayName: Uraeus Head
-AnubisA.DisplayName: Anubis A
 AnubisForsakenTransition.DisplayName: Anubis Forsaken Transition
 CursedMinionCircle.DisplayName: Cursed Minion Circle
 GreedHead.DisplayName: Greed Head
@@ -899,15 +898,12 @@ ChargedOwlRune.DisplayName: Charged Owl Rune
 DimensionDiver.DisplayName: Dimension Diver
 Squid.DisplayName: Squid
 RiftShark.DisplayName: Rift Shark
-RajahRabbit.DisplayName: Rajah Rabbit
-RajahRabbitA.DisplayName: Rajah Rabbit A
-RajahRabbitADefeat.DisplayName: Rajah Rabbit A Defeat
-AshenDragonArms.DisplayName: Ashen Dragon Arms
-AshenDragonBody1.DisplayName: Ashen Dragon Body1
-AshenDragonBody2.DisplayName: Ashen Dragon Body2
-AshenDragonBody3.DisplayName: Ashen Dragon Body3
-AshenDragonHead.DisplayName: Ashen Dragon Head
-AshenDragonTail.DisplayName: Ashen Dragon Tail
+AshenDragonArms.DisplayName: Ashen Dragon
+AshenDragonBody1.DisplayName: Ashen Dragon
+AshenDragonBody2.DisplayName: Ashen Dragon
+AshenDragonBody3.DisplayName: Ashen Dragon
+AshenDragonHead.DisplayName: Ashen Dragon
+AshenDragonTail.DisplayName: Ashen Dragon
 FlameVortex.DisplayName: Flame Vortex
 NightCloud.DisplayName: Night Cloud
 SupremeBunnyBattler.DisplayName: Supreme Bunny Battler
@@ -917,3 +913,4 @@ RabidRabbit.DisplayName: Rabid Rabbit
 SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
 DeityBrain.DisplayName: Lu'Kthu
 DeityRose_Urchin.DisplayName: Shadow Urchin
+AmbientSoulOfCthulhu.DisplayName: ???

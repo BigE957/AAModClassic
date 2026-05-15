@@ -68,6 +68,29 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 
             TexGen gen;
             origin.Y -= 28;
+            TexGenData tileTex = ModLoader.HasMod("ThoriumMod") ? SunkenShipTexGenAssets.BigShipThoriumTileData : SunkenShipTexGenAssets.BigShipTileData;
+            gen = TexGen.GetTexGenerator(tileTex, colorToTile, SunkenShipTexGenAssets.BigShipWallData, colorToWall, SunkenShipTexGenAssets.BigShipLiquidData);
+
+            int newOriginX = origin.X - (gen.width / 2);
+            int newOriginY = origin.Y - (gen.height / 2) + 10;
+            gen.Generate(newOriginX, newOriginY, true, true);
+
+            AAWorld_Unreleased.shipPos = new Point(newOriginX, newOriginY);
+
+            for (int x = newOriginX; x < newOriginX + tileTex.Width; x++)
+            {
+                for (int y = newOriginY; y < newOriginY + tileTex.Height; y++)
+                {
+                    if (Main.tile[x, y].TileType == TileID.EmeraldGemspark)
+                    {
+                        Main.tile[x, y].ClearTile();
+                        WorldGen.PlaceTile(x, y, ModContent.TileType<RottedPlatform_Tile>(), mute: true);
+                    }
+                }
+            }
+
+            WorldGen.PlaceChest(newOriginX + 66, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
+            /*
             if (WorldGenUtils.GetWorldSize() == 1)
             {
                 gen = TexGen.GetTexGenerator(SunkenShipTexGenAssets.SmallShipTileData, colorToTile, SunkenShipTexGenAssets.SmallShipWallData, colorToWall, SunkenShipTexGenAssets.SmallShipLiquidData);
@@ -76,28 +99,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             }
             else
             {
-                TexGenData tileTex = ModLoader.HasMod("ThoriumMod") ? SunkenShipTexGenAssets.BigShipThoriumTileData : SunkenShipTexGenAssets.BigShipTileData;
-                gen = TexGen.GetTexGenerator(tileTex, colorToTile, SunkenShipTexGenAssets.BigShipWallData, colorToWall, SunkenShipTexGenAssets.BigShipLiquidData);
-
-                int newOriginX = origin.X - (gen.width / 2);
-                int newOriginY = origin.Y - (gen.height / 2) + 10;
-                gen.Generate(newOriginX, newOriginY, true, true);
-
-                for (int x = newOriginX; x < newOriginX + tileTex.Width; x++)
-                {
-                    for (int y = newOriginY; y < newOriginY + tileTex.Height; y++)
-                    {
-                        if (Main.tile[x, y].TileType == TileID.EmeraldGemspark)
-                        {
-                            Main.tile[x, y].ClearTile();
-                            WorldGen.PlaceTile(x, y, ModContent.TileType<RottedPlatform_Tile>(), mute: true);
-                        }
-                    }
-                }
-
-                WorldGen.PlaceChest(newOriginX + 66, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
+                
             }
-
+            */
             return true;
         }
     }

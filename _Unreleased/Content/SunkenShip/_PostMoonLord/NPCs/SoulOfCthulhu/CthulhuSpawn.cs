@@ -63,7 +63,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Spawn"), Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Spawn"), new Color(175, 75, 255));
                 int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SoulOfCthulhu>(), 0);
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate = true;

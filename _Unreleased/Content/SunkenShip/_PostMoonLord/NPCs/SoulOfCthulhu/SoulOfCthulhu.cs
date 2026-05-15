@@ -1,4 +1,5 @@
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
+using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
@@ -53,13 +54,22 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noGravity = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
+        }
 
-            if(!Main.dedServ)
+        private VerletObject BigVine = null;
+        private VerletObject[] SmallVines = [];
+        private VerletObject[] BackVines = [];
+        private float[] BackVineAngleOffsets = [];
+        private bool initailizedVerlets = false;
+
+        private void InitializeVerlets()
+        {
+            if (!Main.dedServ && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 Vector2 start = NPC.Center + new Vector2(14, 35).RotatedBy(Rotation);
                 int count = 12;
                 BigVine = VerletIntegration.CreateVerletChain(start, start + Vector2.UnitY * count * 6, count, 6);
-                
+
                 start = NPC.Center + new Vector2(-16, 36).RotatedBy(Rotation);
                 SmallVines = new VerletObject[5];
                 for (int i = 0; i < SmallVines.Length; i++)
@@ -80,18 +90,20 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     BackVines[i] = VerletIntegration.CreateVerletChain(myStart, myStart + Vector2.UnitY * count * 6, count, 6);
                 }
             }
+            initailizedVerlets = true;
         }
-
-        private VerletObject BigVine = null;
-        private VerletObject[] SmallVines = null;
-        private VerletObject[] BackVines = null;
-        private float[] BackVineAngleOffsets = null;
 
         private void UpdateVerlets()
         {
-            Vector2 start = NPC.Center + new Vector2(14, 35).RotatedBy(Rotation);
-            BigVine.Points[0].Position = start;
-            VerletIntegration.VerletSimulation(BigVine);
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
+            Vector2 start = NPC.Center + new Vector2(16, 36).RotatedBy(Rotation);
+            if (BigVine != null)
+            {
+                BigVine.Points[0].Position = start;
+                VerletIntegration.VerletSimulation(BigVine);
+            }
 
             start = NPC.Center + new Vector2(-18, 34).RotatedBy(Rotation);
             for (int i = 0; i < SmallVines.Length; i++)
@@ -113,6 +125,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         private void DrawVines(SpriteBatch spriteBatch, Color drawColor)
         {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             Texture2D vinesAtlas = ModContent.Request<Texture2D>(Texture + "_Vines").Value;
             foreach (var vine in SmallVines)
             {
@@ -131,24 +146,29 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
             }
 
-            for (int i = 0; i < BigVine.Count - 1; i++)
+            if (BigVine != null)
             {
-                Vector2 start = BigVine.Positions[i];
-                Vector2 end = BigVine.Positions[i + 1];
-                Vector2 dir = start.DirectionTo(end);
+                for (int i = 0; i < BigVine.Count - 1; i++)
+                {
+                    Vector2 start = BigVine.Positions[i];
+                    Vector2 end = BigVine.Positions[i + 1];
+                    Vector2 dir = start.DirectionTo(end);
 
-                Rectangle frame = vinesAtlas.Frame(4, 4, 0, (i == BigVine.Count - 2 ? 3 : i % 3));
-                if (i != BigVine.Count - 2)
-                    frame.Height -= 2;
-                float stretch = Vector2.Distance(start, end) / frame.Height;
-                stretch += 0.1f;
-                spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                    Rectangle frame = vinesAtlas.Frame(4, 4, 0, (i == BigVine.Count - 2 ? 3 : i % 3));
+                    if (i != BigVine.Count - 2)
+                        frame.Height -= 2;
+                    float stretch = Vector2.Distance(start, end) / frame.Height;
+                    stretch += 0.1f;
+                    spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                }
             }
         }
 
-
         private void DrawBackVines(SpriteBatch spriteBatch, Color drawColor)
         {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             Texture2D vinesAtlas = ModContent.Request<Texture2D>(Texture + "_Vines").Value;
 
             foreach (var vine in BackVines)
@@ -250,12 +270,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         int oneTime = 0;
 
         public int EnemyTimer = 0;
-
+        
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-            AAPlayer modPlayer = Main.player[NPC.target].GetModPlayer<AAPlayer>();
-            modPlayer.Leave = false;
+            SunkenShipSystem.Leave = false;
             NPC.rotation = NPC.velocity.X / 15f;
             Vector2 spawnAt = NPC.Center + new Vector2(0f, NPC.height / 2f);
             float EyeSummon = NPC.lifeMax * .85f;
@@ -272,7 +291,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<Portal>(), 0, -NPC.velocity.X, -NPC.velocity.Y);
                 NPC.ai[3] = 0;
             }
-
 
             if (oneTime == 0)
             {
@@ -572,6 +590,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void PostAI()
         {
+            if (!initailizedVerlets)
+                InitializeVerlets();
+
             UpdateVerlets();
         }
 

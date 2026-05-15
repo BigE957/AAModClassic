@@ -25,8 +25,8 @@ namespace AAModClassic._Unreleased
 {
     public class AAWorld_Unreleased : ModSystem
     {
-        private Vector2 shipPos = new Vector2(0, 0);
-        private int shipSide = 0;
+        public static Point shipPos = Point.Zero;
+        private static int shipSide = 0;
 
         public static bool downedSoC;
         public static bool downedIZ;
@@ -51,6 +51,7 @@ namespace AAModClassic._Unreleased
             if (Compass) downedUnreleased.Add("Compass");
 
             tag.Add("downedUnreleased", downedUnreleased);
+            tag.Add("ShipLocation", shipPos);
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -59,6 +60,7 @@ namespace AAModClassic._Unreleased
             downedSoC = downedUnreleased.Contains("SoC");
             downedIZ = downedUnreleased.Contains("IZ");
             Compass = downedUnreleased.Contains("Compass");
+            shipPos = tag.Get<Point>("ShipLocation");
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -245,7 +247,7 @@ namespace AAModClassic._Unreleased
             biome.Place(center, GenVars.structures);
         }
 
-        private void Ship(GenerationProgress progress)
+        private static void Ship(GenerationProgress progress)
         {
             bool small = WorldGenUtils.GetWorldSize() == 1;
             shipSide = (Main.dungeonX > Main.maxTilesX / 2 ? -1 : 1);
