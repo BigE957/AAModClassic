@@ -12,8 +12,9 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void.___PreHardmode.NPCs;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {
@@ -84,7 +85,7 @@ N0N-C0NSUMABLE"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;

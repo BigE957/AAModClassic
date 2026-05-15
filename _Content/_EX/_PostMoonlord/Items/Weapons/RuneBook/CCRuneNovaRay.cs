@@ -1,15 +1,18 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Globals;
+using System;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook
 {
     public class CCRuneNovaRay : ModProjectile
     {
-        public override string Texture => "AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/NovaRay";
+        public override string Texture => ModContent.GetInstance<ZeroNovaFocus_NovaRay>().Texture;
         private const float MoveDistance = 70f;
         public Projectile shooter;
         public float Distance;
@@ -85,7 +88,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook
         public override bool PreDraw(ref Color lightColor)
         {
             shooter = Main.projectile[(int)Projectile.ai[0]];
-            Texture2D projectiletex = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/NovaRay").Value;
+            Texture2D projectiletex = TextureAssets.Projectile[Projectile.type].Value;
             DrawLaser(Main.spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
             
             return false;

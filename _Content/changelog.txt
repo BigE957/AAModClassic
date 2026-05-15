@@ -80,6 +80,7 @@ unofficial
 --champion rajahs trail when stomping now lasts the duration of the stomp instead of for one frame at the start of it
 -added boss masks for ashe, haruka, champ rajah, and zero protocol
 -unreleased: added boss masks for infinity zero, soul of cthulhu, and cosmic calamity
+-several aspects of the zero protocol fight are now properly centered
 -
 
 crossmod

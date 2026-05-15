@@ -9,8 +9,9 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void.___PreHardmode.NPCs;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {
@@ -59,7 +60,7 @@ N0N-C0NSUMABLE"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
@@ -78,7 +79,7 @@ N0N-C0NSUMABLE"); */
             {
                 AAWorld.zeroUS = true;
                 if (!NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()))
-                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroProtocol>());
+                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroA>());
             }
 
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ZeroDeath"));

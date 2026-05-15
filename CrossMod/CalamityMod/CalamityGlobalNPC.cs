@@ -17,8 +17,8 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -92,17 +92,17 @@ namespace AAModClassic.CrossMod.CalamityMod
 
                 if(npc.type == ModContent.NPCType<ZeroEcho>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroMini>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<ZeroProtocol>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<GenocideCannon>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<Neutralizer>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<NovaFocus>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<OmegaVolley>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<RealityCannon>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<RiftShredder>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroA>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroGenocideCannon>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroNeutralizer>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroNovaFocus>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroOmegaVolley>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroRealityCannon>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroRiftShredder>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<SearcherZero>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<Taser>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<TeslaHand>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<VoidStar>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroGigataser>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroBrokenWeapon>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroVoidStar>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<Zero>()) CalamityDR = 0.5f;
             }
         }

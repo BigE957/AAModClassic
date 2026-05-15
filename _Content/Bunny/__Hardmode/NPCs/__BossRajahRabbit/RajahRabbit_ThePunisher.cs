@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Bunny.Projectiles;
@@ -13,7 +13,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
+namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
     public class RajahRabbit_ThePunisher : ModProjectile
     {
@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
                 else
                     rajah = null;
             }
-            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.ThePunisher || rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
+            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.ThePunisher || rajah == null || rajah.NPC.active == false || rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>())
                 Projectile.active = false;
 
             Vector2 vector54 = rajah.WeaponPos - Projectile.Center;

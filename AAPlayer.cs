@@ -49,7 +49,6 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -94,6 +93,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 
 namespace AAModClassic
 {
@@ -1716,7 +1716,7 @@ namespace AAModClassic
                 Player.AddBuff(BuffID.DryadsWard, 2);
             }
 
-            if (NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
             {
                 if (!Filters.Scene["MoonLordShake"].IsActive())
                 {
