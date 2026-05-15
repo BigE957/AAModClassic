@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
 
 namespace AAModClassic.Utilities
 {
@@ -129,6 +131,157 @@ namespace AAModClassic.Utilities
                 velAddon += velocity * distanceScalar;
                 float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
                 sb.Draw(texture, position - velAddon - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
+            }
+        }
+
+        public static void DrawCenteredAfterimages(Projectile proj, int mode, Color lightColor, int typeOneIncrement = 1, Texture2D texture = null, bool drawCentered = true)
+        {
+            texture ??= TextureAssets.Projectile[proj.type].Value;
+
+            int num = texture.Height / Main.projFrames[proj.type];
+            int y = num * proj.frame;
+            float scale = proj.scale;
+            float rotation = proj.rotation;
+            Rectangle rectangle = new(0, y, texture.Width, num);
+            Vector2 origin = rectangle.Size() / 2f;
+            SpriteEffects effects = SpriteEffects.None;
+            if (proj.spriteDirection == -1)
+            {
+                effects = SpriteEffects.FlipHorizontally;
+            }
+
+            bool flag = false;
+            Vector2 vector = (drawCentered ? (proj.Size / 2f) : Vector2.Zero);
+            Color alpha = proj.GetAlpha(lightColor);
+            switch (mode)
+            {
+                case 0:
+                    {
+                        for (int j = 0; j < proj.oldPos.Length; j++)
+                        {
+                            Vector2 position2 = proj.oldPos[j] + vector - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
+                            Color color2 = alpha * ((float)(proj.oldPos.Length - j) / (float)proj.oldPos.Length);
+                            Main.spriteBatch.Draw(texture, position2, rectangle, color2, rotation, origin, scale, effects, 0f);
+                        }
+
+                        break;
+                    }
+                case 1:
+                    {
+                        int num2 = Math.Max(1, typeOneIncrement);
+                        Color color3 = alpha;
+                        int num3 = ProjectileID.Sets.TrailCacheLength[proj.type];
+                        float num4 = (float)num3 * 1.5f;
+                        for (int k = 0; k < num3; k += num2)
+                        {
+                            Vector2 position3 = proj.oldPos[k] + vector - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
+                            if (k > 0)
+                            {
+                                float num5 = num3 - k;
+                                color3 *= num5 / num4;
+                            }
+
+                            Main.spriteBatch.Draw(texture, position3, rectangle, color3, rotation, origin, scale, effects, 0f);
+                        }
+
+                        break;
+                    }
+                case 2:
+                    {
+                        for (int i = 0; i < proj.oldPos.Length; i++)
+                        {
+                            float rotation2 = proj.oldRot[i];
+                            SpriteEffects effects2 = ((proj.oldSpriteDirection[i] == -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+                            Vector2 position = proj.oldPos[i] + vector - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
+                            Color color = alpha * ((float)(proj.oldPos.Length - i) / (float)proj.oldPos.Length);
+                            Main.spriteBatch.Draw(texture, position, rectangle, color, rotation2, origin, scale, effects2, 0f);
+                        }
+
+                        break;
+                    }
+                default:
+                    flag = true;
+                    break;
+            }
+
+            if (ProjectileID.Sets.TrailCacheLength[proj.type] <= 0 || flag)
+            {
+                Vector2 vector2 = (drawCentered ? proj.Center : proj.position);
+                Main.spriteBatch.Draw(texture, vector2 - Main.screenPosition + new Vector2(0f, proj.gfxOffY), rectangle, proj.GetAlpha(lightColor), rotation, origin, scale, effects, 0f);
+            }
+        }
+
+        public static void DrawCenteredAfterimages(NPC npc, int mode, Color lightColor, int typeOneIncrement = 1, Texture2D texture = null, bool drawCentered = true)
+        {
+            texture ??= TextureAssets.Npc[npc.type].Value;
+            float scale = npc.scale;
+            float rotation = npc.rotation;
+            Rectangle frame = npc.frame;
+            Vector2 origin = frame.Size() / 2f;
+            SpriteEffects effects = SpriteEffects.None;
+            if (npc.spriteDirection == -1)
+            {
+                effects = SpriteEffects.FlipHorizontally;
+            }
+
+            bool flag = false;
+            Vector2 vector = (drawCentered ? (npc.Size / 2f) : Vector2.Zero);
+            Color alpha = npc.GetAlpha(lightColor);
+            switch (mode)
+            {
+                case 0:
+                    {
+                        for (int j = 0; j < npc.oldPos.Length; j++)
+                        {
+                            Vector2 position2 = npc.oldPos[j] + vector - Main.screenPosition + new Vector2(0f, npc.gfxOffY);
+                            Color color2 = alpha * ((float)(npc.oldPos.Length - j) / (float)npc.oldPos.Length);
+                            Main.spriteBatch.Draw(texture, position2, frame, color2, rotation, origin, scale, effects, 0f);
+                        }
+
+                        break;
+                    }
+                case 1:
+                    {
+                        int num2 = Math.Max(1, typeOneIncrement);
+                        Color color3 = alpha;
+                        int num3 = NPCID.Sets.TrailCacheLength[npc.type];
+                        float num4 = (float)num3 * 1.5f;
+                        for (int k = 0; k < num3; k += num2)
+                        {
+                            Vector2 position3 = npc.oldPos[k] + vector - Main.screenPosition + new Vector2(0f, npc.gfxOffY);
+                            if (k > 0)
+                            {
+                                float num5 = num3 - k;
+                                color3 *= num5 / num4;
+                            }
+
+                            Main.spriteBatch.Draw(texture, position3, frame, color3, rotation, origin, scale, effects, 0f);
+                        }
+
+                        break;
+                    }
+                case 2:
+                    {
+                        for (int i = 0; i < npc.oldPos.Length; i++)
+                        {
+                            float rotation2 = npc.oldRot[i];
+                            SpriteEffects effects2 = ((npc.spriteDirection == -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+                            Vector2 position = npc.oldPos[i] + vector - Main.screenPosition + new Vector2(0f, npc.gfxOffY);
+                            Color color = alpha * ((float)(npc.oldPos.Length - i) / (float)npc.oldPos.Length);
+                            Main.spriteBatch.Draw(texture, position, frame, color, rotation2, origin, scale, effects2, 0f);
+                        }
+
+                        break;
+                    }
+                default:
+                    flag = true;
+                    break;
+            }
+
+            if (NPCID.Sets.TrailCacheLength[npc.type] <= 0 || flag)
+            {
+                Vector2 vector2 = (drawCentered ? npc.Center : npc.position);
+                Main.spriteBatch.Draw(texture, vector2 - Main.screenPosition + new Vector2(0f, npc.gfxOffY), frame, npc.GetAlpha(lightColor), rotation, origin, scale, effects, 0f);
             }
         }
     }
