@@ -76,6 +76,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 
 namespace AAModClassic
 {
@@ -146,7 +147,7 @@ namespace AAModClassic
         public static bool downedAllAncients => downedAkuma && downedYamata && downedZero;
         private static bool previousDownedAllAncients = false;
         public static bool ShenSummoned;
-        public static bool downedShen => (NPCExtensions.BeenKilled<Shen>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenA>();
+        public static bool downedShen => (NPCExtensions.BeenKilled<ShenDoragon>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenDoragonA>();
 
         public static bool downedAshe;
         public static bool downedHaruka;     

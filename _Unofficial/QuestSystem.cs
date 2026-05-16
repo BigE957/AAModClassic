@@ -293,10 +293,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Shen",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Shen>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<ShenDoragon>(), false)
                 ],
                 [],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Shen>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<ShenDoragon>()]],
                 hasCompleteText: true
             );
 

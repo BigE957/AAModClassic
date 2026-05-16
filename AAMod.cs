@@ -76,6 +76,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies;
 
 namespace AAModClassic
 {

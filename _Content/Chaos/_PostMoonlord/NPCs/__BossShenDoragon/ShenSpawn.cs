@@ -1,4 +1,5 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
@@ -223,7 +224,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public void SummonShen()
         {
             MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen"]);
-            AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<Shen>(), false, NPC.Center, "");
+            AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<ShenDoragon>(), false, NPC.Center, "");
         }
 
         public static Color GetColorAlpha()
@@ -282,7 +283,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             if (NPC.ai[1] > 240)
             {
-                int i = NPCExtensions.BeenKilled<ShenA>(true) ? 1 : 0;
+                int i = NPCExtensions.BeenKilled<ShenDoragonA>(true) ? 1 : 0;
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ShenDeath>(), 0, i);
                 NPC.active = false;
                 NPC.netUpdate = true;
@@ -433,10 +434,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
     public class ShenTransition : ModNPC
     {
-        //TODO: rn this makes the game crash make it not do that
-        //public override string Texture => ModContent.GetInstance<ShenSpawn>().Texture.Remove(Texture.Length - 5) + "Transition";
-        public override string Texture => ModContent.GetInstance<ShenSpawn>().Texture;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discordian Awakening");
@@ -579,7 +576,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             Main.projectile[b].Center = NPC.Center;
 
 
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenA>(), false, NPC.Center, "Shen Awakened", false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenDoragonA>(), false, NPC.Center, "Shen Awakened", false);
         }
 
         public static Color GetColorAlpha()

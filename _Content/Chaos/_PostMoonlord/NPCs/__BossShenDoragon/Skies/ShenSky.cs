@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
@@ -15,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
     {
         public override SceneEffectPriority Priority => (SceneEffectPriority)11;
 
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<Shen>()) && !NPC.AnyNPCs(ModContent.NPCType<ShenA>());
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<ShenDoragon>()) && !NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>());
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
@@ -192,7 +193,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
 
         private void UpdateShenIndex()
         {
-            int ShenType = AAMod.instance.Find<ModNPC>("Shen").Type;
+            int ShenType = ModContent.NPCType<ShenDoragon>();
             if (ShenIndex >= 0 && Main.npc[ShenIndex].active && Main.npc[ShenIndex].type == ShenType)
             {
                 return;

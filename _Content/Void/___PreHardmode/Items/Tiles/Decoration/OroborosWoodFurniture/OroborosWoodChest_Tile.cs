@@ -1,7 +1,8 @@
-using System;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -45,7 +46,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Orobo
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Oroboros Chest";
         }
 
-        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("OroborosChest").DisplayName;
+        public override LocalizedText DefaultContainerName(int i, int j) => ModContent.GetInstance<OroborosWoodChest>().DisplayName;
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
         {

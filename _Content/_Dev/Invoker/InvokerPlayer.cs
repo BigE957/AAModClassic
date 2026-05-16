@@ -11,9 +11,9 @@ using AAModClassic.Buffs;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 
 namespace AAModClassic._Content._Dev.Invoker
 {
@@ -189,7 +189,7 @@ namespace AAModClassic._Content._Dev.Invoker
 				if(soul == ModContent.NPCType<AkumaA>()) soulcount ++;
 				if(soul == ModContent.NPCType<YamataABody>()) soulcount ++;
 				if(soul == ModContent.NPCType<ZeroA>()) soulcount ++;
-				if(soul == ModContent.NPCType<ShenA>()) soulcount ++;
+				if(soul == ModContent.NPCType<ShenDoragonA>()) soulcount ++;
 				if(soul == ModContent.NPCType<RajahRabbitA>()) soulcount ++;
 			}
 			if(soulcount >= 5)

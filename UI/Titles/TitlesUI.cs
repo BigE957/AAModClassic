@@ -3,6 +3,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
@@ -575,8 +576,8 @@ namespace AAModClassic.UI.Titles
             IDtoTitle.Add(ModContent.NPCType<Zero>(), Titles.Zero);
             IDtoTitle.Add(ModContent.NPCType<ZeroA>(), Titles.ZeroP);
             IDtoTitle.Add(ModContent.NPCType<RajahRabbitA>(), Titles.CRajah);
-            IDtoTitle.Add(ModContent.NPCType<Shen>(), Titles.Shen);
-            IDtoTitle.Add(ModContent.NPCType<ShenA>(), Titles.ShenA);
+            IDtoTitle.Add(ModContent.NPCType<ShenDoragon>(), Titles.Shen);
+            IDtoTitle.Add(ModContent.NPCType<ShenDoragonA>(), Titles.ShenA);
             IDtoTitle.Add(ModContent.NPCType<Ashe>(), Titles.AsheHaruka);
             IDtoTitle.Add(ModContent.NPCType<DaybringerHead>(), Titles.Equinox);
             IDtoTitle.Add(ModContent.NPCType<RajahRabbit>(), Titles.Rajah);
