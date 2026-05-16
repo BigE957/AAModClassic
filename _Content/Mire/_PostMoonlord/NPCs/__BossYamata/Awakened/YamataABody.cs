@@ -766,16 +766,33 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                  y2 * Math.Pow(t, 2)
              );
         }
+        public static Vector2 CalculateBezierPoint(float t, Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
+        {
+            float u = 1 - t;
+            float tt = t * t;
+            float uu = u * u;
+            float uuu = uu * u;
+            float ttt = tt * t;
+            Vector2 p = uuu * p0; //first term
+            p += 3 * uu * t * p1; //second term
+            p += 3 * u * tt * p2; //third term
+            p += ttt * p3; //fourth term
+            return p;
+        }
         public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool DrawUnder)
         {
-            Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
+    		bool useUnofficialVisuals = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+
             Color GlowColor = AAColor.COLOR_WHITEFADE1;
             if (head != null && head.active && head.ModNPC != null && (head.ModNPC is YamataAHead || head.ModNPC is YamataAHeadFake))
             {
+                Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor( useUnofficialVisuals ? head.Center : NPC.Center));
+
                 Texture2D neckTex2D = NeckTexture.Value;
                 Vector2 connector = head.Center;
                 Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 110 * NPC.scale);
                 float chainsPerUse = 0.05f;
+                if(!useUnofficialVisuals){
                 for (float i = 0; i <= 1; i += chainsPerUse)
                 {
                     Vector2 distBetween;
@@ -792,13 +809,46 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                         new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                     }
                 }
+                }
+                else{
+                    Vector2 headCenter = head.Center;
+                    Vector2 myCenter = NPC.Center;
+
+                    Vector2 drawOrigin = new Vector2(NeckTexture.Width() / 2, NeckTexture.Height());                
+
+                    Vector2 p0 = myCenter - new Vector2(0, 100);
+                    Vector2 p1 = myCenter - new Vector2(-0.5f * (headCenter.X-myCenter.X) , 48);
+                    Vector2 p2 = headCenter;
+                    Vector2 p3 = headCenter;
+
+                    int segments = (int)(18);//seems reasonable?
+                    for (int i = 0; i < segments; i++)
+                    {
+                        float t = i / (float)segments;
+                        Vector2 drawPos2 = CalculateBezierPoint(t, p0, p1, p2, p3);
+                        t = (i + 1) / (float)segments;
+                        Vector2 drawPosNext = CalculateBezierPoint(t, p0, p1, p2, p3);
+                        Vector2 toNext = drawPosNext - drawPos2;
+                        float rotation = toNext.ToRotation() - MathHelper.PiOver2;
+                        float distance = toNext.Length();
+                        SpriteEffects effects = SpriteEffects.None;
+
+                        Color color = Lighting.GetColor((int)drawPos2.X / 16, (int)(drawPos2.Y / 16));
+
+                        Main.spriteBatch.Draw(NeckTexture.Value, drawPos2 - Main.screenPosition, null, NPC.GetAlpha(color), rotation, drawOrigin, NPC.scale * new Vector2(1, (distance + 4) / (float)NeckTexture.Height()), effects, 0f);
+                    }
+                }
+
                 BaseDrawing.DrawTexture(spriteBatch, headTexture, 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, drawColor, false);
                 BaseDrawing.DrawTexture(spriteBatch, glowMaskTexture, 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, GlowColor, false);
+
             }
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+    		bool useUnofficialVisuals = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+
             Color lightColor = NPC.GetAlpha(drawColor);
             SpriteBatch sb = spriteBatch;
             BaseDrawing.DrawTexture(spriteBatch, TailTexture.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);

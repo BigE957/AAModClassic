@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+           // player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
 
         public override int Music =>

@@ -18,8 +18,8 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
-            player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
+            //player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+           // player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
         }
 
         public override int Music =>
