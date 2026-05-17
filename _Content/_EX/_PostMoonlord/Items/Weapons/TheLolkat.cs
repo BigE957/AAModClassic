@@ -38,10 +38,6 @@ Meowmere EX"); */
             Item.expert = true; Item.expertOnly = true;
 			Item.shoot = ProjectileID.Meowmere;
 			Item.shootSpeed = 12f;
-
-            glowmaskTexture = Texture + "_Glow";
-            glowmaskDrawType = GLOWMASKTYPE_SWORD;
-            glowmaskDrawColor = Color.White;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

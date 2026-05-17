@@ -44,10 +44,6 @@ Conflagrate Staff EX"); */
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;
 			Item.shootSpeed = 7f;	//The buff added to player after used the item
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

@@ -2,6 +2,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -11,11 +12,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets
 {
     public class ZeroCore_ZeroBab : ModProjectile
     {
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 5;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -64,7 +69,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 5, 0, 0);
 
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, lightColor, true);
-            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Glowmask.Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
     }

@@ -30,10 +30,6 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<BladeOfNight_NightSlash>();
 			Item.shootSpeed = 20f;
-
-            glowmaskTexture = "Glowmasks/UmbreonSP_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
     }
 }

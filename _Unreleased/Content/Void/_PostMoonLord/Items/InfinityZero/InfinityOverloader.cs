@@ -1,30 +1,35 @@
+using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+using AAModClassic._Unreleased.Content.Void.Buffs;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Content.Void.Buffs;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {
     public class InfinityOverloader : ModItem
 	{
+        public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Infinity Beacon");
             // Tooltip.SetDefault(@"Calls the Infinity Slayer");
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
         public override void SetDefaults()
         {
@@ -52,8 +57,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 15);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 20);
-            //TODOSIEGE doesnt exist 
-            //recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 20);
             recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DoomsdayTesseract>(), 1);
             //recipe.AddTile(ModContent.TileType<AncientForge>());
@@ -66,7 +70,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             float Eggroll = Math.Abs(Main.GameUpdateCount) / 0.5f;
             float Pie = 1f * (float)Math.Sin(Eggroll);
             Color color1 = Color.Lerp(Color.Red, Color.Black, Pie);
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
                 (
                 texture,
@@ -90,7 +94,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             float Eggroll = Math.Abs(Main.GameUpdateCount) / 0.5f;
             float Pie = 1f * (float)Math.Sin(Eggroll);
             Color color1 = Color.Lerp(Color.Red, Color.Black, Pie);
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             spriteBatch.Draw(texture2, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
             for (int i = 0; i < 4; i++)

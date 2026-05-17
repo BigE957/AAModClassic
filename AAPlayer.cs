@@ -3972,6 +3972,8 @@ namespace AAModClassic
                     baseAAItem = (BaseAAItem)heldItem.ModItem;
                 }
 
+                //TODO: this is cool. but make it use the new glowmask system
+                /*
                 if (baseAAItem != null && baseAAItem.glowmaskTexture != null && baseAAItem.glowmaskDrawType != BaseAAItem.GLOWMASKTYPE_NONE)
                 {
                     Vector2? offsetNull = baseAAItem.HoldoutOffset();
@@ -3986,6 +3988,7 @@ namespace AAModClassic
                         DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.GlowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
                     }
                 }
+                */
             }
         }
 

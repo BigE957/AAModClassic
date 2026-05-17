@@ -27,10 +27,6 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
             Item.shootSpeed = 10f;
             Item.value = 10000;
             Item.useAmmo = AmmoID.Gel;
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override void SetStaticDefaults()

@@ -1716,7 +1716,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfEvil>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<BladeOfEvil>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<BladeOfNight>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<UmbreonSPEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<Umbra>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Blood, ModContent.ItemType<CarnalCrusher>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<Chaos_Item>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<Chaos_Item>(), true);

@@ -1,14 +1,15 @@
-﻿using System;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -17,9 +18,13 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         public int counter = 0;
 		public int chargeLevel = 0;
 
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radiant Dawn");
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -212,7 +217,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D glowTex = Glowmask.Value;
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
             BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);

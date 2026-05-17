@@ -1,10 +1,11 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
-using Terraria.ModLoader;
+using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
-using AAModClassic.Globals;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
@@ -13,7 +14,8 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
     public class DemonGauntlet : BaseAAItem
     {
-        
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Gauntlet");
@@ -24,7 +26,9 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
 Increased Melee Knockback
 Melee Attacks Inflict a different debuff depending on your world evil
 Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
-            
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+
         }
 
         public override void SetDefaults()
@@ -39,7 +43,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)
             {
@@ -65,7 +69,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)

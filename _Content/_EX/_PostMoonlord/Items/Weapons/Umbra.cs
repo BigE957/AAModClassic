@@ -9,7 +9,7 @@ using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class UmbreonSPEX : BaseAAItem
+    public class Umbra : BaseAAItem
 	{
 		
 		public override void SetStaticDefaults()
@@ -36,10 +36,6 @@ Blade of Night EX"); */
 			Item.shoot = ModContent.ProjectileType<BladeOfNight_NightSlash>();
 			Item.shootSpeed = 18f;
             Item.expert = true; Item.expertOnly = true;
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

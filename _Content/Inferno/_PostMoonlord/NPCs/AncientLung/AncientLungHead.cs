@@ -11,15 +11,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 {
-    public class AncientLungHead
-        : ModNPC
+    public class AncientLungHead : ModNPC
 	{
         public bool loludided;
 
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Ancient Lung");
-
         }
 
         public override void SetDefaults()

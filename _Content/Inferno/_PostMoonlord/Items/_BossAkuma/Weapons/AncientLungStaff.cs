@@ -40,10 +40,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

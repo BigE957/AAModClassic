@@ -36,10 +36,6 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
 			Item.shootSpeed = 12f;
             Item.shoot = ModContent.ProjectileType<DuckstepLauncher_Duck>();
-
-            glowmaskTexture = "Glowmasks/DuckstepGun_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

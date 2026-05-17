@@ -34,10 +34,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.shoot = ModContent.ProjectileType<Aerodrake_AeroSlash>();
             Item.shootSpeed = 17f;
             Item.expert = true; Item.expertOnly = true;
-
-            glowmaskDrawType = GLOWMASKTYPE_SWORD;
-            glowmaskTexture = Texture + "_Glow";
-            glowmaskDrawColor = AAColor.COLOR_WHITEFADE1;
         }
 
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

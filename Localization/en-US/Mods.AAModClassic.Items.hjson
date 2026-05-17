@@ -9275,6 +9275,11 @@ UmbraPainting: {
 	Tooltip: ""
 }
 
+Umbra: {
+	DisplayName: Umbra
+	Tooltip: ""
+}
+
 ValkyriePainting: {
 	DisplayName: Valkyrie Painting
 	Tooltip: ""

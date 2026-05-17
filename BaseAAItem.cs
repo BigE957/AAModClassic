@@ -19,14 +19,7 @@ namespace AAModClassic
 
         //glowmask shenanigans
         public static Dictionary<int, Asset<Texture2D>> GlowmaskCache = [];
-        public Color GlowmaskDrawColorALSOREPLACELATER = Color.White;
 
-        public string glowmaskTexture = null; //TODO: remove and fix everythhing which breaks cuz of that
-        public int glowmaskDrawType = 0; //TODO: remove this? does nothing
-        // ok so i looked around. its SUPPOSED to do something. but it never does. lol. add that functionality in its place? 
-        // even if we add the functionality we can remove this bcuz theres other ways to check usestyle its called checking what the usestyle is
-		public Color glowmaskDrawColor = Color.White; //TODO: remove and fix everythhing which breaks cuz of that
-        
         public virtual Color GlowmaskDrawColor => Color.White;
 
         //custom name color
@@ -114,8 +107,6 @@ namespace AAModClassic
 		public override ModItem NewInstance(Item itemClone)
 		{
 			BaseAAItem newItem = (BaseAAItem)base.NewInstance(itemClone);
-            newItem.glowmaskTexture = glowmaskTexture;
-			newItem.glowmaskDrawType = glowmaskDrawType;
 			newItem.customNameColor = customNameColor;
             return newItem;
 		}

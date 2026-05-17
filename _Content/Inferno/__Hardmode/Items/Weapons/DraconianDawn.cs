@@ -31,10 +31,6 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 			Item.autoReuse = false;
 			Item.shoot = ModContent.ProjectileType<DraconianDawn_DawnRay>();
             Item.shootSpeed = 12f;
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
 

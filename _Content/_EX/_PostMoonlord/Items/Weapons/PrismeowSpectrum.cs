@@ -41,10 +41,6 @@ Prismeow EX"); */
 			Item.shoot = ModContent.ProjectileType<PrismeowSpectrum_LegendaryRainbowCat>();
 			Item.shootSpeed = 0f;
             Item.expert = true; Item.expertOnly = true;
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_NONE; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

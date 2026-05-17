@@ -40,9 +40,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Item.shootSpeed = 15f;
             Item.shoot = ModContent.ProjectileType<DuckstepLauncher_Duck>();
             Item.rare = ItemRarityID.Red;
-            glowmaskTexture = Texture + "_Glow";
-            glowmaskDrawType = GLOWMASKTYPE_GUN;
-            glowmaskDrawColor = Color.White;  
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

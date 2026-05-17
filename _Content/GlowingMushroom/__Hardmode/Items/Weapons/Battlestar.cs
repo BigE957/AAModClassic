@@ -35,10 +35,6 @@ namespace AAModClassic._Content.GlowingMushroom.__Hardmode.Items.Weapons
 			Item.shootSpeed = 16f;
 			Item.useAmmo = AmmoID.Bullet;			
 			Item.crit = 3;
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 		
 		public override void AddRecipes()

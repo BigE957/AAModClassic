@@ -39,10 +39,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.shoot = ModContent.ProjectileType<Light_Holdout>();
             Item.shootSpeed = 30f;           
             Item.expert = true; Item.expertOnly = true;
-
-            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_NONE; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

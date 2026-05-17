@@ -1,6 +1,7 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -10,13 +11,19 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class PoniumStaff : BaseAAItem
 	{
+        public static Asset<Texture2D> Glowmask;
+
+        public override Color GlowmaskDrawColor => AAColor.Hallow;
+
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Ponium Staff");
             /* Tooltip.SetDefault(@"'That's a f***ing REEEEEEEEE if I've ever seen one'
 -Beg"); */
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
-		}
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
 
 		public override void SetDefaults()
 		{
@@ -39,30 +46,9 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.expert = true; Item.expertOnly = true;
 		}
 
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                AAColor.Hallow,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
-        }
-
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             spriteBatch.Draw(texture, position, null, AAColor.Hallow, 0, origin, scale, SpriteEffects.None, 0f);
         }
 

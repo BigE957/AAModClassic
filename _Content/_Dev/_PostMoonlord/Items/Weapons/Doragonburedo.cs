@@ -14,17 +14,6 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         {
             // DisplayName.SetDefault("Doragonburedo");
             // Tooltip.SetDefault("'I'm gonna wipe their whole team' \n" + "-Jace");
-            if (Main.netMode != NetmodeID.Server)
-            {
-                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i];
-                }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask = glowMasks;
-            }
         }
 
         public override void SetDefaults()
