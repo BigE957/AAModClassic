@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/EventideAbyssiumOre_Glow").Value;
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetYamataColorDim2);
             }
         }

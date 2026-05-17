@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons  
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Solar_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask = glowMasks;
             }

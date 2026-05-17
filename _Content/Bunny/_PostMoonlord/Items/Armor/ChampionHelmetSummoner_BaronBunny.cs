@@ -289,7 +289,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             Texture2D Mad = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Champion/Baron/BaronMad").Value;
             Texture2D Eyes = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Champion/Baron/BaronMadEyes").Value;
             Texture2D Meter = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Champion/Baron/BaronBunnyMeter").Value;
-            Texture2D MeterGlow = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Champion/Baron/BaronBunnyMeter_Glow").Value;
+            Texture2D MeterGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, tex.Width, tex.Height / 8, 0, 0);
             Rectangle MeterFrame = BaseDrawing.GetFrame(MeterF, Meter.Width, Meter.Height / 5, 0, 0);

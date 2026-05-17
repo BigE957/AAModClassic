@@ -289,7 +289,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Protocol_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             float Eggroll = Math.Abs(Main.GameUpdateCount) / 0.5f;
             float Pie = 1f * (float)Math.Sin(Eggroll);
             Color color1 = Color.Lerp(Color.Red, Color.Black, Pie);

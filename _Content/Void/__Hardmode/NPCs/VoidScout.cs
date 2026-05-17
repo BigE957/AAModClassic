@@ -97,7 +97,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Scout_Glow").Value;
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, texture2D13, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 4, NPC.frame, drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 4, NPC.frame, AAColor.ZeroShield, true);

@@ -62,8 +62,8 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
             Texture2D BladeTex = ModContent.Request<Texture2D>(Texture + "_Blades").Value;
-            Texture2D GlowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Vortex_Glow").Value;
-            Texture2D BladeGlowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/VortexBlades_Glow").Value;
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D BladeGlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, BladeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, BladeTex.Width, BladeTex.Height), drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, texture2D13, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, texture2D13.Width, texture2D13.Height), drawColor, true);

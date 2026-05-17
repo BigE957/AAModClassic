@@ -40,7 +40,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("Glowmasks/PoniumStaff_Glow").Value;
+            Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<PoniumStaff>().Texture + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
@@ -61,7 +61,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PoniumStaff_Glow").Value;
+            Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<PoniumStaff>().Texture + "_Glow").Value;
             spriteBatch.Draw(texture, position, null, Main.DiscoColor, 0, origin, scale, SpriteEffects.None, 0f);
         }
 

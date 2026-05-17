@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(drawColor), true);
-            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/YamataTransition").Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(new Color(RVal, 0, BVal)), true);
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(new Color(RVal, 0, BVal)), true);
             return false;
         }
 

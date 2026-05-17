@@ -885,8 +885,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D currentTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlue").Value : TextureAssets.Npc[NPC.type].Value;
-            Texture2D currentWingTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonBlueWings").Value : ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossShen/ShenDoragonWings").Value;
+            Texture2D currentTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/ShenDoragonBlue").Value : TextureAssets.Npc[NPC.type].Value;
+            Texture2D currentWingTex = NPC.spriteDirection == 1 ? ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/ShenDoragonBlueWings").Value : ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/ShenDoragonWings").Value;
 
             //offset
             NPC.position.Y += 130f;

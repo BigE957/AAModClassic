@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
             // DisplayName.SetDefault("Treasure Bag");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
-            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaBag_Glow");
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;

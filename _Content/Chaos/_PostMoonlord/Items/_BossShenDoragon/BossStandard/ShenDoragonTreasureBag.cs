@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
             // DisplayName.SetDefault("Treasure Cache");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
-            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShenCache_Glow");
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
 		public override void SetDefaults()

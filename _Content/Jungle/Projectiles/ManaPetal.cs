@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Jungle.Projectiles
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask = glowMasks;
             }

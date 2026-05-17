@@ -662,8 +662,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D tex2 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AthenaA_Glow").Value;
-            Texture2D tex3 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AthenaA_Glow1").Value;
+            Texture2D tex2 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D tex3 = ModContent.Request<Texture2D>(Texture + "_Glow1").Value;
             Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
             BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f, Color.CornflowerBlue);
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);

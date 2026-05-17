@@ -113,7 +113,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
             BaseDrawing.DrawTexture(Main.spriteBatch, bodyTex, 0, NPC, lightColor);
-            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Naddaha_Glow").Value, 0, NPC, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, Color.White, true);
             return false;
 		}
 	}

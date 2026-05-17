@@ -21,7 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask.Value = glowMasks;
             }

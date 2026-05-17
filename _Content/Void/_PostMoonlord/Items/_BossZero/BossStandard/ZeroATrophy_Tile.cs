@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroATrophy_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D Sphere = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroATrophy_Glow1").Value;
             int frameY = tile != null && tile.HasTile ? tile.TileFrameY + Main.tileFrame[Type] * 54 : 0;
 

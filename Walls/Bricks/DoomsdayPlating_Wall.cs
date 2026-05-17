@@ -36,7 +36,7 @@ namespace AAModClassic.Walls.Bricks
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            BaseDrawing.DrawWallTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayWall_Glow").Value, i, j, false, AAGlobalTile.GetZeroColorDim);
+            BaseDrawing.DrawWallTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, i, j, false, AAGlobalTile.GetZeroColorDim);
         }
     }
 }

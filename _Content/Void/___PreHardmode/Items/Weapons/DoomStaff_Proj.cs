@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D t = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
+            Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             BaseDrawing.DrawTexture(Main.spriteBatch, t, 0, Projectile, lightColor, true);
             BaseDrawing.DrawTexture(Main.spriteBatch, Glow, 0, Projectile, Color.White, true);

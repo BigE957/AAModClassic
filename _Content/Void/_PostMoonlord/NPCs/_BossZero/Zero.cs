@@ -255,18 +255,18 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Zero_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShield").Value;
             Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShieldRing").Value;
-            Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroShieldRing_Glow").Value;
+            Texture2D RingGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D normalAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer01").Value;
-            Texture2D normalGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer01_Glow").Value;
+            Texture2D normalGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D switchOneAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer01to2").Value;
-            Texture2D switchOneGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer01to2_Glow").Value;
+            Texture2D switchOneGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D openAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer02").Value;
-            Texture2D openGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer02_Glow").Value;
+            Texture2D openGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D switchTwoAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer02to1").Value;
-            Texture2D switchTwoGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer02to1_Glow").Value;
+            Texture2D switchTwoGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
             if (NPC.ai[1] == 0)
             {

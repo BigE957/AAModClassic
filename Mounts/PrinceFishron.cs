@@ -61,7 +61,7 @@ namespace AAModClassic.Mounts
             if (Main.netMode != NetmodeID.Server)
 			{
 				MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron");
-				MountData.backTextureGlow = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron_Glow");
+				MountData.backTextureGlow = ModContent.Request<Texture2D>(Texture + "_Glow");
 				MountData.frontTexture = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
 				MountData.frontTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
 				MountData.textureWidth = MountData.backTexture.Width();

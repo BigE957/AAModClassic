@@ -208,12 +208,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol
 
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             Texture2D afterimage = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroTrail").Value;
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroProtocol_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (isCharging)
             {
                 tex = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroProtocolCharge").Value;
                 afterimage = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroProtocolChargeTrail").Value;
-                glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroProtocol_Glow").Value;
+                glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             }
             
             if(!(NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack))

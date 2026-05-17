@@ -67,7 +67,7 @@ namespace AAModClassic.Items.Blocks.Boxes
             Texture2D texture = TextureAssets.Item[Item.type].Value;
             if (!Main.dayTime)
             {
-                texture = ModContent.Request<Texture2D>("AAModClassic/Items/Blocks/Boxes/StarBoxN").Value;
+                texture = ModContent.Request<Texture2D>(Texture + "_Night").Value;
             }
             spriteBatch.Draw(texture, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
 

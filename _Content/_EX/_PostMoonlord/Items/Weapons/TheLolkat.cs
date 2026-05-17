@@ -39,7 +39,7 @@ Meowmere EX"); */
 			Item.shoot = ProjectileID.Meowmere;
 			Item.shootSpeed = 12f;
 
-            glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
+            glowmaskTexture = Texture + "_Glow";
             glowmaskDrawType = GLOWMASKTYPE_SWORD;
             glowmaskDrawColor = Color.White;
         }

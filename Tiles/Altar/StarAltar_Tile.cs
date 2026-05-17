@@ -72,7 +72,7 @@ namespace AAModClassic.Tiles.Altar
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/StarAltar_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (tile != null && tile.HasTile && tile.TileType == Type)
             {
                 int width = 16, height = 16;

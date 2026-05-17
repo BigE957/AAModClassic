@@ -86,7 +86,7 @@ namespace AAModClassic.Tiles.Crafters
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TerraPrism_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, tile.TileFrameY + (Main.tileFrame[Type] * 54), false, false, false, null, AAGlobalTile.GetRainbowColorBright);
         }
     }

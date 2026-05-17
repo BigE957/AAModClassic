@@ -166,7 +166,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
 			
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/Daycrusher_Chain").Value;
+            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Chain").Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

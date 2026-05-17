@@ -274,7 +274,7 @@ namespace AAModClassic.Tiles.Chests
         {
             Tile tile = Main.tile[x, y];
             Texture2D LockTex = ModContent.Request<Texture2D>("AAModClassic/Tiles/Chests/DoomsdayChestLockedFrame").Value;
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChest_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             int frameX = tile != null && tile.HasTile ? tile.TileFrameX + (Main.tileFrame[Type] * 36) : 0;
             int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 38) : 0;

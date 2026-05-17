@@ -1137,9 +1137,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/WrathHaruka_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            Texture2D Slash = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Haruka/HarukaSlash").Value;
+            Texture2D Slash = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Haruka/Haruka_Slash").Value;
             if (internalAI[0] == AISTATE_SPIN)
             {
                 if(strikebackproj > 0)

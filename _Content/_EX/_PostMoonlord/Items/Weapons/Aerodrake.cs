@@ -36,7 +36,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.expert = true; Item.expertOnly = true;
 
             glowmaskDrawType = GLOWMASKTYPE_SWORD;
-            glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
+            glowmaskTexture = Texture + "_Glow";
             glowmaskDrawColor = AAColor.COLOR_WHITEFADE1;
         }
 

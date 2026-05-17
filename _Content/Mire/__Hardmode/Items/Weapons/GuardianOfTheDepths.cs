@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Item.autoReuse = true;   
             Item.useTurn = true;
 
-            glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
+            glowmaskTexture = Texture + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
             glowmaskDrawColor = Color.White;  //glowmask draw color
         }

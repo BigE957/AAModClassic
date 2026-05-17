@@ -465,7 +465,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, 1f, 1f, 7, true, 0, 0, Color.White);
             }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(drawColor), false); ;
-            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Sag_Glow").Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), false);
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), false);
             return false;
         }
 

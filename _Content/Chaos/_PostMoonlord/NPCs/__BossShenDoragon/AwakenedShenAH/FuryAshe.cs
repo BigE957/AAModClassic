@@ -657,11 +657,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D Tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/FuryAshe_Glow").Value;
+            Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            Texture2D RingTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Ashe/AsheRing1").Value;
-            Texture2D RingTex1 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Ashe/AsheRing2").Value;
-            Texture2D RitualTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Ashe/AsheRitual").Value;
+            Texture2D RingTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Ashe/Ashe_Ring1").Value;
+            Texture2D RingTex1 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Ashe/Ashe_Ring2").Value;
+            Texture2D RitualTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Ashe/Ashe_Ritual").Value;
             Texture2D ShieldTex = ModContent.Request<Texture2D>(ModContent.GetInstance<AsheRune>().Texture).Value;
 
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);

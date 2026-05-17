@@ -36,7 +36,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = ModContent.Request<Texture2D>("AAModClassic/_Removed/Content/Parthenan/Tiles/Ancient/AncientFulguritePlatingS_Tile_Glow").Value;
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(spriteBatch, glowTex, x, y, true, false, false, null, AAGlobalTile.GetStormColorDim);
             }
         }

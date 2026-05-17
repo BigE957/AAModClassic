@@ -47,7 +47,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;
 
-            glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
+            glowmaskTexture = Texture + "_Glow";
 			glowmaskDrawType = GLOWMASKTYPE_GUN;
 			glowmaskDrawColor = AAColor.COLOR_WHITEFADE1;
 			customNameColor = new Color(0, 0, 255);			

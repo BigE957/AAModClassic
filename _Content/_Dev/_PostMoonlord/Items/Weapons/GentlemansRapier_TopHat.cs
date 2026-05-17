@@ -33,7 +33,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TopHat_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask = glowMasks;
             }

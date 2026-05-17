@@ -37,8 +37,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
         {
             Texture2D texture = TextureAssets.Item[Type].Value;
             Texture2D texture2 = ModContent.Request<Texture2D>(Texture + "_A").Value;
-            Texture2D textureGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/Naitokurosu_Glow").Value;
-            Texture2D texture2Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NaitokurosuA_Glow").Value;
+            Texture2D textureGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture2Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (Main.dayTime)
             {
                 spriteBatch.Draw

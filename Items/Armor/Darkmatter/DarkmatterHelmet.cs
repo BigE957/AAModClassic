@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Armor.Darkmatter
             /* Tooltip.SetDefault(@"10% increased melee damage
 Dark, yet still barely visible"); */
 
-            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

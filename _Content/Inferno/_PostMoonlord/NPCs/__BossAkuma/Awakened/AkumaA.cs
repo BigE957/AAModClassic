@@ -683,9 +683,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 }
             }
 
-            Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaA_Glow").Value;
-            Texture2D glowTex1 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaA1_Glow").Value;
-            Texture2D glowTex2 = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AkumaABody_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D glowTex1 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D glowTex2 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             
             int shader;
             if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)

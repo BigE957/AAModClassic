@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
             // DisplayName.SetDefault("Treasure Bag");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
-            Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroBag_Glow");
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;

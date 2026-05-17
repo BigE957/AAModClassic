@@ -70,11 +70,11 @@ The number at the moment is so high you don't even know what the number is calle
             }
             int height = 16;
             Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Tiles/Furniture/Doom/DoomClock").Value;
-            Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomClock_Glow").Value;
+            Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (AAWorld.downedZero)
             {
                 tex = ModContent.Request<Texture2D>("AAModClassic/Tiles/Furniture/Doom/DoomClock0").Value;
-                Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomClock0_Glow").Value;
+                Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             }
             Main.spriteBatch.Draw(tex, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             Main.spriteBatch.Draw(Glow, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
