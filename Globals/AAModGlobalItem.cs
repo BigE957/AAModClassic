@@ -1,34 +1,30 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Usable;
-using AAModClassic.Tiles.Ore;
-using AAModClassic.Items.Blocks;
-using AAModClassic._Content.Mire.World.Tiles;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
-using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev.Invoker;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories;
+using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
+using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Usable;
+using AAModClassic.Tiles.Ore;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using ReLogic.Utilities;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Globals
 {
@@ -40,6 +36,7 @@ namespace AAModClassic.Globals
         public bool NOHitPlayer = false;
         public bool HardCoreMode = false;
         public bool spellbookmagic = false;
+
         public override void SetDefaults(Item item)
         {
             if (item.type == ItemID.SoulofNight)

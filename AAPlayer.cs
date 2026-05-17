@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
-using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
 using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories;
@@ -15,6 +15,7 @@ using AAModClassic._Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
@@ -28,6 +29,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
@@ -44,11 +46,15 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -69,6 +75,7 @@ using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Universe;
 using AAModClassic.Mounts;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -88,12 +95,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 
 namespace AAModClassic
 {
@@ -3952,7 +3953,7 @@ namespace AAModClassic
 
     public class AADrawLayers
     {
-        public class glAfterWep : PlayerDrawLayer
+        public class GlowAfterWep : PlayerDrawLayer
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.HeldItem);
             protected override void Draw(ref PlayerDrawSet drawInfo)
@@ -4039,23 +4040,26 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterHead : PlayerDrawLayer
+        public class GlowAfterHead : PlayerDrawLayer
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Head);
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
                 Vector2 position = drawInfo.Position;
                 int dyeHead = drawInfo.cHead;
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconainSunHelmet>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayHelmetMage>()))
+                if (EquipGlowSystem.GlowEquipTextures[EquipType.Head].TryGetValue(drawPlayer.head, out var headGlowTex))
+                    BaseDrawing.DrawPlayerTexture(drawInfo, headGlowTex.Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+
+                //if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconainSunHelmet>()))
+                //{
+                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                //}
+                /*else*/
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayHelmetMage>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4187,7 +4191,7 @@ namespace AAModClassic
             }
         }
         
-        public class glAfterShield : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterShield", PlayerDrawLayer.ShieldAcc, delegate (PlayerDrawSet drawInfo)
+        public class GlowAfterShield : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterShield", PlayerDrawLayer.ShieldAcc, delegate (PlayerDrawSet drawInfo)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.HeldItem);
 
@@ -4204,13 +4208,13 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterFace : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterFace", PlayerDrawLayer.FaceAcc, delegate (PlayerDrawSet edi)
+        public class GlowAfterFace : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterFace", PlayerDrawLayer.FaceAcc, delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.FaceAcc);
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                //This is fucked up
+                //TODO: This is fucked up
                 /*
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
@@ -4243,7 +4247,7 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterNeck : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterNeck", PlayerDrawLayer.NeckAcc, delegate (PlayerDrawSet edi)
+        public class GlowAfterNeck : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterNeck", PlayerDrawLayer.NeckAcc, delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.NeckAcc);
 
@@ -4260,7 +4264,7 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterHandOn : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterHandOn", PlayerDrawLayer.HandOnAcc, delegate (PlayerDrawSet edi)
+        public class GlowAfterHandOn : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterHandOn", PlayerDrawLayer.HandOnAcc, delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.NeckAcc);
 
@@ -4279,7 +4283,7 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterHandOff : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterHandOff", PlayerDrawLayer.HandOffAcc, delegate (PlayerDrawSet edi)
+        public class GlowAfterHandOff : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterHandOff", PlayerDrawLayer.HandOffAcc, delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.OffhandAcc);
 
@@ -4298,21 +4302,24 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterBody : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterBody", PlayerDrawLayer.Body, delegate (PlayerDrawSet edi)
+        public class GlowAfterBody : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterBody", PlayerDrawLayer.Body, delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Torso);
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
+                if (EquipGlowSystem.GlowEquipTextures[EquipType.Body].TryGetValue(drawPlayer.body, out var bodyGlowTex))
+                    BaseDrawing.DrawPlayerTexture(drawInfo, bodyGlowTex.Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+
+                /*if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayChestplate>()))
+                else*/
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4326,27 +4333,23 @@ namespace AAModClassic
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumChestplate>()))
                 {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DJDuckShirt>()))
                 {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckShirt_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckShirt_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteChestplate>()) && modPlayer.doomite)
                 {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                //TODO: move     this?
-                // actually this has to be recoded i think
-                //
-                // actually can this just be removed?
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerChestplate>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
-                        //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/PerfectChaosPlateBlue_" + (drawPlayer.Male ? "Body" : "FemaleBody")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
+                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Alt").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
                     }
-                    //BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
                 else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
                 {
@@ -4359,75 +4362,24 @@ namespace AAModClassic
             }
         }
 
-        public class glAfterArm : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterArm", PlayerDrawLayer.Arms, delegate (PlayerDrawSet edi)
-        {
-            public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.ArmOverItem);
-
-            protected override void Draw(ref PlayerDrawSet drawInfo)
-            {
-                Mod mod = AAMod.instance;
-                Player drawPlayer = drawInfo.drawPlayer;
-                AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
-
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChestplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterBreastplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterBreastplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumPlatemail>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Arms").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteChestplate>()) && modPlayer.doomite)
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                //TODO: move     this?
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerChestplate>()))
-                {
-                    if (drawPlayer.direction == 1)
-                    {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Alt").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
-                    }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenPlate_Arms").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedRobe>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedRobe_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-            }
-        }
-
-        public class glAfterLegs : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterLegs", PlayerDrawLayer.Legs, delegate (PlayerDrawSet edi)
+        public class GlowAfterLegs : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterLegs", PlayerDrawLayer.Legs, delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Leggings);
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunLeggings>()))
+                if(EquipGlowSystem.GlowEquipTextures[EquipType.Legs].TryGetValue(drawPlayer.legs, out var legGlowTex))
+                    BaseDrawing.DrawPlayerTexture(drawInfo, legGlowTex.Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
+
+                /*if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayLeggings>()))
+                else*/
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
@@ -4593,7 +4545,7 @@ namespace AAModClassic
         }
         #endregion
 
-        public class glAfterAll : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterAll", delegate (PlayerDrawSet edi)
+        public class DrawAfterAll : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterAll", delegate (PlayerDrawSet edi)
         {
             public override Position GetDefaultPosition() => PlayerDrawLayers.AfterLastVanillaLayer;
 

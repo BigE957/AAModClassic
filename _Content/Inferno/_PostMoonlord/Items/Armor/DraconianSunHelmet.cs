@@ -8,12 +8,14 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic.Utilities.Attributes;
 
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DraconainSunHelmet : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DraconianSunHelmet : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

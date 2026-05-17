@@ -1,17 +1,19 @@
-using Terraria;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria.ID;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class DraconianSunChestplate : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Body)]
+    public class DraconianSunChestplate : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
