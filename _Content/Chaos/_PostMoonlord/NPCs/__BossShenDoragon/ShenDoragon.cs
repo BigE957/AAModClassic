@@ -15,6 +15,7 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -602,8 +603,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.ai[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient) //spawn lightning
                         {
-                            int TODOIsThisUnintentionalThisFeelsWrong = IsAwakened ? -1 : 1;
-                            Vector2 infernoPos = new Vector2(200f, NPC.direction == TODOIsThisUnintentionalThisFeelsWrong ? 65f : -45f);
+                            float verticalOffset = IsAwakened ? 45f : 65f;
+                            Vector2 infernoPos = new Vector2(200f, NPC.direction == 1 ? verticalOffset : -verticalOffset);
                             Vector2 vel = new Vector2(MathHelper.Lerp(6f, 8f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-4f, 4f, (float)Main.rand.NextDouble()));
 
                             if (player.active && !player.dead)
@@ -735,7 +736,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 wingFrameFront.X = frameWidth * 2;
                 wingFrameBack.X = frameWidth * 2;
             }
-
             else if (NPC.spriteDirection == 1)
             {
                 NPC.frame.X = frameWidth;
@@ -1062,60 +1062,34 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            //offset
-            NPC.position.Y += 130f;
+            // back wing
+            spriteBatch.Draw(WingBack.Value, NPC.Center - screenPos, wingFrameBack, NPC.GetAlpha(drawColor), NPC.rotation, wingFrameBack.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
-            //draw body/charge afterimage
-            BaseDrawing.DrawTexture(spriteBatch, WingBack.Value, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrameBack, NPC.GetAlpha(drawColor));
+            // afterimage
             if (Dashing)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
             }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.GetAlpha(drawColor), false);
+            
+            // body
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
+            //draw glow/glow afterimage
             if (IsAwakened)
             {
-                //draw glow/glow afterimage
-                BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC, NPC.GetAlpha(AAColor.Shen3));
+                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(AAColor.Shen3), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
                 BaseDrawing.DrawAfterimage(spriteBatch, Glowmask.Value, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, NPC.GetAlpha(AAColor.Shen3));
             }
 
-            //draw wings
-            BaseDrawing.DrawTexture(spriteBatch, WingFront.Value, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrameFront, NPC.GetAlpha(drawColor), false);
+            // frong wing
+            spriteBatch.Draw(WingFront.Value, NPC.Center - screenPos, wingFrameFront, NPC.GetAlpha(drawColor), NPC.rotation, wingFrameFront.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
-            //deoffset
-            NPC.position.Y -= 130f;
             return false;
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             return false;
-        }
-
-        public static int ShootPeriodic(Entity codable, Vector2 position, int width, int height, int projType, ref float delayTimer, float delayTimerMax = 100f, int damage = -1, float speed = 10f, bool checkCanHit = true)
-        {
-            int pID = -1;
-            if (damage == -1) { Projectile proj = new Projectile(); proj.SetDefaults(projType); damage = proj.damage; }
-            bool properSide = codable is NPC ? Main.netMode != NetmodeID.MultiplayerClient : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true;
-            if (properSide)
-            {
-                Vector2 targetCenter = position + new Vector2(width * 0.5f, height * 0.5f);
-                delayTimer--;
-                if (delayTimer <= 0)
-                {
-                    if (!checkCanHit || Collision.CanHit(codable.position, codable.width, codable.height, position, width, height))
-                    {
-                        Vector2 fireTarget = codable.Center + new Vector2(167 * codable.direction, 0);
-                        float rot = BaseUtility.RotationTo(codable.Center, targetCenter);
-                        fireTarget = BaseUtility.RotateVector(codable.Center, fireTarget, rot);
-                        pID = BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage, 0f, speed);
-                    }
-                    delayTimer = delayTimerMax;
-                    if (codable is NPC) { ((NPC)codable).netUpdate = true; }
-                }
-            }
-            return pID;
         }
     }
 }

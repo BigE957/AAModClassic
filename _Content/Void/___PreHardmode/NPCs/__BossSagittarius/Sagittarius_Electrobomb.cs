@@ -2,6 +2,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -11,10 +12,13 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 {
     public class Sagittarius_Electrobomb : ModProjectile
     {
+        public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 11;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -63,7 +67,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 11, 0, 0);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, lightColor, true);
-            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Glowmask.Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
             return false;
         }
 

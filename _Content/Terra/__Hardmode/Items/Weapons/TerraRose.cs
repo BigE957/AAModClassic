@@ -1,17 +1,19 @@
+using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
+using AAModClassic.Items.Materials;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Items.Materials;
-using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {
     public class TerraRose : BaseAAItem
 	{
-        
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Rose");
@@ -19,7 +21,9 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 Projectiles go through walls
 Right Clicking fires a piercing rose"); */
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
-		}
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
 
 		public override void SetDefaults()
 		{
@@ -69,7 +73,7 @@ Right Clicking fires a piercing rose"); */
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture = Glowmask.Value;
             Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             spriteBatch.Draw(texture2, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
             for (int i = 0; i < 4; i++)
@@ -77,27 +81,6 @@ Right Clicking fires a piercing rose"); */
                 spriteBatch.Draw(texture, position, null, Main.DiscoColor, 0, origin, scale, SpriteEffects.None, 0f);
             }
             return false;
-        }
-
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                Main.DiscoColor,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
         }
 
         public override void AddRecipes()

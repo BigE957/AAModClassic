@@ -2,6 +2,8 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weap
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
@@ -12,10 +14,19 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 	{
         public override string Texture => ModContent.GetInstance<DarkmatterSpinblade>().Texture;
 
+        public static Asset<Texture2D> Glowmask;
+
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-          {
+        {
               target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
-          }
+        }
 
         public override void SetDefaults()
         {
@@ -46,6 +57,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Glowmask.Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Color.White, true);
             return false;
         }
 

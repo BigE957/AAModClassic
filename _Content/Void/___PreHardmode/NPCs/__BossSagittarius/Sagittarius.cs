@@ -6,6 +6,7 @@ using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
@@ -21,11 +22,15 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
     [AutoloadBossHead]
     public class Sagittarius : ModNPC
 	{
-		public override void SetStaticDefaults()
+        public static Asset<Texture2D> Glowmask;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Sagittarius");
             Main.npcFrameCount[NPC.type] = 9;
-		}
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
 
 		public override void SetDefaults()
         {
@@ -465,7 +470,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, 1f, 1f, 7, true, 0, 0, Color.White);
             }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(drawColor), false); ;
-            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), false);
+            BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), false);
             return false;
         }
 
