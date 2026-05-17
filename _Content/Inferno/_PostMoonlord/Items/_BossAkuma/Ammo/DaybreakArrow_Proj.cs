@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
+            //TODO kill
             if (Main.netMode != NetmodeID.Server)
             {
                 Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];

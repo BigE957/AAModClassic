@@ -1,6 +1,7 @@
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -11,6 +12,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons     //We need 
 {
     public class RealityShredders_Holdout : ModProjectile
     {
+        public static Asset<Texture2D> Glowmask;
+
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 58;
@@ -74,7 +84,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons     //We need 
         {
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
             Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
-            Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Main.spriteBatch.Draw(Glowmask.Value, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 

@@ -13,7 +13,6 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
         
         public override void SetStaticDefaults()
         {
-            
             // DisplayName.SetDefault("Unstable Power Cell");
             /* Tooltip.SetDefault(@"Acts as a bullet
 Non-consumable"); */

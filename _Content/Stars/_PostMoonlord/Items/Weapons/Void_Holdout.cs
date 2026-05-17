@@ -7,6 +7,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {
 	public class Void_Holdout : ModProjectile
 	{
+		//TODO: add this things glowmask
+		
 		public override void SetStaticDefaults()
 		{
 			ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = 3.5f;
