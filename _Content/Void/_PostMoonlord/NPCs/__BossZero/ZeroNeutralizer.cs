@@ -139,11 +139,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
-<<<<<<< HEAD:_Content/Void/_PostMoonlord/NPCs/_BossZero/Neutralizer.cs
-            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-=======
             Texture2D glowTex = Glowmask.Value;
->>>>>>> 670fbbe856f0c57fb0bd4e683d47971012388a1b:_Content/Void/_PostMoonlord/NPCs/__BossZero/ZeroNeutralizer.cs
             BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC, 1, 1, 6, true, 0, 0, Color.DarkRed, NPC.frame);
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor);
             BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, AAColor.COLOR_WHITEFADE1);

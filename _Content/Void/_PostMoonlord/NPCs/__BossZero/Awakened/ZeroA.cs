@@ -235,24 +235,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-<<<<<<< HEAD:_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroProtocol.cs
-            if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
-            else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-
-            Texture2D tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D afterimage = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroTrail").Value;
-            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            if (isCharging)
-            {
-                tex = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroProtocolCharge").Value;
-                afterimage = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Protocol/ZeroProtocolChargeTrail").Value;
-                glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-=======
             if (auraDirection) 
             { 
                 auraPercent += 0.1f; 
                 auraDirection = auraPercent < 1f; 
->>>>>>> 670fbbe856f0c57fb0bd4e683d47971012388a1b:_Content/Void/_PostMoonlord/NPCs/__BossZero/Awakened/ZeroA.cs
             }
             else 
             { 

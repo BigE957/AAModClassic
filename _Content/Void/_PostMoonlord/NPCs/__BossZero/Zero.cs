@@ -264,27 +264,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
         public override void FindFrame(int frameHeight)
         {
-<<<<<<< HEAD:_Content/Void/_PostMoonlord/NPCs/_BossZero/Zero.cs
-            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShield").Value;
-            Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/ZeroShieldRing").Value;
-            Texture2D RingGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D normalAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer01").Value;
-            Texture2D normalGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D switchOneAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer01to2").Value;
-            Texture2D switchOneGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D openAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer02").Value;
-            Texture2D openGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D switchTwoAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/_BossZero/Zer02to1").Value;
-            Texture2D switchTwoGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
-            if (NPC.ai[1] == 0)
-=======
             int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / 4;
             NPC.frame.Width = frameWidth;
 
             if (NPC.ai[1] == 1)
->>>>>>> 670fbbe856f0c57fb0bd4e683d47971012388a1b:_Content/Void/_PostMoonlord/NPCs/__BossZero/Zero.cs
             {
                 if (NPC.ai[3] == 3)
                 {
