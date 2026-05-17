@@ -18,7 +18,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarc
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
@@ -293,10 +293,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Shen",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Shen>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<ShenDoragon>(), false)
                 ],
                 [],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Shen>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<ShenDoragon>()]],
                 hasCompleteText: true
             );
 

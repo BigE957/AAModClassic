@@ -3,8 +3,11 @@ using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.AwakenedShenAH;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsShen;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe.Shenling;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
@@ -17,8 +20,8 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -74,10 +77,10 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<BlazeGrip>()) CalamityDR = 0.2f;
                 if(npc.type == ModContent.NPCType<FuryAshe>()) CalamityDR = 0.2f;
                 if(npc.type == ModContent.NPCType<WrathHaruka>()) CalamityDR = 0.2f;
-                if(npc.type == ModContent.NPCType<Shen>()) CalamityDR = 0.15f;
-                if(npc.type == ModContent.NPCType<ShenA>()) CalamityDR = 0.1f;
+                if(npc.type == ModContent.NPCType<ShenDoragon>()) CalamityDR = 0.15f;
+                if(npc.type == ModContent.NPCType<ShenDoragonA>()) CalamityDR = 0.1f;
                 if(npc.type == ModContent.NPCType<FuryAsheOrbiter>()) CalamityDR = 0.2f;
-                if(npc.type == ModContent.NPCType<Shenling>()) CalamityDR = 0.15f;
+                if(npc.type == ModContent.NPCType<ShenlingHead>()) CalamityDR = 0.15f;
 
                 if(npc.type == ModContent.NPCType<YamataABody>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataAHead>()) CalamityDR = 0.5f;
@@ -92,17 +95,17 @@ namespace AAModClassic.CrossMod.CalamityMod
 
                 if(npc.type == ModContent.NPCType<ZeroEcho>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroMini>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<ZeroProtocol>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<GenocideCannon>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<Neutralizer>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<NovaFocus>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<OmegaVolley>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<RealityCannon>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<RiftShredder>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroA>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroGenocideCannon>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroNeutralizer>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroNovaFocus>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroOmegaVolley>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroRealityCannon>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroRiftShredder>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<SearcherZero>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<Taser>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<TeslaHand>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<VoidStar>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroGigataser>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroBrokenWeapon>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<ZeroVoidStar>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<Zero>()) CalamityDR = 0.5f;
             }
         }

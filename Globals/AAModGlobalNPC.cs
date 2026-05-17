@@ -9,6 +9,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Consumables;
@@ -201,7 +202,7 @@ namespace AAModClassic.Globals
 				npc.defense -= 20;
 			}
 
-            bool shen = npc.type == ModContent.NPCType<Shen>() || npc.type == ModContent.NPCType<ShenA>();
+            bool shen = npc.type == ModContent.NPCType<ShenDoragon>() || npc.type == ModContent.NPCType<ShenDoragonA>();
 
             ApplyDPSDebuff(terraBlaze, shen ? 46 : 26, shen ? 30 : 10, ref npc.lifeRegen, ref damage);
             ApplyDPSDebuff(infinityOverload, 60, 40, ref npc.lifeRegen, ref damage);

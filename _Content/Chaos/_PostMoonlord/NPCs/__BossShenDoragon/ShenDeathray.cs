@@ -1,4 +1,5 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -43,7 +44,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenA>())
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenDoragonA>())
             {
                 Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center + Vector2.UnitX.RotatedBy(Main.npc[(int)Projectile.ai[1]].ai[3]) * 250 + Main.rand.NextVector2Circular(5, 5);
             }
@@ -232,7 +233,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenA>())
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenDoragonA>())
             {
 
             }

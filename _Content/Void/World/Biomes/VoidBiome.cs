@@ -1,5 +1,5 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
+﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
 using AAModClassic._Unreleased;
 using AAModClassic.Base.BaseMod.Base;
@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            bool active = (AAWorld.voidTiles > 20 && player.ZoneSkyHeight) || (AAWorld.voidTiles > 100 && !player.ZoneSkyHeight) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Zero>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<ZeroProtocol>(), 5000) != -1;
+            bool active = (AAWorld.voidTiles > 20 && player.ZoneSkyHeight) || (AAWorld.voidTiles > 100 && !player.ZoneSkyHeight) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Zero>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<ZeroA>(), 5000) != -1;
             return player.GetModPlayer<AAPlayer>().ZoneVoid = active;
         }
 

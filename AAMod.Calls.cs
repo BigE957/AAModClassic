@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -117,7 +118,7 @@ namespace AAModClassic
                             return null;
                         }
                         
-                        return ShenA.AddShenCrossmodDialogue(dKey, text, condition);
+                        return ShenDoragonUtils.AddShenCrossmodDialogue(dKey, text, condition);
                     case "AddInfinityZeroDialogue":
                         if (args.Length <= 4)
                         {

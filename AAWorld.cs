@@ -35,8 +35,6 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosW
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs._BossZero.Protocol;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
@@ -76,6 +74,9 @@ using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 
 namespace AAModClassic
 {
@@ -142,11 +143,11 @@ namespace AAModClassic
         public static bool downedAkuma => (NPCExtensions.BeenKilled<Akuma>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
         public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool zeroUS;
-        public static bool downedZero => (NPCExtensions.BeenKilled<Zero>() && !Main.expertMode) || NPCExtensions.BeenKilled<ZeroProtocol>();
+        public static bool downedZero => (NPCExtensions.BeenKilled<Zero>() && !Main.expertMode) || NPCExtensions.BeenKilled<ZeroA>();
         public static bool downedAllAncients => downedAkuma && downedYamata && downedZero;
         private static bool previousDownedAllAncients = false;
         public static bool ShenSummoned;
-        public static bool downedShen => (NPCExtensions.BeenKilled<Shen>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenA>();
+        public static bool downedShen => (NPCExtensions.BeenKilled<ShenDoragon>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenDoragonA>();
 
         public static bool downedAshe;
         public static bool downedHaruka;     
