@@ -237,8 +237,29 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
             }
 
-            spritebatch.Draw(foot, end - Main.screenPosition, null, Lighting.GetColor(end.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, 0f, foot.Size() * 0.5f, 1f, effects, 0);
-        }
+            Point endTile = end.ToTileCoordinates();
 
+            int left1 = WorldGenUtils.GetFirstTileFloor(endTile.X - 1, endTile.Y - 2);
+            int left2 = WorldGenUtils.GetFirstTileFloor(endTile.X - 2, endTile.Y - 2);
+            Point leftTile;
+
+            if (left1 < left2)
+				leftTile = new Point(endTile.X - 1, left1);
+			else
+                leftTile = new Point(endTile.X - 2, left2);
+
+            int right1 = WorldGenUtils.GetFirstTileFloor(endTile.X + 1, endTile.Y - 2);
+            int right2 = WorldGenUtils.GetFirstTileFloor(endTile.X + 2, endTile.Y - 2);
+            Point rightTile;
+
+            if (right1 < right2)
+                rightTile = new Point(endTile.X + 1, right1);
+            else
+                rightTile = new Point(endTile.X + 2, right2);
+
+			float footAngle = leftTile.ToVector2().AngleTo(rightTile.ToVector2());
+
+            spritebatch.Draw(foot, end - Main.screenPosition, null, Lighting.GetColor(end.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, footAngle, foot.Size() * 0.5f, 1f, effects, 0);
+        }
     }
 }
