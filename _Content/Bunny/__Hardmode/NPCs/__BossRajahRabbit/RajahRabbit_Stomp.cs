@@ -1,10 +1,11 @@
+using AAModClassic.Assets;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
     public class RajahRabbit_Stomp: ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Stomp");

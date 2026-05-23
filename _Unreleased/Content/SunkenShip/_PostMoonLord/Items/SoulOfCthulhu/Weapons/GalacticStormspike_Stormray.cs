@@ -1,19 +1,20 @@
-using System;
-using System.Collections.Generic;
+using AAModClassic.Assets;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using ReLogic.Content;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
 	public class GalacticStormspike_Stormray : AAProjectile
 	{
 
-        public override string Texture { get { return "AAModClassic/BlankTex"; } }
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
 		{

@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -26,7 +27,7 @@ namespace AAModClassic.UI.MenuThemes
             MireLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
             InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
             VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
-            BlankTex = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+            BlankTex = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
         }
 
         public override Asset<Texture2D> Logo 

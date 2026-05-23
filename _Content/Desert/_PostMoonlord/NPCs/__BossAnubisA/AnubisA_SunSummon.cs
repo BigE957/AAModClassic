@@ -2,12 +2,13 @@ using Terraria;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
+using AAModClassic.Assets;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class AnubisA_SunSummon : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sun Summon");

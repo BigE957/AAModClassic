@@ -1,4 +1,5 @@
-﻿using AAModClassic.Globals;
+﻿using AAModClassic.Assets;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -9,7 +10,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class FinalChaos_Proj : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
 		{

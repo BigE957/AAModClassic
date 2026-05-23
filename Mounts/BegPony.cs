@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Assets;
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -67,9 +68,9 @@ namespace AAModClassic.Mounts
             if (Main.netMode != NetmodeID.Server)
             {
                 MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/BegPony");
-                MountData.backTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                MountData.frontTexture = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                MountData.frontTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                MountData.backTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+                MountData.frontTexture = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+                MountData.frontTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
                 MountData.textureWidth = MountData.backTexture.Width();
                 MountData.textureHeight = MountData.backTexture.Height();
             }

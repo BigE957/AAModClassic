@@ -91,14 +91,14 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetStaticDefaults()
 		{
-			Main.npcFrameCount[NPC.type] = 19;
-			NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
-			NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+			NPCID.Sets.AttackFrameCount[NPC.type] = 6;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = NPCID.Sets.AttackFrameCount[NPC.type] + 5;
+            Main.npcFrameCount[NPC.type] = NPCID.Sets.ExtraFramesCount[NPC.type] + 10;
 
-			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
-			NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.DangerDetectRange[NPC.type] = -1;
+			NPCID.Sets.AttackType[NPC.type] = 2;
 			NPCID.Sets.AttackTime[NPC.type] = 40;
-			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+			NPCID.Sets.AttackAverageChance[NPC.type] = 1;
 
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
 

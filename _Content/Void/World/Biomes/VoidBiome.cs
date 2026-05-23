@@ -2,9 +2,11 @@
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
 using AAModClassic._Unreleased;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -333,17 +335,17 @@ namespace AAModClassic._Content.Void.World.Biomes
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "BlankTex");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, FilePathUtils.RemoveModNameHeaderFromFilePath(AssetDirectory.General.Nothing));
         }
 
         public override int ChooseMiddleTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "BlankTex");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, FilePathUtils.RemoveModNameHeaderFromFilePath(AssetDirectory.General.Nothing));
         }
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "BlankTex");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, FilePathUtils.RemoveModNameHeaderFromFilePath(AssetDirectory.General.Nothing));
         }
     }
 

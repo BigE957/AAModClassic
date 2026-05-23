@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Assets;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
@@ -11,7 +12,7 @@ namespace AAModClassic._Content.Acropolis.Projectiles
 {
     public class AthenaHurricane : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
 		{

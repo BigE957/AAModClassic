@@ -16,6 +16,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic.Assets;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -631,7 +632,7 @@ namespace AAModClassic.UI.Titles
 
     public class Title : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 1;
@@ -680,7 +681,7 @@ namespace AAModClassic.UI.Titles
 
     public class SistersTitle : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 1;

@@ -3,12 +3,13 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic.Assets;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 {
     internal class Sunpowder_Proj : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 6;

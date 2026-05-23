@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
@@ -279,7 +280,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
 
     internal class RabbitBeam : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rabbit Bolt");

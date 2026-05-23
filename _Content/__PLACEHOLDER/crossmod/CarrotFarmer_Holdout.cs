@@ -1,5 +1,6 @@
 using System;
 using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic.Assets;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -127,7 +128,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
     public class CarrotFarmerDamage : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 160;
@@ -162,7 +163,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
     public class CarrotFarmerDamage2 : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -198,7 +199,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
     public class CarrotFarmerEffect : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 8;

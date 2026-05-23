@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Assets;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -80,7 +81,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
     public class DragonsClawDamage : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 138;
@@ -122,7 +123,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
     }
     public class DragonsClawDamage2 : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 138;
@@ -157,7 +158,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
     public class DragonsClawEffect : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public static Color lightColor = new Color(103, 40, 41);
         public override void SetDefaults()
         {

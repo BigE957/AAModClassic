@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using System;
@@ -78,7 +79,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 	}
     public class AuroraScytheDamage : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -120,7 +121,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
     }
     public class AuroraScytheDamage2 : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -154,7 +155,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
     }
     public class AuroraScytheEffect : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public static Color lightColor = new Color(41, 60, 103);
 
 

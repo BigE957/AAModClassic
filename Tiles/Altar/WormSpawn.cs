@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -12,7 +13,7 @@ namespace AAModClassic.Tiles.Altar
 {
     public class WormSpawn : ModNPC
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Heavenly Voice");

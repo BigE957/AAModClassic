@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -9,7 +10,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class PoniumStaff_PonyShot : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Pony Shot");

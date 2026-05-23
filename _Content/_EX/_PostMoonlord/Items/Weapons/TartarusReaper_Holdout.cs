@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -94,7 +95,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
     }
     public class CursedSickleEXEffect : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 8;
@@ -149,7 +150,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
     public class CursedSickleEXDamage : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 120;
@@ -180,7 +181,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
     public class CursedSickleEXDamage2 : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 120;

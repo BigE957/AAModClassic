@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ModLoader;
@@ -6,7 +7,7 @@ namespace AAModClassic.Projectiles
 {
     public class ReaperHitbox : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Reaper Hitbox");

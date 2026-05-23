@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -7,7 +8,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssLash : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Abyssal Lash");

@@ -4,12 +4,13 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
 using Terraria.ID;
+using AAModClassic.Assets;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssalEruption_AcidFlame : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Acid Flame");

@@ -18,5 +18,11 @@ namespace AAModClassic.Utilities
         {
             return $"{FilePath<T>()}/{typeof(T).Name}";
         }
+
+        public static string RemoveModNameHeaderFromFilePath(string input)
+        {
+
+            return input.Remove(0, 13);
+        }
     }
 }

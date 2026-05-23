@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Assets;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -79,7 +80,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
     public class HydrasFuryDamage : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -121,7 +122,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
     }
     public class HydrasFuryDamage2 : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -156,7 +157,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
     public class HydrasFuryEffect : ModProjectile
     {
         public static Color lightColor = new Color(41, 60, 103);
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetDefaults()
         {

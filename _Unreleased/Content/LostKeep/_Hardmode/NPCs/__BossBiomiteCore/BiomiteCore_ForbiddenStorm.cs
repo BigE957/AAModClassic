@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,7 +12,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomite
 
 public class BiomiteCore_ForbiddenStorm : ModProjectile
 {
-	public override string Texture => "AAModClassic/BlankTex";
+	public override string Texture => AssetDirectory.General.Nothing;
 
 	public override void SetStaticDefaults()
 	{

@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -7,7 +8,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
 {
     class DynaskullJavelin_DynaEnergy : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 16;

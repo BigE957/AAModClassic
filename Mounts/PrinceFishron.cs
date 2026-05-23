@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -62,8 +63,8 @@ namespace AAModClassic.Mounts
 			{
 				MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron");
 				MountData.backTextureGlow = ModContent.Request<Texture2D>(Texture + "_Glow");
-				MountData.frontTexture = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-				MountData.frontTextureExtra = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+				MountData.frontTexture = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+				MountData.frontTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
 				MountData.textureWidth = MountData.backTexture.Width();
 				MountData.textureHeight = MountData.backTexture.Height();
 			}

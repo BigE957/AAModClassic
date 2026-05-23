@@ -1,4 +1,5 @@
 using AAModClassic._Content._Dev.Invoker;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -11,7 +12,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
     public class AleisterStaff_InvokedDamage : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetDefaults()
         {

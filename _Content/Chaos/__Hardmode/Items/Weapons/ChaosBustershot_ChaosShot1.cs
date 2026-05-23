@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,7 +9,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
     public class ChaosBustershot_ChaosShot1 : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public int proType = 0;
         public override void SetStaticDefaults()
         {

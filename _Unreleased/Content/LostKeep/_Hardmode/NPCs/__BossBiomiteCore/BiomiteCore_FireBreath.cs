@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -7,7 +8,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomite
 
 internal class BiomiteCore_FireBreath : ModProjectile
 {
-	public override string Texture => "AAModClassic/BlankTex";
+	public override string Texture => AssetDirectory.General.Nothing;
 
 	public override void SetStaticDefaults()
 	{

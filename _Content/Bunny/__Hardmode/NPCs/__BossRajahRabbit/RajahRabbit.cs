@@ -9,6 +9,7 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
@@ -128,7 +129,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             Arms_FluffyFury = ModContent.Request<Texture2D>(ATexture + "_Arms_FluffyFury");
             Arms_RabbitsWrath = ModContent.Request<Texture2D>(ATexture + "_Arms_RabbitsWrath");
             Arms_CottonCane = ModContent.Request<Texture2D>(Texture + "_Unofficial_Arms_CottonCane");
-            BlankTex = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+            BlankTex = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
         }
 
         public override void SetDefaults()

@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -6,7 +7,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
     public class Anubis_EyeSentrySummon : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Eye Summon");

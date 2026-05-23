@@ -1,4 +1,5 @@
-﻿using AAModClassic.UI.WorldGen;
+﻿using AAModClassic.Assets;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -51,7 +52,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
         public virtual int DustType => DustID.Torch;
 
-        public override string Texture => "AAModClassic/ExtraTextures/FireProj";
+        //TODO: make thise use ExtraTextureDirectory
+        public override string Texture => AssetDirectory.Projectiles.FireProj;
 
         public override void OnSpawn(IEntitySource source)
         {

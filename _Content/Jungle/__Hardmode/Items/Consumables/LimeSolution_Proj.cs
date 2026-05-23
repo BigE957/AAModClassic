@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using AAModClassic.Conversions;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -7,7 +8,7 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items.Consumables
 {
     internal class LimeSolution_Proj : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 6;

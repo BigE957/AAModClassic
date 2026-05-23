@@ -4,12 +4,13 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Tiles;
+using AAModClassic.Assets;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 {
     internal class BrownSolution_Proj : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Brown Solution");

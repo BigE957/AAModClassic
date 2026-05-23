@@ -77,6 +77,7 @@ using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies;
+using AAModClassic.Assets;
 
 namespace AAModClassic
 {
@@ -537,7 +538,7 @@ namespace AAModClassic
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/CCRobe_Legs", EquipType.Legs, name: "CCRobe_Legs");
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/Shiny/ShinyCCRobe_Legs", EquipType.Legs, name: "ShinyCCRobe_Legs");
 
-            BackgroundTextureLoader.AddBackgroundTexture(this, "AAModClassic/BlankTex");
+            BackgroundTextureLoader.AddBackgroundTexture(this, AssetDirectory.General.Nothing);
         }
 
         public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = [];
