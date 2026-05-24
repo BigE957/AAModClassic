@@ -46,8 +46,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public int damage = 0;
 
         public static Asset<Texture2D> Glowmask;
+        public static Asset<Texture2D> Armless;
         public static Asset<Texture2D> WingFront;
         public static Asset<Texture2D> WingBack;
+        public static Asset<Texture2D> UpperArmsFront;
+        public static Asset<Texture2D> LowerArmsFront;
+        public static Asset<Texture2D> UpperArmsBack;
+        public static Asset<Texture2D> LowerArmsBack;
 
         public override void SetStaticDefaults()
         {
@@ -55,8 +60,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             Main.npcFrameCount[NPC.type] = 2;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            Armless = ModContent.Request<Texture2D>(Texture + "_NoArms");
             WingFront = ModContent.Request<Texture2D>(Texture + "_WingsFront");
             WingBack = ModContent.Request<Texture2D>(Texture + "_WingsBack");
+            UpperArmsFront = ModContent.Request<Texture2D>(Texture + "_ArmsFront_Upper");
+            LowerArmsFront = ModContent.Request<Texture2D>(Texture + "_ArmsFront_Lower");
+            UpperArmsBack = ModContent.Request<Texture2D>(Texture + "_ArmsBack_Upper");
+            LowerArmsBack = ModContent.Request<Texture2D>(Texture + "_ArmsBack_Lower");
+
         }
 
         public override void SetDefaults()
@@ -671,6 +682,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.ai[3] = 0;
                     }
                     NPC.rotation = NPC.velocity.ToRotation();
+                    if (NPC.spriteDirection == -1)
+                        NPC.rotation += MathHelper.Pi;
                     Dashing = true;
                     break;
 
@@ -695,60 +708,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     NPC.ai[0] = 0;
                     goto case 0;
             }
-        }
-
-        public override void FindFrame(int frameHeight)
-        {
-            Player player = Main.player[NPC.target];
-            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / FRAMECOUNT_X;
-
-            NPC.frame = new Rectangle(0, Roaring ? frameHeight : 0, frameWidth, frameHeight);
-
-            if (Dashing)
-            {
-                NPC.frameCounter = 0;
-                wingFrameFront.Y = frameHeight;
-            }
-            else
-            {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 5)
-                {
-                    NPC.frameCounter = 0;
-                    wingFrameFront.Y += frameHeight;
-                    if (wingFrameFront.Y > frameHeight * 4)
-                    {
-                        NPC.frameCounter = 0;
-                        wingFrameFront.Y = 0;
-                    }
-                }
-                if (!IsAwakened || NPC.ai[0] != 1)
-                {
-                    NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;
-                }
-            }
-
-            wingFrameBack = wingFrameFront;
-
-            if (IsAwakened)
-            {
-                NPC.frame.X = frameWidth * 2;
-                wingFrameFront.X = frameWidth * 2;
-                wingFrameBack.X = frameWidth * 2;
-            }
-            else if (NPC.spriteDirection == 1)
-            {
-                NPC.frame.X = frameWidth;
-                wingFrameFront.X = frameWidth;
-                wingFrameBack.X = 0;
-            }
-            else
-            {
-                NPC.frame.X = 0;
-                wingFrameFront.X = 0;
-                wingFrameBack.X = frameWidth;
-            }
-
         }
 
         private bool AliveCheck(Player player)
@@ -1060,19 +1019,108 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             npcLoot.Add(notExpertRule);
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            Player player = Main.player[NPC.target];
+            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / FRAMECOUNT_X;
+
+            NPC.frame = new Rectangle(0, Roaring ? frameHeight : 0, frameWidth, frameHeight);
+
+            if (Dashing)
+            {
+                NPC.frameCounter = 0;
+                wingFrameFront.Y = frameHeight;
+            }
+            else
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 5)
+                {
+                    NPC.frameCounter = 0;
+                    wingFrameFront.Y += frameHeight;
+                    if (wingFrameFront.Y > frameHeight * 4)
+                    {
+                        NPC.frameCounter = 0;
+                        wingFrameFront.Y = 0;
+                    }
+                }
+                if (!IsAwakened || NPC.ai[0] != 1)
+                {
+                    NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;
+                }
+            }
+
+            wingFrameBack = wingFrameFront;
+
+            if (IsAwakened)
+            {
+                NPC.frame.X = frameWidth * 2;
+                wingFrameFront.X = frameWidth * 2;
+                wingFrameBack.X = frameWidth * 2;
+            }
+            else if (NPC.spriteDirection == 1)
+            {
+                NPC.frame.X = frameWidth;
+                wingFrameFront.X = frameWidth;
+                wingFrameBack.X = 0;
+            }
+            else
+            {
+                NPC.frame.X = 0;
+                wingFrameFront.X = 0;
+                wingFrameBack.X = frameWidth;
+            }
+
+        }
+
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             // back wing
             spriteBatch.Draw(WingBack.Value, NPC.Center - screenPos, wingFrameBack, NPC.GetAlpha(drawColor), NPC.rotation, wingFrameBack.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
+            if (unofficial)
+            {
+                int backArmFrameX = IsAwakened ? 2 : (NPC.spriteDirection == 1 ? 0 : 1);
+                Rectangle upperBackArmFrame = UpperArmsBack.Frame(3, frameX: backArmFrameX);
+                Vector2 upperBackArmPos = NPC.Center + (new Vector2(84 * NPC.spriteDirection, -8).RotatedBy(NPC.rotation) * NPC.scale) - screenPos;
+                Vector2 upperBackArmOrigin = new Vector2(12, 8);
+                if (NPC.spriteDirection == 1)
+                    upperBackArmOrigin.X = upperBackArmFrame.Width - upperBackArmOrigin.X;
+
+                float upperBackArmRotation;
+                if (Dashing)
+                    upperBackArmRotation = (MathHelper.Pi / 4f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f + MathHelper.Pi) * MathHelper.Pi / 16f) * -NPC.spriteDirection;
+                else
+                    upperBackArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
+                float upperBackArmRotationOffset = -0.85f * -NPC.spriteDirection;
+
+                spriteBatch.Draw(UpperArmsBack.Value, upperBackArmPos, upperBackArmFrame, NPC.GetAlpha(drawColor), NPC.rotation + upperBackArmRotation + upperBackArmRotationOffset, upperBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
+                Rectangle lowerBackArmFrame = LowerArmsBack.Frame(3, frameX: backArmFrameX);
+                Vector2 lowerBackArmPos = upperBackArmPos + ((upperBackArmRotation.ToRotationVector2() * -24f * NPC.spriteDirection).RotatedBy(NPC.rotation) * NPC.scale);
+                Vector2 lowerBackArmOrigin = new Vector2(42, 0);
+                if (NPC.spriteDirection == 1)
+                    lowerBackArmOrigin.X = lowerBackArmFrame.Width - lowerBackArmOrigin.X;
+
+                float lowerBackArmRotation;
+                if (Dashing)
+                    lowerBackArmRotation = (-MathHelper.Pi / 16f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
+                else
+                    lowerBackArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f + MathHelper.PiOver2) * MathHelper.Pi / 4f) * -NPC.spriteDirection;
+
+                float lowerBackArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.PiOver4) * -NPC.spriteDirection;
+
+                spriteBatch.Draw(LowerArmsBack.Value, lowerBackArmPos, lowerBackArmFrame, NPC.GetAlpha(drawColor), NPC.rotation + upperBackArmRotation + lowerBackArmRotation + lowerBackArmRotationOffset, lowerBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            }
+
             // afterimage
             if (Dashing)
-            {
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
-            }
-            
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, unofficial ? Armless.Value : TextureAssets.Npc[Type].Value, NPC.Center, NPC.velocity, 3, NPC.frame, new Color(drawColor.R, drawColor.G, drawColor.B, 150), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 1.5f);
+
             // body
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(unofficial ? Armless.Value : TextureAssets.Npc[Type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             //draw glow/glow afterimage
             if (IsAwakened)
@@ -1081,11 +1129,49 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 BaseDrawing.DrawAfterimage(spriteBatch, Glowmask.Value, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, NPC.GetAlpha(AAColor.Shen3));
             }
 
+            if (unofficial)
+            {
+                int frontArmFrameX = IsAwakened ? 2 : (NPC.spriteDirection == 1 ? 1 : 0);
+                Rectangle upperFrontArmFrame = UpperArmsFront.Frame(3, frameX: frontArmFrameX);
+                Vector2 upperFrontArmPos = NPC.Center + (new Vector2(68 * NPC.spriteDirection, -12).RotatedBy(NPC.rotation) * NPC.scale) - screenPos;
+                Vector2 upperFrontArmOrigin = new(12, 8);
+                if (NPC.spriteDirection == 1)
+                    upperFrontArmOrigin.X = upperFrontArmFrame.Width - upperFrontArmOrigin.X;
+
+                float upperFrontArmRotation;
+                if (Dashing)
+                    upperFrontArmRotation = (MathHelper.Pi / 4f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f + MathHelper.Pi + MathHelper.PiOver2) * MathHelper.Pi / 16f) * -NPC.spriteDirection;
+                else
+                    upperFrontArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f + MathHelper.Pi + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
+
+                float upperFrontArmRotationOffset = -0.85f * -NPC.spriteDirection;
+
+                spriteBatch.Draw(UpperArmsFront.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(drawColor), NPC.rotation + upperFrontArmRotation + upperFrontArmRotationOffset, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
+                Rectangle lowerFrontArmFrame = LowerArmsFront.Frame(3, frameX: frontArmFrameX);
+                Vector2 lowerFrontArmLocalOffset = new Vector2(-6 * -NPC.spriteDirection, 8).RotatedBy(upperFrontArmRotation);
+                Vector2 lowerFrontArmPos = upperFrontArmPos + (((upperFrontArmRotation.ToRotationVector2() * -28f * NPC.spriteDirection + lowerFrontArmLocalOffset) * NPC.scale).RotatedBy(NPC.rotation));
+                Vector2 lowerFrontArmOrigin = new(38, -2);
+                if (NPC.spriteDirection == 1)
+                    lowerFrontArmOrigin.X = lowerFrontArmFrame.Width - lowerFrontArmOrigin.X;
+
+                float lowerFrontArmRotation;
+                if (Dashing)
+                    lowerFrontArmRotation = (-MathHelper.Pi / 16f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
+                else
+                    lowerFrontArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f) * MathHelper.Pi / 4f) * -NPC.spriteDirection;
+
+                float lowerFrontArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.PiOver4) * -NPC.spriteDirection;
+
+                spriteBatch.Draw(LowerArmsFront.Value, lowerFrontArmPos, lowerFrontArmFrame, NPC.GetAlpha(drawColor), NPC.rotation + upperFrontArmRotation + lowerFrontArmRotation + lowerFrontArmRotationOffset, lowerFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            }
+
             // frong wing
             spriteBatch.Draw(WingFront.Value, NPC.Center - screenPos, wingFrameFront, NPC.GetAlpha(drawColor), NPC.rotation, wingFrameFront.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             return false;
         }
+
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
