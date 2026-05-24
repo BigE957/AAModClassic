@@ -16,13 +16,12 @@ using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -46,7 +45,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public int damage = 0;
 
         public static Asset<Texture2D> Glowmask;
-        public static Asset<Texture2D> Armless;
+        public static Asset<Texture2D> Body;
+        public static Asset<Texture2D> HeadClosed;
+        public static Asset<Texture2D> HeadOpenTop;
+        public static Asset<Texture2D> HeadOpenBottom;
         public static Asset<Texture2D> WingFront;
         public static Asset<Texture2D> WingBack;
         public static Asset<Texture2D> UpperArmsFront;
@@ -60,7 +62,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             Main.npcFrameCount[NPC.type] = 2;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
-            Armless = ModContent.Request<Texture2D>(Texture + "_NoArms");
+            HeadClosed = ModContent.Request<Texture2D>(Texture + "_HeadClosed");
+            HeadOpenTop = ModContent.Request<Texture2D>(Texture + "_HeadOpen_Top");
+            HeadOpenBottom = ModContent.Request<Texture2D>(Texture + "_HeadOpen_Bottom");
+            Body = ModContent.Request<Texture2D>(Texture + "_Body");
             WingFront = ModContent.Request<Texture2D>(Texture + "_WingsFront");
             WingBack = ModContent.Request<Texture2D>(Texture + "_WingsBack");
             UpperArmsFront = ModContent.Request<Texture2D>(Texture + "_ArmsFront_Upper");
@@ -371,12 +376,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.ai[2]--;
                         if (NPC.ai[2] <= 0)
                         {
-                            Vector2 from = NPC.Center + new Vector2(167 * NPC.direction, 0);
-                            //float rot = BaseUtility.RotationTo(NPC.Center, to);
-                            //from = BaseUtility.RotateVector(NPC.Center, from, rot);
+                            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+                            Vector2 from = NPC.Center + new Vector2(164 * NPC.spriteDirection, -18);
+                            from -= (to - from).SafeNormalize(Vector2.UnitX * NPC.spriteDirection) * 36;
                             BaseAI.FireProjectile(to, from, ModContent.ProjectileType<ShenABreath>(), damage, 0f, 13);
 
-                            NPC.ai[2] = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 3 : 5;
+                            NPC.ai[2] = unofficial ? 3 : 5;
                             NPC.netUpdate = true;
                         }
                     }
@@ -1022,9 +1027,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public override void FindFrame(int frameHeight)
         {
             Player player = Main.player[NPC.target];
-            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / FRAMECOUNT_X;
+            int frameWidth = TextureAssets.Npc[NPC.type].Width() / FRAMECOUNT_X;
 
-            NPC.frame = new Rectangle(0, Roaring ? frameHeight : 0, frameWidth, frameHeight);
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.frame = new Rectangle(0, 0, frameWidth, Body.Height());
+            else
+                NPC.frame = new Rectangle(0, Roaring ? frameHeight : 0, frameWidth, frameHeight);
 
             if (Dashing)
             {
@@ -1080,6 +1088,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             // back wing
             spriteBatch.Draw(WingBack.Value, NPC.Center - screenPos, wingFrameBack, NPC.GetAlpha(drawColor), NPC.rotation, wingFrameBack.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
+            // back arm
             if (unofficial)
             {
                 int backArmFrameX = IsAwakened ? 2 : (NPC.spriteDirection == 1 ? 0 : 1);
@@ -1093,7 +1102,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 if (Dashing)
                     upperBackArmRotation = (MathHelper.Pi / 4f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f + MathHelper.Pi) * MathHelper.Pi / 16f) * -NPC.spriteDirection;
                 else
-                    upperBackArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
+                    upperBackArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
                 float upperBackArmRotationOffset = -0.85f * -NPC.spriteDirection;
 
                 spriteBatch.Draw(UpperArmsBack.Value, upperBackArmPos, upperBackArmFrame, NPC.GetAlpha(drawColor), NPC.rotation + upperBackArmRotation + upperBackArmRotationOffset, upperBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
@@ -1108,7 +1117,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 if (Dashing)
                     lowerBackArmRotation = (-MathHelper.Pi / 16f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
                 else
-                    lowerBackArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f + MathHelper.PiOver2) * MathHelper.Pi / 4f) * -NPC.spriteDirection;
+                    lowerBackArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f + MathHelper.PiOver2) * MathHelper.Pi / 4f) * -NPC.spriteDirection;
 
                 float lowerBackArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.PiOver4) * -NPC.spriteDirection;
 
@@ -1117,10 +1126,66 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             // afterimage
             if (Dashing)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, unofficial ? Armless.Value : TextureAssets.Npc[Type].Value, NPC.Center, NPC.velocity, 3, NPC.frame, new Color(drawColor.R, drawColor.G, drawColor.B, 150), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 1.5f);
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, unofficial ? Body.Value : TextureAssets.Npc[Type].Value, NPC.Center, NPC.velocity, 3, NPC.frame, new Color(drawColor.R, drawColor.G, drawColor.B, 150), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 1.5f);
 
-            // body
-            spriteBatch.Draw(unofficial ? Armless.Value : TextureAssets.Npc[Type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            // body + head
+            if (unofficial)
+            {
+                spriteBatch.Draw(Body.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
+                if (Roaring)
+                {
+                    Rectangle headTopFrame = HeadOpenTop.Frame(3, frameX: IsAwakened ? 2 : NPC.spriteDirection == 1 ? 1 : 0);
+                    Vector2 headTopOrigin = new(68, 50);
+                    if (NPC.spriteDirection == 1)
+                        headTopOrigin.X = headTopFrame.Width - headTopOrigin.X;
+
+                    Vector2 headOffset = new Vector2(154 * NPC.spriteDirection, -18).RotatedBy(NPC.rotation);
+
+                    float headRotation = NPC.rotation;
+                    if (!Dashing)
+                    {
+                        float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);
+                        if (NPC.spriteDirection == -1)
+                            goalAngle += MathHelper.Pi;
+                        headRotation = headRotation.AngleLerp(goalAngle, 0.666f);
+                    }
+
+                    spriteBatch.Draw(HeadOpenTop.Value, NPC.Center + headOffset - screenPos, headTopFrame, NPC.GetAlpha(drawColor), headRotation, headTopOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
+                    Rectangle headBottomFrame = HeadOpenBottom.Frame(3, frameX: IsAwakened ? 2 : NPC.spriteDirection == 1 ? 1 : 0);
+                    Vector2 headBottomOrigin = new(52, 2);
+                    if (NPC.spriteDirection == 1)
+                        headBottomOrigin.X = headBottomFrame.Width - headBottomOrigin.X;
+
+                    Vector2 jawOffset = new Vector2(8 * NPC.spriteDirection, 6).RotatedBy(headRotation);
+
+                    float jawRotation = headRotation + (MathHelper.Pi / 8f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 24) * MathHelper.Pi / 48f)) * NPC.spriteDirection;
+                    spriteBatch.Draw(HeadOpenBottom.Value, NPC.Center + headOffset + jawOffset - screenPos, headBottomFrame, NPC.GetAlpha(drawColor), jawRotation, headBottomOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                }
+                else
+                {
+                    Rectangle headFrame = HeadClosed.Frame(3, frameX: IsAwakened ? 2 : NPC.spriteDirection == 1 ? 1 : 0);
+                    Vector2 headOrigin = new(68, 50);
+                    if (NPC.spriteDirection == 1)
+                        headOrigin.X = headFrame.Width - headOrigin.X;
+
+                    Vector2 headOffset = new Vector2(154 * NPC.spriteDirection, -18).RotatedBy(NPC.rotation);
+
+                    float rotation = NPC.rotation;
+                    if (!Dashing)
+                    {
+                        float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);
+                        if (NPC.spriteDirection == -1)
+                            goalAngle += MathHelper.Pi; rotation = rotation.AngleLerp(goalAngle, 0.5f);
+                        rotation = rotation.AngleLerp(goalAngle, 0.666f);
+                    }
+
+                    spriteBatch.Draw(HeadClosed.Value, NPC.Center + headOffset - screenPos, headFrame, NPC.GetAlpha(drawColor), rotation, headOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                }
+            }
+            else
+                spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             //draw glow/glow afterimage
             if (IsAwakened)
@@ -1129,6 +1194,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 BaseDrawing.DrawAfterimage(spriteBatch, Glowmask.Value, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, NPC.GetAlpha(AAColor.Shen3));
             }
 
+            // front arm
             if (unofficial)
             {
                 int frontArmFrameX = IsAwakened ? 2 : (NPC.spriteDirection == 1 ? 1 : 0);
@@ -1142,7 +1208,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 if (Dashing)
                     upperFrontArmRotation = (MathHelper.Pi / 4f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f + MathHelper.Pi + MathHelper.PiOver2) * MathHelper.Pi / 16f) * -NPC.spriteDirection;
                 else
-                    upperFrontArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f + MathHelper.Pi + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
+                    upperFrontArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f + MathHelper.Pi + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
 
                 float upperFrontArmRotationOffset = -0.85f * -NPC.spriteDirection;
 
@@ -1159,7 +1225,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 if (Dashing)
                     lowerFrontArmRotation = (-MathHelper.Pi / 16f + MathF.Sin(Main.GlobalTimeWrappedHourly * 8f) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
                 else
-                    lowerFrontArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 4f) * MathHelper.Pi / 4f) * -NPC.spriteDirection;
+                    lowerFrontArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f) * MathHelper.Pi / 4f) * -NPC.spriteDirection;
 
                 float lowerFrontArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.PiOver4) * -NPC.spriteDirection;
 
