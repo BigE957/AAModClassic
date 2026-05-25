@@ -142,8 +142,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         }
 
         //clientside stuff
-        public Rectangle wingFrameFront = new Rectangle(0, 0, 444, 400);
-        public Rectangle wingFrameBack = new Rectangle(0, 0, 444, 400);
+        public Rectangle wingFrameFront = new(0, 0, 444, 400);
+        public Rectangle wingFrameBack = new(0, 0, 444, 400);
         public const int FRAMECOUNT_X = 3;
         public const int FRAMECOUNT_Y = 2;
         public int roarTimer = 0; //if this is > 0, then use the roaring frame.
@@ -465,6 +465,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     if (NPC.ai[3] == 0 && --NPC.ai[2] < 0)
                     {
                         NPC.ai[2] = 4;
+                        //TODO: Idk what the deal is with the roars but i think this is how they *should* work (unofficial)
                         if (IsAwakened)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -472,8 +473,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY, ModContent.ProjectileType<ShenDeathrayVertical>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -Vector2.UnitY, ModContent.ProjectileType<ShenDeathrayVertical>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                             }
+                            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                Roar(roarTimerMax, false);
                         }
-                        else 
+                        else if(!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                             Roar(roarTimerMax, false);
                     }
                     if (++NPC.ai[1] > 240 || (Math.Sign(NPC.velocity.X) > 0 ? NPC.Center.X > player.Center.X + 900 : NPC.Center.X < player.Center.X - 900))

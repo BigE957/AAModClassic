@@ -29,6 +29,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
     {
         public override string Texture => FilePathUtils.TexturePath<ShenDoragon>();
 
+        public override string BossHeadTexture => FilePathUtils.TexturePath<ShenDoragonA>() + "_Head_Boss";
+
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
