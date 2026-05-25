@@ -26,7 +26,9 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.Graphics.Renderers;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -57,6 +59,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         private static Asset<Texture2D> UpperArmsBack;
         private static Asset<Texture2D> LowerArmsBack;
 
+        private static ParticlePool<RandomizedFrameParticle> telegraphParticles;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Shen Doragon; Discordian Doomsayer");
@@ -77,7 +81,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             LowerArmsFront = ModContent.Request<Texture2D>(Texture + "_ArmsFront_Lower");
             UpperArmsBack = ModContent.Request<Texture2D>(Texture + "_ArmsBack_Upper");
             LowerArmsBack = ModContent.Request<Texture2D>(Texture + "_ArmsBack_Lower");
-
+            telegraphParticles = new(100, () => new RandomizedFrameParticle());
         }
 
         public override void SetDefaults()
@@ -362,6 +366,22 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.velocity.Y *= 0.2f;
                         if (IsAwakened && Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDeathray>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                    }
+                    else if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
+                    {
+                        RandomizedFrameParticle lightning = telegraphParticles.RequestParticle();
+                        lightning.SetBasicInfo(TextureAssets.Projectile[ProjectileID.ScytheWhipProj], null, Vector2.Zero, Main.rand.NextVector2Circular(8f, 8f));
+                        lightning.SetTypeInfo(Main.projFrames[ProjectileID.ScytheWhipProj], 2, 24f); 
+                        lightning.Velocity = (NPC.spriteDirection == -1 ? MathHelper.Pi : 0 + Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4)).ToRotationVector2() * Main.rand.NextFloat(2, 4);
+                        lightning.ColorTint = AAColor.Shen3;
+                        lightning.LocalPosition = NPC.Center + new Vector2(190 * NPC.spriteDirection, 0);
+                        lightning.Rotation = lightning.Velocity.ToRotation();
+                        lightning.Velocity += NPC.velocity / 2f;
+                        lightning.Scale = new Vector2(Main.rand.NextFloat(1f, 3f), 1f) * Main.rand.NextFloat(0.25f, 1f);
+                        lightning.FadeInNormalizedTime = 0.01f;
+                        lightning.FadeOutNormalizedTime = 0.5f;
+                        lightning.ScaleVelocity = new Vector2(0.025f);
+                        Main.ParticleSystem_World_BehindPlayers.Add(lightning);
                     }
                     if (++NPC.ai[1] > 60)
                     {
