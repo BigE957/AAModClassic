@@ -1,25 +1,10 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka;
-using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened

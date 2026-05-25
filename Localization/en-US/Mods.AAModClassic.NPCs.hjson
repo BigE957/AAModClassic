@@ -472,13 +472,13 @@ WrathHarukaClone.DisplayName: Wrath Haruka
 WrathHarukaVanish.DisplayName: Wrath Haruka
 AbyssGrip.DisplayName: Grip of Abyssal Wrath
 BlazeGrip.DisplayName: Grip of Blazing Fury
-Shen.DisplayName: Shen Doragon; Discordian Doomsayer
-ShenA.DisplayName: Shen Doragon Awakened
-ShenAHitbox.DisplayName: Shen Doragon Awakened
+ShenDoragon.DisplayName: Shen Doragon; Discordian Doomsayer
+ShenDoragonA.DisplayName: Shen Doragon Awakened
+ShenDoragonAHitbox.DisplayName: Shen Doragon Awakened
 ShenDeath.DisplayName: Discord's Death
 ShenDefeat.DisplayName: Discord's Defeat
 ShenHitbox.DisplayName: Shen Doragon; Discordian Doomsayer
-Shenling.DisplayName: Discordian Serpent
+ShenlingHead.DisplayName: Discordian Serpent
 ShenlingBody1.DisplayName: Discordian Serpent
 ShenlingBody2.DisplayName: Discordian Serpent
 ShenlingTail.DisplayName: Discordian Serpent
@@ -924,7 +924,3 @@ ZeroOmegaVolley.DisplayName: Zero Omega Volley
 ZeroRealityCannon.DisplayName: Zero Reality Cannon
 ZeroRiftShredder.DisplayName: Zero Rift Shredder
 ZeroVoidStar.DisplayName: Zero Void Star
-ShenDoragon.DisplayName: Shen Doragon
-ShenlingHead.DisplayName: Shenling Head
-ShenDoragonA.DisplayName: Shen Doragon A
-ShenDoragon_Hitbox.DisplayName: Shen Doragon_ Hitbox
