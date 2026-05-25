@@ -380,7 +380,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (NPC.ai[2] <= 0)
                         {
                             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
-                            Vector2 from = NPC.Center + new Vector2(164 * NPC.spriteDirection, -18);
+                            Vector2 from = NPC.Center + new Vector2(132 * NPC.spriteDirection, 12);
                             from -= (to - from).SafeNormalize(Vector2.UnitX * NPC.spriteDirection) * 36;
                             BaseAI.FireProjectile(to, from, ModContent.ProjectileType<ShenABreath>(), damage, 0f, 13);
 
@@ -1355,7 +1355,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             if (IsAwakened)
             {
                 spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(AAColor.Shen3), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                BaseDrawing.DrawAfterimage(spriteBatch, Glowmask.Value, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, NPC.GetAlpha(AAColor.Shen3));
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glowmask.Value, NPC.Center, NPC.velocity, 8, NPC.frame, NPC.GetAlpha(AAColor.Shen3), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
             }
 
             // front arm
