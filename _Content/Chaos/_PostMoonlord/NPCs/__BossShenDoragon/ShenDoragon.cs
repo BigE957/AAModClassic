@@ -45,6 +45,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public int damage = 0;
 
         private static Asset<Texture2D> Glowmask;
+        private static Asset<Texture2D> EyeGlowmask;
         private static Asset<Texture2D> Body;
         private static Asset<Texture2D> HeadClosed;
         private static Asset<Texture2D> HeadOpenTop;
@@ -65,6 +66,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             NPCID.Sets.TrailCacheLength[Type] = 12;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            EyeGlowmask = ModContent.Request<Texture2D>(Texture + "_EyeGlow");
             HeadClosed = ModContent.Request<Texture2D>(Texture + "_HeadClosed");
             HeadOpenTop = ModContent.Request<Texture2D>(Texture + "_HeadOpen_Top");
             HeadOpenBottom = ModContent.Request<Texture2D>(Texture + "_HeadOpen_Bottom");
@@ -1153,8 +1155,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 perp *= halfHeight;
 
                 Vector2 world = points[i] - screenPos;
-                verts[i * 2 + 0] = new VertexPositionColorTexture(ToNDC(world - perp), color, new Vector2(u, 1f));
-                verts[i * 2 + 1] = new VertexPositionColorTexture(ToNDC(world + perp), color, new Vector2(u, 0f));
+                verts[i * 2 + 0] = new VertexPositionColorTexture(new Vector3(world - perp, 0f), color, new Vector2(u, 1f));
+                verts[i * 2 + 1] = new VertexPositionColorTexture(new Vector3(world + perp, 0f), color, new Vector2(u, 0f));
             }
 
             return verts;
@@ -1169,11 +1171,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 (output[i], _) = GetBodyPoint(t);
             }
             return output;
-        }
-
-        private static Vector3 ToNDC(Vector2 screenPos)
-        {
-            return new Vector3(screenPos.X / Main.screenWidth * 2f - 1f, -(screenPos.Y / Main.screenHeight * 2f - 1f), 0f);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -1259,6 +1256,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, unofficial ? Body.Value : TextureAssets.Npc[Type].Value, NPC.Center, NPC.velocity, 3, NPC.frame, new Color(drawColor.R, drawColor.G, drawColor.B, 150), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 1.5f);
 
             // body + head
+            float headRotation = NPC.rotation;
             if (unofficial)
             {
                 if (!hasHistory)
@@ -1274,9 +1272,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         TextureEnabled = true,
                         Texture = Body.Value,
                         VertexColorEnabled = true,
-                        World = Matrix.Identity,
+                        World = Main.GameViewMatrix.TransformationMatrix,
                         View = Matrix.Identity,
-                        Projection = Matrix.Identity
+                        Projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, 0, 1)
                     };
 
                     var prevBlend = gd.BlendState;
@@ -1297,17 +1295,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
                 }
 
-                if (Roaring)
+                bool Lasering = IsAwakened && ((NPC.ai[0] == 0 && NPC.ai[2] >= 240) || NPC.ai[0] == 1);
+                Vector2 headOffset = new Vector2(154 * NPC.spriteDirection, -18).RotatedBy(NPC.rotation);
+                if (Roaring || Lasering)
                 {
                     Rectangle headTopFrame = HeadOpenTop.Frame(3, frameX: IsAwakened ? 2 : NPC.spriteDirection == 1 ? 1 : 0);
                     Vector2 headTopOrigin = new(68, 50);
                     if (NPC.spriteDirection == 1)
                         headTopOrigin.X = headTopFrame.Width - headTopOrigin.X;
 
-                    Vector2 headOffset = new Vector2(154 * NPC.spriteDirection, -18).RotatedBy(NPC.rotation);
-
-                    float headRotation = NPC.rotation;
-                    if (!Dashing)
+                    headRotation = NPC.rotation;
+                    if(Lasering)
+                        headRotation -= (MathHelper.Pi / 6f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 36) * MathHelper.Pi / 36f)) * NPC.spriteDirection; 
+                    else if (!Dashing)
                     {
                         float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);
                         if (NPC.spriteDirection == -1)
@@ -1324,7 +1324,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                     Vector2 jawOffset = new Vector2(8 * NPC.spriteDirection, 6).RotatedBy(headRotation);
 
-                    float jawRotation = headRotation + (MathHelper.Pi / 8f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 24) * MathHelper.Pi / 48f)) * NPC.spriteDirection;
+                    float jawRotation = headRotation;
+                    if (Lasering)
+                        jawRotation += (MathHelper.Pi / 3f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 36) * MathHelper.Pi / 18f)) * NPC.spriteDirection;
+                    else
+                        jawRotation += (MathHelper.Pi / 8f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 24) * MathHelper.Pi / 48f)) * NPC.spriteDirection;
                     spriteBatch.Draw(HeadOpenBottom.Value, NPC.Center + headOffset + jawOffset - screenPos, headBottomFrame, NPC.GetAlpha(drawColor), jawRotation, headBottomOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
                 }
                 else
@@ -1334,18 +1338,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     if (NPC.spriteDirection == 1)
                         headOrigin.X = headFrame.Width - headOrigin.X;
 
-                    Vector2 headOffset = new Vector2(154 * NPC.spriteDirection, -18).RotatedBy(NPC.rotation);
-
-                    float rotation = NPC.rotation;
+                    headRotation = NPC.rotation;
                     if (!Dashing)
                     {
                         float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);
                         if (NPC.spriteDirection == -1)
-                            goalAngle += MathHelper.Pi; rotation = rotation.AngleLerp(goalAngle, 0.5f);
-                        rotation = rotation.AngleLerp(goalAngle, 0.666f);
+                            goalAngle += MathHelper.Pi;
+                        headRotation = headRotation.AngleLerp(goalAngle, 0.666f);
                     }
 
-                    spriteBatch.Draw(HeadClosed.Value, NPC.Center + headOffset - screenPos, headFrame, NPC.GetAlpha(drawColor), rotation, headOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                    spriteBatch.Draw(HeadClosed.Value, NPC.Center + headOffset - screenPos, headFrame, NPC.GetAlpha(drawColor), headRotation, headOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
                 }
             }
             else
@@ -1354,8 +1356,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             //draw glow/glow afterimage
             if (IsAwakened)
             {
-                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(AAColor.Shen3), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glowmask.Value, NPC.Center, NPC.velocity, 8, NPC.frame, NPC.GetAlpha(AAColor.Shen3), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
+                if (unofficial)
+                {
+                    Vector2 headOffset = new Vector2(154 * NPC.spriteDirection, -18).RotatedBy(NPC.rotation);
+                    Vector2 eyeOffset = new Vector2(13 * NPC.spriteDirection, -13).RotatedBy(headRotation);
+                    Vector2 position = NPC.Center + headOffset + eyeOffset;
+                    spriteBatch.Draw(EyeGlowmask.Value, position - screenPos, null, NPC.GetAlpha(AAColor.Shen3), headRotation, EyeGlowmask.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                    DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, EyeGlowmask.Value, position, NPC.velocity, 8, null, NPC.GetAlpha(AAColor.Shen3), 1f, [headRotation], EyeGlowmask.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
+                }
+                else
+                {
+                    spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(AAColor.Shen3), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                    DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glowmask.Value, NPC.Center, NPC.velocity, 8, NPC.frame, NPC.GetAlpha(AAColor.Shen3), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
+                }
             }
 
             // front arm
