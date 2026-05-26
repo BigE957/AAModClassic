@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,6 +25,6 @@ public class ShenPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ShenPainting_Tile>();
+        Item.createTile = ModContent.TileType<ShenPainting_Tile>();
 	}
 }

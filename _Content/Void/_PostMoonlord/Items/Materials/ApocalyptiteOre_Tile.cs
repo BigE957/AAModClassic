@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Tiles;
+using AAModClassic._Content.Void.World.Tiles;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
 {

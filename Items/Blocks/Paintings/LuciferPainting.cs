@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,6 +25,6 @@ public class LuciferPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.LuciferPainting_Tile>();
+        Item.createTile = ModContent.TileType<LuciferPainting_Tile>();
 	}
 }

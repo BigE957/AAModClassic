@@ -1,9 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Conversions;
-using AAModClassic.Tiles;
-using AAModClassic.Tiles.Boss;
-using AAModClassic.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

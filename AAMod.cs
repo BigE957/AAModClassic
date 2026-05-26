@@ -78,6 +78,8 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies;
 using AAModClassic.Assets;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.Hoard.World.Tiles;
 
 namespace AAModClassic
 {
@@ -573,8 +575,8 @@ namespace AAModClassic
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.TileType == ModContent.TileType<Tiles.AcropolisBlock2_Tile>() || tile.TileType == ModContent.TileType<Tiles.AcropolisBlock_Tile>() ||
-                tile.TileType == ModContent.TileType<Tiles.GreedStone_Tile>() || tile.TileType == ModContent.TileType<Tiles.GreedBrick_Tile>())
+            if (tile.TileType == ModContent.TileType<AcropolisBlock2_Tile>() || tile.TileType == ModContent.TileType<AcropolisBlock_Tile>() ||
+                tile.TileType == ModContent.TileType<GreedStone_Tile>() || tile.TileType == ModContent.TileType<GreedBrick_Tile>())
             {
                 return;
             }
@@ -584,8 +586,8 @@ namespace AAModClassic
         private static bool Actuate(Terraria.On_Wiring.orig_Actuate orig, int i, int j)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.TileType == ModContent.TileType<Tiles.AcropolisBlock2_Tile>() || tile.TileType == ModContent.TileType<Tiles.AcropolisBlock_Tile>() ||
-                tile.TileType == ModContent.TileType<Tiles.GreedStone_Tile>() || tile.TileType == ModContent.TileType<Tiles.GreedBrick_Tile>())
+            if (tile.TileType == ModContent.TileType<AcropolisBlock2_Tile>() || tile.TileType == ModContent.TileType<AcropolisBlock_Tile>() ||
+                tile.TileType == ModContent.TileType<GreedStone_Tile>() || tile.TileType == ModContent.TileType<GreedBrick_Tile>())
             {
                 return false;
             }

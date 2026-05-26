@@ -1408,8 +1408,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 float upperFrontWorldRot = frontBodyFacingAngle + upperFrontArmRotation + upperFrontArmRotationOffset;
 
-                spriteBatch.Draw(UpperArmsFront.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(drawColor),
-                                 upperFrontWorldRot, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(UpperArmsFront.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(drawColor), upperFrontWorldRot, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
                 // Lower front arm
                 Rectangle lowerFrontArmFrame = LowerArmsFront.Frame(3, frameX: frontArmFrameX);

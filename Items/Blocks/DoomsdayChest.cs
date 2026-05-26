@@ -1,4 +1,4 @@
-using AAModClassic.Tiles.Chests;
+using AAModClassic._Content.Void.World.BiomeChest;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

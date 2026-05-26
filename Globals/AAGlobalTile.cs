@@ -3,11 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using AAModClassic.Tiles.Boss;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles;
 using AAModClassic._Content.Mire.World.Tiles;
-using AAModClassic.Tiles.Altar;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
@@ -20,6 +17,10 @@ using System.Linq;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPotions;
+using AAModClassic._Content.Void.World.Tiles;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.Hoard.World.Tiles;
+using AAModClassic._Content.Stars.World.Altar;
 
 namespace AAModClassic.Globals
 {

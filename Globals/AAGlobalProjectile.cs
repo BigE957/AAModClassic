@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic.Tiles;
 using Terraria.DataStructures;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
@@ -12,6 +11,9 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic._Content.RedMushroom.World.Tiles;
+using AAModClassic._Content.Void.World.Tiles;
 
 namespace AAModClassic.Globals
 {

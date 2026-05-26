@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Tiles;
 using AAModClassic.Assets;
+using AAModClassic._Content.RedMushroom.World.Tiles;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 {

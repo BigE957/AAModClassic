@@ -1,7 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

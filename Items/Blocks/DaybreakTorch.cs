@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
