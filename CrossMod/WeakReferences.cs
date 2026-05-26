@@ -1083,7 +1083,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Akuma
-                AddBoss(bossChecklist, mod, "Akuma", () => AAWorld.downedAkuma, new List<int>() { ModContent.NPCType<Akuma>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Akuma", () => AAWorld.downedAkuma, new List<int>() { ModContent.NPCType<AkumaHead>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Akuma.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Akuma.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunSigil>() + "]"),
@@ -1663,7 +1663,7 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<YamataAHead>());
                 redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<YamataAHeadFake>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<Akuma>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaHead>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaBody>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaA>());

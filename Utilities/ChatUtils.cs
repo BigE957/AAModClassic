@@ -17,11 +17,12 @@ namespace AAModClassic.Utilities
         {
             if (!AAConfigClient.Instance.NoBossDialogue)
             {
-                if (Main.netMode == NetmodeID.SinglePlayer) { Main.NewText(s, colorR, colorG, colorB); }
-                else
-                    if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }
-                    else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-                        if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                    Main.NewText(s, colorR, colorG, colorB);
+                else if (Main.netMode == NetmodeID.MultiplayerClient)
+                    Main.NewText(s, colorR, colorG, colorB);
+                else if (sync && Main.netMode == NetmodeID.Server)
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1);
             }
         }
     }

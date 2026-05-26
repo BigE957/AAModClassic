@@ -28,10 +28,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
     [AutoloadBossHead]
-    public class Akuma : ModNPC
+    public class AkumaHead : ModNPC
     {
-        public override string Texture { get { return "AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Akuma"; } }
-
         public bool loludided;
         private bool weakness;
 
@@ -486,7 +484,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            Texture2D attackAni = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Akuma").Value;
             if (fireAttack == false)
             {
                 spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
@@ -494,9 +491,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             if (fireAttack == true)
             {
                 Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
-                int num214 = attackAni.Height / 3;
+                int num214 = texture.Height / 3;
                 int y6 = num214 * attackFrame;
-                Main.spriteBatch.Draw(attackAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, attackAni.Width, num214)), drawColor, NPC.rotation, new Vector2(attackAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(texture, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, texture.Width, num214)), drawColor, NPC.rotation, new Vector2(texture.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             return false;
         }
@@ -611,7 +608,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
     }
 
     [AutoloadBossHead]
-    public class AkumaBody : Akuma
+    public class AkumaBody : AkumaHead
     {
         public override string Texture => "AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/AkumaBody";
 
@@ -669,7 +666,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Akuma>())
+                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<AkumaHead>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
@@ -803,7 +800,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override bool CheckActive()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<AkumaHead>()))
                 return false;
 
             NPC.active = false;

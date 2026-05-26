@@ -570,7 +570,7 @@ namespace AAModClassic.UI.Titles
             IDtoTitle.Add(ModContent.NPCType<AnubisA>(), Titles.AnubisF);
             IDtoTitle.Add(ModContent.NPCType<AthenaA>(), Titles.AthenaA);
             IDtoTitle.Add(ModContent.NPCType<GreedAHead>(), Titles.WKGreed);
-            IDtoTitle.Add(ModContent.NPCType<Akuma>(), Titles.Akuma);
+            IDtoTitle.Add(ModContent.NPCType<AkumaHead>(), Titles.Akuma);
             IDtoTitle.Add(ModContent.NPCType<AkumaA>(), Titles.AkumaA);
             IDtoTitle.Add(ModContent.NPCType<YamataBody>(), Titles.Yamata);
             IDtoTitle.Add(ModContent.NPCType<YamataABody>(), Titles.YamataA);

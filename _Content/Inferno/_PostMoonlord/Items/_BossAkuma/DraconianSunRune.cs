@@ -66,7 +66,7 @@ Non-Consumable"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse1"), Color.Indigo, false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<AkumaHead>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), new Color(180, 41, 32), false);
                     return false;

@@ -263,10 +263,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Akuma",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Akuma>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<AkumaHead>(), false)
                 ],
                 ["Shen", "SoulOfCthulhu"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Akuma>()]],
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AkumaHead>()]],
                 hasCompleteText: true
             );
 

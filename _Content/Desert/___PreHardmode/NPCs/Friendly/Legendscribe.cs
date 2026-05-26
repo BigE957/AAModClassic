@@ -722,11 +722,14 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             // line.
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat32"));
-            int integerLimit = int.MaxValue;
-            if (player.HasItem(ModContent.ItemType<ShinyCharm>()) || player.HasItem(ModContent.ItemType<ShinyCharmFish>()))
-                integerLimit -= 1;
-            if (Main.rand.NextBool(integerLimit) && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat32");
+            else
+            {
+                int integerLimit = int.MaxValue;
+                if (player.HasItem(ModContent.ItemType<ShinyCharm>()) || player.HasItem(ModContent.ItemType<ShinyCharmFish>()))
+                    integerLimit -= 1;
+                if (Main.rand.NextBool(integerLimit))
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat32");
+            }
             #endregion
 
             #region conditional

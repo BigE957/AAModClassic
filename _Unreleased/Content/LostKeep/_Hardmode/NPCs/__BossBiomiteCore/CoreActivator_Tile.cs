@@ -3,7 +3,6 @@ using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 //using AAModClassic.NPCs.Bosses.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

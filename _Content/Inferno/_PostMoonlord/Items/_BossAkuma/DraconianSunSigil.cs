@@ -71,7 +71,7 @@ Non-Consumable"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), new Color(180, 41, 32), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<AkumaHead>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilFalse"), new Color(180, 41, 32), false);
                     return false;
@@ -107,7 +107,7 @@ Non-Consumable"); */
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
             }
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Akuma>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), player.position);
             return true;
         }

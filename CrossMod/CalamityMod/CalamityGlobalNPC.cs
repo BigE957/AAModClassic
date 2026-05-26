@@ -17,6 +17,7 @@ using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AwakenedLung;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
@@ -57,8 +58,8 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<Haruka>()) CalamityDR = 0.6f;
 
                 if(npc.type == ModContent.NPCType<AkumaA>()) CalamityDR = 0.4f;
-                if(npc.type == ModContent.NPCType<Akuma>()) CalamityDR = 0.4f;
-                if(npc.type == ModContent.NPCType<AwakenedLung>()) CalamityDR = 0.4f;
+                if(npc.type == ModContent.NPCType<AkumaHead>()) CalamityDR = 0.4f;
+                if(npc.type == ModContent.NPCType<AwakenedLungHead>()) CalamityDR = 0.4f;
                 //if(npc.type == ModContent.NPCType<AncientLung>()) CalamityDR = 0.4f;
 
                 if(npc.type == ModContent.NPCType<AthenaA>()) CalamityDR = 0.7f;
