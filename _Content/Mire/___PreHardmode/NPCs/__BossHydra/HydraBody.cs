@@ -440,51 +440,52 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
             if (Head1 != null)
             {
-                DrawHead(spriteBatch, Texture.Replace("Body", "Head") + "1", "Glowmasks/HydraHead1_Glow", Head1, drawColor); //draw main head last!
+                DrawHead(spriteBatch, Texture.Replace("Body", "Head") + "1", Texture.Replace("Body", "Head") + "1_Glow", Head1, drawColor); //draw main head last!
             }
             return false;
         }
 
         public void HeadDraw(SpriteBatch sb, Color drawColor)
         {
+            string headTex = Texture.Replace("Body", "Head");
             if (Head2 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "2", "Glowmasks/HydraHead2_Glow", Head2, drawColor);
+                DrawHead(sb, headTex + "2", headTex + "2_Glow", Head2, drawColor);
             }
 
             if (Head3 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "3", "Glowmasks/HydraHead3_Glow", Head3, drawColor);
+                DrawHead(sb, headTex + "3", headTex + "3_Glow", Head3, drawColor);
             }
 
             if (Head4 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "4", "Glowmasks/HydraHead4_Glow", Head4, drawColor);
+                DrawHead(sb, headTex + "4", headTex + "4_Glow", Head4, drawColor);
             }
 
             if (Head5 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "5", "Glowmasks/HydraHead5_Glow", Head5, drawColor);
+                DrawHead(sb, headTex + "5", headTex + "5_Glow", Head5, drawColor);
             }
 
             if (Head6 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "6", "Glowmasks/HydraHead6_Glow", Head6, drawColor);
+                DrawHead(sb, headTex + "6", headTex + "6_Glow", Head6, drawColor);
             }
 
             if (Head7 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "7", "Glowmasks/HydraHead5_Glow", Head7, drawColor);
+                DrawHead(sb, headTex + "7", headTex + "5_Glow", Head7, drawColor);
             }
 
             if (Head8 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "8", "Glowmasks/HydraHead4_Glow", Head8, drawColor);
+                DrawHead(sb, headTex + "8", headTex + "4_Glow", Head8, drawColor);
             }
 
             if (Head9 != null)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "9", "Glowmasks/HydraHead6_Glow", Head9, drawColor);
+                DrawHead(sb, headTex + "9", headTex + "6_Glow", Head9, drawColor);
             }
         }
     }

@@ -39,6 +39,9 @@ namespace AAModClassic.Globals
 
         public override void SetDefaults(Item item)
         {
+            if (item.type == ItemID.Cannonball)
+                item.ammo = ItemID.Cannonball;
+
             if (item.type == ItemID.SoulofNight)
             {
                 item.color = WorldGen.crimson ? Color.Firebrick : Color.Violet;
