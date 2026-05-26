@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     public class YamataAHeadFake_MireDeathrayWaveSmall : ModProjectile
     {
+        public override string Texture => ModContent.GetInstance<YamataAHead_MireDeathray>().Texture;
+
         private const float maxTime = 60;
 
         public static Asset<Texture2D> Body;
@@ -22,8 +24,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             // DisplayName.SetDefault("Mire Deathray");
 
-            Body = ModContent.Request<Texture2D>(ModContent.GetInstance<YamataAHeadFake_MireDeathrayWave>().Texture + "_Body");
-            Tail = ModContent.Request<Texture2D>(ModContent.GetInstance<YamataAHeadFake_MireDeathrayWave>().Texture + "_Tail");
+            Body = ModContent.Request<Texture2D>(Texture + "_Body");
+            Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
 
         public override void SetDefaults()

@@ -1,5 +1,5 @@
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

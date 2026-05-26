@@ -9,7 +9,7 @@ using Terraria.Utilities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened
 {
-    public class ChaosLightning : ModProjectile
+    public class ShenDoragonA_ChaosLightning : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{

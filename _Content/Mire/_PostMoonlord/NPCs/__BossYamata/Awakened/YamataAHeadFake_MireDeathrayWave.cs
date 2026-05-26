@@ -1,3 +1,4 @@
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -13,6 +14,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
     public class YamataAHeadFake_MireDeathrayWave : ModProjectile
     {
+        public override string Texture => ModContent.GetInstance<YamataAHead_MireDeathray>().Texture;
+
         private const float maxTime = 300;
         private float timer = 0;
 

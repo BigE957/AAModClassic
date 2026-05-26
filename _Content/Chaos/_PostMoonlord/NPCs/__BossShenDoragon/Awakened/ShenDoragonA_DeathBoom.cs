@@ -1,18 +1,26 @@
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened
 {
-    public class ShenDeathBoom : ModProjectile
+    public class ShenDoragonA_DeathBoom : ModProjectile
     {
+        public static Asset<Texture2D> Red;
+        public static Asset<Texture2D> Blue;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discordian Strike");     
             Main.projFrames[Projectile.type] = 7;
+
+            Red = ModContent.Request<Texture2D>(Texture + "_Red");
+            Blue = ModContent.Request<Texture2D>(Texture + "_Blue");
         }
 
         public override void SetDefaults()
@@ -74,12 +82,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
             if (Projectile.ai[0] == 1)
             {
-                Tex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/ShenDeathBoomR").Value;
+                Tex = Red.Value;
             }
             else
             if (Projectile.ai[0] == 1)
             {
-                Tex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/ShenDeathBoomB").Value;
+                Tex = Blue.Value;
             }
             BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Projectile.GetAlpha(Color.White), true);
             return false;

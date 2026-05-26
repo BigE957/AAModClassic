@@ -1,3 +1,4 @@
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -9,20 +10,20 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened
 {
-    public class YamataAHead_MireDeathraySmall : ModProjectile
+    public class ShenDoragonA_DeathrayVertical : ModProjectile
     {
-        public override string Texture => ModContent.GetInstance<YamataAHead_MireDeathray>().Texture;
+        public override string Texture => ModContent.GetInstance<ShenDoragonA_Deathray>().Texture;
 
-        private const float maxTime = 30;
+        private const float maxTime = 600;
 
         public static Asset<Texture2D> Body;
         public static Asset<Texture2D> Tail;
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Mire Deathray");
+            // DisplayName.SetDefault("Phantasmal Deathray");
 
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
@@ -37,12 +38,23 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 600;
+            Projectile.aiStyle = -1;
             CooldownSlot = 1;
         }
 
         public override bool? CanDamage()/* tModPorter Suggestion: Return null instead of true */
         {
+            return Projectile.scale >= 1f;
+        }
+
+        public override bool? CanHitNPC(NPC target)
+        {
             return false;
+        }
+
+        public override bool CanHitPlayer(Player target)
+        {
+            return target.hurtCooldowns[1] == 0;
         }
 
         public override void AI()
@@ -51,9 +63,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<YamataAHeadFake>())
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenDoragonA>())
             {
-                Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center + Vector2.UnitY * 45;
+
             }
             else
             {
@@ -66,28 +78,22 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(SoundID.Zombie104, new Vector2(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y));
+                SoundEngine.PlaySound(SoundID.Zombie104, Projectile.position);
             }
-            float num801 = 0.5f;
+            float num801 = 1f;
             Projectile.localAI[0] += 1f;
-            if (Projectile.localAI[0] >= maxTime)
+            if (Main.npc[(int)Projectile.ai[1]].ai[0] > 5)
             {
                 Projectile.Kill();
                 return;
             }
-            Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / maxTime) * 2.5f * num801;
+            Projectile.scale = (float)Math.Sin(Projectile.localAI[0] * 3.14159274f / maxTime) * 5f * num801;
             if (Projectile.scale > num801)
             {
                 Projectile.scale = num801;
             }
-            float num804 = Projectile.velocity.ToRotation();
-            //timer += projectile.ai[0];
-            //num804 += (float)Math.Cos(timer) * 0.014f * Math.Sign(projectile.ai[0]);
-            Projectile.rotation = num804 - 1.57079637f;
-            Projectile.velocity = num804.ToRotationVector2();
             float num805 = 3f;
             float[] array3 = new float[(int)num805];
-            //Collision.LaserScan(samplingPoint, projectile.velocity, num806 * projectile.scale, 3000f, array3);
             for (int i = 0; i < array3.Length; i++)
                 array3[i] = 3000f;
             float num807 = 0f;
@@ -119,17 +125,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 dust.velocity *= 0.5f;
                 Main.dust[num813].velocity.Y = -Math.Abs(Main.dust[num813].velocity.Y);
             }
-            //DelegateMethods.v3_1 = new Vector3(0.3f, 0.65f, 0.7f);
-            //Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], (float)projectile.width * projectile.scale, new Utils.TileActionAttempt(DelegateMethods.CastLight));
-        }
 
-        public override void OnKill(int timeLeft)
-        {
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<YamataAHead_MireDeathray>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
+            Projectile.position -= Projectile.velocity;
+            Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
         }
-
-        //TODO: Cache these textures in a static Asset<Texture2D> field
 
         public override bool PreDraw(ref Color lightColor)
         {

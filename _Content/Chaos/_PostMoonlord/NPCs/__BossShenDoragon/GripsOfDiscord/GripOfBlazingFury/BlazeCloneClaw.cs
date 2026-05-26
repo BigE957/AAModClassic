@@ -10,7 +10,7 @@ using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Inferno.Buffs;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury
 {
     public class BlazeCloneClaw : ModProjectile
     {

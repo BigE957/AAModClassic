@@ -4,9 +4,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic.Items.Materials;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {

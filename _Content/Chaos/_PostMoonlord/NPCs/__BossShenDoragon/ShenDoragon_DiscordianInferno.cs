@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 {
-    public class DiscordianInferno : ModProjectile
+    public class ShenDoragon_DiscordianInferno : ModProjectile
     {
         public override void SetStaticDefaults()
         {

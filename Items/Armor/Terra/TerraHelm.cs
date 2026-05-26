@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Materials;
 using AAModClassic._Content.Crimson.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Corruption.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 
 
 namespace AAModClassic.Items.Armor.Terra

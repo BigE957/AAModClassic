@@ -1,30 +1,29 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies
 {
-    public class ShenSkyScene : ModSceneEffect
+    public class ShenDoragonASkyScene : ModSceneEffect
     {
         public override SceneEffectPriority Priority => (SceneEffectPriority)11;
 
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<ShenDoragon>()) && !NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>());
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>());
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:ShenSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:ShenDoragonASky", isActive);
         }
     }
 
-    public class ShenSky : CustomSky
+    public class ShenDoragonASky : CustomSky
     {
         public bool Active;
         public float Intensity;
@@ -43,16 +42,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
         }
         private Meteor[] Meteors;
 
-        public static Asset<Texture2D> MeteorTex;
+        public static Asset<Texture2D> MeteorTex => ShenDoragonSky.MeteorTex;
         public static Asset<Texture2D> SkyTex;
 
         public override void OnLoad()
         {
-            string filePath = "AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/Skies/ShenSky_";
-            
-            MeteorTex = ModContent.Request<Texture2D>(filePath + "Meteor");
+            string filePath = "AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/Awakened/Skies/ShenDoragonASky_";
+
             SkyTex = ModContent.Request<Texture2D>(filePath + "Sky");
         }
+
         public override void Update(GameTime gameTime)
         {
             if (Active)
@@ -63,6 +62,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
+
             for (int i = 0; i < Meteors.Length; i++)
             {
                 Meteor[] expr_60_cp_0_cp_0 = Meteors;
@@ -85,19 +85,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
             return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
         }
 
-        readonly AAMod mod = AAMod.instance;
-
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
             Texture2D MeteorTexture = MeteorTex.Value;
             Texture2D SkyTexture = SkyTex.Value;
-
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                 spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
             }
-
             int num = -1;
             int num2 = 0;
 
@@ -142,7 +137,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
         public override void Activate(Vector2 position, params object[] args)
         {
             Intensity = 0.002f;
-            Active = true; Meteors = new Meteor[150];
+            Active = true;
+            Meteors = new Meteor[150];
             for (int i = 0; i < Meteors.Length; i++)
             {
                 float num = i / (float)Meteors.Length;
@@ -183,17 +179,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
         }
     }
 
-    public class ShenSkyData : ScreenShaderData
+    public class ShenDoragonASkyData : ScreenShaderData
     {
         private int ShenIndex;
 
-        public ShenSkyData(string passName) : base(passName)
+        public ShenDoragonASkyData(string passName) : base(passName)
         {
         }
 
         private void UpdateShenIndex()
         {
-            int ShenType = ModContent.NPCType<ShenDoragon>();
+            int ShenType = ModContent.NPCType<ShenDoragonA>();
             if (ShenIndex >= 0 && Main.npc[ShenIndex].active && Main.npc[ShenIndex].type == ShenType)
             {
                 return;

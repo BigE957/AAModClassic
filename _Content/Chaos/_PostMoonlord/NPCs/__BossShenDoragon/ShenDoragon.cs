@@ -4,7 +4,8 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka;
 using AAModClassic._Content.Inferno.World.Tiles;
@@ -212,29 +213,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             }
         }
 
-        /// <summary>
-        /// spwawns a proj that matches shens current color and theme...
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="spawnSource"></param>
-        /// <param name="position"></param>
-        /// <param name="velocity"></param>
-        /// <param name="Damage"></param>
-        /// <param name="KnockBack"></param>
-        /// <param name="Owner"></param>
-        /// <param name="ai0"></param>
-        /// <param name="ai1"></param>
-        /// <param name="ai2"></param>
-        public void NewProjectileFlipped<T>(IEntitySource spawnSource, Vector2 position, Vector2 velocity, int Damage, float KnockBack, int Owner = 1, float ai0 = 0, float ai1 = 0, float ai2 = 0) where T : ShenDoragon_ChaosFireballAbstract
-        {
-            ShenDoragon_ChaosFireballAbstract proj = Projectile.NewProjectileDirect(spawnSource, position, velocity, ModContent.ProjectileType<T>(), damage, KnockBack, Owner, ai0, ai1, ai2).ModProjectile as ShenDoragon_ChaosFireballAbstract;
-            proj.Chaos = NPC.spriteDirection == 1 ? ChaosType.Inferno : ChaosType.Mire;
-            if (NPC.type == ModContent.NPCType<ShenDoragonA>())
-                proj.Chaos = ChaosType.Discord;
-            if (typeof(T) == typeof(ShenDoragon_ChaosFireballFrag) || typeof(T) == typeof(ShenDoragon_ChaosFireballSpread))
-                proj.IsSmall = true;
-        }
-
         public override void AI()
         {
             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
@@ -365,7 +343,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.velocity.X = 2 * (NPC.Center.X < player.Center.X ? -1 : 1);
                         NPC.velocity.Y *= 0.2f;
                         if (IsAwakened && Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDeathray>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDoragonA_Deathray>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
                     }
                     else if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
                     {
@@ -390,7 +368,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.netUpdate = true;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -2; i <= 2; i++)
-                                NewProjectileFlipped<ShenDoragon_ChaosFireballSpread>(NPC.GetSource_FromThis(), NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
+                                NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballSpread>(NPC.GetSource_FromThis(), NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
                     }
                     break;
 
@@ -404,7 +382,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
                             Vector2 from = NPC.Center + new Vector2(132 * NPC.spriteDirection, 12);
                             from -= (to - from).SafeNormalize(Vector2.UnitX * NPC.spriteDirection) * 36;
-                            BaseAI.FireProjectile(to, from, ModContent.ProjectileType<ShenABreath>(), damage, 0f, 13);
+                            BaseAI.FireProjectile(to, from, ModContent.ProjectileType<ShenDoragonA_FireBreath>(), damage, 0f, 13);
 
                             NPC.ai[2] = unofficial ? 3 : 5;
                             NPC.netUpdate = true;
@@ -490,8 +468,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY, ModContent.ProjectileType<ShenDeathrayVertical>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -Vector2.UnitY, ModContent.ProjectileType<ShenDeathrayVertical>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY, ModContent.ProjectileType<ShenDoragonA_DeathrayVertical>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -Vector2.UnitY, ModContent.ProjectileType<ShenDoragonA_DeathrayVertical>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                             }
                             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                 Roar(roarTimerMax, false);
@@ -538,7 +516,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                             Vector2 vel = (player.Center - spawnPos) / 30;
                             if (vel.Length() < 25)
                                 vel = Vector2.Normalize(vel) * 25;
-                            NewProjectileFlipped<ShenDoragon_ChaosFireballFrag>(NPC.GetSource_FromThis(), spawnPos, vel, NPC.damage / 4, 0f, Main.myPlayer);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballFrag>(NPC.GetSource_FromThis(), spawnPos, vel, NPC.damage / 4, 0f, Main.myPlayer);
                         }
                     }
                     if (++NPC.ai[1] > 210)
@@ -579,8 +557,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     int amtOfDahes = IsAwakened ? 5 : 3;
@@ -619,7 +597,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.velocity.X = -30 * (NPC.Center.X < player.Center.X ? -1 : 1);
                         NPC.velocity.Y = 5f;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            NewProjectileFlipped<ShenDoragon_ChaosFireballHoming>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballHoming>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
                     }
                     NPC.rotation = 0;
                     break;
@@ -664,7 +642,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                                 infernoPos.Y -= 70;
                             }
                             if (IsAwakened)
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), (int)infernoPos.X, (int)infernoPos.Y + 16, vel.X * 2, vel.Y * 2, ModContent.ProjectileType<ChaosLightning>(), NPC.damage / 4, 0f, Main.myPlayer, vel.ToRotation(), 0f);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), (int)infernoPos.X, (int)infernoPos.Y + 16, vel.X * 2, vel.Y * 2, ModContent.ProjectileType<ShenDoragonA_ChaosLightning>(), NPC.damage / 4, 0f, Main.myPlayer, vel.ToRotation(), 0f);
                             else
                             {
                                 //REMEMBER: PROJECTILES DOUBLE DAMAGE so to get an accurate damage count you divide it by 2!
@@ -674,7 +652,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                                 else
                                     InfernoType = 2;
 
-                                int projectile = Projectile.NewProjectile(NPC.GetSource_FromThis(), infernoPos, vel, ModContent.ProjectileType<DiscordianInferno>(), damage, 0f, Main.myPlayer, InfernoType, 0f);
+                                int projectile = Projectile.NewProjectile(NPC.GetSource_FromThis(), infernoPos, vel, ModContent.ProjectileType<ShenDoragon_DiscordianInferno>(), damage, 0f, Main.myPlayer, InfernoType, 0f);
                                 Main.projectile[projectile].velocity = vel;
                                 Main.projectile[projectile].netUpdate = true;
                             }
@@ -700,8 +678,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.004f;
-                            NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (NPC.ai[1] <= 1)
@@ -1018,17 +996,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 else
                 {
-                    NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenTransition>());
+                    NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDoragonTransition>());
                 }
             }
             else 
             {
                 if (Main.expertMode)
                 {
-                    if (!NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
+                    if (!NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDefeat>()))
                     {
                         MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen_Outro"]);
-                        NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDefeat>());
+                        NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDoragonDefeat>());
                     }
                     TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
                     TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());

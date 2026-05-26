@@ -1,7 +1,8 @@
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Materials;
 //using AAModClassic.NPCs.Bosses.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -59,7 +60,7 @@ public class CoreActivator_Tile : ModTile
 		int num = ModContent.ItemType<BiomePrism>();
 		if (CoreWorld.PrismCharged)
 		{
-			localPlayer.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<AAModClassic.Items.Materials.TerraPrism>(), 1);
+			localPlayer.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<TerraPrism>(), 1);
 			CoreWorld.PrismCharged = false;
 			return true;
 		}

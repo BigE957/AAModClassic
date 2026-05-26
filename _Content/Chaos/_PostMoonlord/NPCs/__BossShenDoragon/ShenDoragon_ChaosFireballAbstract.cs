@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -86,6 +87,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override void PostAI()
         {
+            if (Chaos == ChaosType.SomethingWentWrongAndItsAllYourFault)
+            {
+                Main.NewText("shen summoned a fireball without a chaos type. that isnt good! report this!");
+                Projectile.Kill();
+            }
+            
             if (Projectile.frameCounter++ > 5)
             {
                 Projectile.frame++;

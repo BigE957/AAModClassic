@@ -91,7 +91,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetStaticDefaults()
 		{
-			NPCID.Sets.AttackFrameCount[NPC.type] = 6;
+			NPCID.Sets.AttackFrameCount[NPC.type] = 2;
             NPCID.Sets.ExtraFramesCount[NPC.type] = NPCID.Sets.AttackFrameCount[NPC.type] + 5;
             Main.npcFrameCount[NPC.type] = NPCID.Sets.ExtraFramesCount[NPC.type] + 10;
 

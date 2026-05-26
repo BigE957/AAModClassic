@@ -8,31 +8,31 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Inferno.Buffs;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury
 {
     [AutoloadBossHead]
-    public class AbyssGrip : BaseShenGrips
+    public class BlazeGrip : BaseShenGrips
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Grip of Abyssal Wrath");
+            // DisplayName.SetDefault("Grip of Blazing Fury");
             Main.npcFrameCount[NPC.type] = 14;
         }
 
 	    public override void SetDefaults()
         {
 			base.SetDefaults();
-			NPC.lifeMax = 60000;
-            NPC.damage = 80;
-            NPC.defense = 50;
+			NPC.lifeMax = 70000;
+            NPC.damage = 60;
+            NPC.defense = 60;
             NPC.boss = true;
-            NPC.buffImmune[BuffID.Poisoned] = true;
+            NPC.buffImmune[BuffID.OnFire] = true;
 
-			offsetBasePoint = new Vector2(280f, 0f);
-        }
-		
+            offsetBasePoint = new Vector2(-280f, 0f);		
+        }	
+
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
@@ -43,8 +43,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.YamataDust>();
-                int dust2 = ModContent.DustType<Dusts.YamataDust>();
+                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -57,12 +57,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 Main.dust[dust2].noGravity = true;
             }
         }
-
         public override Color? GetAlpha(Color lightColor)
         {
             if (NPC.alpha > 0)
             {
-                return AAColor.Yamata;
+                return AAColor.Akuma;
             }
             return lightColor;
         }
@@ -70,16 +69,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+
             int shader = 0;
             if (NPC.ai[0] == 0)
             {
-                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             }
             if (NPC.ai[0] != 0 || NPC.ai[0] != 1 || NPC.ai[0] != 5)
             {
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2, NPC.scale, 7, true, 0, 0, Color.Indigo, NPC.frame);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2, NPC.scale, 7, true, 0, 0, Color.Orange, NPC.frame);
             }
-
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, shader, NPC, drawColor);
             BaseDrawing.DrawTexture(spriteBatch, glowTex, shader, NPC, Color.White);
             return false;
@@ -90,10 +89,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             return false;
         }
 
-
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 180);
         }
 
         public override void BossLoot(ref int potionType)

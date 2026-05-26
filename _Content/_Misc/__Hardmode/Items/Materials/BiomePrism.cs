@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials
 {
     public class BiomePrism : BaseAAItem
     {

@@ -15,6 +15,8 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
+using static AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.ShenDoragonUtils;
+
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe
 {
     [AutoloadBossHead]
@@ -88,7 +90,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<DiscordianInferno>(), ref NPC.ai[2], 22, NPC.damage / 4, 9, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<ShenDoragon_DiscordianInferno>(), ref NPC.ai[2], 22, NPC.damage / 4, 9, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         AIChange();
@@ -122,7 +124,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenABreath>(), ref NPC.ai[2], 5, NPC.damage / 4, 16, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenDoragonA_FireBreath>(), ref NPC.ai[2], 5, NPC.damage / 4, 16, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         NPC.ai[1] = 0;
@@ -163,8 +165,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), ModContent.ProjectileType<ShenFireballAccel>(), NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), ModContent.ProjectileType<ShenFireballAccel>(), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0, chaosType: ChaosType.Discord);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0, chaosType: ChaosType.Discord);
                         }
                     }
                     if (++NPC.ai[1] > 40)

@@ -1,3 +1,4 @@
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -22,8 +23,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             // DisplayName.SetDefault("Mire Deathray");
 
-            Body = ModContent.Request<Texture2D>(ModContent.GetInstance<YamataAHeadFake_MireDeathrayWave>().Texture + "_Body");
-            Tail = ModContent.Request<Texture2D>(ModContent.GetInstance<YamataAHeadFake_MireDeathrayWave>().Texture + "_Tail");
+            Body = ModContent.Request<Texture2D>(Texture + "_Body");
+            Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
 
         public override void SetDefaults()

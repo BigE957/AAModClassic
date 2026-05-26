@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Items.Armor.Terra.Projectiles;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Terra
 {
@@ -53,7 +54,7 @@ namespace AAModClassic.Items.Armor.Terra
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DemonHelmet>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<Items.Materials.TerraPrism>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

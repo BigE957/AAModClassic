@@ -1,3 +1,4 @@
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
@@ -11,7 +12,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Materials
 {
     public class TerraPrism : BaseAAItem
     {
