@@ -698,7 +698,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 }
 
                 foreach (IKLeg leg in unofficialLegs)
-                    leg.Update();
+                    leg.Update(unofficialLegs.ToList());
             }
             else
             {

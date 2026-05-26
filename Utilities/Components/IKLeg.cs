@@ -136,8 +136,9 @@ namespace AAModClassic.Utilities.Components
             StompVolumeStrength = stompVolumeMult;
         }
 
-        public void Update()
+        public void Update(List<IKLeg> allLegs)
         {
+
             UpdateDesiredGrabPosition();
 
             if (GrabDelay > 0f)
@@ -152,7 +153,9 @@ namespace AAModClassic.Utilities.Components
             {
                 if (!wasLatched)
                     Land();
-                HandlePlanted();
+
+                IEnumerable<IKLeg> sameSideLegs = allLegs?.Where(l => l.LeftSet == LeftSet);
+                HandlePlanted(sameSideLegs);
             }
             else
             {
@@ -177,12 +180,12 @@ namespace AAModClassic.Utilities.Components
             SolveIK();
         }
 
-        private void HandlePlanted()
+        private void HandlePlanted(IEnumerable<IKLeg> sameSideLegs)
         {
             State = LegState.Planted;
             FallTime = 0f;
 
-            if (!ForceLocked && ShouldRelease(out bool noDelay))
+            if (!ForceLocked && ShouldRelease(sameSideLegs, out bool noDelay))
             {
                 ReleaseGrip();
                 if (noDelay)
@@ -286,15 +289,38 @@ namespace AAModClassic.Utilities.Components
             LatchedOn = false;
         }
 
-        private bool ShouldRelease(out bool noDelay)
+        private bool ShouldRelease(IEnumerable<IKLeg> sameSideLegs, out bool noDelay)
         {
             noDelay = false;
+
+            float extension = Vector2.Distance(LegTip, Start);
+            bool isLeading = Math.Sign(Body.velocity.X) == Direction;
+
+            if (extension > MaxLength * 0.98f)
+            {
+                noDelay = true;
+                return true;
+            }
+
+            float lag = (Start.X - LegTip.X) * Direction;
+            if (!isLeading && lag > LagThresholdBase * 2.5f && StepTimer <= 0f)
+            {
+                noDelay = true;
+                return true;
+            }
+
+            if (SisterLeg != null && SisterLeg.StrideTimer > 0f)
+                return false;
 
             if (SisterLeg != null && !SisterLeg.LatchedOn && SisterLeg.State != LegState.Hanging)
                 return false;
 
-            float extension = Vector2.Distance(LegTip, Start);
-            bool isLeading = Math.Sign(Body.velocity.X) == Direction;
+            if (sameSideLegs != null)
+            {
+                int groundedCount = sameSideLegs.Count(l => l.LatchedOn);
+                if (groundedCount <= 1)
+                    return false;
+            }
 
             float maxExt = MaxExtensionBase - SisterInfluence * MaxExtSisterReduction;
 
@@ -316,7 +342,6 @@ namespace AAModClassic.Utilities.Components
                 return true;
             }
 
-            // Foot has been left too far behind the body laterally.
             if (isLeading)
             {
                 if ((DesiredGrabPosition.X - LegTip.X) * Direction > LeadingMinExtension)
@@ -325,14 +350,12 @@ namespace AAModClassic.Utilities.Components
                     return true;
                 }
             }
-            // Trailing leg: foot has been left too far behind the body laterally.
-            else if ((Start.X - LegTip.X) * Direction > lagThresh && StepTimer <= 0f)
+            else if (lag > lagThresh && StepTimer <= 0f)
             {
                 noDelay = true;
                 return true;
             }
 
-            // Foot is too high and too close — body has jumped over it.
             if (Start.Y - LegTip.Y > 30f && (LegTip.X - Start.X) * Direction < MaxLength * 0.2f)
                 return true;
 
@@ -344,6 +367,9 @@ namespace AAModClassic.Utilities.Components
             bool isLeading = Body.velocity.X * Direction > 0f;
             bool moving = Math.Abs(Body.velocity.X) > VelocityOffsetThreshold;
 
+            float stepTime = StepBaseTime - StepFastTimeReduction * Utils.GetLerpValue(StepFastSpeedMin, StepFastSpeedMax, Math.Abs(Body.velocity.X), true);
+            Vector2 predictedMovement = Body.velocity * stepTime;
+
             if (isLeading && moving)
             {
                 DesiredGrabPosition = Start + new Vector2(Direction * MaxLength * LeadingExtendReach, LengthA * DesiredDownScale);
@@ -353,6 +379,11 @@ namespace AAModClassic.Utilities.Components
                 DesiredGrabPosition = Start + new Vector2(Direction * LengthB * DesiredOutwardScale, LengthA * DesiredDownScale);
                 DesiredGrabPosition.X += VelocityXOffset;
             }
+
+            DesiredGrabPosition += predictedMovement;
+
+            if (DesiredGrabPosition.Distance(Start) > MaxLength)
+                DesiredGrabPosition = Start + Vector2.Normalize(DesiredGrabPosition - Start) * MaxLength;
         }
 
         private void FindGrabPosition()
@@ -364,11 +395,12 @@ namespace AAModClassic.Utilities.Components
 
             Point? best = null;
             bool tooClose = false;
+            Point? directHit = null;
 
             if (isLeading && Math.Abs(Body.velocity.X) > VelocityOffsetThreshold)
             {
                 float castX = Direction * MaxLength * LeadingExtendReach;
-                best = RaycastToTile(Start + new Vector2(castX, -16f), Start + new Vector2(castX, MaxLength));
+                directHit = best = RaycastToTile(Start + new Vector2(castX, -16f), Start + new Vector2(castX, MaxLength));
                 if (best.HasValue && TileToGripPoint(best.Value).Distance(Start) < TooCloseMinDist)
                 {
                     tooClose = true;
@@ -382,7 +414,7 @@ namespace AAModClassic.Utilities.Components
                 if (Vector2.Distance(target, Start) > MaxLength)
                     target = Start + Vector2.Normalize(target - Start) * MaxLength;
 
-                best = RaycastToTile(Start, target);
+                directHit = best = RaycastToTile(Start, target);
                 if (best.HasValue && TileToGripPoint(best.Value).Distance(Start) < TooCloseMinDist)
                 {
                     tooClose = true;
@@ -399,6 +431,9 @@ namespace AAModClassic.Utilities.Components
                 float startAngle = isLeading ? MathHelper.PiOver4 : MathHelper.PiOver2 * 0.8f;
                 best = RadialArcScan(startAngle, MathHelper.Pi * 0.95f, radius);
             }
+
+            if (best == null && directHit.HasValue)
+                best = directHit;
 
             if (best.HasValue)
                 TryConfirmGrabPos(best.Value);
@@ -435,7 +470,8 @@ namespace AAModClassic.Utilities.Components
 
             if (Math.Abs(Body.velocity.X) > VelocityOffsetThreshold)
             {
-                if (Body.velocity.X * Direction < 0f)
+                bool isLeading = Math.Sign(Body.velocity.X) == Direction;
+                if (isLeading)
                     origin.X += Math.Sign(Body.velocity.X) * VelocityOffsetAmount;
                 else
                     radius = Math.Min(MaxLength, radius * 1.2f);
@@ -493,15 +529,40 @@ namespace AAModClassic.Utilities.Components
             if (Main.tileSolidTop[Framing.GetTileSafely(p).TileType])
                 penalty = Utils.GetLerpValue(16f, 80f, Start.Y - world.Y, true);
 
-            return angleFit * distFit - penalty;
+            float heightBias = 0.2f + 0.8f * Utils.GetLerpValue(100f, 10f, Math.Abs(Start.Y - world.Y), true);
+            return (angleFit * distFit - penalty) * heightBias;
         }
 
         private void TryConfirmGrabPos(Point candidate)
         {
             Vector2 point = TileToGripPoint(candidate);
 
+            if (GrabPosition.HasValue && GrabPosition.Value.ToTileCoordinates() == candidate)
+                return;
+
             if (GrabPosition == null || point.Distance(DesiredGrabPosition) < GrabPosition.Value.Distance(DesiredGrabPosition))
+            {
+                ApplySlopeOffsets(ref point);
                 GrabPosition = point;
+            }
+        }
+
+        public static void ApplySlopeOffsets(ref Vector2 footPos)
+        {
+            Point tileCoords = footPos.ToTileCoordinates();
+            Tile tile = Framing.GetTileSafely(tileCoords);
+            if (!tile.HasUnactuatedTile)
+                return;
+
+            Vector2 groundSnap = new(tileCoords.X * 16f, tileCoords.Y * 16f + 16f);
+            float interp = (footPos.X % 16f) / 16f;
+
+            if (tile.IsHalfBlock)
+                footPos.Y = groundSnap.Y - 8f;
+            else if (tile.Slope == SlopeType.SlopeDownLeft)
+                footPos.Y = groundSnap.Y - MathHelper.Lerp(16f, 0f, interp) + 2f;
+            else if (tile.Slope == SlopeType.SlopeDownRight)
+                footPos.Y = groundSnap.Y - MathHelper.Lerp(0f, 16f, interp) + 2f;
         }
 
         private Vector2 TileToGripPoint(Point tilePos)
