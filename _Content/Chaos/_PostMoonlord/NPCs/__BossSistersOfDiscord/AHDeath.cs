@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-            Music = MusicManagementSystem.MusicSlots["Sisters_Intro"];
+            Music = MusicManagementSystem.MusicSlots["Sisters_Outro"];
             NPC.boss = true;
 
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             NPC.Center = player.Center;
 
-            if (NPC.ai[1] == 100)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
+            if (NPC.ai[1] == 240)
             {
                 if (AAWorld.downedSisters)
                 {
@@ -64,7 +64,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
                 }
             }
 
-            if (NPC.ai[1] == 300)
+            if (NPC.ai[1] == 360)
             {
                 if (AAWorld.downedSisters)
                 {
@@ -76,7 +76,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
                 }
             }
 
-            if (NPC.ai[1] == 500)
+            if (NPC.ai[1] == 600)
             {
                 if (AAWorld.downedSisters)
                 {
@@ -89,7 +89,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
                 }
             }
             
-            if (NPC.ai[1] == 700)
+            if (NPC.ai[1] == 840)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.4"), new Color(102, 20, 48));
                 AAWorld.downedSisters = true;

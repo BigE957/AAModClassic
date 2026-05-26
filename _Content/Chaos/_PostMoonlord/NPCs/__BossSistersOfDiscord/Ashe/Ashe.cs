@@ -1,12 +1,12 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
 using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -563,6 +563,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             if (Haruka == 0)
             {
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
+                //MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Sisters_Outro"]);
             }
 
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
