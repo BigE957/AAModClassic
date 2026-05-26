@@ -1,5 +1,5 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.Tiles.Furniture.Keep;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Void.World.Tiles;
+using AAModClassic._Content.Stars.World.Tiles;
 
 namespace AAModClassic.Items.Walls
 {

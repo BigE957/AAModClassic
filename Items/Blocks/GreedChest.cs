@@ -1,4 +1,4 @@
-using AAModClassic.Tiles.Chests;
+using AAModClassic._Content.Hoard.World.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

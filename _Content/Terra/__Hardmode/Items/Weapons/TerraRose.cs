@@ -1,5 +1,5 @@
 using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

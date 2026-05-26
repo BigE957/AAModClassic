@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Inferno.World.Tiles;
 
 namespace AAModClassic.Items.Walls
 {

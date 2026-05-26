@@ -2,7 +2,6 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.Tiles.Altar;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

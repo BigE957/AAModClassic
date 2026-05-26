@@ -47,11 +47,7 @@ using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Items.Summoning;
-using AAModClassic.Tiles;
-using AAModClassic.Tiles.Chests;
-using AAModClassic.Tiles.Keep;
 using AAModClassic.Tiles.Ore;
-using AAModClassic.Tiles.Trees;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -77,6 +73,14 @@ using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Void.World.Tiles;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.RedMushroom.World.Tiles;
+using AAModClassic._Content.Hoard.World.Tiles;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
+using AAModClassic._Content.Inferno.World.BiomeChest;
+using AAModClassic._Content.Void.World.BiomeChest;
+using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic._Content.Void.World.Tiles.Trees;
 
 namespace AAModClassic
 {
@@ -1453,7 +1457,7 @@ namespace AAModClassic
             lakeTiles = tileCounts[ModContent.TileType<Darkmud_Tile>()] + tileCounts[ModContent.TileType<AbyssGrass_Tile>()] + tileCounts[ModContent.TileType<AbyssWood_Tile>()] + tileCounts[ModContent.TileType<AbyssWoodSolid_Tile>()];
             terraTiles = tileCounts[ModContent.TileType<TerraCrystal_Tile>()];
             keepTiles = tileCounts[ModContent.TileType<KeepBrick_Tile>()] + tileCounts[ModContent.TileType<KeepPlatform_Tile>()] + tileCounts[ModContent.TileType<TerraPillar_Tile>()];
-            Radium = tileCounts[ModContent.TileType<RadiumOre_Tile>()] + tileCounts[ModContent.TileType<Tiles.Altar.DaybringerBrick_Tile>()] + tileCounts[ModContent.TileType<Tiles.Altar.NightcrawlerBrick_Tile>()];
+            Radium = tileCounts[ModContent.TileType<RadiumOre_Tile>()] + tileCounts[ModContent.TileType<DaybringerBrick_Tile>()] + tileCounts[ModContent.TileType<NightcrawlerBrick_Tile>()];
             HoardTiles = tileCounts[ModContent.TileType<GreedBrick_Tile>()] + tileCounts[ModContent.TileType<GreedStone_Tile>()];
             CloudTiles = tileCounts[ModContent.TileType<AcropolisBlock_Tile>()] + tileCounts[ModContent.TileType<AcropolisBlock2_Tile>()];
         }

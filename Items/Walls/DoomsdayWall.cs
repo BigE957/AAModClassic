@@ -1,5 +1,4 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Void.World.Tiles;
 using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;

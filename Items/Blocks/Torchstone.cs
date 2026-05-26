@@ -1,4 +1,4 @@
-using AAModClassic.Tiles;
+using AAModClassic._Content.Inferno.World.Tiles;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;

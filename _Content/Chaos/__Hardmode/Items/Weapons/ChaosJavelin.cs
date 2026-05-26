@@ -1,5 +1,5 @@
+using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
-using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

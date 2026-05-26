@@ -1,6 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles.Decoration;
-using AAModClassic.Tiles.Furniture;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

@@ -1,8 +1,8 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Items.Materials;
 using AAModClassic._Content.Snow.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {

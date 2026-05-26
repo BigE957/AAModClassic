@@ -1,11 +1,9 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
+using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Parthenan.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Snow.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles;
-using AAModClassic.Tiles.Boss;
-using AAModClassic.Tiles.Chests;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

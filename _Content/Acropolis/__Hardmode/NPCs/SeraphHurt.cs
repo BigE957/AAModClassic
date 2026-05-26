@@ -1,7 +1,7 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
-using AAModClassic.Tiles.Boss;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;

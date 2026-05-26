@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Tiles.Plants;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content.Mire.World.Tiles

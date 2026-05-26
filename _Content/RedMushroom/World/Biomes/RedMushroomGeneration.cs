@@ -1,4 +1,4 @@
-﻿using AAModClassic.Tiles;
+﻿using AAModClassic._Content.RedMushroom.World.Tiles;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

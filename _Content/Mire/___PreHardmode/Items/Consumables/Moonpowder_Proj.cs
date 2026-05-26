@@ -2,7 +2,6 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Tiles;
 using AAModClassic.Assets;
 using AAModClassic._Content.Inferno.World.Tiles;
 

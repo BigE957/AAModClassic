@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,6 +25,6 @@ public class DaedalusPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.DaedalusPainting_Tile>();
+        Item.createTile = ModContent.TileType<DaedalusPainting_Tile>();
 	}
 }

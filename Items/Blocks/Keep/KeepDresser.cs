@@ -1,4 +1,5 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +25,7 @@ public class KeepDresser : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepDresser_Tile>();
+        Item.createTile = ModContent.TileType<KeepDresser_Tile>();
 	}
 
 	public override void AddRecipes()

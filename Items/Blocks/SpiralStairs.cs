@@ -1,4 +1,4 @@
-using AAModClassic.Tiles.Furniture.Other;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Other;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

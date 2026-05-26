@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic.Tiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 

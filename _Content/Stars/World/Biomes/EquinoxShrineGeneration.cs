@@ -1,6 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles;
-using AAModClassic.Tiles.Altar;
+﻿using AAModClassic._Content.Hoard.World.Tiles;
+using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
