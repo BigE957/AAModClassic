@@ -74,6 +74,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         public bool QuoteSaid;
         public static int HeadFrame = 0;
 
+        public float NeckCurveIntensity = 0f;
+
         public float[] internalAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
         {

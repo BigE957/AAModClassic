@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -84,6 +85,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 		public int distFromBodyY = 150; //how far from the body to centeralize the movement points. (Y coord)
 		public int movementVariance = 60; //how far from the center point to move.
 
+        public float NeckCurveIntensity = 0f;
+
         public override void AI()
         {
             NPC.defDamage = isAwakened ? 200 : 180;
@@ -131,8 +134,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 BaseAI.AIFlier(NPC, ref customAI, true, .5f, .8f, 5, 5, false, 300);
             }
-            else
-            if (dist < 40f)
+            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.velocity = (nextTarget - NPC.Center) / 20f;
+            else if (dist < 40f)
             {
                 NPC.velocity *= 0.9f;
                 if (Math.Abs(NPC.velocity.X) < 0.05f) NPC.velocity.X = 0f;
@@ -140,10 +144,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             }
             else
             {
-                NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center);
-                NPC.velocity *= 5f;
+                NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center) * 5;
             }
-            NPC.position += Body.NPC.position - Body.NPC.oldPosition;
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.position += Body.NPC.position - Body.NPC.oldPosition;
             NPC.spriteDirection = -1;
             if (Body.TeleportMe1)
             {

@@ -506,7 +506,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             bool playerTooFar = playerDistance > playerTooFarDist;
             HandleYamataBody(NPC, ref NPC.ai, true, 0.2f, 3.5f, 8f, 0.07f, 1.5f, 4);
-            if (playerTooFar) NPC.position += playerTarget.position - playerTarget.oldPosition;
+            if (playerTooFar) 
+                NPC.position += playerTarget.position - playerTarget.oldPosition;
             NPC.rotation = 0f;
         }
 
@@ -564,6 +565,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             int tileY = (int)((npc.position.Y + npc.height) / 16f);
             bool tileBelowEmpty = true;
 
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                if (npc.Center.Y < Main.player[npc.target].Center.Y - 48)
+                    npc.directionY = 1;
+                else
+                    npc.directionY = -1;
+            }
+
             for (int tY = tileY; tY < tileY + hoverHeight; tY++)
             {
                 if (Main.tile[tileX, tY] == null)
@@ -612,8 +621,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (Math.Abs(npc.velocity.X) > 0.3f) npc.velocity.X *= 0.9f;
                 if (Math.Abs(npc.velocity.Y) > 0.3f) npc.velocity.Y *= 0.9f;
             }
-            else
-            if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
+            else if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
             {
                 npc.velocity.X -= moveInterval * 0.5f;
                 if (npc.velocity.X > maxSpeedX) { npc.velocity.X -= 0.1f; }
@@ -621,8 +629,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     if (npc.velocity.X > 0f) { npc.velocity.X += 0.05f; }
                 if (npc.velocity.X < -maxSpeedX) { npc.velocity.X = -maxSpeedX; }
             }
-            else
-            if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
+            else if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
             {
                 npc.velocity.X += moveInterval * 0.5f;
                 if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += 0.1f; }
@@ -640,8 +647,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     if (npc.velocity.Y > 0f) { npc.velocity.Y += hoverInterval - 0.01f; }
                 if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y = -hoverMaxSpeed; }
             }
-            else
-            if (npc.directionY == 1 && (double)npc.velocity.Y < hoverMaxSpeed)
+            else if (npc.directionY == 1 && (double)npc.velocity.Y < hoverMaxSpeed)
             {
                 npc.velocity.Y += hoverInterval;
                 if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y += 0.05f; }
@@ -754,6 +760,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                  y2 * Math.Pow(t, 2)
              );
         }
+
         public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool DrawUnder)
         {
             Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
@@ -780,6 +787,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                         new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                     }
                 }
+
                 BaseDrawing.DrawTexture(spriteBatch, headTexture, 0, head.position + new Vector2(0f, head.gfxOffY), head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, drawColor, false);
                 BaseDrawing.DrawTexture(spriteBatch, glowMaskTexture, 0, head.position + new Vector2(0f, head.gfxOffY), head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, GlowColor, false);
             }
