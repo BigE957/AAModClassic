@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Terraria;
@@ -791,12 +792,27 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 }
             }
 
-            DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head2, drawColor, false);
-            DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head3, drawColor, false);
-            DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head4, drawColor, false);
-            DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, Head5, drawColor, false);
-            DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, Head6, drawColor, false);
-            DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, Head7, drawColor, false);
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                List<NPC> heads = [Head2, Head3, Head4, Head5, Head6, Head7];
+                heads.Sort((n1, n2) => n1.Center.Y.CompareTo(n2.Center.Y));
+                foreach (NPC head in heads)
+                {
+                    if (head.whoAmI == Head2.whoAmI || head.whoAmI == Head3.whoAmI || head.whoAmI == Head4.whoAmI)
+                        DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, head, drawColor, false);
+                    else
+                        DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, head, drawColor, false);
+                }
+            }
+            else
+            {
+                DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head2, drawColor, false);
+                DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head3, drawColor, false);
+                DrawHead(sb, HeadF1Texture.Value, HeadF1GlowTexture.Value, Head4, drawColor, false);
+                DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, Head5, drawColor, false);
+                DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, Head6, drawColor, false);
+                DrawHead(sb, HeadF2Texture.Value, HeadF2GlowTexture.Value, Head7, drawColor, false);
+            }
 
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
             
