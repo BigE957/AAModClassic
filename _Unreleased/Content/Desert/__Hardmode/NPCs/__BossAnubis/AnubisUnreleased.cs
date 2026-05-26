@@ -1217,6 +1217,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            if (CurrentTexture == null)
+                return false;
             Rectangle frame = BaseDrawing.GetFrame(CurrentTextureFrame, CurrentTexture.Width, CurrentTexture.Height / CurrentTextureFrameCount, 0, 0);
 
             double hoverOffset = 0;
