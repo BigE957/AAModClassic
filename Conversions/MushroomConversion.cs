@@ -1,5 +1,5 @@
-﻿using AAModClassic.Tiles;
-using AAModClassic.Walls;
+﻿using AAModClassic._Content.RedMushroom.World.Tiles;
+using AAModClassic.Tiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 

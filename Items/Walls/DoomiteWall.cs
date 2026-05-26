@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Walls.Bricks;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.World.Tiles;
 
 namespace AAModClassic.Items.Walls
 {

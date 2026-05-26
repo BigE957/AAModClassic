@@ -1,7 +1,7 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Hell.World.Tiles;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Boss;
-using AAModClassic.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

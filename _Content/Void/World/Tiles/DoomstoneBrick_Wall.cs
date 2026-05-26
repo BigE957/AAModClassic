@@ -7,25 +7,20 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Walls;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Void.World.Tiles
 {
-    public class DoomsdayPlating_Wall : ModWall
+    public class DoomstoneBrick_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             DustType = ModContent.DustType<Dusts.DoomDust>();
-			AddMapEntry(new Color(30, 30, 30));
+			AddMapEntry(new Color(10, 10, 10));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DoomsdayWall>());
+            RegisterItemDrop(ModContent.ItemType<DoomstoneBrickWall>());
             Main.wallHouse[Type] = true;
             Main.wallLargeFrames[Type] = 2;
         }
-
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -36,7 +31,12 @@ namespace AAModClassic.Walls.Bricks
                 zero = Vector2.Zero;
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
-            BaseDrawing.DrawWallTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, i, j, false, AAGlobalTile.GetZeroColorDim);
+            BaseDrawing.DrawWallTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, i, j, false, AAGlobalTile.GetBlankColorDim);
         }
+
+        public override void NumDust(int i, int j, bool fail, ref int num)
+		{
+			num = fail ? 1 : 3;
+		}
     }
 }

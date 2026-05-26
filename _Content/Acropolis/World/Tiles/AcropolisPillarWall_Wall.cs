@@ -3,15 +3,15 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls
+namespace AAModClassic._Content.Acropolis.World.Tiles
 {
-    public class AcropolisBrickWall_Wall : ModWall
+    public class AcropolisPillarWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
             Main.wallHouse[Type] = true;
             DustType = DustID.Marble;
-            AddMapEntry(new Color(0, 0, 25));
+			AddMapEntry(new Color(0, 0, 25));
 		}
 
         public override void NumDust(int i, int j, bool fail, ref int num)

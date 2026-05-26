@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls
+namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class TorchsandstoneWall_Wall : ModWall
 	{

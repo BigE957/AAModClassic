@@ -4,17 +4,17 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Snow.World.Tiles
 {
-    public class CovetiteBrick_Wall : ModWall
+    public class RelicBrick_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = DustID.Gold;
-            AddMapEntry(new Color(60, 60, 0));
+            DustType = DustID.Ice;
+			AddMapEntry(new Color(30, 30, 60));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
+            RegisterItemDrop(ModContent.ItemType<RelicWall>());
             Main.wallHouse[Type] = true;
         }
 

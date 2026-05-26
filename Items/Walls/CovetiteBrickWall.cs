@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Walls.Bricks;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration;
+using AAModClassic._Content.Hoard.World.Tiles;
 
 namespace AAModClassic.Items.Walls
 {

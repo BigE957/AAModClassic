@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class DaybreakBrick_Wall : ModWall
 	{

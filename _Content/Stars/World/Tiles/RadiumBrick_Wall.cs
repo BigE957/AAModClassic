@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Stars.World.Tiles
 {
     public class RadiumBrick_Wall : ModWall
 	{

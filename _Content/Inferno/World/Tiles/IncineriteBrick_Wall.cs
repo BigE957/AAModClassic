@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class IncineriteBrick_Wall : ModWall
 	{

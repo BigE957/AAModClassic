@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls.Bricks;
+namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 
 public class KeepBrick_Wall : ModWall
 {

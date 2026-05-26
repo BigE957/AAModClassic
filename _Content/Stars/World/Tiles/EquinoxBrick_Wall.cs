@@ -7,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Stars.World.Tiles
 {
     public class EquinoxBrick_Wall : ModWall
     {

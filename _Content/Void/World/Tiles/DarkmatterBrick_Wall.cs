@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Walls;
 
-namespace AAModClassic.Walls.Bricks
+namespace AAModClassic._Content.Void.World.Tiles
 {
     public class DarkmatterBrick_Wall : ModWall
 	{

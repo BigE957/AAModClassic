@@ -54,7 +54,6 @@ using AAModClassic.Tiles.Ore;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
-using AAModClassic.Walls.Bricks;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -77,6 +76,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic._Content.Void.World.Tiles;
 
 namespace AAModClassic
 {

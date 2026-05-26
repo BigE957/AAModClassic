@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls
+namespace AAModClassic._Content.Hell.World.Tiles
 {
     public class PitBarWall_Wall : ModWall
 	{

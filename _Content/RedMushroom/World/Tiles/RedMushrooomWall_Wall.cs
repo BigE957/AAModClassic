@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls
+namespace AAModClassic._Content.RedMushroom.World.Tiles
 {
     public class RedMushrooomWall_Wall : ModWall
 	{
