@@ -21,7 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<CyberneticEgg_Raidmini>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, Mod.Find<ModProjectile>("Raidmini").Type, 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<CyberneticEgg_Raidmini>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}
