@@ -24,7 +24,7 @@ namespace AAModClassic._Removed.Content.Parthenan
 			//disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Music Box");
+			RegisterItemDrop(ModContent.ItemType<SiegeBox>());
             DustType = Mod.Find<ModDust>("FulguriteDust").Type;
             AddMapEntry(new Color(200, 200, 200), name);
 		}

@@ -22,13 +22,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Drawing;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Renderers;
 using Terraria.ID;
@@ -994,14 +991,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 {
                     if (!NPC.BeenKilled(true))
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.First"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.First"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                         TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
                         TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
                     }
                     else
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                    };
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    }
 
                 }
                 else
