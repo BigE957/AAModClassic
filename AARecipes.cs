@@ -44,6 +44,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
 using AAModClassic.Items.Armor.Darkmatter;
@@ -893,7 +894,8 @@ namespace AAModClassic
             RecipeGroup group5 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.superancientmaterial"), new int[]
             {
                 ModContent.ItemType<ChaosScale>(),
-                ModContent.ItemType<Infinitium>()
+                ModContent.ItemType<Infinitium>(),
+                ModContent.ItemType<RealityBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:SuperAncientMaterials", group5);
             
