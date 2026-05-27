@@ -1,6 +1,7 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
@@ -8,9 +9,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    public class BlazeGripRay : ModProjectile
+    public class BlazeGrip_Deathray : ModProjectile
     {
         private const float maxTime = 300;
         public float maxScale = 1f;
@@ -18,9 +19,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
         public NPC centerNPC;
 
+        public static Asset<Texture2D> Body;
+        public static Asset<Texture2D> Tail;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blaze Grip Deathray");
+
+            Body = ModContent.Request<Texture2D>(Texture + "_Body");
+            Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
 
         public override void SetDefaults()
@@ -56,7 +63,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             {
                 for(int i = 0; i<1000; i++)
                 {
-                    if(Main.projectile[i].type == ModContent.ProjectileType<BlazeBomb>())
+                    if(Main.projectile[i].type == ModContent.ProjectileType<BlazeGrip_ScorchBomb>())
                     {
                         proj = Main.projectile[i].whoAmI;
                     }
@@ -67,7 +74,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             
             if(proj != 0)
             {
-                if(Main.projectile[proj].active && Main.projectile[proj].ModProjectile is BlazeBomb)
+                if(Main.projectile[proj].active && Main.projectile[proj].ModProjectile is BlazeGrip_ScorchBomb)
                 {
                     Projectile.Center = Main.projectile[proj].position + new Vector2(Main.projectile[proj].width/2, Main.projectile[proj].height/2);
 
@@ -195,8 +202,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = ModContent.Request<Texture2D>(Texture + "2").Value;
-            Texture2D texture2D21 = ModContent.Request<Texture2D>(Texture + "3").Value;
+            Texture2D texture2D20 = Body.Value;
+            Texture2D texture2D21 = Tail.Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;

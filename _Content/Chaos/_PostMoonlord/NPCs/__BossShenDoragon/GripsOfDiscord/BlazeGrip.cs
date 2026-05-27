@@ -1,24 +1,28 @@
-
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.Graphics.Shaders;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Inferno.Buffs;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
     [AutoloadBossHead]
     public class BlazeGrip : BaseShenGrips
     {
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Grip of Blazing Fury");
             Main.npcFrameCount[NPC.type] = 14;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
 	    public override void SetDefaults()
@@ -68,7 +72,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D glowTex = Glowmask.Value;
 
             int shader = 0;
             if (NPC.ai[0] == 0)

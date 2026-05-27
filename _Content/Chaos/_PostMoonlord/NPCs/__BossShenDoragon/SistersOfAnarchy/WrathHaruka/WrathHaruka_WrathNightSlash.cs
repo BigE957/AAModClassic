@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka
 {
-    public class WrathHarukaProj : ModProjectile
+    public class WrathHaruka_WrathNightSlash : ModProjectile
 	{
 		public override void SetDefaults()
 		{

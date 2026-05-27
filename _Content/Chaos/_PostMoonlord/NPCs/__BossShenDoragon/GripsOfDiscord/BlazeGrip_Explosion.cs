@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    public class BlazeBoom : ModProjectile
+    public class BlazeGrip_Explosion : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    public class AbyssBoom : ModProjectile
+    public class AbyssGrip_Soulsplosion : ModProjectile
     {
         public override void SetStaticDefaults()
         {

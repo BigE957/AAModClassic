@@ -24,6 +24,13 @@ namespace AAModClassic.Assets
             public static readonly string FilePath = AssetDirectory.FilePath + "General/";
 
             public static readonly string Nothing = FilePath + "Nothing";
+
+            public static readonly string Barrier = FilePath + "Barrier";
+
+            public static readonly string Ritual_Inner1 = FilePath + "Ritual_Inner1";
+            public static readonly string Ritual_Inner2 = FilePath + "Ritual_Inner2";
+            public static readonly string Ritual_Outer1 = FilePath + "Ritual_Outer1";
+            public static readonly string Ritual_Outer2 = FilePath + "Ritual_Outer2";
         }
 
         public class Items

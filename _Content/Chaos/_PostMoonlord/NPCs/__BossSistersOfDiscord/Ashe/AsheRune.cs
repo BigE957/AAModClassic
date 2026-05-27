@@ -9,11 +9,14 @@ using Terraria.Graphics.Shaders;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Assets;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe
 {
     public class AsheRune : ModNPC
     {
+        public override string Texture => AssetDirectory.General.Ritual_Inner2;
+
         public override void SetDefaults()
         {
             NPC.alpha = 255;

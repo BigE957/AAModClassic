@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe
 {
-    public class FuryAsheOrbiter : ModNPC
+    public class FuryFlameVortex : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -113,7 +113,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             for (int i = 0; i < 6; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), ModContent.ProjectileType<FuryAsheMagicSpark>(), NPC.damage / 2, 0, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), ModContent.ProjectileType<FuryFlameVortex_FuryFireBomb>(), NPC.damage / 2, 0, Main.myPlayer, 0f, 0f);
             }
         }
 

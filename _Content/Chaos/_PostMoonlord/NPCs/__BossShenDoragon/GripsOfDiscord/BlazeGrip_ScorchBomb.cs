@@ -1,16 +1,16 @@
-﻿using AAModClassic._Content.Mire.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    internal class AbyssalBomb_Proj : ModProjectile
+    internal class BlazeGrip_ScorchBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Abyssal Bomb");
+            // DisplayName.SetDefault("Scorch Bomb");
             Main.projFrames[Projectile.type] = 4;
         }
 
@@ -33,23 +33,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             return Color.White;
         }
 
-        public int rotate = 0;
-
         public override void AI()
         {
             if (Projectile.timeLeft > 0)
             {
                 Projectile.timeLeft--;
-            }
-            if (Projectile.timeLeft % 90 == 15)
-            {
-                for(int i = 0; i < 16; i++)
-                {
-                    Vector2 shoot = new Vector2((float)Math.Sin((i * 0.125f + rotate * 0.067f) * 3.1415926f), (float)Math.Cos((i * 0.125f + rotate * 0.067f) * 3.1415926f));
-                    shoot *= 16f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AbyssGripOrbiter2>(), Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
-                }
-                rotate ++;
             }
             if (Projectile.timeLeft == 0)
             {
@@ -66,10 +54,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                     Projectile.frame = 0;
                 }
             }
-            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            Projectile.rotation += ((float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f)/60f;
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
-            const float desiredFlySpeedInPixelsPerFrame = 14;
+            const float desiredFlySpeedInPixelsPerFrame = 5;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
             Projectile.ai[aislotHomingCooldown]++;
@@ -97,7 +85,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
         }
 
         public override void OnKill(int timeleft)
@@ -112,7 +100,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AbyssBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<BlazeGrip_Explosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         private int HomeOnTarget()

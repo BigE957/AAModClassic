@@ -1,29 +1,36 @@
-using Terraria;
-using System;
-using Terraria.GameContent;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using Terraria.Localization;
 using AAModClassic.Music;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka
 {
     [AutoloadBossHead]
     public class WrathHaruka : ModNPC
     {
+        public static Asset<Texture2D> Glowmask;
+        public static Asset<Texture2D> Slash => Haruka.Slash;
+        public static Asset<Texture2D> Danger => Haruka.Danger;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wrath Haruka");
             Main.npcFrameCount[NPC.type] = 28;
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -266,7 +273,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 Backstab();
                 Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
                 Vector2 fireTarget = NPC.Center;
-                int projType = ModContent.ProjectileType<WrathHarukaProj>();
+                int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
                 BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage*1, 0f, 14f);
                 internalAI[0] = Main.rand.Next(2);
                 internalAI[5] = 0;
@@ -502,7 +509,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     {
                         Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
                         Vector2 fireTarget = NPC.Center;
-                        int projType = ModContent.ProjectileType<WrathHarukaProj>();
+                        int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
                         BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage*1, 0f, 14f);
                     }
                     if (isSlashing && internalAI[2] > 9)
@@ -655,7 +662,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         pos *= -1f;
                         NPC.ai = new float[4];
                         
-                        int projType = ModContent.ProjectileType<WrathHarukaProj>();
+                        int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
                         float spread = 45f * 0.0174f;
                         Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                         dir *= 14f;
@@ -993,7 +1000,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), damage*1, 5, Main.myPlayer);
 
                     Vector2 shoot = Vector2.Zero;
-                    int projType = ModContent.ProjectileType<WrathHarukaProj>();
+                    int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
                     for(int i = 0; i < 16; i++)
                     {
                         shoot = new Vector2((float)Math.Sin(i * 0.125f * Pi), (float)Math.Cos(i * 0.125f * Pi));
@@ -1137,9 +1144,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D glowTex = Glowmask.Value;
 
-            Texture2D Slash = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Haruka/Haruka_Slash").Value;
+            Texture2D slash = Slash.Value;
             if (internalAI[0] == AISTATE_SPIN)
             {
                 if(strikebackproj > 0)
@@ -1154,7 +1161,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 if(internalAI[4] < 90)
                 {
                     Vector2 playerLocation = Main.player[NPC.target].Center;
-                    Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/_BossSisters/Haruka/Danger!").Value;
+                    Texture2D texture = Danger.Value;
                     float scaleFactor = 1f + internalAI[4] / 30f;
                     float scaleFactor2 = (float)Math.Cos(6.2831855f * (internalAI[4] / 60f));
                     if(scaleFactor < 2.2f)
@@ -1187,9 +1194,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(drawColor), false);
-            if (Invisible) return false;
+            if (Invisible) 
+                return false;
             
-            BaseDrawing.DrawTexture(spriteBatch, Slash, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, drawColor, false);
+            BaseDrawing.DrawTexture(spriteBatch, slash, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, drawColor, false);
 
             BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 1f, 1f, 7, true, 0f, 0f, AAColor.YamataA);
             return false;
