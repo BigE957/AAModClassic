@@ -537,7 +537,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 return (discordInfo.Remove(0, discordInfo.IndexOf('|') + 2), DiscordStatus.Server);
         }
 
-        private static bool IsPlayerStreaming()
+        public static bool IsPlayerStreaming()
         {
             if (DiscordSystem.IsStreaming)
                 return true;

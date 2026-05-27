@@ -55,7 +55,8 @@ Non-Consumable"); */
 
             if (AAWorld.SistersSummoned && !AAWorld.downedSisters)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
 
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Ashe>(), false, -1, 0, "Ashe Akuma", false);
 
