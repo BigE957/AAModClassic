@@ -9,9 +9,9 @@ using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Mire.Buffs;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    public class AbyssGripOrbiter : ModProjectile
+    public class AbyssGrip_Orbiter : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -68,7 +68,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 {
                     Main.projectile[i].Kill();
                 }
-                if(Main.projectile[i].type == ModContent.ProjectileType<AbyssalBomb_Proj>() && proj == 0)
+                if(Main.projectile[i].type == ModContent.ProjectileType<AbyssGrip_AbyssalBomb>() && proj == 0)
                 {
                     Center = Main.projectile[i].Center;
                     proj = Main.projectile[i].whoAmI;

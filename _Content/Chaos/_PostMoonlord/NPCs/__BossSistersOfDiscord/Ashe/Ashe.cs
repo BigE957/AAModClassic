@@ -3,6 +3,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Boss
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
 using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -42,10 +43,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             Main.npcFrameCount[NPC.type] = 24;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
-            Ring1 = ModContent.Request<Texture2D>(Texture + "_Ring1");
-            Ring2 = ModContent.Request<Texture2D>(Texture + "_Ring2");
-            Ritual = ModContent.Request<Texture2D>(Texture + "_Ritual");
-            Shield = ModContent.Request<Texture2D>(Texture + "Rune");
+            Ring1 = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Outer1);
+            Ring2 = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Outer2);
+            Ritual = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Inner1);
+            Shield = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Inner2);
         }
 
         public override void SetDefaults()

@@ -7,11 +7,14 @@ using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Utilities;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    public class AbyssGripOrbiter2 : ModProjectile
+    public class AbyssGrip_Orbiter2 : ModProjectile
     {
+        public override string Texture => FilePathUtils.TexturePath<AbyssGrip_Orbiter>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Abyss Grip Orbiter");

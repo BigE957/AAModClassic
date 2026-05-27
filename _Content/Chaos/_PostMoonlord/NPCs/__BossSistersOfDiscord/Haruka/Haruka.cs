@@ -25,7 +25,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
     [AutoloadBossHead]
     public class Haruka : ModNPC
     {
-
         public static Asset<Texture2D> Glowmask;
         public static Asset<Texture2D> Slash;
         public static Asset<Texture2D> Danger;

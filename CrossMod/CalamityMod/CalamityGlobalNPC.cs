@@ -4,8 +4,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe.Shenling;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka;
@@ -81,7 +80,7 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<WrathHaruka>()) CalamityDR = 0.2f;
                 if(npc.type == ModContent.NPCType<ShenDoragon>()) CalamityDR = 0.15f;
                 if(npc.type == ModContent.NPCType<ShenDoragonA>()) CalamityDR = 0.1f;
-                if(npc.type == ModContent.NPCType<FuryAsheOrbiter>()) CalamityDR = 0.2f;
+                if(npc.type == ModContent.NPCType<FuryFlameVortex>()) CalamityDR = 0.2f;
                 if(npc.type == ModContent.NPCType<ShenlingHead>()) CalamityDR = 0.15f;
 
                 if(npc.type == ModContent.NPCType<YamataABody>()) CalamityDR = 0.5f;

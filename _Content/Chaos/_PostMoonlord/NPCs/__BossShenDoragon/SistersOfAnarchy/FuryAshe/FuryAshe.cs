@@ -2,10 +2,12 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weap
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe.Shenling;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
@@ -24,11 +26,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
     {
         public int OrbiterCount = Main.expertMode ? 16 : 10;
 
+        public static Asset<Texture2D> Glowmask;
+        public static Asset<Texture2D> Ring1 => Ashe.Ring1;
+        public static Asset<Texture2D> Ring2 => Ashe.Ring2;
+        public static Asset<Texture2D> Ritual => Ashe.Ritual;
+        public static Asset<Texture2D> Shield => Ashe.Shield;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fury Ashe");
             Main.npcFrameCount[NPC.type] = 24;
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -218,7 +228,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     }
                     if (NPC.life > NPC.lifeMax / 3 || NPC.ai[1] < 100)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<FuryAsheFire>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, NPC.damage / 4, 8, false);
+                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, NPC.damage / 4, 8, false);
                     }
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
@@ -228,7 +238,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                             {
                                 Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                                 shoot *= 8f;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<FuryAsheFire>(), NPC.damage / 4, 5, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), NPC.damage / 4, 5, Main.myPlayer);
                             }
                             if(Main.rand.NextBool(3)) 
                             {
@@ -479,7 +489,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public static int VortexDamage()
         {
-            return  1 + NPC.CountNPCS(ModContent.NPCType<FuryAsheOrbiter>()) / 15;
+            return  1 + NPC.CountNPCS(ModContent.NPCType<FuryFlameVortex>()) / 15;
         }
 
         public void FireMagic(NPC npc)
@@ -490,7 +500,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 {
                     for(int i = 0; i < 200; i++)
                     {
-                        if(Main.npc[i].type == ModContent.NPCType<FuryAsheOrbiter>())
+                        if(Main.npc[i].type == ModContent.NPCType<FuryFlameVortex>())
                         {
                             Main.npc[i].life = 0;
                             Main.npc[i].active = false;
@@ -505,7 +515,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     rotation = 2f * (float)Math.PI / 4;
                     for (int m = 0; m < 4; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryAsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryFlameVortex>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -515,7 +525,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryAsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryFlameVortex>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -526,7 +536,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryAsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryFlameVortex>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -661,12 +671,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D Tex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D Glow = Glowmask.Value;
 
-            Texture2D RingTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Ashe/Ashe_Ring1").Value;
-            Texture2D RingTex1 = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Ashe/Ashe_Ring2").Value;
-            Texture2D RitualTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossSistersOfDiscord/Ashe/Ashe_Ritual").Value;
-            Texture2D ShieldTex = ModContent.Request<Texture2D>(ModContent.GetInstance<AsheRune>().Texture).Value;
+            Texture2D RingTex = Ring1.Value;
+            Texture2D RingTex1 = Ring2.Value;
+            Texture2D RitualTex = Ritual.Value;
+            Texture2D ShieldTex = Shield.Value;
 
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
@@ -720,13 +730,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         private void RingEffects()
         {
             RingRotation += 0.02f;
-            if (NPC.ai[0] == 12 || NPC.AnyNPCs(ModContent.NPCType<FuryAsheOrbiter>()))
+            if (NPC.ai[0] == 12 || NPC.AnyNPCs(ModContent.NPCType<FuryFlameVortex>()))
             {
                 if (scale >= 1f)
                 {
                     scale = 1f;
 
-                    if(NPC.CountNPCS(ModContent.NPCType<FuryAsheOrbiter>()) < OrbiterCount)
+                    if(NPC.CountNPCS(ModContent.NPCType<FuryFlameVortex>()) < OrbiterCount)
                     {
                         Health = true;
                         NPC.netUpdate = true;

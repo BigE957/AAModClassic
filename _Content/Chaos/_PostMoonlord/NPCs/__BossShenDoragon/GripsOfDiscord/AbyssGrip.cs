@@ -10,7 +10,7 @@ using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Mire.Buffs;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath
+namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
     [AutoloadBossHead]
     public class AbyssGrip : BaseShenGrips

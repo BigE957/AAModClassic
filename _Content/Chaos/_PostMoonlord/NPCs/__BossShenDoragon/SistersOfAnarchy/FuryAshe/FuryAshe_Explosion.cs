@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe
 {
-    public class FuryAsheStrike : ModProjectile
+    public class FuryAshe_Explosion : ModProjectile
     {
         public override void SetStaticDefaults()
         {

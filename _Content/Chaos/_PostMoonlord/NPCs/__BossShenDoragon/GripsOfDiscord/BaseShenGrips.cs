@@ -10,8 +10,6 @@ using Terraria.ModLoader;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfAbyssalWrath;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord.GripOfBlazingFury;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
@@ -19,7 +17,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Grip of Chaos");
+            // DisplayName.SetDefault("Grip of Discord");
             Main.npcFrameCount[NPC.type] = 14;
         }
 
@@ -277,17 +275,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 {
                     if(BlazeGrip)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)), new Vector2(0, 0), ModContent.ProjectileType<BlazeCloneClaw>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 0);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeCloneClaw>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 1f);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeCloneClaw>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeCloneClaw>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -1f);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeCloneClaw>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -2f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)), new Vector2(0, 0), ModContent.ProjectileType<BlazeGrip_Clone>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeGrip_Clone>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 1f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeGrip_Clone>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeGrip_Clone>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -1f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), ModContent.ProjectileType<BlazeGrip_Clone>(), damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -2f);
                     }
                     else
                     {
                         for (int m = 0; m < 16; m++)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<AbyssGripOrbiter>(), NPC.damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<AbyssGrip_Orbiter>(), NPC.damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
                         }
                     }
                 }
@@ -338,7 +336,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
                             Vector2 shootdir = new Vector2(baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle));
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGripRay>(), NPC.damage / 4, 0f, Main.myPlayer, i, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGrip_Deathray>(), NPC.damage / 4, 0f, Main.myPlayer, i, NPC.whoAmI);
                         }
                     }
                     if(internalAI[2] > 200)
@@ -397,7 +395,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 }
                 if (internalAI[0] == 40)
                 {
-                    BaseAI.FireProjectile(targetPlayer.Center, NPC.Center, BlazeGrip ? ModContent.ProjectileType<BlazeBomb>() : ModContent.ProjectileType<AbyssalBomb_Proj>(), damage, 2, 9f, -1, Main.myPlayer);
+                    BaseAI.FireProjectile(targetPlayer.Center, NPC.Center, BlazeGrip ? ModContent.ProjectileType<BlazeGrip_ScorchBomb>() : ModContent.ProjectileType<AbyssGrip_AbyssalBomb>(), damage, 2, 9f, -1, Main.myPlayer);
                 }
                 if (internalAI[0] > 50)
                 {

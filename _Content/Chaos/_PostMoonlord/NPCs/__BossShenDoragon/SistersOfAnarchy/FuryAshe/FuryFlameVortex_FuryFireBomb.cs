@@ -10,11 +10,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe
 {
-    internal class FuryAsheMagicSpark : ModProjectile
+    internal class FuryFlameVortex_FuryFireBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Fury Fire Bomb");
+            // DisplayName.SetDefault("Fury Fire Spark");
             Main.projFrames[Projectile.type] = 4;
         }
 
