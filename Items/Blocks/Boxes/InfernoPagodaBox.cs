@@ -12,9 +12,9 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Pagoda of the Rising Sun Music Box");
+            // DisplayName.SetDefault("Music Box (Pagoda of the Rising Sun)");
             // Tooltip.SetDefault("Plays 'Scorched Tower' by Rockwizard");
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

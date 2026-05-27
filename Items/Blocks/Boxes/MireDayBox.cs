@@ -10,11 +10,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mire Day Music Box");
-            // Tooltip.SetDefault(@"Plays 'Clouded in Mystery' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Mire Day)");
+            // Tooltip.SetDefault(@"Plays 'Through the Toxic Mist' by ProduceVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

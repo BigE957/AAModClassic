@@ -10,11 +10,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mushroom Monarch Music Box");
+            // DisplayName.SetDefault("Music Box (Mushroom Monarch)");
             // Tooltip.SetDefault(@"Plays 'Fungal Face-off' by Spectral Aves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

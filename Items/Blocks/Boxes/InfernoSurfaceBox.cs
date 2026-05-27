@@ -10,11 +10,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Inferno Surface Music Box");
-            // Tooltip.SetDefault(@"Plays 'Flame-Razed Rock' by Karamitasu");
+            // DisplayName.SetDefault("Music Box (Inferno)");
+            // Tooltip.SetDefault(@"Plays 'Scorched Landscape' by Shadow Figure");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

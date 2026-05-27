@@ -10,12 +10,12 @@ namespace AAModClassic.Items.Blocks.Boxes
             
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Terrarium Music Box");
+            // DisplayName.SetDefault("Music Box (Terrarium)");
             // Tooltip.SetDefault("Plays 'Heart of the World' by Quicksilvur feat Charlie Debnam");
 
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

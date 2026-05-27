@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Acropolis Music Box");
-            // Tooltip.SetDefault(@"Plays 'Palace in the Sky' by Turquoise");
+            // DisplayName.SetDefault("Music Box (Acropolis)");
+            // Tooltip.SetDefault(@"Plays 'Palace in the Sky' by ENNWAY");
         }
 
         public override void SetDefaults()

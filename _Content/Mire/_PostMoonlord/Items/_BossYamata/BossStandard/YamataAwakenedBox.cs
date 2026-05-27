@@ -11,8 +11,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Yamata Awakened Music Box");
-            // Tooltip.SetDefault(@"Plays 'Abyssal Nightmare' by Universe");
+            // DisplayName.SetDefault("Music Box (Yamata No Orochi)");
+            // Tooltip.SetDefault(@"Plays 'Abyssal Nightmare' by Tyeski");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

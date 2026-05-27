@@ -10,11 +10,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Inferno Night Music Box");
-            // Tooltip.SetDefault(@"Plays 'Burnt to Ashes' by Quicksilvur");
+            // DisplayName.SetDefault("Music Box (Inferno Night)");
+            // Tooltip.SetDefault(@"Plays 'Burnt to Ashes' by Shadow Figure");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Greed Music Box");
-            // Tooltip.SetDefault("Plays 'Gold Digger' by Universe");
+            // DisplayName.SetDefault("Music Box (Greed)");
+            // Tooltip.SetDefault("Plays 'Gold Digger' by Tyeski");
         }
 
         public override void SetDefaults()

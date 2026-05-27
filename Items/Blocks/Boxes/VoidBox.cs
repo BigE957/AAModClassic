@@ -16,8 +16,8 @@ namespace AAModClassic.Items.Blocks.Boxes
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Void Music Box");
-            // Tooltip.SetDefault(@"Plays 'Gaze into Darkness' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Void)");
+            // Tooltip.SetDefault(@"Plays 'Waste' by ProduceVGM");
         }
 
         public override void SetDefaults()

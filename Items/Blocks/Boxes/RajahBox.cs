@@ -10,7 +10,7 @@ namespace AAModClassic.Items.Blocks.Boxes
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Rajah Rabbit Music Box");
+            // DisplayName.SetDefault("Music Box (Rajah Rabbit)");
             // Tooltip.SetDefault(@"Plays 'JUSTICE' by Spectral Aves");
         }
 

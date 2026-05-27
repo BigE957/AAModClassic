@@ -10,7 +10,7 @@ namespace AAModClassic.Items.Blocks.Boxes
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Lake of the Rising Moon Music Box");
+            // DisplayName.SetDefault("Music Box (Lake of the Rising Moon)");
             // Tooltip.SetDefault("Plays 'Lake of Souls' by Rockwizard");
         }
 

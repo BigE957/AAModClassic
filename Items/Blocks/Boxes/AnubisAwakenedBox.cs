@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Forsaken Anubis Music Box");
-            // Tooltip.SetDefault(@"Plays 'Purgatorium' by Universe");
+            // DisplayName.SetDefault("Music Box (Forsaken Anubis)");
+            // Tooltip.SetDefault(@"Plays 'Purgatorium' by Tyeski");
         }
 
         public override void SetDefaults()

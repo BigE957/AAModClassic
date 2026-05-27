@@ -13,11 +13,11 @@ namespace AAModClassic.Items.Blocks.Boxes
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Zero Music Box");
-            // Tooltip.SetDefault("Plays 'Entropy's Envoy' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Zero)");
+            // Tooltip.SetDefault("Plays 'Clockwork Catastrophe' by Spectral Aves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

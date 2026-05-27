@@ -11,12 +11,12 @@ namespace AAModClassic.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Shen Doragon Awakened Music Box");
-            
-            // Tooltip.SetDefault(@"Plays 'Blaze of Glory' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Awakened Shen Doragon)");
+
+            // Tooltip.SetDefault(@"Plays 'Discordant Coda' by MaestroVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

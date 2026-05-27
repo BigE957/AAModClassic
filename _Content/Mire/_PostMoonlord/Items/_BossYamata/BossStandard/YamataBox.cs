@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Yamata Music Box");
+            // DisplayName.SetDefault("Music Box (Yamata)");
             // Tooltip.SetDefault("Plays 'Crescent of Madness' by Saucecoie");
         }
 

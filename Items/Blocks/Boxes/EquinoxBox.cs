@@ -13,11 +13,11 @@ namespace AAModClassic.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Equinox Worms Music Box");
-            // Tooltip.SetDefault(@"Plays 'Orbittal Equilibrium' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Equinox Worms)");
+            // Tooltip.SetDefault(@"Plays 'Celestial Cyclone' by ProduceVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

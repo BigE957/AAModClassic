@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Olympian Athena Music Box");
-            // Tooltip.SetDefault(@"Plays 'Goddess of Those Winged' by Turquoise");
+            // DisplayName.SetDefault("Music Box (Olympian Athena)");
+            // Tooltip.SetDefault(@"Plays 'Goddess of Those Winged' by ENNWAY");
         }
 
         public override void SetDefaults()

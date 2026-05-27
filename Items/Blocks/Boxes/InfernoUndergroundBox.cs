@@ -9,11 +9,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Inferno Underground Music Box");
-            // Tooltip.SetDefault(@"Plays 'Superheated' by Quicksilvur");
+            // DisplayName.SetDefault("Music Box (Underground Inferno)");
+            // Tooltip.SetDefault(@"Plays 'Superheated' by Shadow Figure");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

@@ -12,11 +12,11 @@ namespace AAModClassic.Items.Blocks.Boxes
             
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Truffle Toad Music Box");
+            // DisplayName.SetDefault("Music Box (Truffle Toad)");
             // Tooltip.SetDefault("Plays 'TODESTOOL' by Spectral Aves");
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

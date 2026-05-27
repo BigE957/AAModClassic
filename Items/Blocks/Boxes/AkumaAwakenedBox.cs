@@ -12,8 +12,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Akuma Awakened Music Box");
-            // Tooltip.SetDefault(@"Plays 'Dawn of the Dragon' by Universe");
+            // DisplayName.SetDefault("Music Box (Oni Akuma)");
+            // Tooltip.SetDefault(@"Plays 'Dawn of the Dragon' by Tyeski");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

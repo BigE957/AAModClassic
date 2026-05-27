@@ -10,7 +10,7 @@ namespace AAModClassic.Items.Blocks.Boxes
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Feudal Fungus Music Box");
+            // DisplayName.SetDefault("Music Box (Feudal Fungus)");
             // Tooltip.SetDefault("Plays 'Bioluminescent Beatdown' by Spectral Aves");
         }
 

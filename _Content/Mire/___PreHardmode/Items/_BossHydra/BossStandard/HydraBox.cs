@@ -9,11 +9,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Hydra Music Box");
+            // DisplayName.SetDefault("Music Box (Hydra)");
             // Tooltip.SetDefault(@"Plays 'Abyssal Wrath' by Spectral Aves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

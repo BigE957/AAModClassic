@@ -11,12 +11,12 @@ namespace AAModClassic.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Sagittarius Music Box");
+            // DisplayName.SetDefault("Music Box (Sagittarius)");
 
             // Tooltip.SetDefault(@"Plays 'Event Horizon' by SpectralAves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

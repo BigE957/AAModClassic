@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Hoard Music Box");
-            // Tooltip.SetDefault(@"Plays 'Cove' by Universe");
+            // DisplayName.SetDefault("Music Box (Hoard)");
+            // Tooltip.SetDefault(@"Plays 'Cove' by Tyeski");
         }
 
         public override void SetDefaults()

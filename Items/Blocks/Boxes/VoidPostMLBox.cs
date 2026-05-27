@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("True Void Music Box");
-            // Tooltip.SetDefault("Plays 'Nihil' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Void - Activated)");
+            // Tooltip.SetDefault("Plays 'Inanis' by ProduceVGM");
         }
 
         public override void SetDefaults()

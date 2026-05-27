@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Anubis Music Box");
-            // Tooltip.SetDefault(@"Plays 'Strings of Judgement' by Universe");
+            // DisplayName.SetDefault("Music Box (Anubis)");
+            // Tooltip.SetDefault(@"Plays 'Strings of Judgement' by Tyeski");
         }
 
         public override void SetDefaults()

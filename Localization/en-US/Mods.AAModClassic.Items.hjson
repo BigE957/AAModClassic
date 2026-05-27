@@ -1492,7 +1492,7 @@ AcropolisBox: {
 
 AkumaAwakenedBox: {
 	DisplayName: Music Box (Oni Akuma)
-	Tooltip: Plays 'Dawn of the Dragon' by Tyseki
+	Tooltip: Plays 'Dawn of the Dragon' by Tyeski
 }
 
 AkumaBox: {
@@ -1502,12 +1502,12 @@ AkumaBox: {
 
 AnubisBox: {
 	DisplayName: Music Box (Anubis)
-	Tooltip: Plays 'Strings of Judgement' by Tyseki
+	Tooltip: Plays 'Strings of Judgement' by Tyeski
 }
 
 AnubisAwakenedBox: {
 	DisplayName: Music Box (Forsaken Anubis)
-	Tooltip: Plays 'Purgatorium' by Tyseki
+	Tooltip: Plays 'Purgatorium' by Tyeski
 }
 
 AthenaAwakenedBox: {
@@ -1527,17 +1527,17 @@ BroodmotherBox: {
 
 DjinnBox: {
 	DisplayName: Music Box (Desert Djinn)
-	Tooltip: Plays 'The Dust Bowl' by Tyseki
+	Tooltip: Plays 'The Dust Bowl' by Tyeski
 }
 
 EquinoxBox: {
 	DisplayName: Music Box (Equinox Worms)
-	Tooltip: Plays 'Symphony of the Stars'
+	Tooltip: Plays 'Celestial Cyclone' by ProduceVGM
 }
 
 VoidPostMLBox: {
 	DisplayName: Music Box (Void - Activated)
-	Tooltip: Plays 'Systems Engaged'
+	Tooltip: Plays 'Inanis' by ProduceVGM
 }
 
 FungusBox: {
@@ -1547,12 +1547,12 @@ FungusBox: {
 
 GreedAwakenedBox: {
 	DisplayName: Music Box (Worm King Greed)
-	Tooltip: Plays 'Ira De Riquezas Perdidas' by Tyseki
+	Tooltip: Plays 'Ira De Riquezas Perdidas' by Tyeski
 }
 
 GreedBox: {
 	DisplayName: Music Box (Greed)
-	Tooltip: Plays 'Gold Digger' by Tyseki
+	Tooltip: Plays 'Gold Digger' by Tyeski
 }
 
 GripsBox: {
@@ -1562,7 +1562,7 @@ GripsBox: {
 
 HoardBox: {
 	DisplayName: Music Box (Hoard)
-	Tooltip: Plays 'Cove' by Tyseki
+	Tooltip: Plays 'Cove' by Tyeski
 }
 
 HydraBox: {
@@ -1627,12 +1627,12 @@ SagittariusBox: {
 
 ChaosPreShenBox: {
 	DisplayName: Music Box (Sleeping Dragon)
-	Tooltip: Plays 'Sleeping Dragon'
+	Tooltip: Plays 'Condemned' by MaestroVGM
 }
 
 SubzeroBox: {
 	DisplayName: Music Box (Subzero Serpent)
-	Tooltip: Plays 'Bells of Ice'
+	Tooltip: Plays 'Glacial Grace' by ProduceVGM
 }
 
 VoidPreIZBox: {
@@ -1642,22 +1642,22 @@ VoidPreIZBox: {
 
 ShenAwakenedBox: {
 	DisplayName: Music Box (Awakened Shen Doragon)
-	Tooltip: Plays 'VS Champion Of Alola' by Emdasche
+	Tooltip: Plays 'Discordant Coda' by MaestroVGM
 }
 
 ShenBox: {
 	DisplayName: Music Box (Shen Doragon)
-	Tooltip: Plays 'Trial by Fire (Old)'
+	Tooltip: Plays 'Wings of Duality' by MaestroVGM
 }
 
 SistersBox: {
 	DisplayName: Music Box (Sisters of Discord)
-	Tooltip: Plays 'Sisters of Anarchy' by Shadow Figure
+	Tooltip: Plays 'United' by MaestroVGM
 }
 
 StarsBox: {
 	DisplayName: Music Box (Celestial Stars)
-	Tooltip: Plays 'Interstellar'
+	Tooltip: Plays 'Scattered Stars' by ProduceVGM
 }
 
 TerrariumBox: {
@@ -1672,12 +1672,12 @@ TruffleToadBox: {
 
 VoidBox: {
 	DisplayName: Music Box (Void)
-	Tooltip: Plays 'Inanis' by ProduceVGM
+	Tooltip: Plays 'Waste' by ProduceVGM
 }
 
 YamataAwakenedBox: {
 	DisplayName: Music Box (Yamata No Orochi)
-	Tooltip: Plays 'Abyssal Nightmare' by Tyseki
+	Tooltip: Plays 'Abyssal Nightmare' by Tyeski
 }
 
 YamataBox: {
@@ -10973,8 +10973,8 @@ OrthrusXMask: {
 }
 
 SiegeBox: {
-	DisplayName: Siege Box
-	Tooltip: ""
+	DisplayName: Music Box (S.I.E.G.E. Units)
+	Tooltip: Plays 'Controlled Chaos' by ProduceVGM
 }
 
 StormCharm: {

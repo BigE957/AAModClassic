@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Desert Djinn Music Box");
-            // Tooltip.SetDefault(@"Plays 'The Dust Bowl' by Universe");
+            // DisplayName.SetDefault("Music Box (Desert Djinn)");
+            // Tooltip.SetDefault(@"Plays 'The Dust Bowl' by Tyeski");
         }
 
         public override void SetDefaults()

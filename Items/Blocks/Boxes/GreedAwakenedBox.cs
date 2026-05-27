@@ -10,8 +10,8 @@ namespace AAModClassic.Items.Blocks.Boxes
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Worm King Music Box");
-            // Tooltip.SetDefault("Plays 'Ira De Riquezas Perdidas' by Universe");
+            // DisplayName.SetDefault("Music Box (Worm King Greed)");
+            // Tooltip.SetDefault("Plays 'Ira De Riquezas Perdidas' by Tyeski");
         }
 
         public override void SetDefaults()

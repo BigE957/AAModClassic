@@ -11,12 +11,12 @@ namespace AAModClassic.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Sleeping Dragon Music Box");
+            // DisplayName.SetDefault("Music Box (Sleeping Dragon)");
 
-            // Tooltip.SetDefault(@"Plays 'Sleeping Giants' by LordCakeSpy");
+            // Tooltip.SetDefault(@"Plays 'Condemned' by MaestroVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

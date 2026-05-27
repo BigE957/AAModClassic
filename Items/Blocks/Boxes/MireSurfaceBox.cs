@@ -10,11 +10,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mire Surface Music Box");
-            // Tooltip.SetDefault(@"Plays 'Moonlit Marsh' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Mire)");
+            // Tooltip.SetDefault(@"Plays 'Secluded Swamp' by ProduceVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

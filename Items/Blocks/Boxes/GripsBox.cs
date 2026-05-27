@@ -11,11 +11,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Grips of Chaos Music Box");
+            // DisplayName.SetDefault("Music Box (Grips of Chaos)");
             // Tooltip.SetDefault(@"Plays 'Twin Terror' by Spectral Aves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

@@ -12,8 +12,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			//DisplayName.SetDefault("Champion of the Innocent Music Box");
-            //Tooltip.SetDefault(@"Plays '' by ");
+            //DisplayName.SetDefault("Music Box (Champion of the Innocent)");
+            //Tooltip.SetDefault(@"Plays 'Supreme Justice'");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

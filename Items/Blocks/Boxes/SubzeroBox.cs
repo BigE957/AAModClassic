@@ -10,10 +10,10 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Subzero Serpent Music Box");
-            // Tooltip.SetDefault(@"Plays 'Burrowing Down' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Subzero Serpent)");
+            // Tooltip.SetDefault(@"Plays 'Glacial Grace' by ProduceVGM");
         }
-        
+
 
         public override void SetDefaults()
 		{

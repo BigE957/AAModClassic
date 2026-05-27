@@ -11,8 +11,8 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Sisters of Discord Music Box");
-            // Tooltip.SetDefault(@"Plays 'Sisters of Anarchy' by Shadow Figure");
+            // DisplayName.SetDefault("Music Box (Sisters of Discord)");
+            // Tooltip.SetDefault(@"Plays 'United' by MaestroVGM");
         }
 
         public override void SetDefaults()

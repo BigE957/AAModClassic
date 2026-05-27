@@ -9,11 +9,11 @@ namespace AAModClassic._Removed.Content.Parthenan
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("S.I.E.G.E. Bosses Music Box");
-            // Tooltip.SetDefault(@"Plays 'Storming S.I.E.G.E.' by Karamitasu");
+            // DisplayName.SetDefault("Music Box (S.I.E.G.E. Units)");
+            // Tooltip.SetDefault(@"Plays 'Controlled Chaos' by ProduceVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

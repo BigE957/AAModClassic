@@ -10,11 +10,11 @@ namespace AAModClassic.Items.Blocks.Boxes
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mire Underground Music Box");
-            // Tooltip.SetDefault(@"Plays 'The Deepest Reaches' by Charlie Debnam");
+            // DisplayName.SetDefault("Music Box (Underground Mire)");
+            // Tooltip.SetDefault(@"Plays 'Creepy Crawlers' by ProduceVGM");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

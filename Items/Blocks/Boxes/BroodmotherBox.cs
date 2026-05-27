@@ -11,11 +11,11 @@ namespace AAModClassic.Items.Blocks.Boxes
             
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Broodmother Music Box");
+            // DisplayName.SetDefault("Music Box (Broodmother)");
             // Tooltip.SetDefault(@"Plays 'Blazing Fury' by Spectral Aves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
