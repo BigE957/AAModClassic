@@ -11,7 +11,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Inferno)");
-            // Tooltip.SetDefault(@"Plays 'Scorched Landscape' by Shadow Figure");
+            // Tooltip.SetDefault(@"Plays ‘Scorched Earth’ by ProduceVGM");
         }
 
         public override void SetDefaults()

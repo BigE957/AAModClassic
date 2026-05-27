@@ -1572,17 +1572,17 @@ HydraBox: {
 
 InfernoSurfaceBox: {
 	DisplayName: Music Box (Inferno)
-	Tooltip: Plays 'Scorched Landscape' by Shadow Figure
+	Tooltip: Plays ‘Scorched Earth’ by ProduceVGM
 }
 
 InfernoNightBox: {
 	DisplayName: Music Box (Inferno Night)
-	Tooltip: Plays 'Burnt to Ashes' by Shadow Figure
+	Tooltip: Plays ‘Emberstorm’ by ProduceVGM
 }
 
 InfernoUndergroundBox: {
 	DisplayName: Music Box (Underground Inferno)
-	Tooltip: Plays 'Superheated' by Shadow Figure
+	Tooltip: Plays ‘Inner Mantle’ by ProduceVGM
 }
 
 MireLakeBox: {
@@ -1662,7 +1662,7 @@ StarsBox: {
 
 TerrariumBox: {
 	DisplayName: Music Box (Terrarium)
-	Tooltip: Plays 'Heart of the World' by Shadow Figure feat. Charlie Debnam
+	Tooltip: Plays ‘Resting Place’ by ProduceVGM
 }
 
 TruffleToadBox: {
