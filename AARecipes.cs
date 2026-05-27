@@ -890,7 +890,6 @@ namespace AAModClassic
             });
             RecipeGroup.RegisterGroup("AAModClassic:AncientMaterials", group4);
 
-            //TODO: Add SoC material
             RecipeGroup group5 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.superancientmaterial"), new int[]
             {
                 ModContent.ItemType<ChaosScale>(),
