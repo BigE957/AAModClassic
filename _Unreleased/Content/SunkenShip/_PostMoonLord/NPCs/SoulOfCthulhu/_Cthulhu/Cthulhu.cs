@@ -23,8 +23,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu
 {
+    [AutoloadBossHead]
     public class Cthulhu : ModNPC
     {
+        public override string BossHeadTexture => "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/SoulOfCthulhu_Head_Boss";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cthulhu, Cosmic Calamity");
@@ -44,7 +46,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.boss = true;
             NPC.chaseable = false;
             NPC.scale *= 1.2f;
-            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("SoCCache").Type;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -373,7 +374,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D Barrier = ModContent.Request<Texture2D>(Texture + "Barrier").Value;
             Texture2D Shield = ModContent.Request<Texture2D>(Texture + "Shield").Value;
-            Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
+            Vector2 drawCenter = new(NPC.Center.X, NPC.Center.Y);
 
             Main.spriteBatch.Draw(currentTex, (drawCenter - Main.screenPosition), new Rectangle?(new Rectangle(0, 0, currentTex.Width, currentTex.Height)), drawColor, NPC.rotation, new Vector2(currentTex.Width / 2f, currentTex.Height / 2f), NPC.scale, SpriteEffects.None, 0f);
 
