@@ -129,6 +129,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                 return false;
 
             //Adapted from vanilla
+            Main.instance.LoadProjectile(ProjectileID.Flames);
             Texture2D texture = TextureAssets.Projectile[ProjectileID.Flames].Value;
 
             float maxLifetime = 60f;
