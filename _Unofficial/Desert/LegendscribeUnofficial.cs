@@ -4,6 +4,7 @@ using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -199,7 +200,8 @@ namespace AAModClassic._Unofficial.Desert
         {
             if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
+                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
             {
                 TPDust();
                 NPC.active = false;

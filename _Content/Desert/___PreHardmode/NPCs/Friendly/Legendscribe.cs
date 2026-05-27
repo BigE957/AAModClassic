@@ -17,6 +17,7 @@ using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.UI.WorldGen;
@@ -429,7 +430,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
         {
             if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
+                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
             {
                 TPDust();
                 NPC.active = false;
