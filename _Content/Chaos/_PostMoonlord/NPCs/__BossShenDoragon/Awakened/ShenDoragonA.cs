@@ -33,8 +33,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             NPC.value = Item.sellPrice(1, 0, 0, 0);
             Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
             SceneEffectPriority = (SceneEffectPriority)11;
-            IsAwakened = true;
-            NPC.alpha = 255;
+            //IsAwakened = true;
+            if(!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.boss = true;
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type];
         }

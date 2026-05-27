@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
     [AutoloadBossHead]
     public class ShenDoragon : ModNPC
     {
-        public bool IsAwakened = false;
+        public bool IsAwakened => NPC.type == ModContent.NPCType<ShenDoragonA>();
 
         public bool SpawnMinionPhaseCharacters = false;
 
@@ -84,6 +84,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             UpperArmsBack = ModContent.Request<Texture2D>(Texture + "_ArmsBack_Upper");
             LowerArmsBack = ModContent.Request<Texture2D>(Texture + "_ArmsBack_Lower");
             telegraphParticles = new(100, () => new RandomizedFrameParticle());
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0
+            };
+            value.Position.X += 150;
+            value.Position.Y += 12;
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -1184,7 +1192,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             // back wing
             Vector2 backWingPos = NPC.Center - screenPos;
             float backWingRot = NPC.rotation;
-            if (hasHistory)
+            if (hasHistory && !NPC.IsABestiaryIconDummy)
             {
                 UpdateBodyBend();
                 (Vector2 wingPos, Vector2 wingForward) = GetBodyPoint(0.5f);
@@ -1204,7 +1212,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 Vector2 upperBackArmPos;
                 float bodyFacingAngle;
-                if (hasHistory)
+                if (hasHistory && !NPC.IsABestiaryIconDummy)
                 {
                     (Vector2 attachPos, Vector2 forward) = GetBodyPoint(tBackArm);
                     upperBackArmPos = attachPos - screenPos + Vector2.UnitY * -10;
@@ -1262,7 +1270,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             float headRotation = NPC.rotation;
             if (unofficial)
             {
-                if (!hasHistory)
+                if (!hasHistory || NPC.IsABestiaryIconDummy)
                     spriteBatch.Draw(Body.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
                 else
                 {
@@ -1384,7 +1392,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 Vector2 upperFrontArmPos;
                 float frontBodyFacingAngle;
-                if (hasHistory)
+                if (hasHistory && !NPC.IsABestiaryIconDummy)
                 {
                     (Vector2 attachPos, Vector2 forward) = GetBodyPoint(tFrontArm);
                     upperFrontArmPos = attachPos - screenPos + Vector2.UnitY * -10;
@@ -1438,7 +1446,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             //front wing
             Vector2 frontWingPos = NPC.Center - screenPos;
             float frontWingRot = NPC.rotation;
-            if (hasHistory)
+            if (hasHistory && !NPC.IsABestiaryIconDummy)
             {
                 (Vector2 wingPos, Vector2 wingForward) = GetBodyPoint(0.5f);
                 frontWingPos = wingPos - screenPos;

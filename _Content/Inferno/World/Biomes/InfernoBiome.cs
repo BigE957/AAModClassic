@@ -20,6 +20,8 @@ namespace AAModClassic._Content.Inferno.World.Biomes
     {
         public override string MapBackground => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
 
+        public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
+
         public override bool IsBiomeActive(Player player)
         {
             bool active = AAWorld.infernoTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaHead>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaA>(), 5000) != -1;

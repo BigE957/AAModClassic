@@ -18,7 +18,9 @@ namespace AAModClassic._Content.Mire.World.Biomes
 {
     public class MireBiome : ModBiome
     {
-        public override string MapBackground => "AAModClassic/Map/MireMap";
+        public override string MapBackground => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
+
+        public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
 
         public override bool IsBiomeActive(Player player)
         {
