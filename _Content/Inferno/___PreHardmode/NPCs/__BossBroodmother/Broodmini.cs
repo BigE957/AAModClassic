@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -34,6 +35,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             NPC.value = 0f;
             NPC.npcSlots = 0.1f;
             AnimationType = NPCID.MothronSpawn;
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using System;
@@ -32,7 +33,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 			AnimationType = NPCID.CreatureFromTheDeep;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<KappaBanner>();
-		}
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

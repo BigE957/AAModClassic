@@ -1,4 +1,5 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -53,6 +54,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
                 Banner = NPC.type;
                 BannerItem = ModContent.ItemType<DragonClawBanner>();
             }
+
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void AI()

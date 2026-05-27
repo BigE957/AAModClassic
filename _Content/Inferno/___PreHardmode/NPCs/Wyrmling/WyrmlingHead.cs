@@ -1,13 +1,14 @@
-﻿using Terraria;
-using System;
-using Terraria.GameContent;
-using Terraria.ID;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Banners;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
@@ -43,6 +44,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             NPC.lavaImmune = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
         public override bool PreAI()
         {

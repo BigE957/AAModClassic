@@ -1,6 +1,7 @@
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Achievements;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -22,6 +23,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             NPC.buffImmune[BuffID.Poisoned] = true;	
 
 			offsetBasePoint = new Vector2(240f, 0f);
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<MireBiome>().Type };
         }
 
         public override void HitEffect(NPC.HitInfo hit)

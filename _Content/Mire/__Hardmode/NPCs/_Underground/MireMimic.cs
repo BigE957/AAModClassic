@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire.World.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.aiStyle = NPCAIStyleID.BiomeMimic;
             AIType = NPCID.Zombie;
             AnimationType = NPCID.BigMimicHallow;
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

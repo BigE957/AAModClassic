@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using System;
@@ -33,6 +34,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.noGravity = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void AI()

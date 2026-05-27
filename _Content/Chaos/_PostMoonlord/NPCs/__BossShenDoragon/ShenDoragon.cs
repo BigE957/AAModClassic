@@ -7,7 +7,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -111,6 +113,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 NPC.buffImmune[k] = true;
             }
             NPC.buffImmune[ModContent.BuffType<Terrablaze_Buff>()] = false;
+            SpawnModBiomes = new int[2] { ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type };
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

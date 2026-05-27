@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.lavaImmune = false;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MossterBanner>();
-
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

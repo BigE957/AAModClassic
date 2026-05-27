@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -42,7 +43,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<InfernoSalamanderBanner>();
-
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         private bool biteAttack;

@@ -1,3 +1,4 @@
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -33,6 +34,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MagmalgamBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void AI()

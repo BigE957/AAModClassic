@@ -1,3 +1,4 @@
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -32,6 +33,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
             NPC.buffImmune[31] = false;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MiregronBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
 

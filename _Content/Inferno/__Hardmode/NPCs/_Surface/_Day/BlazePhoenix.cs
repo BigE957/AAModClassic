@@ -1,5 +1,6 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -42,6 +43,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
             NPC.damage = 70;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void AI()

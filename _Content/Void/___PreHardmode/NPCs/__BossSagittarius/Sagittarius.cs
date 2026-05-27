@@ -1,6 +1,7 @@
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -48,6 +49,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public float[] internalAI = new float[3];

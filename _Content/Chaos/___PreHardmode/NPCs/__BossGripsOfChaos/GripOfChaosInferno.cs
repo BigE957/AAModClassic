@@ -1,7 +1,7 @@
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
@@ -35,7 +35,9 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             NPC.defense = 15;	
             NPC.buffImmune[BuffID.OnFire] = true;			
 
-			offsetBasePoint = new Vector2(-240f, 0f);			
+			offsetBasePoint = new Vector2(-240f, 0f);
+
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void HitEffect(NPC.HitInfo hit)

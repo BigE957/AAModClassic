@@ -1,20 +1,20 @@
 AcropolisBiome: {
-	DisplayName: Acropolis
+	DisplayName: The Acropolis
 	TownNPCDialogueName: the Acropolis
 }
 
 HoardBiome: {
-	DisplayName: Hoard
+	DisplayName: The Hoard
 	TownNPCDialogueName: the Hoard
 }
 
 InfernoBiome: {
-	DisplayName: Inferno
+	DisplayName: The Inferno
 	TownNPCDialogueName: the Inferno
 }
 
 MireBiome: {
-	DisplayName: Mire
+	DisplayName: The Mire
 	TownNPCDialogueName: the Mire
 }
 
@@ -23,33 +23,28 @@ MushroomBiomeZone: {
 	TownNPCDialogueName: the Mushroom
 }
 
-RadiumBiomeZone: {
-	DisplayName: Radium
-	TownNPCDialogueName: the Radium
-}
-
 RisingMoonLakeBiomeZone: {
-	DisplayName: Rising Moon Lake
+	DisplayName: The Rising Moon Lake
 	TownNPCDialogueName: the Rising Moon Lake
 }
 
 RisingSunPagodaBiome: {
-	DisplayName: Rising Sun Pagoda
+	DisplayName: The Rising Sun Pagoda
 	TownNPCDialogueName: the Rising Sun Pagoda
 }
 
 TerrariumBiome: {
-	DisplayName: Terrarium
+	DisplayName: The Terrarium
 	TownNPCDialogueName: the Terrarium
 }
 
-VoidBiomeZone: {
-	DisplayName: Void
+VoidBiome: {
+	DisplayName: The Void
 	TownNPCDialogueName: the Void
 }
 
 LostKeepBiome: {
-	DisplayName: Lost Keep
+	DisplayName: The Lost Keep
 	TownNPCDialogueName: the Lost Keep
 }
 
@@ -69,6 +64,6 @@ StarsBiome: {
 }
 
 ShipBiome: {
-	DisplayName: Sunken Ship
+	DisplayName: The Sunken Ship
 	TownNPCDialogueName: the Sunken Ship
 }

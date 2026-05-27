@@ -1,4 +1,5 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -54,6 +55,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 Banner = NPC.type;
                 BannerItem = ModContent.ItemType<HydraClawBanner>();
             }
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void AI()

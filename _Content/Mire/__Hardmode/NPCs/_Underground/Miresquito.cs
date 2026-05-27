@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Banners;
 using Terraria;
@@ -35,6 +36,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.knockBackResist = 0.5f;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MiresquitoBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)

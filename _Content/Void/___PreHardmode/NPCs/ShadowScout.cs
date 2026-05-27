@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
@@ -37,6 +38,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.noGravity = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<ShadowScoutBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
 		public int frameCount = 0;

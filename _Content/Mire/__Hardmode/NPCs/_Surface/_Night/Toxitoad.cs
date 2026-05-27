@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Mire.Projectiles;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
@@ -36,6 +37,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             NPC.rarity = 2;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<ToxitoadBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

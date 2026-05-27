@@ -1,5 +1,6 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Inferno.World.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -33,6 +34,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             AnimationType = NPCID.BigMimicHallow;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

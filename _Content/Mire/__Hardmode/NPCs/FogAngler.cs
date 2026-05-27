@@ -1,3 +1,4 @@
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
             NPC.aiStyle = -1;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<FogAnglerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void AI()

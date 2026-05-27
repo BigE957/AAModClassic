@@ -1,3 +1,4 @@
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Items.Banners;
 using Terraria;
 using Terraria.ID;
@@ -22,6 +23,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
             NPC.buffImmune[BuffID.OnFire] = true;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void HitEffect(NPC.HitInfo hit)

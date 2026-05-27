@@ -1,12 +1,13 @@
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs
 {
@@ -35,7 +36,8 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VoidScoutBanner>();
-		}
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{		

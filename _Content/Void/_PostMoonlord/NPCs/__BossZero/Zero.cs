@@ -83,6 +83,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             NPC.lavaImmune = true;
             NPC.netAlways = true;
             SceneEffectPriority = SceneEffectPriority.BossHigh;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

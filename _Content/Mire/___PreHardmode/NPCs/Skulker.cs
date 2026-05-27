@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Banners;
 using Terraria;
@@ -37,6 +38,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.knockBackResist = .2f;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MireSkulkerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         private bool Shell = false;

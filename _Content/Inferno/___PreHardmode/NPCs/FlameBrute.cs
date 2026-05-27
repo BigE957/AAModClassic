@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
@@ -33,6 +34,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.lavaImmune = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<FlamebruteBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
 		const int frameHeightPlusFluff = 78; //the 2 pixels per frame

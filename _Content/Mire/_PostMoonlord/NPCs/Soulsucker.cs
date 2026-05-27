@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
@@ -34,6 +35,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs
             NPC.knockBackResist = 0.5f;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<SoulsuckerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)

@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
@@ -33,7 +34,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.noGravity = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<StoneSearcherBanner>();
-
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

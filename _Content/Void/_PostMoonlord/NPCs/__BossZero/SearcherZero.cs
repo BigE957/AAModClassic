@@ -1,12 +1,12 @@
+using AAModClassic._Content.Void.Projectiles;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 using Terraria;
 using Terraria.GameContent;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Void.Projectiles;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
@@ -31,6 +31,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0.5f;
 			NPC.noGravity = true;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

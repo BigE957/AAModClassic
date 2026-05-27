@@ -1,11 +1,12 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Vanity.Ohno;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
-using AAModClassic.Items.Vanity.Ohno;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 {
@@ -37,6 +38,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.noGravity = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
 		public int frameCount = 0;

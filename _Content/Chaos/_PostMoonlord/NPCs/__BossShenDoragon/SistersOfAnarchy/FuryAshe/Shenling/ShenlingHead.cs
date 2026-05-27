@@ -1,4 +1,6 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -44,6 +46,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
             NPC.buffImmune[103] = false;
             NPC.alpha = 255;
+            SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type];
         }
 
 

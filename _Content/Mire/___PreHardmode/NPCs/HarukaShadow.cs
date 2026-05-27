@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 { 
@@ -16,6 +18,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 		{
 			// DisplayName.SetDefault("...");
             Main.npcFrameCount[NPC.type] = 3;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -56,6 +59,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
+                        Main.BestiaryTracker.Sights.RegisterWasNearby(ContentSamples.NpcsByNetId[ModContent.NPCType<Haruka>()]);
                         NPC.active = false;
                         NPC.netUpdate = true;
                     }

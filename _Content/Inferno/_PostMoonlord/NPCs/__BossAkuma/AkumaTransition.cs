@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
         {
             // DisplayName.SetDefault("Soul Of Fury");
             Main.npcFrameCount[NPC.type] = 8;
-            Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             this.HideFromBestiary();
         }
         public override void SetDefaults()

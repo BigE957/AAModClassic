@@ -1,3 +1,4 @@
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -43,6 +44,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             NPC.netAlways = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public float Rotation = 0;

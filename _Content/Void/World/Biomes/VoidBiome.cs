@@ -20,7 +20,7 @@ using Terraria.Utilities;
 
 namespace AAModClassic._Content.Void.World.Biomes
 {
-    public class VoidBiomeZone : ModBiome
+    public class VoidBiome : ModBiome
     {
         public override string MapBackground => "AAModClassic/_Content/Void/World/Biomes/Backgrounds/VoidMap";
 

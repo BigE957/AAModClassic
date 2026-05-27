@@ -1,5 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -54,6 +56,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
             NPC.noGravity = true;
             NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
 

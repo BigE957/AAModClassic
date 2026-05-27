@@ -1,14 +1,15 @@
 
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.Graphics.Shaders;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Mire.Buffs;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             NPC.buffImmune[BuffID.Poisoned] = true;
 
 			offsetBasePoint = new Vector2(280f, 0f);
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 		
         public override void HitEffect(NPC.HitInfo hit)

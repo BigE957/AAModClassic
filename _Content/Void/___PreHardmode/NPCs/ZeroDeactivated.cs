@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -47,6 +48,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 			NPC.dontTakeDamage = true;
 			NPC.boss = false;
             NPC.npcSlots = 0;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
 		public override bool CheckActive()

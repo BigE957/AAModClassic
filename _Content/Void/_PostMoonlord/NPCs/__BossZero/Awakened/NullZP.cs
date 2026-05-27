@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -35,6 +36,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             NPC.value = 7000f;
             NPC.knockBackResist = 0.1f;
             NPC.noGravity = true;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
 		public int frameCount = 0;

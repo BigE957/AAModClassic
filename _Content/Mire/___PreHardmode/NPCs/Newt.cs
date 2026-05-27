@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Projectiles;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -36,6 +37,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             AIType = NPCID.Crawdad;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<NewtBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
         
         private bool tongueAttack;

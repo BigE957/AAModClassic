@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria;
@@ -34,6 +36,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             IsAwakened = true;
             NPC.alpha = 255;
             NPC.boss = true;
+            SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -34,7 +35,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             NPC.boss = true;
             NPC.buffImmune[BuffID.OnFire] = true;
 
-            offsetBasePoint = new Vector2(-280f, 0f);		
+            offsetBasePoint = new Vector2(-280f, 0f);
+            SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
         }	
 
         public override void HitEffect(NPC.HitInfo hit)
