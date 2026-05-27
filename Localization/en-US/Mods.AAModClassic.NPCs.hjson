@@ -314,13 +314,13 @@ Ashe: {
 	BossChecklistIntegration.EntryName: Sistersof Discord
 }
 
-AsheDragon.DisplayName: Ashen Dragon
-AsheDragonArms.DisplayName: Ashen Dragon
-AsheDragonBody.DisplayName: Ashen Dragon
-AsheDragonBody1.DisplayName: Ashen Dragon
-AsheDragonBody2.DisplayName: Ashen Dragon
-AsheDragonTail.DisplayName: Ashen Dragon
-AsheOrbiter.DisplayName: Flame Vortex
+AshenDragonHead.DisplayName: Ashen Dragon
+AshenDragonArms.DisplayName: Ashen Dragon
+AshenDragonBody1.DisplayName: Ashen Dragon
+AshenDragonBody2.DisplayName: Ashen Dragon
+AshenDragonBody3.DisplayName: Ashen Dragon
+AshenDragonTail.DisplayName: Ashen Dragon
+FlameVortex.DisplayName: Flame Vortex
 AsheSpawn.DisplayName: Ashe Akuma
 AsheVanish.DisplayName: Ashe Akuma
 Haruka.DisplayName: Haruka Yamata
@@ -329,7 +329,7 @@ HarukaFall.DisplayName: Haruka Yamata
 HarukaSpawn.DisplayName: Haruka Yamata
 HarukaVanish.DisplayName: Haruka Yamata
 
-Akuma: {
+AkumaHead: {
 	DisplayName: Akuma; Draconian Demon
 	BossChecklistIntegration.EntryName: Akuma
 }
@@ -350,20 +350,21 @@ SunA.DisplayName: Oni Sun
 Anubis.DisplayName: Anubis Legendscribe
 CursedLocust.DisplayName: Cursed Locust
 CursedScarab.DisplayName: Cursed Scarab
-FATransition.DisplayName: Anubis Legendscribe
-FATransition2.DisplayName: Anubis Legendscribe
+AnubisForsakenTransition.DisplayName: Anubis Legendscribe
 AnubisA.DisplayName: Anubis; Forsaken Judge
 ForsakenSun.DisplayName: Forsaken Sun
 HorusHawk.DisplayName: Horus Hawk
 UraeusBody.DisplayName: Uraeus
 UraeusTail.DisplayName: Uraeus
-Uraeus.DisplayName: Uraeus
+UraeusHead.DisplayName: Uraeus
+MinionRitual.DisplayName: Minion Ritual
+CursedMinionCircle.DisplayName: Cursed Minion Circle
 AthenaFlee.DisplayName: Athena
 AthenaA.DisplayName: Olympian Athena
-AthenaDark.DisplayName: Angel Clone
-AthenaLight.DisplayName: Angel Clone
+AthenaCloneDark.DisplayName: Angel Clone
+AthenaCloneLight.DisplayName: Angel Clone
 Athena.DisplayName: Athena
-OwlRuneCharged.DisplayName: Charged Owl Rune
+ChargedOwlRune.DisplayName: Charged Owl Rune
 OwlRune.DisplayName: Owl Rune
 OlympianDragon.DisplayName: Olympian Dragon
 SeraphA.DisplayName: Seraph Guard
@@ -391,23 +392,23 @@ FungusSpore.DisplayName: Fungal Spore
 FungusWake.DisplayName: Very Large Glowing Mushroom...?
 Mushling.DisplayName: Mushling
 
-Greed: {
+GreedHead: {
 	DisplayName: Greed
 	BossChecklistIntegration.EntryName: Greed
 }
 
-GreedA.DisplayName: Worm King Greed
+GreedAHead.DisplayName: Worm King Greed
 GreedABody.DisplayName: Worm King Greed
 GreedBody.DisplayName: Greed
-GreedMinion.DisplayName: Ore Construct
-GreedSpawn.DisplayName: Spark of Desire
+OreConstruct.DisplayName: Ore Construct
+SparkOfDesire.DisplayName: Spark of Desire
 GreedTransition.DisplayName: Spark of Greed
-GreedTurret.DisplayName: Singularity of Desire
+SingularityOfDesire.DisplayName: Singularity of Desire
 DragonClawM.DisplayName: Dragon Claw
 DragonClaw.DisplayName: Dragon Claw
-GripOfChaosBlue.DisplayName: Grip of Chaos
+GripOfChaosMire.DisplayName: Grip of Chaos
 
-GripOfChaosRed: {
+GripOfChaosInferno: {
 	DisplayName: Grip of Chaos
 	BossChecklistIntegration.EntryName: Grips Of Chaos
 }
@@ -441,14 +442,16 @@ LuciferSitting: {
 	}
 }
 
-MonarchSlep.DisplayName: Very Large Mushroom
-MonarchWake.DisplayName: Very Large Mushroom...?
+MushroomMonarchAsleep.DisplayName: Very Large Mushroom
+MushroomMonarchWakeUp.DisplayName: Very Large Mushroom...?
 MushroomMonarch.DisplayName: Mushroom Monarch
 RedMushling.DisplayName: Mushling
-BunnyBattler.DisplayName: Rabbid Rabbit
-BunnyBattler2.DisplayName: Rabbid Rabbit
+SupremeBunnyBattler.DisplayName: Supreme Bunny Battler
+SupremeBunnyBrawler.DisplayName: Supreme Bunny Brawler
+SupremeRabbitcopterSoldier.DisplayName: Supreme Rabbitcopter Soldier
+RabidRabbit.DisplayName: Rabid Rabbit
+SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
 BunnyBrawler.DisplayName: Bunny Brawler
-BunnyBrawler2.DisplayName: Bunny Brawler
 RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
 RabbitcopterSoldier2.DisplayName: Rabbitcopter Soldier
 RajahRabbit.DisplayName: Rajah Rabbit
@@ -456,14 +459,10 @@ RajahRabbitADefeat.DisplayName: Rajah Rabbit
 RajahRabbitA.DisplayName: Rajah Rabbit; Champion of the Innocent
 Sag.DisplayName: Sagittarius
 IceCrystal.DisplayName: Ice Crystal
-SubzeroSerpent_Body.DisplayName: Subzero Serpent
+SubzeroSerpentBody.DisplayName: Subzero Serpent
+SubzeroSerpentHead.DisplayName: Subzero Serpent
+SubzeroSerpentTail.DisplayName: Subzero Serpent
 
-SubzeroSerpent_Head: {
-	DisplayName: Subzero Serpent
-	BossChecklistIntegration.EntryName: Subzero Serpent
-}
-
-SubzeroSerpent_Tail.DisplayName: Subzero Serpent
 FuryAshe.DisplayName: Fury Ashe
 FuryAsheOrbiter.DisplayName: Flame Vortex
 FuryAsheVanish.DisplayName: Ashe Akuma
@@ -475,15 +474,15 @@ BlazeGrip.DisplayName: Grip of Blazing Fury
 ShenDoragon.DisplayName: Shen Doragon; Discordian Doomsayer
 ShenDoragonA.DisplayName: Shen Doragon Awakened
 ShenDoragonAHitbox.DisplayName: Shen Doragon Awakened
-ShenDeath.DisplayName: Discord's Death
-ShenDefeat.DisplayName: Discord's Defeat
+ShenDoragonDeath.DisplayName: Discord's Death
+ShenDoragonDefeat.DisplayName: Discord's Defeat
 ShenDoragon_Hitbox.DisplayName: Shen Doragon; Discordian Doomsayer
 ShenlingHead.DisplayName: Discordian Serpent
 ShenlingBody1.DisplayName: Discordian Serpent
 ShenlingBody2.DisplayName: Discordian Serpent
 ShenlingTail.DisplayName: Discordian Serpent
-ShenSpawn.DisplayName: Discord
-ShenTransition.DisplayName: Discordian Awakening
+ShenDoragonSpawn.DisplayName: Discord
+ShenDoragonTransition.DisplayName: Discordian Awakening
 GlowshroomGrow.DisplayName: Glowing Mushroom
 ShroomGlow.DisplayName: Glowing Mushroom
 TinyToad.DisplayName: Tiny Toad
@@ -497,24 +496,24 @@ YamataHead.DisplayName: Yamata
 YamataHeadF1.DisplayName: Yamata
 YamataHeadF2.DisplayName: Yamata
 YamataTransition.DisplayName: Spirit of Wrath
-GenocideCannon.DisplayName: Genocide Cannon
-Neutralizer.DisplayName: Neutralizer
-NovaFocus.DisplayName: Nova Focus
-OmegaVolley.DisplayName: Omega Volley
+ZeroGenocideCannon.DisplayName: Genocide Cannon
+ZeroNeutralizer.DisplayName: Neutralizer
+ZeroNovaFocus.DisplayName: Nova Focus
+ZeroOmegaVolley.DisplayName: Omega Volley
 NullZP.DisplayName: Null
 Null.DisplayName: Null
 ZeroEcho.DisplayName: 3CH0
 ZeroMini.DisplayName: ZER0 SELF 0RGANIZATI0N
-ZeroProtocol.DisplayName: ZER0 PR0T0C0L
+ZeroA.DisplayName: ZER0 PR0T0C0L
 ZeroTransition.DisplayName: Broken Rift
 Zero.DisplayName: Zero
-RealityCannon.DisplayName: Reality Cannon
-RiftShredder.DisplayName: Rift Shredder
+ZeroRealityCannon.DisplayName: Reality Cannon
+ZeroRiftShredder.DisplayName: Rift Shredder
 SearcherZero.DisplayName: Searcher
 Searcher.DisplayName: Searcher
-Taser.DisplayName: Gigataser
-TeslaHand.DisplayName: Broken Weapon
-VoidStar.DisplayName: Void Star
+ZeroGigataser.DisplayName: Gigataser
+ZeroBrokenWeapon.DisplayName: Broken Weapon
+ZeroVoidStar.DisplayName: Void Star
 ZeroDeactivated.DisplayName: Strange Machine
 RoyalRabbit.DisplayName: Royal Rabbit
 VoidFlowey.DisplayName: ???
@@ -576,10 +575,9 @@ MadnessSlime.DisplayName: Madness Slime
 Nightguard.DisplayName: Night Guard
 Sunwatcher.DisplayName: Sun Watcher
 ElderDragon.DisplayName: Elder Dragon
-SnakeBody.DisplayName: Snow Serpent
-SnakeBody2.DisplayName: Snow Serpent
-SnakeHead.DisplayName: Snow Serpent
-SnakeTail.DisplayName: Snow Serpent
+SnowSerpentBody.DisplayName: Snow Serpent
+SnowSerpentHead.DisplayName: Snow Serpent
+SnowSerpentTail.DisplayName: Snow Serpent
 TerraProbe.DisplayName: Unity Probe
 TerraSquire.DisplayName: Terra Squire
 TerraWatcher.DisplayName: Unity Watcher
@@ -698,32 +696,12 @@ CurseCircle.DisplayName: Curse Circle
 HorusSentry.DisplayName: Horus Sentry
 Naddaha.DisplayName: Naddaha
 Locust.DisplayName: Locust
-MinionCircle.DisplayName: Minion Circle
 Scarab.DisplayName: Scarab
 AthenaDefeat.DisplayName: Athena Defeat
 SeraphHerald.DisplayName: Seraph Herald
 Seraph.DisplayName: Seraph
 Dynasaur.DisplayName: Dynasaur
 SeraphHurt.DisplayName: Seraph Hurt
-
-Alpha: {
-	DisplayName: Large Letter
-
-	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-	}
-
-	Census.SpawnCondition: Always available in Expert Mode
-}
-
-Core.DisplayName: Biomite Core
 MireSoul.DisplayName: Mire Soul
 YamataAHeadFake.DisplayName: Yamata No Orochi
 YamataHeadFake1.DisplayName: Yamata
@@ -799,36 +777,26 @@ PurityWeaverHead.DisplayName: Purity Weaver Head
 VoidScout.DisplayName: Void Scout
 StoneSearcher.DisplayName: Stone Searcher
 ShadowScout.DisplayName: Shadow Scout
-SnowSerpentBody.DisplayName: Snow Serpent Body
-SnowSerpentHead.DisplayName: Snow Serpent Head
-SnowSerpentTail.DisplayName: Snow Serpent Tail
 DesertDjinn.DisplayName: Desert Djinn
 FungusFrog.DisplayName: Fungus Frog
 MushroomJelly.DisplayName: Mushroom Jelly
-FeudalFungus_FungalSpore.DisplayName: Feudal Fungus_ Fungal Spore
-FeudalFungus_FungusFlier.DisplayName: Feudal Fungus_ Fungus Flier
-FeudalFungusAsleep.DisplayName: Feudal Fungus Asleep
-FeudalFungusWakeUp.DisplayName: Feudal Fungus Wake Up
+FeudalFungus_FungalSpore.DisplayName: Fungal Spore
+FeudalFungus_FungusFlier.DisplayName: Fungus Flier
+FeudalFungusAsleep.DisplayName: Feudal Fungus
+FeudalFungusWakeUp.DisplayName: Feudal Fungus
 GlowingMushling.DisplayName: Glowing Mushling
-MushroomMonarchAsleep.DisplayName: Mushroom Monarch Asleep
-MushroomMonarchWakeUp.DisplayName: Mushroom Monarch Wake Up
 RoyalRabbit_NPC.DisplayName: Royal Rabbit
-GripOfChaosInferno.DisplayName: Grip Of Chaos Inferno
-GripOfChaosMire.DisplayName: Grip Of Chaos Mire
 GregariousGlowshrooms.DisplayName: Gregarious Glowshrooms
 LuminousAccordyceps.DisplayName: Luminous Accordyceps
 DragonEgg.DisplayName: Dragon Egg
 DragonClaw_NPC.DisplayName: Dragon Claw
 HydraClaw_NPC.DisplayName: Hydra Claw
-SubzeroSerpentBody.DisplayName: Subzero Serpent Body
-SubzeroSerpentHead.DisplayName: Subzero Serpent Head
-SubzeroSerpentTail.DisplayName: Subzero Serpent Tail
 AnubisRework.DisplayName: Anubis Legendscribe
 AnubisCircle.DisplayName: Anubis Circle
-AnubisUnreleased.DisplayName: Anubis Unreleased
+AnubisUnreleased.DisplayName: Anubis Legendscribe
 
 LegendscribeUnofficial: {
-	DisplayName: Legendscribe Unofficial
+	DisplayName: Legendscribe
 
 	TownNPCMood: {
 		Content: I am content.
@@ -844,10 +812,6 @@ LegendscribeUnofficial: {
 	Census.SpawnCondition: Conditions unknown
 }
 
-OrthrusHead1.DisplayName: Orthrus Head1
-OrthrusHead2.DisplayName: Orthrus Head2
-OrthrusLock.DisplayName: Orthrus Lock
-OrthrusX.DisplayName: Orthrus X
 RaiderEgg.DisplayName: Raider Egg
 RaiderUltima.DisplayName: Raider Ultima
 Raidmini.DisplayName: Raidmini
@@ -856,14 +820,10 @@ TechnoTruffle.DisplayName: Techno Truffle
 TruffleProbe.DisplayName: Truffle Probe
 Truffling.DisplayName: Truffling
 CyberClaw.DisplayName: Cyber Claw
-RaiderUltima_RaiderRocket.DisplayName: Raider Ultima_ Raider Rocket
-OrthrusXBody.DisplayName: Orthrus X Body
-OrthrusXHead1.DisplayName: Orthrus X Head1
-OrthrusXHead1_OrthrusReticle.DisplayName: Orthrus X Head1_ Orthrus Reticle
-OrthrusXHead2.DisplayName: Orthrus X Head2
-OrthrusXHead.DisplayName: Orthrus X Head
-OrthrusXHeadBlue_OrthrusReticle.DisplayName: Orthrus X Head Blue_ Orthrus Reticle
-OrthrusXHead_OrthrusReticle.DisplayName: Orthrus X Head_ Orthrus Reticle
+RaiderUltima_RaiderRocket.DisplayName: Raider Rocket
+OrthrusXBody.DisplayName: Orthrus X
+OrthrusXHead.DisplayName: Orthrus X
+OrthrusXHead_OrthrusReticle.DisplayName: Orthrus Reticle
 
 LargeLetter: {
 	DisplayName: Large Letter
@@ -879,54 +839,14 @@ LargeLetter: {
 		Princess_LovesNPC: I like {NPCName}.
 	}
 
-	Census.SpawnCondition: Conditions unknown
+	Census.SpawnCondition: In Expert Mode
 }
 
-MinionRitual.DisplayName: Minion Ritual
-UraeusHead.DisplayName: Uraeus Head
-AnubisForsakenTransition.DisplayName: Anubis Forsaken Transition
-CursedMinionCircle.DisplayName: Cursed Minion Circle
-GreedHead.DisplayName: Greed Head
-OreConstruct.DisplayName: Ore Construct
-SparkOfDesire.DisplayName: Spark Of Desire
-GreedAHead.DisplayName: Greed A Head
-SingularityOfDesire.DisplayName: Singularity Of Desire
 BiomiteCore.DisplayName: Biomite Core
-AthenaCloneDark.DisplayName: Athena Clone Dark
-AthenaCloneLight.DisplayName: Athena Clone Light
-ChargedOwlRune.DisplayName: Charged Owl Rune
 DimensionDiver.DisplayName: Dimension Diver
 Squid.DisplayName: Squid
 RiftShark.DisplayName: Rift Shark
-AshenDragonArms.DisplayName: Ashen Dragon
-AshenDragonBody1.DisplayName: Ashen Dragon
-AshenDragonBody2.DisplayName: Ashen Dragon
-AshenDragonBody3.DisplayName: Ashen Dragon
-AshenDragonHead.DisplayName: Ashen Dragon
-AshenDragonTail.DisplayName: Ashen Dragon
-FlameVortex.DisplayName: Flame Vortex
 NightCloud.DisplayName: Night Cloud
-SupremeBunnyBattler.DisplayName: Supreme Bunny Battler
-SupremeBunnyBrawler.DisplayName: Supreme Bunny Brawler
-SupremeRabbitcopterSoldier.DisplayName: Supreme Rabbitcopter Soldier
-RabidRabbit.DisplayName: Rabid Rabbit
-SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
 DeityBrain.DisplayName: Lu'Kthu
 DeityRose_Urchin.DisplayName: Shadow Urchin
 AmbientSoulOfCthulhu.DisplayName: ???
-ZeroA.DisplayName: Zero A
-ZeroBrokenWeapon.DisplayName: Zero Broken Weapon
-ZeroGenocideCannon.DisplayName: Zero Genocide Cannon
-ZeroGigataser.DisplayName: Zero Gigataser
-ZeroNeutralizer.DisplayName: Zero Neutralizer
-ZeroNovaFocus.DisplayName: Zero Nova Focus
-ZeroOmegaVolley.DisplayName: Zero Omega Volley
-ZeroRealityCannon.DisplayName: Zero Reality Cannon
-ZeroRiftShredder.DisplayName: Zero Rift Shredder
-ZeroVoidStar.DisplayName: Zero Void Star
-ShenDoragonDeath.DisplayName: Shen Doragon Death
-ShenDoragonDefeat.DisplayName: Shen Doragon Defeat
-ShenDoragonSpawn.DisplayName: Shen Doragon Spawn
-ShenDoragonTransition.DisplayName: Shen Doragon Transition
-AkumaHead.DisplayName: Akuma Head
-AwakenedLungHead.DisplayName: Awakened Lung Head
