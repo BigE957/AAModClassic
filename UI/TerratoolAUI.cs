@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.UI;
 using ReLogic.Content;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 
 namespace AAModClassic.UI
 {
@@ -21,7 +22,7 @@ namespace AAModClassic.UI
 
         public override UIState State => AAMod.instance.TerratoolAState;
 
-        public override int HeldItemType => AAMod.instance.Find<ModItem>("AkumaTerratool").Type;
+        public override int HeldItemType => ModContent.ItemType<DraconianTerratool>();
 
         public override void ButtonClicked(UIMouseEvent evt, UIElement element)
         {

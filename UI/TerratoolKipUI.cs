@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -21,7 +22,7 @@ namespace AAModClassic.UI
 
         public override UIState State => AAMod.instance.TerratoolKipState;
 
-        public override int HeldItemType => AAMod.instance.Find<ModItem>("AlphakipTerratool").Type;
+        public override int HeldItemType => ModContent.ItemType<ExtravagantTerratool>();
 
         public override void ButtonClicked(UIMouseEvent evt, UIElement element)
         {

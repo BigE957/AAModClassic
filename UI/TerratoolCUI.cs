@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Tools;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -21,7 +22,7 @@ namespace AAModClassic.UI
 
         public override UIState State => AAMod.instance.TerratoolCState;
 
-        public override int HeldItemType => AAMod.instance.Find<ModItem>("ChaosTerratool").Type;
+        public override int HeldItemType => ModContent.ItemType<ChaosTerratool>();
 
         public override void ButtonClicked(UIMouseEvent evt, UIElement element)
         {

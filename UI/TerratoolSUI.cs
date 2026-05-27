@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -21,7 +22,7 @@ namespace AAModClassic.UI
 
         public override UIState State => AAMod.instance.TerratoolSState;
 
-        public override int HeldItemType => AAMod.instance.Find<ModItem>("ShenTerratool").Type;
+        public override int HeldItemType => ModContent.ItemType<DiscordianTerratool>();
 
         public override void ButtonClicked(UIMouseEvent evt, UIElement element)
         {
