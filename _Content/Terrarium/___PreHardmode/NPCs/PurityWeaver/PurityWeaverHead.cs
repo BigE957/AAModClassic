@@ -4,6 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.World.Biomes;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 {
@@ -30,6 +31,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             NPC.noTileCollide = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override Color? GetAlpha(Color drawColor)

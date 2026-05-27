@@ -1,17 +1,18 @@
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic._Content.RedMushroom.World.Tiles;
+using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using Terraria.Localization;
-using AAModClassic.Utilities;
-using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
-using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
-using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
-using AAModClassic._Content.RedMushroom.World.Tiles;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {
@@ -50,6 +51,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Truffle;
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override bool CheckConditions(int left, int right, int top, int bottom)

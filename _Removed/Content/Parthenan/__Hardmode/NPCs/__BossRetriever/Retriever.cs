@@ -1,7 +1,6 @@
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Pets;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -10,7 +9,6 @@ using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -53,8 +51,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
             //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
             NPC.netAlways = true;
-            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("RetrieverBag").Type;
             Music = MusicManagementSystem.MusicSlots["Siege"];
+            SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
 
         public float[] customAI = new float[3];

@@ -1,7 +1,8 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAModClassic._Content.Terrarium.World.Biomes;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver
@@ -29,6 +30,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
             NPC.noTileCollide = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
         public override bool PreAI()
         {

@@ -1,17 +1,16 @@
+using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
-using AAModClassic.Items.Banners;
-using AAModClassic.Utilities;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {
@@ -45,6 +44,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             NPC.netAlways = true;
             Banner = ModContent.NPCType<ScavengerHead>();
 			BannerItem = ModContent.ItemType<ScavengerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
         }
 
         public override void AI()

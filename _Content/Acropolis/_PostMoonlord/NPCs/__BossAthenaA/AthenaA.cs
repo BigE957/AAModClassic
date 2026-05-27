@@ -1,25 +1,25 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
+using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using Terraria.Localization;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic.Dusts;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
@@ -54,6 +54,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["Athena_Awakened"];
             NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

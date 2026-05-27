@@ -169,8 +169,7 @@ public static class VerletIntegration
     }
 
     public static bool AffectVerletObject(VerletObject obj, float dampening, float cap, bool isChain = true)
-    {
-        
+    {       
         if (obj == null)
             return false;
 

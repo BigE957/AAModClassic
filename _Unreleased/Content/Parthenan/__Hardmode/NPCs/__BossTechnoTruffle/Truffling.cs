@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -26,8 +27,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         {
             NPC.width = 14;
             NPC.height = 14;
-            //TODO
-            //NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.value = 0;
             NPC.npcSlots = 0;
             NPC.aiStyle = -1;
             NPC.lifeMax = 300;
@@ -39,6 +39,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
 
         public override void AI()

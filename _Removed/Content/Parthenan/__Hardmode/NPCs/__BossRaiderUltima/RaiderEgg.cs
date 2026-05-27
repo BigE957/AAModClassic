@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -37,6 +38,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.value = 0f;
             NPC.knockBackResist = 2f;
             NPC.npcSlots = 0f;
+            SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
 
         public Color color;

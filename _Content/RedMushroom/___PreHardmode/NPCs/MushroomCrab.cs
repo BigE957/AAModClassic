@@ -1,8 +1,9 @@
+using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomCrabBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override void AI()

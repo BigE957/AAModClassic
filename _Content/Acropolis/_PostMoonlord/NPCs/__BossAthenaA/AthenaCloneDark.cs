@@ -1,3 +1,4 @@
+using AAModClassic._Content.Acropolis.World.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -29,6 +30,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.lavaImmune = true;
             NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
         public override void AI()
         {

@@ -1,6 +1,7 @@
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -58,7 +59,8 @@ public class BiomiteCore : ModNPC
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
 		NPC.alpha = 255;
-	}
+        SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
+    }
 
 	public override void SendExtraAI(BinaryWriter writer)
 	{

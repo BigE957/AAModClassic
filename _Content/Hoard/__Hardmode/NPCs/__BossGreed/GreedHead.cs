@@ -3,6 +3,7 @@ using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -56,6 +57,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             {
                 NPC.buffImmune[k] = true;
             }
+            SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
         }
 
         public float[] internalAI = new float[6];

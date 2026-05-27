@@ -1,3 +1,4 @@
+using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -32,6 +33,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             NPC.DeathSound = SoundID.Item14;
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
+            SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
         }
 
         public float[] internalAI = new float[4];

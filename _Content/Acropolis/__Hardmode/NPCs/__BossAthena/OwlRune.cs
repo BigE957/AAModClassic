@@ -8,6 +8,7 @@ using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Utilities;
+using AAModClassic._Content.Acropolis.World.Biomes;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 {
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPC.scale = .001f;
             NPC.friendly = false;
             NPC.damage = 50;
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 
         public override void AI()

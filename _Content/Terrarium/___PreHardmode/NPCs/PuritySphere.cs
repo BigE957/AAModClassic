@@ -1,5 +1,6 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.Projectiles;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -30,6 +31,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override Color? GetAlpha(Color drawColor)

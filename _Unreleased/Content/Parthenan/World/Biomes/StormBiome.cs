@@ -12,7 +12,7 @@ using Terraria.Utilities;
 
 namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 {
-    public class StormBiomeZone : ModBiome
+    public class ParthenanBiome : ModBiome
     {
         public override bool IsBiomeActive(Player player)
         {

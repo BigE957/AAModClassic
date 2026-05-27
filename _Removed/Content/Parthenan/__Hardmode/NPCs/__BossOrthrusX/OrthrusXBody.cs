@@ -1,8 +1,7 @@
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Pets;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
@@ -12,7 +11,6 @@ using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -88,12 +86,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.boss = true;
             NPC.netAlways = true;
             NPC.frame = BaseDrawing.GetFrame(frameCount, fWidth, fHeight, 0, 2);
-            //bossBag = mod.ItemType("OrthrusBag");
             NPC.noTileCollide = false;
             Music = MusicManagementSystem.MusicSlots["Siege"];
+            SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
         }

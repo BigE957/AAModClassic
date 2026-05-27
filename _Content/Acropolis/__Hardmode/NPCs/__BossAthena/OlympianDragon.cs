@@ -1,11 +1,12 @@
 
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 {
@@ -33,6 +34,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPC.lavaImmune = true;
             NPC.netAlways = true;
             NPC.alpha = 255;
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 
         public override bool PreAI()

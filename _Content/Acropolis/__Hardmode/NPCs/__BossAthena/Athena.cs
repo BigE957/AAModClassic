@@ -4,6 +4,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.Projectiles;
+using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
@@ -57,7 +58,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Athena");
             NPC.alpha = 255;
             NPC.noTileCollide = true;
-            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AthenaBag>();
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

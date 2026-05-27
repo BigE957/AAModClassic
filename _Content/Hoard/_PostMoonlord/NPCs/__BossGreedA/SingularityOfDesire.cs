@@ -1,5 +1,6 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -34,6 +35,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             NPC.DeathSound = SoundID.Item14;
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
+            SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
         }
 
         public override void AI()

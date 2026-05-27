@@ -1,8 +1,8 @@
-using Terraria;
-using Terraria.ModLoader;
-
-using Terraria.ID;
+using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch
 {
@@ -33,6 +33,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             NPC.netAlways = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override void AI()

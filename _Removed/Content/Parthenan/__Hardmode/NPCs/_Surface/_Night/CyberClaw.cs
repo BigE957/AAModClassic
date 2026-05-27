@@ -1,4 +1,5 @@
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using System;
@@ -30,6 +31,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
             NPC.value = 100f;
             NPC.knockBackResist = 0.6f;
             NPC.noGravity = true;
+            SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
 
         public override void AI()

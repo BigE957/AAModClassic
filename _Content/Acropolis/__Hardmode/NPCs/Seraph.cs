@@ -1,15 +1,16 @@
-using System;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Content.Acropolis.Projectiles;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 using Terraria.Localization;
-using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic.Items.Banners;
-using AAModClassic.Dusts;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
@@ -41,6 +42,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             }
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<SeraphBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 
         public override bool PreAI()

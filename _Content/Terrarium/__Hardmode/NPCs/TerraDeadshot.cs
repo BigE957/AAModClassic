@@ -1,4 +1,5 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -30,6 +31,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             AnimationType = NPCID.VortexRifleman;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
         
         public override void AI()

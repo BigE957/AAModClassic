@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Terrarium.Projectiles;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.noGravity = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraProbeBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

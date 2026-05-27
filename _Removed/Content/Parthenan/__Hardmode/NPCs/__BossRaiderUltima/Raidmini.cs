@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -39,6 +40,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.value = 0f;
             NPC.npcSlots = 0.1f;
             AnimationType = NPCID.MothronSpawn;
+            SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
 
         /*public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)

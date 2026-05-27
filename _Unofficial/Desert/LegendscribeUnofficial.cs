@@ -104,6 +104,8 @@ namespace AAModClassic._Unofficial.Desert
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
 
             NPCID.Sets.ShimmerTownTransform[Type] = true;
+
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

@@ -1,6 +1,7 @@
+using AAModClassic._Content.RedMushroom.World.Biomes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ShroomJellyBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

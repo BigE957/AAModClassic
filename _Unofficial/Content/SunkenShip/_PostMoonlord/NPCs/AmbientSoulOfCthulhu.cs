@@ -23,6 +23,12 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
     public class AmbientSoulOfCthulhu : ModNPC
     {
         public override string Texture => "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/SoulOfCthulhu";
+
+        public override void SetStaticDefaults()
+        {
+            this.HideFromBestiary();
+        }
+
         public override void SetDefaults()
         {
             NPC.width = 54;
@@ -78,7 +84,10 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
             if (!initializedVerlets)
                 InitializeVerlets();
 
-            VerletIntegration.AffectVerletObject(Body, 0.5f, 5f);
+            bool notableMove = VerletIntegration.AffectVerletObject(Body, 0.5f, 5f);
+            if (notableMove)
+                Main.BestiaryTracker.Sights.RegisterWasNearby(ContentSamples.NpcsByNetId[ModContent.NPCType<SoulOfCthulhu>()]);
+
             foreach (var rope in Ropes)
                 VerletIntegration.AffectVerletObject(rope, 0.5f, 5f);
 

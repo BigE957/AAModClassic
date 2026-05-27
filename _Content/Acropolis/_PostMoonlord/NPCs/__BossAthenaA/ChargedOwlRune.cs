@@ -1,13 +1,13 @@
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.ModLoader;
-
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Utilities;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
@@ -35,6 +35,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             NPC.damage = 90;
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 
         public override void AI()
