@@ -9,7 +9,6 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -196,7 +195,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eye"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityEye").Type);
+                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityEye>());
                 }
             }
 
@@ -207,7 +206,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eater"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityEater").Type);
+                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityEater>());
                 }
             }
 
@@ -217,7 +216,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Brain"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityBrain").Type);
+                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityBrain>());
                 }
             }
 
@@ -227,7 +226,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Skull"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeitySkull").Type);
+                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeitySkull>());
                 }
             }
 
@@ -237,7 +236,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Rose"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityRose").Type);
+                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityRose>());
                 }
             }
 
@@ -247,7 +246,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Leviathan"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DeityLeviathan").Type);
+                    NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityLeviathan>());
                 }
             }
 
