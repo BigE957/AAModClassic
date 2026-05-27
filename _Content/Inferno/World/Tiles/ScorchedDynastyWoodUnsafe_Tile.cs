@@ -10,6 +10,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         public override string Texture => ModContent.GetInstance<ScorchedDynastyWood_Tile>().Texture;
         public override void SetStaticDefaults()
         {
+            base.SetStaticDefaults();
             RegisterItemDrop(ModContent.ItemType<ScorchedDynastyWoodUnsafe>());
         }
     }
