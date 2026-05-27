@@ -14,8 +14,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Abyssal Wrath Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives an abyssal touch to whatever this dye is applied to" });		
-		}
+            // Tooltip.SetDefault("Gives an abyssal touch to whatever this dye is applied to");		
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

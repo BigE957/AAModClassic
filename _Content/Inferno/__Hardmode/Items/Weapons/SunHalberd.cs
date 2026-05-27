@@ -10,10 +10,10 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Sun Halberd");
-            BaseUtility.AddTooltips(Item, new string[] { "Strikes foes in an arc, then stabs in the direction of the cursor"});			
-		}
-		
+            // DisplayName.SetDefault("Sun Halberd");
+            // Tooltip.SetDefault("Strikes foes in an arc, then stabs in the direction of the cursor");			
+        }
+
         public override void SetDefaults()
         {
             Item.width = 35;

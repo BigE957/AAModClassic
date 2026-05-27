@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Banners
 			if(dName != null)
 			{
 				// DisplayName.SetDefault(dName + " Banner");
-				BaseUtility.AddTooltips(Item, new string[] { "Nearby players get a bonus against: " + dName });	
+				//BaseUtility.AddTooltips(Item, new string[] { "Nearby players get a bonus against: " + dName });	
 			}
 		}
 

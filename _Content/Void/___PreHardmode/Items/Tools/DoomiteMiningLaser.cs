@@ -11,9 +11,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Doomite Mining Laser");
-            BaseUtility.AddTooltips(Item, new string[] { "Mines with an antimatter laser" });			
-		}		
+            // DisplayName.SetDefault("Doomite Mining Laser");
+            // Tooltip.SetDefault("Mines with an antimatter laser");			
+        }
 
         public override void SetDefaults()
         {

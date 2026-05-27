@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blazing Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives a blazing touch to whatever this dye is applied to" });
+            // Tooltip.SetDefault("Gives a blazing touch to whatever this dye is applied to");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

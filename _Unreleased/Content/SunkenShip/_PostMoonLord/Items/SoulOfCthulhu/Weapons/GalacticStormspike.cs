@@ -14,13 +14,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             Item.staff[Item.type] = true;
             // DisplayName.SetDefault("Galactic Stormspike");
-            BaseUtility.AddTooltips(Item, new string[] { "Shoots a branching ray of dark electricity" });
+            //Tooltip.SetDefault("Shoots a branching ray of dark electricity");
         }
         public override void SetDefaults()
         {
             Item.width = 40;
             Item.height = 25;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 35, 55, 20);
 

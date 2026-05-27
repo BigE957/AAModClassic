@@ -9619,7 +9619,7 @@ CthulhuCannon: {
 
 GalacticStormspike: {
 	DisplayName: Galactic Stormspike
-	Tooltip: ""
+	Tooltip: Shoots a branching ray of dark electricity
 }
 
 SquidStorm: {

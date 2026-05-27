@@ -11,8 +11,9 @@ namespace AAModClassic.Items.Usable
 	{
 		public override void SetStaticDefaults()
 		{
-		    // DisplayName.SetDefault("Treasure Hunter");
-            BaseUtility.AddTooltips(Item, new string[] { "200 Tile Range", "Lights up chests on the map" });			
+            // DisplayName.SetDefault("Treasure Hunter");
+            /* Tooltip.SetDefault(@"200 Tile Range
+            Lights up chests on the map");	*/		
 		}
 
         public override void SetDefaults()
@@ -29,8 +30,8 @@ namespace AAModClassic.Items.Usable
         }
 
         public override bool? UseItem(Player p)/* tModPorter Suggestion: Return null instead of false */
-        {
-            if (Main.myPlayer == p.whoAmI && Main.netMode != NetmodeID.Server)
+            {
+                if (Main.myPlayer == p.whoAmI && Main.netMode != NetmodeID.Server)
             {
                 int cX = (int)(p.Center.X / 16f); int cY = (int)(p.Center.Y / 16f);
                 int range = 200;

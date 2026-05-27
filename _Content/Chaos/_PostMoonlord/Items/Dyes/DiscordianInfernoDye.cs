@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Dyes
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discordian Inferno Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives a discordian touch to whatever this dye is applied to" });
+            // Tooltip.SetDefault("Gives a discordian touch to whatever this dye is applied to");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

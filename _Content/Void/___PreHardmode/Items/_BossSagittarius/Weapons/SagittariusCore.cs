@@ -13,8 +13,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Sagittarius Core");
-            BaseUtility.AddTooltips(Item, new string[] { "Activates probes that orbit you and defend you from surrounding enemies" });			
-		}		
+            // Tooltip.SetDefault("Activates probes that orbit you and defend you from surrounding enemies");			
+        }
 
         public override void SetDefaults()
         {

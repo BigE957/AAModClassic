@@ -14,7 +14,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Flame Vortex Staff");
-            BaseUtility.AddTooltips(Item, new string[] { "Conjures flaming spheres that increase your minion damage", "Each sphere takes up 1 minion slot", "You must have at least 2 open slots for the first summon" });			
+            /* Tooltip.SetDefault(@"Conjures flaming spheres that increase your minion damage
+Each sphere takes up 1 minion slot
+You must have at least 2 open slots for the first summon"); */	
 		}		
 
         public override void SetDefaults()

@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Dyes
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Adds a glitchy-look to whatever this dye is applied to" });
+            // Tooltip.SetDefault("Adds a glitchy-look to whatever this dye is applied to");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 7));
         }
 
