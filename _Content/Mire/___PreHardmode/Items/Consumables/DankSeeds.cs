@@ -1,5 +1,7 @@
 using AAModClassic._Content.Mire.World.Tiles;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,27 +29,30 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.createTile = ModContent.TileType<MireGrass_Tile>();
+            //Item.createTile = ModContent.TileType<MireGrass_Tile>();
             Item.consumable = true;		
         }
 
-		public override bool CanUseItem(Player p)
-		{
-			Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
-			if(tile != null && tile.HasTile && tile.TileType == TileID.Mud)
-			{
-				WorldGen.destroyObject = true;
-				TileID.Sets.BreakableWhenPlacing[TileID.Mud] = true;
-				return base.CanUseItem(p);				
-			}
-			return false;
-		}
+        public override bool? UseItem(Player player) => true;
 
-		public override bool? UseItem(Player p)/* tModPorter Suggestion: Return null instead of false */
-		{
-			WorldGen.destroyObject = false;
-			TileID.Sets.BreakableWhenPlacing[TileID.Mud] = false;		
-			return base.UseItem(p);
-		}
-	}
+        public override bool ConsumeItem(Player player)
+        {
+            var tileX = Player.tileTargetX;
+            var tileY = Player.tileTargetY;
+            var tile = Framing.GetTileSafely(tileX, tileY);
+
+            if (tile.HasTile && tile.TileType == TileID.Mud && player.IsInTileInteractionRange(tileX, tileY, TileReachCheckSettings.Simple))
+            {
+                tile.TileType = (ushort)ModContent.TileType<MireGrass_Tile>();
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    NetMessage.SendTileSquare(player.whoAmI, tileX, tileY);
+                }
+                SoundEngine.PlaySound(SoundID.Dig, player.Center);
+                return true;
+            }
+
+            return false;
+        }
+    }
 }
