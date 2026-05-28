@@ -19,6 +19,7 @@ using System.IO;
 using System.Linq.Expressions;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -71,6 +72,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 index = HeadSlots[BiomeType];
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.SubzeroSerpent")
+            ]);
+        }
 
         public override void SetDefaults()
 		{

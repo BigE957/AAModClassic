@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,6 +13,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Orthrus Reticle");
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

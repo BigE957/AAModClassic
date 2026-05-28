@@ -1,18 +1,19 @@
-using System;
-using System.IO;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Music;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables;
 
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus
@@ -76,6 +77,15 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             NPC.DeathSound = SoundID.NPCDeath1;
             Music = MusicManagementSystem.MusicSlots["Fungus"];
             NPC.alpha = 255;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

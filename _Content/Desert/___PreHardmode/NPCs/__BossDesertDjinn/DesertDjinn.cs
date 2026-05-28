@@ -13,6 +13,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -53,6 +54,15 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Music = MusicManagementSystem.MusicSlots["Djinn"];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.DesertDjinn")
+            ]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

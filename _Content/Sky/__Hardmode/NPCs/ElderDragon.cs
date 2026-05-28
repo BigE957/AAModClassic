@@ -1,6 +1,7 @@
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -32,6 +33,14 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
             NPC.netAlways = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky,
+            ]);
         }
 
         public override void AI()

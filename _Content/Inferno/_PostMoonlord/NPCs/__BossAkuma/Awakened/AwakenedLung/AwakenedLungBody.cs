@@ -1,11 +1,10 @@
-using Terraria;
-using System;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AwakenedLung
 {
@@ -14,6 +13,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Awakened Lung");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

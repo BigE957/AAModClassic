@@ -1,14 +1,14 @@
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.ModLoader;
-
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic.Utilities;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
@@ -34,6 +34,14 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.knockBackResist = 0.7f;
             NPC.alpha = 255;
             NPC.noGravity = true;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+            ]);
         }
 
         public override void AI()

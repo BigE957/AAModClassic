@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,6 +35,15 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 		    // DisplayName.SetDefault("Ice Crystal");
             Main.npcFrameCount[NPC.type] = 1;
             base.SetStaticDefaults();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.IceCrystal")
+            ]);
         }
 
         public override void AI()

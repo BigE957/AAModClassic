@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -40,7 +41,14 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath7;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FatPixieBanner>();
+        }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheHallow,
+            ]);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

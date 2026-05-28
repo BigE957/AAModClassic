@@ -30,6 +30,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
@@ -104,6 +105,15 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 NPC.buffImmune[k] = true;
             }
             NPC.buffImmune[BuffID.Shimmer] = false;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Legendscribe")
+            ]);
         }
 
         public float TeleportToHouseTimer = 0;

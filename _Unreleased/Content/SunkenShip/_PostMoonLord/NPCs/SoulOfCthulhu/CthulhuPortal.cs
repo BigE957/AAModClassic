@@ -1,5 +1,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -13,6 +14,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dark Portal");
+            this.HideFromBestiary();
 
         }
         public override void SetDefaults()

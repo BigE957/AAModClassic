@@ -3,6 +3,7 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -44,6 +45,15 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             return spawnInfo.Player.ZoneSnow &&
                 NPC.downedBoss3 && 
                 !Main.dayTime ? .1f : 0f;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.SnowSerpent")
+            ]);
         }
 
         public override void AI()

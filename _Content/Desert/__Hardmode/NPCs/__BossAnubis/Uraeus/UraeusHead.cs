@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,6 +31,15 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis.Uraeus
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
             NPC.value = Item.sellPrice(0, 0, 0, 0);
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Uraeus")
+            ]);
         }
 
         public override void AI()

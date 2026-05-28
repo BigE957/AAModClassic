@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -29,6 +30,14 @@ namespace AAModClassic._Content.Hell._BossLucifer
             // DisplayName.SetDefault("Lucifer the Pit Lord");
             Main.npcFrameCount[NPC.type] = 9;
             NPCID.Sets.TownCritter[NPC.type] = true;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
+            ]);
         }
 
         public override bool UsesPartyHat() { return false; }

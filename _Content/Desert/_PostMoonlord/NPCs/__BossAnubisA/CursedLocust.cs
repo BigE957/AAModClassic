@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,7 +34,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             NPC.knockBackResist = 0.2f;
             NPC.noGravity = true;
         }
-        
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+            ]);
+        }
+
         public override void HitEffect(NPC.HitInfo hit)
 		{
 			if (Main.netMode == NetmodeID.Server) { return; }

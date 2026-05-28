@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 { 
@@ -64,6 +65,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                         else
                         {
                             NPC.active = false;
+                            Main.BestiaryTracker.Sights.RegisterWasNearby(ContentSamples.NpcsByNetId[ModContent.NPCType<Haruka>()]);
                         }
                     }
                 }

@@ -86,6 +86,7 @@ using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
@@ -169,6 +170,17 @@ namespace AAModClassic.Globals
             if (NPCID.Sets.TownCritter[npc.type])
             {
                 npc.dontTakeDamageFromHostiles = true;
+            }
+        }
+
+        public override void SetBestiary(NPC npc, BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            if (npc.ModNPC != null && npc.ModNPC.Mod is AAMod && (!NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(npc.type, out var modifiers) || !modifiers.Hide) && !bestiaryEntry.Info.Any(e => e is FlavorTextBestiaryInfoElement))
+            {
+                bestiaryEntry.Info.AddRange(
+                [
+                    new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary." + npc.ModNPC.Name)
+                ]);
             }
         }
 

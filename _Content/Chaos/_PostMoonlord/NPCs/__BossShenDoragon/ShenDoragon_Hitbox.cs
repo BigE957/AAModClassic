@@ -1,5 +1,6 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Assets;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -18,6 +19,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Shen Doragon; Discordian Doomsayer");
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

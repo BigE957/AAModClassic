@@ -1,10 +1,10 @@
-using System;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,6 +32,14 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.DeathSound = SoundID.NPCDeath35;
             NPC.knockBackResist = 0.2f;
             NPC.noGravity = true;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+            ]);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

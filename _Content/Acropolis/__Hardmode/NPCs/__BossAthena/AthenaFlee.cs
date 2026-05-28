@@ -32,6 +32,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         {
             // DisplayName.SetDefault("Athena");
             Main.npcFrameCount[NPC.type] = 7;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,6 +36,15 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             NPC.buffImmune[47] = true;
             NPC.netAlways = true;
             NPC.scale = 0.5f;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
         }
 
         public override void AI()

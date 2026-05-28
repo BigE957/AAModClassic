@@ -1,4 +1,5 @@
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -16,6 +17,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             // DisplayName.SetDefault("Infinity Zero");
             Main.npcFrameCount[NPC.type] = 5;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

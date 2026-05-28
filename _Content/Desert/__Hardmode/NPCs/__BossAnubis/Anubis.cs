@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -41,6 +42,14 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             Music = MusicLoader.GetMusicSlot("AAModMusic/Music/Anubis");
             //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
             NPC.value = Item.sellPrice(0, 1, 0, 0);
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+            ]);
         }
 
         public float[] internalAI = new float[4];

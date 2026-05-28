@@ -14,6 +14,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -44,6 +45,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["Anubis_Awakened"];
             NPC.value = Item.sellPrice(0, 10, 0, 0);
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ForsakenAnubis")
+            ]);
         }
 
         public float[] internalAI = new float[4];

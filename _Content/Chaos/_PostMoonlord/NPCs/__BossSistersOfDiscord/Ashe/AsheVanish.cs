@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -14,7 +15,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ashe Akuma");     
-            Main.npcFrameCount[NPC.type] = 17;     
+            Main.npcFrameCount[NPC.type] = 17;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

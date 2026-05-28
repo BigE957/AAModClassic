@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,7 +37,15 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 			NPC.defense = 40;
         }
 
-		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+            ]);
+        }
+
+        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
 		{
 			return false;
 		}

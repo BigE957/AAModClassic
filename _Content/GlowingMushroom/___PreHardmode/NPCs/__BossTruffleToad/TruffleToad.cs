@@ -1,21 +1,21 @@
-﻿using System.IO;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-
-using Terraria.ID;
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Music;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Music;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {
@@ -95,7 +95,16 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             }
         }
 
-        public static int AISTATE_JUMP = 0, AISTATE_BARF = 1, AISTATE_JUMPALOT = 2, AISTATE_BUBBLES = 3, AISTATE_SEED = 4, AISTATE_STOMP = 5, AISTATE_TOADS = 6, AISTATE_BUBBLES2 = 7;
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
+        }
+
+        public const int AISTATE_JUMP = 0, AISTATE_BARF = 1, AISTATE_JUMPALOT = 2, AISTATE_BUBBLES = 3, AISTATE_SEED = 4, AISTATE_STOMP = 5, AISTATE_TOADS = 6, AISTATE_BUBBLES2 = 7;
         public float[] internalAI = new float[5];
         public bool[] Minion = new bool[3];
         public bool tonguespawned = false;

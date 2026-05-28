@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,6 +29,15 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.alpha = 255;
             NPC.dontTakeDamage = true;
             NPC.noTileCollide = false;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
         }
 
         public override void AI()

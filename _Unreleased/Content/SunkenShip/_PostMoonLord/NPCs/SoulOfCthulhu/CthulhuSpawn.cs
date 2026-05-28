@@ -1,4 +1,5 @@
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -12,6 +13,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Quantum Portal");
+            this.HideFromBestiary();
 
         }
         public override void SetDefaults()
