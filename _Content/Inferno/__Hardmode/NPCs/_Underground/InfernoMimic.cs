@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             AnimationType = NPCID.BigMimicHallow;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

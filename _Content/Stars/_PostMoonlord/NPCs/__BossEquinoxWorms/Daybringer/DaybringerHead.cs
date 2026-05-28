@@ -1,8 +1,8 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -17,7 +17,6 @@ using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer
 {
@@ -71,7 +70,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 			NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["Equinox"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
-		}
+            SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
+        }
 
         public float[] internalAI = new float[8];
         public override void SendExtraAI(BinaryWriter writer)

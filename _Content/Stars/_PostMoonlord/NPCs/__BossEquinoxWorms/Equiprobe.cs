@@ -1,9 +1,10 @@
+using AAModClassic._Content.Stars.Projectiles;
+using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Stars.Projectiles;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms
 {
@@ -30,7 +31,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms
             NPC.knockBackResist = 0.3f;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-		}
+            SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
+        }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{		

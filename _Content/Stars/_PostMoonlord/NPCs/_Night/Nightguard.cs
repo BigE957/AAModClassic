@@ -7,6 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Stars.Projectiles;
+using AAModClassic._Content.Stars.World.Biomes;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 {
@@ -35,6 +36,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NightGuardBanner>();
+			SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)

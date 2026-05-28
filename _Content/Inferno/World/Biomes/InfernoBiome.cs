@@ -65,6 +65,11 @@ namespace AAModClassic._Content.Inferno.World.Biomes
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<InfernoWaterStyle>();
     }
 
+    public class UndergroundInfernoBiome : ModBiome
+    {
+        public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
+    }
+
     public class InfernoSky : CustomSky
     {
         public bool Active;

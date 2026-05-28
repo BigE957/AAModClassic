@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.aiStyle = NPCAIStyleID.BiomeMimic;
             AIType = NPCID.Zombie;
             AnimationType = NPCID.BigMimicHallow;
-            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

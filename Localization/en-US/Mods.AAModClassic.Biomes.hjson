@@ -18,11 +18,6 @@ MireBiome: {
 	TownNPCDialogueName: the Mire
 }
 
-MushroomBiomeZone: {
-	DisplayName: Mushroom
-	TownNPCDialogueName: the Mushroom
-}
-
 RisingMoonLakeBiomeZone: {
 	DisplayName: The Rising Moon Lake
 	TownNPCDialogueName: the Rising Moon Lake
@@ -48,22 +43,32 @@ LostKeepBiome: {
 	TownNPCDialogueName: the Lost Keep
 }
 
-StormBiomeZone: {
-	DisplayName: Storm Biome Zone
-	TownNPCDialogueName: the Storm Biome Zone
+ParthenanBiome: {
+	DisplayName: The Parthenan
+	TownNPCDialogueName: the Parthenan
 }
 
 RedMushroomBiome: {
-	DisplayName: Red Mushroom Biome
-	TownNPCDialogueName: the Red Mushroom Biome
+	DisplayName: Red Mushroom
+	TownNPCDialogueName: the Red Mushroom
 }
 
 StarsBiome: {
-	DisplayName: Stars Biome
-	TownNPCDialogueName: the Stars Biome
+	DisplayName: Celestial Stars
+	TownNPCDialogueName: the Celestial Stars
 }
 
 ShipBiome: {
 	DisplayName: The Sunken Ship
 	TownNPCDialogueName: the Sunken Ship
+}
+
+UndergroundInfernoBiome: {
+	DisplayName: Underground Inferno
+	TownNPCDialogueName: the Underground Inferno
+}
+
+UndergroundMireBiome: {
+	DisplayName: Underground Mire
+	TownNPCDialogueName: the Underground Mire
 }

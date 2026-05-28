@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
             AnimationType = NPCID.DesertGhoul;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MireGhoulBanner>();
-            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

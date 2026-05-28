@@ -1,11 +1,12 @@
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars.Projectiles;
+using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities;
-using AAModClassic._Content.Stars.Projectiles;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 {
@@ -34,7 +35,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SunWatcherBanner>();
-		}
+            SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
+        }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{		

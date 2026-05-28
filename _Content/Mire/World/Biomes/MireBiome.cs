@@ -49,6 +49,11 @@ namespace AAModClassic._Content.Mire.World.Biomes
         public override ModWaterStyle WaterStyle => Main.dayTime && !AAWorld.downedYamata && Main.LocalPlayer.position.Y < Main.worldSurface * 16.0 && !Main.LocalPlayer.buffImmune[ModContent.BuffType<Buffs.Clueless_Buff>()] ? ModContent.GetInstance<FogWaterStyle>() : ModContent.GetInstance<MireWaterStyle>();
     }
 
+    public class UndergroundMireBiome : ModBiome
+    {
+        public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
+    }
+
     public class MireSky : CustomSky
     {
         public bool Active;

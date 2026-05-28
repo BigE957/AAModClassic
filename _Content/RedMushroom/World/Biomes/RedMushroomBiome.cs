@@ -6,7 +6,7 @@ namespace AAModClassic._Content.RedMushroom.World.Biomes
 {
     public class RedMushroomBiome : ModBiome
     {
-        public override string BestiaryIcon => "AAModClassic/_Content/RedMushroom/World/Biomes/RedMushroom_Icon";
+        public override string BestiaryIcon => "AAModClassic/_Content/RedMushroom/World/Biomes/RedMushroomBiome_Icon";
 
         public override bool IsBiomeActive(Player player)
         {

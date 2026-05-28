@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<DragronBanner>();
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
 

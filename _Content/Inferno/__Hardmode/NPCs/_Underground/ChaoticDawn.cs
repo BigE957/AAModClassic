@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
         public override void AI()

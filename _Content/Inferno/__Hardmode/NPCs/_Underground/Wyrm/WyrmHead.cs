@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             NPC.lavaImmune = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<WyrmBanner>();
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
         public override bool PreAI()
         {
