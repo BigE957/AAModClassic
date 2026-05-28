@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
@@ -36,6 +37,14 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
             Music = MusicManagementSystem.MusicSlots["Rajah_Awakened"];
             isSupreme = true;
             NPC.value = Item.sellPrice(3, 0, 0, 0);
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit")
+            ]);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

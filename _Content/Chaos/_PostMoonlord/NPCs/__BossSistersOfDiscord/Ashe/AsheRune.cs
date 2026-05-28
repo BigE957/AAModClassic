@@ -17,6 +17,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
     {
         public override string Texture => AssetDirectory.General.Ritual_Inner2;
 
+        public override void SetStaticDefaults()
+        {
+            this.HideFromBestiary();
+        }
+
         public override void SetDefaults()
         {
             NPC.alpha = 255;

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -45,6 +46,14 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             Banner = ModContent.NPCType<ScavengerHead>();
 			BannerItem = ModContent.ItemType<ScavengerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Scavenger")
+            ]);
         }
 
         public override void AI()

@@ -1,10 +1,11 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 {
@@ -32,6 +33,14 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.PurityWeaver")
+            ]);
         }
 
         public override Color? GetAlpha(Color drawColor)

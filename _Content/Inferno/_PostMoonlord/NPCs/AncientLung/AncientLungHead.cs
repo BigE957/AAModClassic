@@ -6,6 +6,7 @@ using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -52,6 +53,15 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 			BannerItem = ModContent.ItemType<LungBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.AncientLung")
+            ]);
+        }
+
         public override bool PreAI()
         {
             Player player = Main.player[NPC.target];

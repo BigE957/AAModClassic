@@ -7,6 +7,7 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using System;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.LootSimulation.LootSimulatorConditionSetterTypes;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -56,6 +57,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 BannerItem = ModContent.ItemType<HydraClawBanner>();
             }
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.HydraClaw")
+            ]);
         }
 
         public override void AI()

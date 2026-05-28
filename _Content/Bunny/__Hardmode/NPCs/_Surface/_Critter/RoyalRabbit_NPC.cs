@@ -1,12 +1,13 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 {
@@ -36,6 +37,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             BannerItem = ItemID.BunnyBanner;
             NPC.catchItem = (short)ModContent.ItemType<RoyalRabbit_Item>();
             NPC.rarity = 6;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.RoyalRabbit")
+            ]);
         }
 
         public override void OnKill()

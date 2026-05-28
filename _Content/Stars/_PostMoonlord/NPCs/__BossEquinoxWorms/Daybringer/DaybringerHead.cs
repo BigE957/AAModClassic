@@ -14,6 +14,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -71,6 +72,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             Music = MusicManagementSystem.MusicSlots["Equinox"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Daybringer")
+            ]);
         }
 
         public float[] internalAI = new float[8];

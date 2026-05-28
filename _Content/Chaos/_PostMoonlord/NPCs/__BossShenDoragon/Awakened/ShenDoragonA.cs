@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
@@ -38,6 +39,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
                 NPC.alpha = 255;
             NPC.boss = true;
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.AwakenedShenDoragon")
+            ]);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

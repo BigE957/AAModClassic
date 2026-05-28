@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumab
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
@@ -22,6 +23,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             base.SetDefaults();
 			nightcrawler = true;
 		}
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Nightcrawler")
+            ]);
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

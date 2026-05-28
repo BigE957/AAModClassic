@@ -1,6 +1,7 @@
 
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -16,6 +17,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Forsaken Sun");
+            this.HideFromBestiary();
         }
 
 		public override void SetDefaults()
@@ -30,14 +32,6 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             {
                 NPC.buffImmune[k] = true;
             }
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(
-            [
-                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
-            ]);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

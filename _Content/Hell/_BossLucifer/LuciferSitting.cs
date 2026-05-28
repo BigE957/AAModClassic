@@ -36,6 +36,14 @@ namespace AAModClassic._Content.Hell._BossLucifer
         {
             bestiaryEntry.Info.AddRange(
             [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Lucifer")
+            ]);
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
             ]);
         }

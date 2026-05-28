@@ -20,6 +20,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -82,6 +83,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             NPC.buffImmune[103] = false;
             NPC.alpha = 255;
             SceneEffectPriority = SceneEffectPriority.BossHigh;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Akuma")
+            ]);
         }
 
         private bool fireAttack;

@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
@@ -15,6 +16,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oni Sun");
+            this.HideFromBestiary();
         }
 
 		public override void SetDefaults()

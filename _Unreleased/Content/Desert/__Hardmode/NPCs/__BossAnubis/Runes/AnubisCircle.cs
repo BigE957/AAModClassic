@@ -6,11 +6,17 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes
 {
     public class AnubisCircle : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            this.HideFromBestiary();
+        }
+
         public override void SetDefaults()
         {
             NPC.alpha = 255;

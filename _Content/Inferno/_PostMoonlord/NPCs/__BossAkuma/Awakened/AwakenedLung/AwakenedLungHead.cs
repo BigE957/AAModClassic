@@ -1,11 +1,12 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AwakenedLung
 {
@@ -42,6 +43,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
             }
             NPC.buffImmune[103] = false;
             NPC.alpha = 255;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.AwakenedLung")
+            ]);
         }
 
         public override bool PreAI()
