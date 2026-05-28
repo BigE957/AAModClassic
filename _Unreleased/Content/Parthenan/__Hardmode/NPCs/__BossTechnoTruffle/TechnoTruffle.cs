@@ -21,7 +21,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         public static Asset<Texture2D> Glowmask1;
         public static Asset<Texture2D> Glowmask2;
 
-        public bool AIType = true;
+        public bool UseFungusAI = true;
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
@@ -31,7 +31,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 writer.Write(internalAI[1]);
                 writer.Write(internalAI[2]);
                 writer.Write(internalAI[3]);
-                writer.Write(AIType);
+                writer.Write(UseFungusAI);
             }
         }
 
@@ -44,7 +44,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 internalAI[1] = reader.ReadSingle();
                 internalAI[2] = reader.ReadSingle();
                 internalAI[3] = reader.ReadSingle();
-                AIType = reader.ReadBoolean();
+                UseFungusAI = reader.ReadBoolean();
             }
         }
 
@@ -112,7 +112,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                         NPC.frame.Y = frameHeight * 8;
                     }
                 }
-                else if (!AIType)
+                else if (!UseFungusAI)
                 {
                     if (NPC.frame.Y > frameHeight * 16 && NPC.frame.Y < frameHeight * 12)
                     {
@@ -169,14 +169,14 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             {
                 if (!TileBelowEmpty(player))
                 {
-                    if (AIType)
+                    if (UseFungusAI)
                     {
-                        AIType = false;
+                        UseFungusAI = false;
                     }
                     else
                     {
                         NPC.noGravity = true;
-                        AIType = true;
+                        UseFungusAI = true;
                     }
                     internalAI[0] = 0;
                     internalAI[1] = 0;
@@ -185,13 +185,13 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 }
                 else
                 {
-                    AIType = true;
+                    UseFungusAI = true;
                 }
                 internalAI[2] = 0;
                 NPC.netUpdate = true;
             }
 
-            if (!AIType)
+            if (!UseFungusAI)
             {
                 MonarchAI();
             }
@@ -220,7 +220,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
         public void MonarchAI()
         {
-            AIType = false;
+            UseFungusAI = false;
             //NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
 
@@ -326,7 +326,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
         public void FungusAI()
         {
-            AIType = true;
+            UseFungusAI = true;
             if (Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
             {
                 NPC.noTileCollide = false;
@@ -406,7 +406,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {   //boss drops
             potionType = ItemID.GreaterHealingPotion;
         }

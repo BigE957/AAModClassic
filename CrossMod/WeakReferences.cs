@@ -166,7 +166,22 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Removed.Content.Parthenan;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
+using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;
+using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
+using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
@@ -202,6 +217,10 @@ namespace AAModClassic.CrossMod
             { "SubzeroSerpent", 5.5f },
             { "DesertDjinn", 5.5f },
             { "Sagittarius", 6.6f },
+            { "TechnoTruffle", 8.999f },
+            { "Retriever", 9.5f },
+            { "OrthrusX", 10.5f },
+            { "RaiderUltima", 11.001f }, //Fuck you Ogre
             { "Anubis", 11.69f },
             { "BiomiteCore", 12.1f },
             { "Athena", 13.551f },
@@ -898,6 +917,66 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<SagittariusBox>()
                     },
                     ["customPortrait"] = GetPortrait("Sag")
+                });
+                #endregion
+
+                #region Siege Units
+                AddBoss(bossChecklist, mod, "TechnoTruffle", (Func<bool>)(() => NPCExtensions.BeenKilled<TechnoTruffle>()), ModContent.NPCType<TechnoTruffle>(), new Dictionary<string, object>()
+                {
+                    ["displayName"] = Language.GetOrRegister(path + "TechnoTruffle.Name"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "TechnoTruffle.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticShroom>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "TechnoTruffle.Despawn"),
+                    ["spawnItems"] = ModContent.ItemType<CyberneticShroom>(),
+                    ["collectibles"] = new List<int>
+                    {
+                        ModContent.ItemType<TechnoTruffleTrophy>(),
+                        ModContent.ItemType<TechnoTruffleMask>(),
+                        ModContent.ItemType<SiegeBox>()
+                    },
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                });
+
+                AddBoss(bossChecklist, mod, "Retriever", (Func<bool>)(() => NPCExtensions.BeenKilled<Retriever>()), ModContent.NPCType<Retriever>(), new Dictionary<string, object>()
+                {
+                    ["displayName"] = Language.GetOrRegister(path + "Retriever.Name"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Retriever.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticClaw>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Retriever.Despawn"),
+                    ["spawnItems"] = ModContent.ItemType<CyberneticClaw>(),
+                    ["collectibles"] = new List<int>
+                    {
+                        ModContent.ItemType<RetrieverTrophy>(),
+                        ModContent.ItemType<RetrieverMask>(),
+                        ModContent.ItemType<SiegeBox>()
+                    },
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                });
+                AddBoss(bossChecklist, mod, "OrthrusX", (Func<bool>)(() => NPCExtensions.BeenKilled<OrthrusXBody>()), ModContent.NPCType<OrthrusXBody>(), new Dictionary<string, object>()
+                {
+                    ["displayName"] = Language.GetOrRegister(path + "OrthrusX.Name"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "OrthrusX.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ScrapHeap>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "OrthrusX.Despawn"),
+                    ["spawnItems"] = ModContent.ItemType<ScrapHeap>(),
+                    ["collectibles"] = new List<int>
+                    {
+                        ModContent.ItemType<OrthrusXTrophy>(),
+                        ModContent.ItemType<OrthrusXMask>(),
+                        ModContent.ItemType<SiegeBox>()
+                    },
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                });
+                AddBoss(bossChecklist, mod, "RaiderUltima", (Func<bool>)(() => NPCExtensions.BeenKilled<RaiderUltima>()), ModContent.NPCType<RaiderUltima>(), new Dictionary<string, object>()
+                {
+                    ["displayName"] = Language.GetOrRegister(path + "RaiderUltima.Name"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "RaiderUltima.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticBell>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "RaiderUltima.Despawn"),
+                    ["spawnItems"] = ModContent.ItemType<CyberneticBell>(),
+                    ["collectibles"] = new List<int>
+                    {
+                        ModContent.ItemType<RaiderUltimaTrophy>(),
+                        ModContent.ItemType<RaiderUltimaMask>(),
+                        ModContent.ItemType<SiegeBox>()
+                    },
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
                 #endregion
 

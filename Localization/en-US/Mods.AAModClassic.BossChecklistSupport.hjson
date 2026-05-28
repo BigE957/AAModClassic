@@ -52,6 +52,30 @@ Sagittarius: {
 	Despawn: "[c/FF0000:Sagittarius gallops off into the endless darkness...]"
 }
 
+TechnoTruffle: {
+	Name: Techno Truffle
+	Spawn: Use a {0} at night.
+	Despawn: "[c/eb34eb:Techno Truffle disposed its target.]"
+}
+
+Retriever: {
+	Name: The Retriever
+	Spawn: Use a {0} at night.
+	Despawn: "[c/eb34eb:The Retriever receives its bounty.]"
+}
+
+OrthrusX: {
+	Name: Orthrus X
+	Spawn: Use a {0} at night.
+	Despawn: "[c/eb34eb:Orthrus teleports to homebase.]"
+}
+
+RaiderUltima: {
+	Name: Raider Ultima
+	Spawn: Use a {0} at night.
+	Despawn: "[c/eb34eb:Raider Ultima returns to base.]"
+}
+
 Anubis: {
 	Name: Anubis
 	Spawn: Use a {0} in the Desert.
@@ -179,8 +203,4 @@ SoulOfCthulhu: {
 }
 
 #Despawn Messages
-DespawnRaiderUltima: Raider returns to base.
-DespawnRetriever: The Retriever receives its bounty.
-DespawnOrthrusX: Orthrus teleports to homebase.
-DespawnTechnoTruffle: Techno Truffle disposed its target.
 DespawnKraken: The cephalopod warps into a conjured rift.
