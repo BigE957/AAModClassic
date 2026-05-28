@@ -16,6 +16,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
         public override void SetDefaults()

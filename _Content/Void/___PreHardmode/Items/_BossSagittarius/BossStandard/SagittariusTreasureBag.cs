@@ -16,6 +16,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossS
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
         public override void SetDefaults()
