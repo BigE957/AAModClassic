@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
     {
         public override string MapBackground => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
 
-        public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoBestiaryBG";
+        public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
 
         public override bool IsBiomeActive(Player player)
         {
@@ -67,7 +67,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
     public class UndergroundInfernoBiome : ModBiome
     {
-        public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoBestiaryBG";
+        public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
     }
 
     public class InfernoSky : CustomSky

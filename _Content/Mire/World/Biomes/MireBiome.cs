@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
     {
         public override string MapBackground => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
 
-        public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBestiaryBG";
+        public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
 
         public override bool IsBiomeActive(Player player)
         {
@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
     public class UndergroundMireBiome : ModBiome
     {
-        public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBestiaryBG";
+        public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
     }
 
     public class MireSky : CustomSky
