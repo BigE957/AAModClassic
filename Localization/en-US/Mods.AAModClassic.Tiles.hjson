@@ -597,3 +597,7 @@ DataBank_Tile.MapEntry: Data Bank_ Tile
 StormChest_Tile.MapEntry: Storm Chest_ Tile
 SiegeBox_Tile.MapEntry: Siege Box_ Tile
 RitualAltar_Tile.MapEntry: Ritual Altar_ Tile
+ParthenanBox_Tile.MapEntry: Parthenan Box_ Tile
+SoulOfCthulhuBox_Tile.MapEntry: Soul Of Cthulhu Box_ Tile
+SleepingCurseBox_Tile.MapEntry: Sleeping Curse Box_ Tile
+SunkenShipBox_Tile.MapEntry: Sunken Ship Box_ Tile

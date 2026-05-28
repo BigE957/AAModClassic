@@ -52,7 +52,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.dontTakeDamage = true;
             NPC.alpha = 255;
             NPC.timeLeft = NPC.activeTime * 30;
-            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoC"];
+            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

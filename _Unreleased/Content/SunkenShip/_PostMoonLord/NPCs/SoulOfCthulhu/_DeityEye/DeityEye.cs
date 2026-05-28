@@ -43,7 +43,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.timeLeft = NPC.activeTime * 30;
             NPC.boss = true;
             NPC.npcSlots = 5f;
-            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoC"];
+            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
         }
 

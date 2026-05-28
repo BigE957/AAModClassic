@@ -23,7 +23,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.alpha = 255;
             NPC.damage = 0;
             NPC.boss = true;
-            Music = MusicManagementSystem.MusicSlots["SoC"];
+            Music = MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;

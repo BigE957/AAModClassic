@@ -50,7 +50,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.DeathSound = SoundID.Item88;// new LegacySoundStyle(2, 88, Terraria.Audio.SoundType.Sound);
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = MusicManagementSystem.MusicSlots["SoC"];
+            Music = MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             NPC.noGravity = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;

@@ -1637,7 +1637,7 @@ SubzeroBox: {
 
 VoidPreIZBox: {
 	DisplayName: Music Box (Sleeping Giant)
-	Tooltip: Plays 'Sleeping Giant' by LordCakeSpy
+	Tooltip: Plays 'Sleeping Giant' by Cosmoptera
 }
 
 ShenAwakenedBox: {
@@ -11629,7 +11629,7 @@ RealityAnchor: {
 }
 
 RajahRabbitAMask: {
-	DisplayName: Rajah Rabbit A Mask
+	DisplayName: Champion Rajah Mask
 	Tooltip: ""
 }
 
@@ -11654,16 +11654,36 @@ InfinityZeroMask: {
 }
 
 ZeroAMask: {
-	DisplayName: Zero A Mask
+	DisplayName: Zero Protocol Mask
 	Tooltip: ""
 }
 
 SoulOfCthulhuAMask: {
-	DisplayName: Soul Of Cthulhu A Mask
+	DisplayName: Cthulhu Mask
 	Tooltip: ""
 }
 
 SoulOfCthulhuMask: {
 	DisplayName: Soul Of Cthulhu Mask
 	Tooltip: ""
+}
+
+ParthenanBox: {
+	DisplayName: Music Box (Parthenan)
+	Tooltip: Plays 'Maelstrom' by Tyeski
+}
+
+SunkenShipBox: {
+	DisplayName: Music Box (Sunken Ship)
+	Tooltip: Plays 'Rift-Torn Ruins' by Cosmoptera
+}
+
+SoulOfCthulhuBox: {
+	DisplayName: Music Box (Soul Of Cthulhu)
+	Tooltip: Plays 'Wheel Of Misfortune' by ProduceVGM
+}
+
+SleepingCurseBox: {
+	DisplayName: Music Box (Sleeping Curse)
+	Tooltip: Plays 'Sleeping Curse' by ProduceVGM
 }

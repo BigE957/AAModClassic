@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
-    class HydraBox_Tile : ModTile
+    public class HydraBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -72,3 +72,8 @@ UndergroundMireBiome: {
 	DisplayName: Underground Mire
 	TownNPCDialogueName: the Underground Mire
 }
+
+SunkenShipBiome: {
+	DisplayName: Sunken Ship Biome
+	TownNPCDialogueName: the Sunken Ship Biome
+}

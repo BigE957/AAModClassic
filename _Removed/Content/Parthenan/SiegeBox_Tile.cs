@@ -1,12 +1,12 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Dusts;
 
 namespace AAModClassic._Removed.Content.Parthenan
 {
@@ -25,7 +25,7 @@ namespace AAModClassic._Removed.Content.Parthenan
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			RegisterItemDrop(ModContent.ItemType<SiegeBox>());
-            DustType = Mod.Find<ModDust>("FulguriteDust").Type;
+            DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 

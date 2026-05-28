@@ -20,7 +20,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 {
-    public class ShipBiome : ModBiome
+    public class SunkenShipBiome : ModBiome
     {
         private static readonly CthulhuSky_Clouds CthulhuFog = new(false);
 
@@ -55,7 +55,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             CthulhuFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Width(), 1);
         }
 
-        public override int Music => MusicManagementSystem.MusicSlots["Ship"];
+        public override int Music => MusicManagementSystem.MusicSlots["SunkenShip"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 

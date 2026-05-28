@@ -14,7 +14,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 		{
             // DisplayName.SetDefault("Music Box (Sleeping Giant)");
 
-            // Tooltip.SetDefault(@"Plays 'Sleeping Giant' by LordCakeSpy");
+            // Tooltip.SetDefault(@"Plays 'Sleeping Giant' by Cosmoptera");
         }
 
         public override void SetDefaults()

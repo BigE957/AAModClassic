@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Mire.World.Biomes.Water;
 using AAModClassic._Removed.Content.Parthenan.World.Biomes.Water;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -24,7 +25,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
             player.ManageSpecialBiomeVisuals("AAModClassic:StormSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
 
-        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "_Unreleased/Music/Maelstrom");
+        public override int Music => MusicManagementSystem.MusicSlots["Parthenan"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 

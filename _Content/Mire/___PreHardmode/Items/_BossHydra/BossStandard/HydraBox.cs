@@ -5,7 +5,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
-    public class    HydraBox : BaseAAItem
+    public class HydraBox : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
