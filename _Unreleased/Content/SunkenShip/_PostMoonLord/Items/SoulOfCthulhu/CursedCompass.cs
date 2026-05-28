@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.Localization;
 using System;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {
@@ -21,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             // Tooltip.SetDefault(@"An old Compass. Who knows what it's for?");
         }
 
-        private static bool CthulhuFightable => AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
+        private static bool CthulhuActive => AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
 
         public override void SetDefaults()
         {
@@ -47,7 +48,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
                 if (line.Mod == "Terraria" && line.Name == "Tooltip0")
                 {
-                    if(CthulhuFightable)
+                    if(CthulhuActive)
                         line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Ready");
                     else if(AAWorld_Unreleased.downedSoC)
                         line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Downed");
@@ -72,23 +73,23 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 if (player.whoAmI == Main.myPlayer) BaseUtility.Chat("The wheel doesn't do anything", Color.DarkCyan, false);
                 return false;
             }
-            return true;// AAWorld.downedAllAncients;
+            return AAWorld.downedAllAncients;
         }
 
-        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
+        public override bool? UseItem(Player player)
         {
-            SpawnBoss(player, "CthulhuSpawn", "The Soul of Cthulhu");
+            SpawnBoss(player, ModContent.NPCType<CthulhuSpawn>());
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
-        public void SpawnBoss(Player player, string name, string displayName)
+        public void SpawnBoss(Player player, int type)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int bossType = Mod.Find<ModNPC>(name).Type;
-                if (NPC.AnyNPCs(bossType)) { return; }
-                int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
+                if (NPC.AnyNPCs(type))
+                    return;
+                int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, type, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-300f, 300f, (float)Main.rand.NextDouble()), 300f);
                 Main.npc[npcID].netUpdate2 = true;
                 Main.npc[npcID].target = player.whoAmI;
@@ -102,7 +103,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             ArrowSpin += MathF.Sin(Main.GlobalTimeWrappedHourly) * 0.25f;
             Texture2D Arrow = ModContent.Request<Texture2D>(Texture + "_Arrow").Value;
             Vector2 offsetPos = position - Vector2.UnitY * 3;
-            spriteBatch.Draw(Arrow, offsetPos, null, drawColor, CthulhuFightable? ArrowSpin : 0, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Arrow, offsetPos, null, drawColor, CthulhuActive? ArrowSpin : 0, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -111,7 +112,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item item = Main.item[whoAmI];
             Vector2 position = item.position + new Vector2(item.width / 2, item.height * 0.5f);
             position.Y -= 8;
-            spriteBatch.Draw(Arrow, position - Main.screenPosition, null, lightColor, CthulhuFightable ? ArrowSpin : rotation, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Arrow, position - Main.screenPosition, null, lightColor, CthulhuActive ? ArrowSpin : rotation, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
 
         }
 
