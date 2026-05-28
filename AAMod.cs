@@ -1,26 +1,34 @@
-using AAModClassic._Content._Dev.Invoker;
 using AAModClassic._Content._Dev.___PreHardmode.Items.Currency;
+using AAModClassic._Content._Dev.Invoker;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
+using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
 using AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Crimson.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies;
 using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
+using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency;
@@ -42,8 +50,10 @@ using AAModClassic._Content.Underground.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
@@ -54,6 +64,7 @@ using AAModClassic.UI;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
@@ -70,16 +81,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
-using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies;
-using AAModClassic.Assets;
-using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic._Content.Hoard.World.Tiles;
 
 namespace AAModClassic
 {
@@ -563,6 +564,22 @@ namespace AAModClassic
             {
                 ResetItemTexture(3460);
                 ResetItemTexture(512);
+            }
+
+            var field = typeof(FinalFractalHelper).GetField("_fractalProfiles", BindingFlags.Static | BindingFlags.NonPublic);
+            if (field != null)
+            {
+                var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
+                foreach(int key in profiles.Keys)
+                {
+                    if (ContentSamples.ItemsByType[key].ModItem != null && ContentSamples.ItemsByType[key].ModItem.Mod is AAMod)
+                        profiles.Remove(key);
+                }
+                profiles.Remove(ItemID.SilverBroadsword);
+                profiles.Remove(ItemID.TungstenBroadsword);
+                profiles.Remove(ItemID.BeamSword);
+
+                field.SetValue(null, profiles);
             }
 
             instance = null;
