@@ -8,10 +8,11 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Goblin Slayer");
-			/* Tooltip.SetDefault(@"Can be swung with left click and thrust forward with a right click
+            // DisplayName.SetDefault("Goblin Slayer");
+            /* Tooltip.SetDefault(@"Can be swung with left click and thrust forward with a right click
 'The blade of a legendary goblin slayer'"); */
-		}
+            ItemID.Sets.ItemsThatAllowRepeatedRightClick[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{

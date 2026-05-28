@@ -264,44 +264,48 @@ namespace AAModClassic.CrossMod.Overhaul
         public static void UseItemHitboxCalculate(Player player, Item item, ref Rectangle hitbox, ref bool noHitbox, float delayStart, int height, int length, float hitboxDuration = 3)
         {
             // Lengthen the hitbox duration the longer it is
-            // 1 Frame per 4 tiles after 12
             hitboxDuration += Math.Max(0, (length - 96) / 32);
 
             height = (int)(height * item.scale);
             length = (int)(length * item.scale);
 
-            // Define when after first swinging the the hitbox becomes active
             int startFrame = (int)(player.itemAnimationMax * delayStart);
-
-            // For faster attacks, the start frame must be at least the magic number
             if (startFrame < hitboxDuration) startFrame = (int)hitboxDuration;
 
             int activeFrame = startFrame - player.itemAnimation;
             if (activeFrame >= 0 && activeFrame < hitboxDuration + 1)
             {
+                // Get the slash direction from the active projectile, not the frozen item rotation.
+                float rotation = player.itemRotation; // fallback
+                if (player.heldProj >= 0 && player.heldProj < Main.maxProjectiles)
+                {
+                    Projectile slash = Main.projectile[player.heldProj];
+                    if (slash.active && slash.owner == player.whoAmI)
+                    {
+                        rotation = slash.rotation;
+                    }
+                }
+
                 hitbox.Height = height;
                 hitbox.Width = height;
 
-                float invert = 0f;
-                if (player.direction < 0) invert = MathHelper.Pi;
-                float dist = Math.Max(0, length - height); // total distance covered by the moving hitbox
+                float dist = Math.Max(0, length - height);
+                Vector2 direction = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
+                Vector2 centre = player.MountedCenter - hitbox.Size() / 2f;
+                Vector2 playerOffset = player.Size.X * item.scale * direction;
 
-                Vector2 direction = new Vector2(
-                    (float)Math.Cos(player.itemRotation + invert),
-                    (float)Math.Sin(player.itemRotation + invert));
-                Vector2 centre = player.MountedCenter - (hitbox.Size() / 2);
-                Vector2 playerOffset = (player.Size.X * item.scale * direction);
-                hitbox.Location = (centre
-                    + direction * hitbox.Height / 2
-                    - playerOffset
-                    + (dist * direction / hitboxDuration * activeFrame)
-                    ).ToPoint();
+                hitbox.Location = (centre + direction * hitbox.Height / 2f - playerOffset + (dist * direction / hitboxDuration * activeFrame)).ToPoint();
 
                 player.attackCD = 0;
 
-                // DEBUG hitbox
-                //for (int i = 0; i < 256; i++)
-                //{ Dust d = Dust.NewDustDirect(hitbox.Location.ToVector2() - new Vector2(2, 2), hitbox.Width, hitbox.Height, 60, 0, 0, 0, default(Color), 0.75f); d.velocity = Vector2.Zero; d.noGravity = true; }
+                // DEBUG hitbox – you can keep or remove this
+                for (int i = 0; i < 256; i++)
+                {
+                    Dust d = Dust.NewDustDirect(hitbox.Location.ToVector2() - new Vector2(2, 2),
+                        hitbox.Width, hitbox.Height, 60, 0, 0, 0, default(Color), 0.75f);
+                    d.velocity = Vector2.Zero;
+                    d.noGravity = true;
+                }
             }
             else
             {
@@ -309,7 +313,7 @@ namespace AAModClassic.CrossMod.Overhaul
                 noHitbox = true;
             }
         }
-        
+
         public static void OnHitFX(Player player, Entity target, bool crit, Color colour, bool glow = false)
         {
             Vector2 source = player.MountedCenter + new Vector2(Main.rand.NextFloatDirection() * 16f, Main.rand.NextFloatDirection() * 16f);
@@ -540,6 +544,8 @@ namespace AAModClassic.CrossMod.Overhaul
                 weaponOrigin.Y = weapon.Bounds.Top;
             }
 
+            //TODO: This looked wrong so its gone now, but could possibly be improved and restored
+            /*
             // Draw weapon if at the start or end animation
             if (projectile.frame > 0 && (
                 player.bodyFrame.Y == 1 * player.bodyFrame.Height ||
@@ -555,6 +561,7 @@ namespace AAModClassic.CrossMod.Overhaul
                     spriteEffect,
                     1f);
             }
+            */
 
             // projectile drawing already mirrors horizontally when needed, just remove reverse flip from earlier
             if(projectile.spriteDirection < 0) { vDir *= -1f; }

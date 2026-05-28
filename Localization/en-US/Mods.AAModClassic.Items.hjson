@@ -4441,7 +4441,7 @@ CursedSickle: {
 	Tooltip:
 		'''
 		Spins a cursed scythe around you that shreds through enemies
-		Left click to swing the scythe
+		Right click to swing the scythe overhead and fire a Cursed Scythe
 		'''
 }
 
@@ -7112,11 +7112,7 @@ DarkmatterKunai: {
 
 Dracorang: {
 	DisplayName: Dracorang
-	Tooltip:
-		'''
-		Leaves short living flame trail
-		Stacks up to 5
-		'''
+	Tooltip: Leaves short living flame trail
 }
 
 Fireball: {

@@ -12,7 +12,8 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 		{
             // DisplayName.SetDefault("Titan Axe");
             // Tooltip.SetDefault("Right clicking throws the axe. \n" + "Left clicking swings the axe. \n" + "'Oof this isn't google' \n'" + "-Welox");
-		}
+            ItemID.Sets.ItemsThatAllowRepeatedRightClick[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{
@@ -51,7 +52,6 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
 		public override bool CanUseItem(Player player)
 		{
-
             if (player.altFunctionUse == 2)
             {
                 Item.shoot = ModContent.ProjectileType<TitanAxe_Proj>();

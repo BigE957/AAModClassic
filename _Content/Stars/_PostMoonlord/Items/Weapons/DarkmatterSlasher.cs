@@ -35,6 +35,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Item.shootSpeed = 25f;
             Item.value = 25000;
             Item.rare = ItemRarityID.Cyan;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
             AARarity = 12;
         }
 
@@ -60,13 +62,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 
         public override void HoldItem(Player player)
         {
-            Saber.HoldItemManager(player, Item, ModContent.ProjectileType<DarkmatterSlasher_Slash>(),
-                Color.Blue, 0.9f, player.itemTime == 0 ? 0f : 1f);
+            Saber.HoldItemManager(player, Item, ModContent.ProjectileType<DarkmatterSlasher_Slash>(), Color.Blue, 0.9f, player.itemTime == 0 ? 0f : 1f);
         }
 
         // Doesn't get called unless item.shoot is defined.
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        { return Saber.IsChargedShot(player); }
+        { 
+            return Saber.IsChargedShot(player);
+        }
 
         public override void UseItemFrame(Player player)
         {
@@ -75,9 +78,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 
         public override void UseItemHitbox(Player player, ref Rectangle hitbox, ref bool noHitbox)
         {
-            int height = 80;
-            int length = 132;
-            Saber.UseItemHitboxCalculate(player, Item, ref hitbox, ref noHitbox, 0.9f, height, length);
+            //TODO: THis shit did not work either.
+            //int height = 80;
+            //int length = 132;
+            //Saber.UseItemHitboxCalculate(player, Item, ref hitbox, ref noHitbox, 0.9f, height, length);
         }
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

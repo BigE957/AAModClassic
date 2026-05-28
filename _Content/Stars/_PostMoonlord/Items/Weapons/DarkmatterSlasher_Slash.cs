@@ -22,7 +22,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 7;
-            if (Main.netMode == NetmodeID.Server) return;
+            if (Main.netMode == NetmodeID.Server) 
+                return;
+            //TODO: What the fuck are you doing
             Player projOwner = Main.player[Projectile.owner];
             Projectile.position.X = projOwner.Center.X - Projectile.width / 2;
             Projectile.position.Y = projOwner.Center.Y - Projectile.height / 2;
@@ -42,8 +44,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Projectile.DamageType = DamageClass.Melee;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
         }
-        public override bool? CanCutTiles() { return false; }
+        public override bool? CanCutTiles() { return true; }
         public int FrameCheck
         {
             get { return (int)Projectile.ai[0]; }
@@ -65,7 +68,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
                 Saber.AISetChargeSlashVariables(player, chargeSlashDirection);
                 Saber.NormalSlash(Projectile, player);
             }
-            Projectile.damage = 0;
+            //Projectile.damage = 0;
             Projectile.ai[0] += 1f; // Framerate
             Projectile.position += player.velocity;
         }

@@ -26,21 +26,19 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 			Item.height = 32;
             Item.noMelee = true;
         }
+		
+        public override bool CanUseItem(Player player)
+        {
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<Dracorang_Proj>()] < 5)
+                return true;
 
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Dracorang_Proj>()] < Item.stack)
-			{
-				return true;
-			}
-			return false;
-		}
+            return false;
+        }
 		
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dracorang");
-			/* Tooltip.SetDefault(@"Leaves short living flame trail
-Stacks up to 5"); */
+			/* Tooltip.SetDefault(@"Leaves short living flame trail"); */
 		}
 
 		public override void AddRecipes()

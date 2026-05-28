@@ -42,6 +42,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
 
         public override bool CanUseItem(Player player)
         {
+            if (!Main.dayTime)
+                return false;
+
             if (NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.IntimidatingMushroomFalse2"), new Color(216, 110, 40), false);

@@ -15,14 +15,13 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 		{
             // DisplayName.SetDefault("Cursed Sickle");
             /* Tooltip.SetDefault(@"Spins a cursed scythe around you that shreds through enemies
-Left click to swing the scythe"); */			
+Right click to swing the scythe overhead and fire a Cursed Scythe"); */			
 		}
 
 		public override void SetDefaults()
 		{
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Cyan;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.UseSound = SoundID.Item71;

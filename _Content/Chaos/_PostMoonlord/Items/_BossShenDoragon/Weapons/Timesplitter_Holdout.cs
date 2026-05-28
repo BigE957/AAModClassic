@@ -76,8 +76,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
                 Projectile.Kill();
 
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2 + MathHelper.PiOver4;
-            if (Projectile.spriteDirection == -1)
-                Projectile.rotation -= MathHelper.PiOver2;
+            //if (Projectile.spriteDirection == -1)
+            //    Projectile.rotation -= MathHelper.Pi;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
