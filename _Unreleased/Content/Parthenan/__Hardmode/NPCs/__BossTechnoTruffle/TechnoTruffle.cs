@@ -137,6 +137,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
         public override void AI()
         {
+            NPC.dontTakeDamage = NPC.AnyNPCs(ModContent.NPCType<TruffleProbe>());
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             Color color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position));
@@ -180,6 +181,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     internalAI[0] = 0;
                     internalAI[1] = 0;
                     internalAI[3] = 0;
+                    SelectPoint = true;
                 }
                 else
                 {
@@ -219,7 +221,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         public void MonarchAI()
         {
             AIType = false;
-            NPC.TargetClosest(true);
+            //NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
 
             if (player.Center.X > NPC.Center.X) // so it faces the player
@@ -258,8 +260,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             if (internalAI[3] == AISTATE_DASH)
             {
-                if (SelectPoint && Main.netMode != NetmodeID.MultiplayerClient)
+                if ((SelectPoint || MovePoint == Vector2.Zero) && Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    NPC.direction = NPC.Center.X > player.Center.X ? -1 : 1;
                     float Point = 300 * NPC.direction;
                     MovePoint = player.Center + new Vector2(Point, 0);
                     SelectPoint = false;
@@ -272,15 +275,22 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 }
                 if (internalAI[0] >= 120)
                 {
+                    NPC.direction = NPC.Center.X > MovePoint.X ? -1 : 1;
                     MoveToPoint(MovePoint);
                     NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
                     Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, Color.LightCyan.R / 255, Color.LightCyan.G / 255, Color.LightCyan.B / 255);
-                    if (Vector2.Distance(NPC.Center, MovePoint) <= 0 && Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && 
+                        (Math.Abs(NPC.velocity.X) < 0.05f || 
+                        (NPC.direction == 1 && NPC.Center.X > MovePoint.X) || 
+                        (NPC.direction == -1 && NPC.Center.X < MovePoint.X))
+                    )
                     {
                         NPC.rotation = 0;
                         internalAI[0] = 0;
                         internalAI[3] = Main.rand.Next(3);
+                        SelectPoint = true;
                         NPC.netUpdate = true;
+                        MovePoint = Vector2.Zero;
                     }
                 }
             }
@@ -296,6 +306,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     NPC.noGravity = false;
                     internalAI[0] = 0;
                     internalAI[3] = Main.rand.Next(3);
+                    SelectPoint = true;
                     NPC.ai = new float[4];
                     NPC.netUpdate = true;
                     NPC.noTileCollide = false;
@@ -304,8 +315,12 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             else
             {
-                BaseAI.AICharger(NPC, ref NPC.ai, 0.07f, 10f, false, 30);
+                NPC.direction = (NPC.Center.X > player.Center.X ? -1 : 1);
+                if (NPC.velocity == Vector2.Zero)
+                    NPC.velocity = Vector2.UnitX * 0.1f * NPC.direction;
+                BaseAI.AICharger(NPC, ref NPC.ai, 0.5f, 15f, false);
                 NPC.rotation = 0;
+                MovePoint = Vector2.Zero;
             }
         }
 
@@ -335,11 +350,11 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             if (internalAI[1] == AISTATE_HOVER)
             {
-                BaseAI.AISpaceOctopus(NPC, ref NPC.ai, player.Center, 0.15f, 4f, 170, 56f, FireMagic);
+                BaseAI.AISpaceOctopus(NPC, ref NPC.ai, player.Center, 0.15f, 4f, 170, 8, FireMagic);
             }
             else if (internalAI[1] == AISTATE_FLIER)
             {
-                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f, 0.04f, 5f, 3f, false, 1);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.2f, 0.04f, 8f, 3f, false, 1);
             }
             else if (internalAI[1] == AISTATE_SHOOT)
             {
@@ -349,7 +364,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 }
                 if (internalAI[0] >= 60)
                 {
-                    int attack = Main.rand.Next(4);
+                    int attack = Main.rand.Next(2);
                     internalAI[1] = Main.rand.Next(3);
                     internalAI[0] = 0;
                     FungusAttack(attack);
@@ -440,25 +455,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             else
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < ProbeCount; i++)
                 {
-
-                    if (i == 1)
-                    {
-                        //NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y - 10, mod.NPCType<TruffleProbe>());
-                    }
-                    if (i == 2)
-                    {
-                       //NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y + 10, mod.NPCType<TruffleProbe>());
-                    }
-                    if (i == 3)
-                    {
-                        //NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y - 10, mod.NPCType<TruffleProbe>());
-                    }
-                    else
-                    {
-                       //NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y + 10, mod.NPCType<TruffleProbe>());
-                    }
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 10, (int)NPC.Center.Y - 10, ModContent.NPCType<TruffleProbe>(), ai0: i);
                 }
                 NPC.netUpdate = true;
             }
@@ -489,10 +488,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
             NPC.velocity *= moveSpeed;
-            if (NPC.direction == -1)
-                NPC.velocity *= velMultiplier;
-            else
-                NPC.velocity *= -velMultiplier;
+            NPC.velocity *= velMultiplier;
+            Collision.StepUp(ref NPC.position, ref NPC.velocity, NPC.width, NPC.height, ref NPC.stepSpeed, ref NPC.gfxOffY);
         }
 
 

@@ -993,6 +993,7 @@ namespace AAModClassic.Base.BaseMod.Base
                     if (npc.velocity.X < -maxSpeed) npc.velocity.X = -maxSpeed;
                 }
             }
+            Collision.StepUp(ref npc.position, ref npc.velocity, npc.width, npc.height, ref npc.stepSpeed, ref npc.gfxOffY);
         }
 
         /*

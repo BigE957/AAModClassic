@@ -33,7 +33,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.value = 0;
             NPC.npcSlots = 0;
             NPC.aiStyle = -1;
-            NPC.lifeMax = 500;
+            NPC.lifeMax = 250;
             NPC.defense = 0;
             NPC.damage = 20;
             //TODO
