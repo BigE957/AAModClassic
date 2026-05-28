@@ -56,15 +56,21 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             {
                 Item.shoot = ModContent.ProjectileType<TitanAxe_Proj>();
                 Item.noMelee = true;
-                Item.noUseGraphic = true;
+                //Item.noUseGraphic = true;
             }
             else
             {
                 Item.shoot = ProjectileID.None;
                 Item.noMelee = false;
-                Item.noUseGraphic = false;
+                //Item.noUseGraphic = false;
             }
             return base.CanUseItem(player);
 		}
+
+        public override void ModifyItemScale(Player player, ref float scale)
+        {
+            if (player.altFunctionUse == 2)
+                scale = 0f;
+        }
 	}
 }
