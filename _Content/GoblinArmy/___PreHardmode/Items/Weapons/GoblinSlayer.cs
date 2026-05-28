@@ -27,7 +27,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Weapons
 			Item.value = Item.sellPrice (0, 1, 0, 0);
 			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = false;
+			Item.autoReuse = true;
 		}
 
         public override bool AltFunctionUse(Player player)
