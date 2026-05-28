@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             NPC.height = 170;
             NPC.friendly = false;
             NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
-            NPC.value = Item.sellPrice(0, 40, 0, 0);
+            NPC.value = Item.buyPrice(0, 40, 0, 0);
             NPC.npcSlots = 1f;
             NPC.boss = true;
             NPC.lavaImmune = true;

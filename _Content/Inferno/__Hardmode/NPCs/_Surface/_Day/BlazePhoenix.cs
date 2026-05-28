@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
 			NPC.height = 30;
             NPC.aiStyle = -1;
             NPC.npcSlots = 1;
-            NPC.value = Item.sellPrice(0, 1, 25, 0);
+            NPC.value = Item.buyPrice(0, 1, 25, 0);
             NPC.lifeMax = 200;
             NPC.defense = 5;
             NPC.noGravity = true;

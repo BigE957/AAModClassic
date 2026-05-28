@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             NPC.height = 60;			
             NPC.aiStyle = -1;
 			NPC.knockBackResist = 0f;	
-            NPC.value = Item.sellPrice(0, 4, 50, 0);
+            NPC.value = Item.buyPrice(0, 4, 50, 0);
             NPC.npcSlots = 1f;
             NPC.lavaImmune = true;
             NPC.noGravity = true;

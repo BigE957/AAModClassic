@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 			NPC.lifeMax = 25;
 			NPC.knockBackResist = 0f;
 			AnimationType = NPCID.CorruptSlime;
-			NPC.value = Item.sellPrice(0, 0, 5, 0);
+			NPC.value = Item.buyPrice(0, 0, 5, 0);
 			NPC.alpha = 60;
 			NPC.lavaImmune = false;
 			NPC.noGravity = false;

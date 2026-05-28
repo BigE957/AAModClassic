@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
-            NPC.value = Item.sellPrice(0, 0, 10, 0);
+            NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnakeBanner>();

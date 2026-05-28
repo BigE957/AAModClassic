@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.damage = 25;
             NPC.defense = 10;
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             NPC.aiStyle = -1;
             NPC.width = 40;
             NPC.height = 60;

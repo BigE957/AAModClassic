@@ -37,7 +37,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             NPC.damage = 80;
             NPC.defense = 30;
             NPC.buffImmune[BuffID.Ichor] = true;
-            NPC.value = Item.sellPrice(0, 10, 0, 0);
+            NPC.value = Item.buyPrice(0, 10, 0, 0);
             NPC.knockBackResist = 0f;
             NPC.width = 92;
             NPC.height = 54;

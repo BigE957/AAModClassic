@@ -116,7 +116,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             frameHead = BaseDrawing.GetFrame(frameCount, frameWidth, 118, 0, 2);
             NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
             NPC.chaseable = false;
-            NPC.value = Item.sellPrice(0, 40, 0, 0);
+            NPC.value = Item.buyPrice(0, 40, 0, 0);
             Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

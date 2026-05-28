@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         {
             NPC.width = 60;
             NPC.height = 40;
-            NPC.value = Item.sellPrice(0, 0, 10, 0);
+            NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.npcSlots = 1;
 			NPC.aiStyle = -1;
             NPC.lifeMax = 500;

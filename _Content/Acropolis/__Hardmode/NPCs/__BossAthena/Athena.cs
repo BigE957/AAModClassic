@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         {
             NPC.width = 152;
             NPC.height = 114;
-            NPC.value = Item.sellPrice(0, 10, 0, 0);
+            NPC.value = Item.buyPrice(0, 10, 0, 0);
             NPC.npcSlots = 1000;
             NPC.aiStyle = -1;
             NPC.lifeMax = 40000;

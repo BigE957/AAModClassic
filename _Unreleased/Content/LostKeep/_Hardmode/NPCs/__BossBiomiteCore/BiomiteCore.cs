@@ -52,7 +52,7 @@ public class BiomiteCore : ModNPC
 		NPC.width = 74;
 		NPC.height = 70;
 		NPC.aiStyle = -1;
-		NPC.value = Item.sellPrice(0, 16);
+		NPC.value = Item.buyPrice(0, 16);
 		NPC.HitSound = SoundID.NPCHit4;
 		NPC.DeathSound = SoundID.NPCDeath14;
 		Music = MusicManagementSystem.MusicSlots["BiomiteCore"];

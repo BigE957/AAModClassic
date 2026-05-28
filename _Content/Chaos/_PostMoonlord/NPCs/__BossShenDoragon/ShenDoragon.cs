@@ -102,7 +102,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             NPC.damage = 120;
             NPC.defense = 70;
             NPC.lifeMax = 800000;
-            NPC.value = Item.sellPrice(20, 0, 0, 0);
+            NPC.value = Item.buyPrice(20, 0, 0, 0);
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             NPC.aiStyle = -1;

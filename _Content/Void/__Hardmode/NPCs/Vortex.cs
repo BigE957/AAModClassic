@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             NPC.damage = 40;
             NPC.defense = 40;
             NPC.lifeMax = 1000;
-            NPC.value = Item.sellPrice(0, 0, 50, 0);
+            NPC.value = Item.buyPrice(0, 0, 50, 0);
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0f;

@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         {
             NPC.width = 35;
             NPC.height = 35;
-            NPC.value = Item.sellPrice(0, 0, 5, 50);
+            NPC.value = Item.buyPrice(0, 0, 5, 50);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 300;

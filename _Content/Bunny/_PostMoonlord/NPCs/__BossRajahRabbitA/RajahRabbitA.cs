@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
             NPC.life = 1200000;
             Music = MusicManagementSystem.MusicSlots["Rajah_Awakened"];
             isSupreme = true;
-            NPC.value = Item.sellPrice(3, 0, 0, 0);
+            NPC.value = Item.buyPrice(3, 0, 0, 0);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

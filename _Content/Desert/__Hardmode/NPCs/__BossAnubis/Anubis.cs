@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.boss = true;
             Music = MusicLoader.GetMusicSlot("AAModMusic/Music/Anubis");
             //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
-            NPC.value = Item.sellPrice(0, 1, 0, 0);
+            NPC.value = Item.buyPrice(0, 1, 0, 0);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

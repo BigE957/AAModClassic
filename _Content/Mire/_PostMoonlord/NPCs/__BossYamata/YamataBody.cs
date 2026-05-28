@@ -124,7 +124,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             NPC.aiStyle = -1;
             NPC.damage = 0;
             NPC.lifeMax = 400000;
-            NPC.value = Item.sellPrice(0, 30, 0, 0);
+            NPC.value = Item.buyPrice(0, 30, 0, 0);
             NPC.defense = 999999;
             NPC.knockBackResist = 0f;
             NPC.boss = true;

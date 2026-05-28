@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             NPC.height = 60;
             NPC.aiStyle = -1;
 			NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 1, 50, 0);
+            NPC.value = Item.buyPrice(0, 1, 50, 0);
             NPC.npcSlots = 1f;
             NPC.boss = true;
             NPC.lavaImmune = true;

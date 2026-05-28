@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             NPC.damage = 130;
             NPC.defense = 40;
             NPC.lifeMax = 160000;
-            NPC.value = Item.sellPrice(0, 12, 0, 0);
+            NPC.value = Item.buyPrice(0, 12, 0, 0);
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

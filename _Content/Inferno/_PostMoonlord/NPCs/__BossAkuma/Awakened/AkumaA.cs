@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.damage = 150;
             NPC.defense = 90;
             NPC.lifeMax = 500000;
-            NPC.value = Item.sellPrice(0, 40, 0, 0);
+            NPC.value = Item.buyPrice(0, 40, 0, 0);
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             NPC.aiStyle = -1;

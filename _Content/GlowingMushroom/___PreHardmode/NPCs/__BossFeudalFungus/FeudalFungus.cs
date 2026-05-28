@@ -61,7 +61,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             NPC.damage = 24;  //boss damage
             NPC.defense = 12;    //boss defense
             NPC.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
-            NPC.value = Item.sellPrice(0, 0, 50, 0);
+            NPC.value = Item.buyPrice(0, 0, 50, 0);
             NPC.aiStyle = NPCAIStyleID.Unicorn;
             NPC.width = 74;
             NPC.height = 108;

@@ -144,7 +144,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             NPC.npcSlots = 1000f;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/Rajah");
-            NPC.value = Item.sellPrice(0, 1, 10, 0);
+            NPC.value = Item.buyPrice(0, 1, 10, 0);
             NPC.boss = true;
             NPC.netAlways = true;
             Music = MusicManagementSystem.MusicSlots["Rajah"];

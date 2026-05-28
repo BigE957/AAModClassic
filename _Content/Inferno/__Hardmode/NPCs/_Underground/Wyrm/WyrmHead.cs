@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             NPC.damage = 20;
             NPC.defense = 20;
             NPC.lifeMax = 4000;
-            NPC.value = Item.sellPrice(0, 0, 90, 0);
+            NPC.value = Item.buyPrice(0, 0, 90, 0);
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
             NPC.lavaImmune = true;

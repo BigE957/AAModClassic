@@ -76,7 +76,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.damage = 20;
             NPC.defense = 10;
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 1, 0, 0);
+            NPC.value = Item.buyPrice(0, 1, 0, 0);
             NPC.aiStyle = -1;
             NPC.width = 98;
             NPC.height = 72;

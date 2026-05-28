@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.damage = 30;  //boss damage
             NPC.defense = 8;    //boss defense
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             AIType = NPCID.Crawdad;
             AnimationType = NPCID.Crawdad;
             NPC.HitSound = SoundID.NPCHit1;

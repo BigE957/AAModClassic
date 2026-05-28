@@ -63,7 +63,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.damage = 50;
             NPC.defense = 40;
             NPC.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
-            NPC.value = Item.sellPrice(0, 12, 0, 0);
+            NPC.value = Item.buyPrice(0, 12, 0, 0);
             NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.width = 66;
             NPC.height = 104;

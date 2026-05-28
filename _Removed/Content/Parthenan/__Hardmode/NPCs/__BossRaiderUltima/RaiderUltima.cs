@@ -45,7 +45,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.damage = 70;
             NPC.defense = 30;
             NPC.lifeMax = 30000;
-            NPC.value = Item.sellPrice(0, 10, 0, 0);
+            NPC.value = Item.buyPrice(0, 10, 0, 0);
             NPC.buffImmune[BuffID.Ichor] = true;
             NPC.lavaImmune = true;
             NPC.boss = true;

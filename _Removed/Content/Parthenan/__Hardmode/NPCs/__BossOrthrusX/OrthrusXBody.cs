@@ -79,7 +79,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.damage = 0;
             NPC.defense = 99999999;
             NPC.lifeMax = 28000;
-            NPC.value = Item.sellPrice(0, 10, 0, 0);
+            NPC.value = Item.buyPrice(0, 10, 0, 0);
             //TODO
             //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
             //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);

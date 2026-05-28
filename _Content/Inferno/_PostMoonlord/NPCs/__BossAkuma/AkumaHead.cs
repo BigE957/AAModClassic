@@ -60,11 +60,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             NPC.lifeMax = 400000;
             if (Main.expertMode)
             {
-                NPC.value = Item.sellPrice(0, 0, 0, 0);
+                NPC.value = Item.buyPrice(0, 0, 0, 0);
             }
             else
             {
-                NPC.value = Item.sellPrice(0, 30, 0, 0);
+                NPC.value = Item.buyPrice(0, 30, 0, 0);
             }
             NPC.knockBackResist = 0f;
             NPC.boss = true;

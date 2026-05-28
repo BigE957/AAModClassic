@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             }
             else
             {
-                NPC.value = Item.sellPrice(0, 30, 0, 0);
+                NPC.value = Item.buyPrice(0, 30, 0, 0);
             }
             NPC.width = 198;
             NPC.height = 198;

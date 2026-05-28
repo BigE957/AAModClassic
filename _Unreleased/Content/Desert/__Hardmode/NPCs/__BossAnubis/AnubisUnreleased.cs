@@ -142,7 +142,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["Anubis"];
             //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
-            NPC.value = Item.sellPrice(0, 1, 0, 0);
+            NPC.value = Item.buyPrice(0, 1, 0, 0);
             NPC.noTileCollide = false;
         }
 

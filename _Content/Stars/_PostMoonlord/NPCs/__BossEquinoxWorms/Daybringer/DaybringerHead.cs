@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             NPC.lifeMax = 100000;
             NPC.damage = 125;
             NPC.defense = 100;
-            NPC.value = Item.sellPrice(0, 10, 0, 0);
+            NPC.value = Item.buyPrice(0, 10, 0, 0);
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

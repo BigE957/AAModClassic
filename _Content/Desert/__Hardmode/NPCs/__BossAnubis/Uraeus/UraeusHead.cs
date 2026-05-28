@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis.Uraeus
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
-            NPC.value = Item.sellPrice(0, 0, 0, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

@@ -23,7 +23,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             NPC.noGravity = true;
             NPC.noTileCollide = false;
             NPC.knockBackResist = 0.5f;
-            NPC.value = Item.sellPrice(0, 0, 8, 30);
+            NPC.value = Item.buyPrice(0, 0, 8, 30);
             NPC.npcSlots = 0f;
             NPC.lavaImmune = true;
             NPC.netAlways = true;

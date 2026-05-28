@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             NPC.damage = 130;
             NPC.defense = 80;
             NPC.lifeMax = 1000000;
-            NPC.value = Item.sellPrice(1, 0, 0, 0);
+            NPC.value = Item.buyPrice(1, 0, 0, 0);
             Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
             SceneEffectPriority = (SceneEffectPriority)11;
             //IsAwakened = true;

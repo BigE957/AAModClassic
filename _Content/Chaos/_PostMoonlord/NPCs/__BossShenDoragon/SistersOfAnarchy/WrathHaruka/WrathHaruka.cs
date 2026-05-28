@@ -45,7 +45,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             NPC.defense = 180;
             NPC.lifeMax = 130000;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.value = Item.sellPrice(0, 0, 0, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.knockBackResist = 0f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             NPC.netAlways = true;
             NPC.friendly = false;
             NPC.lifeMax = 6000;
-            NPC.value = Item.sellPrice(0, 5, 0, 0);
+            NPC.value = Item.buyPrice(0, 5, 0, 0);
             NPC.behindTiles = true;
             NPC.knockBackResist = 0f;
             NPC.HitSound = SoundID.NPCHit6;

@@ -22,7 +22,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             NPC.damage = 6;
             NPC.defense = 5; 
             NPC.knockBackResist = 1f;
-            NPC.value = Item.sellPrice(0, 0, 0, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.aiStyle = -1;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;

@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.damage = 40;
             NPC.defense = 300;
             NPC.lifeMax = 4000;
-            NPC.value = Item.sellPrice(0, 5, 0, 0);
+            NPC.value = Item.buyPrice(0, 5, 0, 0);
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item80;
             NPC.knockBackResist = 0f;

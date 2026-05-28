@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
         {
             NPC.width = 42;
             NPC.height = 38;
-            NPC.value = Item.sellPrice(0, 0, 0, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 2500;

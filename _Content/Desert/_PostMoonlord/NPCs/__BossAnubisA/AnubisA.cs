@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["Anubis_Awakened"];
-            NPC.value = Item.sellPrice(0, 10, 0, 0);
+            NPC.value = Item.buyPrice(0, 10, 0, 0);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             NPC.damage = 18;
             NPC.defense = 10;
             NPC.lifeMax = 100;
-            NPC.value = Item.sellPrice(0, 0, 3, 50);
+            NPC.value = Item.buyPrice(0, 0, 3, 50);
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
             NPC.lavaImmune = true;

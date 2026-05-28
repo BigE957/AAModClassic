@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.lifeMax = 140;
             NPC.damage = 8;
             NPC.defense = 14;
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             NPC.aiStyle = -1;
             NPC.width = 56;
             NPC.height = 28;

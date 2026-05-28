@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             NPC.defense = 120;
             NPC.lifeMax = 180000;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.value = Item.sellPrice(0, 12, 0, 0);
+            NPC.value = Item.buyPrice(0, 12, 0, 0);
             NPC.knockBackResist = 0f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
