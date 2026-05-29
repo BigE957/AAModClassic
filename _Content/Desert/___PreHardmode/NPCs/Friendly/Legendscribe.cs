@@ -17,6 +17,7 @@ using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
@@ -165,6 +166,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
         public static bool Hydra = false;
         public static bool Djinn = false;
         public static bool Serpent = false;
+        public static bool Retriever = false;
+        public static bool OrthrusX = false;
+        public static bool RaiderUltima = false;
         public static bool AnubisB = false;
         public static bool Athena = false;
         public static bool Greed = false;
@@ -438,6 +442,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
 
         public override bool PreAI()
         {
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                NPC.Transform(ModContent.NPCType<LegendscribeUnofficial>());
+                return false;
+            }
+
             if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) ||
@@ -588,6 +598,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentN");
             }
+
             else if (AnubisB)
             {
                 if (!BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
