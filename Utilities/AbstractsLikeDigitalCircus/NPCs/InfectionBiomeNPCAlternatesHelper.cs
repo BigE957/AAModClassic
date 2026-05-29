@@ -94,7 +94,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
             {
                 if (biome.Priority > myBiome.Priority && biome.IsActive.Invoke(p))
                 {
-                    Main.NewText(biome.Name);
+                    //Main.NewText(biome.Name);
                     myBiome = biome;
                 }
             }
