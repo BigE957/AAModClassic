@@ -57,4 +57,16 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
             recipe.Register();
         }
     }
+
+    public class CrystalTomeGlobalProjectile : GlobalProjectile
+    {
+        public override void OnSpawn(Projectile projectile, IEntitySource source)
+        {
+            if(projectile.type == ProjectileID.CrystalShard && source is EntitySource_Parent { Entity: Projectile proj })
+            {
+                if (proj.DamageType == DamageClass.Magic)
+                    projectile.DamageType = DamageClass.Magic;
+            }
+        }
+    }
 }

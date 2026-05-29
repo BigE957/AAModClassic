@@ -177,7 +177,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     num629 *= 10f;
                     int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<HydraSoulProj>(), Projectile.damage * 3, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
                     num3 = num627;
-                    Main.projectile[p].DamageType = DamageClass.Magic;
+                    Main.projectile[p].DamageType = DamageClass.Ranged;
                     Main.projectile[p].timeLeft = 240;
                 }
             }

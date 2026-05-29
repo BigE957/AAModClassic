@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
             Projectile.penetrate = -1;                       //this is the projectile penetration
             Main.projFrames[Projectile.type] = 1;           //this is projectile frames
             Projectile.hostile = false;
-            Projectile.DamageType = DamageClass.Magic;                        //this make the projectile do magic damage
+            Projectile.DamageType = DamageClass.Melee;                        //this make the projectile do melee damage
             Projectile.tileCollide = true;                 //this make that the projectile does not go thru walls
             Projectile.ignoreWater = true;
         }

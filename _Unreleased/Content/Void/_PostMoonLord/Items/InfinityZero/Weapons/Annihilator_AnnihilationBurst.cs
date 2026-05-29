@@ -26,6 +26,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Projectile.localNPCHitCooldown = 6;
             Projectile.scale *= 1.3f;
             Projectile.alpha = 255;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public override Color? GetAlpha(Color lightColor)

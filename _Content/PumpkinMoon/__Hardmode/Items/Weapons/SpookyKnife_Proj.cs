@@ -63,6 +63,7 @@ namespace AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Weapons
 				vel *= 4f;
 				int type = Main.rand.Next(326,328);
 				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, type, Projectile.damage/2, 0, Main.myPlayer);
+				Main.projectile[proj].DamageType = DamageClass.Ranged;
 				Main.projectile[proj].hostile = false;
 				Main.projectile[proj].friendly = true;
 			}

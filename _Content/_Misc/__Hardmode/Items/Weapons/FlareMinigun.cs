@@ -108,11 +108,15 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
             {
                 num45 = 310;
             }
-            Projectile.NewProjectile(source, vector.X, vector.Y, speedX2, speedY2, num45, damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, velocity.X, velocity.Y, num45, damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, speedX3, speedY3, num45, damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, speedX4, speedY4, num45, damage, knockback, player.whoAmI);
-			return false;
+            Projectile p = Projectile.NewProjectileDirect(source, vector, new Vector2(speedX2, speedY2), num45, damage, knockback, player.whoAmI);
+			p.DamageType = DamageClass.Ranged;
+            p = Projectile.NewProjectileDirect(source, vector, velocity, num45, damage, knockback, player.whoAmI);
+            p.DamageType = DamageClass.Ranged;
+            p = Projectile.NewProjectileDirect(source, vector, new Vector2(speedX3, speedY3), num45, damage, knockback, player.whoAmI);
+            p.DamageType = DamageClass.Ranged;
+            p = Projectile.NewProjectileDirect(source, vector, new Vector2(speedX4, speedY4), num45, damage, knockback, player.whoAmI);
+            p.DamageType = DamageClass.Ranged;
+            return false;
 		}
 		
 		public override void AddRecipes()

@@ -1,5 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,7 +36,14 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 			Item.shootSpeed = 6f;
 		}
 
-		public override void AddRecipes()
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile p = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
+            p.DamageType = DamageClass.Magic;
+            return false;
+        }
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);

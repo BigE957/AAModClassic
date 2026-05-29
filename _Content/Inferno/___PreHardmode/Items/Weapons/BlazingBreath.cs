@@ -1,5 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,7 +11,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
     {
         public override void SetDefaults()
         {
-
             Item.damage = 30;                        
             Item.DamageType = DamageClass.Magic;                     
             Item.width = 24;
@@ -32,6 +33,13 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         {
           // DisplayName.SetDefault("Blazing Breath");
           // Tooltip.SetDefault("");
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile p = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
+            p.DamageType = DamageClass.Magic;
+            return false;
         }
 
 		public override void AddRecipes()  

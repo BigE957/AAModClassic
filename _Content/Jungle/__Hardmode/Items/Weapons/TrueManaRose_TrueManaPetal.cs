@@ -16,6 +16,7 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items.Weapons
 			Projectile.friendly = true;
 			Projectile.hostile = false;
             Projectile.timeLeft = 900;
+            Projectile.DamageType = DamageClass.Magic;
         }
 		
 		public override void AI()

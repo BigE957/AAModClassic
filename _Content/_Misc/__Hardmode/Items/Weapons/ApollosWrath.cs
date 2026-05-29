@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,6 +33,13 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
             // DisplayName.SetDefault("Apollo's Wrath");
             /* Tooltip.SetDefault(@"Shoots Shadow beams
 Doesn't use Ammo"); */
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile p = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
+            p.DamageType = DamageClass.Ranged;
+            return false;
         }
 
         public override void AddRecipes()

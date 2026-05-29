@@ -159,7 +159,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 {
                     case 0:
 						SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
-						Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, velocity.X, velocity.Y, ProjectileID.Spark, Projectile.damage, 1f, player.whoAmI);
+						Projectile p = Projectile.NewProjectileDirect(Projectile.GetSource_Death(), vector2, velocity, ProjectileID.Spark, Projectile.damage, 1f, player.whoAmI);
+						p.DamageType = DamageClass.Magic;
 						break;
 					case 1:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);

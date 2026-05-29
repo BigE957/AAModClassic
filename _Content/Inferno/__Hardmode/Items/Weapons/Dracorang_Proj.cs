@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(106);
-            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;  
             Projectile.width = 22;
             Projectile.height = 32;

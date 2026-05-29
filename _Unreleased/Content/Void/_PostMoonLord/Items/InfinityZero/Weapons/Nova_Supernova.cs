@@ -27,6 +27,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Projectile.velocity.X = 0;
             Projectile.velocity.Y = 0;
             Projectile.alpha = 0;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override void AI()

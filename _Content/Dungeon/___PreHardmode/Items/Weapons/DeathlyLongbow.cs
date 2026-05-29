@@ -58,12 +58,15 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == ProjectileID.BoneArrow)
-                Projectile.NewProjectile(source, position, velocity, ProjectileID.Skull, damage, knockback, player.whoAmI);
+            if (type == ProjectileID.BoneArrowFromMerchant)
+            {
+                Projectile p = Projectile.NewProjectileDirect(source, position, velocity, ProjectileID.Skull, damage, knockback, player.whoAmI);
+                p.DamageType = DamageClass.Ranged;
+            }
             else
                 Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
 
-            return true;
+            return false;
         }
     }
 }

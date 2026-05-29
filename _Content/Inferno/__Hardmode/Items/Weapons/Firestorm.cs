@@ -41,7 +41,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 			for (int i = 0; i < numberProjectiles; i++)
 			{
 				Vector2 perturbedSpeed = new Vector2(velocity.X*4, velocity.Y*4).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f;
-				Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI);
+				Projectile p = Projectile.NewProjectileDirect(source, position, perturbedSpeed, type, damage, knockback, player.whoAmI);
+				p.DamageType = DamageClass.Melee;
 			}
 			return false;
 		}

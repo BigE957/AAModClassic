@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public override Color? GetAlpha(Color lightColor)

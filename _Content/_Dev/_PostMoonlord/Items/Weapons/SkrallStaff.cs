@@ -62,6 +62,7 @@ It's the stick that's magic. The diamond is just for show
                 Item.useTime = 30;
                 Item.useAnimation = 30;
                 Item.useStyle = ItemUseStyleID.Shoot;
+                Item.DamageType = DamageClass.Magic;
                 Item.noMelee = true; //so the item's animation doesn't do damage
                 Item.damage = 270;
                 Item.shoot = ModContent.ProjectileType<SkrallStaff_BigCrystal>();
@@ -73,7 +74,7 @@ It's the stick that's magic. The diamond is just for show
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.useTime = 5;
                 Item.useAnimation = 5;
-                Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+                Item.DamageType = DamageClass.Melee;
                 Item.shoot = ModContent.ProjectileType<SkrallStaff_Crystal>();
                 Item.damage = 170;
                 Item.noMelee = false;

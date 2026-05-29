@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 
         public override void SetDefaults()
         {
-	    Projectile.aiStyle = -1;
+	        Projectile.aiStyle = -1;
             Projectile.width = 26;
             Projectile.height = 26;
             Projectile.friendly = true;

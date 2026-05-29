@@ -23,7 +23,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Projectile.width = 60;
             Projectile.height = 60;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.ignoreWater = true;
             Projectile.penetrate = 5;
             Projectile.tileCollide = false;

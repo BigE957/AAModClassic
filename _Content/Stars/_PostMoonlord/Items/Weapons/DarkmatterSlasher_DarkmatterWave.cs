@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Projectile.penetrate = 1;                     
             Main.projFrames[Projectile.type] = 1;           
             Projectile.hostile = false;
-            Projectile.DamageType = DamageClass.Magic;                        
+            Projectile.DamageType = DamageClass.Melee;                        
             Projectile.tileCollide = false;                 
             Projectile.ignoreWater = true;
         }

@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
             Projectile.friendly = true;
             Projectile.light = 0.8f;
             Projectile.alpha = 100;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 2;
         }
 

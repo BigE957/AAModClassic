@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Projectile.penetrate = 4;                       //this is the projectile penetration
             Main.projFrames[Projectile.type] = 3;           //this is projectile frames
             Projectile.hostile = false;
-            Projectile.DamageType = DamageClass.Magic;                        //this make the projectile do magic damage
+            Projectile.DamageType = DamageClass.Ranged;                        //this make the projectile do magic damage
             Projectile.tileCollide = true;                 //this make that the projectile does not go thru walls
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 900;

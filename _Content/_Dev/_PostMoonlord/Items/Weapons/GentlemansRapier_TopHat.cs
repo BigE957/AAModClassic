@@ -19,7 +19,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Projectile.penetrate = -1;                       //this is the projectile penetration
             Main.projFrames[Projectile.type] = 4;           //this is projectile frames
             Projectile.hostile = false;
-            Projectile.DamageType = DamageClass.Ranged;                        //this make the projectile do magic damage
+            Projectile.DamageType = DamageClass.Melee;                        //this make the projectile do magic damage
             Projectile.tileCollide = false;                 //this make that the projectile does not go thru walls
             Projectile.ignoreWater = true;
         }

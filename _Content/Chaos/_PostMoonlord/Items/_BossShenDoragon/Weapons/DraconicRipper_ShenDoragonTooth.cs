@@ -18,6 +18,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
         {
             Projectile.CloneDefaults(ProjectileID.Bullet);
             Projectile.aiStyle = 0;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public override void AI() // Executes methods below

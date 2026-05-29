@@ -25,6 +25,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items.Weapons
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public float[] internalAI = new float[1];

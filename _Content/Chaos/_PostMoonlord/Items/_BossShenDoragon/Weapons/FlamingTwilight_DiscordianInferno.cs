@@ -24,6 +24,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             Projectile.friendly = true;
             Projectile.hostile = false;
 			Projectile.extraUpdates = 1;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
 

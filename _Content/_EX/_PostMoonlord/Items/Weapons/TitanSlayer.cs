@@ -10,12 +10,15 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class TitanSlayer : BaseAAItem
 	{
+        private static bool RogueMaxxing = false;
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Titan Slayer");
             /* Tooltip.SetDefault(@"Left click to quickly swing the axe
 Right click to throw the axe
 Titan Axe EX"); */
+            if (ModLoader.TryGetMod("CalamityMod", out _))
+                RogueMaxxing = true;
 		}
 
 		public override void SetDefaults()
@@ -53,7 +56,7 @@ Titan Axe EX"); */
             {
                 Item.damage = 300;
                 Item.useStyle = ItemUseStyleID.Swing;
-                Item.DamageType = DamageClass.Throwing;
+                Item.DamageType = RogueMaxxing ? DamageClass.Throwing : DamageClass.Ranged;
                 Item.shoot = ModContent.ProjectileType<TitanSlayer_Proj>();
             }
             else

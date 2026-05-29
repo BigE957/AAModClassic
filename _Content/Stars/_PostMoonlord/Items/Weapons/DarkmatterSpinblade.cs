@@ -62,7 +62,6 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
                 if(i == 1) continue;
                 offsetAngle = startAngle + deltaAngle * i;
                 int proj = Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<DarkmatterSpinblade_EnergyBlade>(), damage, knockback, Item.playerIndexTheItemIsReservedFor);
-                Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             return true;
         }

@@ -24,7 +24,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.localNPCHitCooldown = 15;
             Projectile.scale *= 1.3f;
         }

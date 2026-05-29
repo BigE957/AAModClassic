@@ -19,6 +19,7 @@ namespace AAModClassic._Content.Snow.Projectiles
             Projectile.hostile = false;
             Projectile.friendly = true;
 			Projectile.penetrate = 5;
+            Projectile.DamageType = DamageClass.Melee;
 		}
         public override void PostAI()
         {

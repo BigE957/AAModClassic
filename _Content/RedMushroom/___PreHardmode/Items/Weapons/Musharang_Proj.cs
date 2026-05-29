@@ -23,7 +23,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
             Projectile.tileCollide = true;
             Projectile.damage = 1;
             Projectile.penetrate = -1;
-            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
 		public override void AI()

@@ -18,6 +18,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Projectile.penetrate = 1;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 300;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override Color? GetAlpha(Color lightColor)
