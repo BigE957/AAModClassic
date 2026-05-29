@@ -182,6 +182,9 @@ namespace AAModClassic._Content.Void.World.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
+            if (AAMod.instance == null)
+                return;
+
             Texture2D PlanetTexture = BlackHoleTex.Value;
             Texture2D LB = BlackHoleLightningTex.Value;
             Texture2D Asteroids1 = AsteroidTex0.Value;
