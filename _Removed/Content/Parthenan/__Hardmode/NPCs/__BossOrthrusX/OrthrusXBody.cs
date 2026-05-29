@@ -81,8 +81,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.lifeMax = 28000;
             NPC.value = Item.buyPrice(0, 10, 0, 0);
             //TODO
-            //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
-            //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             NPC.netAlways = true;

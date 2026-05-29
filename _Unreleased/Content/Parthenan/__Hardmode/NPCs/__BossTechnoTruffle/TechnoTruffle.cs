@@ -77,8 +77,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             //TODO
-            //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
-            //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["TechnoTruffle"];
             SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }

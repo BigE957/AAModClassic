@@ -48,8 +48,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             //TODO
-            //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
-            //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.netAlways = true;
             Music = MusicManagementSystem.MusicSlots["Siege"];
             SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];

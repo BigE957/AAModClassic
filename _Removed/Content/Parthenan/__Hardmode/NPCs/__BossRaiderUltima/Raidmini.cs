@@ -34,8 +34,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.defense = 9;
             NPC.lifeMax = 250;
             //TODO
-            //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
-            //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0.3f;
             NPC.value = 0f;
             NPC.npcSlots = 0.1f;

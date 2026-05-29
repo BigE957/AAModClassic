@@ -52,8 +52,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.damage = 40;
             NPC.npcSlots = 0;
             //TODO
-            //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
-            //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["Siege"];
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;

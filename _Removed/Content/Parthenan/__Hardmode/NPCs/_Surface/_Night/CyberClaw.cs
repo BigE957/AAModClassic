@@ -5,6 +5,7 @@ using AAModClassic.Utilities;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
@@ -26,8 +27,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
             NPC.defense = 4;
             NPC.lifeMax = 300;
             //TODO
-            //NPC.HitSound = new LegacySoundStyle(3, 4, SoundType.Sound);
-            //NPC.DeathSound = new LegacySoundStyle(4, 14, SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.value = 100f;
             NPC.knockBackResist = 0.6f;
             NPC.noGravity = true;
