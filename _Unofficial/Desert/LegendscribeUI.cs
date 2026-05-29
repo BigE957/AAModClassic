@@ -1261,7 +1261,7 @@ namespace AAModClassic._Unofficial.Desert
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Background.Value, GetOuterDimensions().ToRectangle(), Color.Black);
+            spriteBatch.Draw(Background.Value, GetOuterDimensions().ToRectangle(), LegendscribeQuestUI.CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.White : Color.Black);
 
             Rectangle parentArea = Parent.Parent.GetInnerDimensions().ToRectangle();
             float width = parentArea.Width;

@@ -120,10 +120,43 @@ Quests: {
 
 			Description: {
 				Incomplete: You know the void? Those spooky floating islands to the east? I swear I saw a robot horse flying around there. Gave me the heebie-jeebies! I was thinking, would you be able to take care of that tin can for me?
-				Complete: ...
+				Complete: Nice job dealing with that horse. I don't know why, but I'm suddenly feeling pretty hungry...
 			}
 
 			Tasks: - Defeat Sagittarius
+		}
+
+		Retriever: {
+			Name: Gotcha'
+
+			Description: {
+				Incomplete: Remember the Grips of Chaos? Those nasty grabby hands? There's a robotic one and it keeps stealing my stuff. Can you do me a favor and go throw a wrench at it or something?
+				Complete: Did you get my 3rd edition of 'The Life and Epic Adventures of Anubis the Wonder Dog!' back by any chance?
+			}
+
+			Tasks: - Defeat the Retriever
+		}
+
+		OrthrusX: {
+			Name: Two heads; zero brains
+
+			Description: {
+				Incomplete: Remeber the Hydra? There's a bigger one out there. And it's a robot. And it uh...shoots lightning. So uh...good luck!
+				Complete: I guess orthrus is what it eats, now.
+			}
+
+			Tasks: - Defeat Orthrus X
+		}
+
+		RaiderUltima: {
+			Name: Mechanical Mass
+
+			Description: {
+				Incomplete: People said that they saw strange shade in one of the nights. It was so big that it even closed the moon for a moment. You should discover this mystery and do something.
+				Complete: So it was a giant robot after all? Well, sometimes people just overthinking the problem. That thing was almost as fat as the Broodmother.
+			}
+
+			Tasks: - Defeat Raider Ultima
 		}
 
 		Anubis: {

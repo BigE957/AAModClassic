@@ -197,6 +197,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             Hydra = false;
             Djinn = false;
             Serpent = false;
+            Retriever = false;
+            OrthrusX = false;
+            RaiderUltima = false;
             AnubisB = false;
             Athena = false;
             Greed = false;
@@ -233,6 +236,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
 
             string SerpentT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
 
+            string RetrieverT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+
+            string OrthrusT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+
+            string RaiderT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+
             string AnubisT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons14");
 
             string AthenaT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons21");
@@ -262,6 +271,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             string RajahCT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons26");
             
             button = SwitchInfoT;
+
+            int siegeOffset = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) ? 3 : 0;
 
             if (ChatNumber == 0)
 			{
@@ -303,72 +314,87 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 button2 = SerpentT;
                 Serpent = true;
             }
-            else if (ChatNumber == 8 && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
+            else if (siegeOffset == 3 && Main.hardMode && ChatNumber == 8)
+            {
+                button2 = RetrieverT;
+                Retriever = true;
+            }
+            else if (siegeOffset == 3 && Main.hardMode && ChatNumber == 9)
+            {
+                button2 = OrthrusT;
+                OrthrusX = true;
+            }
+            else if (siegeOffset == 3 && Main.hardMode && ChatNumber == 10)
+            {
+                button2 = RaiderT;
+                RaiderUltima = true;
+            }
+            else if (ChatNumber == 8 + siegeOffset && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
             {
                 button2 = AnubisT;
                 AnubisB = true;
             }
-            else if (ChatNumber == 9 && NPCExtensions.BeenKilled<Anubis>())
+            else if (ChatNumber == 9 + siegeOffset && NPCExtensions.BeenKilled<Anubis>())
             {
                 button2 = AthenaT;
                 Athena = true;
             }
-            else if (ChatNumber == 10 && NPCExtensions.BeenKilled<Anubis>())
+            else if (ChatNumber == 10 + siegeOffset && NPCExtensions.BeenKilled<Anubis>())
             {
                 button2 = GreedT;
                 Greed = true;
             }
-            else if (ChatNumber == 11 && Main.hardMode)
+            else if (ChatNumber == 11 + siegeOffset && Main.hardMode)
             {
                 button2 = RajahT;
                 Rajah = true;
             }
-            else if (ChatNumber == 12 && NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
+            else if (ChatNumber == 12 + siegeOffset && NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
             {
                 button2 = AnubisFT;
                 AnubisF = true;
             }
-            else if (ChatNumber == 13 && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<Athena>())
+            else if (ChatNumber == 13 + siegeOffset && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<Athena>())
             {
                 button2 = AthenaAT;
                 AthenaA = true;
             }
-            else if (ChatNumber == 14 && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<GreedHead>())
+            else if (ChatNumber == 14 + siegeOffset && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<GreedHead>())
             {
                 button2 = GreedAT;
                 GreedA = true;
             }
-            else if (ChatNumber == 15 && NPCExtensions.BeenKilled<GreedAHead>() && NPCExtensions.BeenKilled<AthenaA>())
+            else if (ChatNumber == 15 + siegeOffset && NPCExtensions.BeenKilled<GreedAHead>() && NPCExtensions.BeenKilled<AthenaA>())
             {
                 button2 = EquinoxT;
                 Equinox = true;
             }
-            else if (ChatNumber == 16 && NPC.downedMoonlord && AAWorld.downedEquinox)
+            else if (ChatNumber == 16 + siegeOffset && NPC.downedMoonlord && AAWorld.downedEquinox)
             {
                 button2 = SistersT;
                 Sisters = true;
             }
-            else if (ChatNumber == 17 && NPC.downedMoonlord && AAWorld.downedSisters)
+            else if (ChatNumber == 17 + siegeOffset && NPC.downedMoonlord && AAWorld.downedSisters)
             {
                 button2 = AkumaT;
                 Akuma = true;
             }
-            else if (ChatNumber == 18 && NPC.downedMoonlord && AAWorld.downedSisters)
+            else if (ChatNumber == 18 + siegeOffset && NPC.downedMoonlord && AAWorld.downedSisters)
             {
                 button2 = YamataT;
                 Yamata = true;
             }
-            else if (ChatNumber == 19 && NPC.downedMoonlord && AAWorld.downedNC)
+            else if (ChatNumber == 19 + siegeOffset && NPC.downedMoonlord && AAWorld.downedNC)
             {
                 button2 = ZeroT;
                 Zero = true;
             }
-            else if (ChatNumber == 20 && NPCExtensions.BeenKilled<RajahRabbitA>())
+            else if (ChatNumber == 20 + siegeOffset && NPCExtensions.BeenKilled<RajahRabbitA>())
             {
                 button2 = RajahCT;
                 RajahC = true;
             }
-            else if (ChatNumber == 21 && AAWorld.downedAllAncients)
+            else if (ChatNumber == 21 + siegeOffset && AAWorld.downedAllAncients)
             {
                 button2 = ShenT;
                 Shen = true;
@@ -598,7 +624,21 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
                 return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentN");
             }
-
+            else if (Retriever)
+            {
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRetrieverY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRetrieverN");
+            }
+            else if (OrthrusX)
+            {
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedOrthrusXY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedOrthrusXN");
+            }
+            else if (RaiderUltima)
+            {
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRaiderUltimaY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRaiderUltimaN");
+            }
             else if (AnubisB)
             {
                 if (!BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
