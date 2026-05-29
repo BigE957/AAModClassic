@@ -7,6 +7,7 @@ using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -15,8 +16,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using static AAModClassic.Utilities.WorldGenUtils;
-using static Terraria.WorldBuilding.Actions;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 {
@@ -40,10 +39,48 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 
     public class LostKeepGeneration : MicroBiome
 	{
-		public override bool Place(Point origin, StructureMap structures)
+		private static bool ShouldAvoidLocation(Point p)
 		{
-			Mod instance = AAMod.instance;
-			Dictionary<Color, int> ColorToTile = new Dictionary<Color, int>();
+			Tile tile = Framing.GetTileSafely(p);
+
+			if (tile.TileType == TileID.Sand ||
+				tile.TileType == TileID.Sandstone ||
+				tile.TileType == TileID.HardenedSand ||
+				tile.TileType == TileID.Mud ||
+				tile.TileType == TileID.JungleGrass ||
+                tile.TileType == TileID.MushroomGrass)
+				return true;
+
+			return false;
+		}
+
+        public override bool Place(Point origin, StructureMap structures)
+		{
+			int attempts = 0;
+			int maxAttempts = 1000;
+			Point originOffset = Point.Zero;
+			do
+			{
+				bool canGenerateInLocation = true;
+
+				Point placementPoint = origin + originOffset;
+				for (int x = placementPoint.X; x < placementPoint.X + LostKeepTexGenAssets.KeepTileData.Width; x++)
+					for (int y = placementPoint.Y; y < placementPoint.Y + LostKeepTexGenAssets.KeepTileData.Height; y++)
+						if (ShouldAvoidLocation(new Point(x, y)))
+							canGenerateInLocation = false;
+
+				if (canGenerateInLocation && structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height)))
+				{
+					WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
+					break;
+				}
+				originOffset = new(WorldGen.genRand.Next(-300, 300), WorldGen.genRand.Next(-100, 500));
+			}
+			while (attempts++ < maxAttempts);
+
+			origin += originOffset;
+
+            Dictionary<Color, int> ColorToTile = new Dictionary<Color, int>();
 			ColorToTile[new(128, 128, 128)] = ModContent.TileType<KeepBrick_Tile>();
 			ColorToTile[new(64, 64, 64)] = ModContent.TileType<TerraBrick_Tile>();
 			ColorToTile[new(0, 128, 0)] = ModContent.TileType<TerraCrystalBack_Tile>();
@@ -70,21 +107,21 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			Dictionary<Color, int> colorToWall = dictionary2;
 			WorldUtils.Gen(origin, new Shapes.Rectangle(280, 230), Actions.Chain((GenAction[])(object)new GenAction[3]
 			{
-			new InWorld(),
-			(GenAction)new SetLiquid(0, (byte)0),
-			(GenAction)new SetSlope(0)
+				new WorldGenUtils.InWorld(),
+				new Actions.SetLiquid(0, (byte)0),
+				new Actions.SetSlope(0)
 			}));
 			TexGen texGenerator = TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepTileData, colorToTile, LostKeepTexGenAssets.KeepWallData, colorToWall, null, LostKeepTexGenAssets.KeepSlopeData);
-			int x = origin.X;
-			int y = origin.Y;
-			texGenerator.Generate(x, y, silent: true, sync: true);
+			int placeX = origin.X;
+			int placeY = origin.Y;
+			texGenerator.Generate(placeX, placeY, silent: true, sync: true);
 			Dictionary<Color, int> dictionary3 = new Dictionary<Color, int>();
 			dictionary3[new(255, 0, 0)] = TileID.AmberGemspark;
 			dictionary3[new(0, 255, 0)] = TileID.TopazGemspark;
 			dictionary3[new(255, 0, 255)] = TileID.AmethystGemspark;
 			dictionary3[Color.Black] = -1;
 			Dictionary<Color, int> colorToTile2 = dictionary3;
-			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepPlatformData, colorToTile2).Generate(x, y, silent: true, sync: true);
+			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepPlatformData, colorToTile2).Generate(placeX, placeY, silent: true, sync: true);
 			for (int i = origin.X; i < origin.X + LostKeepTexGenAssets.KeepPlatformData.Width; i++)
 			{
 				for (int j = origin.Y; j < origin.Y + LostKeepTexGenAssets.KeepPlatformData.Height; j++)
@@ -128,7 +165,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			dictionary4[new(64, 0, 0)] = TileID.LivingCursedFire;
 			dictionary4[Color.Black] = -1;
 			Dictionary<Color, int> colorToTile3 = dictionary4;
-			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepObjectData, colorToTile3).Generate(x, y, silent: true, sync: true);
+			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepObjectData, colorToTile3).Generate(placeX, placeY, silent: true, sync: true);
 			for (int i = origin.X; i < origin.X + LostKeepTexGenAssets.KeepObjectData.Width; i++)
 			{
 				for (int j = origin.Y; j < origin.Y + LostKeepTexGenAssets.KeepObjectData.Height; j++)

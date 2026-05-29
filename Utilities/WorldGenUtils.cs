@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.WorldBuilding;
 
@@ -390,6 +391,25 @@ namespace AAModClassic.Utilities
                 }
             }
             Main.tileSolid[137] = true;
+        }
+
+        public static void AddProtectedStructure(Rectangle area, int padding = 0)
+        {
+            // Always add to the vanilla protected structures list.
+            GenVars.structures.AddProtectedStructure(area, padding);
+
+            Rectangle paddedArea = new Rectangle(area.X, area.Y, area.Width, area.Height);
+            paddedArea.Inflate(padding, padding);
+
+            // If Fargo's Mutant Mod is loaded, add to their Indestructible Rectangle list, which prevents structures from being trashed by Fargo's terrain tools.
+            if (ModLoader.TryGetMod("Fargowiltas", out Mod fargos))
+            {
+                paddedArea.X *= 16;
+                paddedArea.Y *= 16;
+                paddedArea.Width *= 16;
+                paddedArea.Height *= 16;
+                fargos.Call("AddIndestructibleRectangle", paddedArea);
+            }
         }
 
         //Gen Actions

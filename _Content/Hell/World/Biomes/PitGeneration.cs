@@ -1,5 +1,7 @@
 ﻿using AAModClassic._Content.Hell.World.Tiles;
+using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -33,6 +35,8 @@ namespace AAModClassic._Content.Hell.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, PitTexGenAssets.PitTileData.Width, PitTexGenAssets.PitTileData.Height), 20);
+
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
                 [new Color(128, 128, 128)] = ModContent.TileType<Pitstone_Tile>(),
@@ -72,7 +76,7 @@ namespace AAModClassic._Content.Hell.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            Mod mod = AAMod.instance;
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, PitTexGenAssets.PitContructionTileData.Width, PitTexGenAssets.PitContructionTileData.Height), 20);
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {

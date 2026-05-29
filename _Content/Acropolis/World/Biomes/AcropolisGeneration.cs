@@ -1,5 +1,7 @@
 ﻿using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -29,7 +31,7 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            Mod mod = AAMod.instance;
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), 20);
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {

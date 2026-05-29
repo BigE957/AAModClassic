@@ -1591,8 +1591,6 @@ namespace AAModClassic
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildHoard");
             Point origin = new((int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.275f : 0.3f)), (int)(Main.maxTilesY * (ModLoader.HasMod("Remnants") ?  0.75f : 0.65f)));
             HoardGeneration biome = new();
-            HoardClear delete = new();
-            delete.Place(origin, GenVars.structures);
             biome.Place(origin, GenVars.structures);
         }
 

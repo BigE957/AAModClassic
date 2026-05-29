@@ -4,6 +4,7 @@ using AAModClassic._Content.Parthenan.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Snow.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -13,7 +14,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
-using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic._Content.Hoard.World.Biomes
 {
@@ -35,9 +35,58 @@ namespace AAModClassic._Content.Hoard.World.Biomes
 
     public class HoardGeneration : MicroBiome
     {
+        private static bool ShouldAvoidLocation(Point p)
+        {
+            Tile tile = Framing.GetTileSafely(p);
+
+            if (tile.TileType == TileID.Sand ||
+                tile.TileType == TileID.Sandstone ||
+                tile.TileType == TileID.HardenedSand ||
+                tile.TileType == TileID.Mud ||
+                tile.TileType == TileID.JungleGrass ||
+                tile.TileType == TileID.MushroomGrass)
+                return true;
+
+            return false;
+        }
+
         public override bool Place(Point origin, StructureMap structures)
         {
+            int attempts = 0;
+            int maxAttempts = 1000;
+            Point originOffset = Point.Zero;
+            do
+            {
+                bool canGenerateInLocation = true;
+
+                Point placementPoint = origin + originOffset;
+                for (int x = placementPoint.X; x < placementPoint.X + HoardTexGenAssets.HoardTileData.Width; x++)
+                    for (int y = placementPoint.Y; y < placementPoint.Y + HoardTexGenAssets.HoardTileData.Height; y++)
+                        if (ShouldAvoidLocation(new Point(x, y)))
+                            canGenerateInLocation = false;
+
+                if (canGenerateInLocation && structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height)))
+                {
+                    WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height), 20);
+                    break;
+                }
+                originOffset = new(WorldGen.genRand.Next(-300, 300), WorldGen.genRand.Next(-100, 100));
+            }
+            while (attempts++ < maxAttempts);
+
+            origin += originOffset;
+
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            {
+                [new Color(255, 0, 0)] = -2,
+                [new Color(255, 255, 255)] = -2, //turn into air
+                [Color.Black] = -1 //don't touch when genning		
+            };
+
+            TexGen gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardDeletionData, colorToTile);
+            gen.Generate(origin.X, origin.Y, true, true);
+
+            colorToTile = new Dictionary<Color, int>
             {
                 [new Color(255, 0, 0)] = ModContent.TileType<GreedStone_Tile>(),
                 [new Color(0, 0, 255)] = ModContent.TileType<GreedBrick_Tile>(),
@@ -51,13 +100,12 @@ namespace AAModClassic._Content.Hoard.World.Biomes
                 [Color.Black] = -1
             };
 
-            TexGen gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardTileData, colorToTile, HoardTexGenAssets.HoardWallData, colorToWall);
-
+            gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardTileData, colorToTile, HoardTexGenAssets.HoardWallData, colorToWall);
             gen.Generate(origin.X, origin.Y, true, true);
 
             WorldUtils.Gen(new Point(origin.X, origin.Y), new Shapes.Rectangle(gen.width, gen.height), Actions.Chain(new GenAction[]
             {
-                new InWorld(),
+                new WorldGenUtils.InWorld(),
                 new Actions.SetLiquid(0, 0)
             }));
 
@@ -200,26 +248,6 @@ namespace AAModClassic._Content.Hoard.World.Biomes
             }
 
             NetMessage.SendObjectPlacement(-1, x, y, (ushort)ModContent.TileType<GreedChest_Tile>(), 1, 0, -1, -1);
-        }
-    }
-
-    public class HoardClear : MicroBiome
-    {
-        public override bool Place(Point origin, StructureMap structures)
-        {
-            Mod mod = AAMod.instance;
-
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
-            {
-                [new Color(255, 0, 0)] = -2,
-                [new Color(255, 255, 255)] = -2, //turn into air
-                [Color.Black] = -1 //don't touch when genning		
-            };
-
-            TexGen gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardDeletionData, colorToTile);
-            gen.Generate(origin.X, origin.Y, true, true);
-
-            return true;
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture;
+﻿using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles.Decoration;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -30,6 +32,8 @@ namespace AAModClassic._Content._Dev.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, CrystalOfMemoriesTexGenAssets.EnderCrystalTileData.Width, CrystalOfMemoriesTexGenAssets.EnderCrystalTileData.Height), 20);
+
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
                 [new Color(255, 0, 0)] = TileID.CrystalBlock,
