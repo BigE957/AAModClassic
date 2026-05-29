@@ -735,7 +735,7 @@ namespace AAModClassic.CrossMod
 
         private static void PerformBossChecklistSupport()
         {
-            AAMod mod = AAMod.instance;
+            AAMod mod = ModContent.GetInstance<AAMod>();
             bool bossChecklistLoaded = ModLoader.TryGetMod("BossChecklist", out var bossChecklist);
             mod.Logger.Info($"Mod Checklist is {(!bossChecklistLoaded ? "not" : "")} loaded.");
 

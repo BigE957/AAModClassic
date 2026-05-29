@@ -29,7 +29,7 @@ namespace AAModClassic.Utilities.Attributes
 
         public override void PostSetupContent()
         {
-            AAMod.instance.Logger.Info("Loading Equip Glow Textures: ");
+            ModContent.GetInstance<AAMod>().Logger.Info("Loading Equip Glow Textures: ");
             foreach (Item item in ContentSamples.ItemsByType.Values)
             {
                 if (item.ModItem is null || item.ModItem.Mod is not AAMod)
@@ -39,23 +39,23 @@ namespace AAModClassic.Utilities.Attributes
                 if (autoloadEquip is null)
                     continue;
 
-                AAMod.instance.Logger.Info("- Autoload Equip Glow found on item: " + item.ModItem.Name);
+                ModContent.GetInstance<AAMod>().Logger.Info("- Autoload Equip Glow found on item: " + item.ModItem.Name);
                 foreach (var equip in autoloadEquip.equipTypes)
                 {
                     if (ModContent.RequestIfExists<Texture2D>($"{item.ModItem.Texture}_{equip}_Glow", out var asset))
                     {
-                        AAMod.instance.Logger.Info(" - Glow Texture found: " + asset.Name);
+                        ModContent.GetInstance<AAMod>().Logger.Info(" - Glow Texture found: " + asset.Name);
                         int slot = EquipLoader.GetEquipSlot(Mod, item.ModItem.Name, equip);
                         if (slot != -1)
                         {
-                            AAMod.instance.Logger.Info(" - Equip Slot found: " + slot);
+                            ModContent.GetInstance<AAMod>().Logger.Info(" - Equip Slot found: " + slot);
                             GlowEquipTextures[equip].Add(slot, asset);
                         }
                         else
-                            AAMod.instance.Logger.Info(" - Could not add due to " + item.ModItem.Name + " not having a regular Equip Texture");
+                            ModContent.GetInstance<AAMod>().Logger.Info(" - Could not add due to " + item.ModItem.Name + " not having a regular Equip Texture");
                     }
                     else
-                        AAMod.instance.Logger.Info(" - Could not Add due to " + $"{item.ModItem.Texture}_{equip}_Glow" + " not being found.");
+                        ModContent.GetInstance<AAMod>().Logger.Info(" - Could not Add due to " + $"{item.ModItem.Texture}_{equip}_Glow" + " not being found.");
                 }
             }
         }

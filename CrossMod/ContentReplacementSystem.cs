@@ -288,7 +288,7 @@ namespace AAModClassic.CrossMod
                         recipe.AddIngredient(newItem, stack);
                     shouldAdd = true;
 
-                    AAMod.instance.Logger.Info($"Recipe Hit: Item {oldID} has been replaced by Item {newID}");
+                    ModContent.GetInstance<AAMod>().Logger.Info($"Recipe Hit: Item {oldID} has been replaced by Item {newID}");
                 }
             }
 

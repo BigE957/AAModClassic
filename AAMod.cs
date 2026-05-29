@@ -153,8 +153,8 @@ namespace AAModClassic
             }
             catch (Exception e)
             {
-                instance.Logger.InfoFormat(e.Message);
-                instance.Logger.InfoFormat(e.StackTrace);
+                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.Message);
+                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.StackTrace);
             }
         }
 
@@ -287,8 +287,8 @@ namespace AAModClassic
             }
             catch (Exception e)
             {
-                instance.Logger.InfoFormat(e.Message);
-                instance.Logger.InfoFormat(e.StackTrace);
+                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.Message);
+                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.StackTrace);
             }
         }
 
