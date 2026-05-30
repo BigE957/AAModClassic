@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, false, 0f, 0f, AAColor.Rainbow3);
             }
-            return false;
+            return true;
         }
     }
 }

@@ -117,19 +117,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color dColor)
         {
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-            if (Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
+            if (!NPC.IsABestiaryIconDummy && Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2f, 0.9f, 2, true, 0f, 0f, lightColor);
             }
+
             Texture2D texture8 = TextureAssets.Npc[NPC.type].Value;
             Texture2D PupilTex = ModContent.Request<Texture2D>(Texture + "_Pupil").Value;
             Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Vector2 origin15 = new(40f, 40f);
             Vector2 value33 = new(30f, 30f);
-            Vector2 arg_A019_0 = NPC.Center;
-            Point point4 = NPC.Center.ToTileCoordinates();
             spriteBatch.Draw(texture8, NPC.Center - screenPos, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), dColor, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
-            Vector2 value34 = Utils.Vector2FromElipse(NPC.DirectionTo(Main.player[NPC.target].Center), value33);
+            Vector2 value34 = Utils.Vector2FromElipse(NPC.DirectionTo(NPC.IsABestiaryIconDummy ? Main.MouseScreen : Main.player[NPC.target].Center), value33);
+            value34 *= MathHelper.Clamp((NPC.Distance(NPC.IsABestiaryIconDummy ? Main.MouseScreen : Main.player[NPC.target].Center)) / 100f, 0f, 1f);
             spriteBatch.Draw(Glow, NPC.Center - screenPos, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), AAColor.Cthulhu2, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
             spriteBatch.Draw(PupilTex, NPC.Center - screenPos + value34, null, AAColor.Cthulhu2, NPC.rotation, PupilTex.Size() / 2f, 1f, SpriteEffects.None, 0f);
             return false;

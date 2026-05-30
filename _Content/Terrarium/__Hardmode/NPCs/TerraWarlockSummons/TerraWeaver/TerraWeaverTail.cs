@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver
 {
-    public class TerraWeaverTail : TerraWeaverHead
+    public class TerraWeaverTail : TerraWeaverBody
     {
         public override void SetStaticDefaults()
         {

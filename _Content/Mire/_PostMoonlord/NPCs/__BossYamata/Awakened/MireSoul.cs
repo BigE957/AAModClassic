@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -40,7 +42,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 15f, 0.2f, 8f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
             if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
-                NPC.life = 0;
+                //NPC.life = 0;
             }
             if (NPC.alpha != 0)
             {
@@ -70,9 +72,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             Texture2D glowTex = TextureAssets.Npc[Type].Value;
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, GetGlowAlpha());
-            BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, Color.White);
+
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.IsABestiaryIconDummy ? SpriteEffects.FlipVertically : NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.IsABestiaryIconDummy ? SpriteEffects.FlipVertically : NPC.SpriteEffectDirection(true), 0);
+            if(!NPC.IsABestiaryIconDummy)
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, glowTex, NPC.Center, NPC.velocity, 4, NPC.frame, Color.White, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.8f);
             return false;
         }
 

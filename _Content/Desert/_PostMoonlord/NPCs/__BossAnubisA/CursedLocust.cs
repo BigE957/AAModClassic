@@ -1,4 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -96,10 +98,12 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
-            Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-		    BaseDrawing.DrawAfterimage(Main.spriteBatch, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, Color.MediumPurple);
-            BaseDrawing.DrawTexture(Main.spriteBatch, bodyTex, 0, NPC, lightColor);
-			return false;
+
+            if (!NPC.IsABestiaryIconDummy)
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, bodyTex, NPC.Center, NPC.velocity, 4, NPC.frame, Color.MediumPurple, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 3f, 0.9f);
+            spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
+            return false;
 		}
 	}
 }

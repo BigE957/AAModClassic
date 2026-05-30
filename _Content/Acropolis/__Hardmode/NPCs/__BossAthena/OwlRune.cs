@@ -111,7 +111,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, null, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, TextureAssets.Npc[NPC.type].Size() * 0.5f, NPC.IsABestiaryIconDummy ? 1 : NPC.scale, 0, 0);
             return false;
         }
     }

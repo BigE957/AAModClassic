@@ -112,10 +112,14 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 
         public override void FindFrame(int frameHeight)
         {
-            if (++NPC.frameCounter >= 4)
+            NPC.frame.Width = 70;
+            NPC.frame.Height = 70;
+
+            if (++NPC.frameCounter >= 8)
             {
                 NPC.frameCounter = 0;
-                if (++NPC.frame.Y >= frameHeight * 3)
+                NPC.frame.Y += 70;
+                if (NPC.frame.Y >= 210)
                 {
                     NPC.frame.Y = 0;
                 }
@@ -124,8 +128,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Rectangle SunFrame = new Rectangle(0, 0, 70, 70);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, 0, NPC.spriteDirection, 4, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center + new Vector2(0, NPC.gfxOffY) - screenPos, NPC.frame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
     }

@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -120,9 +121,9 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
-            Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-            BaseDrawing.DrawTexture(Main.spriteBatch, bodyTex, 0, NPC, lightColor);
-            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, Color.White, true);
+            spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
             return false;
 		}
 	}

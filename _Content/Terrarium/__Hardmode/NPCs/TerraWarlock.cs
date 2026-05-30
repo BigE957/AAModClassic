@@ -109,7 +109,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                                     SummonThis = ModContent.NPCType<TerraSphere>();
                                     break;
                                 default:
-                                    SummonThis = ModContent.NPCType<TerraWeaverHead>();
+                                    SummonThis = ModContent.NPCType<TerraWeaverBody>();
                                     break;
                             }
                             NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);

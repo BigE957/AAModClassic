@@ -1,5 +1,6 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -397,6 +398,15 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
                 Main.dust[dust2].fadeIn = 1f;
                 Main.dust[dust2].noGravity = true;
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if(NPC.IsABestiaryIconDummy)
+            {
+                NPC.spriteDirection = -1;
+            }
+            return true;
         }
     }
 

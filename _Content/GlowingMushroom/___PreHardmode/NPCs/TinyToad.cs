@@ -73,7 +73,12 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             NPC.AISlime(ref NPC.ai, false, 30, 6f, -6f, 6f, -8f);
         }
 
-        public override void FindFrame(int frameHeight) => NPC.FrameHandler_HostileFrog(frameHeight);
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.FrameHandler_HostileFrog(frameHeight);
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
+        }
 
         public override void PostAI()
         {

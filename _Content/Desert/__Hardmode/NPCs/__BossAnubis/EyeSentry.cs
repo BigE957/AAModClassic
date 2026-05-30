@@ -114,7 +114,10 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            if(NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
+
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
 

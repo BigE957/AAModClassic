@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
             if (NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>()))
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, true, 0f, 0f, AAColor.Rainbow2);
 
-            return false;
+            return true;
         }
     }
 }

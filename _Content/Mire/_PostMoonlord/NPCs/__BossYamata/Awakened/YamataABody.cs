@@ -1,6 +1,7 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
@@ -8,6 +9,7 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -124,6 +126,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 NPC.buffImmune[k] = true;
             }
             SceneEffectPriority = SceneEffectPriority.BossHigh;
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -812,37 +815,47 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             Color lightColor = NPC.GetAlpha(drawColor);
             SpriteBatch sb = spriteBatch;
-            BaseDrawing.DrawTexture(spriteBatch, TailTexture.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
-            
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && unofficialLegs != null)
+            spriteBatch.Draw(TailTexture.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset - screenPos, null, lightColor, NPC.rotation, TailTexture.Size() * 0.5f, NPC.scale, 0, 0);
+            //BaseDrawing.DrawTexture(spriteBatch, TailTexture.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
+
+            if (!NPC.IsABestiaryIconDummy)
             {
-                foreach(IKLeg leg in unofficialLegs)
-                    DrawYamataLeg(spriteBatch, NPC, leg.Start, leg.Middle, leg.End, leg.LeftSet, leg.FrontSet);
-            }
-            else if (legs != null && legs.Length == 4)
-            {
-                for (int i = 3; i >= 0; i--)
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && unofficialLegs != null)
                 {
-                    var leg = legs[i];
-                    Vector2 start = leg.GetBodyConnector(NPC);
-                    Vector2 middle = leg.LegJoint;
-                    Vector2 end = leg.position - new Vector2(0f, leg.VelOffsetY);
-
-                    DrawYamataLeg(spriteBatch, NPC, start, middle, end, leg.leftLeg, i <= 1);
+                    foreach (IKLeg leg in unofficialLegs)
+                        DrawYamataLeg(spriteBatch, NPC, leg.Start, leg.Middle, leg.End, leg.LeftSet, leg.FrontSet);
                 }
+                else if (legs != null && legs.Length == 4)
+                {
+                    for (int i = 3; i >= 0; i--)
+                    {
+                        var leg = legs[i];
+                        Vector2 start = leg.GetBodyConnector(NPC);
+                        Vector2 middle = leg.LegJoint;
+                        Vector2 end = leg.position - new Vector2(0f, leg.VelOffsetY);
+
+                        DrawYamataLeg(spriteBatch, NPC, start, middle, end, leg.leftLeg, i <= 1);
+                    }
+                }
+
+                DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head2, drawColor, false);
+                DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head3, drawColor, false);
+                DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head4, drawColor, false);
+                DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head5, drawColor, false);
+                DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head6, drawColor, false);
+                DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head7, drawColor, false);
             }
-            
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head2, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head3, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head4, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head5, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head6, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head7, drawColor, false);
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset - screenPos, null, lightColor, NPC.rotation, TextureAssets.Npc[NPC.type].Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
 
-            BaseDrawing.DrawTexture(spriteBatch, Glow.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
-            BaseDrawing.DrawAfterimage(spriteBatch, Glow.Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
+            spriteBatch.Draw(Glow.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset - screenPos, null, AAColor.COLOR_WHITEFADE1, NPC.rotation, Glow.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            //BaseDrawing.DrawTexture(spriteBatch, Glow.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
+            if (!NPC.IsABestiaryIconDummy)
+            {
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glow.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset, NPC.velocity, 4, null, AAColor.COLOR_WHITEFADE1, NPC.scale, [NPC.rotation], Glow.Size() * 0.5f, NPC.SpriteEffectDirection(), 0.8f);
+                //BaseDrawing.DrawAfterimage(spriteBatch, Glow.Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
+            }
 
             DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, TrueHead, drawColor, false);
         }

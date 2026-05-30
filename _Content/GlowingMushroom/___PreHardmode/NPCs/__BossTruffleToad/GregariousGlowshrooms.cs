@@ -82,6 +82,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             {
                 NPC.frame.Y = frameHeight * 4;
             }
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
         }
 
         public override bool PreKill()
