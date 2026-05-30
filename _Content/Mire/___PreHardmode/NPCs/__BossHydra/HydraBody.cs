@@ -7,6 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -444,8 +445,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             HeadDraw(spriteBatch, drawColor);
 
             string tailTex = Texture + "_Tail";
-            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(tailTex).Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY - 30), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 1, frameBottom, drawColor, false);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, false);
+            spriteBatch.Draw(ModContent.Request<Texture2D>(tailTex).Value, NPC.position + new Vector2(0f, NPC.gfxOffY - 30), NPC.frame, drawColor, NPC.rotation, Vector2.Zero, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.frame, drawColor, NPC.rotation, Vector2.Zero, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             if (Head1 != null)
             {

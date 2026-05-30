@@ -32,7 +32,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.HitSound = SoundID.NPCHit49;
             NPC.DeathSound = SoundID.NPCDeath51;
             NPC.knockBackResist = 0.7f;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.noGravity = true;
         }
 

@@ -30,7 +30,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
             NPC.damage = 200;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
 
         }
         public override void AI()
@@ -69,7 +70,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             Texture2D glowTex = TextureAssets.Npc[Type].Value;
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, GetGlowAlpha());
             BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, Color.White);
             return false;

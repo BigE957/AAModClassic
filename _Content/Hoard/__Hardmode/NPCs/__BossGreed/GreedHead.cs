@@ -53,7 +53,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             NPC.netAlways = true;
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["Greed"];
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -542,7 +543,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
             NPC.position.Y += NPC.height * 0.5f;
 
-            BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             NPC.position.Y -= NPC.height * 0.5f;
 

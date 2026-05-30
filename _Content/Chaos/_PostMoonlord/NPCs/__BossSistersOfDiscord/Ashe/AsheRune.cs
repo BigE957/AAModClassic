@@ -10,6 +10,7 @@ using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Assets;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe
 {
@@ -157,7 +158,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1.4f, NPC.scale, NPC.rotation, NPC.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
             return false;
         }
     }

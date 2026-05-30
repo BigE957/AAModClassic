@@ -1,5 +1,6 @@
 using AAModClassic._Content.Corruption.__Hardmode.Items.Tools;
 using AAModClassic._Content.Crimson.__Hardmode.Items.Tools;
+using AAModClassic.UI.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -52,9 +53,9 @@ You may only have a maximum of 2 tool types active"); */
             }
             else if(player.altFunctionUse != 2)
             {
-                Item.pick = UI.TerratoolTUI.Pick;
-                Item.axe = UI.TerratoolTUI.Axe;
-                Item.hammer = UI.TerratoolTUI.Hammer;
+                Item.pick = TerratoolTUI.Pick;
+                Item.axe = TerratoolTUI.Axe;
+                Item.hammer = TerratoolTUI.Hammer;
                 Item.damage = 60;
             }
             else

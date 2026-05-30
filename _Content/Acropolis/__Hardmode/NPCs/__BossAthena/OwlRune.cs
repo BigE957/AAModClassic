@@ -9,6 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 {
@@ -16,7 +17,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
     {
         public override void SetDefaults()
         {
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.dontTakeDamage = true;
             NPC.lifeMax = 1;
             NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
@@ -109,7 +111,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
             return false;
         }
     }

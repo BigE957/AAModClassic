@@ -27,7 +27,8 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.noTileCollide = false;
             NPC.noGravity = true;
             Banner = NPC.type;

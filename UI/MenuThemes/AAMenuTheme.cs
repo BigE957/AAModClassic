@@ -24,9 +24,9 @@ namespace AAModClassic.UI.MenuThemes
 
         public override void SetStaticDefaults()
         {
-            MireLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
-            InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
-            VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
+            MireLogo = ModContent.Request<Texture2D>("AAModClassic/UI/MenuThemes/LogoMire");
+            InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/MenuThemes/LogoInferno");
+            VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/MenuThemes/LogoVoid");
             BlankTex = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
         }
 

@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -64,9 +65,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
-            BaseDrawing.DrawTexture(spriteBatch, eyeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(eyeTex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             BaseDrawing.DrawAfterimage(spriteBatch, eyeTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White);
             return false;
         }

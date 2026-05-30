@@ -1,7 +1,7 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terra.__Hardmode.Items.Tools;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.UI;
+using AAModClassic.UI.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

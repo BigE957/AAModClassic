@@ -167,7 +167,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             Texture2D NCEyes = ModContent.Request<Texture2D>("AAModClassic/_Content/Stars/World/Altar/NCPortalEyes").Value;
 
             BaseDrawing.DrawTexture(spriteBatch, NCPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spriteBatch, NCPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            spriteBatch.Draw(NCPortal, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             BaseDrawing.DrawTexture(spriteBatch, NCEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
 
             return false;

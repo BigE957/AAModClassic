@@ -34,7 +34,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             NPC.npcSlots = 0f;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             if (!WasSpawnedByTruffleToad)
             {
                 Banner = NPC.type;

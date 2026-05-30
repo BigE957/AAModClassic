@@ -33,7 +33,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPC.npcSlots = 0f;
             NPC.lavaImmune = true;
             NPC.netAlways = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 

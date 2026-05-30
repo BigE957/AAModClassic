@@ -1,4 +1,4 @@
-using AAModClassic.UI;
+using AAModClassic.UI.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

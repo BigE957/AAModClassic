@@ -142,7 +142,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         frame.Height -= 2;
                     float stretch = Vector2.Distance(start, end) / frame.Height;
                     stretch += 0.1f;
-                    spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                    spriteBatch.Draw(vinesAtlas, start - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition), frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
                 }
             }
 
@@ -159,7 +159,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         frame.Height -= 2;
                     float stretch = Vector2.Distance(start, end) / frame.Height;
                     stretch += 0.1f;
-                    spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                    spriteBatch.Draw(vinesAtlas, start - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition), frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
                 }
             }
         }
@@ -184,7 +184,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         frame.Height -= 2;
                     float stretch = Vector2.Distance(start, end) / frame.Height;
                     stretch += 0.1f;
-                    spriteBatch.Draw(vinesAtlas, start - Main.screenPosition, frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
+                    spriteBatch.Draw(vinesAtlas, start - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition), frame, drawColor, dir.ToRotation() - MathHelper.PiOver2, new Vector2(frame.Width / 2f, 2f), new Vector2(1, stretch), 0, 0);
                 }
             }
         }
@@ -637,8 +637,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
             Vector2 origin8 = new Vector2((float)RitualTex.Width, (float)RitualTex.Height) / 2f;
-            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>());
-            if (Summon)
+            bool BossAlive = !NPC.IsABestiaryIconDummy && (NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>()));
+            if (!NPC.IsABestiaryIconDummy && Summon)
             {
                 Rotation += .2f;
                 RiftSpin -= .2f;
@@ -671,16 +671,25 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             else
                 shader = 0;
 
-            BaseDrawing.DrawTexture(spriteBatch, Rift, 0, NPC.position, NPC.width, NPC.height, 1.5f, RiftSpin, 0, 1, new Rectangle(0, 0, Rift.Width, Rift.Height), AAColor.Cthulhu, true);
+            if (shader == 0)
+                spriteBatch.Draw(Rift, NPC.Center - screenPos, null, AAColor.Cthulhu, RiftSpin, Rift.Size() * 0.5f, 1.5f, 0, 0);
+            else
+                BaseDrawing.DrawTexture(spriteBatch, Rift, 0, NPC.position, NPC.width, NPC.height, 1.5f, RiftSpin, 0, 1, new Rectangle(0, 0, Rift.Width, Rift.Height), AAColor.Cthulhu, true);
 
             if (!BossAlive)
                 DrawBackVines(spriteBatch, drawColor);
 
-            BaseDrawing.DrawTexture(spriteBatch, WheelTex, shader, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, WheelTex.Width, WheelTex.Height), drawColor, true);
+            if (shader == 0)
+                spriteBatch.Draw(WheelTex, NPC.Center - screenPos, null, drawColor, Rotation, WheelTex.Size() * 0.5f, NPC.scale, 0, 0);
+            else
+                BaseDrawing.DrawTexture(spriteBatch, WheelTex, shader, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, WheelTex.Width, WheelTex.Height), drawColor, true);
 
-            BaseDrawing.DrawTexture(spriteBatch, texture2D13, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, texture2D13.Width, texture2D13.Height), drawColor, true);
+            if (shader == 0)
+                spriteBatch.Draw(texture2D13, NPC.Center - screenPos, null, drawColor, NPC.rotation, texture2D13.Size() * 0.5f, NPC.scale, 0, 0);
+            else
+                BaseDrawing.DrawTexture(spriteBatch, texture2D13, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, texture2D13.Width, texture2D13.Height), drawColor, true);
 
-            if (BossAlive || Summon)
+            if (!NPC.IsABestiaryIconDummy && (BossAlive || Summon))
             {
                 BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, GlowTex.Width, GlowTex.Height), Color.White, true);
 

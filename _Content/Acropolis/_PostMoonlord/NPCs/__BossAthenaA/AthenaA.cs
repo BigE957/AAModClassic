@@ -10,6 +10,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -674,11 +675,11 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             Texture2D tex2 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D tex3 = ModContent.Request<Texture2D>(Texture + "_Glow1").Value;
-            Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
             BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f, Color.CornflowerBlue);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);
-            BaseDrawing.DrawTexture(spriteBatch, tex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, AAColor.Flash);
-            BaseDrawing.DrawTexture(spriteBatch, tex3, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, Color.White);
+
+            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(tex2, NPC.Center - screenPos, NPC.frame, AAColor.Flash, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(tex3, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;
         }
     }

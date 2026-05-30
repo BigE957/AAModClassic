@@ -71,10 +71,10 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, Blades.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, Blades.Value.Width, Blades.Value.Height), drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, TextureAssets.Npc[NPC.type].Value.Width, TextureAssets.Npc[NPC.type].Value.Height), drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, BladesGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, BladesGlowmask.Value.Width, BladesGlowmask.Value.Height), AAColor.ZeroShield, true);
-            BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, Glowmask.Value.Width, Glowmask.Value.Height), AAColor.ZeroShield, true);
+            spriteBatch.Draw(Blades.Value, NPC.Center - screenPos, Blades.Frame(), drawColor, Rotation, Blades.Value.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, TextureAssets.Npc[NPC.type].Frame(), drawColor, NPC.rotation, TextureAssets.Npc[NPC.type].Value.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(BladesGlowmask.Value, NPC.Center - screenPos, BladesGlowmask.Frame(), AAColor.ZeroShield, Rotation, BladesGlowmask.Value.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, Glowmask.Frame(), AAColor.ZeroShield, NPC.rotation, Glowmask.Value.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             return false;
         }
     }

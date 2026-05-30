@@ -246,7 +246,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 
             NPC.position.Y += NPC.height * 0.5f;
 
-            BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             if (Main.LocalPlayer.findTreasure)
             {
                 Color color = drawColor;
@@ -261,7 +261,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     color.G = b3;
                 }
                 color.A = Main.mouseTextColor;
-                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, color);
+                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             }
 
             NPC.position.Y -= NPC.height * 0.5f;

@@ -39,7 +39,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.boss = true;
             NPC.npcSlots = 16f;
             NPC.buffImmune[20] = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
         }
 
@@ -94,6 +95,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.frame.Y = num * 4;
                 }
             }
+
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
         }
 
         public override void AI()

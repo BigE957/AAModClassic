@@ -47,7 +47,7 @@ namespace AAModClassic.Buffs
                     }
                 }
                 DarkX.SetData(0, null, dataColors, 0, npc.width * npc.height);
-                spriteBatch.Draw(DarkX, npc.Center - Main.screenPosition, null, Color.White, 0, DarkX.Size() * .5f, npc.scale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(DarkX, npc.Center - screenPos, null, Color.White, 0, DarkX.Size() * .5f, npc.scale, SpriteEffects.None, 0f);
             }
             
         }

@@ -68,7 +68,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 NPC.buffImmune[k] = true;
             }
             NPC.buffImmune[103] = false;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
@@ -712,8 +713,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             Texture2D HeadGlow = (NPC.ai[0] == 0 || NPC.ai[0] == 4) ? glowTex1 : glowTex;
 
             Texture2D myGlowTex = NPC.type == ModContent.NPCType<AkumaA>() ? HeadGlow : glowTex2;
-            BaseDrawing.DrawTexture(spriteBatch, AkumaTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 3, NPC.frame, NPC.GetAlpha(drawColor), true);
-            BaseDrawing.DrawTexture(spriteBatch, myGlowTex, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 3, NPC.frame, NPC.GetAlpha(Color.White), true);
+            spriteBatch.Draw(AkumaTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(myGlowTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(Color.White), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             return false;
         }
 
@@ -897,14 +898,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || NPC.ai[2] != 0)
                 return true;
 
-            spriteBatch.Draw(ArmlessBody.Value, NPC.Center - Main.screenPosition, null, drawColor, NPC.rotation, (ArmlessBody.Size() * 0.5f) - (Vector2.UnitX * 6 * NPC.spriteDirection), NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(ArmlessBody.Value, NPC.Center - screenPos, null, drawColor, NPC.rotation, (ArmlessBody.Size() * 0.5f) - (Vector2.UnitX * 6 * NPC.spriteDirection), NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;
         }
 
         internal void DrawBackArm(SpriteBatch spriteBatch, Color drawColor)
         {
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
-            Vector2 upperBackArmPos = NPC.Center + (new Vector2(0 * NPC.spriteDirection, -8).RotatedBy(NPC.rotation + MathHelper.PiOver2) * NPC.scale) - Main.screenPosition;
+            Vector2 upperBackArmPos = NPC.Center + (new Vector2(0 * NPC.spriteDirection, -8).RotatedBy(NPC.rotation + MathHelper.PiOver2) * NPC.scale) - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
             float bodyFacingAngle = NPC.rotation;
             Vector2 upperBackArmOrigin = new(12, 8);
             if (NPC.spriteDirection == 1)
@@ -940,7 +941,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         {
             Rectangle upperFrontArmFrame = UpperArm.Frame(2);
 
-            Vector2 upperFrontArmPos = NPC.Center - Main.screenPosition;
+            Vector2 upperFrontArmPos = NPC.Center - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
             float frontBodyFacingAngle = NPC.rotation;
 
             Vector2 upperFrontArmOrigin = new(12, 8);

@@ -314,26 +314,26 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                     Vector2 drawPos = neckOrigin + dir * i;
                     spriteBatch.Draw(NeckTexture.Value, drawPos - Main.screenPosition, null, Lighting.GetColor(drawPos.ToTileCoordinates()), dir.ToRotation() - MathHelper.PiOver2, NeckTexture.Size() * 0.5f, 1f, 0, 0);
                 }
-				spriteBatch.Draw(headTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
-				spriteBatch.Draw(glowMaskTexture, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+				spriteBatch.Draw(headTexture, head.Center - Main.screenPosition, head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+				spriteBatch.Draw(glowMaskTexture, head.Center - Main.screenPosition, head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                    spriteBatch.Draw(HeadGlowmask.Value, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, purple, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(HeadGlowmask.Value, head.Center - Main.screenPosition, head.frame, purple, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
             }
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            purple = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position));
+            purple = BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
 
             if (HeadBlue != null)
                 DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, HeadBlue.NPC, drawColor, false);
             if (HeadRed != null)
-                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, HeadRed.NPC, drawColor, true); 			
-			BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, false);
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, HeadRed.NPC, drawColor, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                BaseDrawing.DrawTexture(spriteBatch, Glowmask1.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, purple, false);
-                BaseDrawing.DrawTexture(spriteBatch, Glowmask2.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, Color.White, false);
+                spriteBatch.Draw(Glowmask1.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) - screenPos, NPC.frame, purple, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+                spriteBatch.Draw(Glowmask2.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
             }
             return false;
         }

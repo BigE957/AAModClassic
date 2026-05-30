@@ -913,7 +913,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 float auraPercent = BaseUtility.MultiLerp(diffFloat, 0f, 1f, 0f); //did it this way so it's syncronized between all the segments
                 BaseDrawing.DrawAura(spriteBatch, tex, 0, NPC, auraPercent, 2f, 0f, 0f, GetAuraAlpha());
             }
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White); //GetAuraAlpha());				
+            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0); //GetAuraAlpha());				
             return false;
         }
     }

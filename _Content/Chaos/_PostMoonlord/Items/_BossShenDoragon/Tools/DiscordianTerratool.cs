@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.UI.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -68,9 +69,9 @@ You may only have a maximum of 2 tool types active"); */
             }
             else if(player.altFunctionUse != 2)
             {
-                Item.pick = UI.TerratoolSUI.Pick;
-                Item.axe = UI.TerratoolSUI.Axe;
-                Item.hammer = UI.TerratoolSUI.Hammer;
+                Item.pick = TerratoolSUI.Pick;
+                Item.axe = TerratoolSUI.Axe;
+                Item.hammer = TerratoolSUI.Hammer;
                 Item.damage = 120;
             }
             else

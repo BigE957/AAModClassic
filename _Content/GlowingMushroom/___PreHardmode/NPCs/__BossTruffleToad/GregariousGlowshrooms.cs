@@ -26,7 +26,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.knockBackResist = 0f;
             NPC.npcSlots = 0f;
             NPC.aiStyle = -1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.dontTakeDamage = true;
             NPC.noTileCollide = false;
         }

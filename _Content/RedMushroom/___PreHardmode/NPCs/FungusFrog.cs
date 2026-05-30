@@ -31,7 +31,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.npcSlots = 0f;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
@@ -57,7 +58,12 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.AISlime(ref NPC.ai, false, 60, 3f, -2f, 6f, -4f);
         }
 
-        public override void FindFrame(int frameHeight) => NPC.FrameHandler_HostileFrog(frameHeight);
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.FrameHandler_HostileFrog(frameHeight);
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
+        }
 
         public override void PostAI()
         {

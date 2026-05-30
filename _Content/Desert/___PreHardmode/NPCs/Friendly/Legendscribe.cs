@@ -142,7 +142,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             for (int k = 0; k < 255; k++)
             {
                 Player player = Main.player[k];
-                if (player.active && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && 
+                if (player.active && 
+                    !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) &&
+                    !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) &&
                     !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) &&
                     !NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
                 {

@@ -46,7 +46,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
                 NPC.buffImmune[k] = true;
             }
             NPC.buffImmune[103] = false;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;

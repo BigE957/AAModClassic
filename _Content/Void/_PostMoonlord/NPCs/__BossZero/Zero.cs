@@ -12,6 +12,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Core;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -22,6 +23,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -84,6 +86,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             NPC.netAlways = true;
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Zero", Color.Red)
+            ]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -268,6 +278,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / 4;
             NPC.frame.Width = frameWidth;
 
+            if (NPC.IsABestiaryIconDummy)
+                NPC.ai[1] = 1;
+
             if (NPC.ai[1] == 1)
             {
                 if (NPC.ai[3] == 3)
@@ -380,8 +393,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             Texture2D Ring = ShieldRing.Value;
             Texture2D RingGlow = ShieldRingGlowmask.Value;
 
-            Main.spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - Main.screenPosition, NPC.frame, drawColor * ((255 - NPC.alpha) / 255f), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(glowTex, NPC.Center - Main.screenPosition, NPC.frame, AAColor.COLOR_WHITEFADE1, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Main.spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor * ((255 - NPC.alpha) / 255f), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, AAColor.COLOR_WHITEFADE1, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
 
             if (ShieldScale > 0)
             {

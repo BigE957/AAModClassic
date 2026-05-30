@@ -86,7 +86,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.noGravity = false;
             Music = MusicManagementSystem.MusicSlots["TruffleToad"];
             NPC.netAlways = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Zombie29;
             if (Main.expertMode)
@@ -638,8 +639,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         {
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, ColorUtils.COLOR_GLOWPULSE, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }
 

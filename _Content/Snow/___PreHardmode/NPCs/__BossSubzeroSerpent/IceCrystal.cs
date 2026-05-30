@@ -22,7 +22,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.width = 30;
             NPC.height = 30;
             NPC.aiStyle = -1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.value = 0;
             NPC.noGravity = true;
             NPC.knockBackResist = 0f;

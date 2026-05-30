@@ -18,7 +18,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
         public override void SetDefaults()
         {
-			NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
 			NPC.dontTakeDamage = true;
             NPC.lifeMax = 2000;
             NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;

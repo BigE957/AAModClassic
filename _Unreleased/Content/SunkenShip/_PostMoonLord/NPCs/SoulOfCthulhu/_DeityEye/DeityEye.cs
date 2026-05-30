@@ -677,10 +677,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             
-            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
+            spriteBatch.Draw(currentTex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             //draw glow/glow afterimage
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, AAColor.Cthulhu2);
+            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
             
             return false;

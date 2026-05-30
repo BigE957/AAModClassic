@@ -110,7 +110,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.netAlways = true;
             frameWidth = 324;
             frameHeight = 236;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.frame = BaseDrawing.GetFrame(0, frameWidth, frameHeight, 0, 2);
             frameBottom = BaseDrawing.GetFrame(frameCount, frameWidth, 54, 0, 2);
             frameHead = BaseDrawing.GetFrame(frameCount, frameWidth, 118, 0, 2);

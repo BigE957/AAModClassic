@@ -34,7 +34,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-            NPC.alpha = 255;
+            if(!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

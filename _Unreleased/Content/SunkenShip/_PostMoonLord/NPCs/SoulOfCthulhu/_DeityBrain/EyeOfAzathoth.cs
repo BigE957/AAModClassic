@@ -128,10 +128,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Vector2 value33 = new(30f, 30f);
             Vector2 arg_A019_0 = NPC.Center;
             Point point4 = NPC.Center.ToTileCoordinates();
-            spriteBatch.Draw(texture8, NPC.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), dColor, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture8, NPC.Center - screenPos, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), dColor, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
             Vector2 value34 = Utils.Vector2FromElipse(NPC.DirectionTo(Main.player[NPC.target].Center), value33);
-            spriteBatch.Draw(Glow, NPC.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), AAColor.Cthulhu2, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
-            spriteBatch.Draw(PupilTex, NPC.Center - Main.screenPosition + value34, null, AAColor.Cthulhu2, NPC.rotation, PupilTex.Size() / 2f, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Glow, NPC.Center - screenPos, new Microsoft.Xna.Framework.Rectangle?(NPC.frame), AAColor.Cthulhu2, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(PupilTex, NPC.Center - screenPos + value34, null, AAColor.Cthulhu2, NPC.rotation, PupilTex.Size() / 2f, 1f, SpriteEffects.None, 0f);
             return false;
         }
 
@@ -637,9 +637,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Vector2 arg_A019_0 = NPC.Center;
             Point point4 = NPC.Center.ToTileCoordinates();
             Color alpha11 = NPC.GetAlpha(Color.Lerp(Lighting.GetColor(point4.X, point4.Y), Color.White, 0.3f));
-            Main.spriteBatch.Draw(texture8, NPC.Center - Main.screenPosition, new Rectangle?(NPC.frame), alpha11, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture8, NPC.Center - screenPos, new Rectangle?(NPC.frame), alpha11, NPC.rotation, origin15, 1f, SpriteEffects.None, 0f);
             Vector2 value34 = Utils.Vector2FromElipse(NPC.localAI[0].ToRotationVector2(), value33 * NPC.localAI[1]);
-            Main.spriteBatch.Draw(texture2D30, NPC.Center - Main.screenPosition + value34, null, alpha11, NPC.rotation, texture2D30.Size() / 2f, NPC.localAI[2], SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture2D30, NPC.Center - screenPos + value34, null, alpha11, NPC.rotation, texture2D30.Size() / 2f, NPC.localAI[2], SpriteEffects.None, 0f);
             return false;
         }
         */

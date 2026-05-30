@@ -4,7 +4,7 @@ using Terraria.UI;
 using ReLogic.Content;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 
-namespace AAModClassic.UI
+namespace AAModClassic.UI.Tools
 {
     internal sealed class TerratoolAUI : TerratoolUI
     {

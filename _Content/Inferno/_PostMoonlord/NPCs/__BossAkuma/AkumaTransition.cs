@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             //NPC.frame.Y += 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, NPC.GetAlpha(new Color(RVal, 125, BVal)), true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(new Color(RVal, 125, BVal)), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
 

@@ -58,7 +58,8 @@ public class BiomiteCore : ModNPC
 		Music = MusicManagementSystem.MusicSlots["BiomiteCore"];
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
-		NPC.alpha = 255;
+        if (!NPC.IsABestiaryIconDummy)
+            NPC.alpha = 255;
         SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
     }
 
@@ -504,11 +505,11 @@ public class BiomiteCore : ModNPC
 		Rectangle frame = BaseDrawing.GetFrame(frameShell, 156, 128, 0, 0);
 		Rectangle frame2 = BaseDrawing.GetFrame((int)NPC.ai[3] - 1, 156, 128, 0, 0);
 		Rectangle frame3 = BaseDrawing.GetFrame(0, 156, 128, 0, 0);
-		BaseDrawing.DrawTexture(spriteBatch, coreBack, 0, NPC.position, NPC.width, NPC.height, 1f, 0f, 0, 1, frame3, drawColor, drawCentered: true);
-		BaseDrawing.DrawTexture(spriteBatch, core, 0, NPC.position, NPC.width, NPC.height, 1f, 0f, 0, 8, NPC.frame, NPC.GetAlpha(GlowColor()), drawCentered: true);
-		BaseDrawing.DrawTexture(spriteBatch, coreShell, 0, NPC.position, NPC.width, NPC.height, 1f, 0f, 1, 4, frame, drawColor, drawCentered: true);
-		BaseDrawing.DrawTexture(spriteBatch, coreGlow, 0, NPC.position, NPC.width, NPC.height, 1f, 0f, 0, 16, frame2, Color.White, drawCentered: true);
-		return false;
+        spriteBatch.Draw(coreBack, NPC.Center - screenPos, frame3, drawColor, 0f, frame3.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(core, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(GlowColor()), 0f, NPC.frame.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(coreShell, NPC.Center - screenPos, frame, drawColor, 0f, frame.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(coreGlow, NPC.Center - screenPos, frame2, Color.White, 0f, frame2.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+        return false;
 	}
 
 	public Color GlowColor()

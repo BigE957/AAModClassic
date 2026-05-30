@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace AAModClassic.UI
+namespace AAModClassic.UI.Tools
 {
     internal sealed class TerratoolGroxUI : TerratoolUI
     {

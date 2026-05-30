@@ -57,7 +57,7 @@ namespace AAModClassic._Unofficial.Desert
                     Texture2D tex = npc.IsShimmerVariant ? Shimmer.Value : TextureAssets.Npc[npc.type].Value;
                     Texture2D glow = npc.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
 
-                    Vector2 position = npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY - 8);
+                    Vector2 position = npc.Center - (npc.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition) + new Vector2(0f, npc.gfxOffY - 8);
                     Color color = Lighting.GetColor(npc.Center.ToTileCoordinates()) * npc.Opacity;
 
                     Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);

@@ -11,6 +11,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -56,7 +57,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
             Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Athena");
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.noTileCollide = true;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
@@ -618,13 +620,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = internalAI[2] != 1 ? SassyBitchTex.Value : TextureAssets.Npc[NPC.type].Value;
-            Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
 
             if (NPC.ai[2] == 1)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f);
             }
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);
+            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;
         }
     }

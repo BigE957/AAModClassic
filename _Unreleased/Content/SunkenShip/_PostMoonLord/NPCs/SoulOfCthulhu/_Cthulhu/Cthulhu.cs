@@ -9,6 +9,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -36,7 +37,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             NPC.width = 222;
             NPC.height = 228;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.damage = 0;
             Music = MusicManagementSystem.MusicSlots["Cthulhu"];
             NPC.lifeMax = 1500000;
@@ -369,26 +371,24 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>());
+            bool BossAlive = !NPC.IsABestiaryIconDummy && (NPC.AnyNPCs(ModContent.NPCType<DeityEye>()) || NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) || NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) || NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) || NPC.AnyNPCs(ModContent.NPCType<DeityLeviathan>()) || NPC.AnyNPCs(ModContent.NPCType<DeityRose>()));
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D Barrier = ModContent.Request<Texture2D>(Texture + "Barrier").Value;
             Texture2D Shield = ModContent.Request<Texture2D>(Texture + "Shield").Value;
-            Vector2 drawCenter = new(NPC.Center.X, NPC.Center.Y);
 
-            Main.spriteBatch.Draw(currentTex, (drawCenter - Main.screenPosition), new Rectangle?(new Rectangle(0, 0, currentTex.Width, currentTex.Height)), drawColor, NPC.rotation, new Vector2(currentTex.Width / 2f, currentTex.Height / 2f), NPC.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(currentTex, NPC.Center - screenPos, new Rectangle?(new Rectangle(0, 0, currentTex.Width, currentTex.Height)), drawColor, NPC.rotation, new Vector2(currentTex.Width / 2f, currentTex.Height / 2f), NPC.scale, SpriteEffects.None, 0f);
 
             //draw glow/glow afterimage
-            BaseDrawing.DrawTexture(Main.spriteBatch, GlowTex, 0, NPC, AAColor.Cthulhu2);
-            BaseDrawing.DrawAfterimage(Main.spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
 
             //Draw Shield
-            int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-
             if (BossAlive)
             {
-                BaseDrawing.DrawTexture(Main.spriteBatch, Shield, shader, NPC.position, NPC.width, NPC.height, ShieldScale, ShieldRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.Cthulhu, true);
-                BaseDrawing.DrawTexture(Main.spriteBatch, Barrier, 0, NPC.position, NPC.width, NPC.height, ShieldScale, ShieldRotation, 0, 1, new Rectangle(0, 0, Barrier.Width, Barrier.Height), Color.White, true);
+                int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
+                BaseDrawing.DrawTexture(spriteBatch, Shield, shader, NPC.position, NPC.width, NPC.height, ShieldScale, ShieldRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.Cthulhu, true);
+                BaseDrawing.DrawTexture(spriteBatch, Barrier, 0, NPC.position, NPC.width, NPC.height, ShieldScale, ShieldRotation, 0, 1, new Rectangle(0, 0, Barrier.Width, Barrier.Height), Color.White, true);
             }
             return false;
         }

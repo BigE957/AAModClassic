@@ -101,8 +101,8 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, texture2D13, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 4, NPC.frame, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 4, NPC.frame, AAColor.ZeroShield, true);
+            spriteBatch.Draw(texture2D13, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.ZeroShield, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             return false;
         }
     }

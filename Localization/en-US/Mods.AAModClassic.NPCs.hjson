@@ -459,9 +459,9 @@ RajahRabbitADefeat.DisplayName: Rajah Rabbit
 RajahRabbitA.DisplayName: Rajah Rabbit; Champion of the Innocent
 Sag.DisplayName: Sagittarius
 IceCrystal.DisplayName: Ice Crystal
-SubzeroSerpentBody.DisplayName: Subzero Serpent
-SubzeroSerpentHead.DisplayName: Subzero Serpent
-SubzeroSerpentTail.DisplayName: Subzero Serpent
+SubzeroSerpent_Body.DisplayName: Subzero Serpent
+SubzeroSerpent_Head.DisplayName: Subzero Serpent
+SubzeroSerpent_Tail.DisplayName: Subzero Serpent
 FuryAshe.DisplayName: Fury Ashe
 FuryAsheOrbiter.DisplayName: Flame Vortex
 FuryAsheVanish.DisplayName: Ashe Akuma
@@ -851,6 +851,4 @@ DeityRose_Urchin.DisplayName: Shadow Urchin
 AmbientSoulOfCthulhu.DisplayName: ???
 FuryFlameVortex.DisplayName: Fury Flame Vortex
 AwakenedLungHead.DisplayName: Awakened Lung Head
-SubzeroSerpent_Body.DisplayName: Subzero Serpent_ Body
-SubzeroSerpent_Head.DisplayName: Subzero Serpent_ Head
-SubzeroSerpent_Tail.DisplayName: Subzero Serpent_ Tail
+ShadowUrchin.DisplayName: Shadow Urchin

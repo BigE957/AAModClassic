@@ -576,7 +576,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (tenthHealth)
             {
-                BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor, unofficialWorld);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetRedAlpha(), unofficialWorld);
                 if(unofficialWorld)
@@ -599,7 +599,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else
             {
                 Color color = BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true));
-                BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, color, unofficialWorld);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetGlowAlpha(false), unofficialWorld);
                 if (unofficialWorld)

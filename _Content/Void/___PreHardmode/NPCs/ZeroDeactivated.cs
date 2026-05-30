@@ -3,6 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -108,14 +109,16 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+
             if (NPC.downedMoonlord)
             {
                 BaseDrawing.DrawTexture(spriteBatch, Glowmask.Value, 0, NPC, GetGlowAlpha());
             }
-            BaseDrawing.DrawTexture(spriteBatch, ShieldTex.Value, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, ShieldTex.Value.Width, ShieldTex.Value.Height), GetGlowAlpha(), true);
-            BaseDrawing.DrawTexture(spriteBatch, ShieldRing.Value, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, ShieldRing.Value.Width, ShieldRing.Value.Height), drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, ShieldRingGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, ShieldRingGlowmask.Value.Width, ShieldRingGlowmask.Value.Height), AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(spriteBatch, ShieldTex.Value, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, ShieldTex.Frame(), GetGlowAlpha(), true);
+            BaseDrawing.DrawTexture(spriteBatch, ShieldRing.Value, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, ShieldRing.Frame(), drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, ShieldRingGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, ShieldRingGlowmask.Frame(), AAColor.COLOR_WHITEFADE1, true);
             
             return false;
         }

@@ -104,7 +104,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 			Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
 			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead) 
 				BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2f, 0.9f, 2, true, 0f, 0f, lightColor);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, lightColor);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, lightColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 			return false;
 		}		
 	}

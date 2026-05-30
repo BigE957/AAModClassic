@@ -2,6 +2,7 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Til
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.DiscordSupport;
 using AAModClassic.Music;
+using AAModClassic.UI.Core;
 using AAModClassic.UI.WorldGen;
 using Humanizer;
 using Microsoft.Win32;
@@ -28,6 +29,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -114,6 +116,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (localConfigPath == null)
                 InitializeSteamSearch();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Oblivion", Color.DarkRed)
+            ]);
         }
 
         private static int OblivionSpeech = 0;
@@ -822,11 +832,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor) * NPC.Opacity, true);
             BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
-            BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, Color.White * NPC.Opacity, true);
+            spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             if(unofficial && StaticActive)
             {
-                Effect effect = Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
+                Effect effect = Terraria.Graphics.Effects.Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
                 effect.Parameters["offset"].SetValue(Main.rand.NextVector2Square(0, 600));
                 effect.Parameters["noiseScale"].SetValue(new Vector2(0.2f, 1f));
 
@@ -843,7 +853,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
             }
             //BaseDrawing.DrawAura(spriteBatch, glitchTex, 0, NPC, auraPercent, 1f, 0f, 0f, AAColor.Oblivion);
-            //BaseDrawing.DrawTexture(spriteBatch, glitchTex, 0, NPC, AAColor.Oblivion);
+            //spriteBatch.Draw(glitchTex, NPC.Center - screenPos, NPC.frame, AAColor.Oblivion, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             return false;
         }

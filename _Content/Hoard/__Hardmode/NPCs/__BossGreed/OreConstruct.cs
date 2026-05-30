@@ -1,5 +1,6 @@
 using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -393,9 +394,9 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 position.X = NPC.position.X - shadowDodgeCount;
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 15, NPC.frame, new Color(bodyColor.R, bodyColor.G, bodyColor.B, 30), true);
             }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 15, NPC.frame, bodyColor, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, bodyColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 15, NPC.frame, glowColor, true);
+            spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, glowColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;
         }
 

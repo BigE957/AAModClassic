@@ -19,6 +19,7 @@ namespace AAModClassic.Utilities
             float rotation;
             int spriteDirection;
             float offsetY2;
+            Vector2 screenPos = Main.screenPosition;
             if (codable is NPC n)
             {
                 frameCount = Main.npcFrameCount[n.type];
@@ -27,6 +28,8 @@ namespace AAModClassic.Utilities
                 rotation = n.rotation;
                 spriteDirection = n.spriteDirection;
                 offsetY2 = n.gfxOffY;
+                if (n.IsABestiaryIconDummy)
+                    screenPos = Vector2.Zero;
             }
             else
             {
@@ -38,7 +41,7 @@ namespace AAModClassic.Utilities
                 spriteDirection = p.spriteDirection;
                 offsetY2 = p.gfxOffY;
             }
-            Vector2 position = codable.Center + new Vector2(0f, offsetY2) - Main.screenPosition;
+            Vector2 position = codable.Center + new Vector2(0f, offsetY2) - screenPos;
             Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor(position.ToTileCoordinates());
             DrawAura(sb, texture, position, frame, lightColor, rotation, frame.Size() * 0.5f, scale, spriteDirection == -1 ? SpriteEffects.FlipHorizontally : 0, auraPercent, distanceScalar);
         }

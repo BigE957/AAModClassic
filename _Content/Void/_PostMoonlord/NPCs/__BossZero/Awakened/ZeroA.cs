@@ -7,6 +7,7 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Core;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -85,7 +86,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         {
             bestiaryEntry.Info.AddRange(
             [
-                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroProtocol")
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroProtocol", Color.Red)
             ]);
         }
 
@@ -258,13 +259,18 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 auraDirection = auraPercent <= 0f; 
             }
 
-            if(!(NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack))
+            if(NPC.IsABestiaryIconDummy || (!(NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack)))
             {
+                Color c = AAColor.Oblivion;
+                if (NPC.IsABestiaryIconDummy)
+                    c = Color.Red;
+
                 //BaseDrawing.DrawAfterimage(spriteBatch, Trail.Value, 0, NPC, 1, 1, 8, true, 0, 0, Color.Black, NPC.frame, 7);
-                DrawingUtils.DrawCenteredAfterimages(NPC, NPCID.Sets.TrailingMode[NPC.type], Color.Black, 1, Trail.Value);
-                spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0f);
-                DrawingUtils.DrawAura(spriteBatch, Glowmask.Value, NPC, auraPercent, 1, 0, 0, AAColor.Oblivion);
-                spriteBatch.Draw(Glowmask.Value, NPC.Center - Main.screenPosition, NPC.frame, AAColor.Oblivion, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0f);
+                if(!NPC.IsABestiaryIconDummy)
+                    DrawingUtils.DrawCenteredAfterimages(NPC, NPCID.Sets.TrailingMode[NPC.type], Color.Black, 1, Trail.Value);
+                spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0f);
+                DrawingUtils.DrawAura(spriteBatch, Glowmask.Value, NPC, auraPercent, 1, 0, 0, c);
+                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, c, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
             }
             
             return false;

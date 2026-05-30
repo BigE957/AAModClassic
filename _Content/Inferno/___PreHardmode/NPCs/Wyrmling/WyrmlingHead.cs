@@ -41,7 +41,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.buffImmune[BuffID.OnFire] = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<WyrmlingBanner>();
@@ -267,7 +268,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
             var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
         

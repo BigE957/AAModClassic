@@ -8,7 +8,7 @@ using Terraria;
 using Terraria.GameInput;
 using Terraria.UI;
 
-namespace AAModClassic.UI
+namespace AAModClassic.UI.Tools
 {
     internal abstract class TerratoolUI : ToggableUI
     {

@@ -139,17 +139,16 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
             Texture2D biteAni = ModContent.Request<Texture2D>(Texture + "_Nom").Value;
-            var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (biteAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {
-                spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             if (biteAttack == true)
             {
                 Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
                 int num214 = biteAni.Height / 3; // 3 is the number of frames in the sprite sheet
                 int y6 = num214 * biteFrame;
-                Main.spriteBatch.Draw(biteAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, biteAni.Width, num214)), drawColor, NPC.rotation, new Vector2(biteAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(biteAni, drawCenter - screenPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, biteAni.Width, num214)), drawColor, NPC.rotation, new Vector2(biteAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             return false;
         }

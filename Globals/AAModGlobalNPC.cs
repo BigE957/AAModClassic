@@ -78,6 +78,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Summoning;
+using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -175,7 +176,7 @@ namespace AAModClassic.Globals
 
         public override void SetBestiary(NPC npc, BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            if (npc.ModNPC != null && npc.ModNPC.Mod is AAMod && (!NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(npc.type, out var modifiers) || !modifiers.Hide) && !bestiaryEntry.Info.Any(e => e is FlavorTextBestiaryInfoElement))
+            if (npc.ModNPC != null && npc.ModNPC.Mod is AAMod && (!NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(npc.type, out var modifiers) || !modifiers.Hide) && !bestiaryEntry.Info.Any(e => e is FlavorTextBestiaryInfoElement || e is ColoredFlavorTextBestiaryInfoElement))
             {
                 bestiaryEntry.Info.AddRange(
                 [

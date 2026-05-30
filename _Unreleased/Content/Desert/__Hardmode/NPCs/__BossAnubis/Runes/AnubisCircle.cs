@@ -133,8 +133,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.R
             Texture2D Icon = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/RuneTex").Value;
             Rectangle frame = BaseDrawing.GetFrame((int)NPC.ai[2], Icon.Width, Icon.Height / 5, 0, 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, Icon, 0, NPC.position, NPC.width, NPC.height, NPC.scale, -NPC.rotation, 0, 5, frame, NPC.GetAlpha(Color.Cyan), true);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(Color.White), true);
+            spriteBatch.Draw(Icon, NPC.Center - screenPos, frame, NPC.GetAlpha(Color.Cyan), -NPC.rotation, frame.Size() * 0.5f, NPC.scale, 0, 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(Color.White), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
     }

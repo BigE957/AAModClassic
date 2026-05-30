@@ -1,3 +1,4 @@
+using AAModClassic.UI.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -50,9 +51,9 @@ You may only have a maximum of 2 tool types active"); */
             }
             else if(player.altFunctionUse != 2)
             {
-                Item.pick = UI.TerratoolKipUI.Pick;
-                Item.axe = UI.TerratoolKipUI.Axe;
-                Item.hammer = UI.TerratoolKipUI.Hammer;
+                Item.pick = TerratoolKipUI.Pick;
+                Item.axe = TerratoolKipUI.Axe;
+                Item.hammer = TerratoolKipUI.Hammer;
                 Item.damage = 120;
             }
             else

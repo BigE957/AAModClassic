@@ -36,10 +36,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = true;
-            if (NPC.type == ModContent.NPCType<SeraphA>())
-            {
+            if (NPC.type == ModContent.NPCType<SeraphA>() && !NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            }
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<SeraphBanner>();
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
