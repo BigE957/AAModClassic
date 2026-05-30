@@ -94,7 +94,7 @@ namespace AAModClassic.Tiles.Banners
 			switch (style)
 			{
 				case 1: dropName = "Void Scout"; break;
-				case 2: dropName = "Feral Monster"; break;		
+				//case 2: dropName = "Feral Monster"; break;		
 				case 3: dropName = "Mini Djinn"; break;	
 				case 4: dropName = "Blaze Phoenix"; break;		
 				case 5: dropName = "Chaotic Dawn"; break;

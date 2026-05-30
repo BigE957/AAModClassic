@@ -35,17 +35,24 @@ namespace AAModClassic._Content.Hoard.World.Biomes
 
     public class HoardGeneration : MicroBiome
     {
-        private static bool ShouldAvoidLocation(Point p)
+        private static bool ShouldAvoidLocation(Point p, bool leniant)
         {
             Tile tile = Framing.GetTileSafely(p);
 
-            if (tile.TileType == TileID.Sand ||
+            if ((!leniant && (tile.TileType == TileID.MushroomGrass || tile.TileType == TileID.JungleGrass)) ||
                 tile.TileType == TileID.Sandstone ||
                 tile.TileType == TileID.HardenedSand ||
-                tile.TileType == TileID.Mud ||
-                tile.TileType == TileID.JungleGrass ||
-                tile.TileType == TileID.MushroomGrass)
+                tile.TileType == TileID.SnowBlock ||
+                tile.TileType == TileID.IceBlock ||
+                tile.TileType == TileID.Ash ||
+                tile.TileType == TileID.LihzahrdBrick ||         
+                tile.TileType == TileID.BlueDungeonBrick ||
+                tile.TileType == TileID.GreenDungeonBrick ||
+                tile.TileType == TileID.PinkDungeonBrick)
+            {
+                AAMod.instance.Logger.Info("Hoard Placement Failed, Encountered Tile of type: " + tile.TileType);
                 return true;
+            }
 
             return false;
         }
@@ -53,28 +60,46 @@ namespace AAModClassic._Content.Hoard.World.Biomes
         public override bool Place(Point origin, StructureMap structures)
         {
             int attempts = 0;
-            int maxAttempts = 1000;
-            Point originOffset = Point.Zero;
+            int maxAttempts = 5000;
+            Point placementPoint = origin;
             do
             {
                 bool canGenerateInLocation = true;
 
-                Point placementPoint = origin + originOffset;
-                for (int x = placementPoint.X; x < placementPoint.X + HoardTexGenAssets.HoardTileData.Width; x++)
-                    for (int y = placementPoint.Y; y < placementPoint.Y + HoardTexGenAssets.HoardTileData.Height; y++)
-                        if (ShouldAvoidLocation(new Point(x, y)))
-                            canGenerateInLocation = false;
+                AAMod.instance.Logger.Info("Attempting to Place Hoard at: " + placementPoint);
 
-                if (canGenerateInLocation && structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height)))
+                for (int x = placementPoint.X; x < placementPoint.X + HoardTexGenAssets.HoardTileData.Width; x++)
                 {
-                    WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height), 20);
+                    for (int y = placementPoint.Y; y < placementPoint.Y + HoardTexGenAssets.HoardTileData.Height; y++)
+                    {
+                        if (ShouldAvoidLocation(new Point(x, y), attempts > 2500))
+                        {
+                            canGenerateInLocation = false;
+                            break;
+                        }
+                    }
+                    if (!canGenerateInLocation)
+                        break;
+                }
+
+                if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height)))
+                {
+                    AAMod.instance.Logger.Info("Hoard Placement Failed, Encountered a Pre-Existing Structure");
+                    canGenerateInLocation = false;
+                }
+
+                if (canGenerateInLocation)
+                {
+                    AAMod.instance.Logger.Info("Hoard successfully placed after " + attempts + " attempts.");
+                    origin = placementPoint;
                     break;
                 }
-                originOffset = new(WorldGen.genRand.Next(-300, 300), WorldGen.genRand.Next(-100, 100));
+
+                placementPoint = origin + new Point(WorldGen.genRand.Next(-1000, 600), WorldGen.genRand.Next(-200, 300));
             }
             while (attempts++ < maxAttempts);
 
-            origin += originOffset;
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height), 20);
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {

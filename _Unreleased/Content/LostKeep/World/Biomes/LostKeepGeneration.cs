@@ -11,7 +11,9 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,46 +41,75 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 
     public class LostKeepGeneration : MicroBiome
 	{
-		private static bool ShouldAvoidLocation(Point p)
+		private static bool ShouldAvoidLocation(Point p, bool leniant)
 		{
 			Tile tile = Framing.GetTileSafely(p);
 
-			if (tile.TileType == TileID.Sand ||
+			if ((!leniant && (tile.TileType == TileID.JungleGrass)) ||
 				tile.TileType == TileID.Sandstone ||
-				tile.TileType == TileID.HardenedSand ||
-				tile.TileType == TileID.Mud ||
-				tile.TileType == TileID.JungleGrass ||
-                tile.TileType == TileID.MushroomGrass)
+				tile.TileType == TileID.SnowBlock ||
+				tile.TileType == TileID.IceBlock ||
+				tile.TileType == TileID.Ash ||
+                tile.TileType == TileID.Hive ||
+                tile.TileType == TileID.Crimstone ||
+                tile.TileType == TileID.Ebonstone ||
+                tile.TileType == TileID.LihzahrdBrick ||
+				tile.TileType == TileID.BlueDungeonBrick ||
+				tile.TileType == TileID.GreenDungeonBrick ||
+				tile.TileType == TileID.PinkDungeonBrick)
+			{
+				AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
 				return true;
+			}
 
 			return false;
 		}
 
         public override bool Place(Point origin, StructureMap structures)
-		{
-			int attempts = 0;
-			int maxAttempts = 1000;
-			Point originOffset = Point.Zero;
-			do
-			{
+        {
+            int attempts = 0;
+            int maxAttempts = 5000;
+            Point placementPoint = origin;
+            do
+            {
+                AAMod.instance.Logger.Info("Attempting to Place Lost Keep at: " + placementPoint);
+
 				bool canGenerateInLocation = true;
 
-				Point placementPoint = origin + originOffset;
 				for (int x = placementPoint.X; x < placementPoint.X + LostKeepTexGenAssets.KeepTileData.Width; x++)
-					for (int y = placementPoint.Y; y < placementPoint.Y + LostKeepTexGenAssets.KeepTileData.Height; y++)
-						if (ShouldAvoidLocation(new Point(x, y)))
-							canGenerateInLocation = false;
-
-				if (canGenerateInLocation && structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height)))
 				{
-					WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
+					for (int y = placementPoint.Y; y < placementPoint.Y + LostKeepTexGenAssets.KeepTileData.Height; y++)
+					{
+						if (ShouldAvoidLocation(new Point(x, y), attempts > 1000))
+						{
+							canGenerateInLocation = false;
+							break;
+						}
+					}
+					if (!canGenerateInLocation)
+						break;
+				}
+
+                if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), Enumerable.Repeat(true, TileLoader.TileCount).ToArray(), 0))
+                {
+                    AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered a Pre-Existing Structure");
+					canGenerateInLocation = false;
+                }
+
+                if (canGenerateInLocation)
+				{
+                    AAMod.instance.Logger.Info("Lost Keep successfully placed after " + attempts + " attempts.");
+                    origin = placementPoint;
 					break;
 				}
-				originOffset = new(WorldGen.genRand.Next(-300, 300), WorldGen.genRand.Next(-100, 500));
-			}
-			while (attempts++ < maxAttempts);
 
-			origin += originOffset;
+                int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-400, 400), 200, Main.maxTilesX - 200);
+                int targetY = Math.Clamp(origin.Y + WorldGen.genRand.Next(-150, 400), 100, Main.maxTilesY - 300);
+                placementPoint = new Point(targetX, targetY);
+
+            } while (attempts++ < maxAttempts);
+
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
 
             Dictionary<Color, int> ColorToTile = new Dictionary<Color, int>();
 			ColorToTile[new(128, 128, 128)] = ModContent.TileType<KeepBrick_Tile>();
