@@ -8,10 +8,10 @@ namespace AAModClassic._Content.Stars.World.Biomes
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().ZoneStars = AAWorld.Radium >= 20;
+            return player.GetModPlayer<AAPlayer>().ZoneStars = AAWorld.Radium + AAWorld.EquinoxAltar >= 20;
         }
 
-        public override int Music => MusicManagementSystem.MusicSlots["Stars"];
+        public override int Music => AAWorld.EquinoxAltar > 0 ? MusicManagementSystem.MusicSlots["Equinox_Altar"] : MusicManagementSystem.MusicSlots["Stars"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
     }
