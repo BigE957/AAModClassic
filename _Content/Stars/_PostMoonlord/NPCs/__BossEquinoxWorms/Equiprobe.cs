@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,10 +32,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms
             NPC.knockBackResist = 0.3f;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-            SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
         }
 
-		public override void HitEffect(NPC.HitInfo hit)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
 		{		
 			bool isDead = NPC.life <= 0;
 			for (int m = 0; m < (isDead ? 25 : 5); m++)

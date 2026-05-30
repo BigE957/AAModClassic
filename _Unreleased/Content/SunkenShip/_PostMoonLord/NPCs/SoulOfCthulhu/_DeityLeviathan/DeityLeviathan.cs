@@ -1,4 +1,5 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Dusts;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -45,6 +46,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[44] = true;
             Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)

@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -29,6 +30,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.knockBackResist = 0f;
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
 

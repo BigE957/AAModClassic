@@ -1,9 +1,11 @@
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
 using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Globals;
+using AAModClassic.UI.Core.BestiaryBackgrounds;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
@@ -32,6 +34,11 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomZombieBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange([new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.MushroomZombie")]);
         }
 
         public override void AI()

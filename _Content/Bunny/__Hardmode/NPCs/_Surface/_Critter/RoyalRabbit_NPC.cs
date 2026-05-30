@@ -43,6 +43,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
         {
             bestiaryEntry.Info.AddRange(
             [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.RoyalRabbit")
             ]);
         }

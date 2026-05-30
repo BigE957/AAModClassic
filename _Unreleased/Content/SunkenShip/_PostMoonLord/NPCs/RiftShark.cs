@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
@@ -29,6 +30,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.buffImmune[31] = false;
             NPC.noGravity = true;
             AnimationType = NPCID.Shark;
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
 

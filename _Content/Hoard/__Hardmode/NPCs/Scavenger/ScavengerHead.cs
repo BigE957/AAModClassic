@@ -52,6 +52,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
         {
             bestiaryEntry.Info.AddRange(
             [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns,
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Scavenger")
             ]);
         }

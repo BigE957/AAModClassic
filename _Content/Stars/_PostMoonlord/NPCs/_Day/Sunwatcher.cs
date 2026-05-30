@@ -5,6 +5,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +36,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SunWatcherBanner>();
-            SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+			bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
 		public override void HitEffect(NPC.HitInfo hit)

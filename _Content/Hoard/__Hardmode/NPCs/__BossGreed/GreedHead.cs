@@ -66,6 +66,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
         {
             bestiaryEntry.Info.AddRange(
             [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns,
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Greed")
             ]);
         }

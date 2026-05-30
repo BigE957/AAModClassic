@@ -9,6 +9,7 @@ using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,6 +37,11 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns);
         }
 
         public override void AI()

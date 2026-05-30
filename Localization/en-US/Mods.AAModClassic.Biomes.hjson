@@ -58,7 +58,7 @@ StarsBiome: {
 	TownNPCDialogueName: the Celestial Stars
 }
 
-ShipBiome: {
+SunkenShipBiome: {
 	DisplayName: The Sunken Ship
 	TownNPCDialogueName: the Sunken Ship
 }
@@ -71,9 +71,4 @@ UndergroundInfernoBiome: {
 UndergroundMireBiome: {
 	DisplayName: Underground Mire
 	TownNPCDialogueName: the Underground Mire
-}
-
-SunkenShipBiome: {
-	DisplayName: Sunken Ship Biome
-	TownNPCDialogueName: the Sunken Ship Biome
 }

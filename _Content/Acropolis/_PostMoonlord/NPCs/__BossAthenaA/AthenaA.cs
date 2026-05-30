@@ -63,6 +63,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
         {
             bestiaryEntry.Info.AddRange(
             [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky,
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.OlympianAthena")
             ]);
         }

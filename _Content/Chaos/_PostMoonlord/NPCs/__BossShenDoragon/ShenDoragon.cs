@@ -14,6 +14,7 @@ using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -26,6 +27,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Renderers;
 using Terraria.ID;
@@ -84,10 +86,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
-                PortraitPositionXOverride = 0
+                //PortraitPositionYOverride = 64f
             };
-            value.Position.X += 150;
-            value.Position.Y += 12;
+            value.Position.X += 170;
+            value.Position.Y += 24;
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
@@ -119,6 +121,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             }
             NPC.buffImmune[ModContent.BuffType<Terrablaze_Buff>()] = false;
             SpawnModBiomes = new int[2] { ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type };
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.AddTags([new ShenDoragonBestiaryBackground()]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -1322,7 +1329,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);
                         if (NPC.spriteDirection == -1)
                             goalAngle += MathHelper.Pi;
-                        headRotation = headRotation.AngleLerp(goalAngle, 0.666f);
+                        headRotation = headRotation.AngleLerp(goalAngle, 0.666f * MathHelper.Clamp(NPC.Distance(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center) / 100f, 0f, 1f));
                     }
 
                     spriteBatch.Draw(HeadOpenTop.Value, NPC.Center + headOffset - screenPos, headTopFrame, NPC.GetAlpha(drawColor), headRotation, headTopOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
@@ -1351,10 +1358,18 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     headRotation = NPC.rotation;
                     if (!Dashing)
                     {
-                        float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);
-                        if (NPC.spriteDirection == -1)
-                            goalAngle += MathHelper.Pi;
-                        headRotation = headRotation.AngleLerp(goalAngle, 0.666f);
+                        Vector2 angleTo = NPC.IsABestiaryIconDummy ? Main.MouseScreen : Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center;
+                        float dampen = 1f;
+                        if ((NPC.spriteDirection == -1 && angleTo.X > (NPC.Center + headOffset).X) || (NPC.spriteDirection == 1 && angleTo.X < (NPC.Center + headOffset).X))
+                            dampen = 1 - MathHelper.Clamp((Math.Abs(angleTo.X - (NPC.Center + headOffset).X)) / 64f, 0f, 1f);
+
+                        if (dampen != 0)
+                        {
+                            float goalAngle = (NPC.Center + headOffset).AngleTo(angleTo);
+                            if (NPC.spriteDirection == -1)
+                                goalAngle += MathHelper.Pi;
+                            headRotation = headRotation.AngleLerp(goalAngle, 0.666f * dampen * MathHelper.Clamp(((NPC.Center + headOffset).Distance(angleTo)) / 100f, 0f, 1f));
+                        }
                     }
 
                     spriteBatch.Draw(HeadClosed.Value, NPC.Center + headOffset - screenPos, headFrame, NPC.GetAlpha(drawColor), headRotation, headOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);

@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -40,6 +41,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 NPC.buffImmune[k] = true;
             }
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
         public override void AI()

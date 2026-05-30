@@ -8,6 +8,7 @@ using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -41,6 +42,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<SeraphBanner>();
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
         public override bool PreAI()

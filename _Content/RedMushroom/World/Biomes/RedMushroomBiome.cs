@@ -8,6 +8,10 @@ namespace AAModClassic._Content.RedMushroom.World.Biomes
     {
         public override string BestiaryIcon => "AAModClassic/_Content/RedMushroom/World/Biomes/RedMushroomBiome_Icon";
 
+        public override string MapBackground => "AAModClassic/_Content/RedMushroom/World/Biomes/Backgrounds/RedMushroomMap";
+
+        public override string BackgroundPath => "AAModClassic/_Content/RedMushroom/World/Biomes/Backgrounds/RedMushroomMap";
+
         public override bool IsBiomeActive(Player player)
         {
             return player.GetModPlayer<AAPlayer>().ZoneMush = AAWorld.mushTiles > 100;

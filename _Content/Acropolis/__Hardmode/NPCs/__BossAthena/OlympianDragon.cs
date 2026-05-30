@@ -4,6 +4,7 @@ using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -36,6 +37,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
         public override bool PreAI()

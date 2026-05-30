@@ -69,6 +69,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
         {
             bestiaryEntry.Info.AddRange(
             [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns,
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.WormKingGreed")
             ]);
         }

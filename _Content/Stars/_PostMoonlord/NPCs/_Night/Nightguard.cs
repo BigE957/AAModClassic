@@ -1,13 +1,14 @@
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars.Projectiles;
+using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities;
-using AAModClassic._Content.Stars.Projectiles;
-using AAModClassic._Content.Stars.World.Biomes;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 {
@@ -36,10 +37,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NightGuardBanner>();
-			SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
 		}
 
-		public override void HitEffect(NPC.HitInfo hit)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
 		{		
 			bool isDead = NPC.life <= 0;
 			for (int m = 0; m < (isDead ? 25 : 5); m++)

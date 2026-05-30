@@ -1208,7 +1208,7 @@ namespace AAModClassic.Globals
                 if (AAWorld.downedEquinox && spawnInfo.Water)
                 {
                     pool.Add(ModContent.NPCType<DimensionDiver>(), .6f);
-                    pool.Add(ModContent.NPCType<Squid>(), .5f);
+                    pool.Add(ModContent.NPCType<TrenchSquid>(), .5f);
                     pool.Add(ModContent.NPCType<RiftShark>(), .7f);
                 }
             }

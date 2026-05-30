@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,6 +36,11 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
             SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns);
         }
 
         public float[] internalAI = new float[4];

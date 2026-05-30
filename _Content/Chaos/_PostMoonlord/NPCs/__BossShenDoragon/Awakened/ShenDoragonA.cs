@@ -4,6 +4,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStand
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Music;
+using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -43,10 +44,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            bestiaryEntry.Info.AddRange(
-            [
-                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.AwakenedShenDoragon")
-            ]);
+            bestiaryEntry.Info.AddRange([new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.AwakenedShenDoragon")]);
+
+            bestiaryEntry.AddTags([new AwakenedShenDoragonBestiaryBackground()]);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

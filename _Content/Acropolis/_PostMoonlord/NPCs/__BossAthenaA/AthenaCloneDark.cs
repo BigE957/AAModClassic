@@ -1,6 +1,7 @@
 using AAModClassic._Content.Acropolis.World.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,6 +34,12 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             NPC.noTileCollide = true;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
+        }
+
         public override void AI()
         {
             bool Athena = NPC.AnyNPCs(ModContent.NPCType<AthenaA>());

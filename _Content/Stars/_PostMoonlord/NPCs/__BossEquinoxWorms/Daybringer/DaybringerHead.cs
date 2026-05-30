@@ -71,13 +71,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 			NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["Equinox"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
-            SpawnModBiomes = [ModContent.GetInstance<StarsBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(
             [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky,
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Daybringer")
             ]);
         }

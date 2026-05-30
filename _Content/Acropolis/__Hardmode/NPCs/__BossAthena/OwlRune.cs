@@ -1,15 +1,15 @@
+using AAModClassic._Content.Acropolis.Projectiles;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic.Utilities;
-using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 {
@@ -35,6 +35,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPC.friendly = false;
             NPC.damage = 50;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
         public override void AI()

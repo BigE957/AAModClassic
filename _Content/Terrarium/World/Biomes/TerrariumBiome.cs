@@ -7,6 +7,10 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
 {
     public class TerrariumBiome : ModBiome
     {
+        public override string MapBackground => "AAModClassic/_Content/Terrarium/World/Biomes/Backgrounds/TerrariumMap";
+
+        public override string BackgroundPath => "AAModClassic/_Content/Terrarium/World/Biomes/Backgrounds/TerrariumMap";
+
         public override bool IsBiomeActive(Player player)
         {
             player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
