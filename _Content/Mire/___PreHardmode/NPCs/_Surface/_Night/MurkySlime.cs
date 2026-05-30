@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Items.Banners;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -34,6 +35,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night
             AnimationType = NPCID.CorruptSlime;
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<MireSlimeBanner>();
+			SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
