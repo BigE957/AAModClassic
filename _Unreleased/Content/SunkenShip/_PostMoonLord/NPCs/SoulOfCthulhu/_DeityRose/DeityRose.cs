@@ -349,7 +349,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 num720 = 27;
                                 NPC.localAI[1] = -30f;
-                                num721 = ModContent.NPCType<DeityRose_Urchin>();
+                                num721 = ModContent.NPCType<ShadowUrchin>();
                             }
                             else if (NPC.life < NPC.lifeMax * 0.8 && Main.rand.Next(maxValue3) == 0)
                             {
@@ -367,7 +367,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             }
                             vector89.X += num717 * 3f;
                             vector89.Y += num718 * 3f;
-                            if (num721 == ModContent.NPCType<DeityRose_Urchin>())
+                            if (num721 == ModContent.NPCType<ShadowUrchin>())
                             {
                                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector89.X, (int)vector89.Y, num721);
                             }
