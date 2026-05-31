@@ -86,7 +86,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.height = 78;
             NPC.aiStyle = -1;
             NPC.damage = 0;
-            NPC.defense = 99999999;
+            NPC.defense = 999999;
             NPC.lifeMax = 28000;
             NPC.value = Item.buyPrice(0, 10, 0, 0);
             //TODO
@@ -329,12 +329,22 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.6f,
+                PortraitScale = 0.75f,
+                PortraitPositionYOverride = 40,
+                Position = new Vector2(0, 64)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
             purple = BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
 
             if (NPC.IsABestiaryIconDummy)
             {
-                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, NPC.Center + (new Vector2(60, -90) * NPC.scale), MathHelper.PiOver2, HeadTex.Frame(1, 2), drawColor, false);
-                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, NPC.Center + (new Vector2(-60, -90) * NPC.scale), MathHelper.PiOver2, HeadTex.Frame(1, 2), drawColor, true);
+                bool isSmall = NPC.scale == 0.6f;
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, NPC.Center + (new Vector2(isSmall ? 30 : 60, -90) * NPC.scale), MathHelper.PiOver2, HeadTex.Frame(1, 2), drawColor, false);
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, NPC.Center + (new Vector2(isSmall ? -30 : -60, -90) * NPC.scale), MathHelper.PiOver2, HeadTex.Frame(1, 2), drawColor, true);
             }
             else
             {

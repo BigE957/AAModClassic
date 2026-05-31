@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
-			recipe.AddIngredient(ModContent.ItemType<MirePod>(), 10);
+			recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

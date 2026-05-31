@@ -844,12 +844,11 @@ namespace AAModClassic._Unofficial
             else
                 progress += amount;
 
-            if (!wasComplete && IsComplete)
-                CombatText.NewText(Main.LocalPlayer.getRect(), Color.Cyan, Language.GetTextValue("Mods.AAModClassic.Common.QuestComplete"), true);
+            //if (!wasComplete && IsComplete)
+            //    CombatText.NewText(Main.LocalPlayer.getRect(), Color.Cyan, Language.GetTextValue("Mods.AAModClassic.Common.QuestComplete"), true);
 
             if (SyncProgress && Main.netMode == NetmodeID.MultiplayerClient && !fromPacket)
                 AANet.SendNetMessage<QuestProgressionPacket>(Questline, QuestID, Index, progress);
-
         }
 
         internal void ResetProgress()

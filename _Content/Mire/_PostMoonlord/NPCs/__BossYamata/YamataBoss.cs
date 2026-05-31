@@ -195,9 +195,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 			}
 		}
 
-        internal void DrawYamataLeg(SpriteBatch spritebatch, NPC yamata, Vector2 start, Vector2 middle, Vector2 end, bool left, bool front)
+        internal void DrawYamataLeg(SpriteBatch spritebatch, NPC yamata, Vector2 start, Vector2 middle, Vector2 end, bool left, bool front, bool isBestiary = false)
         {
-            bool awakened = (NPC.ModNPC is YamataABody);
+            bool awakened = (yamata.ModNPC is YamataABody);
 
             Texture2D legSegment;
             Texture2D legCap;
@@ -221,45 +221,48 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
             float dist = (int)middle.Distance(end);
             Vector2 dir = middle.DirectionTo(end);
-            for (int i = 0; i < dist; i += legSegment.Height)
+            for (float i = 0; i < dist; i += legSegment.Height * NPC.scale)
             {
                 Vector2 worldPos = middle + dir * i;
-                spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
+                spritebatch.Draw(legSegment, worldPos - (isBestiary ? Vector2.Zero : Main.screenPosition), null, isBestiary ? Color.White : Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * yamata.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, NPC.scale, effects, 0);
             }
 
-            spritebatch.Draw(legCap, middle - Main.screenPosition, null, Lighting.GetColor(middle.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legCap.Size() * 0.5f, 1f, effects, 0);
+            spritebatch.Draw(legCap, middle - (isBestiary ? Vector2.Zero : Main.screenPosition), null, isBestiary ? Color.White : Lighting.GetColor(middle.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * yamata.Opacity, dir.ToRotation() - MathHelper.PiOver2, legCap.Size() * 0.5f, NPC.scale, effects, 0);
 
             dist = (int)start.Distance(middle);
             dir = start.DirectionTo(middle);
-            for (int i = 0; i < dist; i += legSegment.Height)
+            for (float i = 0; i < dist; i += legSegment.Height * NPC.scale)
             {
                 Vector2 worldPos = start + dir * i;
-                spritebatch.Draw(legSegment, worldPos - Main.screenPosition, null, Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, 1f, effects, 0);
+                spritebatch.Draw(legSegment, worldPos - (isBestiary ? Vector2.Zero : Main.screenPosition), null, isBestiary ? Color.White : Lighting.GetColor(worldPos.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * yamata.Opacity, dir.ToRotation() - MathHelper.PiOver2, legSegment.Size() * 0.5f, NPC.scale, effects, 0);
             }
 
-            Point endTile = end.ToTileCoordinates();
+			float footAngle = 0;
+            if (!isBestiary)
+			{
+				Point endTile = end.ToTileCoordinates();
 
-            int left1 = WorldGenUtils.GetFirstTileFloor(endTile.X - 1, endTile.Y - 2);
-            int left2 = WorldGenUtils.GetFirstTileFloor(endTile.X - 2, endTile.Y - 2);
-            Point leftTile;
+				int left1 = WorldGenUtils.GetFirstTileFloor(endTile.X - 1, endTile.Y - 2);
+				int left2 = WorldGenUtils.GetFirstTileFloor(endTile.X - 2, endTile.Y - 2);
+				Point leftTile;
 
-            if (left1 < left2)
-				leftTile = new Point(endTile.X - 1, left1);
-			else
-                leftTile = new Point(endTile.X - 2, left2);
+				if (left1 < left2)
+					leftTile = new Point(endTile.X - 1, left1);
+				else
+					leftTile = new Point(endTile.X - 2, left2);
 
-            int right1 = WorldGenUtils.GetFirstTileFloor(endTile.X + 1, endTile.Y - 2);
-            int right2 = WorldGenUtils.GetFirstTileFloor(endTile.X + 2, endTile.Y - 2);
-            Point rightTile;
+				int right1 = WorldGenUtils.GetFirstTileFloor(endTile.X + 1, endTile.Y - 2);
+				int right2 = WorldGenUtils.GetFirstTileFloor(endTile.X + 2, endTile.Y - 2);
+				Point rightTile;
 
-            if (right1 < right2)
-                rightTile = new Point(endTile.X + 1, right1);
-            else
-                rightTile = new Point(endTile.X + 2, right2);
+				if (right1 < right2)
+					rightTile = new Point(endTile.X + 1, right1);
+				else
+					rightTile = new Point(endTile.X + 2, right2);
 
-			float footAngle = leftTile.ToVector2().AngleTo(rightTile.ToVector2());
-
-            spritebatch.Draw(foot, end - Main.screenPosition, null, Lighting.GetColor(end.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, footAngle, foot.Size() * 0.5f, 1f, effects, 0);
+				footAngle = leftTile.ToVector2().AngleTo(rightTile.ToVector2());
+			}
+            spritebatch.Draw(foot, end - (isBestiary ? Vector2.Zero : Main.screenPosition), null, isBestiary ? Color.White : Lighting.GetColor(end.ToTileCoordinates()).MultiplyRGB(Color.White * colorMult) * NPC.Opacity, footAngle, foot.Size() * 0.5f, NPC.scale, effects, 0);
         }
     }
 }

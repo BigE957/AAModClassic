@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.alpha = 70;
-            NPC.value = 7000f;
+            NPC.value = 700f;
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;

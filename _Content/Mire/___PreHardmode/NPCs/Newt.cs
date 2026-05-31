@@ -178,7 +178,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
                 int num214 = tongueAni.Height / 4;
                 int y6 = num214 * tongueFrame;
-                Main.spriteBatch.Draw(tongueAni, drawCenter - screenPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, tongueAni.Width, num214)), drawColor, NPC.rotation, new Vector2(tongueAni.Width / 2f, num214 / 2f), NPC.scale, effects, 0f);
+                spriteBatch.Draw(tongueAni, drawCenter - screenPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, tongueAni.Width, num214)), drawColor, NPC.rotation, new Vector2(tongueAni.Width / 2f, num214 / 2f), NPC.scale, effects, 0f);
             }
             return false;
         }

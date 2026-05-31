@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(Item.Center, Color.Indigo.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Indigo.ToVector3() * 0.75f * Main.essScale);
         }
     }
 }

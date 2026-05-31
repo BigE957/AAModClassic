@@ -20,7 +20,7 @@ namespace AAModClassic.Utilities.Components
 
     public class IKLeg
     {
-        public Entity Body;
+        public NPC Body;
         public IKLeg PairedLeg;  // Diagonal partner
         public IKLeg SisterLeg;  // Same-side partner
 
@@ -87,7 +87,7 @@ namespace AAModClassic.Utilities.Components
         // Leading leg extension
         private static float LeadingExtendReach => 0.90f;
 
-        public Vector2 Start => Body.Center + OriginOffset;
+        public Vector2 Start => Body.Center + (OriginOffset * Body.scale);
         public Vector2 Middle;
         public Vector2 End;
 
@@ -104,8 +104,8 @@ namespace AAModClassic.Utilities.Components
 
         public LegState State { get; private set; } = LegState.Hanging;
 
-        public float LengthA => BaseLengthA; //* Body.scale;
-        public float LengthB => BaseLengthB; //* Body.scale;
+        public float LengthA => BaseLengthA * Body.scale;
+        public float LengthB => BaseLengthB * Body.scale;
         public float MaxLength => LengthA + LengthB;
         public int Direction => LeftSet ? -1 : 1;
         public float SisterInfluence => SisterLeg?.LatchedOn == true ? SisterLeg.StrideTimer : 1f;
@@ -120,7 +120,7 @@ namespace AAModClassic.Utilities.Components
             }
         }
 
-        public IKLeg(Entity body, Vector2 originOffset, float lengthA, float lengthB, bool frontSet, bool leftSet, int visualYOffset = 0, int footWidth = 8, float stompVolumeMult = 0.4f)
+        public IKLeg(NPC body, Vector2 originOffset, float lengthA, float lengthB, bool frontSet, bool leftSet, int visualYOffset = 0, int footWidth = 8, float stompVolumeMult = 0.4f)
         {
             Body = body;
             OriginOffset = originOffset;

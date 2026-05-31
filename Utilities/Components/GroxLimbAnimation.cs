@@ -41,7 +41,7 @@ namespace AAModClassic.Utilities.Components
         public float VelOffsetY { get; private set; } = 0f;
         private readonly float distanceToMove = 120f, distanceToMoveX = 50f;
         private readonly bool flying = false;
-        public bool leftLeg = false;
+        public bool LeftLeg => limbType == 1 || limbType == 3;
 
         Vector2 pointToStandOn = default;
         public Vector2 LegJoint { get; private set; } = default;
@@ -117,7 +117,6 @@ namespace AAModClassic.Utilities.Components
 
         public void UpdateLeg(NPC npc)
         {
-            leftLeg = limbType == 1 || limbType == 3;
             if (Vector2.Distance(Center, npc.Center) > 499 || npc.ModNPC is YamataBody && YamataBody.TeleportMeBitch || npc.ModNPC is YamataABody && YamataABody.TeleportMeBitch) position = npc.Center; //prevent issues when the legs are WAY off.
             if (overrideAnimation != null)
             {
@@ -137,7 +136,7 @@ namespace AAModClassic.Utilities.Components
                 }
             }
             Vector2 bodyConnector = GetBodyConnector(npc);
-            LegJoint = Vector2.Lerp(position, bodyConnector, 0.3f) + new Vector2(leftLeg ? 30 : 0f, -30);
+            LegJoint = Vector2.Lerp(position, bodyConnector, 0.3f) + new Vector2(LeftLeg ? 30 : 0f, -30);
             oldPosition = position;
         }
 

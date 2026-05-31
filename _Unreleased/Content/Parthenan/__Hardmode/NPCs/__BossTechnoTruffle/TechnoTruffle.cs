@@ -364,7 +364,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 }
                 if (internalAI[0] >= 60)
                 {
-                    int attack = Main.rand.Next(2);
+                    int attack = Main.rand.Next(4);
                     internalAI[1] = Main.rand.Next(3);
                     internalAI[0] = 0;
                     FungusAttack(attack);
@@ -428,7 +428,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
         public void FungusAttack(int Attack)
         {
-            if (Attack == 0)
+            if (Attack != 0)
             {
                 if (NPC.CountNPCS(ModContent.NPCType<Truffling>()) < 4)
                 {
