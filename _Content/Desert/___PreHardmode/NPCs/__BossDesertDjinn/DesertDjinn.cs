@@ -585,6 +585,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            NPC.spriteDirection = NPC.direction;
 
             if (!NPC.IsABestiaryIconDummy && !Main.player[NPC.target].ZoneDesert)
             {
