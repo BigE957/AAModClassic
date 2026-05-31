@@ -402,6 +402,7 @@ namespace AAModClassic._Unofficial
                 );
 
                 Questlines["LegendscribeEarlyGame"].Quests["Sagittarius"].QuestUnlocks = ["Retriever", "OrthrusX", "RaiderUltima"];
+                Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Retriever", "OrthrusX", "RaiderUltima"];
             }
             else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Questlines["LegendscribeEarlyGame"].Quests.ContainsKey("Retriever"))
             {
@@ -409,6 +410,7 @@ namespace AAModClassic._Unofficial
                 Questlines["LegendscribeEarlyGame"].Quests.Remove("OrthrusX");
                 Questlines["LegendscribeEarlyGame"].Quests.Remove("RaiderUltima");
                 Questlines["LegendscribeEarlyGame"].Quests["Sagittarius"].QuestUnlocks = ["Anubis"];
+                Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Sagittarius"];
             }
 
             LegendscribeQuestUISystem.questUI.OnInitialize();
