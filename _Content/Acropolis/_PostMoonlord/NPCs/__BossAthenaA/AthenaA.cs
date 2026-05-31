@@ -32,6 +32,15 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
         {
             // DisplayName.SetDefault("Olympian Athena");
             Main.npcFrameCount[NPC.type] = 7;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = -8,
+                PortraitPositionYOverride = 0,
+                Position = new(-8, 36),
+                SpriteDirection = 1
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public int damage = 0;

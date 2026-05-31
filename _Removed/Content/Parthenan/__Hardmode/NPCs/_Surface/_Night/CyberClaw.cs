@@ -49,6 +49,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
                 NPC.spriteDirection = -1;
                 NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 3.14f;
             }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             if (NPC.frameCounter++ >= 8)
             {
                 NPC.frameCounter = 0;
@@ -60,6 +64,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
                 }
             }
         }
+
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (NPCExtensions.BeenKilled<Retriever>())

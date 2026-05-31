@@ -36,6 +36,14 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         {
             Main.npcFrameCount[NPC.type] = 7;
             SassyBitchTex = ModContent.Request<Texture2D>(Texture + "_SassyBitch");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 8,
+                PortraitPositionYOverride = 0,
+                Position = new(24, 36)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public static Point CloudPoint = new Point((int)(Main.maxTilesX * 0.65f), 100);

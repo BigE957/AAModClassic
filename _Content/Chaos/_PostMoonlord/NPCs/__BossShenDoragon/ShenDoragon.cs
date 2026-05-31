@@ -1270,7 +1270,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             // afterimage
             if (Dashing)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, unofficial ? Body.Value : TextureAssets.Npc[Type].Value, NPC.Center, NPC.velocity, 3, NPC.frame, new Color(drawColor.R, drawColor.G, drawColor.B, 150), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 1.5f);
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, unofficial ? Body.Value : TextureAssets.Npc[Type].Value, NPC.Center - screenPos, NPC.velocity, 3, NPC.frame, new Color(drawColor.R, drawColor.G, drawColor.B, 150), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 1.5f);
 
             // body + head
             float headRotation = NPC.rotation;
@@ -1387,12 +1387,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     Vector2 eyeOffset = new Vector2(13 * NPC.spriteDirection, -13).RotatedBy(headRotation);
                     Vector2 position = NPC.Center + headOffset + eyeOffset;
                     spriteBatch.Draw(EyeGlowmask.Value, position - screenPos, null, NPC.GetAlpha(AAColor.Shen3), headRotation, EyeGlowmask.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                    DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, EyeGlowmask.Value, position, NPC.velocity, 8, null, NPC.GetAlpha(AAColor.Shen3), 1f, [headRotation], EyeGlowmask.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
+                    DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, EyeGlowmask.Value, position - screenPos, NPC.velocity, 8, null, NPC.GetAlpha(AAColor.Shen3), 1f, [headRotation], EyeGlowmask.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
                 }
                 else
                 {
                     spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(AAColor.Shen3), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                    DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glowmask.Value, NPC.Center, NPC.velocity, 8, NPC.frame, NPC.GetAlpha(AAColor.Shen3), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
+                    DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glowmask.Value, NPC.Center - screenPos, NPC.velocity, 8, NPC.frame, NPC.GetAlpha(AAColor.Shen3), 1f, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.3f);
                 }
             }
 

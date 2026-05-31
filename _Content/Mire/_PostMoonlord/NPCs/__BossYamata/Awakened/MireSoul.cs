@@ -18,6 +18,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             // DisplayName.SetDefault("Mire Soul");
             Main.npcFrameCount[NPC.type] = 6;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-12, 0),
+                Direction = 1
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -73,10 +81,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
 
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.IsABestiaryIconDummy ? SpriteEffects.FlipVertically : NPC.SpriteEffectDirection(true), 0);
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.IsABestiaryIconDummy ? SpriteEffects.FlipVertically : NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             if(!NPC.IsABestiaryIconDummy)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, glowTex, NPC.Center, NPC.velocity, 4, NPC.frame, Color.White, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.8f);
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, glowTex, NPC.Center - screenPos, NPC.velocity, 4, NPC.frame, Color.White, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.8f);
             return false;
         }
 

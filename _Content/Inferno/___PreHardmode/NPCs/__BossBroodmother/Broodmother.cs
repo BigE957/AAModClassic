@@ -35,6 +35,15 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             Main.npcFrameCount[NPC.type] = 6;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                PortraitPositionYOverride = 0,
+                Position = new(32, -4),
+                Scale = 0.85f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

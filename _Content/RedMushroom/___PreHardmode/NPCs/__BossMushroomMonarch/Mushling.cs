@@ -41,23 +41,26 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
 
             BaseAI.AIZombie(NPC, ref NPC.ai, false, false, -1, .09f, 2, 3, 5, 120, true, 10, 10, true);
+        }
 
+        public override void FindFrame(int frameHeight)
+        {
             if (NPC.velocity.Y == 0)
             {
                 NPC.frameCounter++;
                 if (NPC.frameCounter > 8)
                 {
                     NPC.frameCounter = 0;
-                    NPC.frame.Y += 44;
+                    NPC.frame.Y += frameHeight;
                 }
-                if (NPC.frame.Y > 44 * 6)
+                if (NPC.frame.Y > frameHeight * 6)
                 {
                     NPC.frame.Y = 0;
                 }
             }
             else
             {
-                NPC.frame.Y = 44 * 6;
+                NPC.frame.Y = frameHeight * 6;
             }
         }
     }

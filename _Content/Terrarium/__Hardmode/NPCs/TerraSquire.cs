@@ -16,6 +16,14 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         {
             // DisplayName.SetDefault("Terra Squire");
             Main.npcFrameCount[NPC.type] = 20;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2,
+                PortraitPositionYOverride = 0,
+                Position = new(0, 12)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {

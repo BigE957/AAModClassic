@@ -4,11 +4,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
-using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
-using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
@@ -131,6 +127,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             Arms_RabbitsWrath = ModContent.Request<Texture2D>(ATexture + "_Arms_RabbitsWrath");
             Arms_CottonCane = ModContent.Request<Texture2D>(Texture + "_Unofficial_Arms_CottonCane");
             BlankTex = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 108),
+                PortraitPositionYOverride = 56,
+                Scale = 0.75f,
+                PortraitScale = 0.6f,
+                SpriteDirection = 1
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

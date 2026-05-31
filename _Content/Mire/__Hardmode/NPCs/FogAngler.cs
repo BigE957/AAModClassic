@@ -2,6 +2,7 @@ using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -16,7 +17,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
 		{
 			// DisplayName.SetDefault("Fog Angler");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-16, 0),
+            };
+        }
 
 		public override void SetDefaults()
         {

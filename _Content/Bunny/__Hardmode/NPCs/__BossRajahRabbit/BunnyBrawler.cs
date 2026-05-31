@@ -20,6 +20,12 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             // DisplayName.SetDefault("Bunny Brawler");
             Main.npcFrameCount[NPC.type] = 3;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = 2,
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

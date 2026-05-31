@@ -53,7 +53,10 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
                 NPC.alpha = 0;
             }
             BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.4f, 0.04f, 6f, 1.5f, false, 300);
-            
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {

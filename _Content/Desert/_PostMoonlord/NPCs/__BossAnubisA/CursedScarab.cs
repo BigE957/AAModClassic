@@ -93,7 +93,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             if (!NPC.IsABestiaryIconDummy && Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, bodyTex, NPC.Center, NPC.velocity, 4, NPC.frame, Color.LightGreen, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 3f, 0.9f);
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, bodyTex, NPC.Center - screenPos, NPC.velocity, 4, NPC.frame, Color.LightGreen, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 3f, 0.9f);
             spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             return false;

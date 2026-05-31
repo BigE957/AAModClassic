@@ -20,6 +20,13 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             // DisplayName.SetDefault("Singemander");
 
             Main.npcFrameCount[NPC.type] = 5;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-18, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -69,25 +76,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
         {
             Player player = Main.player[NPC.target];
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
-            if (biteAttack == false)
-            {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 10)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 28;
-                    if (NPC.frame.Y > 112)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                    }
-                }
-            }
-            else
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y = 0;
-            }
+            
             if (NPC.velocity.X > 0) // so it faces the player
             {
                 NPC.spriteDirection = -1;
@@ -133,6 +122,29 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             if (biteAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
                 NPC.aiStyle = NPCAIStyleID.Fighter;
+            }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            if (biteAttack == false)
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += frameHeight;
+                    if (NPC.frame.Y > frameHeight * 4)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
+            else
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

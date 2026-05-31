@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
@@ -44,7 +45,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public static Asset<Texture2D> glowTex;
 
-
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
@@ -76,6 +76,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -501,9 +502,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void FindFrame(int frameHeight)
         {
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 96),
+                PortraitPositionYOverride = 108,
+                Scale = 0.75f,
+                PortraitScale = 0.9f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             NPC.frame.Height = unofficial ? 455 : frameHeight;
-            if (roarTimer > -1)
+            if (!NPC.IsABestiaryIconDummy && roarTimer > -1)
             {
                 NPC.frame.Y = unofficial ? NPC.frame.Height : 2 * NPC.frame.Height;
             }
@@ -601,7 +611,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Color color = BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true));
                 spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), unofficialWorld);
-                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetGlowAlpha(false), unofficialWorld);
+                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(false), NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 if (unofficialWorld)
                 {
                     if (CoreFrame != -1)
@@ -611,12 +621,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         spriteBatch.Draw(core, NPC.Center - new Vector2(3, 15) - Main.screenPosition, frame, color, NPC.rotation, frame.Size() * 0.5f, NPC.scale, 0, 0);
                     }
                     Texture2D eye = ModContent.Request<Texture2D>(respritePath + "_Eye").Value;
-                    float maxDist = 9f;
-                    Vector2 drawPos = NPC.Center - new Vector2(7, 190);
-                    Vector2 eyeOffset = drawPos.DirectionTo(Main.LocalPlayer.Center) * drawPos.Distance(Main.LocalPlayer.Center) / 48f;
+                    float maxDist = 8.5f;
+                    Vector2 drawPos = NPC.Center - (new Vector2(0, 130) * NPC.scale);
+                    Vector2 lookAt = NPC.IsABestiaryIconDummy ? Main.MouseScreen : Main.LocalPlayer.Center;
+                    Vector2 eyeOffset = drawPos.DirectionTo(lookAt) * drawPos.Distance(lookAt) / 48f;
                     drawPos += new Vector2(MathHelper.Clamp(eyeOffset.X, -maxDist, maxDist), MathHelper.Clamp(eyeOffset.Y, -maxDist, maxDist));
-                    BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetGlowAlpha(false), unofficialWorld);
-                    BaseDrawing.DrawTexture(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, NPC.scale, 0f, 1, 1, eye.Frame(), GetGlowAlpha(false), unofficialWorld);
+                    BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos - new Vector2(7, 9), eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetGlowAlpha(false), unofficialWorld);
+                    spriteBatch.Draw(eye, drawPos - screenPos, null, Color.White, NPC.rotation, eye.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 }
             }
 

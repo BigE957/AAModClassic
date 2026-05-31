@@ -19,6 +19,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
         {
             // DisplayName.SetDefault("Toxitoad");
             Main.npcFrameCount[NPC.type] = 7;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new(-2, 0)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {
@@ -92,25 +99,6 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
         public override void AI()
         {
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
-            if (biteAttack == false && tongueAttack == false)
-            {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 10)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 36;
-                    if (NPC.frame.Y > 214)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                    }
-                }
-            }
-            else
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y = 0;
-            }
             if (player.Center.X > NPC.Center.X)
             {
                 NPC.spriteDirection = -1;
@@ -211,6 +199,30 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                 NPC.aiStyle = NPCAIStyleID.Fighter;
             }
         }
+
+        public override void FindFrame(int frameHeight)
+        {
+            if (biteAttack == false && tongueAttack == false)
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 36;
+                    if (NPC.frame.Y > 214)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
+            else
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
+            }
+        }
+        
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;

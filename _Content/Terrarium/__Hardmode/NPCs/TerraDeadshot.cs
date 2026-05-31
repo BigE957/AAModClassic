@@ -15,6 +15,12 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         {
             // DisplayName.SetDefault("Terra Deadshot");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.VortexRifleman];
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

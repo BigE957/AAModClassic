@@ -50,12 +50,15 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, color.R / 255, color.G / 255, color.B / 255);
 
             BaseAI.AIEye(NPC, ref NPC.ai, true, true, .2f, .2f, 4, 2, 1, 1);
+        }
 
+        public override void FindFrame(int frameHeight)
+        {
             if (NPC.frameCounter++ > 8)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 80;
-                if (NPC.frame.Y > 80 * 3)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 3)
                 {
                     NPC.frame.Y = 0;
                 }

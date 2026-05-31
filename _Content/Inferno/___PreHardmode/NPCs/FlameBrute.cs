@@ -57,28 +57,36 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 				BaseAI.AIZombie(NPC, ref NPC.ai, false, true, -1, 0.1f, 2f, 5, 7, 120);	
 				NPC.spriteDirection = NPC.velocity.X > 0 ? 1 : -1;				
 			}
+        }
 
-			int frameMax = smashAttack ? 8 : 5;
-			NPC.frameCounter++;
-			if (NPC.frameCounter >= frameMax)
-			{
-				NPC.frameCounter = 0;
-				if(smashAttack)
-				{
-					NPC.frame.Y += frameHeightPlusFluff;
-					if (NPC.frame.Y < frameHeightPlusFluff * 6 || NPC.frame.Y > frameHeightPlusFluff * 8)
-					{
-						NPC.frame.Y = frameHeightPlusFluff * 6;
-					}
-				}else
-				{
-					NPC.frame.Y += frameHeightPlusFluff;
-					if (NPC.frame.Y > frameHeightPlusFluff * 5)
-					{
-						NPC.frame.Y = 0;
-					}
-				}
-			}
+        public override void FindFrame(int frameHeight)
+        {
+            Player player = Main.player[NPC.target];
+            float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
+            float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
+            bool smashAttack = playerDistX < 15f && playerDistY < 40f;
+            int frameMax = smashAttack ? 8 : 5;
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= frameMax)
+            {
+                NPC.frameCounter = 0;
+                if (smashAttack)
+                {
+                    NPC.frame.Y += frameHeightPlusFluff;
+                    if (NPC.frame.Y < frameHeightPlusFluff * 6 || NPC.frame.Y > frameHeightPlusFluff * 8)
+                    {
+                        NPC.frame.Y = frameHeightPlusFluff * 6;
+                    }
+                }
+                else
+                {
+                    NPC.frame.Y += frameHeightPlusFluff;
+                    if (NPC.frame.Y > frameHeightPlusFluff * 5)
+                    {
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -1,4 +1,6 @@
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Vanity.VoidEye;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -35,6 +37,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 NPC.buffImmune[k] = true;
             }
             RepairMode = false;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -147,7 +150,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     velocity += Main.rand.NextVector2Circular(0.4f, 0.4f);
                     velocity += NPC.velocity * 0.5f;
 
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<InfinityZero_InfinityZeroShot>(), 140, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<InfinityZero_InfinityZeroShot>(), 140, 0);
                 }
             }
 

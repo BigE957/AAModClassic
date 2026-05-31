@@ -68,6 +68,15 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             HeadGlowmask = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture + "_Glow");
             HeadGlowmaskBlue = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture + "_Glow_Blue");
             HeadGlowmaskRed = ModContent.Request<Texture2D>(ModContent.GetModNPC(ModContent.NPCType<OrthrusXHead>()).Texture + "_Glow_Red");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.75f,
+                PortraitScale = 0.75f,
+                PortraitPositionYOverride = 24,
+                Position = new Vector2(0, 12)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -301,34 +310,40 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public Color purple;
 
-        public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool leftHead)
+        public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, Vector2 drawPos, float drawRot, Rectangle drawFrame, Color drawColor, bool leftHead)
         {
-            if (head != null && head.active && head.ModNPC != null && head.ModNPC is OrthrusXHead)
+            Vector2 neckOrigin = NPC.Center + (new Vector2(leftHead ? -37 : 37, -28) * NPC.scale) - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
+            Vector2 connector = drawPos;// - new Vector2(NeckTexture.Value.Width * 0.5f, 0f);
+            Vector2 dir = neckOrigin.DirectionTo(connector);
+            float length = Vector2.Distance(neckOrigin, connector);
+            for (int i = 0; i < length; i += (int)MathF.Ceiling((NeckTexture.Value.Height - 10) * NPC.scale))
             {
-                Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y) + new Vector2(leftHead ? -37 : 37, -28);
-                Vector2 connector = head.Center - new Vector2(NeckTexture.Value.Width * 0.5f, 0f);
-                Vector2 dir = neckOrigin.DirectionTo(connector);
-                float length = Vector2.Distance(neckOrigin, connector);
-                for (int i = 0; i < length; i += (NeckTexture.Value.Height - 10))
-                {
-                    Vector2 drawPos = neckOrigin + dir * i;
-                    spriteBatch.Draw(NeckTexture.Value, drawPos - Main.screenPosition, null, Lighting.GetColor(drawPos.ToTileCoordinates()), dir.ToRotation() - MathHelper.PiOver2, NeckTexture.Size() * 0.5f, 1f, 0, 0);
-                }
-				spriteBatch.Draw(headTexture, head.Center - Main.screenPosition, head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
-				spriteBatch.Draw(glowMaskTexture, head.Center - Main.screenPosition, head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
-                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                    spriteBatch.Draw(HeadGlowmask.Value, head.Center - Main.screenPosition, head.frame, purple, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
+                Vector2 neckPos = neckOrigin + dir * i;
+                spriteBatch.Draw(NeckTexture.Value, neckPos, null, NPC.IsABestiaryIconDummy ? drawColor : Lighting.GetColor((neckPos + Main.screenPosition).ToTileCoordinates()), dir.ToRotation() - MathHelper.PiOver2, NeckTexture.Size() * 0.5f, NPC.scale, 0, 0);
             }
+            spriteBatch.Draw(headTexture, drawPos, drawFrame, drawColor, drawRot, drawFrame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(glowMaskTexture, drawPos, drawFrame, Color.White, drawRot, drawFrame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                spriteBatch.Draw(HeadGlowmask.Value, drawPos, drawFrame, purple, drawRot, drawFrame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             purple = BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
 
-            if (HeadBlue != null)
-                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, HeadBlue.NPC, drawColor, false);
-            if (HeadRed != null)
-                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, HeadRed.NPC, drawColor, true);
+            if (NPC.IsABestiaryIconDummy)
+            {
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, NPC.Center + (new Vector2(60, -90) * NPC.scale), MathHelper.PiOver2, HeadTex.Frame(1, 2), drawColor, false);
+                DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, NPC.Center + (new Vector2(-60, -90) * NPC.scale), MathHelper.PiOver2, HeadTex.Frame(1, 2), drawColor, true);
+            }
+            else
+            {
+                if (HeadBlue != null && HeadBlue.NPC.active && HeadBlue.Type == ModContent.NPCType<OrthrusXHead>())
+                    DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskBlue.Value, HeadBlue.NPC.Center - screenPos, HeadBlue.NPC.rotation, HeadBlue.NPC.frame, drawColor, false);
+                if (HeadRed != null && HeadRed.NPC.active && HeadRed.Type == ModContent.NPCType<OrthrusXHead>())
+                    DrawHead(spriteBatch, HeadTex.Value, HeadGlowmaskRed.Value, HeadRed.NPC.Center - screenPos, HeadRed.NPC.rotation, HeadRed.NPC.frame, drawColor, true);
+            }
+
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {

@@ -22,6 +22,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             // DisplayName.SetDefault("Ei'lor");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 30,
+                Position = new Vector2(0, 60),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

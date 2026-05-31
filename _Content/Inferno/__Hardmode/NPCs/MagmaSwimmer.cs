@@ -2,6 +2,7 @@ using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -16,7 +17,14 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
 		{
 			// DisplayName.SetDefault("Magma Swimmer");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-12, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {

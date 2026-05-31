@@ -1,10 +1,11 @@
-using System;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,6 +36,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.netAlways = true;
             NPC.noTileCollide = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.LovecraftianShadow")
+            ]);
         }
 
         public float Rotation = 0;

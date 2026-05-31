@@ -62,67 +62,39 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         public int SummonThis = 0;
 		
         public override void AI()
-        {
-            
+        {           
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
-            NPC.frameCounter++;
-            if (internalAI[1] != AISTATE_SUMMON) //walk or charge
-            {
-				if (NPC.frameCounter >= 10)
-				{
-					NPC.frameCounter = 0;
-					NPC.frame.Y += 60;
-					if (NPC.frame.Y > 60 * 7)
-					{
-						NPC.frameCounter = 0;
-						NPC.frame.Y = 0;
-					}
-				}
-                if(NPC.velocity.Y != 0)
-                {
-                    NPC.frame.Y = 0;
-                }
-            }
-            else //jump
-            {
-                if (NPC.frameCounter >= 10)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 60;
-                    if (NPC.frame.Y > 60 * 14)
-                    {
 
-                        Vector2 spawnAt = NPC.Center + new Vector2(0f, NPC.height / 2f);
-                        if (Main.expertMode)
+            if (internalAI[1] == AISTATE_SUMMON)
+            {
+                if (NPC.frameCounter == 9 && NPC.frame.Y > 60 * 13)
+                {
+                    Vector2 spawnAt = NPC.Center + new Vector2(0f, NPC.height / 2f);
+                    if (Main.expertMode)
+                    {
+                        SummonThis = Main.rand.Next(4);
+
+                        switch (SummonThis)
                         {
-                            SummonThis = Main.rand.Next(4);
-
-                            switch (SummonThis)
-                            {
-                                case 0:
-                                    SummonThis = ModContent.NPCType<TerraSquid>();
-                                    break;
-                                case 1:
-                                    SummonThis = ModContent.NPCType<TerraCrawler>();
-                                    break;
-                                case 2:
-                                    SummonThis = ModContent.NPCType<TerraSphere>();
-                                    break;
-                                default:
-                                    SummonThis = ModContent.NPCType<TerraWeaverBody>();
-                                    break;
-                            }
-                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);
+                            case 0:
+                                SummonThis = ModContent.NPCType<TerraSquid>();
+                                break;
+                            case 1:
+                                SummonThis = ModContent.NPCType<TerraCrawler>();
+                                break;
+                            case 2:
+                                SummonThis = ModContent.NPCType<TerraSphere>();
+                                break;
+                            default:
+                                SummonThis = ModContent.NPCType<TerraWeaverBody>();
+                                break;
                         }
-                        internalAI[1] = AISTATE_WALK;
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);
                     }
-                    if (NPC.frame.Y > 60 * 14 || NPC.frame.Y < 60 * 8)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 60 * 8;
-                    }
+                    internalAI[1] = AISTATE_WALK;
                 }
             }
+            
             if (player.Center.X > NPC.Center.X) // so it faces the player
             {
                 NPC.spriteDirection = -1;
@@ -155,6 +127,42 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             else
 			{
                 NPC.velocity.X = 0;
+            }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+
+            if (internalAI[1] != AISTATE_SUMMON) //walk or charge
+            {
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += frameHeight;
+                    if (NPC.frame.Y > frameHeight * 7)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+                if (NPC.velocity.Y != 0)
+                {
+                    NPC.frame.Y = 0;
+                }
+            }
+            else //jump
+            {
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += frameHeight;
+                    if (NPC.frame.Y > frameHeight * 14 || NPC.frame.Y < frameHeight * 8)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = frameHeight * 8;
+                    }
+                }
             }
         }
 

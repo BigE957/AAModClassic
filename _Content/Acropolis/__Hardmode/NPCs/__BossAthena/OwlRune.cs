@@ -15,6 +15,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 {
     public class OwlRune : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            this.HideFromBestiary();
+        }
+
         public override void SetDefaults()
         {
             if (!NPC.IsABestiaryIconDummy)

@@ -12,7 +12,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 		{
 			// DisplayName.SetDefault("Mushbug");
             Main.npcFrameCount[NPC.type] = 6;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {

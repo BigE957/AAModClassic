@@ -12,7 +12,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
 		{
 			// DisplayName.SetDefault("Shadow Ghoul");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{

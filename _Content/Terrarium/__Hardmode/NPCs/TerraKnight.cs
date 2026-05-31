@@ -15,7 +15,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 		{
 			// DisplayName.SetDefault("Terra Knight");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.SolarSolenian];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{

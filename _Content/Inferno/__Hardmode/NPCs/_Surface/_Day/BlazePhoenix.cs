@@ -22,6 +22,13 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
         {
             // DisplayName.SetDefault("Blaze Phoenix");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(8, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -52,16 +59,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
 			AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 10f, 0.2f, 6f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
 			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
 			BaseAI.LookAt(NPC.Center + NPC.velocity, NPC, 0);
-            NPC.frameCounter++;
-            if (NPC.frameCounter > 3)
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y += 76;
-                if (NPC.frame.Y > 76 * 7)
-                {
-                    NPC.frame.Y = 0;
-                }
-            }
+            
             float num1276 = 120f;
             if (NPC.localAI[0] < num1276)
             {
@@ -83,8 +81,20 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
                 }
             }
         }
-		
-				
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+            if (NPC.frameCounter > 3)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 7)
+                {
+                    NPC.frame.Y = 0;
+                }
+            }
+        }
 
         public static Color GetGlowAlpha()
         {

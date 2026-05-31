@@ -17,6 +17,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         {
             // DisplayName.SetDefault("Olympian Dragon");
             Main.npcFrameCount[NPC.type] = 5;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 18)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {

@@ -14,7 +14,13 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
 		{
 			// DisplayName.SetDefault("Chaos Dragon");
 			Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 24)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{
@@ -62,12 +68,16 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
             {
                 NPC.spriteDirection = -1;
             }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 96;
-                if (NPC.frame.Y > 96 * 3)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

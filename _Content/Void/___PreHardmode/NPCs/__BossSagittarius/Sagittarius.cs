@@ -32,6 +32,16 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             Main.npcFrameCount[NPC.type] = 9;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.75f,
+                PortraitScale = 0.75f,
+                PortraitPositionXOverride = 0,
+                PortraitPositionYOverride = 24,
+                Position = new Vector2(24, 48)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
 		public override void SetDefaults()
@@ -339,7 +349,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
         public override void FindFrame(int frameHeight)
         {
             int frameSpeed;
-            if (NPC.ai[0] != 1)
+            if (!NPC.IsABestiaryIconDummy && NPC.ai[0] != 1)
             {
                 frameSpeed = NPC.ai[0] == 2 ? 3 : 12 - (int)NPC.velocity.X;
                 if (NPC.velocity.X != 0)

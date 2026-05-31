@@ -51,11 +51,16 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
                 NPC.alpha = 0;
             }
             BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 20;
-                if (NPC.frame.Y > 20 * 4)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 4)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 		{
 			// DisplayName.SetDefault("Purity Crawler");
 			Main.npcFrameCount[NPC.type] = 5;
-		}
+        }
 
         public bool Val = false;
         public int[] subNPCs = new int[0];
@@ -68,6 +68,21 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
                 NPC.alpha = 0;
             }
             BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 4)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
+                }
+            }
         }
     }
 }

@@ -25,6 +25,13 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 		{
 			// DisplayName.SetDefault("Anubis Legendscribe");
             Main.npcFrameCount[NPC.type] = 11;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 48),
+                PortraitPositionYOverride = 0,
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

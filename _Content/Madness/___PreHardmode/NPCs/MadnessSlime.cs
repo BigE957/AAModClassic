@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -35,8 +36,13 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 			Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
 		}
-		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (spawnInfo.PlayerSafe || Main.hardMode)
 			{

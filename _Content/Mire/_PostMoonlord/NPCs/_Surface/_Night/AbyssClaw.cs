@@ -50,13 +50,16 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
                 NPC.spriteDirection = -1;
                 NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 3.14f;
             }
+        }
 
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 8)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 26;
-                if (NPC.frame.Y > 26 * 4)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 4)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

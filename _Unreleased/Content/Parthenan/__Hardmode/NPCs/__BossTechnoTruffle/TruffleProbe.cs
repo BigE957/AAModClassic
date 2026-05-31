@@ -93,6 +93,19 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.Center = BaseUtility.RotateVector(player.Center, player.Center + new Vector2(260, 0f), rotValue);
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            if (NPC.frameCounter++ > 8)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 3)
+                {
+                    NPC.frame.Y = 0;
+                }
+            }
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D glowTex = Glowmask1.Value;

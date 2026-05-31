@@ -6,14 +6,10 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Unofficial.Content.Bunny._PostMoonlord.Items._RajahA.BossStandard;
 using AAModClassic.Music;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
@@ -25,6 +21,15 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
         {
             // DisplayName.SetDefault("Rajah Rabbit; Champion of the Innocent");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 108),
+                PortraitPositionYOverride = 56,
+                Scale = 0.75f,
+                PortraitScale = 0.6f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

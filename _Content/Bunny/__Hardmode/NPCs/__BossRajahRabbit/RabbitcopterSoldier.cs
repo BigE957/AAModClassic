@@ -19,6 +19,12 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             // DisplayName.SetDefault("Rabbitcopter Soldier");
             Main.npcFrameCount[NPC.type] = 4;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = 2,
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {

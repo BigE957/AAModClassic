@@ -1,5 +1,6 @@
 using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -33,6 +34,11 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             AIType = NPCID.CaveBat;
             Banner = NPC.type;
 			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface);
         }
 
         public override void FindFrame(int frameHeight)

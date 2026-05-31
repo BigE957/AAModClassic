@@ -16,11 +16,20 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     [AutoloadBossHead]
     public class DeityLeviathan : ModNPC
 	{
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Vile-Oct");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 10,
+                PortraitPositionYOverride = 12,
+                Position = new Vector2(54, 0),
+                SpriteDirection = 1,
+                Scale = 0.9f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

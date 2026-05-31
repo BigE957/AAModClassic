@@ -13,7 +13,13 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 		{
 			// DisplayName.SetDefault("Infernal Ghoul");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{

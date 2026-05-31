@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.Mire.World.Biomes.Water;
-using AAModClassic._Removed.Content.Parthenan.World.Biomes.Water;
+﻿using AAModClassic._Removed.Content.Parthenan.World.Biomes.Water;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,8 +14,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 {
     public class ParthenanBiome : ModBiome
     {
-        public override string MapBackground => "AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/ParthenanMap";
-        public override string BackgroundPath => "AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/ParthenanMap";
+        public override string MapBackground => "AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/ParthenonMap";
+        public override string BackgroundPath => "AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/ParthenonMap";
 
         public override bool IsBiomeActive(Player player)
         {

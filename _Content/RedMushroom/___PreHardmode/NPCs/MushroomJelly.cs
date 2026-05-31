@@ -12,7 +12,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 		{
 			// DisplayName.SetDefault("Mushroom Jelly");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 6)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {

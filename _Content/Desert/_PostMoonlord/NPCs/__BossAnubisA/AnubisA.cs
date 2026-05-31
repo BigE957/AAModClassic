@@ -29,6 +29,13 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 		{
 			// DisplayName.SetDefault("Anubis; Forsaken Judge");
             Main.npcFrameCount[NPC.type] = 12;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 112),
+                PortraitPositionYOverride = 84,
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

@@ -63,13 +63,16 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             }
 
             NPC.rotation = NPC.velocity.X / 15f;
+        }
 
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 36;
-                if (NPC.frame.Y > 36 * 3)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

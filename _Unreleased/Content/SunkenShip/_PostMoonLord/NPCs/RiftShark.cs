@@ -14,6 +14,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
         {
             //DisplayName.SetDefault("Trench Shark");
             Main.npcFrameCount[NPC.type] = 4;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(32, 0),
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

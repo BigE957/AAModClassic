@@ -53,13 +53,16 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             BaseAI.AISpaceOctopus(NPC, ref NPC.ai, Main.player[NPC.target].Center, 0.15f, 6f, 250f, 70f, FireMagic);
-            
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 58;
-                if (NPC.frame.Y > 58 * 5)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 5)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

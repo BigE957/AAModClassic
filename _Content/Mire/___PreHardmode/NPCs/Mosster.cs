@@ -19,6 +19,12 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             // DisplayName.SetDefault("Mosster");
 
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

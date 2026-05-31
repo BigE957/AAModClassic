@@ -853,7 +853,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             //BaseDrawing.DrawTexture(spriteBatch, Glow.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
             if (!NPC.IsABestiaryIconDummy)
             {
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glow.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset, NPC.velocity, 4, null, AAColor.COLOR_WHITEFADE1, NPC.scale, [NPC.rotation], Glow.Size() * 0.5f, NPC.SpriteEffectDirection(), 0.8f);
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glow.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset - screenPos, NPC.velocity, 4, null, AAColor.COLOR_WHITEFADE1, NPC.scale, [NPC.rotation], Glow.Size() * 0.5f, NPC.SpriteEffectDirection(), 0.8f);
                 //BaseDrawing.DrawAfterimage(spriteBatch, Glow.Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
             }
 

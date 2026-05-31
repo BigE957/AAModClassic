@@ -32,6 +32,16 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
 
             Glowmask1 = ModContent.Request<Texture2D>(Texture + "_Glow1");
             Glowmask2 = ModContent.Request<Texture2D>(Texture + "_Glow2");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.75f,
+                PortraitScale = 0.75f,
+                PortraitPositionXOverride = 0,
+                PortraitPositionYOverride = 12,
+                Position = new(-24, 18)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

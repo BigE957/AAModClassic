@@ -1,7 +1,9 @@
 ﻿using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -52,7 +54,24 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 
         public override void AI()
         {
+            NPC.TargetClosest(true);
             BaseAI.AIElemental(NPC, ref NPC.ai, ref IdleTimer, null, 1, false, true, 800f, 600f, 180, 2f);
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                if ((NPC.frame.Y / 44) > 4)
+                {
+                    NPC.defense = 100;
+                    NPC.knockBackResist = 0f;
+                }
+                else
+                {
+                    NPC.defense = 5;
+                    NPC.knockBackResist = 0.7f;
+                }
+                if (NPC.frameCounter == 0 && (NPC.frame.Y / 44) == 1)
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 12f, ModContent.ProjectileType<InfinityZero_InfinityZeroShot>(), 25, 0);
+            }
         }
 
         public override void FindFrame(int frameHeight)
@@ -60,28 +79,37 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.frameCounter++;
             if (NPC.frameCounter > 7)
             {
+                NPC.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
+                if (NPC.frame.Y > frameHeight * 11)
+                {
+                    NPC.frame.Y = 0;
+                }
+                //TODO: Wtf were they cooking man
+                /*
                 if (NPC.ai[0] == 2f)
                 {
-                    if (NPC.frame.Y < 44 * 3)
+                    if (NPC.frame.Y < frameHeight * 3)
                     {
-                        NPC.frame.Y = 44 * 3;
+                        NPC.frame.Y = frameHeight * 3;
                     }
-                    if (NPC.frame.Y > 44 * 8)
+                    if (NPC.frame.Y > frameHeight * 8)
                     {
-                        NPC.frame.Y = 44 * 6;
+                        NPC.frame.Y = frameHeight * 6;
                     }
                 }
                 else
                 {
-                    if (NPC.frame.Y >= 44 * 6)
+                    if (NPC.frame.Y >= frameHeight * 6)
                     {
-                        NPC.frame.Y = 44 * 9;
+                        NPC.frame.Y = frameHeight * 9;
                     }
-                    if (NPC.frame.Y > 44 * 11 || NPC.frame.Y == 44 * 3 )
+                    if (NPC.frame.Y > frameHeight * 11 || NPC.frame.Y == frameHeight * 3 )
                     {
                         NPC.frame.Y = 0;
                     }
                 }
+                */
             }
         }
 
@@ -97,7 +125,5 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
         {
             //Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DoomiteScrap>(), 1);
         }
-
-        
     }
 }

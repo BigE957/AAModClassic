@@ -17,7 +17,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 		{
 			// DisplayName.SetDefault("Kappa");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.CreatureFromTheDeep];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{

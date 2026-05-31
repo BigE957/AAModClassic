@@ -48,25 +48,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
         public override void AI()
         {
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
-            if (tongueAttack == false)
-            {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 10)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 30;
-                    if (NPC.frame.Y > 420)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                    }
-                }
-            }
-            else
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y = 0;
-            }
             if (!tongueAttack)
             {
                 if (NPC.velocity.X < 0) // so it faces the player
@@ -143,6 +124,29 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             if (tongueAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
                 NPC.aiStyle = NPCAIStyleID.Fighter;
+            }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            if (tongueAttack == false)
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 30;
+                    if (NPC.frame.Y > 420)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
+            else
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
             }
         }
 

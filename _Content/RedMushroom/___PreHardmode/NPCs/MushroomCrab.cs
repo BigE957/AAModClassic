@@ -13,7 +13,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 		{
 			// DisplayName.SetDefault("Mushroom Crab");
             Main.npcFrameCount[NPC.type] = 5;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {

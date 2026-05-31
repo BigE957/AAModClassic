@@ -47,6 +47,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             // DisplayName.SetDefault("Mushroom Monarch");
             Main.npcFrameCount[NPC.type] = 12;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 0,
+                Position = new(0, 22)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

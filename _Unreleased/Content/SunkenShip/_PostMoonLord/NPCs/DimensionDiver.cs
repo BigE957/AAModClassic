@@ -15,6 +15,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
         {
             // DisplayName.SetDefault("Trench Diver");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.VortexRifleman];
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = 2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

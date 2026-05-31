@@ -536,7 +536,7 @@ LungTail.DisplayName: Ancient Lung
 MagmaSwimmer.DisplayName: Magma Swimmer
 TheStride.DisplayName: Flamebrute
 TheStrideDeathAnimation.DisplayName: Flamebrute
-Wyrm.DisplayName: Wyrm
+WyrmHead.DisplayName: Wyrm
 WyrmBody1.DisplayName: Wyrm
 WyrmBody2.DisplayName: Wyrm
 WyrmBody3.DisplayName: Wyrm
@@ -755,7 +755,6 @@ Skulker.DisplayName: Skulker
 ChaoticDawn_NPC.DisplayName: Chaotic Dawn
 InfernalGhoul.DisplayName: Infernal Ghoul
 PigronInferno.DisplayName: Pigron Inferno
-WyrmHead.DisplayName: Wyrm Head
 AncientLungBody.DisplayName: Ancient Lung
 AncientLungHead.DisplayName: Ancient Lung
 AncientLungTail.DisplayName: Ancient Lung
@@ -844,7 +843,7 @@ LargeLetter: {
 BiomiteCore.DisplayName: Biomite Core
 DimensionDiver.DisplayName: Dimension Diver
 Squid.DisplayName: Squid
-RiftShark.DisplayName: Rift Shark
+RiftShark.DisplayName: Trench Shark
 NightCloud.DisplayName: Night Cloud
 DeityBrain.DisplayName: Lu'Kthu
 DeityRose_Urchin.DisplayName: Shadow Urchin

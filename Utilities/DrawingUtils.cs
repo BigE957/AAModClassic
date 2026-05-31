@@ -133,7 +133,7 @@ namespace AAModClassic.Utilities
                 Color newColor = color * ((imageCount + 3 - i) / (float)(imageCount + 9));
                 velAddon += velocity * distanceScalar;
                 float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
-                sb.Draw(texture, position - velAddon - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
+                sb.Draw(texture, position - velAddon, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
             }
         }
 

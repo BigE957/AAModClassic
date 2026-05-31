@@ -51,7 +51,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.height = 46;
             NPC.damage = 40;
             NPC.npcSlots = 0;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["Siege"];
