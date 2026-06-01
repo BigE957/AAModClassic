@@ -18,6 +18,13 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
         {
             // DisplayName.SetDefault("Newt");
             Main.npcFrameCount[NPC.type] = 15;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-32, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()

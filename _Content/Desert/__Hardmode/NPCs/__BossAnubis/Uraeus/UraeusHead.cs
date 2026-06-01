@@ -1,5 +1,7 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,6 +14,16 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis.Uraeus
 {
     public class UraeusHead : ModNPC
 	{
+        public override void SetStaticDefaults()
+        {
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(24, 12),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
+
 		public override void SetDefaults()
 		{
 			NPC.damage = 40;
@@ -65,6 +77,9 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis.Uraeus
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<UraeusBody>()].Value, 5, 24, 0.25f, Vector2.Zero, 2, 10, headOffset: -24);
+            
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }

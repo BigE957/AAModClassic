@@ -1,3 +1,5 @@
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -19,6 +21,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             // DisplayName.SetDefault("Ashen Dragon");
             Main.npcFrameCount[NPC.type] = 3;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 16,
+                Position = new Vector2(48, 24),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -44,6 +53,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             {
                 NPC.buffImmune[k] = true;
             }
+            SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -375,7 +385,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-        //    int frameCount = /*npc.type == Terraria.ModLoader.ModContent.NPCType<AsheDragon>() ? 3 :*/ 1;
+            if (NPC.IsABestiaryIconDummy)
+            {
+                Texture2D[] textures = [TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonArms>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value];
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, textures, 4, 28, 0.25f, Vector2.Zero, 2, 10, headOffset: -24, flip: true);
+            }
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             return false;

@@ -1,9 +1,13 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,8 +18,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
 	{
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Awakened Lung");
+            // DisplayName.SetDefault("Awakened Lung");
 
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(32, 12),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -44,6 +54,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
             NPC.buffImmune[103] = false;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
+            SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -280,7 +291,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
             return false;
         }
         
-
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
@@ -304,9 +314,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
             }
         }
 
-        public int roarTimer = 0; //if this is > 0, then use the roaring frame.
-        public int roarTimerMax = 120; //default roar timer. only changed for fire breath as it's longer.
-        public bool Roaring //wether or not he is roaring. only used clientside for frame visuals.
-=> roarTimer > 0;
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<AwakenedLungBody>()].Value, 4, 28, 0.25f, Vector2.Zero, 2, 10, -24, flip: true);
+            return true;
+        }
     }
 }

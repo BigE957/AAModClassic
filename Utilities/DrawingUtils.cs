@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities
 {
@@ -295,6 +296,83 @@ namespace AAModClassic.Utilities
             {
                 Vector2 vector2 = (drawCentered ? npc.Center : npc.position);
                 Main.spriteBatch.Draw(texture, vector2 - Main.screenPosition + new Vector2(0f, npc.gfxOffY), frame, npc.GetAlpha(lightColor), rotation, origin, scale, effects, 0f);
+            }
+        }
+
+        //Thanks YuH
+        public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Texture2D bodyTexture, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
+        {
+            DrawAnimatedBestiaryWorm(spriteBatch, npc, drawColor, headTexture, [bodyTexture], segmentCount, segmentSpacing, rotationStrength, baseOffset, animationSpeed, range, headOffset, headSpeedOffset, flip);
+            return false;
+        }
+
+        public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Texture2D bodyTexture, Texture2D bodyTextureAlt, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
+        {
+            DrawAnimatedBestiaryWorm(spriteBatch, npc, drawColor, headTexture, [bodyTexture, bodyTextureAlt], segmentCount, segmentSpacing, rotationStrength, baseOffset, animationSpeed, range, headOffset, headSpeedOffset, flip);
+            return false;
+        }
+
+        /// <summary>
+        /// Draws animated wiggly worms for the Bestiary
+        /// </summary>
+        /// <param name="spriteBatch">The PreDraw's SpriteBatch</param>
+        /// <param name="npc">The NPC to draw</param>
+        /// <param name="drawColor">The NPC's drawColor</param>
+        /// <param name="headTexture">The worm's head texture</param>
+        /// <param name="bodyTextures">The worm's body textures</param>
+        /// <param name="segmentCount">The amount of segments that should be added</param>
+        /// <param name="segmentSpacing">The spacing between segments</param>
+        /// <param name="rotationStrength">How strongly the worm rotates. Higher values cause it to make sharper turns</param>
+        /// <param name="baseOffset">Moves around the position of the worm</param>
+        /// <param name="animationSpeed">How fast the worm moves</param>
+        /// <param name="range">How far up and down the worm moves</param>
+        /// <param name="headOffset">How far to bash (move) the head horizontally in case the automated math is too off or the worm's head extends past its neck joint</param>
+        /// <param name="headSpeedOffset">Offsets the animation progression for the head. Meant to pair with headOffset</param>
+        /// <param name="flip">If the sprites should be flipped. Used for worms viewed from the side like Wyverns</param>
+        /// <returns></returns>
+        public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Texture2D[] bodyTextures, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
+        {
+            npc.frame = headTexture.Frame(1, Main.npcFrameCount[npc.type]);
+            // Buffers the segment position and rotations
+            float offset = -0.2f;
+            float startX = baseOffset.X;
+            float startY = baseOffset.Y;
+            SpriteEffects fx = flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            float wormTimer = npc.GetGlobalNPC<BestiaryDrawingNPC>().bestiaryWormTimer;
+            // Draw the body segments
+            for (int i = segmentCount; i > 0; i--)
+            {
+                // The first segment is slightly closer to keep up with the head
+                float bodyOffset = i == 1 ? i * segmentSpacing * 0.4f : i * segmentSpacing - segmentSpacing * 0.5f;
+
+                // If there's only one texture passed in, use it for all segments
+                // If two are passed in, alternate between them
+                // If more are passed in, each iteration must correspond to a texture
+                Texture2D toUse = bodyTextures.Length == 1 ? bodyTextures[0] : bodyTextures.Length == 2 ? (i % 2 == 0 ? bodyTextures[0] : bodyTextures[1]) : bodyTextures[i - 1];
+                spriteBatch.Draw(toUse, npc.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), toUse.Frame(1, 1, 0, 0), npc.GetAlpha(drawColor), npc.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, toUse.Size() / 2, npc.scale, fx, 0f);
+            }
+            // Draw the head
+            spriteBatch.Draw(headTexture, npc.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), npc.frame, npc.GetAlpha(drawColor), npc.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, npc.frame.Size() * 0.5f, npc.scale, fx, 0f);
+
+            return false;
+        }
+    }
+
+    public class BestiaryDrawingNPC : GlobalNPC
+    {
+        public float bestiaryWormTimer = 0;
+
+        public override bool InstancePerEntity => true;
+
+        public override void FindFrame(NPC npc, int frameHeight)
+        {
+            // Increment the bestiary worm timer when hovering over the NPC or having their entry open. Pauses otherwise
+            if (npc.IsABestiaryIconDummy)
+            {
+                bestiaryWormTimer += 0.02f;
+                // Resets after an hour. No sane human being is looking at a bestiary entry for an hour straight
+                if (bestiaryWormTimer > 4320)
+                    bestiaryWormTimer = 0;
             }
         }
     }

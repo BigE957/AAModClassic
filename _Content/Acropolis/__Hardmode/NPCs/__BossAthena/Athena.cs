@@ -3,9 +3,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
@@ -41,7 +39,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             {
                 PortraitPositionXOverride = 8,
                 PortraitPositionYOverride = 0,
-                Position = new(24, 36)
+                Position = new(24, 30)
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }

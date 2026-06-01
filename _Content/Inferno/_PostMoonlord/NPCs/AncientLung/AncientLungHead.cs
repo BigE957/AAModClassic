@@ -1,11 +1,15 @@
 ﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -19,7 +23,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Ancient Lung");
+            // DisplayName.SetDefault("Ancient Lung");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(32, 12),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -326,8 +337,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
             }
         }
 
-        public int roarTimer = 0; //if this is > 0, then use the roaring frame.
-        public int roarTimerMax = 120; //default roar timer. only changed for fire breath as it's longer.
-        public bool Roaring => roarTimer > 0; //wether or not he is roaring. only used clientside for frame visuals.
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<AncientLungBody>()].Value, 4, 28, 0.25f, Vector2.Zero, 2, 10, -24, flip: true);
+            return true;
+        }
     }
 }

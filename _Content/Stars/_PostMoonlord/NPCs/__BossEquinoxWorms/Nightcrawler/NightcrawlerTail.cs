@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
 	{
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
+            //base.SetStaticDefaults();
             this.HideFromBestiary();
         }
         public override void SetDefaults()

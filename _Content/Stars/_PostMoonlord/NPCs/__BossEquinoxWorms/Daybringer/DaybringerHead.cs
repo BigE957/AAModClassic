@@ -7,6 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -36,7 +37,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Daybringer");
-            Main.npcFrameCount[NPC.type] = 1;
+            //Main.npcFrameCount[NPC.type] = 1;
             string filePath = Texture.Remove(Texture.Length - 14);
             string filePath2 = ModContent.GetInstance<NightcrawlerHead>().Texture.Remove(ModContent.GetInstance<NightcrawlerHead>().Texture.Length - 16);
             DaybringerHeadBig = ModContent.Request<Texture2D>(filePath + "DaybringerHead_Big");
@@ -45,6 +46,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             NightcrawlerHeadBig = ModContent.Request<Texture2D>(filePath2 + "NightcrawlerHead_Big");
             NightcrawlerBodyBig = ModContent.Request<Texture2D>(filePath2 + "NightcrawlerBody_Big");
             NightcrawlerTailBig = ModContent.Request<Texture2D>(filePath2 + "NightcrawlerTail_Big");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 24,
+                Position = new Vector2(56, 36),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
 		public override void SetDefaults()
@@ -893,7 +901,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             NPC.width = 68;
             NPC.height = 68;
-            if (wormStronger)
+            if (!NPC.IsABestiaryIconDummy && wormStronger)
             {
                 if (NPC.type == ModContent.NPCType<DaybringerHead>())
                     tex = DaybringerHeadBig.Value;
@@ -911,8 +919,26 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 int diff = Main.LocalPlayer.miscCounter % 50;
                 float diffFloat = diff / 50f;
                 float auraPercent = BaseUtility.MultiLerp(diffFloat, 0f, 1f, 0f); //did it this way so it's syncronized between all the segments
-                BaseDrawing.DrawAura(spriteBatch, tex, 0, NPC, auraPercent, 2f, 0f, 0f, GetAuraAlpha());
+                DrawingUtils.DrawAura(spriteBatch, tex, NPC, auraPercent, 2f, 0f, 0f, GetAuraAlpha());
             }
+
+            if (NPC.IsABestiaryIconDummy)
+            {
+                Texture2D head;
+                Texture2D body;
+                if (NPC.type == ModContent.NPCType<NightcrawlerHead>())
+                {
+                    head = wormStronger ? NightcrawlerHeadBig.Value : tex;
+                    body = wormStronger ? NightcrawlerBodyBig.Value : TextureAssets.Npc[ModContent.NPCType<NightcrawlerBody>()].Value;
+                }
+                else
+                {
+                    head = wormStronger ? DaybringerHeadBig.Value : tex;
+                    body = wormStronger ? DaybringerBodyBig.Value : TextureAssets.Npc[ModContent.NPCType<DaybringerBody>()].Value;
+                }
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, head, body, wormStronger ? 2 : 3, wormStronger ? 72 : 42, 0.25f, new Vector2(wormStronger ? 32 : 0, 0), wormStronger ? 3 : 2, 20, wormStronger ? -54: -24, flip: true);
+            }
+
             spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0); //GetAuraAlpha());				
             return false;
         }

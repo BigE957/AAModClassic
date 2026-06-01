@@ -1,8 +1,11 @@
 ﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +16,14 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 	{
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Purity Weaver");
+            // DisplayName.SetDefault("Purity Weaver");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(8, 12),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -241,6 +251,12 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 
 			return false;
 		}
-    }
-    
+		
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<PurityWeaverBody>()].Value, 7, 16, 0.25f, Vector2.Zero, 2, 10, -10);
+            return true;
+        }
+    }   
 }

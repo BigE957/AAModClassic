@@ -23,6 +23,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
                 PortraitPositionXOverride = 0,
                 Position = new Vector2(-16, 0),
             };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
 		public override void SetDefaults()

@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
@@ -29,7 +30,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             // DisplayName.SetDefault("Crom Cruach");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
-            Main.npcFrameCount[NPC.type] = 3;
+            //Main.npcFrameCount[NPC.type] = 3; WHAT IS WRONG WITH YOU
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(48, 20),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -359,12 +367,22 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D currentTex = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+
+            if (NPC.IsABestiaryIconDummy)
+            {
+                Texture2D bodyTex = TextureAssets.Npc[ModContent.NPCType<DeityEaterBody>()].Value;
+                Texture2D bodyGlow = ModContent.Request<Texture2D>(Texture + "Body_Glow").Value;
+
+                DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, currentTex, bodyTex, 4, 35, 0.25f, Vector2.Zero, 3, 20, headOffset: -25, headSpeedOffset: 0.1f);
+                DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, glowTex, bodyGlow, 4, 35, 0.25f, Vector2.Zero, 3, 20, headOffset: -25, headSpeedOffset: 0.1f);
+                return false;
+            }
 
             spriteBatch.Draw(currentTex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             //draw glow/glow afterimage
-            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             return false;
         }

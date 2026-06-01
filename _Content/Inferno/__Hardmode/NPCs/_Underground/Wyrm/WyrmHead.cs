@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -17,8 +18,14 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
 	{
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Wyrm");
+            // DisplayName.SetDefault("Wyrm");
 
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 32,
+                Position = new Vector2(84, 18),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
 		public override void SetDefaults()
@@ -262,8 +269,11 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<WyrmBody1>()].Value, 3, 38, 0.1f, Vector2.Zero, 2, 10, headOffset: -52, flip: true);
+
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 
@@ -298,7 +308,5 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
                 Main.dust[dust2].noGravity = true;
             }
         }
-
-        
     }
 }

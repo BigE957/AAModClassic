@@ -19,6 +19,7 @@ using System.IO;
 using System.Linq.Expressions;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -565,6 +566,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            //if (NPC.IsABestiaryIconDummy)
+            //    return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<SubzeroSerpent_Body>()].Value, 2, 24, 0.25f, Vector2.Zero, 2, 10, -18, flip: true);
+
             Texture2D texture;
             if (BiomeType == "Corruption" || BiomeType == "Default" || !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 texture = GetCurrentTexture();

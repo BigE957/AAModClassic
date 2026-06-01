@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             {
                 PortraitPositionXOverride = -8,
                 PortraitPositionYOverride = 0,
-                Position = new(-8, 36),
+                Position = new(-8, 30),
                 SpriteDirection = 1
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
