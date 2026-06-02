@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             {
                 AAWorld.downedGrips = true;
                 if (NPC.playerInteraction[Main.myPlayer])
-                    GripsOfChaosKilled.KilledGripsCondition.Complete();
+                    GripsOfChaosKilled.Condition.Complete();
             }
         }
 

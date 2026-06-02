@@ -18,6 +18,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using System.Collections.Generic;
@@ -38,6 +39,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new Before("HEART_BREAKER");
 
         public override Position GetAdvisorPosition() => new Before("HEART_BREAKER");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class FeudalFungusKilled : ModAchievement
@@ -56,21 +62,31 @@ namespace AAModClassic.Achievements
         {
             yield return new After(ModContent.GetInstance<MushroomMonarchKilled>());
         }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class GripsOfChaosKilled : ModAchievement
     {
-        public static CustomFlagCondition KilledGripsCondition { get; private set; }
+        public static CustomFlagCondition Condition { get; private set; }
 
         public override void SetStaticDefaults()
         {
             Achievement.SetCategory(AchievementCategory.Slayer);
-            KilledGripsCondition = AddCondition();
+            Condition = AddCondition();
         }
 
         public override Position GetDefaultPosition() => new After("EYE_ON_YOU");
 
         public override Position GetAdvisorPosition() => new After("EYE_ON_YOU");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class TruffleToadKilled : ModAchievement
@@ -84,6 +100,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("SMASHING_POPPET");
 
         public override Position GetAdvisorPosition() => new After("SMASHING_POPPET");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class HydraKilled : ModAchievement
@@ -97,6 +118,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("MASTERMIND");
 
         public override Position GetAdvisorPosition() => new Before("WHERES_MY_HONEY");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class BroodmotherKilled : ModAchievement
@@ -110,6 +136,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("MASTERMIND");
 
         public override Position GetAdvisorPosition() => new Before("WHERES_MY_HONEY");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class DesertDjinnKilled : ModAchievement
@@ -123,6 +154,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("DUNGEON_HEIST");
 
         public override Position GetAdvisorPosition() => new After("DUNGEON_HEIST");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class SubzeroSerpentKilled : ModAchievement
@@ -136,6 +172,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("DUNGEON_HEIST");
 
         public override Position GetAdvisorPosition() => new After("DUNGEON_HEIST");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class SagittariusKilled : ModAchievement
@@ -149,6 +190,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("MINER_FOR_FIRE");
 
         public override Position GetAdvisorPosition() => new After("MINER_FOR_FIRE");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class TechnoTruffleKilled : ModAchievement
@@ -162,6 +208,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new Before("HEAD_IN_THE_CLOUDS");
 
         public override Position GetAdvisorPosition() => new Before("HEAD_IN_THE_CLOUDS");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class SiegeMechsKilled : ModAchievement
@@ -175,6 +226,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("BUCKETS_OF_BOLTS");
 
         public override Position GetAdvisorPosition() => new After("BUCKETS_OF_BOLTS");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class StormingSiege : ModAchievement
@@ -202,6 +258,29 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("GET_A_LIFE");
 
         public override Position GetAdvisorPosition() => new After("GET_A_LIFE");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
+    }
+
+    public class BiomiteCoreKilled : ModAchievement
+    {
+        public override void SetStaticDefaults()
+        {
+            Achievement.SetCategory(AchievementCategory.Slayer);
+            AddNPCKilledCondition(ModContent.NPCType<BiomiteCore>());
+        }
+
+        public override Position GetDefaultPosition() => new After("THE_GREAT_SOUTHERN_PLANTKILL");
+
+        public override Position GetAdvisorPosition() => new After("THE_GREAT_SOUTHERN_PLANTKILL");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class AthenaKilled : ModAchievement
@@ -215,6 +294,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("LIHZAHRDIAN_IDOL");
 
         public override Position GetAdvisorPosition() => new After("LIHZAHRDIAN_IDOL");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class GreedKilled : ModAchievement
@@ -228,6 +312,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("LIHZAHRDIAN_IDOL");
 
         public override Position GetAdvisorPosition() => new After("LIHZAHRDIAN_IDOL");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class RajahKilled : ModAchievement
@@ -241,6 +330,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new Before("FISH_OUT_OF_WATER");
 
         public override Position GetAdvisorPosition() => new Before("OBSESSIVE_DEVOTION");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class PreEquinoxAncientsKilled : ModAchievement
@@ -254,6 +348,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new After("CHAMPION_OF_TERRARIA");
 
         public override Position GetAdvisorPosition() => new After("CHAMPION_OF_TERRARIA");
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class EquinoxWormsKilled : ModAchievement
@@ -274,6 +373,11 @@ namespace AAModClassic.Achievements
         {
             yield return new After(ModContent.GetInstance<PreEquinoxAncientsKilled>());
         }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class SistersOfDiscordKilled : ModAchievement
@@ -292,7 +396,12 @@ namespace AAModClassic.Achievements
 
         public override IEnumerable<Position> GetModdedConstraints()
         {
-            yield return new After(ModContent.GetInstance<EquinoxWormsKilled>());
+            yield return new After(ModContent.GetInstance<CelestialOreMined>());
+        }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
         }
     }
 
@@ -312,7 +421,12 @@ namespace AAModClassic.Achievements
 
         public override IEnumerable<Position> GetModdedConstraints()
         {
-            yield return new After(ModContent.GetInstance<SistersOfDiscordKilled>());
+            yield return new After(ModContent.GetInstance<TierThreeChaosOreMined>());
+        }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
         }
     }
 
@@ -334,6 +448,11 @@ namespace AAModClassic.Achievements
         {
             yield return new After(ModContent.GetInstance<AkumaKilled>());
         }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class ZeroKilled : ModAchievement
@@ -354,6 +473,11 @@ namespace AAModClassic.Achievements
         {
             yield return new After(ModContent.GetInstance<YamataKilled>());
         }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class ChampionRajahKilled : ModAchievement
@@ -370,7 +494,12 @@ namespace AAModClassic.Achievements
 
         public override IEnumerable<Position> GetModdedConstraints()
         {
-            yield return new After(ModContent.GetInstance<ZeroKilled>());
+            yield return new After(ModContent.GetInstance<ApocalyptiteOreMined>());
+        }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
         }
     }
 
@@ -392,6 +521,11 @@ namespace AAModClassic.Achievements
         {
             yield return new After(ModContent.GetInstance<ChampionRajahKilled>());
         }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
     }
 
     public class InfinityZeroKilled : ModAchievement
@@ -409,6 +543,11 @@ namespace AAModClassic.Achievements
         public override IEnumerable<Position> GetModdedConstraints()
         {
             yield return new After(ModContent.GetInstance<ChampionRajahKilled>());
+        }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
         }
     }
 
@@ -429,6 +568,61 @@ namespace AAModClassic.Achievements
         public override IEnumerable<Position> GetModdedConstraints()
         {
             yield return new After(ModContent.GetInstance<ChampionRajahKilled>());
+        }
+
+        public override void OnCompleted(Achievement achievement)
+        {
+            AllBossesKilled.TryComplete();
+        }
+    }
+
+    public class AllBossesKilled : ModAchievement
+    {
+        public static CustomFlagCondition Condition { get; private set; }
+
+        public override void SetStaticDefaults()
+        {
+            Achievement.SetCategory(AchievementCategory.Slayer);
+            Condition = AddCondition();
+        }
+
+        public override Position GetDefaultPosition() => new After("CHAMPION_OF_TERRARIA");
+
+        public override IEnumerable<Position> GetModdedConstraints()
+        {
+            yield return new After(ModContent.GetInstance<SoulOfCthulhuKilled>());
+        }
+
+        public static void TryComplete()
+        {
+            //Blarg
+            if (ModContent.GetInstance<MushroomMonarchKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<FeudalFungusKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<GripsOfChaosKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<BroodmotherKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<HydraKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<DesertDjinnKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<SubzeroSerpentKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<SagittariusKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<TechnoTruffleKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<SiegeMechsKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<AnubisKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<BiomiteCoreKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<AthenaKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<GreedKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<RajahKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<PreEquinoxAncientsKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<EquinoxWormsKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<SistersOfDiscordKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<AkumaKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<YamataKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<ZeroKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<ShenDoragonKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<InfinityZeroKilled>().Achievement.IsCompleted &&
+                ModContent.GetInstance<SoulOfCthulhuKilled>().Achievement.IsCompleted)
+            {
+                Condition.Complete();
+            }
         }
     }
 }
