@@ -5,6 +5,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Music;
@@ -243,6 +244,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Defeat.Status"), Color.Indigo);
                 }
+
+                if (NPC.playerInteraction[Main.myPlayer])
+                    YamataKilled.Condition.Complete();
             }
             if (Main.expertMode)
             {

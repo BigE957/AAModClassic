@@ -11,6 +11,7 @@ using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -1009,6 +1010,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                             ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
 
+                    if (NPC.playerInteraction[Main.myPlayer])
+                        ShenDoragonKilled.Condition.Complete();
                 }
                 else
                 {
@@ -1026,6 +1029,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     }
                     TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
                     TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
+
+                    if (NPC.playerInteraction[Main.myPlayer])
+                        ShenDoragonKilled.Condition.Complete();
                 }
             }
         }

@@ -2,6 +2,7 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -622,7 +623,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     ChatUtils.Chat(NPCExtensions.BeenKilled<AkumaA>(true) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Repeat") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.First"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
-
+                if (NPC.playerInteraction[Main.myPlayer])
+                    AkumaKilled.Condition.Complete();
             }
             else
             {

@@ -44,7 +44,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             if (redGripExists == 0)
             {
                 AAWorld.downedGrips = true;
-                GripsOfChaosKilled.KilledGripsCondition.Complete();
+                if (NPC.playerInteraction[Main.myPlayer])
+                    GripsOfChaosKilled.KilledGripsCondition.Complete();
             }
         }
 

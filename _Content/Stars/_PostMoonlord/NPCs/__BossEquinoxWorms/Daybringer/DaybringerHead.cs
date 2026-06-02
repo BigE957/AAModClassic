@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumab
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -776,6 +777,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             if (NPC.CountNPCS(otherWormAlive) == 0)
             {
                 AAWorld.downedEquinox = true;
+                if (NPC.playerInteraction[Main.myPlayer])
+                    EquinoxWormsKilled.Condition.Complete();
             }
         }
 
