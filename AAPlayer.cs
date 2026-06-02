@@ -55,6 +55,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -1796,7 +1797,8 @@ namespace AAModClassic
 
             if (StripeManSet)
             {
-                if(AAMod.ArmorAbilityKey.JustPressed)
+                LuckyArmorEquipped.Condition.Complete();
+                if (AAMod.ArmorAbilityKey.JustPressed)
                 {
                     StripeCrasyLucky = !StripeCrasyLucky;
                 }

@@ -73,7 +73,8 @@ You can put any sand into the Extractinator"); */
 			
             player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonus1") + active  + "\n" + Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonus2");
 
-			player.GetModPlayer<AAPlayer>().StripeManSet = true;
+			if(player.GetModPlayer<AAPlayer>().StripeManFish && player.GetModPlayer<AAPlayer>().StripeManSpawn)
+				player.GetModPlayer<AAPlayer>().StripeManSet = true;
 		}
 
 		public override void AddRecipes()

@@ -127,4 +127,17 @@ namespace AAModClassic.Achievements
 
         public override Position GetDefaultPosition() => new After("PHOTOSYNTHESIS");
     }
+
+    public class LuckyArmorEquipped : ModAchievement
+    {
+        public static CustomFlagCondition Condition { get; private set; }
+
+        public override void SetStaticDefaults()
+        {
+            Achievement.SetCategory(AchievementCategory.Collector);
+            Condition = AddCondition();
+        }
+
+        public override Position GetDefaultPosition() => new After("SUPREME_HELPER_MINION");
+    }
 }
