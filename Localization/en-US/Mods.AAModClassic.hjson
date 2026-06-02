@@ -115,4 +115,89 @@ Achievements: {
 		FriendlyName: Feeling Hoarse
 		Description: Destroy Sagittarius, a machine turned Trojan by the dark influence of the Void.
 	}
+
+	AkumaKilled: {
+		FriendlyName: How To Slay A Dragon
+		Description: Reduce Akuma, the Draconian Demon into nothing but ash.
+	}
+
+	AnubisKilled: {
+		FriendlyName: Your First Step
+		Description: Best Anubis in a friendly spar.
+	}
+
+	AthenaKilled: {
+		FriendlyName: Divine Discipline
+		Description: Defeat the shrewd Serpah Queen, Athena.
+	}
+
+	ChampionRajahKilled: {
+		FriendlyName: Who Hunted Rajah Rabbit?
+		Description: Make peace with Rajah Rabbit and inherit the title of 'Champion of the Innocent'.
+	}
+
+	EquinoxWormsKilled: {
+		FriendlyName: See You Next Year!
+		Description: Pass the Equinox Worms' trial, earning their blessing.
+	}
+
+	GreedKilled: {
+		FriendlyName: Non Fungible Totem
+		Description: Defeat the avaricious Greed and escape his Hoard.
+	}
+
+	InfinityZeroKilled: {
+		FriendlyName: Fatal Error
+		Description: Obliterate Infinity Zero, leaving Oblivion with no more genocidal toys.
+	}
+
+	PreEquinoxAncientsKilled: {
+		FriendlyName: The Awakening
+		Description: Defeat Anubis, Athena and Greed at their strongest.
+	}
+
+	RajahKilled: {
+		FriendlyName: Rabbit Season
+		Description: Confront Rajah Rabbit and live to tell the tale.
+	}
+
+	ShenDoragonKilled: {
+		FriendlyName: Through the Mire and the Flames
+		Description: Decimate Shen Doragon, putting an end to his eternal chaos.
+	}
+
+	SiegeMechsKilled: {
+		FriendlyName: Warheap Arsenal
+		Description: Destroy the 4 nocturnal fulgur menaces: the Retriever, Ortrus X, Raider Ultima.
+	}
+
+	SistersOfDiscordKilled: {
+		FriendlyName: Discordian Intervention
+		Description: Send the Sisters of Discord crying back to their papas.
+	}
+
+	SoulOfCthulhuKilled: {
+		FriendlyName: Shipwrecked
+		Description: Exorcise the Soul of Cthulhu, preventing its cosmic calamity from enveloping the world.
+	}
+
+	StormingSiege: {
+		FriendlyName: Geargrind Assault
+		Description: Fight against the Retriever, Orthrus X, and Raider Ultima at the same time and emerge victorious.
+	}
+
+	TechnoTruffleKilled: {
+		FriendlyName: The Fourth Metal Ingredient
+		Description: Destroy the fulgur fungal menace, Techno Truffle
+	}
+
+	YamataKilled: {
+		FriendlyName: Talking Heads
+		Description: Sever the heads of Yamata, the Dread Nightmare.
+	}
+
+	ZeroKilled: {
+		FriendlyName: System.DivideByZeroException
+		Description: Decommision the Void's Zero Unit and earn its ire.
+	}
 }

@@ -131,6 +131,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             }
         }
 
+        public override void OnKill()
+        {
+            StormingSiegeSystem.KillSiegeMech(1);
+        }
+
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<OrthrusXTreasureBag>()));

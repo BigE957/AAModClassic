@@ -78,6 +78,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore2").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore3").Type, 1f);
             Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusHeadGore4").Type, 1f);
+
+            Body?.NPC.StrikeInstantKill();
         }
 
         public OrthrusXBody Body => bodyNPC != null && bodyNPC.ModNPC is OrthrusXBody ? (OrthrusXBody)bodyNPC.ModNPC : null;
@@ -108,8 +110,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
-                    NPC.life = 0;
-                    NPC.checkDead();
+                    NPC.active = false;
                     NPC.netUpdate = true;
                 }
                 return;
@@ -251,7 +252,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override bool PreKill()
         {
-            return false;
+            return true;
         }
     }
 }

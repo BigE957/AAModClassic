@@ -91,7 +91,7 @@ namespace AAModClassic.Achievements
 
         public override Position GetDefaultPosition() => new After("MASTERMIND");
 
-        public override Position GetAdvisorPosition() => new After("MASTERMIND");
+        public override Position GetAdvisorPosition() => new Before("WHERES_MY_HONEY");
     }
 
     public class BroodmotherKilled : ModAchievement
@@ -104,7 +104,7 @@ namespace AAModClassic.Achievements
 
         public override Position GetDefaultPosition() => new After("MASTERMIND");
 
-        public override Position GetAdvisorPosition() => new After("MASTERMIND");
+        public override Position GetAdvisorPosition() => new Before("WHERES_MY_HONEY");
     }
 
     public class DesertDjinnKilled : ModAchievement

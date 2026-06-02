@@ -44,6 +44,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public override void AI()
         {
             OrthrusXHead orthrus = Main.npc[(int)NPC.ai[0]].ModNPC as OrthrusXHead;
+
+            if(orthrus == null)
+            {
+                NPC.active = false;
+                return;
+            }
+
             Player player = Main.player[NPC.target];
 
             NPC.rotation += .1f;
