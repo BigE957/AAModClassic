@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Terrarium.World.Biomes.Waters;
+using AAModClassic.Achievements;
 using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
@@ -13,7 +14,10 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            bool active = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            if (active && player.whoAmI == Main.myPlayer)
+                TerrariumDiscovered.Condition.Complete();
+            player.GetModPlayer<AAPlayer>().Terrarium = active;
             return AAWorld.terraTiles >= 1;
         }
 

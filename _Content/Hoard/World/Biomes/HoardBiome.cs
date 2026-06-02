@@ -1,4 +1,5 @@
-﻿using AAModClassic.Music;
+﻿using AAModClassic.Achievements;
+using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -8,8 +9,10 @@ namespace AAModClassic._Content.Hoard.World.Biomes
     {
         public override bool IsBiomeActive(Player player)
         {
-            player.GetModPlayer<AAPlayer>().ZoneHoard = (AAWorld.HoardTiles > 1 && !player.GetModPlayer<AAPlayer>().ZoneStars);
-            return player.GetModPlayer<AAPlayer>().ZoneHoard;
+            bool active = AAWorld.HoardTiles > 1 && !player.GetModPlayer<AAPlayer>().ZoneStars;
+            if (active && player.whoAmI == Main.myPlayer)
+                HoardDiscovered.Condition.Complete();
+            return player.GetModPlayer<AAPlayer>().ZoneHoard = active;
         }
 
         public override int Music => MusicManagementSystem.MusicSlots["Hoard"];

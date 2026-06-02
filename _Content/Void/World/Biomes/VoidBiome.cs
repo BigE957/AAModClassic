@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
 using AAModClassic._Unreleased;
+using AAModClassic.Achievements;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
@@ -29,6 +30,8 @@ namespace AAModClassic._Content.Void.World.Biomes
         public override bool IsBiomeActive(Player player)
         {
             bool active = (AAWorld.voidTiles > 20 && player.ZoneSkyHeight) || (AAWorld.voidTiles > 100 && !player.ZoneSkyHeight) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Zero>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<ZeroA>(), 5000) != -1;
+            if (active && player.whoAmI == Main.myPlayer)
+                VoidDiscovered.Condition.Complete();
             return player.GetModPlayer<AAPlayer>().ZoneVoid = active;
         }
 

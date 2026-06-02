@@ -1,4 +1,5 @@
-﻿using AAModClassic.Music;
+﻿using AAModClassic.Achievements;
+using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -14,7 +15,10 @@ namespace AAModClassic._Content.RedMushroom.World.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().ZoneMush = AAWorld.mushTiles > 100;
+            bool active = AAWorld.mushTiles > 100;
+            if (active && player.whoAmI == Main.myPlayer)
+                RedMushroomDiscovered.Condition.Complete();
+            return player.GetModPlayer<AAPlayer>().ZoneMush = active;
         }
 
         public override int Music => MusicManagementSystem.MusicSlots["Mushroom_Surface"];

@@ -5,6 +5,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.RedMushroom.World.Tiles;
+using AAModClassic.Achievements;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
@@ -122,6 +123,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override string GetChat()
         {
+            MushmanEncountered.Condition.Complete();
+
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int Truffle = NPC.FindFirstNPC(NPCID.Truffle);

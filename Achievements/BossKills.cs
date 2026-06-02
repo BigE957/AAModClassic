@@ -586,12 +586,7 @@ namespace AAModClassic.Achievements
             Condition = AddCondition();
         }
 
-        public override Position GetDefaultPosition() => new After("CHAMPION_OF_TERRARIA");
-
-        public override IEnumerable<Position> GetModdedConstraints()
-        {
-            yield return new After(ModContent.GetInstance<SoulOfCthulhuKilled>());
-        }
+        public override Position GetDefaultPosition() => new After("SLAYER_OF_WORLDS");
 
         public static void TryComplete()
         {

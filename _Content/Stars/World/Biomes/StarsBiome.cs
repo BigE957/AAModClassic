@@ -1,4 +1,5 @@
-﻿using AAModClassic.Music;
+﻿using AAModClassic.Achievements;
+using AAModClassic.Music;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -8,6 +9,9 @@ namespace AAModClassic._Content.Stars.World.Biomes
     {
         public override bool IsBiomeActive(Player player)
         {
+            bool active = AAWorld.EquinoxAltar >= 20;
+            if (active && player.whoAmI == Main.myPlayer)
+                EquinoxAltarDiscovered.Condition.Complete();
             return player.GetModPlayer<AAPlayer>().ZoneStars = AAWorld.Radium + AAWorld.EquinoxAltar >= 20;
         }
 
