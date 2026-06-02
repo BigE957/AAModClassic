@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Tools;
@@ -91,7 +92,7 @@ namespace AAModClassic.Achievements
         {
             public override void OnCreated(Item item, ItemCreationContext context)
             {
-                if (context is RecipeItemCreationContext recipeContext && recipeContext.ConsumedItems.Any(i => i.type == ModContent.ItemType<MadnessMushroom>()))
+                if (context is RecipeItemCreationContext recipeContext && recipeContext.ConsumedItems.Any(i => i.type == ModContent.ItemType<RainbowMushroom>()))
                     Condition.Complete();
             }
         }
