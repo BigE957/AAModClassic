@@ -1,3 +1,4 @@
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
@@ -26,7 +27,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
             NPC.damage = 35;
             NPC.defense = 4;
             NPC.lifeMax = 300;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.value = 100f;
@@ -93,7 +93,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FulguriteShard").Type, Main.rand.Next(2));
+            Item.NewItem(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<FulguriteShard>(), Main.rand.Next(2));
         }
     }
 }

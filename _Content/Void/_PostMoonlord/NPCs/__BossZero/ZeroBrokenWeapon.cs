@@ -2,6 +2,7 @@ using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -22,7 +23,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         {
             // DisplayName.SetDefault("Broken Weapon");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
-
+            this.HideFromBestiary();
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 

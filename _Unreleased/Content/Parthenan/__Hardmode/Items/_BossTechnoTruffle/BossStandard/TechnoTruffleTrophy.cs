@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard
@@ -13,7 +14,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;

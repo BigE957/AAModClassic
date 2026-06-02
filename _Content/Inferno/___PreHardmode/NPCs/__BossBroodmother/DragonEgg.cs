@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon Egg");
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

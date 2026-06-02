@@ -11,6 +11,7 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -263,7 +264,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     if (AttackNext == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         AttackNext = Main.rand.Next(5) + 1;
-                        AttackNext = (int)AnubisAttacks.SwipeBuildup;
+                        //AttackNext = (int)AnubisAttacks.SwipeBuildup;
 
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && IsBelow66Percent)
                         {
@@ -1234,7 +1235,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             //Main.NewText(NPC.velocity.Y);
 
             if (HasDonePreamble == true && NPC.velocity != Vector2.Zero)
-                BaseDrawing.DrawAfterimage(spriteBatch, CurrentTexture, 0, NPC, 1, 1, 8, true, 0, 0, GetAlpha(Color.White), frame, 4);
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, CurrentTexture, NPC.Center - Main.screenPosition, NPC.velocity, 8, frame, new Color(150, 255, 150) * (Main.mouseTextColor / 255f), NPC.scale, [NPC.rotation], frame.Size() * 0.5f, NPC.SpriteEffectDirection());
             BaseDrawing.DrawTexture(spriteBatch, CurrentTexture, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, CurrentGlowmask, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, AAColor.COLOR_WHITEFADE1, true);
 

@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -9,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -44,6 +46,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 NPC.buffImmune[k] = true;
             }
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroEcho", Color.Red)
+            ]);
         }
 
         public override Color? GetAlpha(Color drawColor)

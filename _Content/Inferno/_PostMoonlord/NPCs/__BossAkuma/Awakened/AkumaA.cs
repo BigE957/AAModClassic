@@ -2,7 +2,6 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

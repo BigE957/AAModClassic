@@ -3,6 +3,7 @@ using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Achievements;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -60,6 +61,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
             lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
+
+            lastStandingAlways.OnSuccess(ItemDropRule.ByCondition(new MasterRevDropRule(), ModContent.ItemType<GripsOfChaosRelic>()));
 
             LeadingConditionRule lastStandingNormal = new(new MissingGripNormal());
 

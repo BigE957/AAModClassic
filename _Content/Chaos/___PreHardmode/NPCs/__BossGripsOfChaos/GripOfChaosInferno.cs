@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -81,6 +82,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
             lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
+
+            lastStandingAlways.OnSuccess(ItemDropRule.ByCondition(new MasterRevDropRule(), ModContent.ItemType<GripsOfChaosRelic>()));
 
             LeadingConditionRule lastStandingNormal = new(new MissingGripNormal());
 

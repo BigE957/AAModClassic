@@ -1,5 +1,6 @@
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -20,6 +21,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Raider Egg");
+
+            this.HideFromBestiary();
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }

@@ -75,7 +75,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Red);
+            DrawingUtils.DrawAura(spriteBatch, glowTex, NPC, auraPercent, 1f, 0f, 0f, Color.Red);
             spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, Color.Red, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }

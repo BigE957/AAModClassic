@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 			bool playerActive = player != null && player.active && !player.dead;
             if (shootAI < 60)
             {
-                BaseAI.LookAt(player.Center, NPC, 3, 0, .1f, false);
+                NPC.rotation = NPC.rotation.AngleTowards(NPC.AngleTo(player.Center), 0.1f);
             }
             if (Main.netMode != NetmodeID.MultiplayerClient && playerActive)
 			{
@@ -69,8 +69,9 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, projType, (int)(NPC.damage * 0.25f), 3f, Main.myPlayer, NPC.whoAmI);
-
+                        Projectile p = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, NPC.rotation.ToRotationVector2() * 4, projType, (int)(NPC.damage * 0.25f), 3f, Main.myPlayer, NPC.whoAmI);
+						p.friendly = false;
+						p.hostile = true;
                     }
                 }
 			}

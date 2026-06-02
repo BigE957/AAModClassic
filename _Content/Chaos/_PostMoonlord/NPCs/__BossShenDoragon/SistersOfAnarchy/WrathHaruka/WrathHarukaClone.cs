@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka
 {
@@ -15,6 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wrath Haruka");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

@@ -11687,3 +11687,93 @@ SleepingCurseBox: {
 	DisplayName: Music Box (Sleeping Curse)
 	Tooltip: Plays 'Sleeping Curse' by ProduceVGM
 }
+
+GripsOfChaosRelic: {
+	DisplayName: Grips Of Chaos Relic
+	Tooltip: ""
+}
+
+AthenaRelic: {
+	DisplayName: Athena Relic
+	Tooltip: ""
+}
+
+SistersOfDiscordRelic: {
+	DisplayName: Sisters Of Discord Relic
+	Tooltip: ""
+}
+
+DesertDjinnRelic: {
+	DisplayName: Desert Djinn Relic
+	Tooltip: ""
+}
+
+AnubisRelic: {
+	DisplayName: Anubis Relic
+	Tooltip: ""
+}
+
+FeudalFungusRelic: {
+	DisplayName: Feudal Fungus Relic
+	Tooltip: ""
+}
+
+TruffleToadRelic: {
+	DisplayName: Truffle Toad Relic
+	Tooltip: ""
+}
+
+GreedRelic: {
+	DisplayName: Greed Relic
+	Tooltip: ""
+}
+
+BroodmotherRelic: {
+	DisplayName: Broodmother Relic
+	Tooltip: ""
+}
+
+AkumaRelic: {
+	DisplayName: Akuma Relic
+	Tooltip: ""
+}
+
+HydraRelic: {
+	DisplayName: Hydra Relic
+	Tooltip: ""
+}
+
+YamataRelic: {
+	DisplayName: Yamata Relic
+	Tooltip: ""
+}
+
+MushroomMonarchRelic: {
+	DisplayName: Mushroom Monarch Relic
+	Tooltip: ""
+}
+
+SubzeroSerpentRelic: {
+	DisplayName: Subzero Serpent Relic
+	Tooltip: ""
+}
+
+EquinoxWormsRelic: {
+	DisplayName: Equinox Worms Relic
+	Tooltip: ""
+}
+
+SagittariusRelic: {
+	DisplayName: Sagittarius Relic
+	Tooltip: ""
+}
+
+ZeroRelic: {
+	DisplayName: Zero Relic
+	Tooltip: ""
+}
+
+SoulOfCthulhuTrophy: {
+	DisplayName: Soul Of Cthulhu Trophy
+	Tooltip: ""
+}

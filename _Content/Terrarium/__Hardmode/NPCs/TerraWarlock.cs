@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             Player player = Main.LocalPlayer;
             if (!player.GetModPlayer<AAPlayer>().Terrarium)
             {
-                NPC.life = 0;
+                //NPC.life = 0;
             }
         }
       

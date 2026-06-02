@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -89,8 +90,10 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead) BaseDrawing.DrawAfterimage(Main.spriteBatch, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, lightColor);
-            spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, lightColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, bodyTex, NPC.Center - Main.screenPosition, NPC.velocity, 4, NPC.frame, lightColor, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 3, 0.9f);
+            BaseDrawing.DrawAfterimage(spriteBatch, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, lightColor);
+            spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, lightColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 			return false;
 		}
 	}

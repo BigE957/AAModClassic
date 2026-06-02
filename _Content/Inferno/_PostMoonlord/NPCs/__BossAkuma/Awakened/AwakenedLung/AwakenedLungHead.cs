@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -19,13 +18,15 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Awakened Lung");
-
+            this.HideFromBestiary();
+            /*
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
                 PortraitPositionXOverride = 0,
                 Position = new Vector2(32, 12),
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            */
         }
 
         public override void SetDefaults()

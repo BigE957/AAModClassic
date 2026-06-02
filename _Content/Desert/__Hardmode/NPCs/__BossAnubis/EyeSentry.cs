@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.damage = 40;
             NPC.HitSound = SoundID.NPCHit49;
             NPC.DeathSound = SoundID.NPCDeath51;
-            NPC.knockBackResist = 0.7f;
+            NPC.knockBackResist = 0;// 0.7f;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             NPC.noGravity = true;
@@ -117,7 +117,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             if(NPC.IsABestiaryIconDummy)
                 NPC.alpha = 0;
 
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
 
