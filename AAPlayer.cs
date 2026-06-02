@@ -1806,7 +1806,6 @@ namespace AAModClassic
 
             if (StripeCrasyLucky || CrasyLucky)
             {
-                if(StripeCrasyLucky) StripeCrasyLucky = true;
                 Main.rand = new AAFakeRand();
                 if(Main.raining)
                 {
