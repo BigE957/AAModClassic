@@ -51,6 +51,11 @@ namespace AAModClassic.Achievements
         public override Position GetDefaultPosition() => new Before("HEART_BREAKER");
 
         public override Position GetAdvisorPosition() => new Before("HEART_BREAKER");
+
+        public override IEnumerable<Position> GetModdedConstraints()
+        {
+            yield return new After(ModContent.GetInstance<MushroomMonarchKilled>());
+        }
     }
 
     public class GripsOfChaosKilled : ModAchievement
@@ -327,7 +332,7 @@ namespace AAModClassic.Achievements
 
         public override IEnumerable<Position> GetModdedConstraints()
         {
-            yield return new After(ModContent.GetInstance<SistersOfDiscordKilled>());
+            yield return new After(ModContent.GetInstance<AkumaKilled>());
         }
     }
 
@@ -347,7 +352,7 @@ namespace AAModClassic.Achievements
 
         public override IEnumerable<Position> GetModdedConstraints()
         {
-            yield return new After(ModContent.GetInstance<SistersOfDiscordKilled>());
+            yield return new After(ModContent.GetInstance<YamataKilled>());
         }
     }
 
