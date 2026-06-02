@@ -251,8 +251,7 @@ namespace AAModClassic.Achievements
         public override void SetStaticDefaults()
         {
             Achievement.SetCategory(AchievementCategory.Slayer);
-            AddNPCKilledCondition(ModContent.NPCType<Anubis>());
-            AddNPCKilledCondition(ModContent.NPCType<AnubisUnreleased>());
+            AddNPCKilledCondition([ModContent.NPCType<Anubis>(), ModContent.NPCType<AnubisUnreleased>()]);
         }
 
         public override Position GetDefaultPosition() => new After("GET_A_LIFE");
