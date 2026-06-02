@@ -54,6 +54,11 @@ AnubisKilled: {
 	Description: Best Anubis in a friendly spar.
 }
 
+BiomiteCoreKilled: {
+	FriendlyName: Core of the World
+	Description: Endure the Biomite Core, the Keep's defence and training mechanism.
+}
+
 AthenaKilled: {
 	FriendlyName: Divine Discipline
 	Description: Defeat the shrewd Serpah Queen, Athena.
@@ -131,5 +136,110 @@ ZeroKilled: {
 
 AllBossesKilled: {
 	FriendlyName: Slayer of Ancients
-	Description: Defeat every boss in Ancients Awakened: Classic.
+	Description: "Defeat every boss in Ancients Awakened: Classic."
+}
+
+AcropolisDiscovered: {
+	FriendlyName: Mount Olympus
+	Description: Discover the Acropolis, home of the Seraph Queen and her kin.
+}
+
+AllBiomesDiscovered: {
+	FriendlyName: Around the World
+	Description: "Discover each of the biomes and structures in Ancients Awakened: Classic."
+}
+
+ApocalyptiteOreMined: {
+	FriendlyName: Armageddon
+	Description: Mire Apocalyptite, an unstable ore formed by the destructive energies of the Void.
+}
+
+CelestialOreMined: {
+	FriendlyName: Quintessence
+	Description: Mine Radium or Darkmatter, cosmic ore formed in deep space.
+}
+
+ChaosCrafted: {
+	FriendlyName: Nemesis
+	Description: Obtain Chaos, forged from the finest blades of fury and wrath.
+}
+
+ChaosOreMined: {
+	FriendlyName: Chaos Control
+	Description: Mire Incinerite or Abyssium, chaotic ores found in the Inferno and Mire.
+}
+
+DragonstrideBootsCrafted: {
+	FriendlyName: Boots of the Dragon
+	Description: Craft the Dragonstride Boots, and dash across the world with draconic speed!
+}
+
+EquinoxAltarDiscovered: {
+	FriendlyName: Equilibrium
+	Description: Find the Equinox Altar high above the clouds.
+}
+
+EXSoulCrafted: {
+	FriendlyName: Going to the Extreme
+	Description: Craft one of the ultimate items using an EX Soul.
+}
+
+GreedChestOpened: {
+	FriendlyName: Kleptomaniac
+	Description: Swipe a key from the Hoard's Scavengers, and unlock one of their King's precious chests.
+}
+
+HoardDiscovered: {
+	FriendlyName: "Hoarding: Buried Alive"
+	Description: Discover the Cavern of the Worm King, a hoard filled with stolen treasures.
+}
+
+InfinityCoreCrafted: {
+	FriendlyName: Divinity's Forge
+	Description: Complete the Infinity Core, the ultimate crafting station.
+}
+
+LuckyArmorEquipped: {
+	FriendlyName: Yu-Farm-Lot
+	Description: Equip the Stripeman's Lucky armor, allowing you to mine, fish and farm like no other. 
+}
+
+MadnessPotionCrafted: {
+	FriendlyName: Forbidden Alchemy
+	Description: Trade a Madness Mushroom with the Mushman for some Rainbow mushroom, and craft a potion with them.
+}
+
+MushmanEncountered: {
+	FriendlyName: Now there are two of them!
+	Description: Build a house in the Red Mushroom biome and have the Mushman move in.
+}
+
+RedMushroomDiscovered: {
+	FriendlyName: Groovy Grotto
+	Description: Encounter a Red Mushroom biome, or make one yourself with some Spore Bags.
+}
+
+TerrariumDiscovered: {
+	FriendlyName: Heart of Nature
+	Description: Discover the Terrarium, a crystaline globe radiating with natural energies.
+}
+
+TerratoolCrafted: {
+	FriendlyName: Omni-Tool
+	Description: Obtain a Terratool, and wield a pickaxe, axe, and hammer all in a single tool.
+}
+
+TierThreeChaosOreMined: {
+	FriendlyName: Antediluvian
+	Description: Mine Daybreak Incinerite or Eventide Abyssium, primeval forms of the ores found in the Inferno and Mire.
+}
+
+TimecallerCrafted: {
+	FriendlyName: Time Lord
+	Description: Craft the Timecaller, allowing you to bend time as you please.
+}
+
+VoidDiscovered: {
+	FriendlyName: Inanis
+	Description: Discover the Void, an ominous cluster of islands hanging in low orbit.
 }
