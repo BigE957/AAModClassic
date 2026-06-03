@@ -206,8 +206,11 @@ namespace AAModClassic._Unofficial
                     Questlines[legendscribeQuestID].Quests[id].QuestRequirements.Add(quest.ID);
             }
 
-            LegendscribeQuestUISystem.questUI.OnInitialize();
-            LegendscribeQuestUISystem.questUI.OnActivate();
+            if (!Main.dedServ)
+            {
+                LegendscribeQuestUISystem.questUI.OnInitialize();
+                LegendscribeQuestUISystem.questUI.OnActivate();
+            }
             #endregion
 
             #region Legendscribe Lategame Questline
@@ -413,8 +416,11 @@ namespace AAModClassic._Unofficial
                 Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Sagittarius"];
             }
 
-            LegendscribeQuestUISystem.questUI.OnInitialize();
-            LegendscribeQuestUISystem.questUI.OnActivate();
+            if (!Main.dedServ)
+            {
+                LegendscribeQuestUISystem.questUI.OnInitialize();
+                LegendscribeQuestUISystem.questUI.OnActivate();
+            }
         }
 
         public override void PostUpdateEverything()

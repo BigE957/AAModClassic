@@ -20,9 +20,9 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override void OnModLoad()
         {
-            VolcanoTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Volcano", AssetRequestMode.ImmediateLoad).Value);
-            VolcanoWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/VolcanoWalls", AssetRequestMode.ImmediateLoad).Value);
-            VolcanoLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/VolcanoLava", AssetRequestMode.ImmediateLoad).Value);
+            VolcanoTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Inferno/World/Biomes/Volcano");
+            VolcanoWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Inferno/World/Biomes/VolcanoWalls");
+            VolcanoLiquidData = TexGen.GetTextureForGen("AAModClassic/_Content/Inferno/World/Biomes/VolcanoLava");
         }
     }
 

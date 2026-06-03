@@ -24,14 +24,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 
         public override void OnModLoad()
         {
-            SmallShipTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Small_Tiles", AssetRequestMode.ImmediateLoad).Value);
-            SmallShipWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Small_Walls", AssetRequestMode.ImmediateLoad).Value);
-            SmallShipLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Small_Liquid", AssetRequestMode.ImmediateLoad).Value);
+            SmallShipTileData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Small_Tiles");
+            SmallShipWallData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Small_Walls");
+            SmallShipLiquidData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Small_Liquid");
 
-            BigShipTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Tiles", AssetRequestMode.ImmediateLoad).Value);
-            BigShipThoriumTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Thorium_Tiles", AssetRequestMode.ImmediateLoad).Value);
-            BigShipWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Walls", AssetRequestMode.ImmediateLoad).Value);
-            BigShipLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Liquid", AssetRequestMode.ImmediateLoad).Value);
+            BigShipTileData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Tiles");
+            BigShipThoriumTileData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Thorium_Tiles");
+            BigShipWallData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Walls");
+            BigShipLiquidData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/SunkenShipGen_Liquid");
         }
     }
 

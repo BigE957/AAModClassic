@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
             Main.tileLighted[Type] = true;
             //TODO
             //HitSound = 21;
-            DustType = Mod.Find<ModDust>("FulguriteDust").Type;
+            DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(204, 0, 150));
 			MinPick = 180;
         }

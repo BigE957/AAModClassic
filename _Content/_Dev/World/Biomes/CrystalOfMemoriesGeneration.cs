@@ -22,9 +22,9 @@ namespace AAModClassic._Content._Dev.World.Biomes
 
         public override void OnModLoad()
         {
-            EnderCrystalTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystal", AssetRequestMode.ImmediateLoad).Value);
-            EnderCrystalWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystalWall", AssetRequestMode.ImmediateLoad).Value);
-            EnderCrystalSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystalSlope", AssetRequestMode.ImmediateLoad).Value);
+            EnderCrystalTileData = TexGen.GetTextureForGen("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystal");
+            EnderCrystalWallData = TexGen.GetTextureForGen("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystalWall");
+            EnderCrystalSlopeData = TexGen.GetTextureForGen("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystalSlope");
         }
     }
 

@@ -136,7 +136,7 @@ ZeroKilled: {
 
 AllBossesKilled: {
 	FriendlyName: Slayer of Ancients
-	Description: "Defeat every boss in Ancients Awakened: Classic."
+	Description: Defeat every boss in Ancients Awakened: Classic.
 }
 
 //Ores Mined
@@ -163,7 +163,7 @@ ApocalyptiteOreMined: {
 //Items Obtained
 LuckyArmorEquipped: {
 	FriendlyName: Yu-Farm-Lot
-	Description: Equip the Stripeman's Lucky armor, allowing you to mine, fish and farm like no other. 
+	Description: Equip the Stripeman's Lucky armor, allowing you to mine, fish and farm like no other.
 }
 
 MadnessPotionCrafted: {
@@ -228,7 +228,7 @@ AcropolisDiscovered: {
 }
 
 HoardDiscovered: {
-	FriendlyName: "Hoarding: Buried Alive"
+	FriendlyName: Hoarding: Buried Alive
 	Description: Discover the Cavern of the Worm King, a hoard filled with stolen treasures.
 }
 
@@ -244,5 +244,5 @@ EquinoxAltarDiscovered: {
 
 AllBiomesDiscovered: {
 	FriendlyName: Around the World
-	Description: "Discover each of the biomes and structures in Ancients Awakened: Classic."
+	Description: Discover each of the biomes and structures in Ancients Awakened: Classic.
 }

@@ -23,14 +23,14 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
 
         public override void OnModLoad()
         {
-            TerrariumSmallDeletionData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumDelete", AssetRequestMode.ImmediateLoad).Value);
-            TerrariumMediumDeletionData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMedDelete", AssetRequestMode.ImmediateLoad).Value);
+            TerrariumSmallDeletionData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumDelete");
+            TerrariumMediumDeletionData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMedDelete");
 
-            TerrariumSmallTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/Terrarium", AssetRequestMode.ImmediateLoad).Value);
-            TerrariumMediumTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMed", AssetRequestMode.ImmediateLoad).Value);
+            TerrariumSmallTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/Terrarium");
+            TerrariumMediumTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMed");
 
-            TerrariumSmallWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumWalls", AssetRequestMode.ImmediateLoad).Value);
-            TerrariumMediumWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMedWalls", AssetRequestMode.ImmediateLoad).Value);
+            TerrariumSmallWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumWalls");
+            TerrariumMediumWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMedWalls");
         }
     }
 

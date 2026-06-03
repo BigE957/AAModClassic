@@ -18,8 +18,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 
         public override void OnModLoad()
         {
-            ParthenanTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/ParthenanGen", AssetRequestMode.ImmediateLoad).Value);
-            ParthenanWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/ParthenanGen_Walls", AssetRequestMode.ImmediateLoad).Value);
+            ParthenanTileData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/ParthenanGen");
+            ParthenanWallData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/ParthenanGen_Walls");
         }
     }
     public class ParthenanGen : MicroBiome

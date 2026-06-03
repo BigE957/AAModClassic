@@ -21,9 +21,9 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override void OnModLoad()
         {
-            LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/RisingMoonLake", AssetRequestMode.ImmediateLoad).Value);
-            LakeWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/RisingMoonLake_Walls", AssetRequestMode.ImmediateLoad).Value);
-            LakeLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/RisingMoonLake_Liquid", AssetRequestMode.ImmediateLoad).Value);
+            LakeTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Mire/World/Biomes/RisingMoonLake");
+            LakeWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Mire/World/Biomes/RisingMoonLake_Walls");
+            LakeLiquidData = TexGen.GetTextureForGen("AAModClassic/_Content/Mire/World/Biomes/RisingMoonLake_Liquid");
         }
     }
 

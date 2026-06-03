@@ -21,9 +21,9 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
 
         public override void OnModLoad()
         {
-            AcropolisTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/World/Biomes/Acropolis", AssetRequestMode.ImmediateLoad).Value);
-            AcropolisWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/World/Biomes/AcropolisWalls", AssetRequestMode.ImmediateLoad).Value);
-            AcropolisRoofData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/World/Biomes/AcropolisRoof", AssetRequestMode.ImmediateLoad).Value);;
+            AcropolisTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Acropolis/World/Biomes/Acropolis");
+            AcropolisWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Acropolis/World/Biomes/AcropolisWalls");
+            AcropolisRoofData = TexGen.GetTextureForGen("AAModClassic/_Content/Acropolis/World/Biomes/AcropolisRoof");;
         }
     }
 

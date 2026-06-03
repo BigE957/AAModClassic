@@ -296,24 +296,30 @@ namespace AAModClassic
         {
             WeakReferences.PerformModSupport();
 
-            SetupBannerNPCs();
+            if (!Main.dedServ)
+            {
+                SetupBannerNPCs();
 
-            SetupBannerItemTextures();
+                SetupBannerItemTextures();
+            }
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
-            foreach(ModItem modItem in this.GetContent<ModItem>())
+            if (!Main.dedServ)
             {
-                if (ModContent.RequestIfExists<Texture2D>(modItem.Texture + "_Glow", out var texture))
+                foreach (ModItem modItem in this.GetContent<ModItem>())
                 {
-                    if (BaseAAItem.GlowmaskCache.TryAdd(modItem.Type, texture) == false)
+                    if (ModContent.RequestIfExists<Texture2D>(modItem.Texture + "_Glow", out var texture))
                     {
-                        Logger.Warn("some shit did NOT get loaded into the glowmask cache bcuz something was already there.");
-                        Logger.Warn("item id: " + modItem.Type);
-                        Logger.Warn("item name: " + modItem.DisplayName);
-                        Logger.Warn("glowmask in that slot: " + texture.Name);
+                        if (BaseAAItem.GlowmaskCache.TryAdd(modItem.Type, texture) == false)
+                        {
+                            Logger.Warn("some shit did NOT get loaded into the glowmask cache bcuz something was already there.");
+                            Logger.Warn("item id: " + modItem.Type);
+                            Logger.Warn("item name: " + modItem.DisplayName);
+                            Logger.Warn("glowmask in that slot: " + texture.Name);
+                        }
+                        Logger.Warn("added item name: " + modItem.DisplayName);
                     }
-                    Logger.Warn("added item name: " + modItem.DisplayName);
                 }
             }
 
@@ -426,17 +432,6 @@ namespace AAModClassic
             ChristmasCheer = CustomCurrencyManager.RegisterCurrency(new CCheer(ModContent.ItemType<ChristmasCheer>()));
             MartianCredit = CustomCurrencyManager.RegisterCurrency(new MCredit(ModContent.ItemType<MartianCredit>()));
 
-            if (Main.rand == null)
-                Main.rand = new UnifiedRandom();
-
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
-            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.VortexDye)).UseImage("Images/Misc/noise").UseColor(0f, 0f, 0f).UseSecondaryColor(1f, 0f, 0f).UseSaturation(1f);
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(0.66f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f));
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(0.88f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f);
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
-
             Rift = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.Rifthotkey"), "C");
             RiftReturn = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.RiftReturnhotkey"), "X");
 
@@ -455,6 +450,14 @@ namespace AAModClassic
 
         public void LoadClient()
         {
+            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
+            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
+            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.VortexDye)).UseImage("Images/Misc/noise").UseColor(0f, 0f, 0f).UseSecondaryColor(1f, 0f, 0f).UseSaturation(1f);
+            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(0.66f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f));
+            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(0.88f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f);
+            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
+            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
+
             Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
             ScreenShaderData shaderdata = new(shader, "Shockwave");
             Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);

@@ -20,8 +20,8 @@ namespace AAModClassic._Content.Stars.World.Biomes
 
         public override void OnModLoad()
         {
-            EquinoxTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Stars/World/Biomes/EquinoxAltar", AssetRequestMode.ImmediateLoad).Value);
-            EquinoxSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Stars/World/Biomes/EquinoxAltarSlope", AssetRequestMode.ImmediateLoad).Value);
+            EquinoxTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Stars/World/Biomes/EquinoxAltar");
+            EquinoxSlopeData = TexGen.GetTextureForGen("AAModClassic/_Content/Stars/World/Biomes/EquinoxAltarSlope");
         }
     }
     public class EquinoxShrineGeneration : MicroBiome

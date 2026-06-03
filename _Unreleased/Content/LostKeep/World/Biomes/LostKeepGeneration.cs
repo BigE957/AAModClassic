@@ -31,11 +31,11 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 
         public override void OnModLoad()
         {
-            KeepTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeep", AssetRequestMode.ImmediateLoad).Value);
-            KeepWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepWall", AssetRequestMode.ImmediateLoad).Value);
-            KeepSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepSlope", AssetRequestMode.ImmediateLoad).Value);
-            KeepPlatformData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepPlatforms", AssetRequestMode.ImmediateLoad).Value);
-            KeepObjectData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepObjects", AssetRequestMode.ImmediateLoad).Value);
+            KeepTileData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeep");
+            KeepWallData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepWall");
+            KeepSlopeData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepSlope");
+            KeepPlatformData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepPlatforms");
+            KeepObjectData = TexGen.GetTextureForGen("AAModClassic/_Unreleased/Content/LostKeep/World/Biomes/LostKeepObjects");
         }
     }
 

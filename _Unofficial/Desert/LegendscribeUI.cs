@@ -1303,7 +1303,8 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void PostSetupContent()
         {
-            questUI.Activate();
+            if(!Main.dedServ)
+                questUI.Activate();
         }
 
         public override void UpdateUI(GameTime gameTime)

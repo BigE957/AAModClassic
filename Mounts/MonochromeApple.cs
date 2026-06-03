@@ -23,7 +23,7 @@ namespace AAModClassic.Mounts
 			Item.value = 300000;
 			Item.UseSound = SoundID.Item79;
 			Item.noMelee = true;
-			Item.mountType = Mod.Find<ModMount>("BegPony").Type;
+			Item.mountType = ModContent.MountType<BegPony>();
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)

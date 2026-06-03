@@ -26,10 +26,10 @@ namespace AAModClassic._Content.Hoard.World.Biomes
 
         public override void OnModLoad()
         {
-            HoardDeletionData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/World/Biomes/GreedNestClear", AssetRequestMode.ImmediateLoad).Value);
+            HoardDeletionData = TexGen.GetTextureForGen("AAModClassic/_Content/Hoard/World/Biomes/GreedNestClear");
 
-            HoardTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/World/Biomes/GreedNest", AssetRequestMode.ImmediateLoad).Value);
-            HoardWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hoard/World/Biomes/GreedNestWalls", AssetRequestMode.ImmediateLoad).Value);
+            HoardTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Hoard/World/Biomes/GreedNest");
+            HoardWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Hoard/World/Biomes/GreedNestWalls");
         }
     }
 

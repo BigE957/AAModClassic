@@ -128,7 +128,7 @@ namespace AAModClassic.Base.BaseMod.Base
         /// <param name="path"> Path to the texture. </param>
         /// <param name="useAsset"> Whether to load the Texture2D data from the asset repository, or directly from IO. Always false on dedicated servers. </param>
         /// <returns></returns>
-        public static TexGenData GetTextureForGen(string path, bool useAsset = false)
+        public static TexGenData GetTextureForGen(string path, bool useAsset = true)
         {
             if (Main.dedServ)
                 useAsset = false;

@@ -23,11 +23,11 @@ namespace AAModClassic._Content.Hell.World.Biomes
 
         public override void OnModLoad()
         {
-            PitContructionTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hell/World/Biomes/PitConstruction", AssetRequestMode.ImmediateLoad).Value);
-            PitTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hell/World/Biomes/Pit", AssetRequestMode.ImmediateLoad).Value);
-            PitWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hell/World/Biomes/PitWall", AssetRequestMode.ImmediateLoad).Value);
-            PitLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hell/World/Biomes/PitLava", AssetRequestMode.ImmediateLoad).Value);
-            PitSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/_Content/Hell/World/Biomes/PitSlope", AssetRequestMode.ImmediateLoad).Value);
+            PitContructionTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitConstruction");
+            PitTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/Pit");
+            PitWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitWall");
+            PitLiquidData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitLava");
+            PitSlopeData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitSlope");
         }
     }
 
