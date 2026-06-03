@@ -1,4 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Dusts;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,6 +12,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssalBomb_SoulBomb : ModProjectile
 	{
+        public bool isSmall = false;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul Bomb");     
@@ -35,8 +39,15 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
             Projectile.aiStyle = 0;
-            Projectile.scale *= 1.2f;
-		}
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                Projectile.width = 40;
+                Projectile.height = 42;
+            }
+            else if (!isSmall) // removed this bcuz it was causing weird issues with no benefit since scale is replaced elsewhere. fixed (or, properly added) elsewhere
+                Projectile.scale *= 1.2f;
+        }
 
         public override void AI()
         {
@@ -97,6 +108,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             if (Projectile.ai[1] == 0f)
             {
                 Projectile.ai[1] = Main.rand.Next(80, 121) / 100f;
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !isSmall)
+                    Projectile.ai[1] = Projectile.ai[1] * 1.2f;
                 Projectile.netUpdate = true;
             }
             Projectile.scale = Projectile.ai[1];
@@ -110,28 +123,34 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         public override void OnKill(int timeleft)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            float spread = 12f * 0.0174f;
-            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 4;
-            for (int i = 0; i < 2; i++)
+            int explosionType = isSmall == true ? ModContent.ProjectileType<AbyssalBomb_SoulsplosionSmall>() : ModContent.ProjectileType<AbyssalBomb_Soulsplosion>();
+            int dustType = isSmall == true ? ModContent.DustType<YamataDust>() : ModContent.DustType<YamataADust>();
+            if (!isSmall)
             {
-                double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<Projectiles.HydraSoulProj>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Main.projectile[proj].DamageType = DamageClass.Magic;
-                proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<Projectiles.HydraSoulProj>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Main.projectile[proj].DamageType = DamageClass.Magic;
+                float spread = 12f * 0.0174f;
+                double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
+                double deltaAngle = spread / 4;
+                for (int i = 0; i < 2; i++)
+                {
+                    double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
+                    int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<Projectiles.HydraSoulProj>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Main.projectile[proj].DamageType = DamageClass.Magic;
+                    proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<Projectiles.HydraSoulProj>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Main.projectile[proj].DamageType = DamageClass.Magic;
+                }
             }
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(new Vector2(Projectile.width, Projectile.height), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
-                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
+                Vector2 dustPos = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? Projectile.position : new Vector2(Projectile.width, Projectile.height);
+                int num469 = Dust.NewDust(dustPos, Projectile.width, Projectile.height, dustType, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
-                    -Projectile.velocity.Y * 0.2f, 100, default);
+                dustPos = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? Projectile.position : Projectile.Center;
+                num469 = Dust.NewDust(dustPos, Projectile.width, Projectile.height, dustType, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AbyssalBomb_Soulsplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Vector2 explosionPos = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? Projectile.Center : Projectile.position;
+            Projectile.NewProjectile(Projectile.GetSource_Death(), explosionPos.X, explosionPos.Y, Projectile.velocity.X, Projectile.velocity.Y, explosionType, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

@@ -145,7 +145,7 @@ namespace AAModClassic
         public static bool downedSAncient => downedShen;
         public static bool downedAnySiegeUnits => NPCExtensions.BeenKilled<Retriever>() || NPCExtensions.BeenKilled<OrthrusXBody>() || NPCExtensions.BeenKilled<RaiderUltima>();
         public static bool downedAllSiegeUnits => NPCExtensions.BeenKilled<Retriever>() && NPCExtensions.BeenKilled<OrthrusXBody>() && NPCExtensions.BeenKilled<RaiderUltima>();
-        public static bool downedAkuma => (NPCExtensions.BeenKilled<AkumaHead>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaA>();
+        public static bool downedAkuma => (NPCExtensions.BeenKilled<AkumaHead>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaAHead>();
         public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
         public static bool zeroUS;
         public static bool downedZero => (NPCExtensions.BeenKilled<Zero>() && !Main.expertMode) || NPCExtensions.BeenKilled<ZeroA>();

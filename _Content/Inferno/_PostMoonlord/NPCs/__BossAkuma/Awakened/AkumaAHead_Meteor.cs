@@ -8,16 +8,16 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
+namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    public class AkumaMeteor : ModProjectile
+    public class AkumaAHead_Meteor : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Dayfire");
-		}
-    	
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dayfire");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -25,13 +25,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.ignoreWater = true;
-            Projectile.penetrate = 1;
             Projectile.extraUpdates = 1;
         }
 
         public override void AI()
         {
-            Projectile.velocity.Y += .01f;
+            Projectile.velocity.Y += .02f;
             if (Projectile.position.Y > Main.player[Projectile.owner].position.Y - 300f)
             {
                 Projectile.tileCollide = true;
@@ -50,18 +49,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - (spread / 2);
             double deltaAngle = spread / 8f;
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Main.projectile[proj].netUpdate = true;
-            }
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<AkumaAHead_Boom>(), Projectile.damage, 2);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }
@@ -71,9 +66,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
         {
             target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 200);
         }
+
+
         public override bool PreDraw(ref Color lightColor)
         {
-            int shader = -1;// GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+            int shader = Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingOceanDye);
             Vector2 Drawpos = Projectile.Center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY);
 
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile, Color.White, true);

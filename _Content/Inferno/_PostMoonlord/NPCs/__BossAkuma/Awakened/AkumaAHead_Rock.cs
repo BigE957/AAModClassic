@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    public class AkumaRock : ModProjectile
+    public class AkumaAHead_Rock : ModProjectile
     {
     	public override void SetStaticDefaults()
 		{
@@ -88,7 +88,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 				Main.dust[num343].scale += Main.rand.NextFloat();
 			}
 
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaABoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaAHead_Boom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         /*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

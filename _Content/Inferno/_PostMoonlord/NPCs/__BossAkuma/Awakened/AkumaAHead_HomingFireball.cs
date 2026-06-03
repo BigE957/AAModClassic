@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    internal class AkumaABomb : ModProjectile
+    internal class AkumaAHead_HomingFireball : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -26,7 +27,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             Projectile.hostile = true;
             Projectile.scale = 1.1f;
             Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
             Projectile.penetrate = 1;
             Projectile.alpha = 60;
             Projectile.timeLeft = 300;
@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return Color.White;
+            return AAColor.AkumaA;
         }
 
         public override void AI()
@@ -61,7 +61,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
-            const float desiredFlySpeedInPixelsPerFrame = 12;
+            const float desiredFlySpeedInPixelsPerFrame = 6;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
             Projectile.ai[aislotHomingCooldown]++;
@@ -77,43 +77,24 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
-            for (int num189 = 0; num189 < 1; num189++)
-            {
-                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
-
-                Main.dust[num190].scale *= 1.3f;
-                Main.dust[num190].fadeIn = 1f;
-                Main.dust[num190].noGravity = true;
-            }
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 300);
         }
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(SoundID.Item124);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaABoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            
-        }
-        public override bool PreDraw(ref Color lightColor)
-        {
-            int shader = Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingOceanDye);
-            Vector2 Drawpos = Projectile.Center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY);
-
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 2);
-
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
-            return false;
+            SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaAHead_DayfireExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         private int HomeOnTarget()
         {
             const bool homingCanAimAtWetEnemies = true;
-            const float homingMaximumRangeInPixels = 500;
-
+            const float homingMaximumRangeInPixels = 2000;
+			
             int selectedTarget = -1;
             for (int i = 0; i < Main.maxNPCs; i++)
             {
@@ -129,8 +110,20 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                         selectedTarget = i;
                 }
             }
-
+			//projectile.velocity.X *= 1.032f;
+			//projectile.velocity.Y *= 1.032f;
             return selectedTarget;
+        }
+
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            int shader = Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingOceanDye);
+
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 2);
+
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
+            return false;
         }
     }
 }

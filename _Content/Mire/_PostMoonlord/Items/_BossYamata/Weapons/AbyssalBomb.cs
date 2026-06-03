@@ -1,14 +1,15 @@
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
@@ -55,11 +56,10 @@ Small chance to fire an awakened bomb that explodes into abyss souls"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (Main.rand.NextBool(3))
-            {
+            if (Main.rand.NextBool(3) && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 type = ModContent.ProjectileType<AbyssalBomb_SoulBomb>();
-            }
-            return true;
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI);
+            return false;
         }
 
         public override void AddRecipes()

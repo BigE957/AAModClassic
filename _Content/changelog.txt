@@ -84,6 +84,10 @@ unofficial
 -added boss masks for ashe, haruka, champ rajah, and zero protocol
 -unreleased: added boss masks for infinity zero, soul of cthulhu, and cosmic calamity
 -several aspects of the zero protocol fight are now properly centered
+-venom sprays venom projectiles dust is now properly centered on the projectile instead of offset down and to the right
+-abyssal bombs bomb projectiles are now properly sized and the explosion is properly centered
+-fixed a bug where abyssal bomb never fired its alt shot
+-abyssal bombs bombs no longer spawn dust in the top left of the world
 -
 
 crossmod

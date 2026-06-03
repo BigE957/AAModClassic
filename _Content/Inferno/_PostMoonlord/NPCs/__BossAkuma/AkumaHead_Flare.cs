@@ -1,18 +1,17 @@
 using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic.Base.BaseMod.Base;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
+namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    public class HomingBoom : ModProjectile
+    public class AkumaHead_Flare : ModProjectile
     {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dayfire");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 4;     
         }
 
         public override void SetDefaults()
@@ -29,10 +28,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override void AI()
         {
-            if (++Projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 10)
             {
                 Projectile.frameCounter = 0;
-                if (++Projectile.frame >= 6)
+                if (++Projectile.frame > 3)
                 {
                     Projectile.Kill();
 
@@ -50,20 +49,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override void OnKill(int timeLeft)
         {
+            SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
             Projectile.timeLeft = 0;
         }
 
-
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            int shader = Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingOceanDye);
-            Vector2 Drawpos = Projectile.Center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY);
-
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 7, 0, 2);
-
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Color.White, true);
-            return false;
-        }
     }
 }

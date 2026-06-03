@@ -9,9 +9,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
+namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    internal class HomingFireballA : ModProjectile
+    internal class AkumaHead_HomingFireball : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return AAColor.AkumaA;
+            return AAColor.Akuma;
         }
 
         public override void AI()
@@ -61,8 +61,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
-            const float desiredFlySpeedInPixelsPerFrame = 6;
-            const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
+            const float desiredFlySpeedInPixelsPerFrame = 5;
+            const float amountOfFramesToLerpBy = 30; // minimum of 1, please keep in full numbers even though it's a float!
 
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
@@ -87,14 +87,28 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<HomingBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].netUpdate = true;
+            }
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            int shader = -1;// Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingFlameDye);
+
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 2);
+
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
+            return false;
         }
 
         private int HomeOnTarget()
         {
             const bool homingCanAimAtWetEnemies = true;
-            const float homingMaximumRangeInPixels = 2000;
-			
+            const float homingMaximumRangeInPixels = 500;
+
             int selectedTarget = -1;
             for (int i = 0; i < Main.maxNPCs; i++)
             {
@@ -110,20 +124,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                         selectedTarget = i;
                 }
             }
-			//projectile.velocity.X *= 1.032f;
-			//projectile.velocity.Y *= 1.032f;
+
             return selectedTarget;
-        }
-
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            int shader = Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingOceanDye);
-
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 2);
-
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
-            return false;
         }
     }
 }

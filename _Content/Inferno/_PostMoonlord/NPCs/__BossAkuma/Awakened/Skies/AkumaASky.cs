@@ -12,18 +12,18 @@ using Terraria.Utilities;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies
 {
-    public class AkumaSkyScene : ModSceneEffect
+    public class AkumaASkyScene : ModSceneEffect
     {
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<AkumaA>()) || player.GetModPlayer<AAPlayer>().AkumaAltar;
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()) || player.GetModPlayer<AAPlayer>().AkumaAltar;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:AkumaSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:AkumaASky", isActive);
             player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
         }
     }
 
-    public class AkumaSky : CustomSky
+    public class AkumaASky : CustomSky
     {
         private struct Meteor
         {
@@ -52,8 +52,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies
 
         public override void OnLoad()
         {
-            SunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaSun");
-            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaAMeteor");
+            SunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Sun");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Meteor");
             SkyTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex");
         }
 
@@ -236,17 +236,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies
         }
     }
 
-    public class AkumaSkyData : ScreenShaderData
+    public class AkumaASkyData : ScreenShaderData
     {
         private int AkumaIndex;
 
-        public AkumaSkyData(string passName) : base(passName)
+        public AkumaASkyData(string passName) : base(passName)
         {
         }
 
         private void UpdateAkumaIndex()
         {
-            int AkumaType = AAMod.instance.Find<ModNPC>("AkumaA").Type;
+            int AkumaType = ModContent.NPCType<AkumaAHead>();
             if (AkumaIndex >= 0 && Main.npc[AkumaIndex].active && Main.npc[AkumaIndex].type == AkumaType)
             {
                 return;

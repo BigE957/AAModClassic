@@ -27,7 +27,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaA;
+using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaAHead;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {

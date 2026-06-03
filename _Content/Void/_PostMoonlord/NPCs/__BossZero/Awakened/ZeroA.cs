@@ -156,7 +156,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ERROR_NULL>()));
 
-            LeadingConditionRule shenDefeated = new(new AkumaA.ShenDefeated());
+            LeadingConditionRule shenDefeated = new(new AkumaAHead.ShenDefeated());
 
             shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
 

@@ -321,7 +321,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) 
 						Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
 				}
-				if(npc.GetGlobalNPC<AleisterStaffGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroA>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaA>() || npc.type == ModContent.NPCType<ShenDoragonA>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
+				if(npc.GetGlobalNPC<AleisterStaffGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroA>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaAHead>() || npc.type == ModContent.NPCType<ShenDoragonA>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
 				{
 					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
 				}

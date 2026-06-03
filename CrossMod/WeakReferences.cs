@@ -1176,7 +1176,7 @@ namespace AAModClassic.CrossMod
                     ["customPortrait"] = GetPortrait("Akuma")
                 });
 
-                AddBoss(bossChecklist, mod, "AkumaA", (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<AkumaA>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "AkumaA", (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<AkumaAHead>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AkumaA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "AkumaA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunRune>() + "]"),
@@ -1744,8 +1744,8 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaHead>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaBody>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaA>());
-                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaA>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaAHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AkumaAHead>());
                 redemption.Call("addElementNPC", (int)ElementalID.Explosive, ModContent.NPCType<AkumaABody>());
                 redemption.Call("addElementNPC", (int)ElementalID.Explosive, ModContent.NPCType<AkumaABody>());
 

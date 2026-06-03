@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            bool active = AAWorld.infernoTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaHead>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaA>(), 5000) != -1;
+            bool active = AAWorld.infernoTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaHead>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaAHead>(), 5000) != -1;
             return player.GetModPlayer<AAPlayer>().ZoneInferno = active;
         }
 
@@ -99,7 +99,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
         {
             SunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Sun");
             DemonSunTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/DemonSun");
-            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaMeteor");
+            MeteorTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Meteor");
             SkyTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex");
         }
 

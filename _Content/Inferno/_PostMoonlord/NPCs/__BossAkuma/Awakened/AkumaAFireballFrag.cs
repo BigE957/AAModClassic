@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 for (int i = 0; i < 6; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 3);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<AkumaABomb>(), Projectile.damage, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<AkumaAHead_Firebomb>(), Projectile.damage, 0f, Main.myPlayer);
                 }
             }
         }

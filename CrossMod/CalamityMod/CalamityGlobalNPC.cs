@@ -56,7 +56,7 @@ namespace AAModClassic.CrossMod.CalamityMod
 
                 if(npc.type == ModContent.NPCType<Haruka>()) CalamityDR = 0.6f;
 
-                if(npc.type == ModContent.NPCType<AkumaA>()) CalamityDR = 0.4f;
+                if(npc.type == ModContent.NPCType<AkumaAHead>()) CalamityDR = 0.4f;
                 if(npc.type == ModContent.NPCType<AkumaHead>()) CalamityDR = 0.4f;
                 if(npc.type == ModContent.NPCType<AwakenedLungHead>()) CalamityDR = 0.4f;
                 //if(npc.type == ModContent.NPCType<AncientLung>()) CalamityDR = 0.4f;

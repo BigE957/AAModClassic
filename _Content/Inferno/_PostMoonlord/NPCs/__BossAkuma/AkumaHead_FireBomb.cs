@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -11,11 +10,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    internal class HomingFireball : ModProjectile
+    internal class AkumaHead_FireBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Firebomb");
+            // DisplayName.SetDefault("FireBomb");
             Main.projFrames[Projectile.type] = 4;
         }
 
@@ -27,6 +26,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             Projectile.hostile = true;
             Projectile.scale = 1.1f;
             Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
             Projectile.penetrate = 1;
             Projectile.alpha = 60;
             Projectile.timeLeft = 300;
@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return AAColor.Akuma;
+            return Color.White;
         }
 
         public override void AI()
@@ -61,8 +61,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
-            const float desiredFlySpeedInPixelsPerFrame = 5;
-            const float amountOfFramesToLerpBy = 30; // minimum of 1, please keep in full numbers even though it's a float!
+            const float desiredFlySpeedInPixelsPerFrame = 10;
+            const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
@@ -77,31 +77,35 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
+            for (int num189 = 0; num189 < 1; num189++)
+            {
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
+
+                Main.dust[num190].scale *= 1.3f;
+                Main.dust[num190].fadeIn = 1f;
+                Main.dust[num190].noGravity = true;
+            }
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 300);
+            target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
-            if (Main.netMode != NetmodeID.MultiplayerClient)
+            SoundEngine.PlaySound(SoundID.Item124);
+            float spread = 12f * 0.0174f;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
+            double deltaAngle = spread / 4f;
+            double offsetAngle;
+            for (int i = 0; i < 2; i++)
             {
-                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Main.projectile[proj].netUpdate = true;
+                offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<AkumaHead_HomingFireball>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<AkumaHead_HomingFireball>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
-        }
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            int shader = -1;// Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingFlameDye);
-
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 2);
-
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
-            return false;
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         private int HomeOnTarget()
@@ -126,6 +130,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             }
 
             return selectedTarget;
+        }
+
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            int shader = -1;// GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
+
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
+            return false;
         }
     }
 }

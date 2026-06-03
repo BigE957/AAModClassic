@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             if (++Projectile.localAI[0] == 52)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY * 4, ModContent.ProjectileType<AkumaRock>(), Projectile.damage, 0, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY * 4, ModContent.ProjectileType<AkumaAHead_Rock>(), Projectile.damage, 0, Main.myPlayer);
             }
 
             if (Projectile.localAI[1] == 0)
@@ -86,7 +86,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 }
             }
 
-            if (!NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
+            if (!NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
             {
                 Projectile.Kill();
             }

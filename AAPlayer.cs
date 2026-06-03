@@ -1437,7 +1437,7 @@ namespace AAModClassic
                     Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
                 }
             }
-            else if (NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
+            else if (NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
             {
                 Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
             }

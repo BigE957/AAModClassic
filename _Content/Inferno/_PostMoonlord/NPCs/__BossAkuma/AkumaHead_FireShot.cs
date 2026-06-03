@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    public class FireShot : ModProjectile
+    public class AkumaHead_FireShot : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -72,7 +72,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<Flare>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<AkumaHead_Flare>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         

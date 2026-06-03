@@ -1,24 +1,32 @@
-﻿using System;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Enums;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    public class AkumaADeathray : ModProjectile
+    public class AkumaAHead_SolarDeathray : ModProjectile
     {
         public float maxTime = 180;
         public float maxScale = 1f;
 
+        public static Asset<Texture2D> Body;
+        public static Asset<Texture2D> Tail;
+
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Solar Deathray");
-		}
+            // DisplayName.SetDefault("Solar Deathray");
+
+            Body = ModContent.Request<Texture2D>(Texture + "_Body");
+            Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
+        }
     	
         public override void SetDefaults()
         {
@@ -44,7 +52,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].ModNPC is AkumaA)
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].ModNPC is AkumaAHead)
             {
                 Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center;
                 if (Projectile.ai[0] == 0)
@@ -137,8 +145,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 return false;
             }
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D texture2D20 = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaADeathray2").Value;
-            Texture2D texture2D21 = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaADeathray3").Value;
+            Texture2D texture2D20 = Body.Value;
+            Texture2D texture2D21 = Tail.Value;
             float num223 = Projectile.localAI[1];
             Color color44 = new Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;
@@ -201,30 +209,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             
-        }
-    }
-
-    public class AkumaADeathraySmall : AkumaADeathray
-    {
-        public override string Texture => "AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaADeathray";
-
-        public override void SetDefaults()
-        {
-            base.SetDefaults();
-            maxTime = 60;
-            maxScale = 0.2f;
-        }
-
-        public override bool? CanDamage()/* tModPorter Suggestion: Return null instead of true */
-        {
-            return false;
-        }
-
-        public override void OnKill(int timeLeft)
-        {
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<AkumaADeathray>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], Projectile.ai[1]);
-            base.OnKill(timeLeft);
         }
     }
 }

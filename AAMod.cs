@@ -474,11 +474,11 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/FogTex", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaSun", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Sun", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/_PostMoonlord/NPCs/__BossYamata/Awakened/Skies/YamataASky_Moon", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/_PostMoonlord/NPCs/__BossYamata/Awakened/Skies/YamataASky_Beam", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaAMeteor", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Skies/AkumaMeteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Meteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Meteor", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/Skies/ShenDoragonSky_Meteor", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/__BossAthenaA/Skies/AthenaASky_Bolt", AssetRequestMode.ImmediateLoad).Value);
@@ -517,8 +517,8 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:InfernoSky"] = new Filter(new InfernoSkyData("FilterMiniTower").UseColor(1f, 0.20f, 0f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:InfernoSky"] = new InfernoSky();
 
-            Filters.Scene["AAModClassic:AkumaSky"] = new Filter(new AkumaSkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:AkumaSky"] = new AkumaSky();
+            Filters.Scene["AAModClassic:AkumaASky"] = new Filter(new AkumaASkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:AkumaASky"] = new AkumaASky();
 
             Filters.Scene["AAModClassic:YamataASky"] = new Filter(new YamataASkyData("FilterMiniTower").UseColor(.7f, 0f, 0f).UseOpacity(0.5f), EffectPriority.VeryHigh);
             SkyManager.Instance["AAModClassic:YamataASky"] = new YamataASky();
