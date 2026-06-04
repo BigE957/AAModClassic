@@ -1,3 +1,4 @@
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
@@ -50,13 +51,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             {
                 NPC.buffImmune[k] = true;
             }
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(
             [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroOmegaVolley", Color.Red)
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroOmegaVolley", Color.DarkRed)
             ]);
         }
 

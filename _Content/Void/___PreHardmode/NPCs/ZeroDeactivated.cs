@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
         {
             bestiaryEntry.Info.AddRange(
             [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroDeactivated", Color.Red)
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroDeactivated", Color.DarkRed)
             ]);
         }
 
