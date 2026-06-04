@@ -84,7 +84,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             bestiaryEntry.Info.AddRange(
             [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero", Color.Red)
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero_1", AAColor.OblivionDialogue),
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero_2", Color.White)
             ]);
         }
 

@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         {
             bestiaryEntry.Info.AddRange(
             [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroOmegaVolley", Color.DarkRed)
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroOmegaVolley", AAColor.OblivionDialogue)
             ]);
         }
 

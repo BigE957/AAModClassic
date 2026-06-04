@@ -2,6 +2,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.DiscordSupport;
+using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.WorldGen;
@@ -125,7 +126,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             bestiaryEntry.Info.AddRange(
             [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Oblivion", Color.DarkRed)
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Oblivion", AAColor.OblivionDialogue)
             ]);
         }
 
@@ -134,7 +135,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void AI()
         {
-            Color color1 = Color.DarkRed;
+            Color color1 = AAColor.OblivionDialogue;
             NPC.velocity.X = 0;
             NPC.velocity.Y = 0;
             Player player = Main.LocalPlayer;
@@ -505,7 +506,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (MessageSwapComplete)
             {
-                messages[0].SetContents(CurrentMessage, Color.DarkRed, -1);
+                messages[0].SetContents(CurrentMessage, AAColor.OblivionDialogue, -1);
                 firstMessage = false;
             }
             else if (firstMessage)
@@ -513,7 +514,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 messages[0].SetContents(new string(arr), (Color)MessageColor.GetValue(messages[0]), -1);
             }
             else
-                messages[0].SetContents(new string(arr), Color.DarkRed, -1);
+                messages[0].SetContents(new string(arr), AAColor.OblivionDialogue, -1);
 
             ChatMessageList.SetValue(Main.chatMonitor, messages);
         }

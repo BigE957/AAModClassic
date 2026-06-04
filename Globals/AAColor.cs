@@ -1,8 +1,8 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-
-using System;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 
 namespace AAModClassic.Globals
 {
@@ -142,19 +142,14 @@ namespace AAModClassic.Globals
             }
         }
 
-        public static int DiscoR1 = 0;
-
-        public static int DiscoB1 = 255;
-
-        public static int DiscoG1 = 0;
-
-        public static int DiscoStyle1;
-
 
         public static Color Rainbow1 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Red, Color.Green, Color.Blue);
-
+        
         public static Color Rainbow2 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Green, Color.Blue, Color.Red);
-
+        
         public static Color Rainbow3 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Blue, Color.Red, Color.Green);
+
+
+        public static Color OblivionDialogue => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? new Color(200, 0, 0) : Color.DarkRed;
     }
 }

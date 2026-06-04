@@ -42,8 +42,9 @@ CursedLocust: Bloated by the accursed souls of those judged, these locusts begru
 CursedScarab: Empowered by the accursed souls of those judged, these scarabs will fierecely aid in the Forsaken Judge's test.
 HorusSentry: Empowered by the accursed souls of those judged, this construct now spells doom for any that fall beneath its gaze.
 Naddaha: A water spirit summoned from the Land of the Dead, she'll happily lend her voice to aid in the Forsaken Judge's test.
-FeudalFungus: ...
-GlowingMushling: One of the Feudal Fungus’ dangerously luminescent servants.
+FeudalFungus: Digging deep below the mushrooms of the surface reveals an entirely different species of fungus, though it is not dissimilar in temper. If one were to dig even deeper, what other new fungi could they find...?
+GlowingMushling: ...
+GregariousGlowshrooms: ...
 LuminousAccordyceps: ...
 TruffleToad: A large, perhaps too large frog that makes its home within the glowing caverns down below.
 TinyToad: These vile spawn are ready to defend their mother from the moment they're born. Nothing in this world is more disgusting than this beast.
@@ -89,7 +90,7 @@ ChaoticTwilight: Bewitched by the wrath that permates the Mire, this weapon swip
 MireMimic: Mimics that succumb to the Mire grow with newfound power. They can be birthed from ordinary chests by force.
 Miresquito: The reminder one gets for forgetting to put on bug spray before venturing into the Mire.
 FogAngler: ...
-MireSoul: ...
+MireSoul: While the six false heads of Yamata may not be a real part of his body, they are still very much alive. When he first began his rampage, he chose the six worshipers who believed in him most, devoured them, and bound them to his will.
 YamataNoOrochi: Driven to the point of madness, the serpent tapped into his primal form and shall stop at nothing to destroy all who dares oppose him.
 Yamata: The monsterous loud-mouthed menace of the Mire. Yamata stops at nothing to eliminate what he considers a threat to him.
 AbyssClaw: As the Ancient of Wrath stirs from its slumber, nearby hydra claws take on a new and terrible form.
@@ -134,7 +135,7 @@ ZeroDeactivated: You cannot stop what is to come.
 VoidScout: A combat-oriented drone with a high-powered laser. It seems to be searching for something... Or maybe, someone...
 Vortex: Unusally designed drone with blades that tear through bone like butter. If they spin fast enough, they can create their own gravitational pull.
 ZeroProtocol: Man is not divine. Life is not divine. The ground, the seas, the skies, none of them are divine. And despite how I am not such, I am not divine. No hands here can touch the heavens. But my eyes pierce their firmament; I see through the wall, and straight through you. Leave me alone.
-Zero: Cast-iron blood. Wired tendons. Diodes and anodes and grease. A hand to give the Father. Man to machine to man, a cyclic nil ouroboros whose hunger is only sated by itself.
+Zero: Cast-iron blood. Wire tendons. Diodes and anodes and grease. A hand to give the Father. God makes world eats world eats God, a cyclical nil ouroboros whose hunger is only sated by itself.
 ZeroGenocideCannon: It was designed for slaughter.
 ZeroGigataser: It was designed to render targets immobile.
 ZeroNeutralizer: It was designed for execution.
@@ -170,6 +171,15 @@ RiftVision: Living curses wrought forth by powerful deity, they offer only doom 
 SoulOfCthulhu: After being defeated centuries ago, Cthulhu's soul fled to the seas, causing a great typhoon which swallowed up a nearby ship. Its soul became bound to the vessel's wheel where it began its slumber.
 TrenchSquid: The rift at the Sunken Ship's heart has polluted the nearby seas; causing the marine life to take on new, eldritch forms.
 LovecraftianShadow: Be careful when treading into uncharted waters. In this long abandoned wreckage, you may encounter something far worse than even death itself.
-InfinityZero: Creation implies destruction. Change implies stillness. Nothing implies everything. The devil finds work for idle hands, yet my hands rarely find time to stay still. With infinite time, you will make infinite creations.
+InfinityZero_1: Creation implies destruction. Change implies stillness. On itself it all turns and ebbs, twisting its own knife ever further through its own chest. A machine made to cultivate is a machine made to consume, for even in an infinity of infinities, none of it could ever matter.
+InfinityZero_2:
+'''
+Too lazy to look within yourself
+Is there something you don't want to know
+Or don't want to see?
+Why not let your mind grow?
+Why exclude the unknown?
+Maybe you also could see
+'''
 InfinityZeroChainedZero: You thought there was just one of them?
 Oblivion: As if I’d tell you anything about myself.
