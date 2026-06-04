@@ -58,12 +58,12 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
         public override void AI()
         {
             bool anyCthulhus = false;
-            if(!AAWorld.downedEquinox)
+            if(!AAWorld.downedEquinox && !AAWorld.downedAllAncients)
                 foreach (NPC npc in Main.ActiveNPCs)
-                    if (npc.type == ModContent.NPCType<SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
+                    if (npc.type == ModContent.NPCType<UDUNFUKED>() || npc.type == ModContent.NPCType<SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
                         anyCthulhus = true;
 
-            if (AAWorld.downedEquinox || anyCthulhus)
+            if (AAWorld.downedEquinox || AAWorld.downedAllAncients || anyCthulhus)
             {
                 NPC.active = false;
                 if (Body != null)
@@ -333,10 +333,10 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
             bool anyCthulhus = false;
             if (!AAWorld.downedEquinox)
                 foreach (NPC npc in Main.ActiveNPCs)
-                    if (npc.type == ModContent.NPCType<SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
+                    if (npc.type == ModContent.NPCType<UDUNFUKED>() || npc.type == ModContent.NPCType<SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
                         anyCthulhus = true;
 
-            if (!AAWorld.downedEquinox)
+            if (!AAWorld.downedEquinox && !AAWorld.downedAllAncients)
             {
                 if (!NPC.AnyNPCs(ModContent.NPCType<AmbientSoulOfCthulhu>()) && !anyCthulhus)
                 {
@@ -453,7 +453,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                     CthulhuCountdown = 10800;
             }
 
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && (AAWorld.downedEquinox || anyCthulhus))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && ((AAWorld.downedEquinox || AAWorld.downedAllAncients) || anyCthulhus))
             {
                 Vector2 originalCenter = (AAWorld_Unreleased.shipPos + new Point(141, 41)).ToWorldCoordinates();
                 if (Ropes.Length == 0)
