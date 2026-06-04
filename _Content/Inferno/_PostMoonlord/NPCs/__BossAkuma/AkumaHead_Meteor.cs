@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             double deltaAngle = spread / 8f;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaHead_Boom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].netUpdate = true;
             }
             for (int num468 = 0; num468 < 20; num468++)

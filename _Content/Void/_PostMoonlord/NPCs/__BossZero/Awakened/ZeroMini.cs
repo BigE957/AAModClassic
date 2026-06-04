@@ -2,6 +2,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -17,7 +18,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("ZER0 SELF 0RGANIZATI0N");
-            Main.npcFrameCount[NPC.type] = 12; 
+            Main.npcFrameCount[NPC.type] = 12;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

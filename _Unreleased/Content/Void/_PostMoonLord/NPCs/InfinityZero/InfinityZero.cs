@@ -11,6 +11,7 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Wea
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Core;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -22,6 +23,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -77,6 +79,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero", Color.Red)
+            ]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -504,10 +513,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
-                Position = new(0, 96),
-                PortraitPositionYOverride = 108,
-                Scale = 0.75f,
-                PortraitScale = 0.9f
+                Position = new(0, 262),
+                PortraitPositionYOverride = 240,
+                Scale = 2f, // whenever we properly upscale the sprite this should just be 1x
+                PortraitScale = 2f // ditto
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
 
@@ -580,7 +589,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if(!unofficialWorld)
                 DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
 
-            string respritePath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+            string respritePath = Texture + "_Resprite";
             Texture2D texture = !unofficialWorld ? TextureAssets.Npc[NPC.type].Value : ModContent.Request<Texture2D>(respritePath).Value;
             Texture2D glow = !unofficialWorld ? glowTex.Value : ModContent.Request<Texture2D>(respritePath + "_Glow").Value;
 
@@ -654,7 +663,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Vector2 end = Zero.Center;
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
-                    string texPath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+                    string texPath = Texture + "_Resprite";
                     Texture2D ArmTex2D = ModContent.Request<Texture2D>(texPath + "_Arm").Value;
 
                     Vector2 direction = end - start;

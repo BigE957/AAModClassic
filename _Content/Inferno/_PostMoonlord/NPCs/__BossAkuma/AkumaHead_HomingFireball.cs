@@ -89,7 +89,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaHead_Boom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].netUpdate = true;
             }
         }

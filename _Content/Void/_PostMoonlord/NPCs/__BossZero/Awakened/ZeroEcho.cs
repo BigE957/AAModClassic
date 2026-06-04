@@ -22,7 +22,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("3CH0");
-            Main.npcFrameCount[NPC.type] = 7; 
+            Main.npcFrameCount[NPC.type] = 7;
+            this.HideFromBestiary();
         }
         public override void SetDefaults()
         {

@@ -8,7 +8,7 @@ using AAModClassic._Content.Inferno.Buffs;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    public class AkumaBoom : ModProjectile
+    public class AkumaHead_Boom : ModProjectile
     {
         public override void SetStaticDefaults()
         {

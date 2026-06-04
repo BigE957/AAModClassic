@@ -48,6 +48,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             // DisplayName.SetDefault("Zero");
             Main.npcFrameCount[NPC.type] = 5;
 
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 20,
+                PortraitScale = 0.9f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             ShieldTex = ModContent.Request<Texture2D>(Texture + "_Shield");
             ShieldRing = ModContent.Request<Texture2D>(Texture + "_ShieldRing");
@@ -242,16 +249,16 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 ModContent.ItemType<SingularityArrow>(), 
                 ModContent.ItemType<TheVortex>(), 
                 ModContent.ItemType<EventHorizon>(), 
-                ModContent.ItemType<Items._BossZero.Weapons.RealityCannon>(), 
-                ModContent.ItemType<Items._BossZero.Weapons.RiftShredder>(), 
-                ModContent.ItemType<Items._BossZero.Weapons.VoidStar>(), 
+                ModContent.ItemType<RealityCannon>(), 
+                ModContent.ItemType<RiftShredder>(), 
+                ModContent.ItemType<VoidStar>(), 
                 ModContent.ItemType<BrokenZeroWeapon>(), 
                 ModContent.ItemType<StallionsStar>(), 
                 ModContent.ItemType<DoomsdayTerratool>(), 
                 ModContent.ItemType<DoomPortal>(), 
                 ModContent.ItemType<Gigataser>(), 
-                ModContent.ItemType<Items._BossZero.Weapons.OmegaVolley>(), 
-                ModContent.ItemType<Items._BossZero.Weapons.GenocideCannon>() };
+                ModContent.ItemType<OmegaVolley>(), 
+                ModContent.ItemType<GenocideCannon>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             //TODO: BRING HIM BACK PLEASEEEEEEE
@@ -283,7 +290,21 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             NPC.frame.Width = frameWidth;
 
             if (NPC.IsABestiaryIconDummy)
-                NPC.ai[1] = 1;
+            {
+                NPC.ai[2]++;
+                if (NPC.ai[2] >= 320)
+                {
+                    NPC.ai[2] = 0;
+                    if (NPC.ai[1] == 1)
+                        NPC.ai[3] = 3;
+                    else
+                        NPC.ai[3] = 0;
+                }
+
+                if (NPC.ai[1] <= 0)
+                    NPC.ai[1] = 1;
+            }
+
 
             if (NPC.ai[1] == 1)
             {
