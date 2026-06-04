@@ -1,10 +1,12 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -297,6 +299,18 @@ namespace AAModClassic.Utilities
                 Vector2 vector2 = (drawCentered ? npc.Center : npc.position);
                 Main.spriteBatch.Draw(texture, vector2 - Main.screenPosition + new Vector2(0f, npc.gfxOffY), frame, npc.GetAlpha(lightColor), rotation, origin, scale, effects, 0f);
             }
+        }
+
+        public static void DrawWithVanillaShader(SpriteBatch spriteBatch, int shader, Action<SpriteBatch> action)
+        {
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, default, Main.GameViewMatrix.TransformationMatrix);
+
+            GameShaders.Armor.Apply(shader, null, null);
+            action.Invoke(spriteBatch);
+            
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
         }
 
         //Thanks YuH

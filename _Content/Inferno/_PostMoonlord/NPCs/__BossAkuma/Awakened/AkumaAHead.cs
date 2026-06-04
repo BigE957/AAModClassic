@@ -128,7 +128,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 internalAI[3] = reader.ReadSingle();
             }
         }
-        public Texture2D AkumaTex = null;
 
         public bool spawnAshe = false;
 
@@ -684,12 +683,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            AkumaTex = TextureAssets.Npc[NPC.type].Value;
+            Texture2D AkumaTex = TextureAssets.Npc[NPC.type].Value;
             if (NPC.type == ModContent.NPCType<AkumaAHead>())
             {
                 if (NPC.ai[0] == 0 || NPC.ai[0] == 1 || NPC.ai[0] == 5 || NPC.ai[0] == 9)
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaA1").Value;
+                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaAHead_Open").Value;
                 }
                 else
                 {
@@ -698,8 +697,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             }
 
             Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D glowTex1 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D glowTex2 = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             
             int shader;
             if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
@@ -711,11 +708,15 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             }
 
-            Texture2D HeadGlow = (NPC.ai[0] == 0 || NPC.ai[0] == 4) ? glowTex1 : glowTex;
-
-            Texture2D myGlowTex = NPC.type == ModContent.NPCType<AkumaAHead>() ? HeadGlow : glowTex2;
-            spriteBatch.Draw(AkumaTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
-            spriteBatch.Draw(myGlowTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(Color.White), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            Texture2D myGlowTex;
+            if (NPC.type == ModContent.NPCType<AkumaAHead>())
+                myGlowTex = (NPC.ai[0] == 0 || NPC.ai[0] == 1 || NPC.ai[0] == 5 || NPC.ai[0] == 9) ? ModContent.Request<Texture2D>(Texture + "_Open_Glow").Value : glowTex;
+            else
+                myGlowTex = glowTex;
+            spriteBatch.Draw(AkumaTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => { 
+                spriteBatch.Draw(myGlowTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(Color.White), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            });
             return false;
         }
 

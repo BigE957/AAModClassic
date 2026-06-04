@@ -2,6 +2,7 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -13,15 +14,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.IO;
 using Terraria;
-using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
@@ -32,6 +27,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         private static Asset<Texture2D> ArmlessBody;
         private static Asset<Texture2D> UpperArm;
         private static Asset<Texture2D> LowerArm;
+        private static Asset<Texture2D> ArmlessBodyGlow;
+        private static Asset<Texture2D> UpperArmGlow;
+        private static Asset<Texture2D> LowerArmGlow;
 
         public override void SetStaticDefaults()
         {
@@ -43,6 +41,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             ArmlessBody = ModContent.Request<Texture2D>(Texture + "_Armless");
             UpperArm = ModContent.Request<Texture2D>(Texture + "_Arm_Upper");
             LowerArm = ModContent.Request<Texture2D>(Texture + "_Arm_Lower");
+            ArmlessBodyGlow = ModContent.Request<Texture2D>(Texture + "_Armless_Glow");
+            UpperArmGlow = ModContent.Request<Texture2D>(Texture + "_Arm_Upper_Glow");
+            LowerArmGlow = ModContent.Request<Texture2D>(Texture + "_Arm_Lower_Glow");
         }
 
         public override void SetDefaults()
@@ -138,17 +139,29 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || NPC.ai[2] != 0)
-                return true;
+                return base.PreDraw(spriteBatch, screenPos, drawColor);
 
-            spriteBatch.Draw(ArmlessBody.Value, NPC.Center - screenPos, null, drawColor, NPC.rotation, (ArmlessBody.Size() * 0.5f) - (Vector2.UnitX * 6 * NPC.spriteDirection), NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(ArmlessBody.Value, NPC.Center - screenPos, null, drawColor * NPC.Opacity, NPC.rotation, (ArmlessBody.Size() * 0.5f), NPC.scale, NPC.SpriteEffectDirection(true), 0);
+
+            int shader;
+            if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+            else
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+                spriteBatch.Draw(ArmlessBodyGlow.Value, NPC.Center - screenPos, null, Color.White * NPC.Opacity, NPC.rotation, (ArmlessBody.Size() * 0.5f), NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            });
             return false;
         }
 
         internal void DrawBackArm(SpriteBatch spriteBatch, Color drawColor)
         {
+            Vector2 screenPos = NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition;
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
-            Vector2 upperBackArmPos = NPC.Center + (new Vector2(0 * NPC.spriteDirection, -8).RotatedBy(NPC.rotation + MathHelper.PiOver2) * NPC.scale) - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
+            
+            Vector2 upperBackArmPos = NPC.Center + (new Vector2(0 * NPC.spriteDirection, -8).RotatedBy(NPC.rotation + MathHelper.PiOver2) * NPC.scale) - screenPos;
             float bodyFacingAngle = NPC.rotation;
+            
             Vector2 upperBackArmOrigin = new(12, 8);
             if (NPC.spriteDirection == 1)
                 upperBackArmOrigin.X = upperBackArmFrame.Width - upperBackArmOrigin.X;
@@ -159,6 +172,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             float upperWorldRot = bodyFacingAngle + upperBackArmRotation + upperBackArmRotationOffset;
 
             spriteBatch.Draw(UpperArm.Value, upperBackArmPos, upperBackArmFrame, NPC.GetAlpha(drawColor), upperWorldRot, upperBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            int shader;
+            if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+            else
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+                spriteBatch.Draw(UpperArmGlow.Value, upperBackArmPos, upperBackArmFrame, NPC.GetAlpha(Color.White), upperWorldRot, upperBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            });
 
             // Lower back arm
             Rectangle lowerBackArmFrame = LowerArm.Frame(2, frameX: 1);
@@ -177,13 +198,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             float lowerWorldRot = bodyFacingAngle + upperBackArmRotation + lowerBackArmRotation + lowerBackArmRotationOffset;
 
             spriteBatch.Draw(LowerArm.Value, lowerBackArmPos, lowerBackArmFrame, NPC.GetAlpha(drawColor), lowerWorldRot, lowerBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+                spriteBatch.Draw(LowerArmGlow.Value, lowerBackArmPos, lowerBackArmFrame, NPC.GetAlpha(Color.White), lowerWorldRot, lowerBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            });
         }
 
         internal void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor)
         {
+            Vector2 screenPos = NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition;
             Rectangle upperFrontArmFrame = UpperArm.Frame(2);
 
-            Vector2 upperFrontArmPos = NPC.Center - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
+            Vector2 upperFrontArmPos = NPC.Center - screenPos;
             float frontBodyFacingAngle = NPC.rotation;
 
             Vector2 upperFrontArmOrigin = new(12, 8);
@@ -196,6 +221,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             float upperFrontWorldRot = frontBodyFacingAngle + upperFrontArmRotation + upperFrontArmRotationOffset;
 
             spriteBatch.Draw(UpperArm.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(drawColor), upperFrontWorldRot, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            int shader;
+            if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+            else
+                shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+                spriteBatch.Draw(UpperArmGlow.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(Color.White), upperFrontWorldRot, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            });
 
             // Lower front arm
             Rectangle lowerFrontArmFrame = LowerArm.Frame(2);
@@ -214,6 +247,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             float lowerFrontWorldRot = frontBodyFacingAngle + upperFrontArmRotation + lowerFrontArmRotation + lowerFrontArmRotationOffset;
 
             spriteBatch.Draw(LowerArm.Value, lowerFrontArmPos, lowerFrontArmFrame, NPC.GetAlpha(drawColor), lowerFrontWorldRot, lowerFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+                spriteBatch.Draw(LowerArmGlow.Value, lowerFrontArmPos, lowerFrontArmFrame, NPC.GetAlpha(Color.White), lowerFrontWorldRot, lowerFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            });
         }
 
         public override bool CheckActive()
