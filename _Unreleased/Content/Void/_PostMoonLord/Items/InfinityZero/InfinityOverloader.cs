@@ -27,7 +27,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Infinity Beacon");
-            // Tooltip.SetDefault(@"Calls the Infinity Slayer");
+            /* Tooltip.SetDefault(@"An ominous device with unstable code
+Summons the Infinity Slayer
+Non-consumable");*/
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
@@ -125,11 +127,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
 		public override bool CanUseItem(Player player)
 		{
-            if (NPC.AnyNPCs(ModContent.NPCType<InfinityCore>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()))
-            {
+            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.InfinityZero.InfinityZero>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()))
                 return false;
-            }
-            return true;
+            return player.GetModPlayer<AAPlayer>().ZoneVoid;
 		}
 
 		public void SpawnBoss(Player player, string name, string displayName)

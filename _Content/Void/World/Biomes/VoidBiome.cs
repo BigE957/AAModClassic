@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Void.World.Biomes
         }
 
         public override int Music =>
-            AAWorld.downedZero ? MusicManagementSystem.MusicSlots["Void_PreIZ"] :
+            (AAWorld.downedZero && !AAWorld_Unreleased.downedIZ) ? MusicManagementSystem.MusicSlots["Void_PreIZ"] :
             NPC.downedMoonlord ? MusicManagementSystem.MusicSlots["Void_PostML"] :
             MusicManagementSystem.MusicSlots["Void"];
 

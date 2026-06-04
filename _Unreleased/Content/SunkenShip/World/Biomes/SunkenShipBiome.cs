@@ -55,7 +55,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             CthulhuFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Width(), 1);
         }
 
-        public override int Music => MusicManagementSystem.MusicSlots["SunkenShip"];
+        public override int Music => (AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC) ? MusicManagementSystem.MusicSlots["SunkenShip_PreSoC"] : MusicManagementSystem.MusicSlots["SunkenShip"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 

@@ -11683,7 +11683,7 @@ SoulOfCthulhuBox: {
 	Tooltip: Plays 'Wheel Of Misfortune' by ProduceVGM
 }
 
-SleepingCurseBox: {
+SunkenShipPreSoCBox: {
 	DisplayName: Music Box (Sleeping Curse)
 	Tooltip: Plays 'Sleeping Curse' by ProduceVGM
 }

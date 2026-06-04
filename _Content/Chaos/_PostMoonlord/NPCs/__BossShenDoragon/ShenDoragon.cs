@@ -88,6 +88,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
                 //PortraitPositionYOverride = 64f
+                Velocity = -2
             };
             value.Position.X += 170;
             value.Position.Y += 24;

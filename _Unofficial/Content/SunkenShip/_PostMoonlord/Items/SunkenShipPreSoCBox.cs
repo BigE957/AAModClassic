@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
 {
-    public class SleepingCurseBox : BaseAAItem
+    public class SunkenShipPreSoCBox : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
@@ -22,7 +22,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<SleepingCurseBox_Tile>();
+            Item.createTile = ModContent.TileType<SunkenShipPreSoCBox_Tile>();
             Item.width = 24;
             Item.height = 24;
             Item.rare = ItemRarityID.LightRed;

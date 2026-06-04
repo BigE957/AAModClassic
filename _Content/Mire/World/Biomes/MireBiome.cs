@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override int Music =>
             Main.LocalPlayer.ZoneRockLayerHeight ? MusicManagementSystem.MusicSlots["Mire_Underground"] :
-            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
+            (AAWorld.downedAllAncients && !AAWorld.downedShen) ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
             Main.dayTime ? MusicManagementSystem.MusicSlots["Mire_Day"] :
             MusicManagementSystem.MusicSlots["Mire_Surface"];
 

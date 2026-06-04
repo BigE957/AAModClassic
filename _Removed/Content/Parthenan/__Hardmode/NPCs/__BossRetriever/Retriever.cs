@@ -122,7 +122,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             npcLoot.Add(notExpertRule);
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;   //boss drops
         }
@@ -207,9 +207,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                     NPC.netUpdate = true;
                 }
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
+                NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
             }
-            else
-            if (NPC.ai[0] == 2) //dive down
+            else if (NPC.ai[0] == 2) //dive down
             {
                 moveSpeed = DiveSpeed;
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
@@ -225,8 +225,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 }
                 BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
-            else
-            if (NPC.ai[0] == 3) //dive up
+            else if (NPC.ai[0] == 3) //dive up
             {
                 moveSpeed = DiveSpeed;
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
@@ -242,8 +241,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 }
                 BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
-            else
-            if (NPC.ai[0] == 4) //dive down
+            else if (NPC.ai[0] == 4) //dive down
             {
                 moveSpeed = DiveSpeed;
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
@@ -259,8 +257,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 }
                 BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
-            else
-            if (NPC.ai[0] == 5) //dive up
+            else if (NPC.ai[0] == 5) //dive up
             {
                 moveSpeed = DiveSpeed;
                 Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
@@ -275,13 +272,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 					NPC.netUpdate = true;
                 }
                 BaseAI.Look(NPC, 0, 0f, 0.1f, false);
-            }else
-            if (NPC.ai[0] == 6) //shoot lasers right
+            }
+            else if (NPC.ai[0] == 6) //shoot lasers right
             {
                 moveSpeed = 11f;
                 Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
+                NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
 					customAI[0]++;
@@ -299,13 +297,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, NPC.damage / (Main.expertMode ? 2 : 4), 12f, false);
 					}
                 }
-            }else
-            if (NPC.ai[0] == 7) //shoot lasers left
+            }
+            else if (NPC.ai[0] == 7) //shoot lasers left
             {
                 moveSpeed = 11f;
                 Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
+                NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
 					customAI[0]++;
@@ -361,6 +360,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                     }
                 }
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
+                NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
             }
         }
 		

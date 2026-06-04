@@ -31,20 +31,19 @@ Samurai: The Samurai hails from a village destroyed by an ancient demon, now hop
 DesertDjinn: An arrogant spirit wandering the desert, hoping to one day find a worthy opponent.
 Djinn: The difference between a Genie and a Djinn is that one grants wishes and the other grants death.
 Legendscribe: The god of the afterlife, the judge of souls, and the main protagonist of the award-winning autobiography 'The Life and Epic Adventures of Anubis the Wonder Dog!'.
-Anubis: "There's a lot about myself that I could tell you, but I'm not gonna."
+Anubis: There's a lot about myself that I could tell you, but I'm not gonna.
 EyeSentry: A deadly construct that'll scorch any under its gaze with Runefire.
 HorusHawk: Gifted to Anubis by a close friend, these agile avians now heed his call.
 Locust: Summoned from the Land of the Dead, these lowly pests spit upon the enemies of the Legendscribe.
 Scarab: Summoned from the Land of the Dead, these humble insects rush down the Legendscribe's foes.
 Uraeus: Summoned from the Land of the Dead, these regal serpents bare their fangs to aid in the Legendscribe's test.
-ForsakenAnubis: "I already told you some things better stay locked away for good, now quit asking."
+ForsakenAnubis: I already told you some things better stay locked away for good, now quit asking.
 CursedLocust: Bloated by the accursed souls of those judged, these locusts begrudgingly aid in the Forsaken Judge's test.
 CursedScarab: Empowered by the accursed souls of those judged, these scarabs will fierecely aid in the Forsaken Judge's test.
 HorusSentry: Empowered by the accursed souls of those judged, this construct now spells doom for any that fall beneath its gaze.
 Naddaha: A water spirit summoned from the Land of the Dead, she'll happily lend her voice to aid in the Forsaken Judge's test.
 FeudalFungus: ...
-GlowingMushling: ...
-GregariousGlowshrooms: ...
+GlowingMushling: One of the Feudal Fungus’ dangerously luminescent servants.
 LuminousAccordyceps: ...
 TruffleToad: A large, perhaps too large frog that makes its home within the glowing caverns down below.
 TinyToad: These vile spawn are ready to defend their mother from the moment they're born. Nothing in this world is more disgusting than this beast.
@@ -96,7 +95,7 @@ Yamata: The monsterous loud-mouthed menace of the Mire. Yamata stops at nothing 
 AbyssClaw: As the Ancient of Wrath stirs from its slumber, nearby hydra claws take on a new and terrible form.
 Soulsucker: No amount of moth balls will ward off this bloated menace.
 Lovecraftian: Descended from an otherworldly lord, the Lovecraftian offers insight on all things unknowable.
-Mushling: One of the Mushroom Monarch’s fiercely loyal subjects. 
+Mushling: One of the Mushroom Monarch’s fiercely loyal subjects.
 MushroomMonarch: A common forest mushroom left to its own devices for far too long. Now it seeks only to spread its hive.
 Mushman: This fungal friend favours his field in pharmaceutics to fix you up a fill of his foremost formulas.
 FungusFrog: These creatures only started appearing after you defeated the Truffle Toad. Was this nothing more than a coincidence, or are the mushroom biomes communicating with each other...?
@@ -135,7 +134,7 @@ ZeroDeactivated: You cannot stop what is to come.
 VoidScout: A combat-oriented drone with a high-powered laser. It seems to be searching for something... Or maybe, someone...
 Vortex: Unusally designed drone with blades that tear through bone like butter. If they spin fast enough, they can create their own gravitational pull.
 ZeroProtocol: Man is not divine. Life is not divine. The ground, the seas, the skies, none of them are divine. I am not divine. No hands here can touch the heavens. But my eyes pierce their firmament; I see through the wall, and straight through you. Leave me alone. //TODO this dialogue is intended for spr_eatr stuff. if we dont do that replace this with "Mods.AAModClassic.Bestiary.ZeroProtocol" and make text white
-Zero: Cast-iron blood. Wired tendons. Diodes and anodes and grease. A hand to give the Father. Man to machine to man, a cyclic nil ouroboros whose hunger is only sated by itself. 
+Zero: Cast-iron blood. Wired tendons. Diodes and anodes and grease. A hand to give the Father. Man to machine to man, a cyclic nil ouroboros whose hunger is only sated by itself.
 ZeroGenocideCannon: It was designed for slaughter.
 ZeroGigataser: It was designed to render targets immobile.
 ZeroNeutralizer: It was designed for execution.

@@ -15,7 +15,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
 {
-    public class SleepingCurseBox_Tile : ModTile
+    public class SunkenShipPreSoCBox_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -31,7 +31,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
             // name.SetDefault("Music Box");
             DustType = ModContent.DustType<CthulhuDust>();
             AddMapEntry(new Color(200, 200, 200), name);
-            RegisterItemDrop(ModContent.ItemType<SleepingCurseBox>());
+            RegisterItemDrop(ModContent.ItemType<SunkenShipPreSoCBox>());
         }
 
         public override void MouseOver(int i, int j)
@@ -39,7 +39,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<SleepingCurseBox>();
+            player.cursorItemIconID = ModContent.ItemType<SunkenShipPreSoCBox>();
         }
     }
 }
