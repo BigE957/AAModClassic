@@ -2,6 +2,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Vanity.VoidEye;
 using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -361,7 +362,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 if (Body != null && Body.tenthHealth)
                 {
-                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
+                    DrawingUtils.DrawAura(spriteBatch, glowTex, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
                     spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(true), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 }
                 else
