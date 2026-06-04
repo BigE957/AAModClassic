@@ -29,7 +29,7 @@ namespace AAModClassic.UI.Core
             if (info.UnlockState < BestiaryEntryUnlockState.CanShowStats_2)
                 return null;
 
-            if (_key == "Mods.AAModClassic.Bestiary.ZeroProtocol") //my spr is feeling very eatr
+            if (_key == "Mods.AAModClassic.Bestiary.ZeroProtocol" && !Main.rand.NextBool(500)) //my spr is feeling very eatr
             {
                 UIElement probablyInfoPage = Main.BestiaryUI.Children.ToArray()[0].Children.ToArray()[1].Children.ToArray()[1].Children.ToArray()[1];
                 if (probablyInfoPage is UIBestiaryEntryInfoPage infoPage)
