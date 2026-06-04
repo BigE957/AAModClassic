@@ -49,14 +49,6 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(
-            [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroEcho", Color.DarkRed)
-            ]);
-        }
-
         public override Color? GetAlpha(Color drawColor)
         {
             return AAColor.Oblivion;
