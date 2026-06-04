@@ -311,7 +311,7 @@ AHSpawn.DisplayName: Sisters of Discord
 
 Ashe: {
 	DisplayName: Ashe Akuma
-	BossChecklistIntegration.EntryName: Sistersof Discord
+	BossChecklistIntegration.EntryName: Sisters of Discord
 }
 
 AshenDragonHead.DisplayName: Ashen Dragon
@@ -337,9 +337,9 @@ AkumaHead: {
 AkumaBody.DisplayName: Akuma, Draconian Demon
 AkumaTransition.DisplayName: Soul Of Fury
 
-AkumaA: {
+AkumaAHead: {
 	DisplayName: Oni Akuma
-	BossChecklistIntegration.EntryName: Akuma A
+	BossChecklistIntegration.EntryName: Oni Akuma
 }
 
 AkumaABody.DisplayName: Oni Akuma
@@ -376,7 +376,7 @@ DaybringerBody.DisplayName: Daybringer
 
 DaybringerHead: {
 	DisplayName: Daybringer
-	BossChecklistIntegration.EntryName: Nightcrawler Daybringer
+	BossChecklistIntegration.EntryName: Equinox Worms
 }
 
 DaybringerTail.DisplayName: Daybringer
@@ -850,4 +850,3 @@ AmbientSoulOfCthulhu.DisplayName: ???
 ShadowUrchin.DisplayName: Shadow Urchin
 TrenchSquid.DisplayName: Trench Squid
 FlameVortex.DisplayName: Flame Vortex
-AkumaAHead.DisplayName: Akuma A Head
