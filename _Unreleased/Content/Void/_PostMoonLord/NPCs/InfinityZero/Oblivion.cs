@@ -1,9 +1,11 @@
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.DiscordSupport;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities;
 using Humanizer;
 using Microsoft.Win32;
 using Microsoft.Xna.Framework;
@@ -30,7 +32,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
@@ -97,7 +98,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.width = 1;
             NPC.height = 1;
             NPC.friendly = false;
-            NPC.lifeMax = 1;
+            NPC.lifeMax = 5;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -116,6 +117,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (localConfigPath == null)
                 InitializeSteamSearch();
+
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -563,7 +566,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             return Process.GetProcesses().Any(p => streamApps.Contains(p.ProcessName.ToLower()));
         }
 
-
         private static readonly HashSet<string> ExcludedAppIDs = [
             "105600", "1281930", // Terraria & tMod
             "228980",            // Steamworks Common Redistributables
@@ -830,11 +832,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor) * NPC.Opacity, true);
-            BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
+            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor) * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+            DrawingUtils.DrawAura(spriteBatch, glow, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
             spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
-            if(unofficial && StaticActive)
+            if(!NPC.IsABestiaryIconDummy && unofficial && StaticActive)
             {
                 Effect effect = Terraria.Graphics.Effects.Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
                 effect.Parameters["offset"].SetValue(Main.rand.NextVector2Square(0, 600));
@@ -848,7 +850,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 Texture2D mask = ModContent.Request<Texture2D>(Texture + "_Resprite_Mask").Value;
 
-                Main.EntitySpriteDraw(mask, NPC.position - Main.screenPosition, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+                Main.EntitySpriteDraw(mask, NPC.position - screenPos, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 Main.spriteBatch.End();
                 Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
             }
