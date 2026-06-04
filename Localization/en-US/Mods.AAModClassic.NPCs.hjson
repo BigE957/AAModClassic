@@ -320,6 +320,7 @@ AshenDragonBody1.DisplayName: Ashen Dragon
 AshenDragonBody2.DisplayName: Ashen Dragon
 AshenDragonBody3.DisplayName: Ashen Dragon
 AshenDragonTail.DisplayName: Ashen Dragon
+FlameVortex.DisplayName: Flame Vortex
 FuryFlameVortex.DisplayName: Flame Vortex
 AsheSpawn.DisplayName: Ashe Akuma
 AsheVanish.DisplayName: Ashe Akuma
@@ -463,7 +464,6 @@ SubzeroSerpent_Body.DisplayName: Subzero Serpent
 SubzeroSerpent_Head.DisplayName: Subzero Serpent
 SubzeroSerpent_Tail.DisplayName: Subzero Serpent
 FuryAshe.DisplayName: Fury Ashe
-FuryAsheOrbiter.DisplayName: Flame Vortex
 FuryAsheVanish.DisplayName: Ashe Akuma
 WrathHaruka.DisplayName: Wrath Haruka
 WrathHarukaClone.DisplayName: Wrath Haruka
@@ -849,4 +849,3 @@ DeityRose_Urchin.DisplayName: Shadow Urchin
 AmbientSoulOfCthulhu.DisplayName: ???
 ShadowUrchin.DisplayName: Shadow Urchin
 TrenchSquid.DisplayName: Trench Squid
-FlameVortex.DisplayName: Flame Vortex
