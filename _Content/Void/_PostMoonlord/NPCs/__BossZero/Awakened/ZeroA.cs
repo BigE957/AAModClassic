@@ -85,10 +85,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            bestiaryEntry.Info.AddRange(
-            [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroProtocol", Color.DarkRed)
-            ]);
+            bestiaryEntry.Info.Add(new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ZeroProtocol", Color.DarkRed));
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

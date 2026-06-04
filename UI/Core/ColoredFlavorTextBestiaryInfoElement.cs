@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.UI.Elements;
+using Terraria.GameContent.UI.States;
 using Terraria.Localization;
 using Terraria.UI;
 
@@ -25,6 +28,18 @@ namespace AAModClassic.UI.Core
         {
             if (info.UnlockState < BestiaryEntryUnlockState.CanShowStats_2)
                 return null;
+
+            if (_key == "Mods.AAModClassic.Bestiary.ZeroProtocol") //my spr is feeling very eatr
+            {
+                UIElement probablyInfoPage = Main.BestiaryUI.Children.ToArray()[0].Children.ToArray()[1].Children.ToArray()[1].Children.ToArray()[1];
+                if (probablyInfoPage is UIBestiaryEntryInfoPage infoPage)
+                {
+                    infoPage.FillInfoForEntry(null, default(ExtraBestiaryInfoPageInformation));
+                    var potentialEntries = Main.BestiaryDB.Entries.Where(e => e.UIInfoProvider.GetEntryUICollectionInfo().UnlockState >= BestiaryEntryUnlockState.CanShowStats_2).ToArray();
+                    infoPage.FillInfoForEntry(potentialEntries[Main.rand.Next(potentialEntries.Length)], new ExtraBestiaryInfoPageInformation { BestiaryProgressReport = Main.BestiaryUI.GetUnlockProgress() });
+                    return null;
+                }
+            }
 
             UIPanel obj = new UIPanel(Main.Assets.Request<Texture2D>("Images/UI/Bestiary/Stat_Panel"), null, 12, 7)
             {
