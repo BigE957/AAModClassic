@@ -35,6 +35,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Worm King Greed");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

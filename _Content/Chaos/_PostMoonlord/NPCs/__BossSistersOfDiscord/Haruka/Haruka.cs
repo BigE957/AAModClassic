@@ -38,6 +38,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             Slash = ModContent.Request<Texture2D>(Texture + "_Slash");
             Danger = ModContent.Request<Texture2D>(Texture + "_Danger");
+
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

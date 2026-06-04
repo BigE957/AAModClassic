@@ -20,6 +20,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
         {
             // DisplayName.SetDefault("Grip of Abyssal Wrath");
             Main.npcFrameCount[NPC.type] = 14;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
 	    public override void SetDefaults()

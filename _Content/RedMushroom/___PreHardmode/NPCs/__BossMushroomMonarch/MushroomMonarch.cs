@@ -54,6 +54,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 Position = new(0, 22)
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

@@ -50,6 +50,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             Ring2 = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Outer2);
             Ritual = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Inner1);
             Shield = ModContent.Request<Texture2D>(AssetDirectory.General.Ritual_Inner2);
+
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

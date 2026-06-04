@@ -42,6 +42,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 Position = new Vector2(24, 48)
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
 		public override void SetDefaults()

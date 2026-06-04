@@ -32,7 +32,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 		{
 			// DisplayName.SetDefault("Greed");
             Main.npcFrameCount[NPC.type] = 3;
-		}
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
+        }
 
 		public override void SetDefaults()
 		{

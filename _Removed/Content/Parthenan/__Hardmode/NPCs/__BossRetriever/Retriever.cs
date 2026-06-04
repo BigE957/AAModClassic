@@ -29,6 +29,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 
             Glowmask1 = ModContent.Request<Texture2D>(Texture + "_Glow1");
             Glowmask2 = ModContent.Request<Texture2D>(Texture + "_Glow2");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
         public override void SetDefaults()
         {

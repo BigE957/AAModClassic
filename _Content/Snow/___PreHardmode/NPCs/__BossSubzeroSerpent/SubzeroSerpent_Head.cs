@@ -62,6 +62,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 		{
 			// DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 4;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
             base.SetStaticDefaults();
         }
 

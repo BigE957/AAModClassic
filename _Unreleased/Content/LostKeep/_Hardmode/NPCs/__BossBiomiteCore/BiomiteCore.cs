@@ -41,6 +41,7 @@ public class BiomiteCore : ModNPC
         Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         CoreBack = ModContent.Request<Texture2D>(Texture + "_Back");
         CoreFront = ModContent.Request<Texture2D>(Texture + "_Front");
+        NPCID.Sets.BossBestiaryPriority.Add(Type);
     }
 
 	public override void SetDefaults()

@@ -34,6 +34,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         {
             // DisplayName.SetDefault("Desert Djinn");
             Main.npcFrameCount[NPC.type] = 15;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

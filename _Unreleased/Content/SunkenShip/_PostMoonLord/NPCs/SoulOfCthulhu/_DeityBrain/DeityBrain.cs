@@ -28,6 +28,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             // DisplayName.SetDefault("Lu'Kthu");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             Main.npcFrameCount[NPC.type] = 8;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -46,6 +47,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.knockBackResist = 0f;
             NPC.behindTiles = true;
             NPC.scale = 1f;
+            NPC.boss = true;
             NPC.buffImmune[20] = true;
             NPC.buffImmune[24] = true;
             NPC.buffImmune[39] = true;

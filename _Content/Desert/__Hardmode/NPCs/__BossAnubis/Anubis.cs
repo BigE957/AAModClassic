@@ -32,6 +32,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                 PortraitPositionYOverride = 0,
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

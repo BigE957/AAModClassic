@@ -37,6 +37,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul of Cthulhu");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -637,7 +638,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D WheelTex = ModContent.Request<Texture2D>(Texture + (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "_Wheel_Unofficial" : "_Wheel")).Value;
+            Texture2D WheelTex = ModContent.Request<Texture2D>(Texture + (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !NPC.IsABestiaryIconDummy ? "_Wheel_Unofficial" : "_Wheel")).Value;
             Texture2D RingTex = ModContent.Request<Texture2D>(Texture + "_DeityCircle").Value;
             Texture2D RitualTex = ModContent.Request<Texture2D>(Texture + "_DeityRitual").Value;
             Texture2D Rift = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift").Value;

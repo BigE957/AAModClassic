@@ -59,6 +59,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             ShieldTex = ModContent.Request<Texture2D>(Texture + "_Shield");
             ShieldRing = ModContent.Request<Texture2D>(Texture + "_ShieldRing");
             ShieldRingGlowmask = ModContent.Request<Texture2D>(Texture + "_ShieldRing_Glow");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

@@ -21,6 +21,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             // DisplayName.SetDefault("Chained Zero");
             Main.npcFrameCount[NPC.type] = 3;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

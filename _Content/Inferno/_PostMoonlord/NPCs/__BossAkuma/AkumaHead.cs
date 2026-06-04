@@ -39,6 +39,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             // DisplayName.SetDefault("Akuma; Draconian Demon");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             Main.npcFrameCount[NPC.type] = 3;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

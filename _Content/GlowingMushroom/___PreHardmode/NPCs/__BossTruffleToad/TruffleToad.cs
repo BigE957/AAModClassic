@@ -68,6 +68,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         {
             // DisplayName.SetDefault("Truffle Toad");
             Main.npcFrameCount[NPC.type] = 12;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

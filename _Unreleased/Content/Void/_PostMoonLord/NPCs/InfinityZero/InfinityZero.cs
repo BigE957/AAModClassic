@@ -52,6 +52,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
             Main.npcFrameCount[NPC.type] = 4;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 		public override void SetDefaults()
 		{

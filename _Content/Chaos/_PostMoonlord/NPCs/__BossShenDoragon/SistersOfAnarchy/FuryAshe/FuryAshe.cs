@@ -41,6 +41,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

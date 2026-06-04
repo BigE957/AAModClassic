@@ -53,6 +53,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             Trail = ModContent.Request<Texture2D>(Texture + "_Trail");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
         public override void SetDefaults()
         {

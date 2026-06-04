@@ -39,6 +39,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             // DisplayName.SetDefault("Oni Akuma");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             Main.npcFrameCount[NPC.type] = 3;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()

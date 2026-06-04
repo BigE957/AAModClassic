@@ -55,6 +55,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
             Glowmask1 = ModContent.Request<Texture2D>(Texture + "_Glow1");
             Glowmask2 = ModContent.Request<Texture2D>(Texture + "_Glow2");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -76,7 +77,6 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.netAlways = true;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["TechnoTruffle"];

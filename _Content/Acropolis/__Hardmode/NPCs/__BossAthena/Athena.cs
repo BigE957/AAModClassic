@@ -42,6 +42,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 Position = new(24, 30)
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public static Point CloudPoint = new Point((int)(Main.maxTilesX * 0.65f), 100);

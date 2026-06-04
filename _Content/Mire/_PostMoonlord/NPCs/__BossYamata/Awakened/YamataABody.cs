@@ -83,10 +83,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
             displayName = "Yamata no Orochi";
             //Main.npcFrameCount[npc.type] = 7;
-
 
             HeadTex = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "Head");
             HeadFTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake");
@@ -97,6 +95,16 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NeckTexture = ModContent.Request<Texture2D>(texRoot + "Neck");
             Glow = ModContent.Request<Texture2D>(texRoot + "Glow");
             TailTexture = ModContent.Request<Texture2D>(texRoot + "Tail");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.7f,
+                PortraitScale = 0.8f,
+                PortraitPositionYOverride = 210,
+                Position = new(0, 190)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -819,15 +827,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
-            {
-                Scale = 0.7f,
-                PortraitScale = 0.8f,
-                PortraitPositionYOverride = 210,
-                Position = new(0, 190)
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
-
             Color lightColor = NPC.GetAlpha(drawColor);
             SpriteBatch sb = spriteBatch;
             spriteBatch.Draw(TailTexture.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset - screenPos, null, lightColor, NPC.rotation, TailTexture.Size() * 0.5f, NPC.scale, 0, 0);

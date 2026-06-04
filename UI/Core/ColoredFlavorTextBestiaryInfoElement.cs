@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -29,7 +31,18 @@ namespace AAModClassic.UI.Core
             if (info.UnlockState < BestiaryEntryUnlockState.CanShowStats_2)
                 return null;
 
-            if (_key == "Mods.AAModClassic.Bestiary.ZeroProtocol" && !Main.rand.NextBool(500)) //my spr is feeling very eatr
+            if (_key == "Mods.AAModClassic.Bestiary.Oblivion")
+            {
+                Main.NewText("oblivion");
+                UIElement probablyInfoPage = Main.BestiaryUI.Children.ToArray()[0].Children.ToArray()[1].Children.ToArray()[1].Children.ToArray()[1];
+                if (probablyInfoPage is UIBestiaryEntryInfoPage infoPage)
+                {
+                    UIList list = (UIList)infoPage.Children.ToArray()[0];
+                    list._items[2].RemoveChild(list._items[2].Children.ToArray()[1]);
+                    list._items[2].Append(GetOblivionStars());
+                }
+            }
+            else if (_key == "Mods.AAModClassic.Bestiary.ZeroProtocol" && !Main.rand.NextBool(500)) //my spr is feeling very eatr
             {
                 UIElement probablyInfoPage = Main.BestiaryUI.Children.ToArray()[0].Children.ToArray()[1].Children.ToArray()[1].Children.ToArray()[1];
                 if (probablyInfoPage is UIBestiaryEntryInfoPage infoPage)
@@ -66,6 +79,48 @@ namespace AAModClassic.UI.Core
             AddDynamicResize(obj, uIText);
             obj.Append(uIText);
             return obj;
+        }
+
+        private UIElement GetOblivionStars()
+        {
+            int num = 14;
+            int num2 = 14;
+            int num3 = -4;
+            int num4 = num + num3;
+            int num5 = 18;
+            int num6 = 18;
+            int value = 18;// _filledStarsCount.Value;
+            float num7 = 1f;
+            int num8 = num4 * Math.Min(num6, num5) - num3;
+            double num9 = (double)num4 * Math.Ceiling((double)num5 / (double)num6) - (double)num3;
+            UIElement uIElement = new UIPanel(Main.Assets.Request<Texture2D>("Images/UI/Bestiary/Stat_Panel", (AssetRequestMode)1), null, 5, 21)
+            {
+                Width = new StyleDimension((float)num8 + num7 * 2f, 0f),
+                Height = new StyleDimension((float)num9 + num7 * 2f, 0f),
+                BackgroundColor = Color.Gray * 0f,
+                BorderColor = Color.Transparent,
+                Left = new StyleDimension(10f, 0f),
+                Top = new StyleDimension(6f, 0f),
+                VAlign = 0f
+            };
+            uIElement.SetPadding(0f);
+            for (int num10 = num5 - 1; num10 >= 0; num10--)
+            {
+                string text = "Images/UI/Bestiary/Icon_Rank_Light";
+                if (num10 >= value)
+                {
+                    text = "Images/UI/Bestiary/Icon_Rank_Dim";
+                }
+                UIImage element = new UIImage(Main.Assets.Request<Texture2D>(text, (AssetRequestMode)1))
+                {
+                    Left = new StyleDimension((float)(num4 * (num10 % num6)) - (float)num8 * 0.5f + (float)num * 0.5f, 0f),
+                    Top = new StyleDimension((float)(num4 * (num10 / num6)) - (float)num9 * 0.5f + (float)num2 * 0.5f, 0f),
+                    HAlign = 0.5f,
+                    VAlign = 0.5f
+                };
+                uIElement.Append(element);
+            }
+            return uIElement;
         }
 
         private static void AddDynamicResize(UIElement container, UIText text)

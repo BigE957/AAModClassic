@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
         public override void SetDefaults()
         {

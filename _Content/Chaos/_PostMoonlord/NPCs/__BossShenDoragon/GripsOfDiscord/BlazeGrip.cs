@@ -37,6 +37,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
             offsetBasePoint = new Vector2(-280f, 0f);
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }	
 
         public override void HitEffect(NPC.HitInfo hit)

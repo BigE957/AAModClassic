@@ -33,6 +33,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
@@ -67,6 +68,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             field = typeof(ChatMessageContainer).GetField("_color", BindingFlags.Instance | BindingFlags.NonPublic);
             if (field != null)
                 MessageColor = field;
+
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         private static bool InitializeSteamSearch()
@@ -99,7 +102,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.width = 1;
             NPC.height = 1;
             NPC.friendly = false;
-            NPC.lifeMax = 5;
+            NPC.lifeMax = 20;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -124,10 +127,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            bestiaryEntry.Info.AddRange(
-            [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Oblivion", AAColor.OblivionDialogue)
-            ]);
+            bestiaryEntry.Info.RemoveAll(e => e is NPCKillCounterInfoElement || e is NPCStatsReportInfoElement);
+            bestiaryEntry.Info.Add(new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Oblivion", AAColor.OblivionDialogue));
         }
 
         private static int OblivionSpeech = 0;
@@ -421,6 +422,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (NPC.alpha >= 255)
             {
+                Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
                 NPC.active = false;
             }
         }

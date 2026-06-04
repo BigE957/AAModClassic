@@ -49,6 +49,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 Position = new(0, 96)
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
