@@ -106,8 +106,11 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             {
                 //TODO: smth here causes the orbiter to immediately despawn :(
                 int id = BaseAI.ShootPeriodic(Projectile, vector46, Width, Height, ModContent.ProjectileType<Darkray>(), ref Projectile.ai[1], 120, (int)Projectile.ai[0], 11, true);
-                Main.projectile[id].DamageType = DamageClass.Summon;
-                Main.projectile[id].minion = true;
+                if (id != -1)
+                {
+                    Main.projectile[id].DamageType = DamageClass.Summon;
+                    Main.projectile[id].minion = true;
+                }
             }
 			
             if (Projectile.active) { SetRot(); }

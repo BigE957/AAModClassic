@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<DynaskullJavelin_DynaEnergyBuff>(), 60);
-            
+            base.OnHitNPC(target, hit, damageDone);
         }
     }
 }

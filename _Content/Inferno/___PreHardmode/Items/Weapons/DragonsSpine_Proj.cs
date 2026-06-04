@@ -43,6 +43,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 40);
+            base.OnHitNPC(target, hit, damageDone);
         }
     }
 }

@@ -171,9 +171,7 @@ namespace AAModClassic.Items.Summoning.Minions
                     Projectile.alpha = 0;
                 }
             }
-
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
-            Projectile.damage = (int)(DamageBoost > 0f? ((50 + (Projectile.localAI[0] > 6? 6 : (Projectile.localAI[0] - 1)) * 20) * DamageBoost) : 1);
+            Projectile.damage = (int)Main.player[Projectile.owner].GetDamage(DamageClass.Summon).ApplyTo((50 + (Projectile.localAI[0] > 6 ? 6 : (Projectile.localAI[0] - 1)) * 20));
         }
     }
 }

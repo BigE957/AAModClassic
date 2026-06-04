@@ -36,6 +36,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.shootSpeed = 20f;
             Item.useAmmo = 23;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.consumeAmmoOnFirstShotOnly = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

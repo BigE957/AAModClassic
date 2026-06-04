@@ -80,8 +80,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
             int num184 = -1;
             int num185 = -1;
-            int num74 = Item.shoot;
-            int num76 = damage;
+            int projType = Item.shoot;
             float num77 = Item.knockBack;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num81 = Main.mouseX + Main.screenPosition.X - vector2.X;
@@ -112,16 +111,16 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 num82 = 0f;
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                int num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, num74, num76, num77, Main.myPlayer, 0f, 0f);
-                num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), num76, num77, Main.myPlayer, num187, 0f);
+                int num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, projType, damage, num77, Main.myPlayer, 0f, 0f);
+                num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), damage, num77, Main.myPlayer, num187, 0f);
                 int num188 = num187;
 				for (int z = 0; z < (int)((player.maxMinions - player.slotsMinions) * 2); z++)
 				{
-					num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), num76, num77, Main.myPlayer, num187, 0f);
+					num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), damage, num77, Main.myPlayer, num187, 0f);
 					Main.projectile[num188].localAI[1] = num187;
 					num188 = num187;
 				}
-                num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungTail>(), num76, num77, Main.myPlayer, num187, 0f);
+                num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungTail>(), damage, num77, Main.myPlayer, num187, 0f);
                 Main.projectile[num188].localAI[1] = num187;
             }
             else

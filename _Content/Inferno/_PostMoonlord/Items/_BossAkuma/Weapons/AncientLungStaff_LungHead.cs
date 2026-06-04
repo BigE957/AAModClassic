@@ -144,7 +144,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                     flaming = true;
                     Vector2 shootspeed = Vector2.Normalize(Projectile.velocity) * 20f;
                     Vector2 shootpos = Vector2.Normalize(Projectile.velocity).RotatedBy((float)Math.PI / 2 * Projectile.direction) * Projectile.height / 2;
-                    int fire = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Projectile.velocity.X + shootpos.X, Projectile.position.Y + Projectile.velocity.Y + shootpos.Y, shootspeed.X, shootspeed.Y, ModContent.ProjectileType<DragonfireProj>(), (int)(Projectile.damage / 1.5), 0, Projectile.owner);
+                    int fire = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Projectile.velocity.X + shootpos.X, Projectile.position.Y + Projectile.velocity.Y + shootpos.Y, shootspeed.X, shootspeed.Y, ModContent.ProjectileType<DragonfireProj>(), (int)(Projectile.damage / 1.5f), 0, Projectile.owner);
                     Main.projectile[fire].minion = true;
                     Main.projectile[fire].minionSlots = 0f;
                 }
@@ -200,9 +200,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                     Projectile.alpha = 0;
                 }
             }
-
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
-            Projectile.damage = (int)(DamageBoost > 0f? (100 + (Projectile.localAI[0] > 10? 10 : Projectile.localAI[0] - 1) * 30) * DamageBoost : 1);
+            Projectile.damage = (int)Main.player[Projectile.owner].GetDamage(DamageClass.Summon).ApplyTo((100 + (Projectile.localAI[0] > 10 ? 10 : Projectile.localAI[0] - 1) * 30));
         }
     }
 }

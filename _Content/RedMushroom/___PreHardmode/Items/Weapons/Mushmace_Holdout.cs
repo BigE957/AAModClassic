@@ -1,30 +1,37 @@
 using System;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 {
-    public class Mushmace_Holdout : ModProjectile
+    public class Mushmace_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => "AAModClassic/Chains/MushMaceChain";
+
+        public override float DrawRotationOffset => MathHelper.Pi;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Mushmace");
+            // DisplayName.SetDefault("Mushmace");
+            base.SetStaticDefaults();
 		}
         public override void SetDefaults()
         {
             Projectile.width = 16;
             Projectile.height = 16;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee;
-            Projectile.knockBack = 0;
+            base.SetDefaults();
         }
 		
+        /*
 		public override void AI()
 		{
+            /*
             if (Projectile.timeLeft == 60)
             {
                 Projectile.ai[0] = 1f;
@@ -116,7 +123,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 		
 		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            Projectile.ai[0] = 1;
+            //Projectile.ai[0] = 1;
         }
 		
 		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
@@ -128,16 +135,18 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 		
 		public override bool OnTileCollide (Vector2 oldVelocity)
 		{
-			Projectile.ai[0] = 1f;
-			return false;
+			//Projectile.ai[0] = 1f;
+			return true;
 		}
 		
  
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Chains/MushMaceChain").Value, Projectile.Center, Main.player[Projectile.owner].Center);
-            return true;
+            BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>().Value, Projectile.Center, Main.player[Projectile.owner].Center);
+            Main.EntitySpriteDraw(TextureAssets.Projectile[Type].Value, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation, TextureAssets.Projectile[Type].Size() * 0.5f, Projectile.scale, 0, 0);
+            return false;
         }
+        */
     }
 }

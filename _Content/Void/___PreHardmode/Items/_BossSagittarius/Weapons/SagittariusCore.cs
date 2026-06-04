@@ -20,7 +20,6 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
         {
             Item.width = 30;
             Item.height = 34;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 60, 0);
             Item.useStyle = ItemUseStyleID.Swing;

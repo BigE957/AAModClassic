@@ -123,7 +123,7 @@ Shines with the light of a starry night sky"); */
                 dust.noGravity = true;
             }
             cooldown = (int)(cooldownRate / projectile.minionSlots);
-            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, ModContent.ProjectileType<RadiumSetbonusBlast>(), (int)(baseBlastDamage * Main.player[projectile.owner].GetDamage(DamageClass.Summon)).Flat, 0f, projectile.owner, radius);
+            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, ModContent.ProjectileType<RadiumSetbonusBlast>(), (int)(Main.player[projectile.owner].GetDamage(DamageClass.Summon)).ApplyTo(baseBlastDamage), 0f, projectile.owner, radius);
             
         }
         public static Vector2 PolarVector(float radius, float theta)

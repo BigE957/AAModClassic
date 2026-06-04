@@ -33,7 +33,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 			Item.shoot = ModContent.ProjectileType<Sandthrower_Sandstorm>();
 			Item.shootSpeed = 12f;
 			Item.useAmmo = 23;
-		}
+            Item.consumeAmmoOnFirstShotOnly = true;
+        }
 
 	    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

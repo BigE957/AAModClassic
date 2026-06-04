@@ -9,8 +9,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
     {
         public override void SetStaticDefaults()
         {
-            
             // DisplayName.SetDefault("Mushmace");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void SetDefaults()
@@ -24,12 +24,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.knockBack = 4f;
-            Item.damage = 19;
+            Item.damage = 19 / 2;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Mushmace_Holdout>();
             Item.shootSpeed = 9;
             Item.UseSound = SoundID.Item1;
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.DamageType = DamageClass.MeleeNoSpeed;
+            Item.channel = true;
         }
 
         public override void AddRecipes()

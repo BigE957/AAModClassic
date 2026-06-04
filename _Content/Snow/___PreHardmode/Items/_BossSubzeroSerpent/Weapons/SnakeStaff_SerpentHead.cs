@@ -165,9 +165,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
                     Projectile.alpha = 0;
                 }
             }
-
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
-            Projectile.damage = (int)(DamageBoost > 0f? (10 + (Projectile.localAI[0] > 10? 10 : Projectile.localAI[0] - 1)) * DamageBoost : 1);
+            Projectile.damage = (int)Main.player[Projectile.owner].GetDamage(DamageClass.Summon).ApplyTo((10 + (Projectile.localAI[0] > 10 ? 10 : Projectile.localAI[0] - 1)));
         }
     }
 }

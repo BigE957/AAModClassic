@@ -27,11 +27,10 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
         public override void PostAI()
         {
-            const int aislotHomingCooldown = 0;
+            const int aislotHomingCooldown = 2;
             const int homingDelay = 10;
             const float desiredFlySpeedInPixelsPerFrame = 60;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
-
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {

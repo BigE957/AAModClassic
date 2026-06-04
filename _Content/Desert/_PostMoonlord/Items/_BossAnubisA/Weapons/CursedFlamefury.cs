@@ -36,6 +36,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 			Item.useAmmo = 23;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
+            Item.consumeAmmoOnFirstShotOnly = true;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
