@@ -519,7 +519,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 Summon = true;
                                 customAI[0] = 1;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEye>());
+                                NPC.SpawnBoss((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEye>(), NPC.target);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                                 return;
@@ -528,7 +528,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 Summon = true;
                                 customAI[0] = 2;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEater>());
+                                NPC.SpawnBoss((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEater>(), NPC.target);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                                 return;
@@ -537,7 +537,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 Summon = true;
                                 customAI[0] = 3;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityBrain>());
+                                NPC.SpawnBoss((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityBrain>(), NPC.target);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                                 return;
@@ -546,7 +546,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 Summon = true;
                                 customAI[0] = 4;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeitySkull>(), 0, 0, 1);
+                                NPC.SpawnBoss((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeitySkull>(), NPC.target);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                                 return;
@@ -555,7 +555,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 Summon = true;
                                 customAI[0] = 5;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityRose>());
+                                NPC.SpawnBoss((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityRose>(), NPC.target);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                                 return;
@@ -564,7 +564,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 Summon = true;
                                 customAI[0] = 6;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityLeviathan>());
+                                NPC.SpawnBoss((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityLeviathan>(), NPC.target);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                                 return;
