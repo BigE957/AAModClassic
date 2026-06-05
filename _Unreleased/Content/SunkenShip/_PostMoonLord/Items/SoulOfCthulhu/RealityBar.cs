@@ -40,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             Item.width = 30;
             Item.height = 26;
-            Item.maxStack = 999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.buyPrice(1, 0, 0, 0);
         }
 

@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
         {
             Item.width = 30;
             Item.height = 24;
-            Item.maxStack = 99;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 40, 0);
             Item.useTurn = true;
