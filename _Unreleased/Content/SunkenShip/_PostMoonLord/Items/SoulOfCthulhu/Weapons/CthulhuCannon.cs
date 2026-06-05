@@ -14,7 +14,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override void SetStaticDefaults()
         {
             //DisplayName.SetDefault("Cthulhu Cannon");
-            //Tooltip.SetDefault(@"Fires reality-breaking bombs\nRequires Cannonballs");
+            //Tooltip.SetDefault(@"Uses cannonballs for ammo\Fires reality-breaking bombs that fragment into powerful dark rifts on impact");
         }
 
         public override void SetDefaults()

@@ -14,7 +14,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
 
             //DisplayName.SetDefault("Reality Anchor");
-            //Tooltip.SetDefault(@"The further the anchor falls, the larger the explosion when it hits a tile");
+            //Tooltip.SetDefault(@"Hurls a mysterious anchor that deals an impact with the forces of several dimensions");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
