@@ -133,41 +133,37 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             Texture2D texture2D19 = TextureAssets.Projectile[Projectile.type].Value;
             Texture2D texture2D20 = Body.Value;
             Texture2D texture2D21 = Tail.Value;
-            float num223 = Projectile.localAI[1];
-            Color color44 = new Color(255, 255, 255, 0) * 0.9f;
-            SpriteBatch arg_ABD8_0 = Main.spriteBatch;
-            Texture2D arg_ABD8_1 = texture2D19;
-            Vector2 arg_ABD8_2 = Projectile.Center - Main.screenPosition;
-            Rectangle? sourceRectangle2 = null;
-            arg_ABD8_0.Draw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 0f);
-            num223 -= (texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
-            Vector2 value20 = Projectile.Center;
-            value20 += Projectile.velocity * Projectile.scale * texture2D19.Height / 2f;
-            if (num223 > 0f)
+
+            float localAI = Projectile.localAI[1];
+            Color drawColor = new Color(255, 255, 255, 0) * 0.9f;
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            Vector2 drawPos = Projectile.Center - Main.screenPosition;
+            spriteBatch.Draw(texture2D19, drawPos, null, drawColor, Projectile.rotation, texture2D19.Size() / 2f, Projectile.scale, SpriteEffects.None, 0f);
+            localAI -= (texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
+            Vector2 laserEnd = Projectile.Center;
+            laserEnd += Projectile.velocity * Projectile.scale * texture2D19.Height / 2f;
+            if (localAI > 0f)
             {
-                float num224 = 0f;
-                Rectangle rectangle7 = new Rectangle(0, 16 * (Projectile.timeLeft / 3 % 5), texture2D20.Width, 16);
-                while (num224 + 1f < num223)
+                Rectangle frame = texture2D20.Frame();
+                int moveAmt = texture2D20.Height / 2;
+                float mult = ((int.MaxValue - Projectile.timeLeft) % moveAmt) / (float)moveAmt;
+                float accumulatedLength = (int)(texture2D20.Height * mult);
+                spriteBatch.Draw(texture2D20, laserEnd - Main.screenPosition, new Rectangle(0, (int)(texture2D20.Height * (1 - mult)), texture2D20.Width, (int)accumulatedLength), drawColor, Projectile.rotation, new Vector2(frame.Width / 2f, 0f), Projectile.scale, SpriteEffects.None, 0f);
+                accumulatedLength *= Projectile.scale;
+                laserEnd += Projectile.velocity * accumulatedLength;
+                while (accumulatedLength + 1f < localAI)
                 {
-                    if (num223 - num224 < rectangle7.Height)
+                    if (localAI - accumulatedLength < frame.Height)
                     {
-                        rectangle7.Height = (int)(num223 - num224);
+                        frame.Height = (int)(localAI - accumulatedLength);
                     }
-                    Main.spriteBatch.Draw(texture2D20, value20 - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(rectangle7), color44, Projectile.rotation, new Vector2(rectangle7.Width / 2, 0f), Projectile.scale, SpriteEffects.None, 0f);
-                    num224 += rectangle7.Height * Projectile.scale;
-                    value20 += Projectile.velocity * rectangle7.Height * Projectile.scale;
-                    rectangle7.Y += 16;
-                    if (rectangle7.Y + rectangle7.Height > texture2D20.Height)
-                    {
-                        rectangle7.Y = 0;
-                    }
+                    spriteBatch.Draw(texture2D20, laserEnd - Main.screenPosition, frame, drawColor, Projectile.rotation, new Vector2(frame.Width / 2f, 0f), Projectile.scale, SpriteEffects.None, 0f);
+                    accumulatedLength += frame.Height * Projectile.scale;
+                    laserEnd += Projectile.velocity * frame.Height * Projectile.scale;
                 }
             }
-            SpriteBatch arg_AE2D_0 = Main.spriteBatch;
-            Texture2D arg_AE2D_1 = texture2D21;
-            Vector2 arg_AE2D_2 = value20 - Main.screenPosition;
-            sourceRectangle2 = null;
-            arg_AE2D_0.Draw(arg_AE2D_1, arg_AE2D_2, sourceRectangle2, color44, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 0f);
+            Vector2 drawPos2 = laserEnd - Main.screenPosition;
+            spriteBatch.Draw(texture2D21, drawPos2, null, drawColor, Projectile.rotation, texture2D21.Frame(1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
 
