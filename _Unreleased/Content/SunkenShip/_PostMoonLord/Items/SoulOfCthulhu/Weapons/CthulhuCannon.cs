@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class CthulhuCannon : ModItem
+    public class CthulhuCannon : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
@@ -34,6 +34,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.autoReuse = true;
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>();
+            AARarity = 14;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

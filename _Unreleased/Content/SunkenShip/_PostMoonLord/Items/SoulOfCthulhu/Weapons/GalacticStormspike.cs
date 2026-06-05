@@ -8,8 +8,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-	public class GalacticStormspike : ModItem
-	{
+	public class GalacticStormspike : BaseAAItem
+    {
         public override void SetStaticDefaults()
         {
             Item.staff[Item.type] = true;
@@ -26,8 +26,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            //TODOSOC
-            //Item.UseSound = new LegacySoundStyle(2, 15, SoundType.Sound);
+            Item.UseSound = SoundID.Item15;
             Item.damage = 190;
             Item.knockBack = 4;
             Item.DamageType = DamageClass.Magic;
@@ -35,7 +34,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.autoReuse = true;
             Item.noMelee = true;	
             Item.shoot = ModContent.ProjectileType<GalacticStormspike_Stormray>();
-            Item.shootSpeed = 4;	
+            Item.shootSpeed = 4;
+            AARarity = 14;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

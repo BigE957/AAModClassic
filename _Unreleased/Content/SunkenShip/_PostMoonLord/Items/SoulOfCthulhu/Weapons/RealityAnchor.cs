@@ -1,17 +1,13 @@
 ﻿using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class RealityAnchor : ModItem
+    public class RealityAnchor : BaseAAItem
     {
 
         public override void SetStaticDefaults()
@@ -49,6 +45,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.Melee;
+            AARarity = 14;
         }
 
         public override void AddRecipes()
