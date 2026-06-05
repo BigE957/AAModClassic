@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+            npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
         }
     }
 }

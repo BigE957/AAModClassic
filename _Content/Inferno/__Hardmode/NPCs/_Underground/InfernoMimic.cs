@@ -59,7 +59,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>()));
+            npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>()));
         }
     }
 }
