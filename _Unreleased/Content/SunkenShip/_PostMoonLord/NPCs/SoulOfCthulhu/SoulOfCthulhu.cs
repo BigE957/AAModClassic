@@ -245,7 +245,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<CthulhuPortal>(), 0, 0);
             else
             {
-                AAWorld_Unreleased.downedSoC = true;
                 if (NPC.playerInteraction[Main.myPlayer])
                     SoulOfCthulhuKilled.Condition.Complete();
             }

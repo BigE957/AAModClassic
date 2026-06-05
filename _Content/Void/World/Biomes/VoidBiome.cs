@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Void.World.Biomes
         }
 
         public override int Music =>
-            (AAWorld.downedZero && !AAWorld_Unreleased.downedIZ) ? MusicManagementSystem.MusicSlots["Void_PreIZ"] :
+            (AAWorld.downedZero && !AAWorld_Unreleased.DownedIZ) ? MusicManagementSystem.MusicSlots["Void_PreIZ"] :
             NPC.downedMoonlord ? MusicManagementSystem.MusicSlots["Void_PostML"] :
             MusicManagementSystem.MusicSlots["Void"];
 
@@ -226,7 +226,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                     spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
                     spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AAWorld_Unreleased.downedIZ)
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AAWorld_Unreleased.DownedIZ)
                     {
                         spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }

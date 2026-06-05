@@ -268,7 +268,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Dead = true;
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
             AAPlayer.IZKills += 1;
-            AAWorld_Unreleased.downedIZ = true;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

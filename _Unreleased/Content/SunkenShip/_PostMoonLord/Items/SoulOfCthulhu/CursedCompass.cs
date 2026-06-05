@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             // Tooltip.SetDefault(@"An old Compass. Who knows what it's for?");
         }
 
-        private static bool CthulhuActive => AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
+        private static bool CthulhuActive => AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC;
 
         public override void SetDefaults()
         {
@@ -40,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             bool canFightSoC = AAWorld.downedAllAncients;
-
+            Main.NewText(AAWorld_Unreleased.DownedSoC);
             foreach (TooltipLine line in list)
             {
                 if (line.Mod == "Terraria" && line.Name == "ItemName")
@@ -50,7 +50,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 {
                     if(CthulhuActive)
                         line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Ready");
-                    else if(AAWorld_Unreleased.downedSoC)
+                    else if(AAWorld_Unreleased.DownedSoC)
                         line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Downed");
                 }
 
@@ -61,7 +61,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                     if (line.Mod == "Terraria" && line.Name == "Tooltip2")
                         line.Hide();
                 }
-                else if(AAWorld_Unreleased.downedSoC && line.Mod == "Terraria" && line.Name == "Tooltip1")
+                else if(AAWorld_Unreleased.DownedSoC && line.Mod == "Terraria" && line.Name == "Tooltip1")
                     line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText1");
             }
         }

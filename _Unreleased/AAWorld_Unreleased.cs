@@ -3,8 +3,11 @@ using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.CrossMod;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -27,8 +30,8 @@ namespace AAModClassic._Unreleased
         public static Point shipPos = Point.Zero;
         private static int shipSide = 0;
 
-        public static bool downedSoC;
-        public static bool downedIZ;
+        public static bool DownedSoC => (NPCExtensions.BeenKilled<SoulOfCthulhu>() && !Main.expertMode) || NPCExtensions.BeenKilled<Cthulhu>();
+        public static bool DownedIZ => AAPlayer.IZKills > 0;
         public static bool Compass;
 
         public static int StormTiles = 0;
@@ -37,50 +40,40 @@ namespace AAModClassic._Unreleased
         #region stupid bullshit
         public override void PreWorldGen()
         {
-            downedSoC = false;
-            downedIZ = false;
             Compass = false;
         }
 
         public override void SaveWorldData(TagCompound tag)
         {
-            var downedUnreleased = new List<string>();
-            if (downedSoC) downedUnreleased.Add("SoC");
-            if (downedIZ) downedUnreleased.Add("IZ");
-            if (Compass) downedUnreleased.Add("Compass");
-
-            tag.Add("downedUnreleased", downedUnreleased);
+            tag.Add("Compass", Compass);
             tag.Add("ShipLocation", shipPos);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
-            var downedUnreleased = tag.GetList<string>("downedUnreleased");
-            downedSoC = downedUnreleased.Contains("SoC");
-            downedIZ = downedUnreleased.Contains("IZ");
-            Compass = downedUnreleased.Contains("Compass");
+            Compass = tag.GetBool("Compass");
             shipPos = tag.Get<Point>("ShipLocation");
         }
 
         public override void NetSend(BinaryWriter writer)
         {
-            BitsByte flags = new BitsByte();
-            flags[0] = downedSoC;
-            flags[1] = downedIZ;
+            //BitsByte flags = new BitsByte();
+            //flags[0] = downedSoC;
+            //flags[1] = downedIZ;
             //flags[2] = downedIZ;
             //flags[3] = downedIZ;
             //flags[4] = downedIZ;
             //flags[5] = downedIZ;
             //flags[6] = downedIZ;
             //flags[7] = downedIZ;
-            writer.Write(flags);
+            //writer.Write(flags);
         }
 
         public override void NetReceive(BinaryReader reader)
         {
-            BitsByte flags = reader.ReadByte();
-            downedSoC = flags[0];
-            downedIZ = flags[1];
+            //BitsByte flags = reader.ReadByte();
+            //downedSoC = flags[0];
+            //downedIZ = flags[1];
             //downedIZ = flags[2];
             //downedIZ = flags[3];
             //downedIZ = flags[4];
