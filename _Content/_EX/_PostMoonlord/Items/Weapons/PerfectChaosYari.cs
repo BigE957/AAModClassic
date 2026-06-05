@@ -21,7 +21,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.knockBack = 4f;
@@ -33,7 +32,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.value = Item.sellPrice(5, 0, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;
-            Item.shootSpeed = 12f;
+            Item.shootSpeed = 8f;
             Item.shoot = ModContent.ProjectileType<PerfectChaosYari_Holdout>();
         }
 

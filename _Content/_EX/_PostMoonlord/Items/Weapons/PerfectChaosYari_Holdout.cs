@@ -1,4 +1,7 @@
-﻿using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -16,7 +19,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override void SetDefaults()
         {
 			Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
-			Projectile.aiStyle = ProjAIStyleID.Spear;
+			//Projectile.aiStyle = ProjAIStyleID.Spear;
 			Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
 			Projectile.timeLeft = 90;
 			Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
@@ -29,14 +32,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Projectile.hide = true;
         }
 
+        bool shot = false;
+
         public override void AI()
         {
-        	Main.player[Projectile.owner].direction = Projectile.direction;
-        	Main.player[Projectile.owner].heldProj = Projectile.whoAmI;
-        	Main.player[Projectile.owner].itemTime = Main.player[Projectile.owner].itemAnimation;
-        	Projectile.position.X = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - Projectile.width / 2;
-        	Projectile.position.Y = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - Projectile.height / 2;
-        	Projectile.position += Projectile.velocity * Projectile.ai[0];
         	if (Main.rand.NextBool(5))
             {
                 int DustType = ModContent.DustType<Dusts.AkumaADust>();
@@ -50,41 +49,70 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 }
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustType, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
-        	if(Projectile.ai[0] == 0f)
-        	{
-        		Projectile.ai[0] = 3f;
-        		Projectile.netUpdate = true;
-        	}
-        	if(Main.player[Projectile.owner].itemAnimation < Main.player[Projectile.owner].itemAnimationMax / 3)
-        	{
-        		Projectile.ai[0] -= 2.4f;
-                if (Projectile.localAI[0] == 0f && Main.myPlayer == Projectile.owner && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<PerfectChaosYari_Proj>()))
+                    
+            // ai[0] = Speed value of the spear. Changes as time goes by.
+            // localAI[0] = Special effect 0-1 flag value. Actived right before the spear goes backward.
+
+            Player player = Main.player[Projectile.owner];
+            float itemAnimationMax = Math.Max(1f, player.itemAnimationMax);
+            float syncedItemAnimation = AAGlobalProjectile.GetSyncedItemAnimation(Projectile, player);
+
+            // Adjust owner stats based on this projectile
+            player.ChangeDir(Projectile.direction);
+            player.heldProj = Projectile.whoAmI;
+            player.itemTime = player.itemAnimation;
+
+            // Stick to the player
+            Projectile.Center = player.RotatedRelativePoint(player.MountedCenter);
+
+            // And move outward/inward based on the speed variable.
+            Projectile.position += Projectile.velocity * Projectile.ai[0];
+
+            // If we're not movement, start.
+            if (Projectile.ai[0] == 0f)
+            {
+                Projectile.ai[0] = 3f;
+                Projectile.netUpdate = true;
+            }
+
+            if (syncedItemAnimation < itemAnimationMax / 3f) // Reel back
+            {
+                if (!shot)
                 {
-					Projectile.localAI[0] = 1f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X * 1.4f, Projectile.velocity.Y * 1.4f, ModContent.ProjectileType<PerfectChaosYari_Proj>(), (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Main.player[Projectile.owner].position.X, Main.player[Projectile.owner].position.Y, Projectile.velocity.X * 1.3f, Projectile.velocity.Y * 1.3f, ModContent.ProjectileType<PerfectChaosYari_Proj>(), (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
-				}
-        	}
-        	else
-        	{
-        		Projectile.ai[0] += 0.95f;
-        	}
-        	
-        	if(Main.player[Projectile.owner].itemAnimation == 0)
-        	{
-        		Projectile.Kill();
-        	}
-        	
-        	Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 2.355f;
-        	if(Projectile.spriteDirection == -1)
-        	{
-        		Projectile.rotation -= 1.57f;
-        	}
+                    if (Main.myPlayer == Projectile.owner && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<PerfectChaosYari_Proj>()))
+                    {
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X * 1.4f, Projectile.velocity.Y * 1.4f, ModContent.ProjectileType<PerfectChaosYari_Proj>(), (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Main.player[Projectile.owner].position.X, Main.player[Projectile.owner].position.Y, Projectile.velocity.X * 1.3f, Projectile.velocity.Y * 1.3f, ModContent.ProjectileType<PerfectChaosYari_Proj>(), (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
+                    }
+                    shot = true;
+                }
+                Projectile.ai[0] -= 2.4f;
+            }
+            else // Move forward
+                Projectile.ai[0] += 2.1f;
+
+            // If at the end of the animation, kill the projectile.
+            //Checking if == 0 is too late, lets the projectile linger into chained item uses.
+            if (syncedItemAnimation <= 1f)
+                Projectile.Kill();
+
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2 + MathHelper.PiOver4;
+            if (Projectile.spriteDirection == -1)
+                Projectile.rotation -= MathHelper.PiOver2;
         }
         
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
         	target.immune[Projectile.owner] = 5;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Type].Value;
+            Vector2 drawPosition = Projectile.Center - Main.screenPosition;
+            Vector2 origin = Vector2.Zero;
+            Main.EntitySpriteDraw(texture, drawPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, origin, Projectile.scale, 0, 0);
+            return false;
         }
     }
 }

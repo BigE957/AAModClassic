@@ -18,7 +18,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 30;
             Item.height = 30;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 24;
             Item.knockBack = 2.3f;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 0, 40, 0);
             Item.rare = ItemRarityID.Green;
-            Item.shootSpeed = 5f;
+            Item.shootSpeed = 2.5f;
             Item.shoot = ModContent.ProjectileType<VikingPolearm_Holdout>();  //put your Spear projectile name
         }
 

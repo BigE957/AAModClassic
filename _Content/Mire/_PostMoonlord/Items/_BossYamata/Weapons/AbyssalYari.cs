@@ -21,7 +21,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.width = 132;
             Item.height = 132;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.knockBack = 2f;

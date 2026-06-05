@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             Projectile.width = 75;
             Projectile.height = 75;
             Projectile.scale = 1.1f;
-            Projectile.aiStyle = ProjAIStyleID.Spear;
+            //Projectile.aiStyle = ProjAIStyleID.Spear;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;
@@ -25,6 +25,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             Projectile.DamageType = DamageClass.Melee;
             Projectile.timeLeft = 90;
             Projectile.hide = true;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 60;
         }
 
         public override void SetStaticDefaults()

@@ -19,7 +19,6 @@ namespace AAModClassic._Content.Crimson.__Hardmode.Items.Weapons
             Item.width = 80;
             Item.height = 80;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 18;
             Item.knockBack = 3f;

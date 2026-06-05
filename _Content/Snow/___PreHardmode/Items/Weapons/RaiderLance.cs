@@ -20,7 +20,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 30;
             Item.height = 30;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 24;
             Item.knockBack = 2.3f;
@@ -31,7 +30,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = 10800;
             Item.rare = ItemRarityID.Orange;
-            Item.shootSpeed = 7f;
+            Item.shootSpeed = 3.5f;
             Item.shoot = ModContent.ProjectileType<RaiderLance_Holdout>();  //put your Spear projectile name
         }
 

@@ -18,7 +18,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
             Item.width = 132;
             Item.height = 132;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 25; 
             Item.useAnimation = 25;
             Item.knockBack = 2f;

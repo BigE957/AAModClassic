@@ -19,7 +19,6 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 18;
             Item.useAnimation = 18;
             Item.knockBack = 4f;
@@ -30,7 +29,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-            Item.shootSpeed = 11f;
+            Item.shootSpeed = 7f;
             Item.shoot = ModContent.ProjectileType<ChaosYari_Holdout>();  //put your Spear projectile name
         }
 

@@ -21,7 +21,6 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 40;
             Item.height = 40;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.knockBack = 4f;
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-            Item.shootSpeed = 10f;
+            Item.shootSpeed = 6f;
             Item.shoot = ModContent.ProjectileType<AsgardianLance_Holdout>();  //put your Spear projectile name
         }
 
@@ -43,7 +42,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<AsgardianLance_Proj>(), damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position, velocity * 2f, ModContent.ProjectileType<AsgardianLance_Proj>(), damage, knockback, Main.myPlayer);
             return true;
         }
 
