@@ -459,6 +459,21 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 if (Ropes.Length == 0)
                 {
                     Ropes = new VerletObject[4];
+
+                    if(RopeEnds.Length == 0)
+                    {
+                        Vector2 spawnPos = (AAWorld_Unreleased.shipPos + new Point(141, 41)).ToWorldCoordinates();
+                        RopeEnds = new Vector2[4];
+                        for (int i = 0; i < Ropes.Length; i++)
+                        {
+                            Vector2 dir = (-(MathHelper.PiOver2 + MathHelper.PiOver4) + (MathHelper.TwoPi / 4 * i)).ToRotationVector2();
+                            float randAngle = Main.rand.NextFloat(-MathHelper.Pi / 9f, MathHelper.Pi / 5f) * Math.Sign(dir.X);
+                            dir = dir.RotatedBy(randAngle);
+                            Vector2? tileWorld = CollisionUtils.RayCast(spawnPos, dir, 1000, out _);
+                            RopeEnds[i] = tileWorld ?? dir * 128;                            
+                        }
+                    }
+
                     for (int i = 0; i < 4; i++)
                         Ropes[i] = VerletIntegration.CreateVerletChain(RopeEnds[i], originalCenter, RopeEnds[i].Y < originalCenter.Y ? 8 : 10, 16);
                 }
