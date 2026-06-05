@@ -1,3 +1,4 @@
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -28,6 +29,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[39] = true;
             NPC.knockBackResist = 0.1f;
             NPC.noGravity = true;
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
         
