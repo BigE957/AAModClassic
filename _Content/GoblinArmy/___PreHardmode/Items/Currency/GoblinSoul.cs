@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
@@ -12,17 +13,14 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency
 {
     public class GoblinSoul : BaseAAItem
     {
-        public static Asset<Texture2D> AnimatedTexture;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Goblin Soul");
             // Tooltip.SetDefault("The soul of a goblin");
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(8, 4));
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-
-            AnimatedTexture = ModContent.Request<Texture2D>(Texture + "_Animated");
         }
 
 
@@ -38,29 +36,6 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency
             Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
             Item.rare = ItemRarityID.Orange;
-        }
-
-        int counter = 0;
-        int cframe = 0;
-
-        public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
-        {
-            if (counter++ > 7)
-            {
-                cframe++;
-                counter = 0;
-                if (cframe > 3)
-                {
-                    cframe = 0;
-                }
-            }
-
-            Texture2D itemTex = AnimatedTexture.Value;
-
-            Rectangle iframe = BaseDrawing.GetFrame(cframe, itemTex.Width, itemTex.Height / 4, 0, 0);
-
-            BaseDrawing.DrawTexture(spriteBatch, itemTex, 0, Item.position, Item.width, Item.height, scale, rotation, Item.direction, 4, iframe, lightColor, true);
-            return false;
         }
     }
     public class GSouls : CustomCurrencySingleCoin
