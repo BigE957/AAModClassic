@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
     {
         public override string ChainTexturePath => Texture + "_Chain";
 
-        public override float DrawRotationOffset => base.DrawRotationOffset;
+        public override float DrawRotationOffset => MathHelper.PiOver2;
 
         public override void SetStaticDefaults()
 		{

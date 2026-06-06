@@ -12,9 +12,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void SetStaticDefaults()
         {
-
             //DisplayName.SetDefault("Reality Anchor");
             //Tooltip.SetDefault(@"Hurls a mysterious anchor that deals an impact with the forces of several dimensions");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -39,13 +39,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.knockBack = 7.5F;
-            Item.damage = 300;
+            Item.damage = 150;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<RealityAnchor_Proj>();
+            Item.shoot = ModContent.ProjectileType<RealityAnchor_Holdout>();
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.Melee;
             AARarity = 14;
+            Item.channel = true;
         }
 
         public override void AddRecipes()

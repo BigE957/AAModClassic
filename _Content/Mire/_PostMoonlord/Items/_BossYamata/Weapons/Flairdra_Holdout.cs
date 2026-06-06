@@ -119,7 +119,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             float baseSpeed = 24f;
             float startAngle = Main.player[Projectile.owner].MountedCenter.AngleTo(Main.MouseWorld);
             float deltaAngle = spread / 25f;
-            Projectile.velocity = (startAngle + (deltaAngle * Projectile.ai[2])).ToRotationVector2() * baseSpeed;
+            Projectile.velocity = (startAngle + (deltaAngle * Projectile.ai[2])).ToRotationVector2() * baseSpeed + Main.player[Projectile.owner].velocity;
         }
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)

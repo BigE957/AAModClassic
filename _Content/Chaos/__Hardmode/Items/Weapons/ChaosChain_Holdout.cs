@@ -1,10 +1,7 @@
-using System;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -42,13 +39,6 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
                 dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataAuraDust>(), 0, 0, 0)];
                 dust1.noGravity = true;
                 dust2.noGravity = true;
-            }
-
-            if(CurrentAIState == AIState.Dropping || CurrentAIState == AIState.Retracting || CurrentAIState == AIState.Ricochet || CurrentAIState == AIState.UnusedState)
-            {
-                CurrentAIState = AIState.ForcedRetracting; // Move to super retracting mode if the player taps
-                StateTimer = 0f;
-                Projectile.netUpdate = true;
             }
 
             base.AI();

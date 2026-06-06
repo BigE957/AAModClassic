@@ -168,6 +168,15 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                         shouldSwitchToRetracting |= Projectile.Distance(mountedCenter) >= MaxLaunchLength;
                         if (player.controlUseItem) // If the player clicks, transition to the Dropping state
                         {
+                            if(!Projectile.tileCollide)
+                            {
+                                CurrentAIState = AIState.ForcedRetracting;
+                                StateTimer = 0f;
+                                Projectile.netUpdate = true;
+                                OnEndLaunch();
+                                break;
+                            }
+
                             CurrentAIState = AIState.Dropping;
                             StateTimer = 0f;
                             Projectile.netUpdate = true;
@@ -199,6 +208,15 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                         }
                         if (player.controlUseItem) // If the player clicks, transition to the Dropping state
                         {
+                            if (!Projectile.tileCollide)
+                            {
+                                CurrentAIState = AIState.ForcedRetracting;
+                                StateTimer = 0f;
+                                Projectile.netUpdate = true;
+                                OnEndLaunch();
+                                break;
+                            }
+
                             CurrentAIState = AIState.Dropping;
                             StateTimer = 0f;
                             Projectile.netUpdate = true;

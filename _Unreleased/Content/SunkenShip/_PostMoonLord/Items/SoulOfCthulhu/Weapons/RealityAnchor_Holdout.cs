@@ -1,35 +1,36 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class RealityAnchor_Proj : ModProjectile
+    public class RealityAnchor_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => base.DrawRotationOffset;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Reality Anchor");
+            base.SetStaticDefaults();
 		}
         public override void SetDefaults()
         {
-
             Projectile.width = 34;
             Projectile.height = 34;
-            Projectile.aiStyle = ProjAIStyleID.Boomerang;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.DamageType = DamageClass.Melee;
             Projectile.tileCollide = false;
+            base.SetDefaults();
         }
-
-        public int BoomTimer = 0;
-        public bool Boom = true;
 
         public override void AI()
         {
@@ -43,6 +44,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 dust1.noGravity = true;
                 dust2.noGravity = true;
             }
+
+            base.AI();
+
+            /*
             if (Projectile.timeLeft == 120)
             {
                 Projectile.ai[0] = 1f;
@@ -129,34 +134,42 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 {
                     Projectile.spriteDirection = -1;
                 }
-
             }
+            */
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            int ProjID = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RealityAnchor_RealityBurst>(), (int)(Projectile.damage * 1.5f), 0);
-            Main.projectile[ProjID].rotation = Projectile.rotation;
-            Projectile.ai[0] = 1f;
-            if (Main.netMode == NetmodeID.MultiplayerClient)
+            if (CurrentAIState == AIState.LaunchingForward)
             {
-                NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, ProjID, 1f, 0f, 0f, 0, 0, 0);
+                int ProjID = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RealityAnchor_RealityBurst>(), (int)(Projectile.damage * 1.5f), 0);
+                Main.projectile[ProjID].rotation = Projectile.rotation + MathHelper.PiOver2;
+
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, ProjID, 1f, 0f, 0f, 0, 0, 0);
+                }
+
+                CurrentAIState = AIState.Retracting;
+                StateTimer = 0f;
+                Projectile.netUpdate = true;
+                Projectile.velocity *= 0.3f;
             }
         }
 
         public override bool PreDraw(ref Color lightColor)
         {		
-            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/RealityAnchor_Proj_Chain").Value;
-            BaseDrawing.DrawChain(Main.spriteBatch, texture, Projectile.Center, Main.player[Projectile.owner].MountedCenter);
-            return true;
+            return base.PreDraw(ref lightColor);
         }
+
+        public override bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, SpriteEffects spriteEffects) => false;
 
         public override void PostDraw(Color lightColor)
         {
+            Main.spriteBatch.Draw(TextureAssets.Projectile[Type].Value, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation + MathHelper.PiOver2, TextureAssets.Projectile[Type].Size() * 0.5f, Projectile.scale, Projectile.direction == -1 ? SpriteEffects.FlipHorizontally : 0, 0);
             Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-
-            BaseDrawing.DrawTexture(Main.spriteBatch, GlowTex, 0, Projectile, Color.White);
-            BaseDrawing.DrawAfterimage(Main.spriteBatch, GlowTex, 0, Projectile, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            Main.spriteBatch.Draw(GlowTex, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation + MathHelper.PiOver2, GlowTex.Size() * 0.5f, Projectile.scale, Projectile.direction == -1 ? SpriteEffects.FlipHorizontally : 0, 0);
+            DrawingUtils.DrawAfterimageWithVelocity(Main.spriteBatch, GlowTex, Projectile.Center - Main.screenPosition, Projectile.velocity, 6, null, AAColor.Cthulhu2, Projectile.scale, [Projectile.rotation + MathHelper.PiOver2], GlowTex.Size() * 0.5f, Projectile.direction == -1 ? SpriteEffects.FlipHorizontally : 0, 0.8f);
         }
     }
 }
