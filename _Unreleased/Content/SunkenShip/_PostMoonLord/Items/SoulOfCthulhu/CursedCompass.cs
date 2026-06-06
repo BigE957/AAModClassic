@@ -40,7 +40,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             bool canFightSoC = AAWorld.downedAllAncients;
-            Main.NewText(AAWorld_Unreleased.DownedSoC);
             foreach (TooltipLine line in list)
             {
                 if (line.Mod == "Terraria" && line.Name == "ItemName")

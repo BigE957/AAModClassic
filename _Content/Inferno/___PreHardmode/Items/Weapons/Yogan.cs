@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         {
 			Item.CloneDefaults(ItemID.Sunfury);
 
-            Item.damage = 48; 
+            Item.damage = 24; 
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
             Item.width = 46; 
             Item.height = 66;    
@@ -22,13 +22,16 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<Yogan_Holdout>();
 			Item.UseSound = SoundID.Item18;
+            Item.channel = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Yogan");
-			// Tooltip.SetDefault(@"Ignites enemies on hit");
-		}
+            // DisplayName.SetDefault("Yogan");
+            // Tooltip.SetDefault(@"Ignites enemies on hit");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+            base.SetStaticDefaults();
+        }
 		
 		public override void AddRecipes()
         {

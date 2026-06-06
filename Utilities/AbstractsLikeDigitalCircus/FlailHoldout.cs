@@ -36,10 +36,10 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         public virtual int SpinHitCooldown => 20; // How often your flail hits when spinning
         public virtual int MovingHitCooldown => 10; // How often your flail hits when moving
 
-        private static Asset<Texture2D> chainTexture;
-        private static Asset<Texture2D> chainTextureExtra; // This texture and related code is optional and used for a unique effect
+        private static readonly Dictionary<int, Asset<Texture2D>> chainTextures = [];
+        private static readonly Dictionary<int, Asset<Texture2D>> chainTextureExtras = []; // This texture and related code is optional and used for a unique effect
 
-        private enum AIState
+        internal enum AIState
         {
             Spinning,
             LaunchingForward,
@@ -51,7 +51,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         }
 
         // These properties wrap the usual ai and localAI arrays for cleaner and easier to understand code.
-        private AIState CurrentAIState
+        internal AIState CurrentAIState
         {
             get => (AIState)Projectile.ai[0];
             set => Projectile.ai[0] = (float)value;
@@ -66,11 +66,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             ProjectileID.Sets.TrailCacheLength[Type] = 6;
             ProjectileID.Sets.TrailingMode[Type] = 2;
 
-            chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
-            if (ChainTextureExtraPath == null)
-                chainTextureExtra = null;
-            else
-                chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath);
+            chainTextures.Add(Type, ModContent.Request<Texture2D>(ChainTexturePath));
+            if (ChainTextureExtraPath != null)
+                chainTextureExtras.Add(Type, ModContent.Request<Texture2D>(ChainTextureExtraPath));
         }
 
         public override void SetDefaults()
@@ -203,6 +201,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                             Projectile.velocity = Projectile.velocity.MoveTowards(unitVectorTowardsPlayer * myMaxRetractSpeed, myRetractAcceleration);
                             player.ChangeDir((player.Center.X < Projectile.Center.X).ToDirectionInt());
                         }
+                        StateTimer++;
                         break;
                     }
                 // Projectile.ai[0] == 3; This case is actually unused, but maybe a Terraria update will add it back in, or maybe it is useless, so I left it here.
@@ -269,6 +268,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                             return;
                         }
                         player.ChangeDir((player.Center.X < Projectile.Center.X).ToDirectionInt());
+                        StateTimer++;
                         break;
                     }
                 case AIState.Ricochet:
@@ -304,24 +304,22 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
             // This is where Flower Pow launches projectiles. Decompile Terraria to view that code.
 
-            Projectile.direction = (Projectile.velocity.X > 0f).ToDirectionInt();
-            Projectile.spriteDirection = Projectile.direction;
+            //Projectile.direction = (Projectile.velocity.X > 0f).ToDirectionInt();
+            //Projectile.spriteDirection = Projectile.direction;
             Projectile.ownerHitCheck = shouldOwnerHitCheck; // This prevents attempting to damage enemies without line of sight to the player. The custom Colliding code for spinning makes this necessary.
 
             // This rotation code is unique to this flail, since the sprite isn't rotationally symmetric and has tip.
             bool freeRotation = CurrentAIState == AIState.Ricochet || CurrentAIState == AIState.Dropping;
             if (freeRotation)
             {
-                if (Projectile.velocity.Length() > 1f)
-                    Projectile.rotation = Projectile.velocity.ToRotation() + Projectile.velocity.X * 0.1f; // skid
-                else
-                    Projectile.rotation += Projectile.velocity.X * 0.1f; // roll
+                Projectile.rotation += Projectile.velocity.X / 20f; // roll
             }
             else
             {
-                Vector2 vectorTowardsPlayer = Projectile.DirectionTo(mountedCenter).SafeNormalize(Vector2.Zero);
-                Projectile.rotation = vectorTowardsPlayer.ToRotation() + MathHelper.PiOver2;
+                Vector2 vectorFromPlayer = Projectile.DirectionFrom(mountedCenter).SafeNormalize(Vector2.Zero);
+                Projectile.rotation = vectorFromPlayer.ToRotation();// + MathHelper.PiOver2;
             }
+            
 
             Projectile.timeLeft = 2; // Makes sure the flail doesn't die (good when the flail is resting on the ground)
             player.heldProj = Projectile.whoAmI;
@@ -486,6 +484,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             // Drippler Crippler customizes sourceRectangle to cycle through sprite frames: sourceRectangle = asset.Frame(1, 6);
             float chainHeightAdjustment = 0f; // Use this to adjust the chain overlap.
 
+            Asset<Texture2D> chainTexture = chainTextures[Type];
             Vector2 chainOrigin = chainSourceRectangle.HasValue ? (chainSourceRectangle.Value.Size() / 2f) : (chainTexture.Size() / 2f);
             Vector2 chainDrawPosition = Projectile.Center;
             Vector2 vectorFromProjectileToPlayerArms = playerArmPosition.MoveTowards(chainDrawPosition, 4f) - chainDrawPosition;
@@ -510,7 +509,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                 // This example shows how Flaming Mace works. It checks chainCount and changes chainTexture and draw color at different values
 
                 var chainTextureToDraw = chainTexture;
-                if (chainTextureExtra != null)
+                if (chainTextureExtras.TryGetValue(Type, out var tex))
                 {
                     if (chainCount >= 4)
                     {
@@ -519,7 +518,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                     else if (chainCount >= 2)
                     {
                         // Near to the ball, we draw a custom chain texture and slightly make it glow if unlit.
-                        chainTextureToDraw = chainTextureExtra;
+                        chainTextureToDraw = tex;
                         byte minValue = 140;
                         if (chainDrawColor.R < minValue)
                             chainDrawColor.R = minValue;
@@ -533,7 +532,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                     else
                     {
                         // Close to the ball, we draw a custom chain texture and draw it at full brightness glow.
-                        chainTextureToDraw = chainTextureExtra;
+                        chainTextureToDraw = tex;
                         chainDrawColor = Color.White;
                     }
                 }

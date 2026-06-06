@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons   //where is l
         {
 			Item.CloneDefaults(ItemID.SolarEruption);
 
-            Item.damage = 18;            
+            Item.damage = 9;            
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
             Item.width = 32;              
             Item.height = 46;             
@@ -23,13 +23,16 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons   //where is l
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<GlacierBreaker_Holdout>();
 			Item.UseSound = SoundID.Item18;
+            Item.channel = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Glacier Breaker");
-			// Tooltip.SetDefault(@"Drops Icicles while the flail travels");
-		}
+            // DisplayName.SetDefault("Glacier Breaker");
+            // Tooltip.SetDefault(@"Drops Icicles while the flail travels");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+            base.SetStaticDefaults();
+        }
 		
 		public override void AddRecipes()
         {

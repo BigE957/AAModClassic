@@ -1,5 +1,6 @@
 using System;
 using AAModClassic._Content.Snow.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -7,24 +8,31 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
 {
-    public class GlacierBreaker_Holdout : ModProjectile
+    public class GlacierBreaker_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2 + MathHelper.PiOver4;
+
+        //public override float DrawRotationOffset => MathHelper.PiOver4;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Glacier Breaker");
+            // DisplayName.SetDefault("Glacier Breaker");
+            base.SetStaticDefaults();
 		}
         public override void SetDefaults()
         {
             Projectile.width = 20;
             Projectile.height = 20;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee;
             Projectile.knockBack = 0;
+            
+            base.SetDefaults();
         }
 		
 		public override void AI()
 		{
+            /*
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust1;
@@ -90,30 +98,27 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
             {
                 Projectile.alpha = 0;
             }
-            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer)
+            */
+
+            base.AI();
+
+            Projectile.direction = Projectile.spriteDirection = 0;
+
+            if (CurrentAIState != AIState.Spinning && CurrentAIState != AIState.Dropping && StateTimer % 8 == 0 && Projectile.owner == Main.myPlayer)
             {
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 7, ModContent.ProjectileType<IceShrapnel>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
+
+            //Projectile.rotation -= MathHelper.PiOver2 + MathHelper.PiOver4;
         }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 16;
-            height = 16;
-            return true;
-        }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			Projectile.ai[0] = 1f;
-			return false;
-		}
-		
  
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
-        { 
+        {
+            return base.PreDraw(ref lightColor);
+
+            /*
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/GlacierBreaker_Chain").Value;
  
             Vector2 position = Projectile.Center;
@@ -146,6 +151,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
                 }
             }
             return true;
+            */
         }
     }
 }

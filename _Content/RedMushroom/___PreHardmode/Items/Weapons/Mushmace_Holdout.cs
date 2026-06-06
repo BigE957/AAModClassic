@@ -12,9 +12,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 {
     public class Mushmace_Holdout : FlailHoldout
     {
-        public override string ChainTexturePath => "AAModClassic/Chains/MushMaceChain";
+        public override string ChainTexturePath => Texture + "_Chain";
 
-        public override float DrawRotationOffset => MathHelper.Pi;
+        public override float DrawRotationOffset => MathHelper.PiOver2;
 
         public override void SetStaticDefaults()
 		{
