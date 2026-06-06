@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons   //where is loc
         {
 			Item.CloneDefaults(ItemID.SolarEruption);
 
-            Item.damage = 52;            
+            Item.damage = 26;            
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
             Item.width = 56;              
             Item.height = 56;             
@@ -22,12 +22,14 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons   //where is loc
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<IlluminantFlail_Holdout>();
             Item.UseSound = SoundID.Item1;
+            Item.channel = true;
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Illuminant Flail");
-    }
+        public override void SetStaticDefaults()
+        {
+          // DisplayName.SetDefault("Illuminant Flail");
+          ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+        }
 
         public override void AddRecipes()  //How to craft this sword
         {

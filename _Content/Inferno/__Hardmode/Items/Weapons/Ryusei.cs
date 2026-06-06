@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         {
 			Item.CloneDefaults(ItemID.SolarEruption);
 
-            Item.damage = 70; 
+            Item.damage = 35; 
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
             Item.width = 46; 
             Item.height = 66;    
@@ -23,13 +23,15 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<Ryusei_Holdout>();
 			Item.UseSound = SoundID.Item18;
+            Item.channel = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Ryusei");
-			// Tooltip.SetDefault(@"Ignites enemies on hit with flames and Dragonfire");
-		}
+            // DisplayName.SetDefault("Ryusei");
+            // Tooltip.SetDefault(@"Ignites enemies on hit with flames and Dragonfire");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+        }
 		
 		public override void AddRecipes()
         {

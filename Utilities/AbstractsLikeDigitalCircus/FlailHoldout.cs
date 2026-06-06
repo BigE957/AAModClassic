@@ -36,8 +36,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         public virtual int SpinHitCooldown => 20; // How often your flail hits when spinning
         public virtual int MovingHitCooldown => 10; // How often your flail hits when moving
 
-        private static readonly Dictionary<int, Asset<Texture2D>> chainTextures = [];
-        private static readonly Dictionary<int, Asset<Texture2D>> chainTextureExtras = []; // This texture and related code is optional and used for a unique effect
+        internal static readonly Dictionary<int, Asset<Texture2D>> chainTextures = [];
+        internal static readonly Dictionary<int, Asset<Texture2D>> chainTextureExtras = []; // This texture and related code is optional and used for a unique effect
 
         internal enum AIState
         {

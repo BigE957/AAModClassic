@@ -18,12 +18,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
     public class RajahRabbit_ThePunisher : ModProjectile
     {
         public override string Texture => ModContent.GetInstance<ThePunisher_Holdout>().Texture;
-        public static Asset<Texture2D> Chain => ThePunisher_Holdout.Chain;
+        public static Asset<Texture2D> Chain;
         public static Asset<Texture2D> Chain2 => TheAvenger_Holdout.Chain;
 
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("The Punisher");
+            // DisplayName.SetDefault("The Punisher");
+
+            Chain = ModContent.Request<Texture2D>(ModContent.GetInstance<ThePunisher_Holdout>().Texture + "_Chain");
         }
         public override void SetDefaults()
         {

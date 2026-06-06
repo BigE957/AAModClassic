@@ -2,6 +2,7 @@ using System;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,23 +10,28 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
-    public class ChaosChain_Holdout : ModProjectile
+    public class ChaosChain_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => base.DrawRotationOffset;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Chaos Chain");
+            // DisplayName.SetDefault("Chaos Chain");
+
+            base.SetStaticDefaults();
 		}
         public override void SetDefaults()
         {
             Projectile.width = 58;
             Projectile.height = 58;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee;
             Projectile.tileCollide = false;
+
+            base.SetDefaults();
         }
-		
-		public override void AI()
+
+        public override void AI()
 		{
             if (Main.rand.NextFloat() < 1f)
             {
@@ -37,6 +43,17 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
                 dust1.noGravity = true;
                 dust2.noGravity = true;
             }
+
+            if(CurrentAIState == AIState.Dropping || CurrentAIState == AIState.Retracting || CurrentAIState == AIState.Ricochet || CurrentAIState == AIState.UnusedState)
+            {
+                CurrentAIState = AIState.ForcedRetracting; // Move to super retracting mode if the player taps
+                StateTimer = 0f;
+                Projectile.netUpdate = true;
+            }
+
+            base.AI();
+
+            /*
             if (Projectile.timeLeft == 120)
             {
                 Projectile.ai[0] = 1f;
@@ -124,19 +141,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
                     Projectile.spriteDirection = -1;
                 }
             }
-        }
-
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 30;
-            height = 30;
-            return true;
-        }
-
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            Projectile.ai[0] = 1f;
-            return false;
+            */
         }
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
@@ -149,10 +154,14 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
+            return base.PreDraw(ref lightColor);
+
+            /*
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/ChaosChain_Chain").Value;
 
             BaseDrawing.DrawChain(Main.spriteBatch, texture, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f);
             return true;
+            */
         }
     }
 }
