@@ -1,6 +1,8 @@
-using System;
+using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -8,25 +10,29 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class EmperorFlairon_Holdout : ModProjectile
+    public class EmperorFlairon_Holdout : FlailHoldout
     {
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Emperor Flairon");
+            base.SetStaticDefaults();
         }
         public override void SetDefaults()
         {
             Projectile.width = 26;
             Projectile.height = 26;
-            Projectile.aiStyle = ProjAIStyleID.Flairon;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.alpha = 255;
-            Projectile.DamageType = DamageClass.Melee;
+            //Projectile.aiStyle = ProjAIStyleID.Flairon;
+            //Projectile.alpha = 255;
+            base.SetDefaults();
         }
 
         public override void AI()
         {
+            /*
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
             if (Main.player[Projectile.owner].dead)
@@ -91,6 +97,19 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ProjectileID.FlaironBubble, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
+            */
+
+            base.AI();
+
+            if (CurrentAIState != AIState.Ricochet && CurrentAIState != AIState.Dropping)
+            {
+                if ((CurrentAIState == AIState.Spinning ? SpinningStateTimer : StateTimer) % 3 == 0 && Projectile.owner == Main.myPlayer)
+                {
+                    Vector2 vector55 = Projectile.DirectionFrom(Main.player[Projectile.owner].Center) * Main.rand.Next(45, 65) * 0.1f;
+                    vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector55, ProjectileID.FlaironBubble, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                }
+            }
         }
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -107,6 +126,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
+            /*
 			for (int h = 0; h < 6; h++)
 			{
 				Vector2 vel = new Vector2(0, -1);
@@ -133,12 +153,14 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
             }
             Projectile.netUpdate = true;
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            return false;
+            */
+            return base.OnTileCollide(oldVelocity);
 		}
 		
         public override bool PreDraw(ref Color lightColor)
         {
-
+            return base.PreDraw(ref lightColor);
+            /*
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/EFlairon_Chain").Value;
 
             Vector2 position = Projectile.Center;
@@ -171,7 +193,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
                 }
             }
             return true;
+            */
         }
-
     }
 }

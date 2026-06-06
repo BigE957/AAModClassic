@@ -1,19 +1,19 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos.Buffs;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using System.IO;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class PerfectChaosChain_Holdout : ModProjectile
+    public class PerfectChaosChain_Holdout : FlailHoldout
     {
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => base.DrawRotationOffset;
+
         public static Asset<Texture2D> SawTexture;
         public static Asset<Texture2D> SphereTexture;
 
@@ -23,21 +23,21 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
             SawTexture = ModContent.Request<Texture2D>(ModContent.GetInstance<PerfectChaosChain_Proj>().Texture);
             SphereTexture = ModContent.Request<Texture2D>(Texture + "_Sphere");
+
+            base.SetStaticDefaults();
         }
 
         public override void SetDefaults()
         {
             Projectile.width = 58;
             Projectile.height = 58;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee;
-            Projectile.tileCollide = false;
+            base.SetDefaults();
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 5;
             Projectile.extraUpdates = 1;
         }
 
+        /*
         public float[] InternalAI = new float[2];
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -58,12 +58,21 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 InternalAI[1] = reader.ReadSingle();
             }
         }
+        */
 
         float Rot = 0;
         int Dir = 1;
 		
 		public override void AI()
         {
+            base.AI();
+
+            if (CurrentAIState == AIState.LaunchingForward)
+            {
+                Rot += Projectile.velocity.X * 0.05f;
+            }
+
+            /*
             for (int i = 0; i < 1000; ++i)
             {
                 if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == ModContent.ProjectileType<PerfectChaosChain_Proj>() && Projectile.ai[0] == 1f)
@@ -168,25 +177,42 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 }
 
             }
+            */
+        }
+
+        public override void OnEndLaunch()
+        {
+            if (Main.myPlayer == Projectile.owner)
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity * 4, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
         }
 		
-		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            if (Projectile.ai[0] == 0f)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position, Projectile.velocity, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, 0, Main.myPlayer);
-            }
+            if (CurrentAIState == AIState.LaunchingForward)
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, 0, Main.myPlayer);
+
             target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 240);
         }
 		
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
+            return base.PreDraw(ref lightColor);
+            /*
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/ChaosChainEX_Chain").Value;
             BaseDrawing.DrawChain(Main.spriteBatch, texture, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f);
             Texture2D headTex = Projectile.ai[0] == 1f ? SphereTexture.Value : SawTexture.Value;
             Rectangle frame = new(0, 0, SawTexture.Value.Width, SawTexture.Value.Height);
             BaseDrawing.DrawTexture(Main.spriteBatch, headTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
+            return true;
+            */
+        }
+
+        public override bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, SpriteEffects spriteEffects)
+        {
+            Texture2D headTex = (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Spinning) ? SawTexture.Value : SphereTexture.Value;
+            Rectangle frame = new(0, 0, SawTexture.Value.Width, SawTexture.Value.Height);
+            spriteBatch.Draw(headTex, Projectile.Center - Main.screenPosition, null, lightColor, Rot, headTex.Size() * 0.5f, Projectile.scale, spriteEffects, 0);
             return true;
         }
     }

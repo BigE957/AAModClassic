@@ -1,7 +1,7 @@
-using System;
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -9,25 +9,30 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class Flairdra_Holdout : ModProjectile
+    public class Flairdra_Holdout : FlailHoldout
     {
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Flairdra");
 
             Main.projFrames[Projectile.type] = 8;
+
+            base.SetStaticDefaults();
         }
         public override void SetDefaults()
         {
             Projectile.width = 32;
             Projectile.height = 34;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee; 
+            base.SetDefaults();
         }
 		
 		public override void AI()
-        { 
+        {
+            /*
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
             if (Main.player[Projectile.owner].dead)
@@ -93,13 +98,35 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ModContent.ProjectileType<Flairdra_Cyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
+            */
+
+            base.AI();
+
+            if (CurrentAIState != AIState.Ricochet && CurrentAIState != AIState.Dropping)
+            {
+                if ((CurrentAIState == AIState.Spinning ? SpinningStateTimer % 8 : StateTimer % 4) == 0 && Projectile.owner == Main.myPlayer)
+                {
+                    Vector2 vector55 = Projectile.DirectionFrom(Main.player[Projectile.owner].Center) * Main.rand.Next(45, 65) * 0.1f;
+                    vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector55, ModContent.ProjectileType<Flairdra_Cyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                }
+            }
+        }
+
+        public override void ModifyLaunchedFlail()
+        {
+            float spread = 100f * 0.0174f;
+            float baseSpeed = 24f;
+            float startAngle = Main.player[Projectile.owner].MountedCenter.AngleTo(Main.MouseWorld);
+            float deltaAngle = spread / 25f;
+            Projectile.velocity = (startAngle + (deltaAngle * Projectile.ai[2])).ToRotationVector2() * baseSpeed;
         }
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
             if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(2))
             {
-            target.immune[Projectile.owner] = 1;
+                target.immune[Projectile.owner] = 1;
                 SoundEngine.PlaySound(SoundID.Item124);
                 float spread = 12f * 0.0174f;
                 double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
@@ -114,37 +141,24 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             }
             target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 30;
-            height = 30;
-            return true;
-        }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			//projectile.tileCollide = false;
-			//projectile.timeLeft = 20;
-			Projectile.ai[0] = 1f;
-			return false;
-		}
         
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
-
             Projectile.frameCounter++;
             if (Projectile.frameCounter >= 10)
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
                 if (Projectile.frame > 7)
-                { 
-                    Projectile.frame = 0; 
+                {
+                    Projectile.frame = 0;
                 }
             }
 
+            return base.PreDraw(ref lightColor);
+
+            /*
             Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Chains/Flairdra_Chain").Value;
             
             Vector2 position = Projectile.Center;
@@ -177,6 +191,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 }
             }
             return true;
+            */
         }
     }
 }

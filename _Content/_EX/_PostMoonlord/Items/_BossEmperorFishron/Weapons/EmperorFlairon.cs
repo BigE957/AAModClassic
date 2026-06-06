@@ -12,14 +12,16 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
         {
             // DisplayName.SetDefault("Emperor Flairon");
             // Tooltip.SetDefault("Lets loose an armada of homing bubbles");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.Flairon);
-            Item.damage = 350;
+            Item.damage = 175;
             Item.rare = ItemRarityID.Purple;
             Item.shoot = ModContent.ProjectileType<EmperorFlairon_Holdout>();
+            Item.channel = true;
         }
 
 

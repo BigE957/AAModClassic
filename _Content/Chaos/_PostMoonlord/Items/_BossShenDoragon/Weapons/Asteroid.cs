@@ -15,10 +15,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
         
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Asteroid");
             /* Tooltip.SetDefault(@"Crashes into enemies with the force of an astroid crashing into earth
 Inflicts Discordian Inferno"); */
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void SetDefaults()
@@ -32,14 +33,15 @@ Inflicts Discordian Inferno"); */
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 40;
             Item.useTime = 40;
-            Item.knockBack = 7.5F;
-            Item.damage = 300;
+            Item.knockBack = 7.5f;
+            Item.damage = 150;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Asteroid_Holdout>();
-            Item.shootSpeed = 32F;
+            Item.shootSpeed = 32f;
             Item.UseSound = SoundID.Item20;
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.DamageType = DamageClass.Melee;
             Item.autoReuse = true;
+            Item.channel = true;
             AARarity = 14;
         }
 

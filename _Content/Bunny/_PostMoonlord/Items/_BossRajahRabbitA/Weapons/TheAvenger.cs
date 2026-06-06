@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
         {
             // DisplayName.SetDefault("The Avenger");
             // Tooltip.SetDefault(@"The Punisher EX");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void SetDefaults()
@@ -22,7 +23,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.knockBack = 7f;
             Item.width = 30;
             Item.height = 10;
-            Item.damage = 500;
+            Item.damage = 250;
             Item.shoot = ModContent.ProjectileType<TheAvenger_Holdout>();
             Item.shootSpeed = 15f;
             Item.UseSound = SoundID.Item1;
@@ -31,6 +32,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noUseGraphic = true;
+            Item.channel = true;
         }
     }
 }

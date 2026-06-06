@@ -1,7 +1,8 @@
-using System;
 using AAModClassic._Content.Inferno.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -9,19 +10,22 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
-    public class Daycrusher_Holdout : ModProjectile
+    public class Daycrusher_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Daycrusher");
+            // DisplayName.SetDefault("Daycrusher");
+            base.SetStaticDefaults();
 		}
         public override void SetDefaults()
         {
             Projectile.width = 34;
             Projectile.height = 30;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee; 
+            base.SetDefaults();
         }
 		
 		public override void AI()
@@ -36,6 +40,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 dust1.noGravity = true;
                 dust2.noGravity = true;
             }
+
+            base.AI();
+
+            /*
             if (Projectile.timeLeft == 120)
             {
                 Projectile.ai[0] = 1f;
@@ -134,6 +142,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
                 //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector55.X, vector55.Y, mod.ProjectileType("EyeProjectile2"), projectile.damage, projectile.knockBack, projectile.owner, -10f);
             }
+            */
         }
 		
 		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
@@ -148,24 +157,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 			Main.projectile[p].localNPCHitCooldown = 4;
         }
 		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 30;
-            height = 30;
-            return true;
-        }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			Projectile.ai[0] = 1f;
-			return false;
-		}
-		
- 
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
-			
+            return base.PreDraw(ref lightColor);
+			/*
             Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Chain").Value;
  
             Vector2 position = Projectile.Center;
@@ -198,6 +194,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 }
             }
             return true;
+            */
         }
     }
 }

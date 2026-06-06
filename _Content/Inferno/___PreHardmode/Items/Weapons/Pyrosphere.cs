@@ -10,7 +10,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 		{
             // DisplayName.SetDefault("Pyrosphere");
             ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
-            base.SetStaticDefaults();
         }		
 		
         public override void SetDefaults()

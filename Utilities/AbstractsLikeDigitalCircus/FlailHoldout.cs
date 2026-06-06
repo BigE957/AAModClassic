@@ -119,6 +119,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             {
                 case AIState.Spinning:
                     {
+                        Projectile.direction = Main.player[Projectile.owner].direction;
+                        Projectile.spriteDirection = Projectile.direction;
+
                         shouldOwnerHitCheck = true;
                         if (Projectile.owner == Main.myPlayer)
                         {
@@ -133,6 +136,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                                 Projectile.netUpdate = true;
                                 Projectile.ResetLocalNPCHitImmunity();
                                 Projectile.localNPCHitCooldown = MovingHitCooldown;
+
+                                ModifyLaunchedFlail();
                                 break;
                             }
                         }
@@ -152,6 +157,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                     }
                 case AIState.LaunchingForward:
                     {
+                        if (StateTimer == 0)
+                        {
+                            Projectile.direction = (Projectile.velocity.X > 0f).ToDirectionInt();
+                            Projectile.spriteDirection = Projectile.direction;
+                        }
+
                         doFastThrowDust = true;
                         bool shouldSwitchToRetracting = StateTimer++ >= LaunchTimeLimit;
                         shouldSwitchToRetracting |= Projectile.Distance(mountedCenter) >= MaxLaunchLength;
@@ -161,11 +172,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                             StateTimer = 0f;
                             Projectile.netUpdate = true;
                             Projectile.velocity *= 0.2f;
-                            // This is where Drippler Crippler spawns its projectile
-                            /*
-							if (Main.myPlayer == Projectile.owner)
-								Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity, ProjectileID.DripplerFlailExtraBall, Projectile.damage, Projectile.knockBack, Main.myPlayer);
-							*/
+
+                            OnEndLaunch();
                             break;
                         }
                         if (shouldSwitchToRetracting)
@@ -174,7 +182,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                             StateTimer = 0f;
                             Projectile.netUpdate = true;
                             Projectile.velocity *= 0.3f;
-                            // This is also where Drippler Crippler spawns its projectile, see above code.
+
+                            OnEndLaunch();
                         }
                         player.ChangeDir((player.Center.X < Projectile.Center.X).ToDirectionInt());
                         Projectile.localNPCHitCooldown = MovingHitCooldown;
@@ -304,8 +313,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
             // This is where Flower Pow launches projectiles. Decompile Terraria to view that code.
 
-            //Projectile.direction = (Projectile.velocity.X > 0f).ToDirectionInt();
-            //Projectile.spriteDirection = Projectile.direction;
             Projectile.ownerHitCheck = shouldOwnerHitCheck; // This prevents attempting to damage enemies without line of sight to the player. The custom Colliding code for spinning makes this necessary.
 
             // This rotation code is unique to this flail, since the sprite isn't rotationally symmetric and has tip.
@@ -342,6 +349,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                     Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType, 0f, 0f, 150, default(Color), 1.3f);
             }
         }
+
+        /// <summary> This is where Drippler Crippler spawns its projectile </summary>
+        public virtual void OnEndLaunch() { }
+
+        /// <summary> Called on the client which owns the Projectile. Projectile will be netsync'd after this is called </summary>
+        public virtual void ModifyLaunchedFlail() { }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
@@ -548,20 +561,27 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
             // Add a motion trail when moving forward, like most flails do (don't add trail if already hit a tile)
             Texture2D projectileTexture = TextureAssets.Projectile[Type].Value;
-            Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
+            Rectangle frame = projectileTexture.Frame(1, Main.projFrames[Type], 0, Projectile.frame);
+            Vector2 drawOrigin = frame.Size() * 0.5f;
             SpriteEffects spriteEffects = Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            if (CurrentAIState == AIState.LaunchingForward)
-            {             
-                int afterimageCount = Math.Min(Projectile.oldPos.Length - 1, (int)StateTimer);
-                for (int k = afterimageCount; k > 0; k--)
+
+            if (PreDrawFlail(Main.spriteBatch, lightColor, spriteEffects))
+            {
+                if (CurrentAIState == AIState.LaunchingForward)
                 {
-                    Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                    Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-                    Main.spriteBatch.Draw(projectileTexture, drawPos, null, color, Projectile.rotation + DrawRotationOffset, drawOrigin, Projectile.scale - k / (float)Projectile.oldPos.Length / 3, spriteEffects, 0f);
+                    int afterimageCount = Math.Min(Projectile.oldPos.Length - 1, (int)StateTimer);
+                    for (int k = afterimageCount; k > 0; k--)
+                    {
+                        Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                        Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
+                        Main.spriteBatch.Draw(projectileTexture, drawPos, frame, color, Projectile.rotation + DrawRotationOffset, drawOrigin, Projectile.scale - k / (float)Projectile.oldPos.Length / 3, spriteEffects, 0f);
+                    }
                 }
+                Main.spriteBatch.Draw(projectileTexture, Projectile.Center - Main.screenPosition, frame, lightColor, Projectile.rotation + DrawRotationOffset, drawOrigin, Projectile.scale, spriteEffects, 0f);
             }
-            Main.spriteBatch.Draw(projectileTexture, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation + DrawRotationOffset, drawOrigin, Projectile.scale, spriteEffects, 0f);
             return false;
         }
+
+        public virtual bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, SpriteEffects spriteEffects) => true;
     }
 }

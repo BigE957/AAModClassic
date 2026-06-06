@@ -12,10 +12,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         
         public override void SetStaticDefaults()
         {
-            
             // DisplayName.SetDefault("Perfect Chaos Chain");
             /* Tooltip.SetDefault(@"Fires a spinning blade that shreds enemies
 Chaos Chain EX"); */
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void SetDefaults()
@@ -27,7 +27,7 @@ Chaos Chain EX"); */
             Item.knockBack = 1f;
             Item.width = 30;
             Item.height = 10;
-            Item.damage = 275;
+            Item.damage = 188;
             Item.shoot = ModContent.ProjectileType<PerfectChaosChain_Holdout>();
             Item.shootSpeed = 18f;
             Item.UseSound = SoundID.Item116;
@@ -37,6 +37,7 @@ Chaos Chain EX"); */
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;
             Item.noUseGraphic = true;
+            Item.channel = true;
         }
 
         public override void AddRecipes()

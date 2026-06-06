@@ -14,10 +14,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Daycrusher");
             /* Tooltip.SetDefault(@"Slams into foes with the force of a solar mass
 Inflicts Daybroken"); */
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
         }
 
         public override void SetDefaults()
@@ -31,7 +32,7 @@ Inflicts Daybroken"); */
             Item.useTime = 40;
             Item.reuseDelay = 10;
             Item.knockBack = 7.5F;
-            Item.damage = 400;
+            Item.damage = 200;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Daycrusher_Holdout>();
             Item.shootSpeed = 20F;
@@ -39,6 +40,7 @@ Inflicts Daybroken"); */
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
+            Item.channel = true;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
