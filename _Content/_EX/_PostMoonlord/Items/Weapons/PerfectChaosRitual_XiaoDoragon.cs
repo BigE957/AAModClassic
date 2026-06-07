@@ -1,7 +1,6 @@
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using Microsoft.CodeAnalysis;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -267,31 +266,26 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
 
-            int width = TextureAssets.Projectile[Projectile.type].Value.Width / 3;
-            int height = TextureAssets.Projectile[Projectile.type].Value.Height / 5;
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 5, 0, 0);
-            frame.Width = width;
-            frame.X = 0;
+            int frameX = 0;
 
             if (Projectile.spriteDirection == 1)
-            {
-                frame.X = width;
-            }
+                frameX = 1;
+            if (hasTarget)
+                frameX = 2;
+
+            Rectangle frame = tex.Frame(3, 5, frameX, Projectile.frame);
+            SpriteEffects effects = Projectile.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : 0;
 
             if (hasTarget)
-            {
-                frame.X = width * 2;
-                BaseDrawing.DrawAfterimage(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true);
-            }
+                DrawingUtils.DrawAfterimageWithVelocity(Main.spriteBatch, tex, Projectile.Center - Main.screenPosition, Projectile.velocity, 5, frame, lightColor, Projectile.scale, [Projectile.rotation], frame.Size() * 0.5f, effects);
 
-
-            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, lightColor, true);
+            Main.spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, frame, lightColor, Projectile.rotation, frame.Size() * 0.5f, Projectile.scale, effects, 0);
 
             if (hasTarget)
             {
                 Texture2D g = Glowmask.Value;
-                BaseDrawing.DrawTexture(Main.spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, AAColor.Shen2, true);
-                BaseDrawing.DrawAfterimage(Main.spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true, 0, 0, AAColor.Shen2);
+                Main.spriteBatch.Draw(g, Projectile.Center - Main.screenPosition, frame, AAColor.Shen2, Projectile.rotation, frame.Size() * 0.5f, Projectile.scale, effects, 0);
+                DrawingUtils.DrawAfterimageWithVelocity(Main.spriteBatch, g, Projectile.Center - Main.screenPosition, Projectile.velocity, 5, frame, AAColor.Shen2, Projectile.scale, [Projectile.rotation], frame.Size() * 0.5f, effects);
             }
             return false;
         }
