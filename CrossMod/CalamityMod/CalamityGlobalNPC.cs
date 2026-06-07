@@ -103,7 +103,6 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<ZeroOmegaVolley>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroRealityCannon>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroRiftShredder>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<SearcherZero>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroGigataser>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroBrokenWeapon>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroVoidStar>()) CalamityDR = 0.5f;

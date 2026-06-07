@@ -8,6 +8,7 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Void.Projectiles;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
@@ -82,7 +83,7 @@ Right click to fire normal arrows"); */
         {
             if (player.altFunctionUse != 2)
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Neutralizer_DeathBeam>(), damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<DeathBeam>(), damage, knockback, Main.myPlayer);
                 
                 return false;
             }

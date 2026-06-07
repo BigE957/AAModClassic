@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -65,7 +65,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-                    int projType = ModContent.ProjectileType<Neutralizer_DeathBeam>();
+                    int projType = ModContent.ProjectileType<DeathBeam>();
 
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                     {

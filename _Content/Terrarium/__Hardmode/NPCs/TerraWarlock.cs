@@ -1,10 +1,10 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Summoning;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;

@@ -77,7 +77,6 @@ using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Summoning;
 using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -512,7 +511,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .12f)
                 {
-                    npc.DropLoot(ModContent.ItemType<SkullStaff>());
+                    npc.DropLoot(ModContent.ItemType<SkullWand>());
                 }
             }
 

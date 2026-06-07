@@ -1,4 +1,4 @@
-using AAModClassic.Items.Summoning.Minions;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<EnderMinionEX>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<ConflagrateScythe_ConflagrateConstructEX>()] > 0)
 			{
 				modPlayer.enderMinionEX = true;
 			}

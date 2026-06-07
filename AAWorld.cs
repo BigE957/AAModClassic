@@ -46,7 +46,6 @@ using AAModClassic.Conversions;
 using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Items.Summoning;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
@@ -81,6 +80,8 @@ using AAModClassic._Content.Inferno.World.BiomeChest;
 using AAModClassic._Content.Void.World.BiomeChest;
 using AAModClassic._Content.Stars.World.Altar;
 using AAModClassic._Content.Void.World.Tiles.Trees;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic
 {
@@ -647,7 +648,7 @@ namespace AAModClassic
                                     if (PlacementSuccess >= 0)
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
-                                        chest.item[0].SetDefaults(ModContent.ItemType<DragonriderStaff>(), false);
+                                        chest.item[0].SetDefaults(ModContent.ItemType<DragonsPike>(), false);
                                         chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
                                         { ModContent.ItemType<RadiantIncineriteBar>() }), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
@@ -1098,7 +1099,7 @@ namespace AAModClassic
                 }
                 else if (ChestNumber == 3)
                 {
-                    VoidLoot(ModContent.ItemType<ProbeControlUnit>(), chest);
+                    VoidLoot(ModContent.ItemType<VoidProbeControlUnit>(), chest);
                 }
                 ChestNumber += 1;
             }
@@ -1129,7 +1130,7 @@ namespace AAModClassic
 
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInDungeonChests = new int[] { ModContent.ItemType<SkullStaff>() };
+            int[] itemsToPlaceInDungeonChests = new int[] { ModContent.ItemType<SkullWand>() };
             int itemsToPlaceInDungeonChestsChoice = 0;
             for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
             {

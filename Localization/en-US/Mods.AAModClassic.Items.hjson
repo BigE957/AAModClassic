@@ -11777,3 +11777,43 @@ SoulOfCthulhuTrophy: {
 	DisplayName: Soul Of Cthulhu Trophy
 	Tooltip: ""
 }
+
+PerfectChaosRitual: {
+	DisplayName: Perfect Chaos Ritual
+	Tooltip: ""
+}
+
+DemoniteStaff: {
+	DisplayName: Demonite Staff
+	Tooltip: ""
+}
+
+CrimeraStaff: {
+	DisplayName: Crimera Staff
+	Tooltip: ""
+}
+
+SkullWand: {
+	DisplayName: Skull Wand
+	Tooltip: ""
+}
+
+DragonsPike: {
+	DisplayName: Dragons Pike
+	Tooltip: ""
+}
+
+DoomiteRadio: {
+	DisplayName: Doomite Radio
+	Tooltip: ""
+}
+
+VoidProbeControlUnit: {
+	DisplayName: Void Probe Control Unit
+	Tooltip: ""
+}
+
+OverloadedDoomiteRadio: {
+	DisplayName: Overloaded Doomite Radio
+	Tooltip: ""
+}

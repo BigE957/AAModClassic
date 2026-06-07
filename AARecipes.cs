@@ -6,7 +6,9 @@ using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Corruption.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Crimson.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Crimson.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
@@ -50,7 +52,6 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Wea
 using AAModClassic.Items.Armor.Darkmatter;
 using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Vanity.Alphakip;
 using AAModClassic.Items.Vanity.Anarchy;
 using AAModClassic.Items.Vanity.Apawn;
@@ -972,8 +973,8 @@ namespace AAModClassic
 
             RecipeGroup group16 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.evilsummonstaff"), new int[]
             {
-                ModContent.ItemType<EaterStaff>(),
-                ModContent.ItemType<CrimsonStaff>()
+                ModContent.ItemType<DemoniteStaff>(),
+                ModContent.ItemType<CrimeraStaff>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:EvilStaff", group16);
 

@@ -10,7 +10,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies
+namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies
 {
     public class AkumaASkyScene : ModSceneEffect
     {
@@ -113,7 +113,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies
                     int num21 = 0;
                     float num22 = 1f;
                     float rotation = (float)(Main.time / 54000.0) * 2f - 7.3f;
-                    double bgTop = (-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0;
+                    double bgTop = -Main.screenPosition.Y / (Main.worldSurface * 16.0 - 600.0) * 200.0;
                     if (Main.dayTime)
                     {
                         double num26;

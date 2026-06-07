@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Summoning;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -147,7 +147,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<DragonriderStaff>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DragonsPike>(), 1);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }

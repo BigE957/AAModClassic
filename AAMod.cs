@@ -29,7 +29,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
-using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Skies;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;

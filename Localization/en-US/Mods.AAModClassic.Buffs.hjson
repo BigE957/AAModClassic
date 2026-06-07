@@ -1588,3 +1588,83 @@ FuryWitchs_AsheFlame: {
 	DisplayName: Fury Witchs_ Ashe Flame
 	Description: Mods.AAModClassic.Buffs.FuryWitchs_AsheFlame.Description
 }
+
+OmenStaff_Buff: {
+	DisplayName: Omen Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.OmenStaff_Buff.Description
+}
+
+ChaosRitual_Buff: {
+	DisplayName: Chaos Ritual_ Buff
+	Description: Mods.AAModClassic.Buffs.ChaosRitual_Buff.Description
+}
+
+DemoniteStaff_Buff: {
+	DisplayName: Demonite Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.DemoniteStaff_Buff.Description
+}
+
+CrimeraStaff_Buff: {
+	DisplayName: Crimera Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.CrimeraStaff_Buff.Description
+}
+
+SkullWand_Buff: {
+	DisplayName: Skull Wand_ Buff
+	Description: Mods.AAModClassic.Buffs.SkullWand_Buff.Description
+}
+
+HallowStaff_Buff: {
+	DisplayName: Hallow Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.HallowStaff_Buff.Description
+}
+
+TrueHallowStaff_Buff: {
+	DisplayName: True Hallow Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.TrueHallowStaff_Buff.Description
+}
+
+DevilStaff_Buff: {
+	DisplayName: Devil Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.DevilStaff_Buff.Description
+}
+
+FireStaff_Buff: {
+	DisplayName: Fire Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.FireStaff_Buff.Description
+}
+
+DragonsPike_Buff: {
+	DisplayName: Dragons Pike_ Buff
+	Description: Mods.AAModClassic.Buffs.DragonsPike_Buff.Description
+}
+
+TerraStaff_Buff: {
+	DisplayName: Terra Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.TerraStaff_Buff.Description
+}
+
+TerraGauntlet_Buff: {
+	DisplayName: Terra Gauntlet_ Buff
+	Description: Mods.AAModClassic.Buffs.TerraGauntlet_Buff.Description
+}
+
+DoomiteRadio_Buff: {
+	DisplayName: Doomite Radio_ Buff
+	Description: Mods.AAModClassic.Buffs.DoomiteRadio_Buff.Description
+}
+
+DoomiteSignal_Buff: {
+	DisplayName: Doomite Signal_ Buff
+	Description: Mods.AAModClassic.Buffs.DoomiteSignal_Buff.Description
+}
+
+VoidProbeControlUnit_Buff: {
+	DisplayName: Void Probe Control Unit_ Buff
+	Description: Mods.AAModClassic.Buffs.VoidProbeControlUnit_Buff.Description
+}
+
+OverloadedDoomiteRadio_Buff: {
+	DisplayName: Overloaded Doomite Radio_ Buff
+	Description: Mods.AAModClassic.Buffs.OverloadedDoomiteRadio_Buff.Description
+}

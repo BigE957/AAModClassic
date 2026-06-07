@@ -1,5 +1,5 @@
 ﻿using System;
-using AAModClassic.Items.Summoning.Minions;
+using AAModClassic._Content.Void.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
