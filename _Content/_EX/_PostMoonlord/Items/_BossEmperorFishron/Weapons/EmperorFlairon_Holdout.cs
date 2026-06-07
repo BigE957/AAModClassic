@@ -16,6 +16,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
 
         public override float DrawRotationOffset => MathHelper.PiOver2;
 
+        public override float LaunchSpeed => base.LaunchSpeed;
+
+        public override int LaunchTimeLimit => 25;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Emperor Flairon");

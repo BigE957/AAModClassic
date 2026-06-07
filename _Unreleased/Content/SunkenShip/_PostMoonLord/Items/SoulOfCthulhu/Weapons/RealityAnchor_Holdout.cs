@@ -19,6 +19,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override float DrawRotationOffset => base.DrawRotationOffset;
 
+        public override float LaunchSpeed => 28;
+
+        public override int LaunchTimeLimit => 18;
+
+        public override float RetractAcceleration => 5;
+
+        public override float MaxRetractSpeed => 28;
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Reality Anchor");
@@ -162,7 +170,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             return base.PreDraw(ref lightColor);
         }
 
-        public override bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, SpriteEffects spriteEffects) => false;
+        public override bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, ref SpriteEffects spriteEffects) => false;
 
         public override void PostDraw(Color lightColor)
         {

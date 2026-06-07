@@ -26,11 +26,11 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         public virtual float LaunchSpeed => 14f; // How fast the projectile can move
         public virtual float MaxLaunchLength => 800f; // How far the projectile's chain can stretch before being forced to retract when in launched state
         public virtual float RetractAcceleration => 3f; // How quickly the projectile will accelerate back towards the player while retracting
-        public virtual float MaxRetractSpeed => 10f; // The max speed the projectile will have while retracting
+        public virtual float MaxRetractSpeed => LaunchSpeed - 4; // The max speed the projectile will have while retracting
         public virtual float ForcedRetractAcceleration => 6f; // How quickly the projectile will accelerate back towards the player while being forced to retract
-        public virtual float MaxForcedRetractSpeed => 15f; // The max speed the projectile will have while being forced to retract
+        public virtual float MaxForcedRetractSpeed => LaunchSpeed + 1; // The max speed the projectile will have while being forced to retract
         public virtual float UnusedRetractAcceleration => 1f;
-        public virtual float UnusedMaxRetractSpeed => 14f;
+        public virtual float UnusedMaxRetractSpeed => LaunchSpeed;
         public virtual int UnusedChainLength => 60;
         public virtual int DefaultHitCooldown => 10; // How often your flail hits when resting on the ground, or retracting
         public virtual int SpinHitCooldown => 20; // How often your flail hits when spinning
@@ -583,7 +583,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             Vector2 drawOrigin = frame.Size() * 0.5f;
             SpriteEffects spriteEffects = Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
-            if (PreDrawFlail(Main.spriteBatch, lightColor, spriteEffects))
+            if (PreDrawFlail(Main.spriteBatch, lightColor, ref spriteEffects))
             {
                 if (CurrentAIState == AIState.LaunchingForward)
                 {
@@ -600,6 +600,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             return false;
         }
 
-        public virtual bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, SpriteEffects spriteEffects) => true;
+        public virtual bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, ref SpriteEffects spriteEffects) => true;
     }
 }

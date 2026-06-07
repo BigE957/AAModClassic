@@ -14,6 +14,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 
         public override float DrawRotationOffset => base.DrawRotationOffset;
 
+        public override float LaunchSpeed => base.LaunchSpeed;
+
+        public override int LaunchTimeLimit => base.LaunchTimeLimit;
+
         public override void SetDefaults()
         {
             Projectile.width = 28;

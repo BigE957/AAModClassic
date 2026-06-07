@@ -13,6 +13,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
 
         public override float DrawRotationOffset => MathHelper.PiOver2;
 
+        public override float LaunchSpeed => 30;
+
+        public override int LaunchTimeLimit => base.LaunchTimeLimit;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Asteroid");

@@ -14,6 +14,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
 
         public override float DrawRotationOffset => MathHelper.PiOver2 + MathHelper.PiOver4;
 
+        public override float LaunchSpeed => base.LaunchSpeed;
+
+        public override int LaunchTimeLimit => 26;
+
         //public override float DrawRotationOffset => MathHelper.PiOver4;
 
         public override void SetStaticDefaults()

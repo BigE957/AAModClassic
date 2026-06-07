@@ -14,6 +14,15 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override float DrawRotationOffset => base.DrawRotationOffset;
 
+        public override float LaunchSpeed => 32;
+
+        public override int LaunchTimeLimit => 13;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
+
         public static Asset<Texture2D> SawTexture;
         public static Asset<Texture2D> SphereTexture;
 
@@ -34,7 +43,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             base.SetDefaults();
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 5;
-            Projectile.extraUpdates = 1;
+            //Projectile.extraUpdates = 1;
         }
 
         /*
@@ -71,6 +80,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             {
                 Rot += Projectile.velocity.X * 0.05f;
             }
+
+            if(CurrentAIState == AIState.Spinning)
+                Projectile.localNPCHitCooldown = 10;
+            else
+                Projectile.localNPCHitCooldown = 5;
 
             /*
             for (int i = 0; i < 1000; ++i)
@@ -183,7 +197,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override void OnEndLaunch()
         {
             if (Main.myPlayer == Projectile.owner)
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity * 4, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity * 2, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
         }
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -193,7 +207,16 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
             target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 240);
         }
-		
+
+        /*
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            width = 24;
+            height = 24;
+            return true;
+        }
+        */
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
@@ -208,10 +231,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             */
         }
 
-        public override bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, SpriteEffects spriteEffects)
+        public override bool PreDrawFlail(SpriteBatch spriteBatch, Color lightColor, ref SpriteEffects spriteEffects)
         {
+            if (spriteEffects == SpriteEffects.None)
+                spriteEffects = SpriteEffects.FlipVertically;
             Texture2D headTex = (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Spinning) ? SawTexture.Value : SphereTexture.Value;
-            Rectangle frame = new(0, 0, SawTexture.Value.Width, SawTexture.Value.Height);
             spriteBatch.Draw(headTex, Projectile.Center - Main.screenPosition, null, lightColor, Rot, headTex.Size() * 0.5f, Projectile.scale, spriteEffects, 0);
             return true;
         }

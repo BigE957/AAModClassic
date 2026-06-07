@@ -17,6 +17,14 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
 
         public override float DrawRotationOffset => MathHelper.PiOver2;
 
+        public override float LaunchSpeed => base.LaunchSpeed;
+
+        public override int LaunchTimeLimit => 24;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("The Avenger");
@@ -41,7 +49,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
                 {
                     Vector2 vector55 = Projectile.DirectionFrom(Main.player[Projectile.owner].Center) * Main.rand.Next(45, 65) * 0.1f;
                     vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector55 * 2, ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector55 * (CurrentAIState == AIState.Spinning ? 1 : 2), ModContent.ProjectileType<RajahCarrotEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 }
             }
 

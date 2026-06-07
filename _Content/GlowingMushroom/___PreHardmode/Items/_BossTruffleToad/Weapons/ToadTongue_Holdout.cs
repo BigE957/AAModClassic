@@ -13,6 +13,14 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 
         public override float DrawRotationOffset => MathHelper.PiOver2;
 
+        public override float LaunchSpeed => 24;
+
+        public override int LaunchTimeLimit => 18;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Toad Tongue");

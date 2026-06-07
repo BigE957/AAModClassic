@@ -13,6 +13,14 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 
         public override float DrawRotationOffset => base.DrawRotationOffset;
 
+        public override float LaunchSpeed => 24;
+
+        public override int LaunchTimeLimit => 18;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Chaos Chain");

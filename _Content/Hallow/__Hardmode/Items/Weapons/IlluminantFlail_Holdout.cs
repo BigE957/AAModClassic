@@ -19,6 +19,10 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
 
         public override float DrawRotationOffset => base.DrawRotationOffset;
 
+        public override float LaunchSpeed => 15;
+
+        public override int LaunchTimeLimit => 27;
+
         public override void SetDefaults()
         {
             Projectile.width = 28;
