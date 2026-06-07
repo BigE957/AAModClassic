@@ -41,10 +41,5 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
             spriteBatch.Draw(glowTex.Value, new Point(x, y).ToWorldCoordinates(1, 0) - Main.screenPosition + TileDrawOffset, new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY, 16, 16), AAColor.FlashGlow);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-            Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, ModContent.ItemType<InfinityZeroTrophy>());
-        }
 	}
 }
