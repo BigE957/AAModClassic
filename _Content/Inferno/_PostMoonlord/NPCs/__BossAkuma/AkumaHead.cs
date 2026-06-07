@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -85,6 +86,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             SceneEffectPriority = SceneEffectPriority.BossHigh;
+
+            SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
