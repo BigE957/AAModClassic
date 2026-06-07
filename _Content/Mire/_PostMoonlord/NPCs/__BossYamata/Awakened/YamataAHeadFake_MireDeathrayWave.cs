@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             }
             if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<YamataAHeadFake>())
             {
-                Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center + Vector2.UnitY * 45;
+                Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center;// + Vector2.UnitY * 45;
             }
             else
             {
