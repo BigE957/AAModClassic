@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic._Content.Void.World.Tiles;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic._Content.Void.World.Tiles
 {
     public class Doomstone : BaseAAItem
     {

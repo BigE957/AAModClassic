@@ -33,6 +33,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
+            if (effectOnly || noItem || fail)
+                return;
+
             noItem = true;
             if (Main.dayTime)
                 Item.NewItem(Entity.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<RadiumOre>());

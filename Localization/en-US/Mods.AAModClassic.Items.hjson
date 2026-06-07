@@ -8661,8 +8661,8 @@ DoomiteWall: {
 	Tooltip: ""
 }
 
-DoomsdayWall: {
-	DisplayName: Doomsday Circuit Wall
+DoomsdayPlatingWall: {
+	DisplayName: Doomsday Plating Wall
 	Tooltip: ""
 }
 

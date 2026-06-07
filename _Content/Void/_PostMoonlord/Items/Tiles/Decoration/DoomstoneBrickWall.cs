@@ -1,16 +1,14 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Blocks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
-    public class DoomsdayWall : BaseAAItem
+    public class DoomstoneBrickWall : BaseAAItem
     {
         public override void SetDefaults()
         {
-
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = Item.CommonMaxStack;
@@ -20,19 +18,19 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<DoomsdayPlating_Wall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<DoomstoneBrick_Wall>();
         }
-
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Doomsday Circuit Wall");
+            // DisplayName.SetDefault("Doomstone Brick Wall");
         }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddIngredient(ModContent.ItemType<DoomstoneBrick>());
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

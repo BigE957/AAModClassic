@@ -53,15 +53,14 @@ namespace AAModClassic.Tiles.Crafters
             return Color.White;
         }
 
-        public override void PostDraw(int x, int y, SpriteBatch sb)
+        public override void PostDraw(int x, int y, SpriteBatch spriteBatch)
         {
-            Tile tile = Main.tile[x, y];
             Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            Texture2D Sphere = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ChaosCrucible_Sphere").Value;
-            int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
+            Texture2D Sphere = ModContent.Request<Texture2D>(Texture + "_Sphere").Value;
 
-            BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, White);
-            BaseDrawing.DrawTileTexture(sb, Sphere, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, AAGlobalTile.GetShenColorBright);
+            Vector2 TileDrawOffset = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
+            spriteBatch.Draw(glowTex, new Point(x, y).ToWorldCoordinates(0, 0) - Main.screenPosition + TileDrawOffset, new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY + (Main.tileFrame[Type] * AnimationFrameHeight), 16, 16), Color.White);
+            spriteBatch.Draw(Sphere, new Point(x, y).ToWorldCoordinates(0, 0) - Main.screenPosition + TileDrawOffset, new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY + (Main.tileFrame[Type] * AnimationFrameHeight), 16, 16), AAGlobalTile.GetShenColorBright(Lighting.GetColor(x, y)));
         }
     }
 }

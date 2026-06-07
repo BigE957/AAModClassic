@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Blocks;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 
 namespace AAModClassic._Content.Void.World.Tiles

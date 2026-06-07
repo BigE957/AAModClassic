@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Walls;
+using AAModClassic._Content.Void.World.Tiles;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {

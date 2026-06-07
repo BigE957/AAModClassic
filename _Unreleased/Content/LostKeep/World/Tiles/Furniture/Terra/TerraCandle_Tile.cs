@@ -73,15 +73,6 @@ public class TerraCandle_Tile : ModTile
 
 	public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 	{
-		//IL_0067: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0102: Unknown result type (might be due to invalid IL or missing references)
-		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0114: Unknown result type (might be due to invalid IL or missing references)
-		//IL_011a: Unknown result type (might be due to invalid IL or missing references)
 		ulong seed = Main.TileFrameSeed ^ ((ulong)j | (ulong)i);
 		Color val = new(100, 100, 100, 0);
 		int frameX = Main.tile[i, j].TileFrameX;

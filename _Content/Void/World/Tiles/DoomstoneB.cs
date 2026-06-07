@@ -1,8 +1,7 @@
-using AAModClassic._Content.Void.World.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic._Content.Void.World.Tiles
 {
     public class DoomstoneB : BaseAAItem
     {

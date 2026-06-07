@@ -1,5 +1,4 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Walls;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -40,7 +39,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayPlatingWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

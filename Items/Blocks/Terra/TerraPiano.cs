@@ -1,5 +1,5 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,18 +25,12 @@ public class TerraPiano : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-		Item.createTile = ModContent.TileType<KeepPiano_Tile>();
+		Item.createTile = ModContent.TileType<TerraPiano_Tile>();
 	}
 
 	public override void AddRecipes()
 	{
-
-		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0030: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0038: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ModContent.ItemType<TerraShard>(), 15);
 		val.AddIngredient(ItemID.HallowedBar, 4);
 		val.AddIngredient(ItemID.Bone, 4);

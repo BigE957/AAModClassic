@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Walls;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             DustType = ModContent.DustType<Dusts.DoomDust>();
 			AddMapEntry(new Color(30, 30, 30));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DoomsdayWall>());
+            RegisterItemDrop(ModContent.ItemType<DoomsdayPlatingWall>());
             Main.wallHouse[Type] = true;
             Main.wallLargeFrames[Type] = 2;
         }
