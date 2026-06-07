@@ -26,12 +26,14 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Ammo
 
         public override void AI()
         {
-            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.Terra, Projectile.velocity.X * 0.2f,
-                Projectile.velocity.Y * 0.2f, 100);
-            Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.Terra, Projectile.velocity.X * 0.2f,
-                Projectile.velocity.Y * 0.2f, 100);
-            Main.dust[dustId3].noGravity = true;
+            if (Main.rand.NextBool())
+            {
+                Dust d = Dust.NewDustPerfect(Projectile.Center, DustID.Terra, Projectile.velocity * 0.2f, 100);
+                d.noGravity = true;
+            }
+            //int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.Terra, Projectile.velocity.X * 0.2f,
+            //    Projectile.velocity.Y * 0.2f, 100);
+            //Main.dust[dustId3].noGravity = true;
 
             const int aislotHomingCooldown = 0;
             const int homingDelay = 10;
@@ -86,13 +88,13 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Ammo
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Terra, -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Terra, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Terra, -Projectile.velocity.X * 0.2f,
-                    -Projectile.velocity.Y * 0.2f, 100, default);
-                Main.dust[num469].velocity *= 2f;
+                //num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Terra, -Projectile.velocity.X * 0.2f,
+                //    -Projectile.velocity.Y * 0.2f, 100, default);
+                //Main.dust[num469].velocity *= 2f;
             }
         }
     }

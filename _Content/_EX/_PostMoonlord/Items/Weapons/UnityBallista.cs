@@ -45,15 +45,11 @@ Terra Ballista EX"); */
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-			Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.ToRadians(3));
-			Vector2 perturbedSpeed3 = velocity.RotatedByRandom(MathHelper.ToRadians(3));
-			float speedX2 = perturbedSpeed2.X;
-			float speedY2 = perturbedSpeed2.Y;
-			float speedX3 = perturbedSpeed3.X;
-			float speedY3 = perturbedSpeed3.Y;
-			Projectile.NewProjectile(source, vector.X, vector.Y, speedX2, speedY2, ModContent.ProjectileType<TerraArrow_Proj>(), damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, velocity.X, velocity.X, ModContent.ProjectileType<TerraArrow_Proj>(), damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, speedX3, speedY3, ModContent.ProjectileType<TerraArrow_Proj>(), damage, knockback, player.whoAmI);
+			Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.PiOver4 / 4f);
+			Vector2 perturbedSpeed3 = velocity.RotatedByRandom(MathHelper.PiOver4 / 4f);
+			Projectile.NewProjectile(source, position, perturbedSpeed2, ModContent.ProjectileType<TerraArrow_Proj>(), damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<TerraArrow_Proj>(), damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, position, perturbedSpeed3, ModContent.ProjectileType<TerraArrow_Proj>(), damage, knockback, player.whoAmI);
             return false;
         }
 
