@@ -178,13 +178,17 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu;
+using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
@@ -242,6 +246,7 @@ namespace AAModClassic.CrossMod
             { "ShenA", 24.01f },
             { "InfinityZero", 24.11f },
             { "SoulOfCthulhu", 24.12f },
+            { "Cthulhu", 24.121f },
         };
 
         public static void PerformModSupport()
@@ -1339,10 +1344,9 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
                     ["collectibles"] = new List<int>
                     {
-                        //TODO: Add these chuds
-                        //ModContent.ItemType<SoulOfCthulhuTrophy>(),
-                        //ModContent.ItemType<SoulOfCthulhuMask>(),
-                        //ModContent.ItemType<SoulOfCthulhuBox>()
+                        ModContent.ItemType<SoulOfCthulhuTrophy>(),
+                        ModContent.ItemType<SoulOfCthulhuMask>(),
+                        ModContent.ItemType<SoulOfCthulhuBox>()
                     },
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
                         string path = ModContent.GetInstance<SoulOfCthulhu>().Texture;
@@ -1353,6 +1357,20 @@ namespace AAModClassic.CrossMod
                         Main.spriteBatch.Draw(texture2D13, centered, null, color, 0, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), 1.5f, SpriteEffects.None, 0f);
                     },
                     ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                });
+
+                AddBoss(bossChecklist, mod, "Cthulhu", (Func<bool>)(() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<Cthulhu>(), new Dictionary<string, object>()
+                {
+                    ["displayName"] = Language.GetOrRegister(path + "Cthulhu.Name"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "Cthulhu.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CursedCompass>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Cthulhu.Despawn"),
+                    ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
+                    ["collectibles"] = new List<int>
+                    {
+                        //ModContent.ItemType<ZeroATrophy>()
+                    },
+                    //["customPortrait"] = GetPortrait("ZeroProtocol"),
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.expertMode && NPCExtensions.BeenKilled<SoulOfCthulhu>())
                 });
                 #endregion
             }

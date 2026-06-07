@@ -202,5 +202,11 @@ SoulOfCthulhu: {
 	Despawn: "[c/00FFFF:The old gods wrath enacted, the cosmic calamity returns to his slumber.]"
 }
 
+Cthulhu: {
+	Name: Cthulhu, Cosmic Calamity
+	Spawn: Defeat the Soul of Cthulhu in Expert Mode.
+	Despawn: "[c/00FFFF:The old gods wrath enacted, the cosmic calamity sets its sights upon Terraria.]"
+}
+
 #Despawn Messages
 DespawnKraken: The cephalopod warps into a conjured rift.
