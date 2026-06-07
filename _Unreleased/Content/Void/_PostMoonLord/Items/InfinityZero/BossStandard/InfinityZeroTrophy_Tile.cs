@@ -2,6 +2,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,8 +12,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {
     public class InfinityZeroTrophy_Tile : ModTile
     {
-        public Texture2D glowTex;
-        public bool glow = true;
+        private static Asset<Texture2D> glowTex;
+
         public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
@@ -24,23 +25,21 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             DustType = DustID.WoodFurniture;
             TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
-		}
+
+            glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
-            if (!glow) return;
             Color color = BaseUtility.ColorMult(AAPlayer.ZeroColor, 0.7f);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
-        public override void PostDraw(int x, int y, SpriteBatch sb)
+        public override void PostDraw(int x, int y, SpriteBatch spriteBatch)
         {
-            Tile tile = Main.tile[x, y];
-            if (glow && tile != null && tile.HasTile && tile.TileType == this.Type)
-            {
-                if (glowTex == null) glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-                BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
-            }
+            Vector2 TileDrawOffset = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
+
+            spriteBatch.Draw(glowTex.Value, new Point(x, y).ToWorldCoordinates(1, 0) - Main.screenPosition + TileDrawOffset, new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY, 16, 16), AAColor.FlashGlow);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
