@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
@@ -16,8 +17,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSand[Type] = true;
-            RegisterItemDrop(AAMod.instance.Find<ModItem>("Torchsand").Type);
-            //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
+            RegisterItemDrop(ModContent.ItemType<Torchsand>());
             AddMapEntry(new Color(50, 35, 22));
             TileID.Sets.Conversion.Sand[Type] = true;
             DustType = ModContent.DustType<Dusts.RazewoodDust>();

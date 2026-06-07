@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Inferno.World.Tiles;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Inferno.World.Tiles;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
@@ -15,7 +16,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
             GrowsOnTileId = [ModContent.TileType<Torchsand_Tile>()];
         }
 
-        public override int DropWood() => AAMod.instance.Find<ModItem>("Razewood").Type;
+        public override int DropWood() => ModContent.ItemType<Razewood>();
 
         public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Tiles/Trees/RazewoodPalmTree_Tile");
 
@@ -26,7 +27,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
         public override int SaplingGrowthType(ref int style)
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("RazePalmSapling_Tile").Type;
+            return ModContent.TileType<RazewoodPalmSapling_Tile>();
         }
     }
 }

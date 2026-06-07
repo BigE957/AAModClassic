@@ -22,13 +22,13 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.UsesCustomCanPlace = true;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = [16, 18];
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
-            TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<Depthsand_Tile>() };
+            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<Depthsand_Tile>()];
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
-            TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+            TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed; //LiquidPlacement.Allowed;
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.newTile.RandomStyleRange = 3;
             TileObjectData.addTile(Type);
@@ -36,8 +36,7 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Bog Palm Sapling");
             AddMapEntry(new Color(200, 200, 200), name);
-            //dustType = mod.DustType("Sparkle");
-            AdjTiles = new int[] { TileID.Saplings };
+            AdjTiles = [TileID.Saplings];
         }
 
         public override void RandomUpdate(int i, int j)

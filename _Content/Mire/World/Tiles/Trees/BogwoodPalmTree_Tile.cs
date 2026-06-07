@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;
@@ -11,10 +12,10 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<DepthMoss_Tile>(), ModContent.TileType<Depthsand_Tile>()];
+            GrowsOnTileId = [ModContent.TileType<Depthsand_Tile>()];
         }
 
-        public override int DropWood() => AAMod.instance.Find<ModItem>("Bogwood").Type;
+        public override int DropWood() => ModContent.ItemType<Bogwood>();
 
         public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Tiles/Trees/BogwoodPalmTree_Tile");
 
@@ -25,7 +26,7 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("BogwoodSapling_Tile").Type;
+            return ModContent.TileType<BogwoodPalmTreeSapling_Tile>();
         }
     }
 }
