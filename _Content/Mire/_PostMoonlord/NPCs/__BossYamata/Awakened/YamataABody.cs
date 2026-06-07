@@ -891,7 +891,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             if (NPC.IsABestiaryIconDummy)
                 DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, NPC.Center - (Vector2.UnitY * 240f * NPC.scale), HeadTex.Frame(1, 3), 0, lightColor, false);
-            else
+            else if (TrueHead != null && TrueHead.active && TrueHead.ModNPC != null && TrueHead.ModNPC is YamataAHead)
                 DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, TrueHead.Center - screenPos, TrueHead.frame, TrueHead.rotation, lightColor, false);
         }
 
