@@ -61,7 +61,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Gong>());
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
+            recipe.AddIngredient(ItemID.ChlorophyteBar, 24);
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.Register();
         }

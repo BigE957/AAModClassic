@@ -40,7 +40,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ShadowDrill>());
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
+            recipe.AddIngredient(ItemID.SoulofSight, 20);
+            recipe.AddIngredient(ItemID.SoulofMight, 20);
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

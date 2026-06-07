@@ -50,7 +50,9 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RaiderLance>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
+            recipe.AddIngredient(ItemID.SoulofSight, 20);
+            recipe.AddIngredient(ItemID.SoulofMight, 20);
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

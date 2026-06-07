@@ -75,8 +75,10 @@ Fires an explosive ghast skull every other shot"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DeathlyLongbow>(), 1);
-            recipe.AddIngredient(ItemID.Ectoplasm, 20);
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
+            //recipe.AddIngredient(ItemID.Ectoplasm, 20);
+            recipe.AddIngredient(ItemID.SoulofSight, 20);
+            recipe.AddIngredient(ItemID.SoulofMight, 20);
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

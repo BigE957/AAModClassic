@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<DoomiteRadio>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

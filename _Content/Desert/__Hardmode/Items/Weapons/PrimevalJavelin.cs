@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<DynaskullJavelin>());
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
+            recipe.AddIngredient(ItemID.ChlorophyteBar, 24);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

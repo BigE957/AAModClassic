@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Stonebreaker>());
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
+            recipe.AddIngredient(ItemID.ChlorophyteBar, 24);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

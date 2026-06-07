@@ -37,7 +37,9 @@ namespace AAModClassic._Content.Crimson.__Hardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Scalpel>());
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>());
+            recipe.AddIngredient(ItemID.SoulofSight, 20);
+            recipe.AddIngredient(ItemID.SoulofMight, 20);
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

@@ -2,6 +2,7 @@ using System;
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terra.__Hardmode.Items.Ammo;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -53,7 +54,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 	        Recipe recipe = CreateRecipe();
 	        recipe.AddIngredient(ModContent.ItemType<TrueDeathlyLongbow>());
             recipe.AddIngredient(ItemID.HallowedRepeater);
-            recipe.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 	        recipe.Register();
 	    }
