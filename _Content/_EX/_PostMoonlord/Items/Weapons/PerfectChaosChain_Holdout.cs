@@ -208,14 +208,12 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 240);
         }
 
-        /*
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 24;
             height = 24;
             return true;
         }
-        */
 
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
