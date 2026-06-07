@@ -50,7 +50,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(Item.GetSource_FromThis(), position, velocity, ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
+            Projectile.NewProjectile(Item.GetSource_FromThis(), position + velocity.SafeNormalize(Vector2.UnitX * player.direction) * 64, velocity, ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
             return false;
         }
 
