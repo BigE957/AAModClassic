@@ -18,6 +18,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public DamageClassMap damageMap = new();
         public List<EquipmentEffectData> effectMap = new();
 
+        private static readonly Dictionary<Type, EquipmentEffectData> _effectCache = new();
+
         #region the sealing
         public override sealed void UpdateEquip(Player player)
         {
@@ -73,7 +75,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         public void AddEffect<T>() where T : EquipmentEffectData, new()
         {
-            effectMap.Add(new T());
+            if (!_effectCache.TryGetValue(typeof(T), out var effect))
+            {
+                effect = new T();
+                _effectCache[typeof(T)] = effect;
+            }
+            effectMap.Add(effect);
         }
 
         public void Clear()
