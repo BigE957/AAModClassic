@@ -39,7 +39,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 PortraitScale = 0.75f,
                 PortraitPositionXOverride = 0,
                 PortraitPositionYOverride = 12,
-                Position = new(-24, 18)
+                Position = new(24, 18)
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
