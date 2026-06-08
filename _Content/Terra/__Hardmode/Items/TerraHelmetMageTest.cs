@@ -36,7 +36,6 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             base.RegisterEquipStats();
 
             GetDamage(DamageClass.Magic) += 0.20f;
-            //Main.NewText(GetDamage(DamageClass.Magic).Additive);
         }
 
         public override void RegisterArmorSetStats()

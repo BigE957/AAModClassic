@@ -1,10 +1,10 @@
 Damage: {
-	Melee: "{0% increased melee damage"
+	Melee: "{0}% increased melee damage"
 	Ranged: "{0}% increased ranged damage"
 	Mage: "{0}% increased magic damage"
 	Summoner: "Increases summon damage by {0}%"
-	Throwing: "{0}% throwing dmg"
-	Generic:  "{0}% generic dmg is this for all classes?"
+	Throwing: "{0}% increased throwing damage"
+	Generic:  "{0}% increased damage"
 }
 
 ManaFlower: Automatically use mana potions when needed
