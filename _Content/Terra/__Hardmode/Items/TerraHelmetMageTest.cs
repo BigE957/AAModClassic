@@ -35,7 +35,10 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
         {
             base.RegisterEquipStats();
 
-            GetDamage(DamageClass.Magic) += 0.20f;
+            damageMap.GetDamage(DamageClass.Magic) += 0.20f;
+
+            AddEffect<ManaFlower>();
+            AddEffect<CrimsonArmorRegen>();
         }
 
         public override void RegisterArmorSetStats()

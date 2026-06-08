@@ -33,4 +33,7 @@ Damage: {
 	}
 }
 
-ManaFlower: Automatically use mana potions when needed
+Effect: {
+	ManaFlower: Automatically use mana potions when needed
+	CrimsonArmorRegen: Greatly increased life regen
+}
