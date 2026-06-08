@@ -72,7 +72,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             base.ModifyTooltips(list);
 
             int number = (int)((damageDataForItem[DamageClass.Magic.Type].damage.Additive - 1f) * 100f);
-            var line = new TooltipLine(Mod, "DamageAdditiveMage", Language.GetOrRegister("Mods.AAModClassic.EquipStats.Damage.Mage").Format(number));
+            var line = new TooltipLine(Mod, "DamageAdditiveMage", Language.GetOrRegister("Mods.AAModClassic.EquipStats.Damage.Additive.Mage").Format(number));
             list.Add(line);
         }
     }

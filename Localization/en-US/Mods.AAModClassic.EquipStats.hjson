@@ -1,10 +1,36 @@
 Damage: {
-	Melee: "{0}% increased melee damage"
-	Ranged: "{0}% increased ranged damage"
-	Mage: "{0}% increased magic damage"
-	Summoner: "Increases summon damage by {0}%"
-	Throwing: "{0}% increased throwing damage"
-	Generic:  "{0}% increased damage"
+	Additive: {
+		Melee: "{0}% increased melee damage"
+		Ranged: "{0}% increased ranged damage"
+		Mage: "{0}% increased magic damage"
+		Summoner: "Increases summon damage by {0}%"
+		Throwing: "{0}% increased throwing damage"
+		Generic:  "{0}% increased damage"
+	}
+	Multiplicative: {
+		Melee: "Melee damage multiplied by {0}%"
+		Ranged: "Ranged damage multiplied by {0}%"
+		Mage: "Magic damage multiplied by {0}%"
+		Summoner: "Multiplies summon damage by {0}%"
+		Throwing: "Throwing damage multiplied by {0}%"
+		Generic:  "Damage multiplied by {0}%"
+	}
+	Flat: {
+		Melee: "{0} increased flat melee damage"
+		Ranged: "{0} increased flat ranged damage"
+		Mage: "{0} increased flat magic damage"
+		Summoner: "Increases summon damage by a flat {0}"
+		Throwing: "{0} increased flat throwing damage"
+		Generic:  "{0} increased flat damage"
+	}
+	Base: {
+		Melee: "{0} increased melee damage"
+		Ranged: "{0} increased ranged damage"
+		Mage: "{0} increased magic damage"
+		Summoner: "Increases summon damage by {0}"
+		Throwing: "{0} increased throwing damage"
+		Generic:  "{0} increased damage"
+	}
 }
 
 ManaFlower: Automatically use mana potions when needed
