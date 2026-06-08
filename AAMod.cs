@@ -306,7 +306,6 @@ namespace AAModClassic
             StringBuilder sb = new StringBuilder();
             Type type = typeof(Player);
 
-            // 1. Intercept and scan the PRIVATE damageData array using NonPublic flags
             FieldInfo damageDataField = type.GetField("damageData", BindingFlags.NonPublic | BindingFlags.Instance);
             if (damageDataField != null)
             {
@@ -315,13 +314,13 @@ namespace AAModClassic
                 ScanPrivateDamageData(arrA, arrB, sb);
             }
 
-            // 2. Scan Public Fields (Standard Stats)
             FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
             foreach (FieldInfo field in fields)
             {
-                // Skip damageStats/damageData as we process it explicitly above
-                if (field.Name == "damageStats" || field.Name == "damageData") continue;
-                if (!field.FieldType.IsValueType) continue;
+                if (field.Name == "damageStats" || field.Name == "damageData")
+                    continue;
+                if (!field.FieldType.IsValueType)
+                    continue;
 
                 object valA, valB;
                 try
@@ -332,14 +331,15 @@ namespace AAModClassic
                 catch { continue; }
 
                 string formattedLine = FormatValueOrBoolChange(field.FieldType, valA, valB, field.Name);
-                if (!string.IsNullOrEmpty(formattedLine)) sb.Append(formattedLine);
+                if (!string.IsNullOrEmpty(formattedLine))
+                    sb.Append(formattedLine);
             }
 
-            // 3. Scan Public Properties (This catches player.endurance and player.aggro)
             PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (PropertyInfo prop in properties)
             {
-                if (!prop.CanRead || prop.Name == "damageStats" || prop.Name == "damageData") continue;
+                if (!prop.CanRead || prop.Name == "damageStats" || prop.Name == "damageData")
+                    continue;
 
                 object valA, valB;
                 try
@@ -350,7 +350,8 @@ namespace AAModClassic
                 catch { continue; }
 
                 string formattedLine = FormatValueOrBoolChange(prop.PropertyType, valA, valB, prop.Name);
-                if (!string.IsNullOrEmpty(formattedLine)) sb.Append(formattedLine);
+                if (!string.IsNullOrEmpty(formattedLine))
+                    sb.Append(formattedLine);
             }
 
             return sb.ToString();
@@ -358,16 +359,17 @@ namespace AAModClassic
 
         private static void ScanPrivateDamageData(Array arrA, Array arrB, StringBuilder sb)
         {
-            if (arrA == null || arrB == null) return;
+            if (arrA == null || arrB == null)
+                return;
 
             int length = Math.Min(arrA.Length, arrB.Length);
             for (int i = 0; i < length; i++)
             {
                 object itemA = arrA.GetValue(i);
                 object itemB = arrB.GetValue(i);
-                if (itemA == null || itemB == null) continue;
+                if (itemA == null || itemB == null)
+                    continue;
 
-                // Resolve the DamageClass instance from tModLoader's global provider registry
                 string className = DamageClassLoader.GetDamageClass(i)?.Name ?? $"Class{i}";
                 className = className.Replace("DamageClass", "");
                 className = FormatFieldName(className);
@@ -380,9 +382,9 @@ namespace AAModClassic
                     object subValA = subField.GetValue(itemA);
                     object subValB = subField.GetValue(itemB);
 
-                    if (Equals(subValA, subValB)) continue;
+                    if (Equals(subValA, subValB))
+                        continue;
 
-                    // Target 1: StatModifier values (damage / knockback)
                     if (subField.FieldType == typeof(StatModifier))
                     {
                         StatModifier modA = (StatModifier)subValA;
@@ -392,20 +394,15 @@ namespace AAModClassic
                         {
                             double percentIncrease = (modB.Additive - modA.Additive) * 100;
                             if (percentIncrease > 0)
-                            {
                                 sb.Append($"{percentIncrease:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
-                            }
                         }
                         if (modA.Flat != modB.Flat)
                         {
                             float flatIncrease = modB.Flat - modA.Flat;
                             if (flatIncrease > 0)
-                            {
                                 sb.Append($"{flatIncrease:0.#} {className} Flat {FormatFieldName(subField.Name)}\n");
-                            }
                         }
                     }
-                    // Target 2: Native floats (critChance, attackSpeed, armorPen)
                     else if (subField.FieldType == typeof(float))
                     {
                         float numA = (float)subValA;
@@ -416,22 +413,15 @@ namespace AAModClassic
                         {
                             string fieldName = subField.Name.ToLower();
 
-                            // Rules configuration matching the source documentation
                             if (fieldName.Contains("crit") || fieldName.Contains("pen"))
-                            {
-                                // Crits and Pen are whole integers hidden as floats (e.g. +4 = 4% crit)
                                 sb.Append($"{diff:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
-                            }
                             else if (fieldName.Contains("speed"))
                             {
-                                // Attack speed functions as a multiplier (e.g., +0.15f = 15% increase)
                                 double percentIncrease = diff * 100;
                                 sb.Append($"{percentIncrease:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
                             }
                             else
-                            {
                                 sb.Append($"{diff:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
-                            }
                         }
                     }
                 }
@@ -440,7 +430,8 @@ namespace AAModClassic
 
         private static string FormatValueOrBoolChange(Type type, object valA, object valB, string displayName)
         {
-            if (Equals(valA, valB)) return null;
+            if (Equals(valA, valB))
+                return null;
             string formattedName = FormatFieldName(displayName);
 
             // Booleans
@@ -453,7 +444,8 @@ namespace AAModClassic
             if (type == typeof(int) || type == typeof(long) || type == typeof(short))
             {
                 long difference = Convert.ToInt64(valB) - Convert.ToInt64(valA);
-                if (difference > 0) return $"{difference} {formattedName}\n";
+                if (difference > 0)
+                    return $"{difference} {formattedName}\n";
             }
             // Floating point values / Percentages
             else if (type == typeof(float) || type == typeof(double) || type == typeof(decimal))
@@ -462,7 +454,8 @@ namespace AAModClassic
                 double numB = Convert.ToDouble(valB);
                 double percentIncrease = (numA == 0) ? numB * 100 : ((numB - numA) / numA) * 100;
 
-                if (percentIncrease > 0) return $"{percentIncrease:0.#}% increased {formattedName}\n";
+                if (percentIncrease > 0)
+                    return $"{percentIncrease:0.#}% increased {formattedName}\n";
             }
 
             return null;
@@ -470,12 +463,11 @@ namespace AAModClassic
 
         private static string FormatFieldName(string name)
         {
-            if (string.IsNullOrEmpty(name)) return name;
+            if (string.IsNullOrEmpty(name))
+                return name;
 
             if (name.StartsWith("stat") && name.Length > 4 && char.IsUpper(name[4]))
-            {
                 name = name.Substring(4);
-            }
 
             string spaced = Regex.Replace(name, "([a-z])([A-Z])", "$1 $2");
             spaced = Regex.Replace(spaced, "([A-Z])([A-Z][a-z])", "$1 $2");
