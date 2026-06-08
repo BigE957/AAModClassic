@@ -1,7 +1,6 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic.Buffs;
-using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -62,7 +61,7 @@ Scythe of the Grim Reaper EX"); */
 			{
 				player.AddBuff(ModContent.BuffType<ReaperImmune2_Buff>(), 60);
 				player.AddBuff(ModContent.BuffType<ReaperCD_Buff>(), 300);
-				Item.shoot = ModContent.ProjectileType<Projectiles.ReaperHitbox>();
+				Item.shoot = ModContent.ProjectileType<ScytheOfTheGrimReaper_Hitbox>();
 				player.velocity.X = 26f * side;
 				return true;
 			}
@@ -103,7 +102,7 @@ Scythe of the Grim Reaper EX"); */
 					}
 				}
 			}
-			if (type == ModContent.ProjectileType<ReaperHitbox>())
+			if (type == ModContent.ProjectileType<ScytheOfTheGrimReaper_Hitbox>())
 			{
 				return true;
 			}

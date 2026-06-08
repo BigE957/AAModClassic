@@ -68,7 +68,6 @@ The armor of a champion feared across the land"); */
             }
         }
 
-
         public override void UpdateEquip(Player player)
         {
             player.GetDamage(DamageClass.Summon) += .6f;

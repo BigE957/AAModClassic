@@ -1,0 +1,28 @@
+TerraHelmetMelee:
+	'''
+	Increased life regen
+	28% increased melee speed
+	Being struck by an enemy causes an exploding terra sphere to home in on the enemy that attacked you
+	'''
+TerraHelmetRanged:
+	'''
+	Enemies are less likely to target you
+	20% increased ranged critical strike chance
+	Striking an enemy with a ranged projectile may cause a terra bullet to fire at the target
+	'''
+TerraHelmetMage:
+	'''
+	Automatically use mana potions when needed
+	Mana cost is multiplied by 60%
+	Pressing the Armor Ability hotkey causes 2 terra rose stalks to grow around you
+	Enemies struck by the stalks drop mana stars
+	'''
+TerraHelmetSummoner:
+	'''
+	Summons a powerful terra crystal to shoot at nearby enemies
+	Pressing the Armor Ability hotkey toggles the crystal between offense, defense, and support
+	While in offense mode the crystal will chase and rapidly shoot down enemies
+	While in defensive mode the crystal will stay above you and shoot down nearby enemies
+	While in support mode your defense and life regeneration are increased significantly, but your damage is cut in half
+	'''
+

@@ -46,8 +46,11 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Terra.__Hardmode.Items.Armor;
+using AAModClassic._Content.Terra.Projectiles;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
@@ -60,9 +63,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic.Items.Armor.Radium;
-using AAModClassic.Items.Armor.Terra.Projectiles;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Aves;
@@ -75,6 +75,7 @@ using AAModClassic.Items.Vanity.Hallam;
 using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Universe;
 using AAModClassic.Mounts;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
@@ -230,8 +231,6 @@ namespace AAModClassic
         public bool infinitySet;
         public bool Alpha;
         public bool Palladium;
-        public bool fulgurite;
-        public bool ringActive = false;
         public bool doomite;
         public bool Radium;
         public bool perfectChaos;
@@ -258,13 +257,6 @@ namespace AAModClassic
         public bool ChampionMa = false;
         public int CarrotBuff = 0;
         public bool ChampionSu = false;
-
-        public bool TerraMe = false;
-        public bool TerraRa = false;
-        public bool TerraSu = false;
-        public int CrystalMode = 0;
-        public bool TerraMa = false;
-        public int RoseCooldown = 0;
 
         public bool onoPrevious;
         public bool ono;
@@ -548,7 +540,6 @@ namespace AAModClassic
             infinitySet = false;
             Alpha = false;
             Palladium = false;
-            fulgurite = false;
             doomite = false;
             DarkmatterSet = false;
             perfectChaos = false;
@@ -575,10 +566,6 @@ namespace AAModClassic
             ChampionMa = false;
             ChampionSu = false;
             StoneSoldier = false;
-            TerraMe = false;
-            TerraRa = false;
-            TerraSu = false;
-            TerraMa = false;
         }
 
         private void ResetAccessoryEffect()
@@ -808,42 +795,6 @@ namespace AAModClassic
 
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)/* tModPorter If you don't need the Projectile, consider using OnHitNPC instead */
         {
-            if (TerraRa && proj.CountsAsClass(DamageClass.Ranged) && Main.rand.NextBool(3))
-            {
-                float screenX;
-                float screenY;
-                if (Main.rand.NextBool(2))
-                {
-                    screenX = Main.screenPosition.X;
-                    if (Main.rand.NextBool(2))
-                    {
-                        screenX += Main.screenWidth;
-                    }
-                    screenY = Main.screenPosition.Y;
-                    screenY += Main.rand.Next(Main.screenHeight);
-                }
-                else
-                {
-                    screenY = Main.screenPosition.Y;
-                    if (Main.rand.NextBool(2))
-                    {
-                        screenY += Main.screenHeight;
-                    }
-                    screenX = Main.screenPosition.X;
-                    screenX += Main.rand.Next(Main.screenWidth);
-                }
-                Vector2 vector = new Vector2(screenX, screenY);
-                float velocityX = target.Center.X - vector.X;
-                float velocityY = target.Center.Y - vector.Y;
-                velocityX += Main.rand.Next(-50, 51) * 0.1f;
-                velocityY += Main.rand.Next(-50, 51) * 0.1f;
-                float num6 = 24 / (float)Math.Sqrt(velocityX * velocityX + velocityY * velocityY);
-                velocityX *= num6;
-                velocityY *= num6;
-                Projectile p = Projectile.NewProjectileDirect(Player.GetSource_OnHit(target), new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<Items.Armor.Terra.Projectiles.TerraBullet>(), damageDone / 3, 0f, Player.whoAmI);
-                p.tileCollide = false;
-            }
-
             if (Palladium)
             {
                 Player.AddBuff(BuffID.RapidHealing, 300);
@@ -904,11 +855,6 @@ namespace AAModClassic
 
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
-            if (TerraMe)
-            {
-                Projectile.NewProjectile(Player.GetSource_OnHurt(hurtInfo.DamageSource), Player.Center, Vector2.Zero, ModContent.ProjectileType<TerraSphere>(), 30, 4, Main.myPlayer, 0, npc.whoAmI);
-            }
-
             if (DragonsGuard || ChaosMe)
             {
                 npc.AddBuff(BuffID.OnFire, 120);
@@ -1906,40 +1852,7 @@ namespace AAModClassic
                 Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<ChampionHelmetRanged_RABITDrone>(), (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
             }
 
-            if (TerraSu)
-            {
-                if (AAMod.ArmorAbilityKey.JustPressed)
-                {
-                    CrystalMode++;
-                    if (CrystalMode > 2)
-                    {
-                        CrystalMode = 0;
-                    }
-                }
-                if (CrystalMode == 2)
-                {
-                    Player.lifeRegen += 12;
-                    Player.statDefense.FinalMultiplier *= 1.2f;
-                    Player.GetDamage(DamageClass.Generic) /= 2;
-                }
-            }
 
-            if (RoseCooldown > 0)
-            {
-                RoseCooldown--;
-            }
-
-            if (TerraMa && RoseCooldown <= 0)
-            {
-                if (AAMod.ArmorAbilityKey.JustPressed)
-                {
-                    RoseCooldown = 600;
-                    float playerY = Player.position.Y + Player.height;
-
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X - 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(Player.GetDamage(DamageClass.Magic)).ApplyTo(50), 4, Main.myPlayer);
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X + 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(Player.GetDamage(DamageClass.Magic)).ApplyTo(50), 4, Main.myPlayer);
-                }
-            }
         }
 
         public void CarrotLevelup()
@@ -3222,8 +3135,6 @@ namespace AAModClassic
         public int RiftTimer;
         public int RiftDamage = 10;
 
-        public int AARegenCount = 0;
-
         public override void UpdateLifeRegen()
         {
             if (SagShield)
@@ -3235,33 +3146,6 @@ namespace AAModClassic
 
                 Player.lifeRegenTime = 0;
                 Player.lifeRegen += 2;
-            }
-
-            if (TerraMe)
-            {
-                AARegenCount++;
-                while (AARegenCount >= 100)
-                {
-                    AARegenCount -= 100;
-                    if (Player.statLife < Player.statLifeMax2)
-                    {
-                        Player.statLife += 2;
-                        for (int i = 0; i < 10; i++)
-                        {
-                            int num6 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.Terra, 0f, 0f, 175, default, 1.75f);
-                            Main.dust[num6].noGravity = true;
-                            Main.dust[num6].velocity *= 0.75f;
-                            int num7 = Main.rand.Next(-40, 41);
-                            int num8 = Main.rand.Next(-40, 41);
-                            Dust expr_7EE_cp_0 = Main.dust[num6];
-                            expr_7EE_cp_0.position.X = expr_7EE_cp_0.position.X + num7;
-                            Dust expr_80A_cp_0 = Main.dust[num6];
-                            expr_80A_cp_0.position.Y = expr_80A_cp_0.position.Y + num8;
-                            Main.dust[num6].velocity.X = -num7 * 0.075f;
-                            Main.dust[num6].velocity.Y = -num8 * 0.075f;
-                        }
-                    }
-                }
             }
         }
 
@@ -4067,35 +3951,35 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterVisor>()))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetRanged>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmet>()))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetMelee>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHeaddress>()))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetSummoner>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHeaddress_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterMask>()))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetMage>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHat>()))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetSummoner>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHat_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmet>()))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetMelee>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHeadgear>()))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetRanged>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHeadgear_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumMask>()))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetMage>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumMask_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4327,11 +4211,11 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterBreastplate>()))
+                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterBreastplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumPlatemail>()))
+                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Body").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4387,11 +4271,11 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterGreaves>()))
+                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterGreaves_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumCuisses>()))
+                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumCuisses_Legs").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }

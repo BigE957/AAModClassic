@@ -1811,3 +1811,12 @@ DoomiteSignal_DoomiteProbe.DisplayName: Doomite Signal_ Doomite Probe
 VoidProbeControlUnit_MiniProbe.DisplayName: Void Probe Control Unit_ Mini Probe
 OverloadedDoomiteRadio_VoidScout.DisplayName: Overloaded Doomite Radio_ Void Scout
 DeathBeam.DisplayName: Death Beam
+ScytheOfTheGrimReaper_Hitbox.DisplayName: Scythe Of The Grim Reaper_ Hitbox
+RadiumHelmetSummonerPlayer_RadiumBlast.DisplayName: Radium Helmet Summoner Player_ Radium Blast
+StarHelmetMagePlayer_DarkLeech.DisplayName: Star Helmet Mage Player_ Dark Leech
+StarHelmetMagePlayer_SunSiphon.DisplayName: Star Helmet Mage Player_ Sun Siphon
+StarHelmetRangedPlayer_DarkmatterSphere.DisplayName: Star Helmet Ranged Player_ Darkmatter Sphere
+StarHelmetRangedPlayer_SunSphere.DisplayName: Star Helmet Ranged Player_ Sun Sphere
+TerraHelmetMagePlayer_TerraRose.DisplayName: Terra Helmet Mage Player_ Terra Rose
+TerraHelmetRangedPlayer_TerraBullet.DisplayName: Terra Helmet Ranged Player_ Terra Bullet
+TerraHelmetSummonerPlayer_TerraCrystal.DisplayName: Terra Helmet Summoner Player_ Terra Crystal

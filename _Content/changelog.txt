@@ -45,6 +45,11 @@ base
 -shen doragons wings no longer have improper coloring in certain areas
 -shen doragons shoulder facing away from the screen is now correctly colored
 -akuma now drops year of the dragon
+-terra armor mage set armor ability now uses a debuff for its cooldown instead of an invisible counter
+-fixed an obscure bug where any swung weapons that dealt ranged damage would not proc the terra armor ranged set bonus
+-terra armor melee armor set adjusted; now spawns orbs on all hits instead of just npc contact damage. orbs home in on the closest enemy instead of whoever hit the player
+-terra armor melee armor set bonus now properly gives you melee speed instead of movement speed
+-most if not all set bonus and armor item descriptions have been rewritten for clarity and accuracy
 -
 
 removed
@@ -88,6 +93,14 @@ unofficial
 -abyssal bombs bomb projectiles are now properly sized and the explosion is properly centered
 -fixed a bug where abyssal bomb never fired its alt shot
 -abyssal bombs bombs no longer spawn dust in the top left of the world
+-terra armor summoner set crystal projectiles no longer attempt to home onto nothing, causing them to fly off to the right
+-terra armor summoner set crystal projectiles no longer deal melee daamge
+-terra armor summoner set crytal no longer idles slightly higher and to the left than intended
+-THIS STUPID FUCKING CRYSTAL
+-terra armor summoner set crystal now tilts when moving in their idle above player modes
+-terra armor explosion effect is now centered
+-terra armor ranged set bullets now ignore gravity, making them hit their target much more often
+-terra armor summoner set crystal now has an associated buff
 -
 
 crossmod
@@ -97,4 +110,5 @@ notes
 -this port was based on version 1.0.2.203(TODO: is it?). we have attempted to backport everything from the two patches after this version, but we may have missed some stuff
 -the changelogs for 1.0.3 note that mushmonarch drops his weapons. this is false. we cannot find evidence of this ever actually having been true. i guess we could add it if it was desired, but itd go under unofficial
 -this same changelog states elder dragons had their ai reworked. this is also false, as far as we can tell
+-lots of explosion type projectiles seemed to be offset towards the top left of where they should spawn. this is because these projectiles have a masssive hitbox relative to their sprite. since sprites are naitively drawn from the top left of a hitbox, the sprite appears offset relative to the hitboxs size
 -

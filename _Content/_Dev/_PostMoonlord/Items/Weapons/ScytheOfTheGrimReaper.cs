@@ -1,5 +1,4 @@
 using AAModClassic.Buffs;
-using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -58,7 +57,7 @@ Dashing ability has 10 seconds CD
 			{
 				player.AddBuff(ModContent.BuffType<ReaperImmune_Buff>(), 60);
 				player.AddBuff(ModContent.BuffType<ReaperCD_Buff>(), 600);
-				Item.shoot = ModContent.ProjectileType<ReaperHitbox>();
+				Item.shoot = ModContent.ProjectileType<ScytheOfTheGrimReaper_Hitbox>();
 				player.velocity.X = 26f * side;
 				return true;
 			}

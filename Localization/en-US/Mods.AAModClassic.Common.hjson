@@ -105,31 +105,7 @@ Equipset: {
 		R.A.B.I.T. Drone has a 15 second cooldown
 		During Cooldown, your ranged damage and critical chance are increased by 15%
 		'''
-	TerraHelmBonus:
-		'''
-		Increased Life Regen
-		28% increased melee speed
-		Being struck by an enemy causes a terra sphere to home in on the enemy that attacked you
-		'''
-	TerraHoodBonus:
-		'''
-		You can autodrink mana potions
-		Mana usage lowered by 40%
-		Pressing the Armor ability hotkey causes 2 terra rose stalks to grow around you.
-		Enemies struck by the stalks drop mana stars
-		'''
-	TerraMaskBonus:
-		'''
-		Summons a Terra Crystal to assist you
-		Pressing the armor ability toggles the crystal between offensive, defensive, and support mod
-		While in support mode, your defense and life regeneration are increased, but your damage is cut in half
-		'''
-	TerraVisorBonus:
-		'''
-		Enemies less likely to target you
-		Ranged critical strike chance increased by 20%
-		Striking an enemy with a ranged projectile may cause a terra bullet to fire at the target
-		'''
+	
 	RazewoodHelmet: +1 Defense
 	StoneSoldierMaskBonus:
 		'''

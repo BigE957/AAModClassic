@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Terraria.Localization;
 
 namespace AAModClassic.Utilities
 {
@@ -21,8 +22,16 @@ namespace AAModClassic.Utilities
 
         public static string RemoveModNameHeaderFromFilePath(string input)
         {
-
             return input.Remove(0, 13);
+        }
+        /// <summary>
+        /// loc path for set bonuses
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string SetBonusPath<T>()
+        {
+            return Language.GetTextValue("Mods.AAModClassic.SetBonuses." + typeof(T).Name);
         }
     }
 }

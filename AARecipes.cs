@@ -40,6 +40,7 @@ using AAModClassic._Content.Parthenan.__Hardmode.Items.Weapons;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
@@ -49,8 +50,6 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
-using AAModClassic.Items.Armor.Darkmatter;
-using AAModClassic.Items.Armor.Radium;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Vanity.Alphakip;
 using AAModClassic.Items.Vanity.Anarchy;
@@ -851,21 +850,21 @@ namespace AAModClassic
         {
             RecipeGroup group0 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.darkmatterhelmet"), new int[]
             {
-                ModContent.ItemType<DarkmatterVisor>(),
+                ModContent.ItemType<DarkmatterHelmetRanged>(),
                 //ModContent.ItemType<DarkmatterHelm>(),
-                ModContent.ItemType<DarkmatterHelmet>(),
-                ModContent.ItemType<DarkmatterHeaddress>(),
-                ModContent.ItemType<DarkmatterMask>()
+                ModContent.ItemType<DarkmatterHelmetMelee>(),
+                ModContent.ItemType<DarkmatterHelmetSummoner>(),
+                ModContent.ItemType<DarkmatterHelmetMage>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DarkmatterHelmets", group0);
 
             RecipeGroup group1 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.radiumhelmet"), new int[]
             {
-                ModContent.ItemType<RadiumHat>(),
+                ModContent.ItemType<RadiumHelmetSummoner>(),
                 //ModContent.ItemType<RadiumHelm>(),
-                ModContent.ItemType<RadiumHelmet>(),
-                ModContent.ItemType<RadiumHeadgear>(),
-                ModContent.ItemType<RadiumMask>()
+                ModContent.ItemType<RadiumHelmetMelee>(),
+                ModContent.ItemType<RadiumHelmetRanged>(),
+                ModContent.ItemType<RadiumHelmetMage>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:RadiumHelmets", group1);
 

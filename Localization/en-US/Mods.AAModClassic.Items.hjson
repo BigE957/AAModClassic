@@ -11817,3 +11817,138 @@ OverloadedDoomiteRadio: {
 	DisplayName: Overloaded Doomite Radio
 	Tooltip: ""
 }
+
+DarkmatterChestplate: {
+	DisplayName: Darkmatter Chestplate
+	Tooltip: ""
+}
+
+DarkmatterHelmetMage: {
+	DisplayName: Darkmatter Helmet Mage
+	Tooltip: ""
+}
+
+DarkmatterHelmetMelee: {
+	DisplayName: Darkmatter Helmet Melee
+	Tooltip: ""
+}
+
+DarkmatterHelmetRanged: {
+	DisplayName: Darkmatter Helmet Ranged
+	Tooltip: ""
+}
+
+DarkmatterHelmetSummoner: {
+	DisplayName: Darkmatter Helmet Summoner
+	Tooltip: ""
+}
+
+DarkmatterLeggings: {
+	DisplayName: Darkmatter Leggings
+	Tooltip: ""
+}
+
+RadiumChestplate: {
+	DisplayName: Radium Chestplate
+	Tooltip: ""
+}
+
+RadiumHelmetMage: {
+	DisplayName: Radium Helmet Mage
+	Tooltip: ""
+}
+
+RadiumHelmetMelee: {
+	DisplayName: Radium Helmet Melee
+	Tooltip: ""
+}
+
+RadiumHelmetRanged: {
+	DisplayName: Radium Helmet Ranged
+	Tooltip: ""
+}
+
+RadiumHelmetSummoner: {
+	DisplayName: Radium Helmet Summoner
+	Tooltip: ""
+}
+
+RadiumLeggings: {
+	DisplayName: Radium Leggings
+	Tooltip: ""
+}
+
+TerraChestplate: {
+	DisplayName: Terra Chestplate
+	Tooltip: ""
+}
+
+TerraHelmetMage: {
+	DisplayName: Terra Helmet Mage
+	Tooltip: ""
+}
+
+TerraHelmetMelee: {
+	DisplayName: Terra Helmet Melee
+	Tooltip: ""
+}
+
+TerraHelmetRanged: {
+	DisplayName: Terra Helmet Ranged
+	Tooltip: ""
+}
+
+TerraHelmetSummoner: {
+	DisplayName: Terra Helmet Summoner
+	Tooltip: ""
+}
+
+TerraHelmetSummoner2: {
+	DisplayName: Terra Helmet Summoner2
+	Tooltip: ""
+}
+
+TerraLeggings: {
+	DisplayName: Terra Leggings
+	Tooltip: ""
+}
+
+AdamantiteHelmetSummoner: {
+	DisplayName: Adamantite Helmet Summoner
+	Tooltip: ""
+}
+
+CobaltHelmetSummoner: {
+	DisplayName: Cobalt Helmet Summoner
+	Tooltip: ""
+}
+
+MythrilHelmetSummoner: {
+	DisplayName: Mythril Helmet Summoner
+	Tooltip: ""
+}
+
+OrichalcumHelmetSummoner: {
+	DisplayName: Orichalcum Helmet Summoner
+	Tooltip: ""
+}
+
+PalladiumHelmetSummoner: {
+	DisplayName: Palladium Helmet Summoner
+	Tooltip: ""
+}
+
+TitaniumHelmetSummoner: {
+	DisplayName: Titanium Helmet Summoner
+	Tooltip: ""
+}
+
+ChlorophyteHelmetSummoner: {
+	DisplayName: Chlorophyte Helmet Summoner
+	Tooltip: ""
+}
+
+ChlorophyteHelmetSummoner2: {
+	DisplayName: Chlorophyte Helmet Summoner2
+	Tooltip: ""
+}

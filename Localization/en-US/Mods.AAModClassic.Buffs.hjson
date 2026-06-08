@@ -1668,3 +1668,13 @@ OverloadedDoomiteRadio_Buff: {
 	DisplayName: Overloaded Doomite Radio_ Buff
 	Description: Mods.AAModClassic.Buffs.OverloadedDoomiteRadio_Buff.Description
 }
+
+TerraHelmetMagePlayer_TerraRoseCooldown: {
+	DisplayName: Terra Helmet Mage Player_ Terra Rose Cooldown
+	Description: Mods.AAModClassic.Buffs.TerraHelmetMagePlayer_TerraRoseCooldown.Description
+}
+
+TerraHelmetSummonerPlayer_Buff: {
+	DisplayName: Terra Helmet Summoner Player_ Buff
+	Description: Mods.AAModClassic.Buffs.TerraHelmetSummonerPlayer_Buff.Description
+}
