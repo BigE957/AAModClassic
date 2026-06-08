@@ -480,7 +480,7 @@ namespace AAModClassic
             WeakReferences.PerformModSupport();
 
             //Set Bonus Text Generator
-            /*
+
             foreach(var content in instance.GetContent())
             {
                 if (content is ModItem modItem && modItem.Name.Contains("Helmet"))
@@ -503,7 +503,7 @@ namespace AAModClassic
                     AddLocalization("Mods.AAModClassic.SetBonuses." + modItem.Name.Replace("Helmet", ""), statDifferences);
                 }
             }
-            */
+
 
             if (!Main.dedServ)
             {

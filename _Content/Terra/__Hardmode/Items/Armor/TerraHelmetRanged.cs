@@ -1,5 +1,4 @@
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities;
 using Terraria;
