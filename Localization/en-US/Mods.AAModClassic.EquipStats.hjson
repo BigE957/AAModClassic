@@ -1,182 +1,43 @@
 ClassGlobalStats: {
-	DefaultDamageClass: {
-		Damage: {
-			Base: "{0} increased classless damage"
-			Additive: "{0}% increased classless damage{1}"
-			Multiplicative: "Classless damage multiplied by {0}%"
-			Flat: "{0} increased flat classless damage"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	GenericDamageClass: {
-		Damage: {
-			Base: "{0} increased damage"
-			Additive: "{0}% increased damage{1}"
-			Multiplicative: "Damage multiplied by {0}%"
-			Flat: "{0} increased flat damage"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	MeleeDamageClass: {
-		Damage: {
-			Base: "{0} increased melee damage"
-			Additive: "{0}% increased melee damage{1}"
-			Multiplicative: "Melee damage multiplied by {0}%"
-			Flat: "{0} increased flat melee damage"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	MeleeNoSpeedDamageClass: {
-		Damage: {
-			Base: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Damage.Base}"
-			Additive: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Damage.Additive}"
-			Multiplicative: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Damage.Multiplicative}"
-			Flat: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Damage.Flat}"
-			}
-		CritChance: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.CritChance}"
-		AttackSpeed: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Knockback.AttackSpeed}"
-		ArmorPen: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Knockback.ArmorPen}"
-		Knockback: {
-			Base: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Knockback.Base}"
-			Additive: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Knockback.Additive}"
-			Multiplicative: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Knockback.Multiplicative}"
-			Flat: "{$EquipStats.ClassGlobalStats.MeleeDamageClass.Knockback.Flat}"
-			}
-		}
-	RangedDamageClass: {
-		Damage: {
-			Base: "{0} increased ranged damage"
-			Additive: "{0}% increased ranged damage{1}"
-			Multiplicative: "Ranged damage multiplied by {0}%"
-			Flat: "{0} increased flat ranged damage"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	MagicDamageClass: {
-		Damage: {
-			Base: "{0} increased magic damage"
-			Additive: "{0}% increased magic damage{1}"
-			Multiplicative: "Magic damage multiplied by {0}%"
-			Flat: "{0} increased flat magic damage"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	SummonDamageClass: {
-		Damage: {
-			Base: "Increases summon damage by {0}"
-			Additive: "Increases summon damage{1} by {0}%"
-			Multiplicative: "Multiplies summon damag} by {0}%"
-			Flat: "Increases summon damage by a flat {0}"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	SummonMeleeSpeedDamageClass: {
-		Damage: {
-			Base: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Damage.Base}"
-			Additive: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Damage.Additive}"
-			Multiplicative: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Damage.Multiplicative}"
-			Flat: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Damage.Flat}"
-			}
-		CritChance: "{$EquipStats.ClassGlobalStats.SummonDamageClass.CritChance}"
-		AttackSpeed: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Damage.AttackSpeed}"
-		ArmorPen: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Damage.ArmorPen}"
-		Knockback: {
-			Base: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Knockback.Base}"
-			Additive: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Knockback.Additive}"
-			Multiplicative: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Knockback.Multiplicative}"
-			Flat: "{$EquipStats.ClassGlobalStats.SummonDamageClass.Knockback.Flat}"
-			}
-		}
-	MagicSummonHybridDamageClass: {
-		Damage: {
-			Base: "{0} increased magic and summon damage"
-			Additive: "{0}% increased magic and summon damage{1}"
-			Multiplicative: "Multiplies magic and summon damage by {0}%"
-			Flat: "{0} increased flat magic and summon damage"
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	ThrowingDamageClass: {
-		Damage: {
-			Base: "{0} increased throwing damage"
-			Additive: "{0}% increased throwing damage{1}"
-			Multiplicative: "Throwing damage multiplied by {0}%"
-			Flat: "{0} increased flat throwing damage"	
-			}
-		CritChance: ""
-		AttackSpeed: ""
-		ArmorPen: ""
-		Knockback: {
-			Base: ""
-			Additive: ""
-			Multiplicative: ""
-			Flat: ""
-			}
-		}
-	}
+	DefaultDamageClass: classless
+	GenericDamageClass: ""
+	MeleeDamageClass: melee
+	MeleeNoSpeedDamageClass: "{$EquipStats.ClassGlobalStats.MeleeDamageClass}"
+	RangedDamageClass: ranged
+	MagicDamageClass: magic
+	SummonDamageClass: summon
+	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
+	MagicSummonHybridDamageClass: magic and summon
+	ThrowingDamageClass: throwing
 
-Misc: {
-	Nothing: ""
-	CritSameAsDamageAdditive: " & critical strike chance"
+	StatModifier: {
+		EverySingleClassExceptSummoner: {
+			Base: "{0} {1} {2}{3}{4}"
+			Additive: "{0}% {1} {2}{3}{4}{5}"
+			Multiplicative: "{2}{3}{4} multiplied by {0}%"
+			Flat: "{0} {1} flat {2}{3}{4}"
+		}
+
+		Summoner: {
+			Base: "{1} {2}{3}{4} by {0}"
+			Additive: "{1} {2}{3}{4}{5} by {0}%"
+			Multiplicative: Multiplies {2}{3}{4} by {0}%
+			Flat: "{1} {2}{3}{4} by a flat {0}"
+		}
+
+		Increases: increases
+		Decreases: decreases
+		Increased: increased
+		Decreased: decreased
+		Damage: damage
+		Knockback: knockback
+		CritSameAsDamageAdditive: " & critical strike chance"
 	}
+}
+
+Misc.Nothing: ""
 
 Effect: {
 	ManaFlower: Automatically use mana potions when needed
 	CrimsonArmorRegen: Greatly increased life regen
-	}
+}

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
@@ -25,5 +26,14 @@ namespace AAModClassic.Utilities
                     ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1);
             }
         }
+
+        // copied from the internet https://stackoverflow.com/questions/4135317/make-first-letter-of-a-string-upper-case-with-maximum-performance
+        public static string FirstCharToUpper(this string input) =>
+        input switch
+        {
+            null => throw new ArgumentNullException(nameof(input)),
+            "" => throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input)),
+            _ => string.Concat(input[0].ToString().ToUpper(), input.AsSpan(1))
+        };
     }
 }

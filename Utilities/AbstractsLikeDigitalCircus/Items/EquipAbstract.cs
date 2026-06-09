@@ -65,41 +65,81 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
             var line = new TooltipLine(Mod, "Dummy", "Don't add this!");
             string rootPath = "Mods.AAModClassic.EquipStats";
+            string statModifierPath = "ClassGlobalStats.StatModifier";
             for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
             {
                 DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
                 if (damageMap != new DamageClassMap())
                 {
+                    bool critAndDamageAdditiveAreSame = Math.Round(damageMap.GetDamage(currentClass).Additive - 1, 2) == Math.Round(damageMap.GetCritChance(currentClass), 2);
+
                     if (damageMap.GetDamage(currentClass) != StatModifier.Default)
                     {
-                        StatModifier blah = damageMap.GetDamage(currentClass);
-                        if (blah.Base != 0)
+                        if (damageMap.GetDamage(currentClass).Base != 0)
                         {
+                            /*
                             line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Base", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Base").Format(damageMap.GetDamage(currentClass).Base));
                             list.Add(line);
+                            */
                         }
-                        if (blah.Additive != 1)
+                        if (damageMap.GetDamage(currentClass).Additive != 1)
                         {
+                            /*
                             int valueAsPercent = (int)((damageMap.GetDamage(currentClass).Additive - 1f) * 100f);
-                            bool doBullshitFuckThisMan = Math.Round(damageMap.GetDamage(currentClass).Additive - 1, 2) == Math.Round(damageMap.GetCritChance(currentClass), 2);
-                            string andCritPath = doBullshitFuckThisMan ? $"{rootPath}.Misc.CritSameAsDamageAdditive" : $"{rootPath}.Misc.Nothing";
+                            string andCritPath = critAndDamageAdditiveAreSame ? $"{rootPath}.Misc.CritSameAsDamageAdditive" : $"{rootPath}.Misc.Nothing";
                             LocalizedText andCritText = Language.GetText(andCritPath);
                             line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Additive", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Additive").Format(valueAsPercent, andCritText));
                             list.Add(line);
+                            */
+
+                            // 0 is damage value
+                            // 1 is increased/increases or decreased/decreases
+                            // 2 is damage type 
+                            // 3 is damage or kb
+                            // 4 is space for not generic
+                            // 5 is extra
+
+                            string currentDamageThing = "Additive";
+                            string currentIncreaseDecreaseThing = "d";
+                            string damageOrKB = "Damage";
+
+                            int valueAsPercent = (int)((damageMap.GetDamage(currentClass).Additive - 1f) * 100f);
+                            string summonerOrNot = currentClass == DamageClass.Summon || currentClass == DamageClass.SummonMeleeSpeed ? "Summoner" : "EverySingleClassExceptSummoner";
+                            string genericOrNot = currentClass == DamageClass.Generic ? "" : " ";
+
+                            string increaseOrDecreasePath = valueAsPercent > 1 ? $"{rootPath}.{statModifierPath}.Increase{currentIncreaseDecreaseThing}" : $"{rootPath}.{statModifierPath}.Decrease{currentIncreaseDecreaseThing}";
+                            string damageTypePath = $"{rootPath}.ClassGlobalStats.{currentClass.Name}";
+                            string damageOrKBPath = $"{rootPath}.{statModifierPath}.{damageOrKB}";
+                            string andCritPath = critAndDamageAdditiveAreSame ? $"{rootPath}.{statModifierPath}.CritSameAsDamageAdditive" : $"{rootPath}.Misc.Nothing";
+                            string currentDamageThingPath = $"{rootPath}.{statModifierPath}.{summonerOrNot}.{currentDamageThing}";
+
+                            LocalizedText increaseOrDecreaseText = Language.GetText(increaseOrDecreasePath);
+                            LocalizedText damageTypeText = Language.GetText(damageTypePath);
+                            LocalizedText damageOrKBText = Language.GetText(damageOrKBPath);
+                            LocalizedText andCritText = Language.GetText(andCritPath);
+                            string finalTooltipText = Language.GetOrRegister(currentDamageThingPath).Format(valueAsPercent, increaseOrDecreaseText, damageTypeText, genericOrNot, damageOrKBText, andCritText);
+                            finalTooltipText = finalTooltipText.FirstCharToUpper();
+
+                            line = new TooltipLine(Mod, finalTooltipText, finalTooltipText);
+                            list.Add(line);
                         }
-                        if (blah.Multiplicative != 1)
+                        if (damageMap.GetDamage(currentClass).Multiplicative != 1)
                         {
+                            /*
                             int valueAsPercent = (int)(damageMap.GetDamage(currentClass).Multiplicative * 100f);
                             line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Multiplicative", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Multiplicative").Format(valueAsPercent));
                             list.Add(line);
+                            */
                         }
-                        if (blah.Flat != 0)
+                        if (damageMap.GetDamage(currentClass).Flat != 0)
                         {
+                            /*
                             line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Flat", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Flat").Format(damageMap.GetDamage(currentClass).Flat));
                             list.Add(line);
+                            */
                         }
                     }
-                    if (damageMap.GetCritChance(currentClass) != 0)
+                    if (damageMap.GetCritChance(currentClass) != 0 && !critAndDamageAdditiveAreSame)
                     {
 
                     }
