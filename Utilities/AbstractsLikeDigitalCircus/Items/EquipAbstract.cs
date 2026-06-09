@@ -17,7 +17,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     {
         public DamageClassMap damageMap = new();
         public List<EquipmentEffectData> effectMap = new();
-
         private static readonly Dictionary<Type, EquipmentEffectData> _effectCache = new();
 
         #region the sealing
@@ -27,10 +26,13 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             Clear();
             RegisterEquipStats();
 
-            // add all stats
-            player.GetDamage(DamageClass.Magic) = player.GetDamage(DamageClass.Magic).CombineWith(damageMap.GetDamage(DamageClass.Magic));
+            for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
+            {
+                DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
+                player.GetDamage(currentClass) = player.GetDamage(currentClass).CombineWith(damageMap.GetDamage(currentClass));
+                player.GetCritChance(currentClass) += damageMap.GetCritChance(currentClass);
+            }
 
-            // add all equips
             foreach (EquipmentEffectData effect in effectMap)
             {
                 effect.DoEffect(player);
@@ -58,13 +60,63 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             base.ModifyTooltips(list);
-            // im not the hugest fan of this but w/e
             Clear();
             RegisterEquipStats();
 
-            int number = (int)((damageMap.GetDamage(DamageClass.Magic).Additive - 1f) * 100f);
-            var line = new TooltipLine(Mod, "DamageAdditiveMage", Language.GetOrRegister("Mods.AAModClassic.EquipStats.Damage.Additive.Mage").Format(number));
-            list.Add(line);
+            var line = new TooltipLine(Mod, "Dummy", "Don't add this!");
+            string rootPath = "Mods.AAModClassic.EquipStats";
+            for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
+            {
+                DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
+                if (damageMap != new DamageClassMap())
+                {
+                    if (damageMap.GetDamage(currentClass) != StatModifier.Default)
+                    {
+                        StatModifier blah = damageMap.GetDamage(currentClass);
+                        if (blah.Base != 0)
+                        {
+                            line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Base", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Base").Format(damageMap.GetDamage(currentClass).Base));
+                            list.Add(line);
+                        }
+                        if (blah.Additive != 1)
+                        {
+                            int valueAsPercent = (int)((damageMap.GetDamage(currentClass).Additive - 1f) * 100f);
+                            bool doBullshitFuckThisMan = Math.Round(damageMap.GetDamage(currentClass).Additive - 1, 2) == Math.Round(damageMap.GetCritChance(currentClass), 2);
+                            string andCritPath = doBullshitFuckThisMan ? $"{rootPath}.Misc.CritSameAsDamageAdditive" : $"{rootPath}.Misc.Nothing";
+                            LocalizedText andCritText = Language.GetText(andCritPath);
+                            line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Additive", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Additive").Format(valueAsPercent, andCritText));
+                            list.Add(line);
+                        }
+                        if (blah.Multiplicative != 1)
+                        {
+                            int valueAsPercent = (int)(damageMap.GetDamage(currentClass).Multiplicative * 100f);
+                            line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Multiplicative", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Multiplicative").Format(valueAsPercent));
+                            list.Add(line);
+                        }
+                        if (blah.Flat != 0)
+                        {
+                            line = new TooltipLine(Mod, $"{currentClass.Name}.Damage.Flat", Language.GetOrRegister($"{rootPath}.ClassGlobalStats.{currentClass.Name}.Damage.Flat").Format(damageMap.GetDamage(currentClass).Flat));
+                            list.Add(line);
+                        }
+                    }
+                    if (damageMap.GetCritChance(currentClass) != 0)
+                    {
+
+                    }
+                    if (damageMap.GetAttackSpeed(currentClass) != 1)
+                    {
+
+                    }
+                    if (damageMap.GetArmorPenetration(currentClass) != 0)
+                    {
+
+                    }
+                    if (damageMap.GetKnockback(currentClass) != StatModifier.Default)
+                    {
+
+                    }
+                }
+            }
 
             foreach (EquipmentEffectData effect in effectMap)
             {

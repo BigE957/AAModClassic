@@ -36,6 +36,11 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             base.RegisterEquipStats();
 
             damageMap.GetDamage(DamageClass.Magic) += 0.20f;
+            damageMap.GetCritChance(DamageClass.Magic) += 0.20f;
+            damageMap.GetDamage(DamageClass.Magic) *= 1.20f;
+            damageMap.GetDamage(DamageClass.Magic).Flat += 11.2f;
+            damageMap.GetDamage(DamageClass.Magic).Base += 10f;
+            damageMap.GetDamage(DamageClass.MeleeNoSpeed) += 2.0f;
 
             AddEffect<ManaFlower>();
             AddEffect<CrimsonArmorRegen>();
