@@ -11,18 +11,20 @@ ClassGlobalStats: {
 	ThrowingDamageClass: throwing
 
 	StatModifier: {
-		EverySingleClassExceptSummoner: {
-			Base: "{0} {1} {2}{3}{4}"
-			Additive: "{0}% {1} {2}{3}{4}{5}"
-			Multiplicative: "{2}{3}{4} multiplied by {0}%"
-			Flat: "{0} {1} flat {2}{3}{4}"
-		}
+		Adlibs: {
+			EverySingleClassExceptSummoner: {
+				Base: "{0} {1} {2}{3}{4}"
+				Additive: "{0}% {1} {2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4} multiplied by {0}%"
+				Flat: "{0} {1} flat {2}{3}{4}"
+			}
 
-		Summoner: {
-			Base: "{1} {2}{3}{4} by {0}"
-			Additive: "{1} {2}{3}{4}{5} by {0}%"
-			Multiplicative: Multiplies {2}{3}{4} by {0}%
-			Flat: "{1} {2}{3}{4} by a flat {0}"
+			Summoner: {
+				Base: "{1} {2}{3}{4} by {0}"
+				Additive: "{1} {2}{3}{4}{5} by {0}%"
+				Multiplicative: Multiplies {2}{3}{4} by {0}%
+				Flat: "{1} {2}{3}{4} by a flat {0}"
+			}
 		}
 
 		Increases: increases
