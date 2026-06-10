@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Dev.__Hardmode.Items.Mounts;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
@@ -75,7 +76,6 @@ using AAModClassic.Items.Vanity.Grox;
 using AAModClassic.Items.Vanity.Hallam;
 using AAModClassic.Items.Vanity.Tails;
 using AAModClassic.Items.Vanity.Universe;
-using AAModClassic.Mounts;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Attributes;

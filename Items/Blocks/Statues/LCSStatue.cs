@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Decoration;
+using AAModClassic._Content._Dev.World.Tiles.Decoration;
 
 namespace AAModClassic.Items.Blocks.Statues
 {

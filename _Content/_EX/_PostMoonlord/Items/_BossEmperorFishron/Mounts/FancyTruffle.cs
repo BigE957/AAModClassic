@@ -20,7 +20,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Moun
 			Item.height = 30;
 			Item.value = 500000;
 			Item.rare = ItemRarityID.Purple;
-			Item.mountType = Mod.Find<ModMount>("PrinceFishron").Type;
+			Item.mountType = ModContent.MountType<PrinceFishron>();
 		}
 
 

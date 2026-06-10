@@ -1,0 +1,45 @@
+using Terraria.ModLoader;
+using Terraria;
+using Terraria.ID;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
+
+namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
+{
+    public class ShenAwakenedBox : BaseAAItem
+	{
+        
+		public override void SetStaticDefaults()
+		{
+            // DisplayName.SetDefault("Music Box (Awakened Shen Doragon)");
+
+            // Tooltip.SetDefault(@"Plays 'Discordant Coda' by MaestroVGM");
+        }
+
+        public override void SetDefaults()
+		{
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.autoReuse = true;
+			Item.consumable = true;
+			Item.createTile = ModContent.TileType<ShenAwakenedBox_Tile>();
+            Item.width = 72;
+			Item.height = 36;
+			Item.rare = ItemRarityID.LightRed;
+			Item.value = 10000;
+			Item.accessory = true;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.MusicBox);
+            recipe.AddIngredient(ModContent.ItemType<ShenBox>());
+            recipe.AddIngredient(ModContent.ItemType<ChaosSoul>());
+            recipe.AddTile(TileID.Sawmill);
+            recipe.AddCondition(Condition.InExpertMode);
+            recipe.Register();
+        }
+    }
+}
