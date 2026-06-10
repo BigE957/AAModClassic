@@ -26,7 +26,7 @@ public class TerraCandle_Tile : ModTile
 		base.DustType = DustID.Terra;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 100 };
-		RegisterItemDrop(ModContent.ItemType<Items.Blocks.Terra.TerraCandle>());
+		RegisterItemDrop(ModContent.ItemType<TerraCandle>());
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	}
 
@@ -58,7 +58,7 @@ public class TerraCandle_Tile : ModTile
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
 		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<Items.Blocks.Terra.TerraCandle>();
+		localPlayer.cursorItemIconID = ModContent.ItemType<TerraCandle>();
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

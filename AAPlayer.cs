@@ -50,6 +50,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStan
 using AAModClassic._Content.Stars._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.SunkenShip.__PreHardmode.Items.Tools;
 using AAModClassic._Content.Terra.__Hardmode.Items.Armor;
 using AAModClassic._Content.Terra.Projectiles;
 using AAModClassic._Content.Terrarium.Buffs;
@@ -65,7 +66,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Aves;
 using AAModClassic.Items.Vanity.Blazen;

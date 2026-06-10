@@ -1,5 +1,4 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

@@ -7,21 +7,15 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Usable;
-using AAModClassic.Tiles.Ore;
-using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using ReLogic.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,11 +39,6 @@ namespace AAModClassic.Globals
             if (item.type == ItemID.SoulofNight)
             {
                 item.color = WorldGen.crimson ? Color.Firebrick : Color.Violet;
-            }
-
-            if (item.type == ItemID.LunarOre)
-            {
-                item.createTile = ModContent.TileType<LuminiteOre_Tile>();
             }
 
             if (item.ModItem != null && item.ModItem.Mod.Name == Mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)

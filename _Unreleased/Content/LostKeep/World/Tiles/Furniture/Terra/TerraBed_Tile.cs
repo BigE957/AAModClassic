@@ -68,6 +68,6 @@ public class TerraBed_Tile : ModTile
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
 		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<Items.Blocks.Terra.TerraBed>();
+		localPlayer.cursorItemIconID = ModContent.ItemType<TerraBed>();
 	}
 }

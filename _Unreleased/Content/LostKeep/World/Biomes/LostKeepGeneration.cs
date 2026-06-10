@@ -6,6 +6,7 @@ using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

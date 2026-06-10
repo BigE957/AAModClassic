@@ -11,7 +11,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Terra.__Hardmode.Items.Tools;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Tools;
-using AAModClassic.Items.Blocks;
+using AAModClassic.Tiles.Crafters;
 using System.Linq;
 using Terraria;
 using Terraria.Achievements;

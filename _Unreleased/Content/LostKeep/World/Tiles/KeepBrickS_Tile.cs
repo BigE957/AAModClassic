@@ -17,6 +17,6 @@ public class KeepBrickS_Tile : ModTile
 		Main.tileBlockLight[Type] = true;
 		DustType = DustID.Stone;
 		AddMapEntry(new Color(40, 50, 40));
-		RegisterItemDrop(ModContent.ItemType<Items.Blocks.Bricks.KeepBrick>());
+		RegisterItemDrop(ModContent.ItemType<KeepBrick>());
 	}
 }

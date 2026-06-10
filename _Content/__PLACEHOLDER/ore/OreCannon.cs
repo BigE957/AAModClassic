@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Blocks;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
@@ -15,6 +14,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.__PLACEHOLDER.ore.projs;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
 
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore

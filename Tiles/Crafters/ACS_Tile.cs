@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("Any Ancient Crafting Station");
             AddMapEntry(new Color(40, 0, 0), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.BinaryReassembler>());
+            RegisterItemDrop(ModContent.ItemType<BinaryReassembler>());
         }
         
 

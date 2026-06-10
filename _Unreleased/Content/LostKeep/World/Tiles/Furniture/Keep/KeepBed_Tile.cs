@@ -68,6 +68,6 @@ public class KeepBed_Tile : ModTile
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
 		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<Items.Blocks.Keep.KeepBed>();
+		localPlayer.cursorItemIconID = ModContent.ItemType<KeepBed>();
 	}
 }

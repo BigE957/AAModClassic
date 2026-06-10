@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             TileID.Sets.Snow[Type] = true;
             DustType = ModContent.DustType<Dusts.AshRain>();
             AddMapEntry(new Color(30, 30, 30));
-            RegisterItemDrop(ModContent.ItemType<Items.Blocks.TorchAsh>());
+            RegisterItemDrop(ModContent.ItemType<TorchAsh>());
         }
 
         public override void RandomUpdate(int i, int j)

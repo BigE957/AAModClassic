@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content._Dev.World.Tiles;
 using AAModClassic._Content.Stars.World.Biomes;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

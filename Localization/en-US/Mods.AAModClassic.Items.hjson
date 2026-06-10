@@ -11992,3 +11992,8 @@ DoomitePlatingWall: {
 	DisplayName: Doomite Plating Wall
 	Tooltip: ""
 }
+
+AvesInABox: {
+	DisplayName: Aves In A Box
+	Tooltip: ""
+}

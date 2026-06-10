@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
-using AAModClassic.Items.Blocks;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {

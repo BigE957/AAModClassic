@@ -42,7 +42,7 @@ public class TerraDresser_Tile : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 88 };
 		TileID.Sets.BasicDresser[Type] = true;
-		RegisterItemDrop(ModContent.ItemType<Items.Blocks.Terra.TerraDresser>());
+		RegisterItemDrop(ModContent.ItemType<TerraDresser>());
 	}
 
     public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("RazewoodDresser").DisplayName;
@@ -171,7 +171,7 @@ public class TerraDresser_Tile : ModTile
 			}
 			if (localPlayer.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString())
 			{
-				localPlayer.cursorItemIconID = ModContent.ItemType<Items.Blocks.Terra.TerraDresser>();
+				localPlayer.cursorItemIconID = ModContent.ItemType<TerraDresser>();
 				localPlayer.cursorItemIconText = "";
 			}
 		}
@@ -213,7 +213,7 @@ public class TerraDresser_Tile : ModTile
 			}
 			if (localPlayer.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString())
 			{
-				localPlayer.cursorItemIconID = ModContent.ItemType<Items.Blocks.Terra.TerraDresser>();
+				localPlayer.cursorItemIconID = ModContent.ItemType<TerraDresser>();
 				localPlayer.cursorItemIconText = "";
 			}
 		}

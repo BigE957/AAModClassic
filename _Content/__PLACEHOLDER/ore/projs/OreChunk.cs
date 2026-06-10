@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using AAModClassic.Buffs;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Blocks;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Acropolis.Projectiles;
@@ -22,6 +21,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hoard.Projectiles;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 {

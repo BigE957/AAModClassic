@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileLighted[Type] = true;
             DustType = ModContent.DustType<Dusts.RazeleafDust>();
             AddMapEntry(new Color(255, 153, 51));
-            RegisterItemDrop(ModContent.ItemType<Items.Blocks.Torchstone>());
+            RegisterItemDrop(ModContent.ItemType<Torchstone>());
         }
 
         public override void RandomUpdate(int i, int j)

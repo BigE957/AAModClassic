@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Crafters
             };
             AnimationFrameHeight = 54;
 
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.BinaryReassembler>());
+            RegisterItemDrop(ModContent.ItemType<BinaryReassembler>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

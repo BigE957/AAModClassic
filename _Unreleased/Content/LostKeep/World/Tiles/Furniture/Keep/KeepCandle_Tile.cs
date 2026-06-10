@@ -27,7 +27,7 @@ public class KeepCandle_Tile : ModTile
 		base.DustType = DustID.Stone;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 100 };
-        RegisterItemDrop(ModContent.ItemType<Items.Blocks.Keep.KeepCandle>());
+        RegisterItemDrop(ModContent.ItemType<KeepCandle>());
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	}
 
@@ -59,7 +59,7 @@ public class KeepCandle_Tile : ModTile
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
 		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<Items.Blocks.Keep.KeepCandle>();
+		localPlayer.cursorItemIconID = ModContent.ItemType<KeepCandle>();
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

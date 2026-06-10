@@ -1,5 +1,4 @@
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

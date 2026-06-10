@@ -18,6 +18,6 @@ public class TerraBrickS_Tile : ModTile
 		Main.tileBlockLight[Type] = true;
 		base.DustType = DustID.Terra;
 		AddMapEntry(new Color(40, 80, 40), (LocalizedText)null);
-		RegisterItemDrop(ModContent.ItemType<Items.Blocks.Bricks.TerraBrick>());
+		RegisterItemDrop(ModContent.ItemType<TerraBrick>());
 	}
 }

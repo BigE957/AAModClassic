@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content._Dev.World.Tiles;
+using AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration;
 
 namespace AAModClassic._Content._Dev.World
 {

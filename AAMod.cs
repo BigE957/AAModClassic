@@ -900,6 +900,16 @@ namespace AAModClassic
             ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
             ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
+
+            On_Player.GetPickaxeDamage += ModifyLuminitePickaxePower;
+        }
+
+        private int ModifyLuminitePickaxePower(On_Player.orig_GetPickaxeDamage orig, Player self, int x, int y, int pickPower, int hitBufferIndex, Tile tileTarget)
+        {
+            if (tileTarget.TileType == TileID.LunarOre && pickPower < 225)
+                return 0;
+
+            return orig(self, x, y, pickPower, hitBufferIndex, tileTarget);
         }
 
         public override void AddRecipeGroups()

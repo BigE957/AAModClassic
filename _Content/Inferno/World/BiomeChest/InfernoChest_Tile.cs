@@ -1,5 +1,4 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
-using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

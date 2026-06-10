@@ -46,7 +46,6 @@ using AAModClassic.Conversions;
 using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Ore;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -82,6 +81,7 @@ using AAModClassic._Content.Stars.World.Altar;
 using AAModClassic._Content.Void.World.Tiles.Trees;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 
 namespace AAModClassic
 {
@@ -1304,7 +1304,7 @@ namespace AAModClassic
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo2"), Color.DarkSeaGreen);
                     for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
                     {
-                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(6, 10), (ushort)ModContent.TileType<LuminiteOre_Tile>());
+                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(6, 10), TileID.LunarOre);
                     }
                     return;
                 }
