@@ -1,4 +1,3 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Terra.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.WorldGen;

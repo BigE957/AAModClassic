@@ -1,5 +1,4 @@
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Armor;
 using Terraria;
 using Terraria.ModLoader;
 

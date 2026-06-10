@@ -1,0 +1,45 @@
+ClassGlobalStats: {
+	DefaultDamageClass: classless
+	GenericDamageClass: ""
+	MeleeDamageClass: melee
+	MeleeNoSpeedDamageClass: "{$EquipStats.ClassGlobalStats.MeleeDamageClass}"
+	RangedDamageClass: ranged
+	MagicDamageClass: magic
+	SummonDamageClass: summon
+	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
+	MagicSummonHybridDamageClass: magic and summon
+	ThrowingDamageClass: throwing
+
+	StatModifier: {
+		Adlibs: {
+			EverySingleClassExceptSummoner: {
+				Base: "{0} {1} {2}{3}{4}"
+				Additive: "{0}% {1} {2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4} multiplied by {0}%"
+				Flat: "{0} {1} flat {2}{3}{4}"
+			}
+
+			Summoner: {
+				Base: "{1} {2}{3}{4} by {0}"
+				Additive: "{1} {2}{3}{4}{5} by {0}%"
+				Multiplicative: Multiplies {2}{3}{4} by {0}%
+				Flat: "{1} {2}{3}{4} by a flat {0}"
+			}
+		}
+
+		Increases: increases
+		Decreases: decreases
+		Increased: increased
+		Decreased: decreased
+		Damage: damage
+		Knockback: knockback
+		CritSameAsDamageAdditive: " & critical strike chance"
+	}
+}
+
+Misc.Nothing: ""
+
+Effect: {
+	ManaFlower: Automatically use mana potions when needed
+	CrimsonArmorRegen: Greatly increased life regen
+}

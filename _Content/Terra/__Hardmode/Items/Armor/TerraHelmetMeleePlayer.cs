@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
+namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     public class TerraHelmetMeleePlayer : EquipEffectAbstract
     {

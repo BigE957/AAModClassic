@@ -1,16 +1,18 @@
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Terra.__Hardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
+namespace AAModClassic._Content.Terra.__Hardmode.Items
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TerraHelmetMage : BaseAAItem
+    public class TerraHelmetMageTest : EquipAbstract
     {
         public override void SetStaticDefaults()
         {
@@ -29,12 +31,47 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             Item.defense = 22;
         }
 
+        public override void RegisterEquipStats()
+        {
+            base.RegisterEquipStats();
+
+            damageMap.GetDamage(DamageClass.Magic) += 0.20f;
+            damageMap.GetDamage(DamageClass.Magic) *= 1.20f;
+            damageMap.GetDamage(DamageClass.Magic).Flat += 11.2f;
+            damageMap.GetDamage(DamageClass.Magic).Base += 10f;
+            damageMap.GetDamage(DamageClass.Summon) += 0.20f;
+            damageMap.GetDamage(DamageClass.Summon) *= 1.20f;
+            damageMap.GetDamage(DamageClass.Summon).Flat += 11.2f;
+            damageMap.GetDamage(DamageClass.Summon).Base += 10f;
+            damageMap.GetKnockback(DamageClass.Magic) += 0.20f;
+            damageMap.GetKnockback(DamageClass.Magic) *= 1.20f;
+            damageMap.GetKnockback(DamageClass.Magic).Flat += 11.2f;
+            damageMap.GetKnockback(DamageClass.Magic).Base += 10f;
+
+            AddEffect<ManaFlower>();
+            AddEffect<CrimsonArmorRegen>();
+        }
+
+        public override void RegisterArmorSetStats()
+        {
+            base.RegisterArmorSetStats();
+
+            //GetDamage(DamageClass.Magic) += 0.60f;
+            //player.manaFlower = true;
+        }
+
+        /*
         public override void UpdateEquip(Player player)
         {
             player.statManaMax2 += 100;
             player.manaCost -= 0.3f;
             player.GetDamage(DamageClass.Magic) += 0.17f;
             player.GetCritChance(DamageClass.Magic) += 15;
+
+            MaxMana = 100; // Increases max mana by 100
+            ManaCost = -0.3f; // Reduces mana cost by 30%
+            Damage(DamageClass.Magic) = 0.17f; // Increases magic damage by 17%
+            Crit(DamageClass.Magic) = 0.15f; // Increases magic crit chance by 15%
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -50,6 +87,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             player.manaCost *= 0.6f;
             player.GetModPlayer<TerraHelmetMagePlayer>().effect = true;
         }
+        */
 
         public override void AddRecipes()
         {

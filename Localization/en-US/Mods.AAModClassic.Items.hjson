@@ -11952,3 +11952,8 @@ ChlorophyteHelmetSummoner2: {
 	DisplayName: Chlorophyte Helmet Summoner2
 	Tooltip: ""
 }
+
+TerraHelmetMageTest: {
+	DisplayName: Terra Helmet Mage Test
+	Tooltip: ""
+}
