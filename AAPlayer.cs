@@ -52,6 +52,7 @@ using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcra
 using AAModClassic._Content.Terra.__Hardmode.Items.Armor;
 using AAModClassic._Content.Terra.Projectiles;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;

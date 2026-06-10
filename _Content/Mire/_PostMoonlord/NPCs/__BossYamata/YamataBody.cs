@@ -7,7 +7,6 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;

@@ -1,6 +1,5 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -38,7 +37,7 @@ Conflagrate Staff EX"); */
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.shoot = ModContent.ProjectileType<ConflagrateScythe_ConflagrateConstructEX>();
-            Item.buffType = ModContent.BuffType<EnderMinionEX_Buff>();
+            Item.buffType = ModContent.BuffType<ConflagrateConstructEX_Buff>();
             Item.rare = ItemRarityID.Yellow;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;

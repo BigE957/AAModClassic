@@ -193,7 +193,6 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
-using AAModClassic.Buffs;
 using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;

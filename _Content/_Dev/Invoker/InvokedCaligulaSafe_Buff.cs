@@ -1,8 +1,7 @@
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic._Content._Dev.Invoker;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._Dev.Invoker
 {
 	public class InvokedCaligulaSafe_Buff : ModBuff
 	{

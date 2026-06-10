@@ -5,9 +5,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
-    public class DarkLock_Buff : ModBuff
+    public class StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -21,7 +21,7 @@ namespace AAModClassic.Buffs
     {
         public override bool PreAI(NPC npc)
         {
-            if (npc.HasBuff(ModContent.BuffType<DarkLock_Buff>()))
+            if (npc.HasBuff(ModContent.BuffType<StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff>()))
             {
                 npc.velocity = Vector2.Zero;
                 return false;
@@ -30,7 +30,7 @@ namespace AAModClassic.Buffs
         }
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (npc.HasBuff(ModContent.BuffType<DarkLock_Buff>()) && npc.active)
+            if (npc.HasBuff(ModContent.BuffType<StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff>()) && npc.active)
             {
                 Texture2D DarkX = new Texture2D(Main.graphics.GraphicsDevice, npc.width, npc.height);
                 Color[] dataColors = new Color[npc.width * npc.height];

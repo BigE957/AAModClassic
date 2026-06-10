@@ -1,4 +1,3 @@
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

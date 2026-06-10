@@ -1,10 +1,9 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class EnderMinionEX_Buff : ModBuff
+    public class ConflagrateConstructEX_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

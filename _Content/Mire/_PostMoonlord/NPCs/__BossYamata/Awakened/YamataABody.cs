@@ -4,7 +4,6 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

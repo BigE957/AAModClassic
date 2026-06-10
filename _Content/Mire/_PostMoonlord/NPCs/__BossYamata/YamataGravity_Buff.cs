@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
     public class YamataGravity_Buff : ModBuff
 	{

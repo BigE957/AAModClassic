@@ -1,8 +1,7 @@
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class SockPuppet_Buff : ModBuff
 	{

@@ -4,7 +4,6 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
-using AAModClassic.Buffs;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Weapons;
 using Microsoft.Xna.Framework;
 using System;
@@ -109,7 +108,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 			{
 				if(!player.GetModPlayer<InvokerPlayer>().InvokerMadness)
 				{
-					player.AddBuff(ModContent.BuffType<InvokerofMadness_Buff>(), player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
+					player.AddBuff(ModContent.BuffType<AleisterStaff_InvokerofMadness_Buff>(), player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
 					player.GetModPlayer<InvokerPlayer>().BanishDamage = Item.damage * 5;
 					player.GetModPlayer<InvokerPlayer>().banishing = true;
 				}

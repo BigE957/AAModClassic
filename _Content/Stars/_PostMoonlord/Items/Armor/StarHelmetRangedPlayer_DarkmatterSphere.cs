@@ -1,5 +1,4 @@
-﻿using AAModClassic.Buffs;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
@@ -28,10 +27,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         }
         public override void InflictBuffs(NPC target)
         {
-            target.AddBuff(ModContent.BuffType<DarkCurse_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff>(), 600);
             if(!target.boss)
             {
-                target.AddBuff(ModContent.BuffType<DarkLock_Buff>(), 120);
+                target.AddBuff(ModContent.BuffType<StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff>(), 120);
             }
         }
     }

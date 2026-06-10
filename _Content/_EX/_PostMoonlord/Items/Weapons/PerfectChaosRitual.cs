@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
-using AAModClassic.Buffs;
 using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;

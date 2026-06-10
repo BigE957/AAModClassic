@@ -79,7 +79,7 @@ WARNING: May permanently displace appendages until game restart. This is a featu
                         NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, player.whoAmI, vector32.X, vector32.Y, 1, 0, 0);
                         SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"));
                         CodeCD = 600;
-                        player.AddBuff(ModContent.BuffType<Buffs.Glitched_Buff>(), 300);
+                        player.AddBuff(ModContent.BuffType<Glitched_Buff>(), 300);
                     }
                 }
             }

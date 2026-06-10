@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader.IO;
 using Terraria.GameInput;
-using AAModClassic.Buffs;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;

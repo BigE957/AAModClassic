@@ -4,9 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
-    public class DarkCurse_Buff : ModBuff
+    public class StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -20,7 +20,7 @@ namespace AAModClassic.Buffs
     {
         public override void DrawEffects(NPC npc, ref Color drawColor)
         {
-            if (npc.HasBuff(ModContent.BuffType<DarkCurse_Buff>()))
+            if (npc.HasBuff(ModContent.BuffType<StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff>()))
             {
                 drawColor.R = (byte)(drawColor.R * .2f);
                 drawColor.G = (byte)(drawColor.G * .2f);
@@ -30,7 +30,7 @@ namespace AAModClassic.Buffs
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
-            if (npc.HasBuff(ModContent.BuffType<DarkCurse_Buff>()))
+            if (npc.HasBuff(ModContent.BuffType<StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff>()))
             {
                 modifiers.IncomingDamageMultiplier *= 0.5f;
             }

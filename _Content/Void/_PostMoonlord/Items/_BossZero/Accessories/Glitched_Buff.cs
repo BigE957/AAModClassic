@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
     public class Glitched_Buff : ModBuff
 	{

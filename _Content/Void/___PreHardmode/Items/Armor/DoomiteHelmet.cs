@@ -43,9 +43,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             player.GetModPlayer<AAPlayer>().doomite = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<Buffs.Searcher_Buff>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<Searcher_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<Buffs.Searcher_Buff>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<Searcher_Buff>(), 3600, true);
                 }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<DoomiteHelmet_Searcher>()] < 1)
                 {

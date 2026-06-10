@@ -1,8 +1,7 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class LungMinion_Buff : ModBuff
     {

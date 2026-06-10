@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
-	public class InvokerofMadness_Buff : ModBuff
+	public class AleisterStaff_InvokerofMadness_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

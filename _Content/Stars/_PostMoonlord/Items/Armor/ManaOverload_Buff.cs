@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     public class ManaOverload_Buff : ModBuff
     {
