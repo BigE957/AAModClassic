@@ -1,4 +1,4 @@
-using AAModClassic.Items.Walls;
+using AAModClassic._Content.Void.World.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomiteWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<DoomitePlatingWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

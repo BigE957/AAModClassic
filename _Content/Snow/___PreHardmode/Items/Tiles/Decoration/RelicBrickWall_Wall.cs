@@ -1,20 +1,19 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Walls;
+using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Stars.World.Tiles
+namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
 {
-    public class DarkmatterBrick_Wall : ModWall
+    public class RelicBrickWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = ModContent.DustType<Dusts.DarkmatterDust>();
-            AddMapEntry(new Color(30, 30, 60));
+            DustType = DustID.Ice;
+			AddMapEntry(new Color(30, 30, 60));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DarkmatterWall>());
+            RegisterItemDrop(ModContent.ItemType<RelicBrickWall>());
             Main.wallHouse[Type] = true;
         }
 

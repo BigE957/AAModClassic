@@ -1,12 +1,10 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Stars.World.Tiles;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
 {
-    public class DarkmatterWall : BaseAAItem
+    public class CovetiteBrickWall : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -19,18 +17,18 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<DarkmatterBrick_Wall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<CovetiteBrickWall_Wall>(); //put your CustomBlock Tile name
         }
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Darkmatter Brick Wall");
+            // DisplayName.SetDefault("Covetite Brick Wall");
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<DarkmatterBrick>());
+            recipe.AddIngredient(ModContent.ItemType<CovetiteBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

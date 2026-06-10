@@ -1,20 +1,19 @@
-using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Snow.World.Tiles
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
 {
-    public class RelicBrick_Wall : ModWall
+    public class CovetiteBrickWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = DustID.Ice;
-			AddMapEntry(new Color(30, 30, 60));
+            DustType = DustID.Gold;
+            AddMapEntry(new Color(60, 60, 0));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<RelicWall>());
+            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
             Main.wallHouse[Type] = true;
         }
 

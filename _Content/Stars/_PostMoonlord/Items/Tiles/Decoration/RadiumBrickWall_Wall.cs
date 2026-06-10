@@ -1,12 +1,11 @@
-using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Stars.World.Tiles
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class RadiumBrick_Wall : ModWall
+    public class RadiumBrickWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
@@ -14,7 +13,7 @@ namespace AAModClassic._Content.Stars.World.Tiles
             DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(60, 60, 30));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<RadiumWall>());
+            RegisterItemDrop(ModContent.ItemType<RadiumBrickWall>());
             Main.wallHouse[Type] = true;
         }
 

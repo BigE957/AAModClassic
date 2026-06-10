@@ -1,5 +1,4 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +36,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<IncineriteWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBrickWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

@@ -1,12 +1,10 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Stars.World.Tiles;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
 {
-    public class EquinoxWall : BaseAAItem
+    public class RelicBrickWall : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -19,18 +17,18 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<EquinoxBrick_Wall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<RelicBrickWall_Wall>(); //put your CustomBlock Tile name
         }
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Equinox Brick Wall");
+            // DisplayName.SetDefault("Relic Brick Wall");
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<EquinoxBrick>());
+            recipe.AddIngredient(ModContent.ItemType<RelicBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

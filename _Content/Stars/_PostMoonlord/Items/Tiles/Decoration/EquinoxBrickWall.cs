@@ -1,11 +1,10 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class IncineriteWall : BaseAAItem
+    public class EquinoxBrickWall : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -18,18 +17,18 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<IncineriteBrick_Wall>();
+            Item.createWall = ModContent.WallType<EquinoxBrickWall_Wall>(); //put your CustomBlock Tile name
         }
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Incinerite Brick Wall");
+            // DisplayName.SetDefault("Equinox Brick Wall");
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<IncineriteBrick>());
+            recipe.AddIngredient(ModContent.ItemType<EquinoxBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

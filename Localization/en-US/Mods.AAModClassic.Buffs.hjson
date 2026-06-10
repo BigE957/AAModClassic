@@ -1678,3 +1678,23 @@ TerraHelmetSummonerPlayer_Buff: {
 	DisplayName: Terra Helmet Summoner Player_ Buff
 	Description: Mods.AAModClassic.Buffs.TerraHelmetSummonerPlayer_Buff.Description
 }
+
+AleisterStaff_InvokerofMadness_Buff: {
+	DisplayName: Aleister Staff_ Invokerof Madness_ Buff
+	Description: Mods.AAModClassic.Buffs.AleisterStaff_InvokerofMadness_Buff.Description
+}
+
+ConflagrateConstructEX_Buff: {
+	DisplayName: Conflagrate Construct E X_ Buff
+	Description: Mods.AAModClassic.Buffs.ConflagrateConstructEX_Buff.Description
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff: {
+	DisplayName: Star Helmet Ranged Player_ Darkmatter Sphere_ Dark Curse_ Buff
+	Description: Mods.AAModClassic.Buffs.StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff.Description
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff: {
+	DisplayName: Star Helmet Ranged Player_ Darkmatter Sphere_ Dark Lock_ Buff
+	Description: Mods.AAModClassic.Buffs.StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff.Description
+}

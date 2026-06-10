@@ -1,5 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -7,9 +6,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Stars.World.Tiles
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class EquinoxBrick_Wall : ModWall
+    public class EquinoxBrickWall_Wall : ModWall
     {
         public override void SetStaticDefaults()
         {
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Stars.World.Tiles
             DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(60, 60, 30));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<EquinoxWall>());
+            RegisterItemDrop(ModContent.ItemType<EquinoxBrickWall>());
             Main.wallHouse[Type] = true;
         }
 

@@ -1,5 +1,4 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +36,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<RadiumWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<RadiumBrickWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

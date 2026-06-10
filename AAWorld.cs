@@ -1045,7 +1045,7 @@ namespace AAModClassic
 
         public void VoidHouses(int X, int Y, int type = 30, int sizeX = 10, int sizeY = 7)
         {
-            int wallID = (ushort)ModContent.WallType<DoomitePlate_Wall>();
+            int wallID = (ushort)ModContent.WallType<DoomitePlatingWall_Wall>();
             //Clear area
             for (int i = X; i < X + sizeX - 1; ++i)
             {

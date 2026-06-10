@@ -11957,3 +11957,38 @@ TerraHelmetMageTest: {
 	DisplayName: Terra Helmet Mage Test
 	Tooltip: ""
 }
+
+IncineriteBrickWall: {
+	DisplayName: Incinerite Brick Wall
+	Tooltip: ""
+}
+
+DaybreakBrickWall: {
+	DisplayName: Daybreak Brick Wall
+	Tooltip: ""
+}
+
+RelicBrickWall: {
+	DisplayName: Relic Brick Wall
+	Tooltip: ""
+}
+
+DarkmatterBrickWall: {
+	DisplayName: Darkmatter Brick Wall
+	Tooltip: ""
+}
+
+EquinoxBrickWall: {
+	DisplayName: Equinox Brick Wall
+	Tooltip: ""
+}
+
+RadiumBrickWall: {
+	DisplayName: Radium Brick Wall
+	Tooltip: ""
+}
+
+DoomitePlatingWall: {
+	DisplayName: Doomite Plating Wall
+	Tooltip: ""
+}

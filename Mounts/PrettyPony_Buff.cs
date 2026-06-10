@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.Mounts
 {
 	public class PrettyPony_Buff : ModBuff
 	{
@@ -15,7 +15,7 @@ namespace AAModClassic.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.mount.SetMount(ModContent.MountType<Mounts.BegPony>(), player);
+			player.mount.SetMount(ModContent.MountType<BegPony>(), player);
 			player.buffTime[buffIndex] = 10;
 		}
 	}

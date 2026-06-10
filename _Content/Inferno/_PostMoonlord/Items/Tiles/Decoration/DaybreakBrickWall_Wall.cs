@@ -1,6 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -8,13 +7,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
-    public class DaybreakBrick_Wall : ModWall
+    public class DaybreakBrickWall_Wall : ModWall
 	{
         public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<DaybreakWall>());
+            RegisterItemDrop(ModContent.ItemType<DaybreakBrickWall>());
             AddMapEntry(new Color(40, 12, 10));
             DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
         }

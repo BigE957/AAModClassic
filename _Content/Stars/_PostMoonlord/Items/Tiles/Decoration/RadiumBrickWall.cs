@@ -1,12 +1,10 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Snow.World.Tiles;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class RelicWall : BaseAAItem
+    public class RadiumBrickWall : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -19,18 +17,18 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<RelicBrick_Wall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<RadiumBrickWall_Wall>(); //put your CustomBlock Tile name
         }
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Relic Brick Wall");
+            // DisplayName.SetDefault("Radium Brick Wall");
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<RelicBrick>());
+            recipe.AddIngredient(ModContent.ItemType<RadiumBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

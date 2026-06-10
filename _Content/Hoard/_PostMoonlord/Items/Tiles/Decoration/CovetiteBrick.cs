@@ -1,5 +1,4 @@
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Walls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

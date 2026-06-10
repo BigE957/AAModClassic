@@ -1,12 +1,10 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Stars.World.Tiles;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
-    public class RadiumWall : BaseAAItem
+    public class DaybreakBrickWall : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -19,18 +17,18 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<RadiumBrick_Wall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<DaybreakBrickWall_Wall>(); //put your CustomBlock Tile name
         }
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Radium Brick Wall");
+            // DisplayName.SetDefault("Daybreak Brick Wall");
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<RadiumBrick>());
+            recipe.AddIngredient(ModContent.ItemType<DaybreakBrick>());
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

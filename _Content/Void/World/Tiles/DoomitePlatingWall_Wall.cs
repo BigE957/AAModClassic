@@ -2,11 +2,10 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Items.Walls;
 
 namespace AAModClassic._Content.Void.World.Tiles
 {
-    public class DoomitePlate_Wall : ModWall
+    public class DoomitePlatingWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
@@ -15,7 +14,7 @@ namespace AAModClassic._Content.Void.World.Tiles
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DoomiteWall>());
+            RegisterItemDrop(ModContent.ItemType<DoomitePlatingWall>());
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

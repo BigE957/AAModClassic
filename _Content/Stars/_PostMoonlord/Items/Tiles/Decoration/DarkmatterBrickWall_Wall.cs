@@ -1,20 +1,19 @@
-using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 
-namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class CovetiteBrick_Wall : ModWall
+    public class DarkmatterBrickWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = DustID.Gold;
-            AddMapEntry(new Color(60, 60, 0));
+            DustType = ModContent.DustType<Dusts.DarkmatterDust>();
+            AddMapEntry(new Color(30, 30, 60));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
+            RegisterItemDrop(ModContent.ItemType<DarkmatterBrickWall>());
             Main.wallHouse[Type] = true;
         }
 
