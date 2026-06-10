@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Banners
 {
-	public class MireSlimeBanner : BaseAAItem
+	public class SingemanderBanner : BaseAAItem
 	{
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {
@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Banners
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 1000;
 			Item.createTile = ModContent.TileType<Tiles.Banners.Banners_Tile>();
-			Item.placeStyle = 18;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
+			Item.placeStyle = 10;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
 		}
 	}
 }

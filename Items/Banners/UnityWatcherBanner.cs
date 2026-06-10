@@ -4,11 +4,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Banners
 {
-	public class TerraProbeBanner : BaseAAItem
+	public class UnityWatcherBanner : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Unity Probe Banner");
+            // DisplayName.SetDefault("Unity Watcher Banner");
         }
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {
@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Banners
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 1000;
 			Item.createTile = ModContent.TileType<Tiles.Banners.Banners_Tile>();
-			Item.placeStyle = 43;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
+			Item.placeStyle = 44;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
 		}
 	}
 }

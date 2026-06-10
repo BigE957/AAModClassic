@@ -11997,3 +11997,63 @@ AvesInABox: {
 	DisplayName: Aves In A Box
 	Tooltip: ""
 }
+
+AncientLungBanner: {
+	DisplayName: Ancient Lung Banner
+	Tooltip: ""
+}
+
+MurkySlimeBanner: {
+	DisplayName: Murky Slime Banner
+	Tooltip: ""
+}
+
+MushroomJellyBanner: {
+	DisplayName: Mushroom Jelly Banner
+	Tooltip: ""
+}
+
+PigronInfernoBanner: {
+	DisplayName: Pigron Inferno Banner
+	Tooltip: ""
+}
+
+PigronMireBanner: {
+	DisplayName: Pigron Mire Banner
+	Tooltip: ""
+}
+
+ShadowGhoulBanner: {
+	DisplayName: Shadow Ghoul Banner
+	Tooltip: ""
+}
+
+SingemanderBanner: {
+	DisplayName: Singemander Banner
+	Tooltip: ""
+}
+
+SkulkerBanner: {
+	DisplayName: Skulker Banner
+	Tooltip: ""
+}
+
+SnowSerpentBanner: {
+	DisplayName: Snow Serpent Banner
+	Tooltip: ""
+}
+
+TerraKnightBanner: {
+	DisplayName: Terra Knight Banner
+	Tooltip: ""
+}
+
+UnityProbeBanner: {
+	DisplayName: Unity Probe Banner
+	Tooltip: ""
+}
+
+UnityWatcherBanner: {
+	DisplayName: Unity Watcher Banner
+	Tooltip: ""
+}

@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.CorruptSlime;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MireSlimeBanner>();
+			BannerItem = ModContent.ItemType<MurkySlimeBanner>();
 			SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

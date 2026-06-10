@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<LungBanner>();
+            BannerItem = ModContent.ItemType<AncientLungBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

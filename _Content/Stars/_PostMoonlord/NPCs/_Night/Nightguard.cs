@@ -12,7 +12,7 @@ using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 {
-    public class Nightguard : ModNPC
+    public class NightGuard : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{

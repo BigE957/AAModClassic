@@ -985,7 +985,7 @@ namespace AAModClassic.Globals
             }
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneStars)
             {
-                pool.Add(Main.dayTime ? ModContent.NPCType<Sunwatcher>() : ModContent.NPCType<Nightguard>(), .2f);
+                pool.Add(Main.dayTime ? ModContent.NPCType<SunWatcher>() : ModContent.NPCType<NightGuard>(), .2f);
             }
 
             if (spawnInfo.Player.ZoneAnyInferno())

@@ -4,12 +4,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Banners
 {
-	public class LungBanner : BaseAAItem
+	public class PigronInfernoBanner : BaseAAItem
 	{
-		public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Ancient Lung Banner");
-        }
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {
 			Item.width = 10;
@@ -24,7 +20,7 @@ namespace AAModClassic.Items.Banners
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 1000;
 			Item.createTile = ModContent.TileType<Tiles.Banners.Banners_Tile>();
-			Item.placeStyle = 57;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
+			Item.placeStyle = 6;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
 		}
 	}
 }

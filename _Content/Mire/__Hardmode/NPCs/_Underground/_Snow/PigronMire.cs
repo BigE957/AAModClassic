@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
             AnimationType = NPCID.PigronCorruption;
             NPC.buffImmune[31] = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MiregronBanner>();
+			BannerItem = ModContent.ItemType<PigronMireBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 

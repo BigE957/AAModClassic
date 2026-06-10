@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
             NPC.CloneDefaults(NPCID.DesertGhoul);
             AnimationType = NPCID.DesertGhoul;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MireGhoulBanner>();
+			BannerItem = ModContent.ItemType<ShadowGhoulBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 

@@ -23,6 +23,7 @@ using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger;
 using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
@@ -30,6 +31,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
@@ -46,6 +48,8 @@ using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Content.SolarEclipse.__Hardmode.Items.Currency;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
@@ -60,6 +64,7 @@ using AAModClassic.Base.Projectiles;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
+using AAModClassic.Tiles.Banners;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.Tools;
 using Microsoft.Xna.Framework;
@@ -135,22 +140,26 @@ namespace AAModClassic
             try
             {
                 int fx = 16;
-                Texture2D tex = TextureAssets.Tile[instance.Find<ModTile>("Banners").Type].Value;
+                Texture2D tex = TextureAssets.Tile[ModContent.TileType<Banners_Tile>()].Value;
 
-                while (Tiles.Banners.Banners_Tile.GetBannerName(fx) != null)
+                while (Banners_Tile.GetBannerNPCTypes(fx) != null)
                 {
-                    string name = Tiles.Banners.Banners_Tile.GetBannerName(fx);
+                    int[] npcTypes = Banners_Tile.GetBannerNPCTypes(fx);
 
-                    if (name.Equals("DUMMY"))
+                    if (npcTypes.Length == 0)
                     {
                         fx += 16;
                         continue;
                     }
 
-                    var data = new Color[16 * 16 * 3];
-                    GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData(data);
-                    TextureAssets.Item[instance.Find<ModItem>(name + "Banner").Type].Value.SetData(data);
-                    fx += 16;
+                    ModNPC lead = ContentSamples.NpcsByNetId[npcTypes[0]].ModNPC;
+                    if (lead != null)
+                    {
+                        var data = new Color[16 * 16 * 3];
+                        GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData(data);
+                        TextureAssets.Item[instance.Find<ModItem>(lead.Name.Replace("Head", "") + "Banner").Type].Value.SetData(data);
+                        fx += 16;
+                    }
                 }
             }
             catch (Exception e)
@@ -203,84 +212,26 @@ namespace AAModClassic
                 IDictionary<int, int> bannerToItem = BannerToItemDict;
                 int fx = 16;
 
-                while (Tiles.Banners.Banners_Tile.GetBannerName(fx) != null)
+                while (Tiles.Banners.Banners_Tile.GetBannerNPCTypes(fx) != null)
                 {
-                    string name = Tiles.Banners.Banners_Tile.GetBannerName(fx, false);
+                    int[] npcTypes = Tiles.Banners.Banners_Tile.GetBannerNPCTypes(fx);
 
-                    if (name.Equals("DUMMY"))
+                    if (npcTypes.Length == 0)
                     {
                         fx += 16;
                         continue;
                     }
 
-                    if (name.Contains("Wyrmling"))
+                    for (int m = 0; m < npcTypes.Length; m++)
                     {
-                        for (int m = 0; m < 4; m++)
-                        {
-                            ModNPC npc = m switch
-                            {
-                                0 => ModContent.GetInstance<WyrmlingHead>(),
-                                1 => ModContent.GetInstance<WyrmlingBody>(),
-                                2 => ModContent.GetInstance<WyrmlingTail1>(),
-                                _ => ModContent.GetInstance<WyrmlingTail2>(),
-                            };
+                        ModNPC me = ContentSamples.NpcsByNetId[npcTypes[m]].ModNPC;
+                        ModNPC lead = ContentSamples.NpcsByNetId[npcTypes[0]].ModNPC;
 
-                            if (npc != null)
-                            {
-                                npc.Banner = ModContent.NPCType<WyrmlingHead>();
-                                npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
-                                bannerToItem[npc.Banner] = npc.BannerItem;
-                            }
-                        }
-                    }
-                    else if (name.Contains("Wyrm"))
-                    {
-                        for (int m = 0; m < 5; m++)
+                        if (me != null)
                         {
-                            ModNPC npc = m switch
-                            {
-                                0 => ModContent.GetInstance<WyrmHead>(),
-                                1 => ModContent.GetInstance<WyrmBody1>(),
-                                2 => ModContent.GetInstance<WyrmBody2>(),
-                                3 => ModContent.GetInstance<WyrmBody3>(),
-                                _ => ModContent.GetInstance<WyrmBody4>(),
-                            };
-
-                            if (npc != null)
-                            {
-                                npc.Banner = ModContent.NPCType<WyrmHead>();
-                                npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmBanner>();
-                                bannerToItem[npc.Banner] = npc.BannerItem;
-                            }
-                        }
-                    }
-                    else if (name.Contains("SnowSerpent"))
-                    {
-                        for (int m = 0; m < 3; m++)
-                        {
-                            ModNPC npc = m switch
-                            {
-                                0 => ModContent.GetInstance<SnowSerpentHead>(),
-                                1 => ModContent.GetInstance<SnowSerpentBody>(),
-                                _ => ModContent.GetInstance<SnowSerpentTail>(),
-                            };
-
-                            if (npc != null)
-                            {
-                                npc.Banner = ModContent.NPCType<SnowSerpentHead>();
-                                npc.BannerItem = ModContent.ItemType<Items.Banners.SnakeBanner>();
-                                bannerToItem[npc.Banner] = npc.BannerItem;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        ModNPC npc = mod.Find<ModNPC>(name);
-                        if (npc != null)
-                        {
-                            npc.Banner = npc.Type;
-                            npc.BannerItem = mod.Find<ModItem>(name + "Banner").Type;
-                            bannerToItem[npc.Banner] = npc.BannerItem;
+                            me.Banner = lead.Type;
+                            me.BannerItem = mod.Find<ModItem>(lead.Name.Replace("Head", "") + "Banner").Type;
+                            bannerToItem[me.Banner] = me.BannerItem;
                         }
                     }
                     fx += 16;

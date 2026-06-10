@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnakeBanner>();
+			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.knockBackResist = .2f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MireSkulkerBanner>();
+			BannerItem = ModContent.ItemType<SkulkerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

@@ -4,8 +4,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Banners
 {
-	public class MireGhoulBanner : BaseAAItem
+	public class UnityProbeBanner : BaseAAItem
 	{
+		public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Unity Probe Banner");
+        }
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {
 			Item.width = 10;
@@ -20,7 +24,7 @@ namespace AAModClassic.Items.Banners
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 1000;
 			Item.createTile = ModContent.TileType<Tiles.Banners.Banners_Tile>();
-			Item.placeStyle = 64;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
+			Item.placeStyle = 43;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
 		}
 	}
 }

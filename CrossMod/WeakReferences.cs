@@ -1664,10 +1664,10 @@ namespace AAModClassic.CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Wind, ModContent.NPCType<Seraph>());
 
                 //Post-ML
-                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<Nightguard>());
-                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<Nightguard>());
-                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<Sunwatcher>());
-                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<Sunwatcher>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<NightGuard>());
+                redemption.Call("addElementNPC", (int)ElementalID.Shadow, ModContent.NPCType<NightGuard>());
+                redemption.Call("addElementNPC", (int)ElementalID.Celestial, ModContent.NPCType<SunWatcher>());
+                redemption.Call("addElementNPC", (int)ElementalID.Holy, ModContent.NPCType<SunWatcher>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<BlazeClaw>());
                 redemption.Call("addElementNPC", (int)ElementalID.Fire, ModContent.NPCType<AncientLungHead>());

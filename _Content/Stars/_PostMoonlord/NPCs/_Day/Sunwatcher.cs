@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 {
-    public class Sunwatcher : ModNPC
+    public class SunWatcher : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{
