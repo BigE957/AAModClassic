@@ -1,4 +1,5 @@
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ModLoader;
 

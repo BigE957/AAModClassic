@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

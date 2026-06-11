@@ -6,6 +6,7 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor

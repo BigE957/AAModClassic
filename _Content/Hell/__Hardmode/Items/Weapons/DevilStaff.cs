@@ -1,6 +1,7 @@
 using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Hell.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

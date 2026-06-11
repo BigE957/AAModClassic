@@ -1,6 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

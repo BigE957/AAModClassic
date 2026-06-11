@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories
 {

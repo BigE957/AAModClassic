@@ -1,5 +1,6 @@
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

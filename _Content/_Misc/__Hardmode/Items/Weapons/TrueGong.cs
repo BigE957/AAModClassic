@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 {

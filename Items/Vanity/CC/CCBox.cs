@@ -2,6 +2,7 @@ using AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic.Items.Vanity.CC.Shiny;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

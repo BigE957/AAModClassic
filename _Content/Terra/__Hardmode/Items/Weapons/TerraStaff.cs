@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hell.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {

@@ -5,6 +5,7 @@ using Terraria.Localization;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 {

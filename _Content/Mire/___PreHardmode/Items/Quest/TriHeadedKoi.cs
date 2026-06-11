@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;

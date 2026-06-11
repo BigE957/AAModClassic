@@ -1,6 +1,7 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

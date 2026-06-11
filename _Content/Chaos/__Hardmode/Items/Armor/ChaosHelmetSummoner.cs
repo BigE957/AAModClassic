@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {

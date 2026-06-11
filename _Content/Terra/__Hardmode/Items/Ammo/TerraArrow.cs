@@ -1,4 +1,5 @@
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

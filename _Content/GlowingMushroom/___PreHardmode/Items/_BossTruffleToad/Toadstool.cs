@@ -3,6 +3,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToa
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

@@ -1,5 +1,6 @@
 using AAModClassic._Content.Bunny.Projectiles;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

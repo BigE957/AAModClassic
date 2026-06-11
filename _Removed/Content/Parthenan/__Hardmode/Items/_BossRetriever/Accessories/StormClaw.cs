@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using Terraria.ID;
 using AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.Accessories
 {

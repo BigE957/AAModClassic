@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using System;
 using System.Reflection;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.CrossMod
 {

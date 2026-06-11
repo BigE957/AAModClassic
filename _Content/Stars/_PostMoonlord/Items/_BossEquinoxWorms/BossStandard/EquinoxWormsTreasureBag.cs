@@ -1,5 +1,6 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

@@ -5,6 +5,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 {

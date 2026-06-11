@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items.Quest

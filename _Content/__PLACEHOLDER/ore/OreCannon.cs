@@ -15,6 +15,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.__PLACEHOLDER.ore.projs;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore

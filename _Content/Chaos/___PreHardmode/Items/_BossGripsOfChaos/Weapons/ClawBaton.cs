@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
 {

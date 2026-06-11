@@ -1,5 +1,6 @@
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

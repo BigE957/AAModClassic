@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories
 {

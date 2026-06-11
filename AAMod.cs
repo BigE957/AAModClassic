@@ -67,6 +67,7 @@ using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Banners;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

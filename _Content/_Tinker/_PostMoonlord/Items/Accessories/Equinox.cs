@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
 {

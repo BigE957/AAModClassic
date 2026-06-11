@@ -6,6 +6,7 @@ using AAModClassic._Content.Crimson.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor

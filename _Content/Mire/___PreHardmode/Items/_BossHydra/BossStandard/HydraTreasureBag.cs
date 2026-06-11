@@ -4,6 +4,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic.CrossMod;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

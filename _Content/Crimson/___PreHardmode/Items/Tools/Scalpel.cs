@@ -1,5 +1,6 @@
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

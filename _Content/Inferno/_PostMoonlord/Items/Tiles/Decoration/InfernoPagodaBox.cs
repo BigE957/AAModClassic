@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {

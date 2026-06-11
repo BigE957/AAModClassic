@@ -9,6 +9,7 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {

@@ -3,6 +3,7 @@ using AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terra.__Hardmode.Items.Ammo;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

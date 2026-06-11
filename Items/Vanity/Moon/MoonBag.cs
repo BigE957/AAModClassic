@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Items.Vanity.Moon.Shiny;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.Items.Vanity.Moon
 {

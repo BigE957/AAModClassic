@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

@@ -4,6 +4,7 @@ using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
 {

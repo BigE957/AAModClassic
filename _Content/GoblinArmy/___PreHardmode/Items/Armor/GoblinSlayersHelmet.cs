@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using System;
 using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {

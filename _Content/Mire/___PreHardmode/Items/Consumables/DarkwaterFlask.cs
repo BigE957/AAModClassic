@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

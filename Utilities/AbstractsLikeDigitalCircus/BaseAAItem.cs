@@ -2,13 +2,11 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic
+namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
     public abstract class BaseAAItem : ModItem
     {

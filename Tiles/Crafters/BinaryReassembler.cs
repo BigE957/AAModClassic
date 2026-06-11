@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.Tiles.Crafters
 {

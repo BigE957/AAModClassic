@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.Projectiles;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

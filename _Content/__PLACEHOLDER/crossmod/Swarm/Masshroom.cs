@@ -7,6 +7,7 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content.__PLACEHOLDER.crossmod.Swarm

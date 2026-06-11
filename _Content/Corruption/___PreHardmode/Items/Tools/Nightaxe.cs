@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Tools
 {

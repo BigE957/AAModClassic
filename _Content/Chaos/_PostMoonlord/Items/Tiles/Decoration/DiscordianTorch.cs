@@ -1,6 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

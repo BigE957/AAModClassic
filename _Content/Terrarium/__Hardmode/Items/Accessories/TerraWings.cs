@@ -1,4 +1,5 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

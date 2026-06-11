@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Accessories;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;

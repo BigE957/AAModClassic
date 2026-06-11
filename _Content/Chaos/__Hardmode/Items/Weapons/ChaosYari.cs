@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using AAModClassic._Content.Snow.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {

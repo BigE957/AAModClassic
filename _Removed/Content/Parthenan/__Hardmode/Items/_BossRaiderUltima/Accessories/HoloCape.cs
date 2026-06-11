@@ -6,6 +6,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Access
 using AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories
 {

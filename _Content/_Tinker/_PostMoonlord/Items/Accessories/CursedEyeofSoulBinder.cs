@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
 {

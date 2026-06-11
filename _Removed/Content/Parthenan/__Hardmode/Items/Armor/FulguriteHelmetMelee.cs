@@ -1,4 +1,5 @@
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

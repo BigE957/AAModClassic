@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.Items.Vanity.Fargo
 {

@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -5,6 +5,7 @@ using Terraria.ID;
 using System;
 using Terraria.ModLoader;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
 {

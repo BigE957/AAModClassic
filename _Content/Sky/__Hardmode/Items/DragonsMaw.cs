@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Sky.__Hardmode.Items
 {

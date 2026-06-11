@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {

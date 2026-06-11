@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

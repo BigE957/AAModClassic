@@ -2,6 +2,7 @@ using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Access
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

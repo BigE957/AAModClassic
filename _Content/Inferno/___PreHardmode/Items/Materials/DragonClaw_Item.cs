@@ -1,3 +1,4 @@
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials

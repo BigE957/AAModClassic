@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {

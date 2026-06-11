@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor

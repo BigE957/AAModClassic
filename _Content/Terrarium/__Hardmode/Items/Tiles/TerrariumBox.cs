@@ -5,6 +5,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarc
 using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Void.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Tiles
 {

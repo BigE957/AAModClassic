@@ -6,6 +6,7 @@ using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {

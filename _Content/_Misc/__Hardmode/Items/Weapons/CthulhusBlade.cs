@@ -1,6 +1,7 @@
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons  //where is located
 {
     public class CthulhusBlade : BaseAAItem

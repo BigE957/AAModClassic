@@ -12,6 +12,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -9,6 +9,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 {

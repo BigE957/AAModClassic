@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

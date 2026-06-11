@@ -2,6 +2,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

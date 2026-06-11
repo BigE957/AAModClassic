@@ -6,6 +6,7 @@ using Terraria;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons
 {

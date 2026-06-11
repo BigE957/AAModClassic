@@ -1,4 +1,5 @@
 using AAModClassic._Content.Jungle.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
