@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -12,8 +13,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 {
-    public class PurityWeaverHead : ModNPC
-	{
+    public class PurityWeaverHead : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Purity Weaver");
@@ -42,7 +43,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

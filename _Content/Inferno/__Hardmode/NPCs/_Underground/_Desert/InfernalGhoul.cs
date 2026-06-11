@@ -1,5 +1,4 @@
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,8 +26,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
             AnimationType = NPCID.DesertGhoul;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
+			//Banner = NPC.type;
+			//BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 

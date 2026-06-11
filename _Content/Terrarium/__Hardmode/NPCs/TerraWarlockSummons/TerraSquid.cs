@@ -1,6 +1,7 @@
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
 {
-    public class TerraSquid : ModNPC
-	{
+    public class TerraSquid : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Squid");
@@ -32,7 +33,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquidBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquidBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

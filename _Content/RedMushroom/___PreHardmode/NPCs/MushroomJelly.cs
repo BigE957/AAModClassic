@@ -1,4 +1,5 @@
 using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +7,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
-    public class MushroomJelly : ModNPC
-	{
+    public class MushroomJelly : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushroom Jelly");
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.alpha = 20;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomJellyBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomJellyBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 

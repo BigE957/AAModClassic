@@ -4,6 +4,7 @@ using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
-    public class FungusFrog : ModNPC
+    public class FungusFrog : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -34,7 +35,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 

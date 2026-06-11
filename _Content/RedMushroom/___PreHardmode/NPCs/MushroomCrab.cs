@@ -1,5 +1,6 @@
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +8,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
-    public class MushroomCrab : ModNPC
-	{
+    public class MushroomCrab : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushroom Crab");
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.buffImmune[31] = false;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomCrabBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomCrabBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 

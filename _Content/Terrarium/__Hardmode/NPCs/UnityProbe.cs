@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Terrarium.Projectiles;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class UnityProbe : ModNPC
-	{
+    public class UnityProbe : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Unity Probe");
@@ -31,7 +32,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.UnityProbeBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.UnityProbeBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

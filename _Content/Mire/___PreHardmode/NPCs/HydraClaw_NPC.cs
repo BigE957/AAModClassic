@@ -2,20 +2,19 @@ using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.LootSimulation.LootSimulatorConditionSetterTypes;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
-    public class HydraClaw_NPC : ModNPC
+    public class HydraClaw_NPC : ModNPC, IBannerNPC
     {
         public bool WasSpawnedByGripOfChaos = false;
 
@@ -54,7 +53,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 NPC.value = 100f;
                 NPC.knockBackResist = 0.6f;
                 Banner = NPC.type;
-                BannerItem = ModContent.ItemType<HydraClawBanner>();
+                //BannerItem = ModContent.ItemType<HydraClawBanner>();
             }
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

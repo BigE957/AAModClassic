@@ -1,6 +1,7 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 {
-    public class PurityCrawler : ModNPC
+    public class PurityCrawler : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
 		{
@@ -34,7 +35,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

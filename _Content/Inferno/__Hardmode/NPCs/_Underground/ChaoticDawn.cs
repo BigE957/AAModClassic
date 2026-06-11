@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,8 +10,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 {
-    public class ChaoticDawn : ModNPC
-	{
+    public class ChaoticDawn : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaotic Dawn");
@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
+			//BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 

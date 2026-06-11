@@ -2,6 +2,7 @@
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,8 +13,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
 {
-    public class SnowSerpentHead : ModNPC
-	{
+    public class SnowSerpentHead : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Snow Serpent");
@@ -47,7 +48,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -1,7 +1,7 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
 
-    public class Skulker : ModNPC
+    public class Skulker : ModNPC, IBannerNPC
     {
 
         public override void SetStaticDefaults()
@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.knockBackResist = .2f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SkulkerBanner>();
+			//BannerItem = ModContent.ItemType<SkulkerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

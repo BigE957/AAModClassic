@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Vanity.Ohno;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -10,8 +11,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 {
-    public class Null : ModNPC
-	{
+    public class Null : ModNPC, IBannerNPC
+    {
 		
 		public override void SetStaticDefaults()
 		{
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

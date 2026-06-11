@@ -1,5 +1,5 @@
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -9,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 {
-    public class PigronInferno : ModNPC
-	{
+    public class PigronInferno : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Pigron");
@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<PigronInfernoBanner>();
+			//BannerItem = ModContent.ItemType<PigronInfernoBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 

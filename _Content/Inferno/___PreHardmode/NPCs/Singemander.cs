@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 {
 
-    public class Singemander : ModNPC
+    public class Singemander : ModNPC, IBannerNPC
     {
 
         public override void SetStaticDefaults()
@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SingemanderBanner>();
+			//BannerItem = ModContent.ItemType<SingemanderBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

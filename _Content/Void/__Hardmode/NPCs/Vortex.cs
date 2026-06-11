@@ -1,6 +1,7 @@
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -12,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs
 {
-    public class Vortex : ModNPC
+    public class Vortex : ModNPC, IBannerNPC
     {
         public static Asset<Texture2D> Glowmask;
         public static Asset<Texture2D> Blades;
@@ -43,7 +44,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             NPC.noGravity = true;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

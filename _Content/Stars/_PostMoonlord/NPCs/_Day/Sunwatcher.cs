@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars.Projectiles;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -11,8 +12,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 {
-    public class SunWatcher : ModNPC
-	{
+    public class SunWatcher : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Sun Watcher");
@@ -35,7 +36,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SunWatcherBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SunWatcherBanner>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

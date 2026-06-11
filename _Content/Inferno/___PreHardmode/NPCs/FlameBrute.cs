@@ -1,7 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 {
-    public class FlameBrute : ModNPC
+    public class FlameBrute : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;		
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<FlamebruteBanner>();
+			//BannerItem = ModContent.ItemType<FlamebruteBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

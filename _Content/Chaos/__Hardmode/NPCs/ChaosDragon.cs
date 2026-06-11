@@ -1,6 +1,7 @@
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
 {
-    public class ChaosDragon : ModNPC
-	{
+    public class ChaosDragon : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Dragon");
@@ -38,7 +39,6 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ChaosDragonBanner>();
             SpawnModBiomes = new int[2] { ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type };
         }
 

@@ -1,5 +1,6 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraDeadshot : ModNPC
+    public class TerraDeadshot : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
         

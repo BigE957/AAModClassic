@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,8 +14,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
 {
-    public class WyrmHead : ModNPC
-	{
+    public class WyrmHead : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Wyrm");
@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
                 NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<WyrmBanner>();
+			//BannerItem = ModContent.ItemType<WyrmBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 

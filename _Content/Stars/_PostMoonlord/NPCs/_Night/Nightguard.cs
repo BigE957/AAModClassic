@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars.Projectiles;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -12,8 +13,8 @@ using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 {
-    public class NightGuard : ModNPC
-	{
+    public class NightGuard : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Night Guard");
@@ -36,7 +37,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NightGuardBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NightGuardBanner>();
 		}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

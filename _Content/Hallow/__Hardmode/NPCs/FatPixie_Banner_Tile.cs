@@ -1,4 +1,3 @@
-using AAModClassic._Content.Hallow.__Hardmode.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,9 +7,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Banners
+namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
 {
-    public class FatPixieBanner_Tile : ModTile
+    public class FatPixie_Banner_Tile : ModTile
 	{
 		public override void SetStaticDefaults() 
 		{

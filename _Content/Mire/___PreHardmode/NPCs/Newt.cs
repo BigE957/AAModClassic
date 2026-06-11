@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Projectiles;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
-    public class Newt : ModNPC
+    public class Newt : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.Crawdad;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<NewtBanner>();
+			//BannerItem = ModContent.ItemType<NewtBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
         

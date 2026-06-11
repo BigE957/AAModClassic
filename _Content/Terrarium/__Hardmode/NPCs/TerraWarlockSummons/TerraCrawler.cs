@@ -1,6 +1,8 @@
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +10,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
 {
-    public class TerraCrawler : ModNPC
-	{
+    public class TerraCrawler : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Crawler");
@@ -30,7 +32,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

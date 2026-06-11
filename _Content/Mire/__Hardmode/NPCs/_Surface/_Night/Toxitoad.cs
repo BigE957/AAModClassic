@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Mire.Projectiles;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -13,7 +13,7 @@ using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 {
-    public class Toxitoad : ModNPC
+    public class Toxitoad : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             AIType = NPCID.GoblinScout;
             NPC.rarity = 2;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ToxitoadBanner>();
+			//BannerItem = ModContent.ItemType<ToxitoadBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

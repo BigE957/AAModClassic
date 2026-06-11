@@ -1,9 +1,8 @@
 using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -15,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {
-    public class ScavengerHead : ModNPC
+    public class ScavengerHead : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -51,7 +50,6 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             Banner = ModContent.NPCType<ScavengerHead>();
-			BannerItem = ModContent.ItemType<ScavengerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
         }
 

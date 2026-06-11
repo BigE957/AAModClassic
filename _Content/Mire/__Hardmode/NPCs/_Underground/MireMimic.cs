@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mire Mimic");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[475];
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BigMimicHallow];
 		}
 
 		public override void SetDefaults()

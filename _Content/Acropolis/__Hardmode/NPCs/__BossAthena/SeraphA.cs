@@ -1,9 +1,13 @@
+using AAModClassic.Utilities.Interfaces;
 using Terraria.GameContent.Bestiary;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 {
-	public class SeraphA : Seraph
+	public class SeraphA : Seraph, IBannerNPC
 	{
+        public int OverrideBannerNPCType = ModContent.NPCType<Seraph>();
+
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

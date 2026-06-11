@@ -1,10 +1,9 @@
 ﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -17,8 +16,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 {
-    public class AncientLungHead : ModNPC
-	{
+    public class AncientLungHead : ModNPC, IBannerNPC
+    {
         public bool loludided;
 
         public override void SetStaticDefaults()
@@ -62,7 +61,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AncientLungBanner>();
+			//BannerItem = ModContent.ItemType<AncientLungBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

@@ -2,7 +2,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -11,7 +11,7 @@ using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
 {
-    public class BlazeClaw : ModNPC
+    public class BlazeClaw : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<BlazeClawBanner>();
+			//BannerItem = ModContent.ItemType<BlazeClawBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

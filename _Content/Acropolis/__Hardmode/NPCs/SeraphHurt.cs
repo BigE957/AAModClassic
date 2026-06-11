@@ -3,6 +3,7 @@ using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,8 +12,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
-    public class SeraphHurt : ModNPC
+    public class SeraphHurt : ModNPC, IBannerNPC
 	{
+        public int OverrideBannerNPCType => ModContent.NPCType<Seraph>();
+
         public override void SetStaticDefaults()
 		{
             Main.npcFrameCount[NPC.type] = 5;
@@ -34,8 +37,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = false;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SeraphBanner>();
+            Banner = ModContent.NPCType<Seraph>();
             NPC.dontTakeDamage = true;
         }
 

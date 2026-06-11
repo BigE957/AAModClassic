@@ -1,5 +1,5 @@
-﻿using AAModClassic.Items.Banners;
-using AAModClassic.Utilities;
+﻿using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -8,8 +8,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
 {
-    public class WyrmBody1 : WyrmHead
+    public class WyrmBody1 : WyrmHead, IBannerNPC
     {
+        public int OverrideBannerNPCType => ModContent.NPCType<WyrmHead>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wyrm");
@@ -22,7 +24,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = ModContent.NPCType<WyrmHead>();
-            BannerItem = ModContent.ItemType<WyrmBanner>();
+            //BannerItem = ModContent.ItemType<WyrmBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

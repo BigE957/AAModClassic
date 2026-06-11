@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,8 +12,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 {
-    public class Searcher : ModNPC
-	{
+    public class Searcher : ModNPC, IBannerNPC
+    {
 		public int timer = 0;
 		public bool start = true;
 
@@ -36,7 +37,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

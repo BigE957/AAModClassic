@@ -3,6 +3,7 @@ using AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,8 +12,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraWizard : ModNPC
-	{
+    public class TerraWizard : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Wizard");
@@ -32,7 +33,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

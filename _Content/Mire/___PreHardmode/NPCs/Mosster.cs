@@ -1,6 +1,6 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
 
-    public class Mosster : ModNPC
+    public class Mosster : ModNPC, IBannerNPC
     {
 
         public override void SetStaticDefaults()
@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.height = 78;
             NPC.lavaImmune = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MossterBanner>();
+			//BannerItem = ModContent.ItemType<MossterBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

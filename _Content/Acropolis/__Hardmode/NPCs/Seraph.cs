@@ -4,7 +4,7 @@ using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -15,7 +15,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
-	public class Seraph : ModNPC
+	public class Seraph : ModNPC, IBannerNPC
 	{
         public override void SetStaticDefaults()
 		{
@@ -39,8 +39,6 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.noTileCollide = true;
             if (NPC.type == ModContent.NPCType<SeraphA>() && !NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SeraphBanner>();
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
         }
 

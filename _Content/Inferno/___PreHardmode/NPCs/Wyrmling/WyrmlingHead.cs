@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,8 +14,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
-    public class WyrmlingHead : ModNPC
-	{
+    public class WyrmlingHead : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Wyrmling");
@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
                 NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+			//BannerItem = ModContent.ItemType<WyrmlingBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

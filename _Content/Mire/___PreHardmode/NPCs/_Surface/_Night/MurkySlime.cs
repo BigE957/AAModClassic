@@ -1,6 +1,6 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -9,8 +9,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
-    public class MurkySlime : ModNPC
-	{
+    public class MurkySlime : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Murky Slime");
@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.CorruptSlime;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MurkySlimeBanner>();
+			//BannerItem = ModContent.ItemType<MurkySlimeBanner>();
 			SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

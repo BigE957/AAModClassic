@@ -2,8 +2,8 @@
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using AAModClassic.UI.WorldGen;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -13,8 +13,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 {
-    public class ShadowScout : ModNPC
-	{
+    public class ShadowScout : ModNPC, IBannerNPC
+    {
 		
 		public override void SetStaticDefaults()
 		{
@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ShadowScoutBanner>();
+			//BannerItem = ModContent.ItemType<ShadowScoutBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

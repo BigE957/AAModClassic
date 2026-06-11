@@ -1,5 +1,4 @@
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Items.Banners;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,8 +23,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
 		{
             NPC.CloneDefaults(NPCID.DesertGhoul);
             AnimationType = NPCID.DesertGhoul;
-			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ShadowGhoulBanner>();
+			//Banner = NPC.type;
+			//BannerItem = ModContent.ItemType<ShadowGhoulBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 

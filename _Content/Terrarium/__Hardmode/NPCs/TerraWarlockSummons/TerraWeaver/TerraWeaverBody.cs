@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -9,8 +10,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver
 {
-    public class TerraWeaverBody : ModNPC
-	{
+    public class TerraWeaverBody : ModNPC, IBannerNPC
+    {
+        public int OverrideBannerNPCType => ModContent.NPCType<TerraWeaverHead>();
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Weaver");
@@ -33,7 +36,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
-    public class InfernalSlime : ModNPC
+    public class InfernalSlime : ModNPC, IBannerNPC
 	{
 		public override void SetStaticDefaults()
 		{
@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day
             AnimationType = NPCID.CorruptSlime;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<InfernalSlimeBanner>();
+			//BannerItem = ModContent.ItemType<InfernalSlimeBanner>();
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
         }
 

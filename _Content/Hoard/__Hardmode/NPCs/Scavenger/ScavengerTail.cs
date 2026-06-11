@@ -1,15 +1,19 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {
-    public class ScavengerTail : ScavengerHead
+    public class ScavengerTail : ScavengerHead, IBannerNPC
     {
+        public int OverrideBannerNPCType => ModContent.NPCType<ScavengerHead>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scavenger");

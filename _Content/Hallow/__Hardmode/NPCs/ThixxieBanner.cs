@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Banners
+namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
 {
 	public class ThixxieBanner : BaseAAItem
 	{
@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Banners
 	    public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<FatPixieBanner>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<FatPixie_Banner>(), 20);
             recipe.Register();
         }
     }

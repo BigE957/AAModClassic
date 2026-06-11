@@ -136,7 +136,10 @@ namespace AAModClassic
 
         public static void SetupBannerItemTextures()
         {
-            if (Main.netMode == NetmodeID.Server || Main.dedServ) return; //don't do any texture stuff on a server lol
+            return;
+            /*
+            if (Main.netMode == NetmodeID.Server || Main.dedServ) 
+                return; //don't do any texture stuff on a server lol
             try
             {
                 int fx = 16;
@@ -167,6 +170,7 @@ namespace AAModClassic
                 ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.Message);
                 ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.StackTrace);
             }
+            */
         }
 
         public static Texture2D GetCroppedTex(Texture2D texture, Rectangle rect)
@@ -184,37 +188,18 @@ namespace AAModClassic
             return croppedTexture;
         }
 
-        public static FieldInfo _bannerField = null;
-        public static IDictionary<int, int> BannerToItemDict
-        {
-            get
-            {
-                if (_bannerField == null)
-                {
-                    _bannerField = typeof(NPCLoader).GetField("bannerToItem", BindingFlags.NonPublic | BindingFlags.Static);
-                }
-                return (IDictionary<int, int>)_bannerField.GetValue(null);
-            }
-            set
-            {
-                if (_bannerField != null)
-                {
-                    _bannerField.SetValue(null, value);
-                }
-            }
-        }
-
         public static void SetupBannerNPCs()
         {
+            return;
+            /*
             Mod mod = instance;
             try
             {
-                IDictionary<int, int> bannerToItem = BannerToItemDict;
                 int fx = 16;
 
-                while (Tiles.Banners.Banners_Tile.GetBannerNPCTypes(fx) != null)
+                while (Banners_Tile.GetBannerNPCTypes(fx) != null)
                 {
-                    int[] npcTypes = Tiles.Banners.Banners_Tile.GetBannerNPCTypes(fx);
+                    int[] npcTypes = Banners_Tile.GetBannerNPCTypes(fx);
 
                     if (npcTypes.Length == 0)
                     {
@@ -231,18 +216,17 @@ namespace AAModClassic
                         {
                             me.Banner = lead.Type;
                             me.BannerItem = mod.Find<ModItem>(lead.Name.Replace("Head", "") + "Banner").Type;
-                            bannerToItem[me.Banner] = me.BannerItem;
                         }
                     }
                     fx += 16;
                 }
-                BannerToItemDict = bannerToItem;
             }
             catch (Exception e)
             {
                 ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.Message);
                 ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.StackTrace);
             }
+            */
         }
 
         public static readonly PropertyInfo valueProp = typeof(LocalizedText).GetProperty("Value", BindingFlags.Public | BindingFlags.Instance);

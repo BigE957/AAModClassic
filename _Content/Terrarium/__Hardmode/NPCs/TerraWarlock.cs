@@ -5,6 +5,7 @@ using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraW
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
@@ -14,7 +15,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraWarlock : ModNPC
+    public class TerraWarlock : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -34,7 +35,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWarlockBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWarlockBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

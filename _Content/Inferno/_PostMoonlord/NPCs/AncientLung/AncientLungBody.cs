@@ -1,6 +1,6 @@
 ﻿using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -9,8 +9,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 {
-    public class AncientLungBody : AncientLungHead
+    public class AncientLungBody : AncientLungHead, IBannerNPC
     {
+        public int OverrideBannerNPCType => ModContent.NPCType<AncientLungHead>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ancient Lung");
@@ -23,7 +25,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<AncientLungBanner>();
+            //BannerItem = ModContent.ItemType<AncientLungBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

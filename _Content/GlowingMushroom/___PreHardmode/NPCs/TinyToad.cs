@@ -4,6 +4,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToa
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -12,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
 {
-    public class TinyToad : ModNPC
+    public class TinyToad : ModNPC, IBannerNPC
     {
         public bool WasSpawnedByTruffleToad = false;
         
@@ -37,10 +38,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             if (!WasSpawnedByTruffleToad)
-            {
                 Banner = NPC.type;
-                BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TinyToadBanner>();
-            }
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

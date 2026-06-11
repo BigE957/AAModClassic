@@ -12057,3 +12057,8 @@ UnityWatcherBanner: {
 	DisplayName: Unity Watcher Banner
 	Tooltip: ""
 }
+
+FatPixie_Banner: {
+	DisplayName: Fat Pixie_ Banner
+	Tooltip: ""
+}

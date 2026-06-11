@@ -2,14 +2,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Banners
+namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
 {
-	public class SkulkerBanner : BaseAAItem
+    public class FatPixie_Banner : BaseAAItem
 	{
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {
-			Item.width = 10;
-			Item.height = 24;
+			Item.width = 36;
+			Item.height = 36;
 			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
@@ -18,9 +18,9 @@ namespace AAModClassic.Items.Banners
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Blue;
-			Item.value = 1000;
-			Item.createTile = ModContent.TileType<Tiles.Banners.Banners_Tile>();
-			Item.placeStyle = 73;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
+			Item.value = Item.sellPrice(0, 1, 0, 0);
+			Item.createTile = ModContent.TileType<FatPixie_Banner_Tile>();
+			Item.placeStyle = 0;
 		}
 	}
 }

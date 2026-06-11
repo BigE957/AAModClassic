@@ -1,6 +1,7 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 {
-    public class PuritySquid : ModNPC
-	{
+    public class PuritySquid : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Purity Squid");
@@ -32,7 +33,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
         

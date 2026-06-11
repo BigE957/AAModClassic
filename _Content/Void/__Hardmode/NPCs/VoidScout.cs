@@ -2,6 +2,7 @@ using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,8 +12,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs
 {
-    public class VoidScout : ModNPC
-	{
+    public class VoidScout : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Void Scout");
@@ -35,7 +36,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VoidScoutBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VoidScoutBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

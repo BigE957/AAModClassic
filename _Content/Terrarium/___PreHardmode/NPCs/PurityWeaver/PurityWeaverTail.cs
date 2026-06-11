@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -7,8 +8,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 {
-    public class PurityWeaverTail : PurityWeaverHead
+    public class PurityWeaverTail : PurityWeaverHead, IBannerNPC
     {
+        public int OverrideBannerNPCType => ModContent.NPCType<PurityWeaverHead>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Weaver");
@@ -25,7 +28,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 
             NPC.alpha = 255;
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

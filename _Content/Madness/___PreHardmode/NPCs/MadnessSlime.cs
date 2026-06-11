@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -7,8 +8,8 @@ using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 {
-    public class MadnessSlime : ModNPC
-	{
+    public class MadnessSlime : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Madness Slime");
@@ -34,7 +35,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 			NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
 		}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

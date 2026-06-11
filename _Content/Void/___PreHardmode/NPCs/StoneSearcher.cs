@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -9,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 {
-    public class StoneSearcher : ModNPC
-	{
+    public class StoneSearcher : ModNPC, IBannerNPC
+    {
 		
 		public override void SetStaticDefaults()
 		{
@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<StoneSearcherBanner>();
+			//BannerItem = ModContent.ItemType<StoneSearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

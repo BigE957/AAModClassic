@@ -1,5 +1,5 @@
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -9,8 +9,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
 {
-    public class PigronMire : ModNPC
-	{
+    public class PigronMire : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Pigron");
@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
             AnimationType = NPCID.PigronCorruption;
             NPC.buffImmune[31] = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<PigronMireBanner>();
+			//BannerItem = ModContent.ItemType<PigronMireBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 

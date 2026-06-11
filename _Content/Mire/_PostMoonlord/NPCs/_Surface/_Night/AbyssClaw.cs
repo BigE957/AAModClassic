@@ -2,7 +2,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -11,7 +11,7 @@ using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
 {
-    public class AbyssClaw : ModNPC
+    public class AbyssClaw : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             NPC.aiStyle = -1;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AbyssClawBanner>();
+			//BannerItem = ModContent.ItemType<AbyssClawBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

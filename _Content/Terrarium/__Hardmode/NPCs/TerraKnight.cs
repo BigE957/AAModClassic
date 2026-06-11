@@ -1,6 +1,7 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -9,8 +10,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraKnight : ModNPC
-	{
+    public class TerraKnight : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Knight");
@@ -36,7 +37,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             AnimationType = NPCID.SolarSolenian;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraKnightBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraKnightBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
         public override void AI()
