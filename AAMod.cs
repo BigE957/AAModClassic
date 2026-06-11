@@ -474,7 +474,7 @@ namespace AAModClassic
 
             if (!Main.dedServ)
             {
-                Config.Load();
+                AALuckyConfig.Load();
                 LoadClient();
             }
         }
@@ -754,25 +754,25 @@ namespace AAModClassic
                     AAloadedOnly = false;
                 }
             }
-            Config.SaveConfig();
+            AALuckyConfig.SaveConfig();
         }
 
         private static void LuckyCheckProgress()
         {
-            Config.LuckyOre.Clear();
-            Config.LuckyPotion.Clear();
-            Config.ListRareNpc.Clear();
+            AALuckyConfig.LuckyOre.Clear();
+            AALuckyConfig.LuckyPotion.Clear();
+            AALuckyConfig.ListRareNpc.Clear();
             Item item = new Item();
             for (int i = -48; i < ItemLoader.ItemCount; i++)
             {
                 item.netDefaults(i);
                 if (item.createTile > TileID.Dirt && Main.tileOreFinderPriority[item.createTile] > 0 && !Main.tileContainer[item.createTile] && item.createTile != TileID.FakeContainers && item.createTile != TileID.FakeContainers2)
                 {
-                    Config.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
+                    AALuckyConfig.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
                 }
                 if (item.buffType > 0 && item.buffType != BuffID.WellFed && item.buffTime > 0 && item.type > ItemID.Celeb2)
                 {
-                    Config.LuckyPotion.Add(item.type, item.value);
+                    AALuckyConfig.LuckyPotion.Add(item.type, item.value);
                 }
             }
             NPC npc = new NPC();
@@ -784,7 +784,7 @@ namespace AAModClassic
                 }
                 if (npc.rarity >= 1)
                 {
-                    Config.ListRareNpc.Add(i);
+                    AALuckyConfig.ListRareNpc.Add(i);
                 }
             }
         }

@@ -379,8 +379,8 @@ namespace AAModClassic.Globals
                 }
                 if(Main.rand.NextBool(200))
                 {
-                    int k = Config.LuckyPotion.Keys.Count;
-                    foreach (int itempotion in Config.LuckyPotion.Keys)
+                    int k = AALuckyConfig.LuckyPotion.Keys.Count;
+                    foreach (int itempotion in AALuckyConfig.LuckyPotion.Keys)
 			        {
                         if(Main.rand.Next(k) == 0)
                         {
@@ -770,10 +770,10 @@ namespace AAModClassic.Globals
         public static int DropOreMethod(int x, int y, int type)
         {
             float ChanceBalance = 1;
-            int SecondDrop = Config.LuckyOre.Keys.Count;
-            foreach (int itemtype in Config.LuckyOre.Keys)
+            int SecondDrop = AALuckyConfig.LuckyOre.Keys.Count;
+            foreach (int itemtype in AALuckyConfig.LuckyOre.Keys)
 			{
-				float chance = Config.LuckyOre[itemtype];
+				float chance = AALuckyConfig.LuckyOre[itemtype];
                 chance -= Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].pick;
                 chance = chance/ChanceBalance * 100f;
                 if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<AbyssiumOre>() || itemtype == ModContent.ItemType<IncineriteOre>() || itemtype == ModContent.ItemType<ApocalyptiteOre>()))
@@ -819,7 +819,7 @@ namespace AAModClassic.Globals
                 }
                 else if(!Main.hardMode)
                 {
-                    if(Config.LuckyOre[itemtype] <= 500)
+                    if(AALuckyConfig.LuckyOre[itemtype] <= 500)
                     {
                         if(Utils.NextFloat(Main.rand, chance) < 1)
                         {
@@ -831,7 +831,7 @@ namespace AAModClassic.Globals
                 {
                     chance /= 2 * (1 + (NPC.downedPlantBoss? 1 : 0) + (NPC.downedMoonlord? 1 : 0) + (AAWorld.downedEquinox? 1 : 0) + (AAWorld.downedShen? 1 : 0));
                     int digcheck = 500 + (NPC.downedPlantBoss? 200 : 0) + (NPC.downedMoonlord? 110 : 0) + (AAWorld.downedEquinox? 20 : 0);
-                    bool flag = Config.LuckyOre[itemtype] <= digcheck;
+                    bool flag = AALuckyConfig.LuckyOre[itemtype] <= digcheck;
                     if(flag || AAWorld.downedShen)
                     {
                         if(Utils.NextFloat(Main.rand, chance) < 1)

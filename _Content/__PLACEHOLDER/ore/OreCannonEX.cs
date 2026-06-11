@@ -63,7 +63,7 @@ OreCannonEX"); */
                 {
                     Item item = player.inventory[m];
                     
-                    if (item != null && (Config.LuckyOre.TryGetValue(item.type, out oreindex) || item.type == ItemID.Hellstone) && item.stack > 0) 
+                    if (item != null && (AALuckyConfig.LuckyOre.TryGetValue(item.type, out oreindex) || item.type == ItemID.Hellstone) && item.stack > 0) 
                     {
                         oreindex = m;
                         projType = item.type;
@@ -172,7 +172,7 @@ OreCannonEX"); */
         public int Damage()
         {
             int orevalue = 0;
-            if(Config.LuckyOre.TryGetValue(projType, out orevalue))
+            if(AALuckyConfig.LuckyOre.TryGetValue(projType, out orevalue))
             {
                 return (int)Math.Exp(orevalue * 0.94/100);
             }

@@ -1195,7 +1195,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     };
                 }
             }
-            else if(k > 3930 && Config.LuckyOre[k] > 650 && item.ModItem.Mod != AAMod.instance)
+            else if(k > 3930 && AALuckyConfig.LuckyOre[k] > 650 && item.ModItem.Mod != AAMod.instance)
             {
                 int dustid = DustID.Copper;
                 switch (WorldGen.genRand.Next(10))
@@ -1237,7 +1237,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
         public int Damage()
         {
             int orevalue = 0;
-            if(Config.LuckyOre.TryGetValue((int)Projectile.ai[1], out orevalue))
+            if(AALuckyConfig.LuckyOre.TryGetValue((int)Projectile.ai[1], out orevalue))
             {
                 return (int)Math.Exp(orevalue * 0.67/100);
             }
@@ -1428,11 +1428,11 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             {
                 return ModContent.DustType<Dusts.VoidDust>();
             }
-            else if (Config.LuckyOre[k] <= 300)
+            else if (AALuckyConfig.LuckyOre[k] <= 300)
             {
                 return DustID.Copper;
             }
-            else if (Config.LuckyOre[k] <= 700)
+            else if (AALuckyConfig.LuckyOre[k] <= 700)
             {
                 return DustID.Gold;
             }

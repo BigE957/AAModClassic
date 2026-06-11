@@ -1217,7 +1217,7 @@ namespace AAModClassic.Globals
                 if(NPC.goldCritterChance >= 30) NPC.goldCritterChance = 30;
                 if(!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<AAPlayer>().luckycalm)
                 {
-                    foreach (int npctype in Config.ListRareNpc)
+                    foreach (int npctype in AALuckyConfig.ListRareNpc)
                     {
                         if (pool.Keys.Contains(npctype) && pool[npctype] <= 0.05f)
                         {
