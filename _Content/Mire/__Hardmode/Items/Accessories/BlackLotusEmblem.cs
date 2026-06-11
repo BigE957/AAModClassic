@@ -1,11 +1,11 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {

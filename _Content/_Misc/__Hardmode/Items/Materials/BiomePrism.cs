@@ -1,9 +1,9 @@
 ﻿using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic.Assets;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -48,7 +48,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Prism>(), 5);
-            recipe.AddTile(ModContent.TileType<TerraPrism_Tile>());
+            recipe.AddTile(ModContent.TileType<TerraPrismStation_Tile>());
             recipe.Register();
         }
     }

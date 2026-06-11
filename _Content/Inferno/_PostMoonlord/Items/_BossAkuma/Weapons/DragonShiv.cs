@@ -1,9 +1,9 @@
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Projectiles;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

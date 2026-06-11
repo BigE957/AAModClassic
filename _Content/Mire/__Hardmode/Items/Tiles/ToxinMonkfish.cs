@@ -23,7 +23,6 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.rare = ItemRarityID.LightRed;
-            AARarity = 6;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 128000;

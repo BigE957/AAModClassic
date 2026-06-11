@@ -1,11 +1,11 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Mire.Buffs;
-using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

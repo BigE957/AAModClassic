@@ -5,11 +5,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {

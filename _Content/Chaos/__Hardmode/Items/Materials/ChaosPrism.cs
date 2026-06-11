@@ -1,16 +1,9 @@
-using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic.Assets;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
-using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Materials
 {

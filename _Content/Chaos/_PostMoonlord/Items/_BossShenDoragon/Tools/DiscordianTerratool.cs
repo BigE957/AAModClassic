@@ -1,9 +1,9 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;

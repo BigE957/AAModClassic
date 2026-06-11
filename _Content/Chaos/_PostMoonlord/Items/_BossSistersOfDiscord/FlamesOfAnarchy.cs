@@ -8,7 +8,6 @@ using Terraria.DataStructures;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
@@ -16,6 +15,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
 {

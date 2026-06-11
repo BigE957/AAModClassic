@@ -12,6 +12,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -45,32 +46,28 @@ namespace AAModClassic.Globals
             if (item.ModItem != null && item.ModItem.Mod.Name == Mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)
             {
                 bool hasDoneShit = false;
-                if (item.ModItem is BaseAAItem AAitem)
-                {
-                    if (AAitem.AARarity != 0)
-                    {
-                        switch (AAitem.AARarity)
-                        {
-                            case 12:
-                                item.value = Item.sellPrice(0, 30, 0, 0);
-                                break;
 
-                            case 13:
-                                item.value = Item.sellPrice(0, 35, 0, 0);
-                                break;
 
-                            case 14:
-                                item.value = Item.sellPrice(0, 40, 0, 0);
-                                break;
-
-                            case 15:
-                                item.value = Item.sellPrice(0, 45, 0, 0);
-                                break;
-                        }
-                    }
+                if(item.rare == ModContent.RarityType<PostEquinoxRarity>())
+                { 
+                    item.value = Item.sellPrice(0, 30, 0, 0);
                     hasDoneShit = true;
                 }
-                
+                else if (item.rare == ModContent.RarityType<AncientsRarity>())
+                {
+                    item.value = Item.sellPrice(0, 35, 0, 0);
+                    hasDoneShit = true;
+                }
+                else if (item.rare == ModContent.RarityType<SuperancientsRarity>())
+                {
+                    item.value = Item.sellPrice(0, 40, 0, 0);
+                    hasDoneShit = true;
+                }
+                else if (item.rare == ModContent.RarityType<HyperancientsRarity>())
+                {
+                    item.value = Item.sellPrice(0, 45, 0, 0);
+                    hasDoneShit = true;
+                }
                 if (hasDoneShit == false)
                 {
                     switch (item.rare)

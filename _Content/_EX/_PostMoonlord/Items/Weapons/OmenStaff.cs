@@ -4,9 +4,9 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

@@ -4,11 +4,11 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {

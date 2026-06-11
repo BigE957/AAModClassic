@@ -3,11 +3,11 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {

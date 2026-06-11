@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
@@ -19,6 +18,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma
 {

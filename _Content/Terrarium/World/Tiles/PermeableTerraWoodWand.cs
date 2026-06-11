@@ -1,11 +1,4 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -1,10 +1,10 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

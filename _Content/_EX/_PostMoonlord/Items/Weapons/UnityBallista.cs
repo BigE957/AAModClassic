@@ -1,7 +1,7 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Terra.__Hardmode.Items.Ammo;
 using AAModClassic._Content.Terra.__Hardmode.Items.Weapons;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;

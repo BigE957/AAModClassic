@@ -1,13 +1,5 @@
-using AAModClassic._Content.Hallow.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using System;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor

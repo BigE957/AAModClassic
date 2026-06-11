@@ -1,9 +1,9 @@
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;

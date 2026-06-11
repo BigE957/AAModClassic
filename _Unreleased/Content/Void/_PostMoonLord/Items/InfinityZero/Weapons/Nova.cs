@@ -1,7 +1,7 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;

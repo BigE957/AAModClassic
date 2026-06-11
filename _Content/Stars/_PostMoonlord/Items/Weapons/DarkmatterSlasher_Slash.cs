@@ -1,14 +1,10 @@
+using AAModClassic.CrossMod.Overhaul;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using AAModClassic.CrossMod.Overhaul;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {

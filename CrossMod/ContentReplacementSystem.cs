@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
+﻿using AAModClassic._Content._Tinker._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
@@ -28,7 +29,6 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
-using AAModClassic.Tiles.Crafters;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

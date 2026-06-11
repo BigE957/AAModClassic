@@ -1,11 +1,6 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor

@@ -6,13 +6,13 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons   //where is located
 {

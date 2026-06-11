@@ -1,13 +1,13 @@
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;

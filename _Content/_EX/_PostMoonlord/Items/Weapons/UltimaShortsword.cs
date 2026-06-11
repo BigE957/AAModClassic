@@ -3,10 +3,10 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

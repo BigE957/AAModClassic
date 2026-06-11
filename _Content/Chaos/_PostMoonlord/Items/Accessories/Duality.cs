@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Inferno.Buffs;
@@ -7,7 +8,6 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;

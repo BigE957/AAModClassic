@@ -1,5 +1,5 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
