@@ -1,9 +1,9 @@
-using AAModClassic.Tiles.Banners;
+using AAModClassic._Content.Hallow.__Hardmode.NPCs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
+namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Decoration
 {
 	public class ThixxieBanner : BaseAAItem
 	{

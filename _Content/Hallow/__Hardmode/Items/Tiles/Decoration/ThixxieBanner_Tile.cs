@@ -8,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Banners
+namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Decoration
 {
     public class ThixxieBanner_Tile : ModTile
 	{

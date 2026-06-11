@@ -134,101 +134,6 @@ namespace AAModClassic
             instance = this;
         }
 
-        public static void SetupBannerItemTextures()
-        {
-            return;
-            /*
-            if (Main.netMode == NetmodeID.Server || Main.dedServ) 
-                return; //don't do any texture stuff on a server lol
-            try
-            {
-                int fx = 16;
-                Texture2D tex = TextureAssets.Tile[ModContent.TileType<Banners_Tile>()].Value;
-
-                while (Banners_Tile.GetBannerNPCTypes(fx) != null)
-                {
-                    int[] npcTypes = Banners_Tile.GetBannerNPCTypes(fx);
-
-                    if (npcTypes.Length == 0)
-                    {
-                        fx += 16;
-                        continue;
-                    }
-
-                    ModNPC lead = ContentSamples.NpcsByNetId[npcTypes[0]].ModNPC;
-                    if (lead != null)
-                    {
-                        var data = new Color[16 * 16 * 3];
-                        GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData(data);
-                        TextureAssets.Item[instance.Find<ModItem>(lead.Name.Replace("Head", "") + "Banner").Type].Value.SetData(data);
-                        fx += 16;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.Message);
-                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.StackTrace);
-            }
-            */
-        }
-
-        public static Texture2D GetCroppedTex(Texture2D texture, Rectangle rect)
-        {
-            Rectangle newBounds = texture.Bounds;
-            newBounds.X += rect.X;
-            newBounds.Y += rect.Y;
-            newBounds.Width = rect.Width;
-            newBounds.Height = rect.Height;
-            Texture2D croppedTexture = new(Main.instance.GraphicsDevice, newBounds.Width, newBounds.Height);
-            // Copy the data from the cropped region into a buffer, then into the new texture
-            Color[] data = new Color[newBounds.Width * newBounds.Height];
-            texture.GetData(0, newBounds, data, 0, newBounds.Width * newBounds.Height);
-            croppedTexture.SetData(data);
-            return croppedTexture;
-        }
-
-        public static void SetupBannerNPCs()
-        {
-            return;
-            /*
-            Mod mod = instance;
-            try
-            {
-                int fx = 16;
-
-                while (Banners_Tile.GetBannerNPCTypes(fx) != null)
-                {
-                    int[] npcTypes = Banners_Tile.GetBannerNPCTypes(fx);
-
-                    if (npcTypes.Length == 0)
-                    {
-                        fx += 16;
-                        continue;
-                    }
-
-                    for (int m = 0; m < npcTypes.Length; m++)
-                    {
-                        ModNPC me = ContentSamples.NpcsByNetId[npcTypes[m]].ModNPC;
-                        ModNPC lead = ContentSamples.NpcsByNetId[npcTypes[0]].ModNPC;
-
-                        if (me != null)
-                        {
-                            me.Banner = lead.Type;
-                            me.BannerItem = mod.Find<ModItem>(lead.Name.Replace("Head", "") + "Banner").Type;
-                        }
-                    }
-                    fx += 16;
-                }
-            }
-            catch (Exception e)
-            {
-                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.Message);
-                ModContent.GetInstance<AAMod>().Logger.InfoFormat(e.StackTrace);
-            }
-            */
-        }
-
         public static readonly PropertyInfo valueProp = typeof(LocalizedText).GetProperty("Value", BindingFlags.Public | BindingFlags.Instance);
         public static void AddLocalization(string key, string value)
         {
@@ -437,14 +342,6 @@ namespace AAModClassic
 
                     AddLocalization("Mods.AAModClassic.SetBonuses." + modItem.Name.Replace("Helmet", ""), statDifferences);
                 }
-            }
-
-
-            if (!Main.dedServ)
-            {
-                SetupBannerNPCs();
-
-                SetupBannerItemTextures();
             }
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
