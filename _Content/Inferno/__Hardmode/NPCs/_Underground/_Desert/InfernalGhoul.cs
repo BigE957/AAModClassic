@@ -26,8 +26,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
             AnimationType = NPCID.DesertGhoul;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-			//Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
+			Banner = Item.NPCtoBanner(NPCID.DesertGhoul);
+			BannerItem = ItemID.DesertGhoulBanner;
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 

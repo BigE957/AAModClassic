@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 {
-    public class PigronInferno : ModNPC, IBannerNPC
+    public class PigronInferno : ModNPC
     {
 		public override void SetStaticDefaults()
 		{
@@ -33,8 +33,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
             NPC.buffImmune[31] = false;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-            Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<PigronInfernoBanner>();
+            Banner = Item.NPCtoBanner(NPCID.PigronCorruption);
+			BannerItem = ItemID.PigronBanner;
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
