@@ -1,10 +1,16 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MonoMod.RuntimeDetour;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace AAModClassic.Utilities.Interfaces
 {
@@ -160,5 +166,48 @@ namespace AAModClassic.Utilities.Interfaces
 
         public override string Name => name + "Banner";
         public override string Texture => texture;
+
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileNoAttach[Type] = true;
+            Main.tileLavaDeath[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.MultiTileSway[Type] = true;
+
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
+
+            int height = ModContent.Request<Texture2D>(Texture).Height();
+            int count = (int)MathF.Ceiling(height / 16f);
+            TileObjectData.newTile.Height = count;
+
+            List<int> heights = [];
+            for (int i = 0; i < count; i++)
+            {
+                if (height >= 16)
+                {
+                    heights.Add(i == count - 1 ? 12 : 16);
+                    height -= 16;
+                }
+                else
+                    heights.Add(height - 2);
+            }
+            TileObjectData.newTile.CoordinateHeights = heights.ToArray();
+
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.PlanterBox, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.DrawYOffset = -2; // Draw this tile 2 pixels up, allowing the banner pole to align visually with the bottom of the tile it is anchored to.
+
+            // This alternate placement supports placing on un-hammered platform tiles. Note how the DrawYOffset accounts for the height adjustment needed for the tile to look correctly attached.
+            TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+            TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.Platform, TileObjectData.newTile.Width, 0);
+            TileObjectData.newAlternate.DrawYOffset = -10;
+            TileObjectData.addAlternate(0);
+
+            TileObjectData.addTile(Type);
+
+            DustType = -1; // No dust when mined
+            AddMapEntry(new Color(13, 88, 130), Language.GetText("MapObject.Banner"));
+        }
     }
 }
