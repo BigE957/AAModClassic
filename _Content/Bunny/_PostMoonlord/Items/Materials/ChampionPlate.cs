@@ -21,16 +21,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Materials
             Item.rare = ItemRarityID.Purple;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
     }
 }

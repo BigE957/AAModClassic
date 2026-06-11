@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -35,7 +36,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.autoReuse = true;
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>();
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

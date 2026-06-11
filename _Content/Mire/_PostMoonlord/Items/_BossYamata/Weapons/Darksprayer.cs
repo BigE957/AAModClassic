@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -36,20 +37,11 @@ Inflicts Moonrazed"); */
             Item.autoReuse = true;   
             Item.shootSpeed = 20f;
             Item.shoot = ModContent.ProjectileType<Darksprayer_Moonblow>();
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.noMelee = true;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override Vector2? HoldoutOffset()
         {

@@ -1,12 +1,13 @@
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria;
 using System.Collections.Generic;
-using AAModClassic.Globals;
+using Terraria;
 using Terraria.ID;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -35,8 +36,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Annihilator_Annihilation>();
 			Item.shootSpeed = 8f;
-            
-		}
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

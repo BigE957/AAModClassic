@@ -2,6 +2,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
@@ -28,8 +29,6 @@ Inflicts Discordian Inferno"); */
             Item.width = 20;
             Item.height = 20;
             Item.value = Item.sellPrice(1, 50, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
-
             Item.noMelee = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 40;
@@ -43,19 +42,10 @@ Inflicts Discordian Inferno"); */
             Item.DamageType = DamageClass.Melee;
             Item.autoReuse = true;
             Item.channel = true;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override void AddRecipes()  //How to craft this sword
         {

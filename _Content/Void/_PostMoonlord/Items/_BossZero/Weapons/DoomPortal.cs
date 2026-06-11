@@ -1,5 +1,6 @@
 ﻿using System;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -42,20 +43,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<DoomPortal_Buff>();
             Item.autoReuse = true;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.value = Item.sellPrice(0, 30, 0, 0);
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{

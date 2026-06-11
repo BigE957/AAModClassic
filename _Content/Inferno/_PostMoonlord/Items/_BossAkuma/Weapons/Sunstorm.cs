@@ -9,6 +9,7 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -37,22 +38,12 @@ Right click and hold to release and aim manually"); */
             Item.knockBack = 4.5f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.DamageType = DamageClass.Magic;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.noMelee = true;
             Item.UseSound = SoundID.Item124;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
 		public override bool AltFunctionUse(Player player)
 		{

@@ -7,6 +7,7 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
@@ -27,21 +28,11 @@ The armor of a champion feared across the land"); */
 			Item.width = 20;
 			Item.height = 24;
 			Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.defense = 39;
 		}
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{

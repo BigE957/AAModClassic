@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -35,20 +36,10 @@ Right click to shoot a blade wave"); */
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = ModContent.ProjectileType<Masamune_Surasshu>();
             Item.shootSpeed = 15f;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override bool AltFunctionUse(Player player)
         {

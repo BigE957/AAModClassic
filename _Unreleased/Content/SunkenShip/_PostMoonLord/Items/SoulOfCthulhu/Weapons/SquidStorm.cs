@@ -1,3 +1,4 @@
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -30,12 +31,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.noMelee = true; //so the item's animation doesn't do damage
             Item.knockBack = 3.5f;
             Item.value = Item.buyPrice(1, 0, 0, 0);
-            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item103;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<SquidStorm_CthulhuTentacle>();
             Item.shootSpeed = 12f;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
     
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

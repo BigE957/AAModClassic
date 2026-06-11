@@ -1,5 +1,6 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -33,22 +34,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 			Item.rare = ItemRarityID.Red;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
 			Item.createTile = ModContent.TileType<VoidUnit_Tile>();
-            Item.rare = ItemRarityID.Red;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-
-                    line2.OverrideColor = new Color(100, 0, 10);
-
-                    line2.OverrideColor = AAColor.Rarity13;
-//
-                }
-            }
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
         public override void AddRecipes()

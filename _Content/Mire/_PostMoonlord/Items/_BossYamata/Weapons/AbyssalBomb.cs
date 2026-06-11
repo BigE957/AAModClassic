@@ -1,6 +1,7 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -34,7 +35,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons    
             Item.autoReuse = true; 
             Item.shoot = ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>();  
             Item.shootSpeed = 20f;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
 		public override void SetStaticDefaults()
@@ -44,16 +45,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons    
 Small chance to fire an awakened bomb that explodes into abyss souls"); */
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

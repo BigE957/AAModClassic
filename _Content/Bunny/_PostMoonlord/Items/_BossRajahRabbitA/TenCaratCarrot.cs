@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -33,8 +34,7 @@ Non-consumable"); */
         {
             Item.width = 24;
             Item.height = 24;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
@@ -44,16 +44,7 @@ Non-consumable"); */
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Rajah");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override bool CanUseItem(Player player)
         {

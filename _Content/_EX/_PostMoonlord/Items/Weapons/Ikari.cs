@@ -1,6 +1,7 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -39,19 +40,10 @@ Chaos Slayer EX"); */
 			Item.shoot = ModContent.ProjectileType<Ikari_BladeOfUnyieldingChaos>();
 			Item.shootSpeed = 7;
             Item.useTurn = true;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

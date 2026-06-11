@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,19 +33,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tools
             Item.shoot = ModContent.ProjectileType<DarkmatterJackhammer_Holdout>();
             Item.shootSpeed = 40f;
             Item.tileBoost += 1;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
     }
 }

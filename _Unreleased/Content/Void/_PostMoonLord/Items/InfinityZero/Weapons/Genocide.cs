@@ -1,13 +1,14 @@
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Tiles.Crafters;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using System;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -23,8 +24,7 @@ Doesn't require ammo"); */
         }
 
         public override void SetDefaults()
-        {
-            
+        {          
             Item.damage = 500;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
@@ -36,7 +36,7 @@ Doesn't require ammo"); */
             Item.shoot = ModContent.ProjectileType<Genocide_Antimatter>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.shootSpeed = 8f;

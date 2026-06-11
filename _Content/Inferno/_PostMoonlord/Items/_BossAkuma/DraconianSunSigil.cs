@@ -18,6 +18,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma
 {
@@ -38,23 +39,14 @@ Non-Consumable"); */
         {
             Item.width = 18;
             Item.height = 28;
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
 
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.

@@ -13,7 +13,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 		public const int GLOWMASKTYPE_NONE = -1;	 //for shit like Daystorm which is a 'projectile' gun
 		public const int  GLOWMASKTYPE_SWORD = 0; //for swords and swordlike items
 		public const int GLOWMASKTYPE_GUN = 1; //for guns and gunlike items (bows too)
-        public int AARarity = 0; //TODO: rework to use tml rarity system
 
         //glowmask shenanigans
         public static Dictionary<int, Asset<Texture2D>> GlowmaskCache = [];
@@ -77,27 +76,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                     }
                 }
                 return;
-            }
-
-            BaseAAItem AAitem = (BaseAAItem)Item.ModItem;
-            if (AAitem.AARarity != 0)
-            {
-                Color Rare;
-                switch (AAitem.AARarity)
-                {
-                    default: Rare = Color.White; break;
-                    case 12: Rare = AAColor.Rarity12; break; //Ashe and Haruka
-                    case 13: Rare = AAColor.Rarity13; break; //Ancients
-                    case 14: Rare = AAColor.Rarity14; break; //Super Ancients	
-                    case 15: Rare = AAColor.Rarity15; break; //Hyper Ancients				
-                }
-                foreach (TooltipLine line2 in list)
-                {
-                    if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                    {
-                        line2.OverrideColor = Rare;
-                    }
-                }
             }
         }
 

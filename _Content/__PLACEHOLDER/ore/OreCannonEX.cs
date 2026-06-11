@@ -10,6 +10,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.__PLACEHOLDER.ore.projs;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore
 {
@@ -42,19 +43,7 @@ OreCannonEX"); */
             Item.expert = true; 
 			Item.expertOnly = true;
             Item.autoReuse = true;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
-        }
-
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
         public override Vector2? HoldoutOffset()

@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
@@ -27,20 +28,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 2000;
-            Item.rare = ItemRarityID.Green;
             Item.createTile = ModContent.TileType<SoulOfCthulhuTrophy_Tile>();
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
     }
 }

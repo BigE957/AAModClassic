@@ -1,6 +1,7 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -29,20 +30,10 @@ The abyssal wrath of the Mire rests in this armor"); */
 			Item.height = 20;
 			Item.value = 3000000;
 			Item.defense = 44;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void UpdateEquip(Player player)
         {

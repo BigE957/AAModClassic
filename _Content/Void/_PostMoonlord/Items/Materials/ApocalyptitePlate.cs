@@ -23,16 +23,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
 			Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
         public override void AddRecipes()
         {                                                   
             Recipe recipe = CreateRecipe();

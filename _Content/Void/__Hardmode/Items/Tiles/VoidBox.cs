@@ -42,11 +42,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-
                     line2.OverrideColor = new Color(100, 0, 10);
-
-                    line2.OverrideColor = AAColor.Rarity13;
-//
                 }
             }
         }

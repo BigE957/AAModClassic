@@ -1,12 +1,13 @@
-using System.Collections.Generic;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -20,8 +21,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         }
 
         public override void SetDefaults()
-        {
-            
+        {            
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 7;
             Item.useTime = 7;
@@ -39,6 +39,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.noMelee = true;
             Item.DamageType = DamageClass.Magic;
             Item.autoReuse = true;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
         public override Vector2? HoldoutOffset()

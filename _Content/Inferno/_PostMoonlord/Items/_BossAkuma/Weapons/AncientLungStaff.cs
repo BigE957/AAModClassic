@@ -9,6 +9,7 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -37,21 +38,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Item.knockBack = 2f;
             Item.buffType = ModContent.BuffType<LungMinion_Buff>();
             Item.DamageType = DamageClass.Summon;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.value = Item.sellPrice(0, 30, 0, 0);
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 		
 		public override bool AltFunctionUse(Player player)
         {

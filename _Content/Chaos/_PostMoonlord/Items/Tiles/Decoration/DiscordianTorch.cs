@@ -1,6 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -33,20 +34,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
 			Item.consumable = true;
 			Item.createTile = ModContent.TileType<DiscordianTorch_Tile>();
 			Item.flame = true;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.value = Item.sellPrice(0, 0, 50, 0);
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override void HoldItem(Player player)
 		{

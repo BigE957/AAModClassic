@@ -2,6 +2,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -28,24 +29,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
 			Item.knockBack = 6;
 			Item.UseSound = SoundID.Item34;
             Item.value = Item.sellPrice(1, 50, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<FlamingTwilight_DiscordianInferno>();
 			Item.shootSpeed = 11f;
 			Item.useAmmo = AmmoID.Gel;
 		}
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override void SetStaticDefaults()
 		{

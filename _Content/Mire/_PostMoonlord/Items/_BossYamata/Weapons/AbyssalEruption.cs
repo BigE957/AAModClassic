@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -36,20 +37,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.shoot = ModContent.ProjectileType<AbyssalEruption_AcidFlame>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 20f;
             Item.useAmmo = 23;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.consumeAmmoOnFirstShotOnly = true;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override Vector2? HoldoutOffset()
         {

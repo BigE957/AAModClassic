@@ -7,6 +7,7 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
@@ -49,20 +50,10 @@ Dark, yet still barely visible"); */
 			Item.height = 20;
 			Item.value = 300000;
 			Item.defense = 36;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override void UpdateEquip(Player player)
 		{

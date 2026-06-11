@@ -9,6 +9,7 @@ using Terraria.Audio;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
@@ -38,19 +39,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Glitch");
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = ModContent.ProjectileType<BrokenZeroWeapon_TeslaShock>();
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         // How can I make the shots appear out of the muzzle exactly?
         // Also, when I do this, how do I prevent shooting through tiles?

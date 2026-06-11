@@ -9,6 +9,7 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
@@ -42,7 +43,7 @@ IInflicts Moonraze"); */
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<AbyssLash>();
             Item.shootSpeed = 10;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -55,16 +56,7 @@ IInflicts Moonraze"); */
             }
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public static void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {

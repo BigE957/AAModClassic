@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
@@ -34,7 +35,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.width = 46;
             Item.height = 48;
             Item.value = Item.buyPrice(1, 0, 0, 0); ;
-            Item.rare = ItemRarityID.Blue;
             Item.noMelee = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 40;
@@ -46,7 +46,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.Melee;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.channel = true;
         }
 

@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -36,19 +37,10 @@ WARNING: May permanently displace appendages until game restart. This is a featu
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.expert = true; Item.expertOnly = true;
             Item.accessory = true;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override Color? GetAlpha(Color lightColor)
         {

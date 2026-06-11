@@ -1,8 +1,9 @@
-using Terraria.ModLoader;
-using System.Collections.Generic;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
 {
@@ -35,7 +36,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = ItemRarityID.Blue;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;

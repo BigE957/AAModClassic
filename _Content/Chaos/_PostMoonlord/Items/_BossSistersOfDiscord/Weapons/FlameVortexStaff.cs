@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -25,8 +26,7 @@ You must have at least 2 open slots for the first summon"); */
             Item.width = 45;
             Item.height = 18;
             Item.maxStack = Item.CommonMaxStack;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 35;
@@ -39,16 +39,7 @@ You must have at least 2 open slots for the first summon"); */
             Item.shootSpeed = 5;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{

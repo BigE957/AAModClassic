@@ -7,6 +7,7 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
@@ -36,21 +37,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.rare = ItemRarityID.Cyan;
             Item.shootSpeed = 12f;
             Item.crit += 5;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.autoReuse = true;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

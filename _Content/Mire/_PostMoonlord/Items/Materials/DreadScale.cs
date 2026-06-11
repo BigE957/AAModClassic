@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -24,19 +25,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Item.height = 34;
             Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
 
         public override void PostUpdate()

@@ -36,16 +36,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 9));
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()

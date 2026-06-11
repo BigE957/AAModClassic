@@ -8,6 +8,7 @@ using AAModClassic.Globals;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 {
@@ -35,19 +36,10 @@ Non-consumable"); */
 			Item.shoot = ModContent.ProjectileType<EventideArrow_Proj>();
 			Item.shootSpeed = 3f;
 			Item.ammo = AmmoID.Arrow;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void AddRecipes()
 		{

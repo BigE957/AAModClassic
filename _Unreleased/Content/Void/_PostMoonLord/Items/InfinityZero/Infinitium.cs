@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -44,6 +45,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.height = 52;
             Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.buyPrice(1, 0, 0, 0);
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
         public override void PostUpdate()

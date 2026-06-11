@@ -1,14 +1,15 @@
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using Terraria;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
-using Terraria.ModLoader;
-using System;
-using AAModClassic.Globals;
 using Terraria.ID;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 
@@ -22,8 +23,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         }
 
 		public override void SetDefaults()
-		{
-            
+		{          
 			Item.damage = 400;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 			Item.width = 94;
@@ -37,7 +37,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.value = Item.buyPrice(1, 0, 0, 0);
             Item.UseSound = SoundID.Item15;
 			Item.autoReuse = true;
-		}
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

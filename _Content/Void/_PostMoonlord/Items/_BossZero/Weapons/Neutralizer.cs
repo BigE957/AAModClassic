@@ -10,6 +10,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
@@ -41,20 +42,10 @@ Right click to fire normal arrows"); */
             Item.useAmmo = AmmoID.Arrow;
             Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 8f;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override bool AltFunctionUse(Player player)
         {

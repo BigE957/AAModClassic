@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -30,7 +31,7 @@ At night, you move three times as fast and your ranged attacks & minions inflict
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.expert = true; Item.expertOnly = true;
             Item.accessory = true;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
 

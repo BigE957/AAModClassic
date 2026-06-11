@@ -4,6 +4,7 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
@@ -26,21 +27,11 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
 			Item.width = 16;
 			Item.height = 16;
             Item.value = 300000;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.defense = 24;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override void UpdateEquip(Player player)
         {

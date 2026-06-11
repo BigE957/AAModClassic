@@ -9,6 +9,7 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -38,18 +39,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13; ;
-                }
-            }
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
         public override void AddRecipes()

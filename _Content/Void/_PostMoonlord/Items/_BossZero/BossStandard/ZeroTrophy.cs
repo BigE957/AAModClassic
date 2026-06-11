@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
@@ -26,8 +27,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
@@ -35,15 +35,6 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 			Item.createTile = ModContent.TileType<ZeroTrophy_Tile>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
     }
 }

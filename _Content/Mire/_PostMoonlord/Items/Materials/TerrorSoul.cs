@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -19,20 +20,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
-
-
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
-
-
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
@@ -40,7 +27,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Item.height = 24;
             Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000;
-            Item.rare = ItemRarityID.Red;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
         public override void PostUpdate()

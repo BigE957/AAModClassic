@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -20,7 +21,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools
             Item.tileBoost += 20;
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;
@@ -29,16 +30,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools
         }
 
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void SetStaticDefaults()
         {

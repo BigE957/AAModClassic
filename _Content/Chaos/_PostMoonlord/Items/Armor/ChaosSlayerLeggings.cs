@@ -9,6 +9,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
@@ -31,20 +32,10 @@ The power of discordian rage radiates from this armor"); */
             Item.height = 16;
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.defense = 35;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override void UpdateEquip(Player player)
         {

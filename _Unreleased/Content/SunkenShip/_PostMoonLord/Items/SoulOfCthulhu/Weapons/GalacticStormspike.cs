@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Rarities;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -21,9 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             Item.width = 40;
             Item.height = 25;
-            Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 35, 55, 20);
-
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
@@ -36,7 +35,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.noMelee = true;	
             Item.shoot = ModContent.ProjectileType<GalacticStormspike_Stormray>();
             Item.shootSpeed = 4;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
