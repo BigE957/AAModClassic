@@ -1,5 +1,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
-    public class TrenchSquid : ModNPC
+    public class TrenchSquid : ModNPC, IBannerNPC
 	{
 		public override void SetStaticDefaults()
 		{
@@ -32,6 +33,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
+            Banner = NPC.type;
         }
 
         public override void AI()

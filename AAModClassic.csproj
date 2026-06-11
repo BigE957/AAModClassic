@@ -7,11 +7,6 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
-	<ItemGroup>
-	  <Folder Include="Tiles\Crafters\" />
-	  <Folder Include="_Content\Snow\World\Tiles\" />
-	  <Folder Include="_Content\Stars\World\Tiles\" />
-	</ItemGroup>
 
 	<!-- References -->
 

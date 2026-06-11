@@ -1,5 +1,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Dusts;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 {
-    public class DimensionDiver : ModNPC
+    public class DimensionDiver : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -37,6 +38,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
+            Banner = NPC.type;
         }
 
 

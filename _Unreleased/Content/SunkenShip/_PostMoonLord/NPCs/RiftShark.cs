@@ -1,6 +1,7 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 {
-    public class RiftShark : ModNPC
+    public class RiftShark : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -39,6 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.noGravity = true;
             AnimationType = NPCID.Shark;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
+            Banner = NPC.type;
         }
 
 
