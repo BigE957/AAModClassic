@@ -1,5 +1,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -42,7 +43,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             Dictionary<Color, int> colorToTile = [];
             //TODOREFACTOR see if rotted wood uses era accurate sprite
             colorToTile[new Color(255, 0, 0)] = ModContent.TileType<RottedDynastyWoodS_Tile>();
-            colorToTile[new Color(0, 255, 0)] = TileID.EmeraldGemspark;
+            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<RottedPlatform_Tile>();// TileID.EmeraldGemspark;
             colorToTile[new Color(0, 0, 255)] = TileID.Rope;
             colorToTile[new Color(255, 255, 0)] = TileID.Sand;
             colorToTile[new Color(0, 255, 255)] = ModContent.TileType<CthulhuPortal_Tile>();
@@ -68,7 +69,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 
             int newOriginX = origin.X - (gen.width / 2);
             int newOriginY = origin.Y - (gen.height / 2) + 10;
-            gen.Generate(newOriginX, newOriginY, true, true);
+            gen.Generate(newOriginX, newOriginY, false, true);
 
             AAWorld_Unreleased.shipPos = new Point(newOriginX, newOriginY);
 
@@ -79,12 +80,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                     if (Main.tile[x, y].TileType == TileID.EmeraldGemspark)
                     {
                         Main.tile[x, y].ClearTile();
-                        WorldGen.PlaceTile(x, y, ModContent.TileType<RottedPlatform_Tile>(), mute: true);
+                        WorldGen.PlaceTile(x, y, ModContent.TileType<RottedPlatform_Tile>());
                     }
                 }
             }
 
-            WorldGen.PlaceChest(newOriginX + 66, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
             /*
             if (WorldGenUtils.GetWorldSize() == 1)
             {
@@ -97,6 +97,23 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 
             }
             */
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                //Deity Statues
+                WorldGen.PlaceObject(newOriginX + 132, newOriginY + 47, TileID.Statues, true, 35);
+                WorldGen.PlaceObject(newOriginX + 136, newOriginY + 47, TileID.Statues, true, 30);
+                WorldGen.PlaceObject(newOriginX + 140, newOriginY + 47, TileID.Statues, true, 65);
+                WorldGen.PlaceObject(newOriginX + 144, newOriginY + 47, TileID.Statues, true, 15);
+                WorldGen.PlaceObject(newOriginX + 148, newOriginY + 47, TileID.Statues, true, 39);
+                WorldGen.PlaceObject(newOriginX + 152, newOriginY + 47, TileID.Statues, true, 71);
+
+                //Captain's Quarters
+                WorldGen.PlaceChest(newOriginX + 141, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
+            }
+            else
+                WorldGen.PlaceChest(newOriginX + 66, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
+
             return true;
         }
     }
