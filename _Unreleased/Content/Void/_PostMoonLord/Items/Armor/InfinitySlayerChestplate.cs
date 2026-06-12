@@ -19,7 +19,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Infinity Slayer Armor");
+			// DisplayName.SetDefault("Infinity Slayer Chestplate");
             /* Tooltip.SetDefault(@"35% increased ranged damage and critical strike chance
 12% increased damage resistance
 25% decreased ammo consumption
