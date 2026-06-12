@@ -51,6 +51,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.defense = 150;
             NPC.lifeMax = 1000000;
             NPC.value = Item.buyPrice(35, 0, 0, 0);
+            NPC.HitSound = SoundID.NPCHit54;
             NPC.DeathSound = SoundID.Item88;// new LegacySoundStyle(2, 88, Terraria.Audio.SoundType.Sound);
             NPC.knockBackResist = 0f;
             NPC.boss = true;
