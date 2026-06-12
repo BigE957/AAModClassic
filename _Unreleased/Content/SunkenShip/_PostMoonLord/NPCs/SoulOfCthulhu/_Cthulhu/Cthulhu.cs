@@ -141,7 +141,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.ai[3]++;
                 if (BoomTimer == 60)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_Death(), Explosion, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeathBoom>(), 0, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_Death(), Explosion, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeathBoom>(), 0, 0);
                     BoomTimer = 0;
                 }
                 if (NPC.ai[3] == 40)
@@ -186,7 +186,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
                 if (NPC.ai[3] == 520)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeath>(), 0, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeath>(), 0, 0);
                     Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
                     NPC.dontTakeDamage = false;
                     if(Main.netMode != NetmodeID.MultiplayerClient)
@@ -354,12 +354,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 for (int i = 0; i < Loop; i++)
                 {
                     offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ShootThis, (int)(npc.damage * .5f), 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ShootThis, (int)(npc.damage * .5f), 0f);
                 }
             }
             else
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2, PlayerPosY * 2, ShootThis, (int)(npc.damage * .8f), 0f, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2, PlayerPosY * 2, ShootThis, (int)(npc.damage * .8f), 0f);
             }
             if (npc.ai[0] > 25)
             {
