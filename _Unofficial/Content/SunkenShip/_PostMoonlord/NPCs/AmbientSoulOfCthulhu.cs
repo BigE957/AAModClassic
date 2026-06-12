@@ -328,8 +328,6 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
 
         public override void PreUpdateNPCs()
         {
-            if(Main.LocalPlayer.miscCounter % 30 == 0)
-                Main.NewText(Main.MouseWorld.ToTileCoordinates() - AAWorld_Unreleased.shipPos);
             bool anyCthulhus = false;
             if (!AAWorld.downedEquinox)
                 foreach (NPC npc in Main.ActiveNPCs)

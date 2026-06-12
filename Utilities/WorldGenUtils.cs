@@ -201,15 +201,21 @@ namespace AAModClassic.Utilities
                                 Mtile.TileType = (ushort)tile;
                                 Mtile.Slope = SlopeType.Solid;
                                 Mtile.IsHalfBlock = false;
+
+                                WorldGen.SquareTileFrame(x, y);
+                                if (tile >= TileID.Count && Mtile.TileFrameY != 0)
+                                {
+                                    Mtile.TileFrameX = 5 * 18;
+                                    Mtile.TileFrameY = 0;
+                                }
                             }
                             else
                             {
                                 WorldGen.PlaceTile(x, y, tile, true, true, -1, tileStyle);
+                                for (int x1 = 0; x1 < width; x1++)
+                                    for (int y1 = 0; y1 < height; y1++)
+                                        WorldGen.SquareTileFrame(x + x1, y + y1);
                             }
-
-                            for (int x1 = 0; x1 < width; x1++)
-                                for (int y1 = 0; y1 < height; y1++)
-                                    WorldGen.SquareTileFrame(x + x1, y + y1);
                         }
                     }
                     else
