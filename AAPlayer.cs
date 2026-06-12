@@ -3773,7 +3773,7 @@ namespace AAModClassic
                         string path = EquipLoader.GetEquipTexture(EquipType.Body, glowSlot).Texture;
 
                         int indexAhead = 1;
-                        List<DrawData> dataToAdd = [];
+                        List<(int index, DrawData data)> dataToAdd = [];
                         foreach (DrawData data in drawInfo.DrawDataCache)
                         {
                             if (data.texture == ModContent.Request<Texture2D>(tex.Texture, AssetRequestMode.ImmediateLoad).Value)
@@ -3792,13 +3792,15 @@ namespace AAModClassic
                                     shader = data.shader
                                 };
                                 //drawInfo.DrawDataCache.Add(glow);
-                                dataToAdd.Add(glow);
+                                dataToAdd.Add((indexAhead, glow));
                             }
                             indexAhead++;
                         }
 
+                        dataToAdd.Reverse();
+
                         foreach (var data in dataToAdd)
-                            drawInfo.DrawDataCache.Add(data);
+                            drawInfo.DrawDataCache.Insert(data.index, data.data);
                     }
                 }
             }
