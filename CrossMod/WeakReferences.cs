@@ -182,6 +182,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
+using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;
@@ -1255,7 +1256,9 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<ERROR_NULL>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<ZeroATrophy>()
+                        ModContent.ItemType<ZeroATrophy>(),
+                        ModContent.ItemType<ZeroAMask>(),
+                        ModContent.ItemType<ZeroAwakenedBox>(), 
                     },
                     ["customPortrait"] = GetPortrait("ZeroProtocol"),
                     ["availability"] = (Func<bool>)(() => AAWorld.downedZero && Main.expertMode)
@@ -1367,7 +1370,9 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
                     ["collectibles"] = new List<int>
                     {
-                        //ModContent.ItemType<ZeroATrophy>()
+                        ModContent.ItemType<SoulOfCthulhuTrophy>(),
+                        ModContent.ItemType<SoulOfCthulhuMask>(),
+                        //ModContent.ItemType<CthulhuBox>()
                     },
                     //["customPortrait"] = GetPortrait("ZeroProtocol"),
                     ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.expertMode && NPCExtensions.BeenKilled<SoulOfCthulhu>())

@@ -286,6 +286,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
 
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuTrophy>(), 10));
+
             npcLoot.Add(expert);
         }
 

@@ -1,6 +1,7 @@
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
@@ -270,6 +271,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RealityBar>(), 1, 25, 35));
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuTrophy>(), 10));
 
             npcLoot.Add(notExpertRule);
         }
