@@ -3692,6 +3692,8 @@ namespace AAModClassic
 
         #endregion
 
+        public delegate void PlayerActionDelegate(Player player);
+        public static event PlayerActionDelegate ModifyDrawInfoEvent;
 
         public override void FrameEffects()
         {
@@ -3701,6 +3703,11 @@ namespace AAModClassic
                 Player.body = EquipLoader.GetEquipSlot(Mod, "onoBody", EquipType.Body);
                 Player.head = EquipLoader.GetEquipSlot(Mod, "onoHead", EquipType.Head);
             }
+        }
+
+        public override void ModifyDrawInfo(ref PlayerDrawSet drawInfo)
+        {
+            ModifyDrawInfoEvent?.Invoke(Player);
         }
 
         public override void UpdateVisibleVanityAccessories()
@@ -3746,9 +3753,9 @@ namespace AAModClassic
             Player drawPlayer = drawInfo.drawPlayer;
 
             var tex = EquipLoader.GetEquipTexture(EquipType.Body, drawPlayer.body);
-            if (tex != null)
+            if (tex != null && tex.Item != null)
             {
-                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Name + "_Glow", EquipType.Body);
+                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Item.Name + "_Glow", EquipType.Body);
                 if (glowSlot != -1)
                 {
                     bool canDraw = true;
@@ -3797,9 +3804,9 @@ namespace AAModClassic
             }
 
             tex = EquipLoader.GetEquipTexture(EquipType.Head, drawPlayer.head);
-            if (tex != null)
+            if (tex != null && tex.Item != null)
             {
-                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Name + "_Glow", EquipType.Head);
+                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Item.Name + "_Glow", EquipType.Head);
                 if (glowSlot != -1)
                 {
                     bool canDraw = true;
@@ -3851,9 +3858,9 @@ namespace AAModClassic
             }
 
             tex = EquipLoader.GetEquipTexture(EquipType.Legs, drawPlayer.legs);
-            if (tex != null)
+            if (tex != null && tex.Item != null)
             {
-                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Name + "_Glow", EquipType.Legs);
+                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Item.Name + "_Glow", EquipType.Legs);
                 if (glowSlot != -1)
                 {
                     bool canDraw = true;

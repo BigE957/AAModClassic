@@ -22,12 +22,23 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 
         public override void Load()
         {
-            EquipLoader.AddEquipTexture(Mod, Texture + "_Body_Alt", EquipType.Body, name: $"{Name}_Body_Alt");
+            EquipLoader.AddEquipTexture(Mod, Texture + "_Body_Alt", EquipType.Body, item: this, name: $"{Name}_Body_Alt");
+            AAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
+        }
+
+        private void ModifyDrawInfo(Player player)
+        {
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Body_Alt", EquipType.Body);
+
+            if (player.body == blue && player.direction == -1)
+                player.body = red;
+            else if (player.body == red && player.direction == 1)
+                player.body = blue;
         }
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
             // DisplayName.SetDefault("Chaos Slayer Plate");
             /* Tooltip.SetDefault(@"4% increased damage resistance
 +75 Max Life
@@ -48,17 +59,6 @@ The power of discordian rage radiates from this armor"); */
             player.endurance += .04f;
             player.GetAttackSpeed(DamageClass.Melee) += .15f;
             player.statLifeMax2 += 75;
-        }
-
-        public override void UpdateVisibleAccessory(Player player, bool hideVisual)
-        {
-            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
-            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Body_Alt", EquipType.Body);
-
-            if (player.body == blue && player.direction == -1)
-                player.body = red;
-            else if (player.body == red && player.direction == 1)
-                player.body = blue;
         }
 
         public override void AddRecipes()

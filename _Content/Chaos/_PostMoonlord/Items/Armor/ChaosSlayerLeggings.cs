@@ -20,6 +20,23 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 
         public override Color GlowmaskDrawColor => AAColor.Shen3;
 
+        public override void Load()
+        {
+            EquipLoader.AddEquipTexture(Mod, Texture + "_Legs_Alt", EquipType.Legs, item: this, name: $"{Name}_Legs_Alt");
+            AAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
+        }
+
+        private void ModifyDrawInfo(Player player)
+        {
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Legs_Alt", EquipType.Legs);
+
+            if (player.legs == blue && player.direction == -1)
+                player.legs = red;
+            else if (player.legs == red && player.direction == 1)
+                player.legs = blue;
+        }
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Slayer Greaves");
@@ -41,17 +58,6 @@ The power of discordian rage radiates from this armor"); */
         {
             player.endurance += .02f;
             player.moveSpeed += .45f;
-        }
-
-        public override void UpdateVisibleAccessory(Player player, bool hideVisual)
-        {
-            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
-            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Legs_Alt", EquipType.Legs);
-
-            if (player.legs == blue && player.direction == -1)
-                player.legs = red;
-            else if (player.legs == red && player.direction == 1)
-                player.legs = blue;
         }
 
         public override void AddRecipes()
