@@ -8,6 +8,7 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
@@ -43,6 +44,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
             /* Tooltip.SetDefault(@"4% increased damage resistance
 +75 Max Life
 The power of discordian rage radiates from this armor"); */
+
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Body_Alt", EquipType.Body);
+
+            ArmorIDs.Body.Sets.HidesTopSkin[red] = true;
+            ArmorIDs.Body.Sets.HidesTopSkin[blue] = true;
         }
 
         public override void SetDefaults()
