@@ -1,5 +1,5 @@
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.DiscordSupport;
 using AAModClassic.Globals;

@@ -1,6 +1,5 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-    //TODO: glowmask for head costume
-	public class RetrieverMask : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class RetrieverMask : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {

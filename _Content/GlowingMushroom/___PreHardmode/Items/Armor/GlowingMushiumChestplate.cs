@@ -1,5 +1,8 @@
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,9 +11,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class GlowingMushiumChestplate : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Body)]
+    public class GlowingMushiumChestplate : BaseAAItem, ICustomEquipGlow
 	{
-		public override void SetStaticDefaults()
+        public Color Color => AAColor.Glow;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Glowing Mushium Shirt");
             // Tooltip.SetDefault("2% increased mana regeneration");

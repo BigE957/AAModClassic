@@ -1,4 +1,6 @@
+using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,9 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Universe
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class CursedPants : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class CursedPants : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Cursed Reaper Boots");

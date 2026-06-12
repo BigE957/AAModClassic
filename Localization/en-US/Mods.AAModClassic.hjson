@@ -484,4 +484,19 @@ Banners: {
 		DisplayName: Purity Weaver Banner
 		Tooltip: ""
 	}
+
+	DimensionDiverBanner: {
+		DisplayName: Dimension Diver Banner
+		Tooltip: ""
+	}
+
+	RiftSharkBanner: {
+		DisplayName: Rift Shark Banner
+		Tooltip: ""
+	}
+
+	TrenchSquidBanner: {
+		DisplayName: Trench Squid Banner
+		Tooltip: ""
+	}
 }

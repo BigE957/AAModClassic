@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -16,8 +17,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DarkmatterHelmetMelee : BaseAAItem
-	{
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DarkmatterHelmetMelee : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.Nightcrawler;
+
+        public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;
+
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

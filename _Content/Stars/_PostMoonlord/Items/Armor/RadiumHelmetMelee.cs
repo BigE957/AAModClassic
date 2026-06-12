@@ -1,22 +1,26 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Globals;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class RadiumHelmetMelee : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class RadiumHelmetMelee : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.Glow;
+
+        public bool Condition(Player p) => Main.dayTime && p.GetModPlayer<AAPlayer>().Radium;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Radium Helmet");
 			/* Tooltip.SetDefault(@"15% increased melee damage

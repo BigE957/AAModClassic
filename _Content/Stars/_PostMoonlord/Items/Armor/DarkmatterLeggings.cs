@@ -8,14 +8,19 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.Attributes;
 
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DarkmatterLeggings : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class DarkmatterLeggings : BaseAAItem, ICustomEquipGlow
 	{
-        
+        public Color Color => AAColor.Nightcrawler;
+
+        public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmatter Greaves");
@@ -32,8 +37,6 @@ Dark, yet still barely visible"); */
 			Item.defense = 24;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
-
-        
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

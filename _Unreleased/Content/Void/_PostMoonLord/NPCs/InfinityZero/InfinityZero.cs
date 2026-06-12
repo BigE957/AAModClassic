@@ -5,9 +5,9 @@ using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUlt
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;

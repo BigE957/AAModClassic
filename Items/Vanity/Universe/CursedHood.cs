@@ -1,15 +1,20 @@
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Universe
 {
     [AutoloadEquip(EquipType.Head)]
-	public class CursedHood : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class CursedHood : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Cursed Reaper Hood");

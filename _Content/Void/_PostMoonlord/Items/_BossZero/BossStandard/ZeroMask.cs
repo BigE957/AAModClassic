@@ -1,11 +1,13 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ZeroMask : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class ZeroMask : BaseAAItem
 	{
         public static int type;
 

@@ -177,7 +177,7 @@ VultureWings: {
 	Tooltip: Allows slow fall
 }
 
-WingsofChaos: {
+WingsOfChaos: {
 	DisplayName: Wings of Chaos
 	Tooltip: Allows flight and slow fall
 }
@@ -12060,5 +12060,25 @@ UnityWatcherBanner: {
 
 FatPixie_Banner: {
 	DisplayName: Fat Pixie_ Banner
+	Tooltip: ""
+}
+
+InfinityZeroBox: {
+	DisplayName: Infinity Zero Box
+	Tooltip: ""
+}
+
+InfinitySlayerChestplate: {
+	DisplayName: Infinity Slayer Chestplate
+	Tooltip: ""
+}
+
+InfinitySlayerHelmet: {
+	DisplayName: Infinity Slayer Helmet
+	Tooltip: ""
+}
+
+InfinitySlayerLeggings: {
+	DisplayName: Infinity Slayer Leggings
 	Tooltip: ""
 }

@@ -5,20 +5,25 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System.IO;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class ChaosSlayerChestplate : BaseAAItem
-	{
+    [AutoloadEquipGlow(EquipType.Body)]
+    public class ChaosSlayerChestplate : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.Shen3;
+
         public override Color GlowmaskDrawColor => AAColor.Shen3;
+
+        public override void Load()
+        {
+            EquipLoader.AddEquipTexture(Mod, Texture + "_Body_Alt", EquipType.Body, name: $"{Name}_Body_Alt");
+        }
 
         public override void SetStaticDefaults()
         {
@@ -29,7 +34,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 The power of discordian rage radiates from this armor"); */
         }
 
-
         public override void SetDefaults()
 		{
 			Item.width = 26;
@@ -39,16 +43,25 @@ The power of discordian rage radiates from this armor"); */
             Item.defense = 60;
         }
 
-        
-
         public override void UpdateEquip(Player player)
 		{
             player.endurance += .04f;
             player.GetAttackSpeed(DamageClass.Melee) += .15f;
             player.statLifeMax2 += 75;
         }
-		
-		public override void AddRecipes()
+
+        public override void UpdateVisibleAccessory(Player player, bool hideVisual)
+        {
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Body_Alt", EquipType.Body);
+
+            if (player.body == blue && player.direction == -1)
+                player.body = red;
+            else if (player.body == red && player.direction == 1)
+                player.body = blue;
+        }
+
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DraconianSunChestplate>(), 1);

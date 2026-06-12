@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -16,8 +17,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DarkmatterHelmetRanged : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DarkmatterHelmetRanged : BaseAAItem, ICustomEquipGlow
     {
+        public Color Color => AAColor.Nightcrawler;
+
+        public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;
+
         public override void SetStaticDefaults()
         {
 

@@ -1,7 +1,5 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class InfernoGripMask : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class InfernoGripMask : BaseAAItem
 	{
         public override void SetStaticDefaults()
         {

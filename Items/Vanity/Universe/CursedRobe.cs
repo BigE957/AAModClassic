@@ -3,16 +3,20 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using AAModClassic.Globals;
 
 namespace AAModClassic.Items.Vanity.Universe
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class CursedRobe : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Body)]
+    public class CursedRobe : BaseAAItem, ICustomEquipGlow
     {
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
             // DisplayName.SetDefault("Cursed Reaper Robe");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
         }

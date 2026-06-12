@@ -1,6 +1,5 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class NightcrawlerMask : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class NightcrawlerMask : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {

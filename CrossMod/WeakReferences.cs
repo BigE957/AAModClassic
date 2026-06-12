@@ -191,8 +191,8 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthu
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.UI.WorldGen;

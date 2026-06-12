@@ -1,7 +1,10 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,9 +12,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class DoomiteChestplate : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    [AutoloadEquipGlow(EquipType.Body)]
+    public class DoomiteChestplate : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.ZeroShield;
+
+        public bool Condition(Player p) => p.GetModPlayer<AAPlayer>().doomite;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Doomite Plate");
             // Tooltip.SetDefault(@"+1 Minion slot");

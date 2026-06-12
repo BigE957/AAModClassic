@@ -1,18 +1,16 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.Attributes;
+using Terraria;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DoomsdayLeggings : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class DoomsdayLeggings : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

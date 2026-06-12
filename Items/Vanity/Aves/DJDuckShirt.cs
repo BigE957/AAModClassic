@@ -3,11 +3,13 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 
 namespace AAModClassic.Items.Vanity.Aves
 
 {
     [AutoloadEquip(EquipType.Body)]
+    [AutoloadEquipGlow(EquipType.Body)]
     public class DJDuckShirt : BaseAAItem
     {
         public override void SetStaticDefaults()

@@ -1,8 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
@@ -10,12 +8,16 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.Attributes;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ChaosSlayerLeggings : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class ChaosSlayerLeggings : BaseAAItem, ICustomEquipGlow
 	{
+        public Color Color => AAColor.Shen3;
+
         public override Color GlowmaskDrawColor => AAColor.Shen3;
 
         public override void SetStaticDefaults()
@@ -35,12 +37,21 @@ The power of discordian rage radiates from this armor"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
-
         public override void UpdateEquip(Player player)
         {
             player.endurance += .02f;
             player.moveSpeed += .45f;
+        }
+
+        public override void UpdateVisibleAccessory(Player player, bool hideVisual)
+        {
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Legs_Alt", EquipType.Legs);
+
+            if (player.legs == blue && player.direction == -1)
+                player.legs = red;
+            else if (player.legs == red && player.direction == 1)
+                player.legs = blue;
         }
 
         public override void AddRecipes()

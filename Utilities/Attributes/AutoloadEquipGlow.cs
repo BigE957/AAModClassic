@@ -1,10 +1,9 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using Terraria.ID;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.Attributes
@@ -15,47 +14,41 @@ namespace AAModClassic.Utilities.Attributes
         public readonly EquipType[] equipTypes = equipTypes;
     }
 
+    public interface ICustomEquipGlow
+    {
+        Color Color { get; }
+        bool Condition(Player p) => true;
+    }
 
     public class EquipGlowSystem : ModSystem
     {
-        public static Dictionary<EquipType, Dictionary<int, Asset<Texture2D>>> GlowEquipTextures = [];
-
-        public override void Load()
-        {
-            GlowEquipTextures = [];
-            for (EquipType e = EquipType.Head; e <= EquipType.Beard; e++)
-                GlowEquipTextures.Add(e, []);
-        }
-
-        public override void PostSetupContent()
+        public override void OnModLoad()
         {
             ModContent.GetInstance<AAMod>().Logger.Info("Loading Equip Glow Textures: ");
-            foreach (Item item in ContentSamples.ItemsByType.Values)
+            foreach (ModItem item in Mod.GetContent<ModItem>())
             {
-                if (item.ModItem is null || item.ModItem.Mod is not AAMod)
-                    continue;
 
-                var autoloadEquip = item.ModItem.GetType().GetInheritantAttribute<AutoloadEquipGlow>();
+                var autoloadEquip = item.GetType().GetInheritantAttribute<AutoloadEquipGlow>();
                 if (autoloadEquip is null)
                     continue;
 
-                ModContent.GetInstance<AAMod>().Logger.Info("- Autoload Equip Glow found on item: " + item.ModItem.Name);
+                ModContent.GetInstance<AAMod>().Logger.Info("- Autoload Equip Glow found on item: " + item.Name);
                 foreach (var equip in autoloadEquip.equipTypes)
                 {
-                    if (ModContent.RequestIfExists<Texture2D>($"{item.ModItem.Texture}_{equip}_Glow", out var asset))
+                    if (ModContent.RequestIfExists<Texture2D>($"{item.Texture}_{equip}_Glow", out var asset))
                     {
                         ModContent.GetInstance<AAMod>().Logger.Info(" - Glow Texture found: " + asset.Name);
-                        int slot = EquipLoader.GetEquipSlot(Mod, item.ModItem.Name, equip);
+                        int slot = EquipLoader.GetEquipSlot(Mod, item.Name, equip);
                         if (slot != -1)
                         {
                             ModContent.GetInstance<AAMod>().Logger.Info(" - Equip Slot found: " + slot);
-                            GlowEquipTextures[equip].Add(slot, asset);
+                            EquipLoader.AddEquipTexture(Mod, $"{item.Texture}_{equip}_Glow", equip, name: item.Name + "_Glow");
                         }
                         else
-                            ModContent.GetInstance<AAMod>().Logger.Info(" - Could not add due to " + item.ModItem.Name + " not having a regular Equip Texture");
+                            ModContent.GetInstance<AAMod>().Logger.Info(" - Could not add due to " + item.Name + " not having a regular Equip Texture");
                     }
                     else
-                        ModContent.GetInstance<AAMod>().Logger.Info(" - Could not Add due to " + $"{item.ModItem.Texture}_{equip}_Glow" + " not being found.");
+                        ModContent.GetInstance<AAMod>().Logger.Info(" - Could not Add due to " + $"{item.Texture}_{equip}_Glow" + " not being found.");
                 }
             }
         }

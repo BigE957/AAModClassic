@@ -1,15 +1,22 @@
+using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class HoppingHoodlumHelmet : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class HoppingHoodlumHelmet : BaseAAItem, ICustomEquipGlow
     {
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
+        public bool Condition(Player p) => p.statLife < (p.statLifeMax2 / 2);
 
         public override void SetStaticDefaults()
         {

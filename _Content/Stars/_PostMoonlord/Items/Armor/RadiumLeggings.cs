@@ -3,16 +3,22 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class RadiumLeggings : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class RadiumLeggings : BaseAAItem, ICustomEquipGlow
 	{
-		public override void SetStaticDefaults()
+        public Color Color => AAColor.Glow;
+
+        public bool Condition(Player p) => Main.dayTime && p.GetModPlayer<AAPlayer>().Radium;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Radium Cuisses");
 			/* Tooltip.SetDefault(@"30% increased movement speed

@@ -1,19 +1,18 @@
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DoomsdayHelmetMage : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DoomsdayHelmetMage : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

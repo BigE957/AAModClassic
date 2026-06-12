@@ -1,4 +1,6 @@
+using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,12 +9,13 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Blazen
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BlazenBoots : BaseAAItem
-	{
-		public override void SetStaticDefaults()
-       
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class BlazenBoots : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
+        public override void SetStaticDefaults()     
 		{
-            base.SetStaticDefaults();
             // DisplayName.SetDefault("Tactical Assault Boots");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
         }

@@ -1,15 +1,20 @@
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Blazen
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class BlazenPlate : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Body)]
+    public class BlazenPlate : BaseAAItem, ICustomEquipGlow
     {
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

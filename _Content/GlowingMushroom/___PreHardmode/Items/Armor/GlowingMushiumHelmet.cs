@@ -1,16 +1,22 @@
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GlowingMushiumHelmet : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class GlowingMushiumHelmet : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.Glow;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Glowing Mushium Hat");
             // Tooltip.SetDefault("2% increased mana regeneration");

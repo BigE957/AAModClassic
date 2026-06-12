@@ -1,22 +1,28 @@
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using System;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DarkmatterHelmetMage : BaseAAItem
-	{
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DarkmatterHelmetMage : BaseAAItem, ICustomEquipGlow
+    {
+        public Color Color => AAColor.Nightcrawler;
+
+        public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;
+
         public override void SetStaticDefaults()
         {
             

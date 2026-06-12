@@ -2,9 +2,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Accessories;
-using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -13,12 +11,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class WingsofChaos : BaseAAItem
+	public class WingsOfChaos : BaseAAItem
 	{
         public override void Load()
         {
-            base.Load();
-
             EquipLoader.AddEquipTexture(Mod, Texture + "_Wings_Alt", EquipType.Wings, name: "WingsOfChaos_Wings_Alt");
         }
 
@@ -47,7 +43,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 
         public override void UpdateVisibleAccessory(Player player, bool hideVisual)
         {
-            int blue = EquipLoader.GetEquipSlot(Mod, "WingsofChaos", EquipType.Wings);
+            int blue = EquipLoader.GetEquipSlot(Mod, "WingsOfChaos", EquipType.Wings);
             int red = EquipLoader.GetEquipSlot(Mod, "WingsOfChaos_Wings_Alt", EquipType.Wings);
             
             if (player.wings == blue && player.direction == -1)

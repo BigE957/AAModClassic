@@ -61,6 +61,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
@@ -82,6 +83,7 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -99,6 +101,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AAModClassic
 {
@@ -1057,6 +1060,11 @@ namespace AAModClassic
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
                 }
             }
+
+            if (infinitySet && Main.rand.NextBool(2))
+            {
+                target.AddBuff(ModContent.BuffType<InfinityScorch_Buff>(), 300);
+            }
         }
 
 
@@ -1139,6 +1147,11 @@ namespace AAModClassic
                 {
                     string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
                     target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
+                }
+
+                if (infinitySet && Main.rand.NextBool(2))
+                {
+                    target.AddBuff(ModContent.BuffType<InfinityScorch_Buff>(), 300);
                 }
             }
 
@@ -3727,6 +3740,170 @@ namespace AAModClassic
                 }
             }
         }
+
+        public override void TransformDrawData(ref PlayerDrawSet drawInfo)
+        {
+            Player drawPlayer = drawInfo.drawPlayer;
+
+            var tex = EquipLoader.GetEquipTexture(EquipType.Body, drawPlayer.body);
+            if (tex != null)
+            {
+                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Name + "_Glow", EquipType.Body);
+                if (glowSlot != -1)
+                {
+                    bool canDraw = true;
+                    Color myColor = Color.White;
+                    if (tex.Item != null && tex.Item is ICustomEquipGlow customGlow)
+                    {
+                        if (customGlow.Condition(drawPlayer))
+                            myColor = customGlow.Color;
+                        else
+                            canDraw = false;
+                    }
+
+                    if (canDraw)
+                    {
+                        string path = EquipLoader.GetEquipTexture(EquipType.Body, glowSlot).Texture;
+
+                        int indexAhead = 1;
+                        List<DrawData> dataToAdd = [];
+                        foreach (DrawData data in drawInfo.DrawDataCache)
+                        {
+                            if (data.texture == ModContent.Request<Texture2D>(tex.Texture, AssetRequestMode.ImmediateLoad).Value)
+                            {
+                                DrawData glow = new(
+                                    texture: ModContent.Request<Texture2D>(path, AssetRequestMode.ImmediateLoad).Value,
+                                    color: myColor * drawInfo.stealth * (1f - drawInfo.shadow),
+                                    position: data.position,
+                                    sourceRect: data.sourceRect,
+                                    rotation: data.rotation,
+                                    origin: data.origin,
+                                    scale: data.scale,
+                                    effect: data.effect
+                                )
+                                {
+                                    shader = data.shader
+                                };
+                                //drawInfo.DrawDataCache.Add(glow);
+                                dataToAdd.Add(glow);
+                            }
+                            indexAhead++;
+                        }
+
+                        foreach (var data in dataToAdd)
+                            drawInfo.DrawDataCache.Add(data);
+                    }
+                }
+            }
+
+            tex = EquipLoader.GetEquipTexture(EquipType.Head, drawPlayer.head);
+            if (tex != null)
+            {
+                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Name + "_Glow", EquipType.Head);
+                if (glowSlot != -1)
+                {
+                    bool canDraw = true;
+                    Color myColor = Color.White;
+                    if (tex.Item != null && tex.Item is ICustomEquipGlow customGlow)
+                    {
+                        if (customGlow.Condition(drawPlayer))
+                            myColor = customGlow.Color;
+                        else
+                            canDraw = false;
+                    }
+
+                    if (canDraw)
+                    {
+                        string path = EquipLoader.GetEquipTexture(EquipType.Head, glowSlot).Texture;
+
+                        DrawData? headData = null;
+                        int indexAhead = 1;
+                        foreach (DrawData data in drawInfo.DrawDataCache)
+                        {
+                            if (data.texture == ModContent.Request<Texture2D>(tex.Texture, AssetRequestMode.ImmediateLoad).Value)
+                            {
+                                headData = data;
+                                break;
+                            }
+                            else
+                                indexAhead++;
+                        }
+                        if (headData.HasValue)
+                        {
+                            DrawData glow = new(
+                                texture: ModContent.Request<Texture2D>(path, AssetRequestMode.ImmediateLoad).Value,
+                                color: myColor * drawInfo.stealth * (1f - drawInfo.shadow),
+                                position: headData.Value.position,
+                                sourceRect: headData.Value.sourceRect,
+                                rotation: headData.Value.rotation,
+                                origin: headData.Value.origin,
+                                scale: headData.Value.scale,
+                                effect: headData.Value.effect,
+                                inactiveLayerDepth: 0
+                            )
+                            {
+                                shader = headData.Value.shader
+                            };
+                            drawInfo.DrawDataCache.Insert(indexAhead, glow);
+                        }
+                    }
+                }
+            }
+
+            tex = EquipLoader.GetEquipTexture(EquipType.Legs, drawPlayer.legs);
+            if (tex != null)
+            {
+                int glowSlot = EquipLoader.GetEquipSlot(Mod, tex.Name + "_Glow", EquipType.Legs);
+                if (glowSlot != -1)
+                {
+                    bool canDraw = true;
+                    Color myColor = Color.White;
+                    if (tex.Item != null && tex.Item is ICustomEquipGlow customGlow)
+                    {
+                        if (customGlow.Condition(drawPlayer))
+                            myColor = customGlow.Color;
+                        else
+                            canDraw = false;
+                    }
+
+                    if (canDraw)
+                    {
+                        string path = EquipLoader.GetEquipTexture(EquipType.Legs, glowSlot).Texture;
+
+                        DrawData? legData = null;
+                        int indexAhead = 1;
+                        foreach (DrawData data in drawInfo.DrawDataCache)
+                        {
+                            if (data.texture == ModContent.Request<Texture2D>(tex.Texture, AssetRequestMode.ImmediateLoad).Value)
+                            {
+                                legData = data;
+                                break;
+                            }
+                            else
+                                indexAhead++;
+                        }
+                        if (legData.HasValue)
+                        {
+                            DrawData glow = new(
+                                texture: ModContent.Request<Texture2D>(path, AssetRequestMode.ImmediateLoad).Value,
+                                color: myColor * drawInfo.stealth * (1f - drawInfo.shadow),
+                                position: legData.Value.position,
+                                sourceRect: legData.Value.sourceRect,
+                                rotation: legData.Value.rotation,
+                                origin: legData.Value.origin,
+                                scale: legData.Value.scale,
+                                effect: legData.Value.effect,
+                                inactiveLayerDepth: 0
+                            )
+                            {
+                                shader = legData.Value.shader
+                            };
+                            drawInfo.DrawDataCache.Insert(indexAhead, glow);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public class MimicSummon : ModPlayer
@@ -3929,157 +4106,6 @@ namespace AAModClassic
                 }
             }
         }
-
-        public class GlowAfterHead : PlayerDrawLayer
-        {
-            public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Head);
-            protected override void Draw(ref PlayerDrawSet drawInfo)
-            {
-                Player drawPlayer = drawInfo.drawPlayer;
-                AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
-
-                Vector2 position = drawInfo.Position;
-                int dyeHead = drawInfo.cHead;
-
-                if (EquipGlowSystem.GlowEquipTextures[EquipType.Head].TryGetValue(drawPlayer.head, out var headGlowTex))
-                    BaseDrawing.DrawPlayerTexture(drawInfo, headGlowTex.Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-
-                //if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconainSunHelmet>()))
-                //{
-                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                //}
-                /*else*/
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayHelmetMage>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetRanged>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetMelee>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetSummoner>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHeaddress_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmetMage>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetSummoner>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHat_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetMelee>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetRanged>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHeadgear_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmetMage>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumMask_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<InfernoGripMask>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(ModContent.GetInstance<InfernoGripMask>().Texture + "_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DaybringerMask>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DaybringerMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<NightcrawlerMask>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NightcrawlerMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                //TODO: holy shit actually can we just automate all of this somehow
-                //else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<RetrieverMask>()))
-                //{
-                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RetrieverMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                //}
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ZeroMask>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                //else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<TiedMask>()))
-                //{
-                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TiedMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.FlashGlow, drawInfo.shadow), drawPlayer.bodyFrame);
-                //}
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumHelmet>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomHat_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DJDuckHead>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckHead_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteHelmet>()) && modPlayer.doomite)
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                //TODO: move    this? (theres another one elsewhere btw. maybe more)
-                // btw there isnt one of these for the legs? lol???? we might wanna make that
-                #region move to chaos slayer stuff
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetMelee>()))
-                {
-                    if (drawPlayer.direction == 1)
-                    {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
-                    }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMelee_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetSummoner>()))
-                {
-                    if (drawPlayer.direction == 1)
-                    {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
-                    }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetSummoner_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetMage>()))
-                {
-                    if (drawPlayer.direction == 1)
-                    {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
-                    }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetMage_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerHelmetRanged>()))
-                {
-                    if (drawPlayer.direction == 1)
-                    {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Alt").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
-                    }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerHelmetRanged_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                #endregion
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenHelmet>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GibsSkull>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GibsSkull_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedHood>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<HoppingHoodlumHelmet>()) && drawPlayer.statLife < (drawPlayer.statLifeMax2 / 2))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/HoodlumHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<AthenaAMask>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AthenaAMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Flash, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-            }
-        }
         
         public class GlowAfterShield : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterShield", PlayerDrawLayer.ShieldAcc, delegate (PlayerDrawSet drawInfo)
         {
@@ -4189,139 +4215,6 @@ namespace AAModClassic
 
                     BaseDrawing.DrawPlayerTexture(drawInfo, Glow, drawInfo.cHandOff, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(GlowColor, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-            }
-        }
-
-        public class GlowAfterBody : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterBody", PlayerDrawLayer.Body, delegate (PlayerDrawSet edi)
-        {
-            public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Torso);
-
-            protected override void Draw(ref PlayerDrawSet drawInfo)
-            {
-                Player drawPlayer = drawInfo.drawPlayer;
-                AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
-
-                if (EquipGlowSystem.GlowEquipTextures[EquipType.Body].TryGetValue(drawPlayer.body, out var bodyGlowTex))
-                    BaseDrawing.DrawPlayerTexture(drawInfo, bodyGlowTex.Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-
-                /*if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else*/
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterBreastplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Body").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumChestplate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DJDuckShirt>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckShirt_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteChestplate>()) && modPlayer.doomite)
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ChaosSlayerChestplate>()))
-                {
-                    if (drawPlayer.direction == 1)
-                    {
-                        BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Alt").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), drawInfo.shadow), drawPlayer.bodyFrame);
-                    }
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/Items/Armor/ChaosSlayerChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenPlate_" + (drawPlayer.Male ? "Body" : "Female")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedRobe>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedRobe_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
-            }
-        }
-
-        public class GlowAfterLegs : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterLegs", PlayerDrawLayer.Legs, delegate (PlayerDrawSet edi)
-        {
-            public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Leggings);
-
-            protected override void Draw(ref PlayerDrawSet drawInfo)
-            {
-                Player drawPlayer = drawInfo.drawPlayer;
-                AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
-
-                if(EquipGlowSystem.GlowEquipTextures[EquipType.Legs].TryGetValue(drawPlayer.legs, out var legGlowTex))
-                    BaseDrawing.DrawPlayerTexture(drawInfo, legGlowTex.Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
-
-                /*if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DraconianSunLeggings>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else*/
-                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayLeggings>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterLeggings>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterGreaves_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumLeggings>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumCuisses_Legs").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GlowingMushiumLeggings>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteLeggings>()) && modPlayer.doomite)
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteGreaves_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenBoots>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenBoots_Legs").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedPants>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.legFrame);
-                }
-                //TODO: what the fuck is shox curse
-                /*else if (HasAndCanDraw(drawPlayer, mod.ItemType("ShoxCurse")))
-                {
-                    if (!drawPlayer.invis && !drawPlayer.mount.Active)
-                    {
-                        Color color14 = drawPlayer.GetImmuneAlphaPure(Lighting.GetColor((int)(edi.position.X + drawPlayer.width * 0.5) / 16, (int)(edi.position.Y + drawPlayer.height * 0.75) / 16, Color.White), 0f);
-                        Texture2D texture2 = ModContent.Request<Texture2D>("AAModClassic/Items/Vanity/Shox/ShoxCurse_Pants");
-                        bool flag10 = drawPlayer.legFrame.Y == 0;
-                        int num65 = drawPlayer.miscCounter / 3 % 8;
-                        if (flag10)
-                        {
-                            num65 = drawPlayer.miscCounter / 4 % 8;
-                        }
-                        Rectangle rectangle3 = new Rectangle(18 * flag10.ToInt(), num65 * 26, 16, 24);
-                        float num66 = 12f - Main.OffsetsPlayerHeadgear[drawPlayer.bodyFrame.Y / drawPlayer.bodyFrame.Height].Y;
-                        Vector2 arg_6147_0 = edi.position + drawPlayer.Size * new Vector2(0.5f, 0.5f + 0.5f * drawPlayer.gravDir);
-                        int arg_6135_0 = drawPlayer.direction;
-                        Vector2 vector7 = arg_6147_0 + new Vector2(0, -num66 * drawPlayer.gravDir) - Main.screenPosition + drawPlayer.legPosition;
-                        vector7 = vector7.Floor();
-                        DrawData value = new DrawData(texture2, vector7, new Rectangle?(rectangle3), color14, drawPlayer.legRotation, rectangle3.Size() * new Vector2(0.5f, 0.5f - drawPlayer.gravDir / 2), 1f, SpriteEffects.None, 0);
-                        value.shader = edi.legArmorShader;
-                        drawInfo.Add(value);
-                    }
-                }*/
-
             }
         }
 
