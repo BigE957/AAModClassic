@@ -134,7 +134,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.dayTime || (!Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().SunAltar))
+                if (Main.gameMenu || Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().SunAltar)
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     if (Main.gameMenu)
