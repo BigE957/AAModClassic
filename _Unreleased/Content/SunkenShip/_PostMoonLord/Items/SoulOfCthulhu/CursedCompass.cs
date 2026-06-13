@@ -117,5 +117,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
         public override void UseItemFrame(Player player) { BaseUseStyle.SetFrameBoss(player, Item); }
+
+        public override void AddRecipes()
+        {
+            Recipe r = CreateRecipe();
+            r.AddIngredient(ItemID.Compass);
+        }
     }
 }

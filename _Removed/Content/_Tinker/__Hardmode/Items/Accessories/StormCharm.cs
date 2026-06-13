@@ -54,7 +54,7 @@ Grants the ability to dash."); */
             player.GetDamage(DamageClass.Summon) += .15f;
             player.GetDamage(DamageClass.Throwing) += .15f;
             player.GetModPlayer<StormClawPlayer>().StormClaw = true;
-            player.dash = 1;
+            player.dash = DashID.TabiAndMasterNinjaGear;
         }
 
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
