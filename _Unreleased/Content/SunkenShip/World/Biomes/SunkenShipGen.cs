@@ -230,6 +230,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 WorldGen.PlaceObject(newOriginX + 144, newOriginY + 80, TileID.Sinks, true, 0);
                 WorldGen.PlaceObject(newOriginX + 147, newOriginY + 80, TileID.Tables, true, 17);
                 WorldGen.PlaceObject(newOriginX + 150, newOriginY + 80, TileID.CookingPots, true, 0);
+                WorldGen.PlaceObject(newOriginX + 152, newOriginY + 80, TileID.Kegs, true, 0);
                 WorldGen.PlaceObject(newOriginX + 154, newOriginY + 80, TileID.Containers, true, 5);
 
                 WorldGen.PlaceObject(newOriginX + 143, newOriginY + 76, TileID.Bottles, true, Main.rand.Next(4, 7)); //Cup, Mug, Glass
