@@ -24,7 +24,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 			TileObjectData.addTile(Type);
             TileID.Sets.DisableSmartCursor[Type] = true;
             LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Music Box");
+            // name.SetDefault("Music Box");
+            RegisterItemDrop(ModContent.ItemType<InfinityZeroBox>());
             DustType = ModContent.DustType<Dusts.VoidDust_Unreleased>();
             AddMapEntry(new Color(200, 200, 200), name);
 		}
@@ -49,18 +50,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             }
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-            //TODO: Fake item
-			//Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, ModContent.ItemType<IZBox>());
-		}
-
 		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			//player.cursorItemIconID = ModContent.ItemType<IZBox>();
+			player.cursorItemIconID = ModContent.ItemType<InfinityZeroBox>();
 		}
 	}
 }

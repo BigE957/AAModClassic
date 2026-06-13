@@ -259,20 +259,27 @@ namespace AAModClassic._Unreleased
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
-                int[] itemsToPlaceInSunkenChest = new int[] { ModContent.ItemType<CursedCompass>() };
-                int itemsToPlaceInSunkenChestsChoice = 0;
-                for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
-                    Chest chest = Main.chest[chestIndex];
-                    if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest
+
+                }
+                else
+                {
+                    int[] itemsToPlaceInSunkenChest = [ModContent.ItemType<CursedCompass>()];
+                    int itemsToPlaceInSunkenChestsChoice = 0;
+                    for (int chestIndex = 0; chestIndex < Main.chest.Length; chestIndex++)
                     {
-                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                        Chest chest = Main.chest[chestIndex];
+                        if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest
                         {
-                            if (chest.item[inventoryIndex].type == ItemID.None)
+                            for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                             {
-                                itemsToPlaceInSunkenChestsChoice = Main.rand.Next(itemsToPlaceInSunkenChest.Length);
-                                chest.item[0].SetDefaults(itemsToPlaceInSunkenChest[itemsToPlaceInSunkenChestsChoice]);
-                                break;
+                                if (chest.item[inventoryIndex].type == ItemID.None)
+                                {
+                                    itemsToPlaceInSunkenChestsChoice = Main.rand.Next(itemsToPlaceInSunkenChest.Length);
+                                    chest.item[0].SetDefaults(itemsToPlaceInSunkenChest[itemsToPlaceInSunkenChestsChoice]);
+                                    break;
+                                }
                             }
                         }
                     }

@@ -9624,7 +9624,7 @@ SquidStorm: {
 }
 
 InfinityZeroTreasureBag: {
-	DisplayName: Infinity Zero Treasure Bag
+	DisplayName: Treasure Cache (Infinity Zero)
 	Tooltip: ""
 }
 
@@ -12059,13 +12059,13 @@ UnityWatcherBanner: {
 }
 
 FatPixie_Banner: {
-	DisplayName: Fat Pixie_ Banner
+	DisplayName: Fat Pixie Banner
 	Tooltip: ""
 }
 
 InfinityZeroBox: {
-	DisplayName: Infinity Zero Box
-	Tooltip: ""
+	DisplayName: Music Box (Infinity Zero)
+	Tooltip: Plays 'Infinitum' by MaestroVGM
 }
 
 InfinitySlayerChestplate: {
