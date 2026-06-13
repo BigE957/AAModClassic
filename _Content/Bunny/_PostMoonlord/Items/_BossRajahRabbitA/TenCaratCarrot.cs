@@ -89,7 +89,6 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
             recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<PlatinumCarrot>(), 1);
@@ -98,7 +97,6 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(ModContent.TileType<ACS_Tile>());
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
     }

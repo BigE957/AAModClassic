@@ -11,6 +11,7 @@ using Terraria.GameContent;
 using Terraria.Localization;
 using System;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {
@@ -122,6 +123,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             Recipe r = CreateRecipe();
             r.AddIngredient(ItemID.Compass);
+            r.AddCondition(new Condition("Mods.AAModClassic.Common.Conditions.InSunkenShipPreSoC", () => Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients));
+            r.Register();
         }
     }
 }

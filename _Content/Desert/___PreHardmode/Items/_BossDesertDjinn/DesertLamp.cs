@@ -95,7 +95,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
                 recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 3);
                 recipe.AddIngredient(ItemID.Sandstone, 30);
                 recipe.AddTile(TileID.Anvils);
-                //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
                 recipe.Register();
             }
         }

@@ -71,7 +71,6 @@ Can only be used in a glowing mushroom biome"); */
             recipe.AddIngredient(ModContent.ItemType<Mushium>(), 10);
             recipe.AddIngredient(ModContent.ItemType<GlowingMushium>(), 10);
             recipe.AddTile(TileID.Anvils);
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
     }

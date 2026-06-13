@@ -115,7 +115,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
             recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 3);
             recipe.AddIngredient(ItemID.IceBlock, 30);
             recipe.AddTile(TileID.IceMachine);
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
 	}
