@@ -1318,9 +1318,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "InfinityZero", (Func<bool>)(() => NPCExtensions.BeenKilled<InfinityZero>()), ModContent.NPCType<InfinityZero>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "InfinityZero.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "InfinityZero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<InfinityOverloader>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "InfinityZero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<InfinityBeacon>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "InfinityZero.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<InfinityOverloader>(),
+                    ["spawnItems"] = ModContent.ItemType<InfinityBeacon>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<InfinityZeroTrophy>(),

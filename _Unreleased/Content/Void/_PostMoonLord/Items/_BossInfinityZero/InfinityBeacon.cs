@@ -20,7 +20,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero
 {
-    public class InfinityOverloader : ModItem
+    public class InfinityBeacon : ModItem
 	{
         public static Asset<Texture2D> Glowmask;
 
