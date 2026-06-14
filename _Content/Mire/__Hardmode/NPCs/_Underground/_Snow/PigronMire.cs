@@ -3,6 +3,7 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,6 +37,10 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("CommonBestiaryFlavor.Pigron"));
+        }
 
         public override void AI()
         {
