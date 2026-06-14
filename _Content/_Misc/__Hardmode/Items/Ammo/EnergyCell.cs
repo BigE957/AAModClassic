@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Ammo
 {
-    public class EnergyCell : BaseAAItem
+    public class EnergyCell : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
 		public override void SetDefaults()
 		{
 			Item.damage = 5;

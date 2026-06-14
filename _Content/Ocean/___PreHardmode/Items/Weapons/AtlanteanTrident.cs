@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
@@ -13,8 +13,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons
 {
-	public class AtlanteanTrident : BaseAAItem
+	public class AtlanteanTrident : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Atlantean Trident");

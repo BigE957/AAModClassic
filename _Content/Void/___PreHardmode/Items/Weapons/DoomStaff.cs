@@ -1,11 +1,12 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
-    public class DoomStaff : BaseAAItem
+    public class DoomStaff : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Doom Rod");

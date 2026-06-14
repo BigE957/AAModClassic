@@ -1,4 +1,4 @@
-using AAModClassic.Utilities;
+﻿using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Rain.__Hardmode.Items.Weapons
 {
-    public class ElectricityShard : BaseAAItem
+    public class ElectricityShard : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Electricity Shard");

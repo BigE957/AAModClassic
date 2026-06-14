@@ -14,8 +14,9 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {
-    public class DarkmatterSlasher : BaseAAItem
+    public class DarkmatterSlasher : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmatter Slasher");

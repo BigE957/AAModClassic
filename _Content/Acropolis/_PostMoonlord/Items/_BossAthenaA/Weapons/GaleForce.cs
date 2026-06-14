@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Globals;
@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons
 {
-    public class GaleForce : BaseAAItem
+    public class GaleForce : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Gale Force");

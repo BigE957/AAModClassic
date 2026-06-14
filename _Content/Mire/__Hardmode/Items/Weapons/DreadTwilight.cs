@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
-    public class DreadTwilight : BaseAAItem
+    public class DreadTwilight : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dread Twilight");

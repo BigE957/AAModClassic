@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -13,8 +13,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
-    public class HydraStabber : BaseAAItem
+    public class HydraStabber : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         
         public override void SetStaticDefaults()
         {

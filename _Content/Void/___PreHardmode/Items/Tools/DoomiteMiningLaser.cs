@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
 {
-	public class DoomiteMiningLaser : BaseAAItem
+	public class DoomiteMiningLaser : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Tools";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Doomite Mining Laser");

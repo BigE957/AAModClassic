@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,8 +11,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
 {
-    public class SingularityArrow : BaseAAItem
+    public class SingularityArrow : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
         
         public override void SetStaticDefaults()
         {

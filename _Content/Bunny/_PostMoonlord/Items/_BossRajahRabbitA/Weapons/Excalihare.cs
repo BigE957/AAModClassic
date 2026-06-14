@@ -1,4 +1,4 @@
-using AAModClassic.Buffs;
+﻿using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
-    public class Excalihare : BaseAAItem
+    public class Excalihare : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetDefaults()
 		{
 			Item.damage = 500;

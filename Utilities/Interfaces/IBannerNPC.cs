@@ -120,7 +120,7 @@ namespace AAModClassic.Utilities.Interfaces
     [Autoload(false)]
     public class BannerItem(string texture, string name, int bannerTile) : ModItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Banners";
+        public new string LocalizationCategory => "Items.Placeables.Banners";
         public override string Name => name + "Banner";
         public override string Texture => texture;
 
@@ -141,7 +141,7 @@ namespace AAModClassic.Utilities.Interfaces
     {
         internal static Dictionary<int, int> TileTypeToNPC = [];
     
-        public override string LocalizationCategory => "Banners";
+        public new string LocalizationCategory => "Tiles.Banners";
 
         public override string Name => name + "Banner";
         public override string Texture => texture;

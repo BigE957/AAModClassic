@@ -1,4 +1,4 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 {
-    public class Yogan : BaseAAItem
+    public class Yogan : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetDefaults()
         {
 			Item.CloneDefaults(ItemID.Sunfury);

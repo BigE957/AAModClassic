@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
 {
-    public class OverloadedDoomiteRadio : BaseAAItem
+    public class OverloadedDoomiteRadio : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Overloaded Doomite Radio");

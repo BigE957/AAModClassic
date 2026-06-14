@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terra.__Hardmode.Items.Ammo;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {
-    public class TerraBallista : BaseAAItem
+    public class TerraBallista : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Ballista");

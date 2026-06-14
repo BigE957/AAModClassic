@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
@@ -11,8 +11,9 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tools
 {
-    public class DarkmatterPitchet : BaseAAItem
+    public class DarkmatterPitchet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         
         public override void SetStaticDefaults()
 		{

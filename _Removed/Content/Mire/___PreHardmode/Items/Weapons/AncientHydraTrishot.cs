@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using System;
 using Terraria.DataStructures;
@@ -8,8 +8,9 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic._Removed.Content.Mire.___PreHardmode.Items.Weapons
 {
-    public class AncientHydraTrishot : ModItem
+    public class AncientHydraTrishot : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetDefaults()
         {
 

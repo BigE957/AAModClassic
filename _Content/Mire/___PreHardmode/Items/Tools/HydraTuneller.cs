@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tools
 {
     //ported from my tAPI mod because I don't want to make more artwork
-    public class HydraTuneller : BaseAAItem
+    public class HydraTuneller : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Tools";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Hydra Tuneller");

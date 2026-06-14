@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
 {
-    public class DaybreakBullet : BaseAAItem
+    public class DaybreakBullet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Daybreak Bullet");

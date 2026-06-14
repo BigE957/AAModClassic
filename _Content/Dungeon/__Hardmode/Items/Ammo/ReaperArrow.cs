@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo
 {
-    public class ReaperArrow : BaseAAItem
+    public class ReaperArrow : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Reaper Arrow");

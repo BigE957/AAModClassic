@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Decoration
 {
 	public class ThixxieBanner : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Banners";
+        public new string LocalizationCategory => "Items.Placeables.Banners";
 
         // The tooltip for this item is automatically assigned from .lang files
         public override void SetDefaults() {

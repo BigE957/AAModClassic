@@ -1,4 +1,4 @@
-using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
+﻿using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons
 {
-    public class DuskBringer : BaseAAItem
+    public class DuskBringer : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetDefaults()
         {
 

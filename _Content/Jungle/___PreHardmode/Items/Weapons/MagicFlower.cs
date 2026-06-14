@@ -1,4 +1,4 @@
-using AAModClassic._Content.Jungle.Projectiles;
+﻿using AAModClassic._Content.Jungle.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
 {
-    public class MagicFlower : BaseAAItem
+    public class MagicFlower : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Magic Flower");

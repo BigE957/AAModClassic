@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tools
 {
-    public class DarkmatterJackhammer : BaseAAItem
+    public class DarkmatterJackhammer : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmatter Jackhammer");

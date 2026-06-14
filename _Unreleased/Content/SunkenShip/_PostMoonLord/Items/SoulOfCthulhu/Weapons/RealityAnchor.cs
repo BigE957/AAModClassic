@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class RealityAnchor : BaseAAItem
+    public class RealityAnchor : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 
         public override void SetStaticDefaults()
         {

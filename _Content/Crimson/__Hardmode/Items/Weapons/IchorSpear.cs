@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Crimson.__Hardmode.Items.Weapons
 {
-    public class IchorSpear : BaseAAItem
+    public class IchorSpear : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ichor Spear");

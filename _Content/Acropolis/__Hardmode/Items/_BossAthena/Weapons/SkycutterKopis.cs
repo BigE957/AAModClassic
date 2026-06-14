@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {
-    public class SkycutterKopis : BaseAAItem
+    public class SkycutterKopis : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Skycutter Kopis");

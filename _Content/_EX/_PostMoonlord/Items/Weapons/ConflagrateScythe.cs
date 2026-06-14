@@ -1,4 +1,4 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -11,8 +11,9 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     //imported from my tAPI mod because I'm lazy
-    public class ConflagrateScythe : BaseAAItem
+    public class ConflagrateScythe : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         
         public override void SetStaticDefaults()
         {

@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     //imported from my tAPI mod because I'm lazy
-    public class ConflagrateStaff : BaseAAItem
+    public class ConflagrateStaff : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Summon";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Conflagrate Staff");

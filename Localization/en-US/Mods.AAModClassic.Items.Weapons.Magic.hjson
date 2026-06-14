@@ -1,0 +1,354 @@
+Ethereal: {
+	DisplayName: Ethereal
+	Tooltip: ""
+}
+
+PoniumStaff: {
+	DisplayName: Ponium Staff
+	Tooltip: ""
+}
+
+DuckstepREMIX: {
+	DisplayName: Duckstep R E M I X
+	Tooltip: ""
+}
+
+Light: {
+	DisplayName: Light
+	Tooltip: ""
+}
+
+PrismeowSpectrum: {
+	DisplayName: Prismeow Spectrum
+	Tooltip: ""
+}
+
+Prismeow: {
+	DisplayName: Prismeow
+	Tooltip: ""
+}
+
+TrueTerraRose: {
+	DisplayName: True Terra Rose
+	Tooltip: ""
+}
+
+MeteorStrike: {
+	DisplayName: Meteor Strike
+	Tooltip: ""
+}
+
+Daystorm: {
+	DisplayName: Daystorm
+	Tooltip: ""
+}
+
+BogBomb: {
+	DisplayName: Bog Bomb
+	Tooltip: ""
+}
+
+AbyssalBomb: {
+	DisplayName: Abyssal Bomb
+	Tooltip: ""
+}
+
+TerraRose: {
+	DisplayName: Terra Rose
+	Tooltip: ""
+}
+
+NovaFocus: {
+	DisplayName: Nova Focus
+	Tooltip: ""
+}
+
+Nova: {
+	DisplayName: Nova
+	Tooltip: ""
+}
+
+VoidStar: {
+	DisplayName: Void Star
+	Tooltip: ""
+}
+
+TotalDestruction: {
+	DisplayName: Total Destruction
+	Tooltip: ""
+}
+
+PineBreaker: {
+	DisplayName: Pine Breaker
+	Tooltip: ""
+}
+
+DuckstepLauncher: {
+	DisplayName: Duckstep Launcher
+	Tooltip: ""
+}
+
+Placeholder: {
+	DisplayName: Placeholder
+	Tooltip: ""
+}
+
+SkrallStaff: {
+	DisplayName: Skrall Staff
+	Tooltip: ""
+}
+
+UmbralReaper: {
+	DisplayName: Umbral Reaper
+	Tooltip: ""
+}
+
+UltibladeTyphoon: {
+	DisplayName: Ultiblade Typhoon
+	Tooltip: ""
+}
+
+PoniumUltiscepter: {
+	DisplayName: Ponium Ultiscepter
+	Tooltip: ""
+}
+
+Spectrum: {
+	DisplayName: Spectrum
+	Tooltip: ""
+}
+
+StarburstWand: {
+	DisplayName: Starburst Wand
+	Tooltip: ""
+}
+
+SubzeroStormStaff: {
+	DisplayName: Subzero Storm Staff
+	Tooltip: ""
+}
+
+FlamingGelWand: {
+	DisplayName: Flaming Gel Wand
+	Tooltip: ""
+}
+
+Gong: {
+	DisplayName: Gong
+	Tooltip: ""
+}
+
+ManaBlade: {
+	DisplayName: Mana Blade
+	Tooltip: ""
+}
+
+TrueGong: {
+	DisplayName: True Gong
+	Tooltip: ""
+}
+
+AncientArcanum: {
+	DisplayName: Ancient Arcanum
+	Tooltip: ""
+}
+
+GaleOfWings: {
+	DisplayName: Gale Of Wings
+	Tooltip: ""
+}
+
+GaleForce: {
+	DisplayName: Gale Force
+	Tooltip: ""
+}
+
+RoyalScepter: {
+	DisplayName: Royal Scepter
+	Tooltip: ""
+}
+
+RabbitsWrath: {
+	DisplayName: Rabbits Wrath
+	Tooltip: ""
+}
+
+RoyalStaff: {
+	DisplayName: Royal Staff
+	Tooltip: ""
+}
+
+AshRain: {
+	DisplayName: Ash Rain
+	Tooltip: ""
+}
+
+FuryFlame: {
+	DisplayName: Fury Flame
+	Tooltip: ""
+}
+
+SandLamp: {
+	DisplayName: Sand Lamp
+	Tooltip: ""
+}
+
+DesertStaff: {
+	DisplayName: Desert Staff
+	Tooltip: ""
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition: {
+	DisplayName: The Life And Epic Adventures Of Anubis The Wonder Dog Special Edition
+	Tooltip: ""
+}
+
+ForsakenStaff: {
+	DisplayName: Forsaken Staff
+	Tooltip: ""
+}
+
+MushrockStaff: {
+	DisplayName: Mushrock Staff
+	Tooltip: ""
+}
+
+CrystalTome: {
+	DisplayName: Crystal Tome
+	Tooltip: ""
+}
+
+GoldDigger: {
+	DisplayName: Gold Digger
+	Tooltip: ""
+}
+
+OreStaff: {
+	DisplayName: Ore Staff
+	Tooltip: ""
+}
+
+BlazePike: {
+	DisplayName: Blaze Pike
+	Tooltip: ""
+}
+
+BlazingBreath: {
+	DisplayName: Blazing Breath
+	Tooltip: ""
+}
+
+Volley: {
+	DisplayName: Volley
+	Tooltip: ""
+}
+
+Fireblast: {
+	DisplayName: Fireblast
+	Tooltip: ""
+}
+
+Sunstorm: {
+	DisplayName: Sunstorm
+	Tooltip: ""
+}
+
+MagicFlower: {
+	DisplayName: Magic Flower
+	Tooltip: ""
+}
+
+ManaRose: {
+	DisplayName: Mana Rose
+	Tooltip: ""
+}
+
+TrueManaRose: {
+	DisplayName: True Mana Rose
+	Tooltip: ""
+}
+
+MadnessStaff: {
+	DisplayName: Madness Staff
+	Tooltip: ""
+}
+
+GunkWand: {
+	DisplayName: Gunk Wand
+	Tooltip: ""
+}
+
+SludgeShot: {
+	DisplayName: Sludge Shot
+	Tooltip: ""
+}
+
+VenomSpray: {
+	DisplayName: Venom Spray
+	Tooltip: ""
+}
+
+Depthsprayer: {
+	DisplayName: Depthsprayer
+	Tooltip: ""
+}
+
+Toxifang: {
+	DisplayName: Toxifang
+	Tooltip: ""
+}
+
+AtlanteanTrident: {
+	DisplayName: Atlantean Trident
+	Tooltip: ""
+}
+
+OceanTrident: {
+	DisplayName: Ocean Trident
+	Tooltip: ""
+}
+
+ElectricityShard: {
+	DisplayName: Electricity Shard
+	Tooltip: ""
+}
+
+DragonStaff: {
+	DisplayName: Dragon Staff
+	Tooltip: ""
+}
+
+Icicle: {
+	DisplayName: Icicle
+	Tooltip: ""
+}
+
+StarStaff: {
+	DisplayName: Star Staff
+	Tooltip: ""
+}
+
+TerraFocus: {
+	DisplayName: Terra Focus
+	Tooltip: ""
+}
+
+NeutronRod: {
+	DisplayName: Neutron Rod
+	Tooltip: ""
+}
+
+DoomStaff: {
+	DisplayName: Doom Staff
+	Tooltip: ""
+}
+
+GalacticStormspike: {
+	DisplayName: Galactic Stormspike
+	Tooltip: ""
+}
+
+SquidStorm: {
+	DisplayName: Squid Storm
+	Tooltip: ""
+}

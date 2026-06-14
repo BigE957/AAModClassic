@@ -1,4 +1,4 @@
-using AAModClassic._Content.Corruption.___PreHardmode.Items.Tools;
+﻿using AAModClassic._Content.Corruption.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Corruption.__Hardmode.Items.Tools
 {
-    public class TrueNightaxe : BaseAAItem
+    public class TrueNightaxe : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
 

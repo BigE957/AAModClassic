@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
-    public class ChaosJavelin : BaseAAItem
+    public class ChaosJavelin : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Javelin");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
 
-    public class GenocideCannon : BaseAAItem
+    public class GenocideCannon : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Genocide Cannon");

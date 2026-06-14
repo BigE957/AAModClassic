@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -11,8 +11,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class PerfectChaosBustershot : BaseAAItem
+    public class PerfectChaosBustershot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Perfect Chaos Bustershot");

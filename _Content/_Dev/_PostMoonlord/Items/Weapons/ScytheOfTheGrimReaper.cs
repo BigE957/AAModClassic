@@ -1,4 +1,4 @@
-using AAModClassic.Buffs;
+﻿using AAModClassic.Buffs;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    public class ScytheOfTheGrimReaper : BaseAAItem
+    public class ScytheOfTheGrimReaper : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Scythe of the Grim Reaper");

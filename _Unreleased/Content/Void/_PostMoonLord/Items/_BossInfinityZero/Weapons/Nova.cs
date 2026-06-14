@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons
 {
-    public class Nova : ModItem
+    public class Nova : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         
         public override void SetStaticDefaults()
         {

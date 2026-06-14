@@ -1,0 +1,814 @@
+BladeOfNight: {
+	DisplayName: Blade Of Night
+	Tooltip: ""
+}
+
+Doragonburedo: {
+	DisplayName: Doragonburedo
+	Tooltip: ""
+}
+
+GentlemansRapier: {
+	DisplayName: Gentlemans Rapier
+	Tooltip: ""
+}
+
+Aerodrake: {
+	DisplayName: Aerodrake
+	Tooltip: ""
+}
+
+Apocalypse: {
+	DisplayName: Apocalypse
+	Tooltip: ""
+}
+
+DraconianFury: {
+	DisplayName: Draconian Fury
+	Tooltip: ""
+}
+
+DraculaKnives: {
+	DisplayName: Dracula Knives
+	Tooltip: ""
+}
+
+FuryGreatforger: {
+	DisplayName: Fury Greatforger
+	Tooltip: ""
+}
+
+GentlemansLongblade: {
+	DisplayName: Gentlemans Longblade
+	Tooltip: ""
+}
+
+Ikari: {
+	DisplayName: Ikari
+	Tooltip: ""
+}
+
+PerfectChaos: {
+	DisplayName: Perfect Chaos
+	Tooltip: ""
+}
+
+ScourgeOfTheShadows: {
+	DisplayName: Scourge Of The Shadows
+	Tooltip: ""
+}
+
+ScytheOfEvil: {
+	DisplayName: Scythe Of Evil
+	Tooltip: ""
+}
+
+TheLolkat: {
+	DisplayName: The Lolkat
+	Tooltip: ""
+}
+
+TrueTerraBlade: {
+	DisplayName: True Terra Blade
+	Tooltip: ""
+}
+
+UltimaShortsword: {
+	DisplayName: Ultima Shortsword
+	Tooltip: ""
+}
+
+Umbra: {
+	DisplayName: Umbra
+	Tooltip: ""
+}
+
+CthulhusBlade: {
+	DisplayName: Cthulhus Blade
+	Tooltip: ""
+}
+
+ChaosSlayer: {
+	DisplayName: Chaos Slayer
+	Tooltip: ""
+}
+
+TrueFleshrendClaymore: {
+	DisplayName: True Fleshrend Claymore
+	Tooltip: ""
+}
+
+BlazingDawn: {
+	DisplayName: Blazing Dawn
+	Tooltip: ""
+}
+
+FlamingFury: {
+	DisplayName: Flaming Fury
+	Tooltip: ""
+}
+
+DraconianDawn: {
+	DisplayName: Draconian Dawn
+	Tooltip: ""
+}
+
+Dragonkite: {
+	DisplayName: Dragonkite
+	Tooltip: ""
+}
+
+Daycrusher: {
+	DisplayName: Daycrusher
+	Tooltip: ""
+}
+
+MorningGlory: {
+	DisplayName: Morning Glory
+	Tooltip: ""
+}
+
+ReignOfFire: {
+	DisplayName: Reign Of Fire
+	Tooltip: ""
+}
+
+SunPartisan: {
+	DisplayName: Sun Partisan
+	Tooltip: ""
+}
+
+AbyssalYari: {
+	DisplayName: Abyssal Yari
+	Tooltip: ""
+}
+
+Flairdra: {
+	DisplayName: Flairdra
+	Tooltip: ""
+}
+
+HydraStabber: {
+	DisplayName: Hydra Stabber
+	Tooltip: ""
+}
+
+ThrowingCrescent: {
+	DisplayName: Throwing Crescent
+	Tooltip: ""
+}
+
+DragonBlade: {
+	DisplayName: Dragon Blade
+	Tooltip: ""
+}
+
+DarkmatterSlasher: {
+	DisplayName: Darkmatter Slasher
+	Tooltip: ""
+}
+
+DarkmatterSpinblade: {
+	DisplayName: Darkmatter Spinblade
+	Tooltip: ""
+}
+
+RealityShredders: {
+	DisplayName: Reality Shredders
+	Tooltip: ""
+}
+
+Poppy: {
+	DisplayName: Poppy
+	Tooltip: ""
+}
+
+TrueCopperShortsword: {
+	DisplayName: True Copper Shortsword
+	Tooltip: ""
+}
+
+StallionsStar: {
+	DisplayName: Stallions Star
+	Tooltip: ""
+}
+
+RiftShredder: {
+	DisplayName: Rift Shredder
+	Tooltip: ""
+}
+
+FulguriteTazesaber: {
+	DisplayName: Fulgurite Tazesaber
+	Tooltip: ""
+}
+
+StormJavelin: {
+	DisplayName: Storm Javelin
+	Tooltip: ""
+}
+
+InfinityBlade: {
+	DisplayName: Infinity Blade
+	Tooltip: ""
+}
+
+Sagittarius: {
+	DisplayName: Sagittarius
+	Tooltip: ""
+}
+
+FuryForger: {
+	DisplayName: Fury Forger
+	Tooltip: ""
+}
+
+CursedSickle: {
+	DisplayName: Cursed Sickle
+	Tooltip: ""
+}
+
+Demise: {
+	DisplayName: Demise
+	Tooltip: ""
+}
+
+ExtravagantLongsword: {
+	DisplayName: Extravagant Longsword
+	Tooltip: ""
+}
+
+ExtravagantLongswordS: {
+	DisplayName: Extravagant Longsword S
+	Tooltip: ""
+}
+
+ScytheOfTheGrimReaper: {
+	DisplayName: Scythe Of The Grim Reaper
+	Tooltip: ""
+}
+
+SoulSiphon: {
+	DisplayName: Soul Siphon
+	Tooltip: ""
+}
+
+TitanAxe: {
+	DisplayName: Titan Axe
+	Tooltip: ""
+}
+
+Axis: {
+	DisplayName: Axis
+	Tooltip: ""
+}
+
+Catastrophe: {
+	DisplayName: Catastrophe
+	Tooltip: ""
+}
+
+ExquisiteExtravagantGreatblade: {
+	DisplayName: Exquisite Extravagant Greatblade
+	Tooltip: ""
+}
+
+ExquisiteExtravagantGreatbladeS: {
+	DisplayName: Exquisite Extravagant Greatblade S
+	Tooltip: ""
+}
+
+FinalChaos: {
+	DisplayName: Final Chaos
+	Tooltip: ""
+}
+
+PerfectChaosChain: {
+	DisplayName: Perfect Chaos Chain
+	Tooltip: ""
+}
+
+PerfectChaosYari: {
+	DisplayName: Perfect Chaos Yari
+	Tooltip: ""
+}
+
+SoulShredder: {
+	DisplayName: Soul Shredder
+	Tooltip: ""
+}
+
+TartarusReaper: {
+	DisplayName: Tartarus Reaper
+	Tooltip: ""
+}
+
+BugSwatter: {
+	DisplayName: Bug Swatter
+	Tooltip: ""
+}
+
+MidasClub: {
+	DisplayName: Midas Club
+	Tooltip: ""
+}
+
+Tizona: {
+	DisplayName: Tizona
+	Tooltip: ""
+}
+
+SkycutterKopis: {
+	DisplayName: Skycutter Kopis
+	Tooltip: ""
+}
+
+Olympia: {
+	DisplayName: Olympia
+	Tooltip: ""
+}
+
+BloodyMary: {
+	DisplayName: Bloody Mary
+	Tooltip: ""
+}
+
+BaneOfTheBunny: {
+	DisplayName: Bane Of The Bunny
+	Tooltip: ""
+}
+
+ThePunisher: {
+	DisplayName: The Punisher
+	Tooltip: ""
+}
+
+BaneOfTheSlaughterer: {
+	DisplayName: Bane Of The Slaughterer
+	Tooltip: ""
+}
+
+Excalihare: {
+	DisplayName: Excalihare
+	Tooltip: ""
+}
+
+TheAvenger: {
+	DisplayName: The Avenger
+	Tooltip: ""
+}
+
+Chaos_Item: {
+	DisplayName: Chaos_ Item
+	Tooltip: ""
+}
+
+ChaosChain: {
+	DisplayName: Chaos Chain
+	Tooltip: ""
+}
+
+ChaosYari: {
+	DisplayName: Chaos Yari
+	Tooltip: ""
+}
+
+Asteroid: {
+	DisplayName: Asteroid
+	Tooltip: ""
+}
+
+Timesplitter: {
+	DisplayName: Timesplitter
+	Tooltip: ""
+}
+
+Masamune: {
+	DisplayName: Masamune
+	Tooltip: ""
+}
+
+DuskBringer: {
+	DisplayName: Dusk Bringer
+	Tooltip: ""
+}
+
+FleshrendClaymore: {
+	DisplayName: Fleshrend Claymore
+	Tooltip: ""
+}
+
+CarnalCrusher: {
+	DisplayName: Carnal Crusher
+	Tooltip: ""
+}
+
+IchorSpear: {
+	DisplayName: Ichor Spear
+	Tooltip: ""
+}
+
+Djinnerang: {
+	DisplayName: Djinnerang
+	Tooltip: ""
+}
+
+SultansScimitar: {
+	DisplayName: Sultans Scimitar
+	Tooltip: ""
+}
+
+AmberGreatsword: {
+	DisplayName: Amber Greatsword
+	Tooltip: ""
+}
+
+AmberSaber: {
+	DisplayName: Amber Saber
+	Tooltip: ""
+}
+
+DesertScimitar: {
+	DisplayName: Desert Scimitar
+	Tooltip: ""
+}
+
+SandScimitar: {
+	DisplayName: Sand Scimitar
+	Tooltip: ""
+}
+
+JackalsWrath: {
+	DisplayName: Jackals Wrath
+	Tooltip: ""
+}
+
+Judgment: {
+	DisplayName: Judgment
+	Tooltip: ""
+}
+
+CrookOfTheSoulJudge: {
+	DisplayName: Crook Of The Soul Judge
+	Tooltip: ""
+}
+
+Soulsplitter: {
+	DisplayName: Soulsplitter
+	Tooltip: ""
+}
+
+Verdict: {
+	DisplayName: Verdict
+	Tooltip: ""
+}
+
+AquaLance: {
+	DisplayName: Aqua Lance
+	Tooltip: ""
+}
+
+BladeOfEvil: {
+	DisplayName: Blade Of Evil
+	Tooltip: ""
+}
+
+ToadTongue: {
+	DisplayName: Toad Tongue
+	Tooltip: ""
+}
+
+GoblinSlayer: {
+	DisplayName: Goblin Slayer
+	Tooltip: ""
+}
+
+IlluminantFlail: {
+	DisplayName: Illuminant Flail
+	Tooltip: ""
+}
+
+MoltenLance: {
+	DisplayName: Molten Lance
+	Tooltip: ""
+}
+
+ScorchedSaw: {
+	DisplayName: Scorched Saw
+	Tooltip: ""
+}
+
+StoneSlammer: {
+	DisplayName: Stone Slammer
+	Tooltip: ""
+}
+
+Earthbreaker: {
+	DisplayName: Earthbreaker
+	Tooltip: ""
+}
+
+DragonGlove: {
+	DisplayName: Dragon Glove
+	Tooltip: ""
+}
+
+Pyrosphere: {
+	DisplayName: Pyrosphere
+	Tooltip: ""
+}
+
+Yogan: {
+	DisplayName: Yogan
+	Tooltip: ""
+}
+
+Dracorang: {
+	DisplayName: Dracorang
+	Tooltip: ""
+}
+
+Firestorm: {
+	DisplayName: Firestorm
+	Tooltip: ""
+}
+
+Ryusei: {
+	DisplayName: Ryusei
+	Tooltip: ""
+}
+
+SunHalberd: {
+	DisplayName: Sun Halberd
+	Tooltip: ""
+}
+
+DragonShiv: {
+	DisplayName: Dragon Shiv
+	Tooltip: ""
+}
+
+GrassSpear: {
+	DisplayName: Grass Spear
+	Tooltip: ""
+}
+
+JungleReaper: {
+	DisplayName: Jungle Reaper
+	Tooltip: ""
+}
+
+MadnessSaber: {
+	DisplayName: Madness Saber
+	Tooltip: ""
+}
+
+AbyssalTwilight: {
+	DisplayName: Abyssal Twilight
+	Tooltip: ""
+}
+
+ExilesKatana: {
+	DisplayName: Exiles Katana
+	Tooltip: ""
+}
+
+HydraGlove: {
+	DisplayName: Hydra Glove
+	Tooltip: ""
+}
+
+HydrasSpear: {
+	DisplayName: Hydras Spear
+	Tooltip: ""
+}
+
+AbyssalArc: {
+	DisplayName: Abyssal Arc
+	Tooltip: ""
+}
+
+BackScratcher: {
+	DisplayName: Back Scratcher
+	Tooltip: ""
+}
+
+DeathDaggers: {
+	DisplayName: Death Daggers
+	Tooltip: ""
+}
+
+DreadTwilight: {
+	DisplayName: Dread Twilight
+	Tooltip: ""
+}
+
+GuardianOfTheDepths: {
+	DisplayName: Guardian Of The Depths
+	Tooltip: ""
+}
+
+SwimmingHydra: {
+	DisplayName: Swimming Hydra
+	Tooltip: ""
+}
+
+Amenomuraku: {
+	DisplayName: Amenomuraku
+	Tooltip: ""
+}
+
+OceanRazor: {
+	DisplayName: Ocean Razor
+	Tooltip: ""
+}
+
+SaltwaterSpear: {
+	DisplayName: Saltwater Spear
+	Tooltip: ""
+}
+
+RomulusTazesaber: {
+	DisplayName: Romulus Tazesaber
+	Tooltip: ""
+}
+
+SpookySawblade: {
+	DisplayName: Spooky Sawblade
+	Tooltip: ""
+}
+
+Musharang: {
+	DisplayName: Musharang
+	Tooltip: ""
+}
+
+Mushmace: {
+	DisplayName: Mushmace
+	Tooltip: ""
+}
+
+CloudEdge: {
+	DisplayName: Cloud Edge
+	Tooltip: ""
+}
+
+BlizzardBuster: {
+	DisplayName: Blizzard Buster
+	Tooltip: ""
+}
+
+SerpentSpike: {
+	DisplayName: Serpent Spike
+	Tooltip: ""
+}
+
+SubzeroSlasher: {
+	DisplayName: Subzero Slasher
+	Tooltip: ""
+}
+
+GlacierBreaker: {
+	DisplayName: Glacier Breaker
+	Tooltip: ""
+}
+
+IceLongsword: {
+	DisplayName: Ice Longsword
+	Tooltip: ""
+}
+
+RaiderLance: {
+	DisplayName: Raider Lance
+	Tooltip: ""
+}
+
+VikingPolearm: {
+	DisplayName: Viking Polearm
+	Tooltip: ""
+}
+
+AsgardianLance: {
+	DisplayName: Asgardian Lance
+	Tooltip: ""
+}
+
+DragonFang: {
+	DisplayName: Dragon Fang
+	Tooltip: ""
+}
+
+BreakingDawn: {
+	DisplayName: Breaking Dawn
+	Tooltip: ""
+}
+
+TerraBroadsword: {
+	DisplayName: Terra Broadsword
+	Tooltip: ""
+}
+
+HarmonyShortsword: {
+	DisplayName: Harmony Shortsword
+	Tooltip: ""
+}
+
+AmethystGreatsword: {
+	DisplayName: Amethyst Greatsword
+	Tooltip: ""
+}
+
+AmethystSaber: {
+	DisplayName: Amethyst Saber
+	Tooltip: ""
+}
+
+DiamondGreatsword: {
+	DisplayName: Diamond Greatsword
+	Tooltip: ""
+}
+
+DiamondSaber: {
+	DisplayName: Diamond Saber
+	Tooltip: ""
+}
+
+EmeraldGreatsword: {
+	DisplayName: Emerald Greatsword
+	Tooltip: ""
+}
+
+EmeraldSaber: {
+	DisplayName: Emerald Saber
+	Tooltip: ""
+}
+
+PrismaticGreatsword: {
+	DisplayName: Prismatic Greatsword
+	Tooltip: ""
+}
+
+RubyGreatsword: {
+	DisplayName: Ruby Greatsword
+	Tooltip: ""
+}
+
+RubySaber: {
+	DisplayName: Ruby Saber
+	Tooltip: ""
+}
+
+SapphireGreatsword: {
+	DisplayName: Sapphire Greatsword
+	Tooltip: ""
+}
+
+SapphireSaber: {
+	DisplayName: Sapphire Saber
+	Tooltip: ""
+}
+
+TopazGreatsword: {
+	DisplayName: Topaz Greatsword
+	Tooltip: ""
+}
+
+TopazSaber: {
+	DisplayName: Topaz Saber
+	Tooltip: ""
+}
+
+TrueTinShortsword: {
+	DisplayName: True Tin Shortsword
+	Tooltip: ""
+}
+
+SagittariusLeg: {
+	DisplayName: Sagittarius Leg
+	Tooltip: ""
+}
+
+DoomiteSaber: {
+	DisplayName: Doomite Saber
+	Tooltip: ""
+}
+
+Executioner: {
+	DisplayName: Executioner
+	Tooltip: ""
+}
+
+Voidsaber: {
+	DisplayName: Voidsaber
+	Tooltip: ""
+}
+
+EventHorizon: {
+	DisplayName: Event Horizon
+	Tooltip: ""
+}
+
+RealityAnchor: {
+	DisplayName: Reality Anchor
+	Tooltip: ""
+}

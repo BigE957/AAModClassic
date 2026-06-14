@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny.Projectiles;
+﻿using AAModClassic._Content.Bunny.Projectiles;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
 
-    public class RabbitsWrath : BaseAAItem
+    public class RabbitsWrath : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rabbit's Wrath");

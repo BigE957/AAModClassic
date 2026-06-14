@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
-    public class SagittariusCore : BaseAAItem
+    public class SagittariusCore : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Summon";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Sagittarius Core");

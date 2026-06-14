@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -10,8 +10,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
-    public class AbyssalPentashot : BaseAAItem
+    public class AbyssalPentashot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Abyssal Pentashot");

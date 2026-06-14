@@ -1,4 +1,4 @@
-using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
 {
-    public class MadnessStaff : BaseAAItem
+    public class MadnessStaff : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Madness Staff");

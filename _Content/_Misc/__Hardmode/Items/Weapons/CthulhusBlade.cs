@@ -1,11 +1,12 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons  //where is located
 {
-    public class CthulhusBlade : BaseAAItem
+    public class CthulhusBlade : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         
         public override void SetDefaults()
         {

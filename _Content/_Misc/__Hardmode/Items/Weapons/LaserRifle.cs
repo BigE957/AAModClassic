@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 {
-    public class LaserRifle : BaseAAItem
+    public class LaserRifle : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 		
 		public override void SetStaticDefaults()
 		{

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.Buffs;
+﻿using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    public class Masamune : BaseAAItem
+    public class Masamune : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Masamune");

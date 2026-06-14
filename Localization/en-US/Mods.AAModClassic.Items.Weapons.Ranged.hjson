@@ -1,0 +1,534 @@
+Skullshot: {
+	DisplayName: Skullshot
+	Tooltip: ""
+}
+
+StormRifle: {
+	DisplayName: Storm Rifle
+	Tooltip: ""
+}
+
+EternalTwilight: {
+	DisplayName: Eternal Twilight
+	Tooltip: ""
+}
+
+PerfectChaosBustershot: {
+	DisplayName: Perfect Chaos Bustershot
+	Tooltip: ""
+}
+
+PerfectChaosJavelin: {
+	DisplayName: Perfect Chaos Javelin
+	Tooltip: ""
+}
+
+SupremeHellshot: {
+	DisplayName: Supreme Hellshot
+	Tooltip: ""
+}
+
+ThunderLord: {
+	DisplayName: Thunder Lord
+	Tooltip: ""
+}
+
+ApollosWrath: {
+	DisplayName: Apollos Wrath
+	Tooltip: ""
+}
+
+Skyfall: {
+	DisplayName: Skyfall
+	Tooltip: ""
+}
+
+Bonesaw: {
+	DisplayName: Bonesaw
+	Tooltip: ""
+}
+
+Battlestar: {
+	DisplayName: Battlestar
+	Tooltip: ""
+}
+
+TheVulcano: {
+	DisplayName: The Vulcano
+	Tooltip: ""
+}
+
+BurningGel: {
+	DisplayName: Burning Gel
+	Tooltip: ""
+}
+
+Dawnstrike: {
+	DisplayName: Dawnstrike
+	Tooltip: ""
+}
+
+AlienRifle: {
+	DisplayName: Alien Rifle
+	Tooltip: ""
+}
+
+Darksprayer: {
+	DisplayName: Darksprayer
+	Tooltip: ""
+}
+
+FallingTwilight: {
+	DisplayName: Falling Twilight
+	Tooltip: ""
+}
+
+MidnightWrath: {
+	DisplayName: Midnight Wrath
+	Tooltip: ""
+}
+
+Sevenshot: {
+	DisplayName: Sevenshot
+	Tooltip: ""
+}
+
+DragonsMaw: {
+	DisplayName: Dragons Maw
+	Tooltip: ""
+}
+
+DarkmatterKunai: {
+	DisplayName: Darkmatter Kunai
+	Tooltip: ""
+}
+
+TerraBallista: {
+	DisplayName: Terra Ballista
+	Tooltip: ""
+}
+
+BlackHoleBlaster: {
+	DisplayName: Black Hole Blaster
+	Tooltip: ""
+}
+
+BrokenZeroWeapon: {
+	DisplayName: Broken Zero Weapon
+	Tooltip: ""
+}
+
+GenocideCannon: {
+	DisplayName: Genocide Cannon
+	Tooltip: ""
+}
+
+Genocide: {
+	DisplayName: Genocide
+	Tooltip: ""
+}
+
+Gigataser: {
+	DisplayName: Gigataser
+	Tooltip: ""
+}
+
+Neutralizer: {
+	DisplayName: Neutralizer
+	Tooltip: ""
+}
+
+OmegaVolley: {
+	DisplayName: Omega Volley
+	Tooltip: ""
+}
+
+RealityCannon: {
+	DisplayName: Reality Cannon
+	Tooltip: ""
+}
+
+FulguriteTazerblaster: {
+	DisplayName: Fulgurite Tazerblaster
+	Tooltip: ""
+}
+
+Annihilator: {
+	DisplayName: Annihilator
+	Tooltip: ""
+}
+
+GameRaider: {
+	DisplayName: Game Raider
+	Tooltip: ""
+}
+
+GibsFemur: {
+	DisplayName: Gibs Femur
+	Tooltip: ""
+}
+
+MobianBuster: {
+	DisplayName: Mobian Buster
+	Tooltip: ""
+}
+
+Hurricane: {
+	DisplayName: Hurricane
+	Tooltip: ""
+}
+
+FreedomStar: {
+	DisplayName: Freedom Star
+	Tooltip: ""
+}
+
+UnityBallista: {
+	DisplayName: Unity Ballista
+	Tooltip: ""
+}
+
+UWAM: {
+	DisplayName: U W A M
+	Tooltip: ""
+}
+
+FlareMinigun: {
+	DisplayName: Flare Minigun
+	Tooltip: ""
+}
+
+HKMP5: {
+	DisplayName: H K M P5
+	Tooltip: ""
+}
+
+L85A2: {
+	DisplayName: L85 A2
+	Tooltip: ""
+}
+
+LaserRifle: {
+	DisplayName: Laser Rifle
+	Tooltip: ""
+}
+
+M79: {
+	DisplayName: M79
+	Tooltip: ""
+}
+
+MidasGun: {
+	DisplayName: Midas Gun
+	Tooltip: ""
+}
+
+RazorwindLongbow: {
+	DisplayName: Razorwind Longbow
+	Tooltip: ""
+}
+
+Windfury: {
+	DisplayName: Windfury
+	Tooltip: ""
+}
+
+Bunzooka: {
+	DisplayName: Bunzooka
+	Tooltip: ""
+}
+
+FluffyFury: {
+	DisplayName: Fluffy Fury
+	Tooltip: ""
+}
+
+RPG: {
+	DisplayName: R P G
+	Tooltip: ""
+}
+
+ChaosBustershot: {
+	DisplayName: Chaos Bustershot
+	Tooltip: ""
+}
+
+ChaosJavelin: {
+	DisplayName: Chaos Javelin
+	Tooltip: ""
+}
+
+DraconicRipper: {
+	DisplayName: Draconic Ripper
+	Tooltip: ""
+}
+
+FlamingTwilight: {
+	DisplayName: Flaming Twilight
+	Tooltip: ""
+}
+
+AbyssalKunai: {
+	DisplayName: Abyssal Kunai
+	Tooltip: ""
+}
+
+MizuArashi: {
+	DisplayName: Mizu Arashi
+	Tooltip: ""
+}
+
+Scourge: {
+	DisplayName: Scourge
+	Tooltip: ""
+}
+
+Sandagger: {
+	DisplayName: Sandagger
+	Tooltip: ""
+}
+
+SandstormCrossbow: {
+	DisplayName: Sandstorm Crossbow
+	Tooltip: ""
+}
+
+DynaskullJavelin: {
+	DisplayName: Dynaskull Javelin
+	Tooltip: ""
+}
+
+FossilBoneslinger: {
+	DisplayName: Fossil Boneslinger
+	Tooltip: ""
+}
+
+NeithsString: {
+	DisplayName: Neiths String
+	Tooltip: ""
+}
+
+Sandthrower: {
+	DisplayName: Sandthrower
+	Tooltip: ""
+}
+
+PrimevalJavelin: {
+	DisplayName: Primeval Javelin
+	Tooltip: ""
+}
+
+CursedFlamefury: {
+	DisplayName: Cursed Flamefury
+	Tooltip: ""
+}
+
+Lifeline: {
+	DisplayName: Lifeline
+	Tooltip: ""
+}
+
+BoneBow: {
+	DisplayName: Bone Bow
+	Tooltip: ""
+}
+
+DeathlyLongbow: {
+	DisplayName: Deathly Longbow
+	Tooltip: ""
+}
+
+TrueDeathlyLongbow: {
+	DisplayName: True Deathly Longbow
+	Tooltip: ""
+}
+
+FrogLob: {
+	DisplayName: Frog Lob
+	Tooltip: ""
+}
+
+Fireball: {
+	DisplayName: Fireball
+	Tooltip: ""
+}
+
+GildedGlock: {
+	DisplayName: Gilded Glock
+	Tooltip: ""
+}
+
+DragonFlamebow: {
+	DisplayName: Dragon Flamebow
+	Tooltip: ""
+}
+
+DragonsSpine: {
+	DisplayName: Dragons Spine
+	Tooltip: ""
+}
+
+Firebuster: {
+	DisplayName: Firebuster
+	Tooltip: ""
+}
+
+Blastshot: {
+	DisplayName: Blastshot
+	Tooltip: ""
+}
+
+RadiantDawn: {
+	DisplayName: Radiant Dawn
+	Tooltip: ""
+}
+
+YearOfTheDragon: {
+	DisplayName: Year Of The Dragon
+	Tooltip: ""
+}
+
+MadnessBow: {
+	DisplayName: Madness Bow
+	Tooltip: ""
+}
+
+MadnessKnife: {
+	DisplayName: Madness Knife
+	Tooltip: ""
+}
+
+AbyssalPentashot: {
+	DisplayName: Abyssal Pentashot
+	Tooltip: ""
+}
+
+HydraFang: {
+	DisplayName: Hydra Fang
+	Tooltip: ""
+}
+
+HydraTrishot: {
+	DisplayName: Hydra Trishot
+	Tooltip: ""
+}
+
+Mossket: {
+	DisplayName: Mossket
+	Tooltip: ""
+}
+
+MurkyGel: {
+	DisplayName: Murky Gel
+	Tooltip: ""
+}
+
+AbyssalShadowshot: {
+	DisplayName: Abyssal Shadowshot
+	Tooltip: ""
+}
+
+Bubbleshot: {
+	DisplayName: Bubbleshot
+	Tooltip: ""
+}
+
+TheSquirter: {
+	DisplayName: The Squirter
+	Tooltip: ""
+}
+
+Toxithrower: {
+	DisplayName: Toxithrower
+	Tooltip: ""
+}
+
+AbyssalEruption: {
+	DisplayName: Abyssal Eruption
+	Tooltip: ""
+}
+
+CoralBow: {
+	DisplayName: Coral Bow
+	Tooltip: ""
+}
+
+OceanWhaler: {
+	DisplayName: Ocean Whaler
+	Tooltip: ""
+}
+
+SpookyKnife: {
+	DisplayName: Spooky Knife
+	Tooltip: ""
+}
+
+MushroomBow: {
+	DisplayName: Mushroom Bow
+	Tooltip: ""
+}
+
+SerpentsSting: {
+	DisplayName: Serpents Sting
+	Tooltip: ""
+}
+
+Sickleshot: {
+	DisplayName: Sickleshot
+	Tooltip: ""
+}
+
+SnowflakeShuriken: {
+	DisplayName: Snowflake Shuriken
+	Tooltip: ""
+}
+
+Winterbreak: {
+	DisplayName: Winterbreak
+	Tooltip: ""
+}
+
+OdinsBlade: {
+	DisplayName: Odins Blade
+	Tooltip: ""
+}
+
+ShootingStar: {
+	DisplayName: Shooting Star
+	Tooltip: ""
+}
+
+DoomiteAssaultBlaster: {
+	DisplayName: Doomite Assault Blaster
+	Tooltip: ""
+}
+
+DoomiteHolobow: {
+	DisplayName: Doomite Holobow
+	Tooltip: ""
+}
+
+DoomPistol: {
+	DisplayName: Doom Pistol
+	Tooltip: ""
+}
+
+Incapacitator: {
+	DisplayName: Incapacitator
+	Tooltip: ""
+}
+
+SingularityCannon: {
+	DisplayName: Singularity Cannon
+	Tooltip: ""
+}
+
+AncientHydraTrishot: {
+	DisplayName: Ancient Hydra Trishot
+	Tooltip: ""
+}
+
+CthulhuCannon: {
+	DisplayName: Cthulhu Cannon
+	Tooltip: ""
+}

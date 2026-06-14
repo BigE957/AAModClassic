@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 {
-    public class M79 : BaseAAItem
+    public class M79 : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("M79");

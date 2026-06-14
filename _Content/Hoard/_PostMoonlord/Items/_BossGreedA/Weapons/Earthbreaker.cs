@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
-    public class Earthbreaker : BaseAAItem
+    public class Earthbreaker : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Earthbreaker");

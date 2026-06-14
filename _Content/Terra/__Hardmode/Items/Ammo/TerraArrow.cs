@@ -1,4 +1,4 @@
-using AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo;
+﻿using AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Ammo
 {
-    public class TerraArrow : BaseAAItem
+    public class TerraArrow : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Terra Arrow");

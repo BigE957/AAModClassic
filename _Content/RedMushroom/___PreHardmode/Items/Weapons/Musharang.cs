@@ -1,4 +1,4 @@
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 {
-    public class Musharang : BaseAAItem
+    public class Musharang : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetDefaults()
 		{
 

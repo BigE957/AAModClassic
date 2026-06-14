@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Tools
 {
-    public class Unearther : BaseAAItem
+    public class Unearther : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Unearther");

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -11,8 +11,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
-    public class ChaosBustershot : BaseAAItem
+    public class ChaosBustershot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Bustershot");

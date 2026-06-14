@@ -1,4 +1,4 @@
-using AAModClassic._Content.Ocean.___PreHardmode.Items.Tools;
+﻿using AAModClassic._Content.Ocean.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tools
 {
-    public class ShadowDrill : BaseAAItem
+    public class ShadowDrill : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Tools";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Shadow Drill");

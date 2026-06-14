@@ -1,4 +1,4 @@
-using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
+﻿using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {
-    public class TerraRose : BaseAAItem
+    public class TerraRose : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

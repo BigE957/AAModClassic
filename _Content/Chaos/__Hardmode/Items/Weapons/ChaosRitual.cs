@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
-    public class ChaosRitual : BaseAAItem
+    public class ChaosRitual : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Ritual");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Corruption.__Hardmode.Items.Tools;
+﻿using AAModClassic._Content.Corruption.__Hardmode.Items.Tools;
 using AAModClassic._Content.Crimson.__Hardmode.Items.Tools;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Tools
 {
-    public class Terratool : BaseAAItem
+    public class Terratool : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

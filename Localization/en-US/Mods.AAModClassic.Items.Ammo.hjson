@@ -1,0 +1,99 @@
+EnergyCell: {
+	DisplayName: Energy Cell
+	Tooltip: ""
+}
+
+ReaperArrow: {
+	DisplayName: Reaper Arrow
+	Tooltip: ""
+}
+
+DragonArrow: {
+	DisplayName: Dragon Arrow
+	Tooltip: ""
+}
+
+DaybreakArrow: {
+	DisplayName: Daybreak Arrow
+	Tooltip: ""
+}
+
+EventideArrow: {
+	DisplayName: Eventide Arrow
+	Tooltip: ""
+}
+
+TerraArrow: {
+	DisplayName: Terra Arrow
+	Tooltip: ""
+}
+
+SingularityArrow: {
+	DisplayName: Singularity Arrow
+	Tooltip: ""
+}
+
+UnstablePowerCell: {
+	DisplayName: Unstable Power Cell
+	Tooltip: ""
+}
+
+M79Round: {
+	DisplayName: M79 Round
+	Tooltip: ""
+}
+
+ChaosArrow: {
+	DisplayName: Chaos Arrow
+	Tooltip: ""
+}
+
+DragonfireArrow: {
+	DisplayName: Dragonfire Arrow
+	Tooltip: ""
+}
+
+DragonfireBullet: {
+	DisplayName: Dragonfire Bullet
+	Tooltip: ""
+}
+
+DragonfireDart: {
+	DisplayName: Dragonfire Dart
+	Tooltip: ""
+}
+
+DaybreakBullet: {
+	DisplayName: Daybreak Bullet
+	Tooltip: ""
+}
+
+HydratoxinArrow: {
+	DisplayName: Hydratoxin Arrow
+	Tooltip: ""
+}
+
+HydratoxinBullet: {
+	DisplayName: Hydratoxin Bullet
+	Tooltip: ""
+}
+
+HydratoxinDart: {
+	DisplayName: Hydratoxin Dart
+	Tooltip: ""
+}
+
+EventideBullet: {
+	DisplayName: Eventide Bullet
+	Tooltip: ""
+}
+
+DarkmatterArrow: {
+	DisplayName: Darkmatter Arrow
+	Tooltip: ""
+}
+
+RadiumArrow: {
+	DisplayName: Radium Arrow
+	Tooltip: ""
+}

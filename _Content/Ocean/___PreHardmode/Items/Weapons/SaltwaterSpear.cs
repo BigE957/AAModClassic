@@ -1,12 +1,13 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons
 {
-    public class SaltwaterSpear : BaseAAItem
+    public class SaltwaterSpear : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Saltwater Spear");		
