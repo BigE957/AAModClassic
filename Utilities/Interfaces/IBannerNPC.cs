@@ -120,8 +120,7 @@ namespace AAModClassic.Utilities.Interfaces
     [Autoload(false)]
     public class BannerItem(string texture, string name, int bannerTile) : ModItem, ILocalizedModType
     {
-        public override string LocalizationCategory => "Banners";
-
+        public new string LocalizationCategory => "Items.Banners";
         public override string Name => name + "Banner";
         public override string Texture => texture;
 

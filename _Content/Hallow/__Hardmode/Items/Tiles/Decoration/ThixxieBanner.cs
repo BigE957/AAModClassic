@@ -6,10 +6,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Decoration
 {
-	public class ThixxieBanner : BaseAAItem
+	public class ThixxieBanner : BaseAAItem, ILocalizedModType
 	{
-		// The tooltip for this item is automatically assigned from .lang files
-		public override void SetDefaults() {
+        public new string LocalizationCategory => "Items.Banners";
+
+        // The tooltip for this item is automatically assigned from .lang files
+        public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;
 			Item.maxStack = Item.CommonMaxStack;
