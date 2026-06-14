@@ -338,6 +338,30 @@ Alphakip: {
 	}
 }
 
+Alpha: {
+	Shiny: {
+		ShinyFishDiverBoots: {
+			DisplayName: Shiny Fish Diver Boots
+			Tooltip: ""
+		}
+
+		ShinyFishDiverJacket: {
+			DisplayName: Shiny Fish Diver Jacket
+			Tooltip: ""
+		}
+
+		ShinyFishDiverMask: {
+			DisplayName: Shiny Fish Diver Mask
+			Tooltip: ""
+		}
+
+		ShinyKipronWings: {
+			DisplayName: Shiny Kipron Wings
+			Tooltip: ""
+		}
+	}
+}
+
 Anarchy: {
 	PristineChestplate: {
 		DisplayName: Pristine Chestplate
