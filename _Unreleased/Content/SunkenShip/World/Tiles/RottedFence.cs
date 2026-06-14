@@ -8,7 +8,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 	{
 		public override void SetStaticDefaults()
 		{
-            Main.wallHouse[this.Type] = true;
+            Main.wallHouse[Type] = false;
 			//drop = mod.ItemType("Rotted Fence");
 			AddMapEntry(new Color(39, 34, 8));
 		}

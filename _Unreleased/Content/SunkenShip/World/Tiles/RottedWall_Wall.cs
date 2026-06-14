@@ -8,12 +8,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 {
 	public class RottedWall_Wall : ModWall
 	{
-        public Texture2D glowTex;
-		public bool glow = true;
-
 		public override void SetStaticDefaults()
 		{
-            Main.wallHouse[Type] = true;
+            Main.wallHouse[Type] = false;
 			AddMapEntry(new Color(31, 26, 0));
 		}
 
