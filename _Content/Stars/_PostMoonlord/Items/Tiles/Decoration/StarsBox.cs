@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
@@ -11,8 +11,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class StarsBox : BaseAAItem
+    public class StarsBox : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         
         public override void SetStaticDefaults()
         {

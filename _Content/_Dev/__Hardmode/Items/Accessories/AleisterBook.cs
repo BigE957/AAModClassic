@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOff)]
-	public class AleisterBook : BaseAAItem
+	public class AleisterBook : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

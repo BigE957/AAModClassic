@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class StoneSoldierHelmet : BaseAAItem
+	public class StoneSoldierHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StoneSoldier";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();

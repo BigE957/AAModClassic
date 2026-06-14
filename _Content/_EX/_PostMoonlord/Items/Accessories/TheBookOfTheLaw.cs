@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
@@ -14,8 +14,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOff)]
-	public class TheBookOfTheLaw : BaseAAItem
+	public class TheBookOfTheLaw : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

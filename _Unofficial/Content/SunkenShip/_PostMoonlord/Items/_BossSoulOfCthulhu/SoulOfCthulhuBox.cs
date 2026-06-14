@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu
 {
-    public class SoulOfCthulhuBox : BaseAAItem
+    public class SoulOfCthulhuBox : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Soul of Cthulhu)");

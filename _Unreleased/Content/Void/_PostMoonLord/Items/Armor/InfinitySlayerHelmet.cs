@@ -1,4 +1,4 @@
-using AAModClassic;
+﻿using AAModClassic;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
@@ -17,8 +17,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-	public class InfinitySlayerHelmet : ModItem
+	public class InfinitySlayerHelmet : ModItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Slayer Visor");

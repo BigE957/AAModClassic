@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Ohno
 {
-    public class Ono : BaseAAItem
+    public class Ono : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("ono");

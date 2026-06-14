@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories;
@@ -11,8 +11,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
 {
-    public class StormCharm : BaseAAItem
+    public class StormCharm : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         
         public override void SetStaticDefaults()
         {

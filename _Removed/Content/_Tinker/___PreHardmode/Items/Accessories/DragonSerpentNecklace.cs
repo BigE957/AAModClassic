@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories
 {
-    public class DragonSerpentNecklace : BaseAAItem
+    public class DragonSerpentNecklace : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         
         public override void SetStaticDefaults()
         {

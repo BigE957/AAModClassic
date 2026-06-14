@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories
 {
-    public class ArtifactOfGuilt : BaseAAItem
+    public class ArtifactOfGuilt : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Artifact of Guilt");

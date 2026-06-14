@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
@@ -15,8 +15,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class DraconianSunLeggings : BaseAAItem
+    public class DraconianSunLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.DraconianSun";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Draconian Sun Greaves");

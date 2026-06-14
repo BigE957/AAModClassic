@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic.Globals;
@@ -15,8 +15,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class InfinitySlayerChestplate : ModItem
+    public class InfinitySlayerChestplate : ModItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Slayer Chestplate");

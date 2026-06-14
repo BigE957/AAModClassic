@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard
 {
-    public class AthenaBox : BaseAAItem
+    public class AthenaBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Athena)");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
+﻿using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TerraHelmetRanged : BaseAAItem
+    public class TerraHelmetRanged : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Visor");

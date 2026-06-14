@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Content.SunkenShip.___PreHardmode.Items
 {
-    public class SunkenShipBox : BaseAAItem
+    public class SunkenShipBox : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Sunken Ship)");

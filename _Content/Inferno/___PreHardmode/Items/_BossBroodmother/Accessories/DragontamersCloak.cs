@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories
 {
     [AutoloadEquip(EquipType.Back, EquipType.Front)]
-    public class DragontamersCloak : BaseAAItem
+    public class DragontamersCloak : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragontamer's Cloak");

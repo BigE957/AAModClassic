@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard
 {
-    public class DjinnBox : BaseAAItem
+    public class DjinnBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Desert Djinn)");

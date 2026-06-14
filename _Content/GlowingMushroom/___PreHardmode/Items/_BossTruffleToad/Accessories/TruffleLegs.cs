@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories
 {
     [AutoloadEquip(EquipType.Shoes)]
-    public class TruffleLegs : BaseAAItem
+    public class TruffleLegs : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Truffle Legs");

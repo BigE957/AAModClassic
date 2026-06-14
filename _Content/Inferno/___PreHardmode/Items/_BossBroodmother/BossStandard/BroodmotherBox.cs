@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
-    public class BroodmotherBox : BaseAAItem
+    public class BroodmotherBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
             
 		public override void SetStaticDefaults()
 		{

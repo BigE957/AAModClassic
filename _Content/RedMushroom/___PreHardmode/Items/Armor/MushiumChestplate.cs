@@ -1,4 +1,4 @@
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class MushiumChestplate : BaseAAItem
+	public class MushiumChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Mushium";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushium Shirt");

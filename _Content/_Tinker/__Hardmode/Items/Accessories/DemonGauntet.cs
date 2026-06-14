@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,8 +13,9 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-    public class DemonGauntlet : BaseAAItem
+    public class DemonGauntlet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

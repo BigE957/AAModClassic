@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories
 {
-    public class SeraphHarp : BaseAAItem
+    public class SeraphHarp : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Seraph Harp");

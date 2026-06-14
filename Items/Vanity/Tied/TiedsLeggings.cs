@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Tied
 {
     [AutoloadEquip(EquipType.Legs)]
-    public class TiedsLeggings : BaseAAItem
+    public class TiedsLeggings : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Tieds";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Spooky Trousers");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
@@ -12,8 +12,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class GlowingMushiumLeggings : BaseAAItem, ICustomEquipGlow
+    public class GlowingMushiumLeggings : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.GlowingMushium";
         public Color Color => AAColor.Glow;
 
         public override void SetStaticDefaults()

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard
 {
-    public class AkumaBox : BaseAAItem
+    public class AkumaBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Akuma)");

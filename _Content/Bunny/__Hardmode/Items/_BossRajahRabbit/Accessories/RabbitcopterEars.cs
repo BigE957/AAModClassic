@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class RabbitcopterEars : BaseAAItem
+	public class RabbitcopterEars : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Rabbitcopter Ears");

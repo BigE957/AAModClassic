@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -10,8 +10,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DynaskullHelmet : BaseAAItem
+	public class DynaskullHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Dynaskull";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dynaskull");

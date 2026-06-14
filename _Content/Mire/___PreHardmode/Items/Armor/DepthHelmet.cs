@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DepthHelmet : BaseAAItem
+    public class DepthHelmet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Depth";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class DarkVoid : BaseAAItem
+    public class DarkVoid : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 32;

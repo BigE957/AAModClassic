@@ -1,4 +1,4 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Acce
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class EmperorFishronWings : BaseAAItem
+    public class EmperorFishronWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Emperor Fishron Wings");

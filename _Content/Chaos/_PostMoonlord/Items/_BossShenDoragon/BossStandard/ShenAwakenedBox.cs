@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
-    public class ShenAwakenedBox : BaseAAItem
+    public class ShenAwakenedBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
         
 		public override void SetStaticDefaults()
 		{

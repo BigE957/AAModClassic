@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard
 {
-    public class TruffleToadBox : BaseAAItem
+    public class TruffleToadBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
             
 		public override void SetStaticDefaults()
 		{

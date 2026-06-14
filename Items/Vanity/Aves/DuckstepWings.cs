@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Aves
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class DuckstepWings : BaseAAItem
+    public class DuckstepWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Duckstep Bass Boosters");

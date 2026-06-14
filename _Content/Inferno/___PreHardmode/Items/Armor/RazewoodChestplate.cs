@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class RazewoodChestplate : BaseAAItem
+    public class RazewoodChestplate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Razewood";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Razewood Chestplate");

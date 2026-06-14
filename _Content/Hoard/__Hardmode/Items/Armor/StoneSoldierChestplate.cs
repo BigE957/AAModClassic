@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class StoneSoldierChestplate : BaseAAItem
+	public class StoneSoldierChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StoneSoldier";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stone Soldier Breastplate");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
+﻿using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.UI.WorldGen;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TerraHelmetSummoner : BaseAAItem
+    public class TerraHelmetSummoner : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Mask");

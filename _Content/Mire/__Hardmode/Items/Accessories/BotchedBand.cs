@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class BotchedBand : BaseAAItem
+    public class BotchedBand : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Botched Band");

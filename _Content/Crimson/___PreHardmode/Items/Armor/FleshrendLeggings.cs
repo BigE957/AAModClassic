@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class FleshrendLeggings : BaseAAItem
+	public class FleshrendLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Fleshrend";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fleshrend Greaves");

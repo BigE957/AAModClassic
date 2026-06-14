@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class OroborosChestplate : BaseAAItem
+    public class OroborosChestplate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Oroboros";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oroboros Wood Chestplate");

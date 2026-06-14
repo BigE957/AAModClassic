@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AtlanteanLeggings : BaseAAItem
+	public class AtlanteanLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Atlantean";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Atlantean Greaves");

@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	public class AncientGoldChestplate : BaseAAItem
+	public class AncientGoldChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.AncientGold";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ancient Gold Chainmail");

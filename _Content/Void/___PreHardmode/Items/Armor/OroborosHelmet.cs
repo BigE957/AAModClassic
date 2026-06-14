@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class OroborosHelmet : BaseAAItem
+    public class OroborosHelmet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Oroboros";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oroboros Wood Helmet");

@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories
 {
-    public class GoddessHarp : BaseAAItem
+    public class GoddessHarp : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Goddess Harp");

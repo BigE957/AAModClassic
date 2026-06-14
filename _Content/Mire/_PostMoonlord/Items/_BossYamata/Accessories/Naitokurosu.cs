@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.Buffs;
+﻿using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class Naitokurosu : BaseAAItem
+    public class Naitokurosu : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Naitokurosu");

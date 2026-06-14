@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DeathlyLeggings : BaseAAItem
+	public class DeathlyLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Deathly";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deathly Greaves");

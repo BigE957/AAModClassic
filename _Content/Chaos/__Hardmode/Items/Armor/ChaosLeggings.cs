@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ChaosLeggings : BaseAAItem
+	public class ChaosLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Chaos";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Greaves");

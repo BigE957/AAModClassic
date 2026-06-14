@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard
 {
-    public class AthenaAwakenedBox : BaseAAItem
+    public class AthenaAwakenedBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Olympian Athena)");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DepthChestplate : BaseAAItem
+    public class DepthChestplate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Depth";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class PalladiumHelmetSummoner : BaseAAItem
+    public class PalladiumHelmetSummoner : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Palladium";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Palladium Face Paint");

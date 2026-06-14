@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {
-    public class RajahBox : BaseAAItem
+    public class RajahBox : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Rajah Rabbit)");

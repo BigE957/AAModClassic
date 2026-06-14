@@ -1,12 +1,13 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
 {
-    public class MushroomSurfaceBox : BaseAAItem
+    public class MushroomSurfaceBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Red Mushroom Music Box");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
@@ -14,8 +14,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class ChaosSlayerHelmetMelee : BaseAAItem, ICustomEquipGlow
+    public class ChaosSlayerHelmetMelee : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
 
         public override Color GlowmaskDrawColor => AAColor.Shen3;

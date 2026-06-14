@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class ImpChestplate : BaseAAItem
+    public class ImpChestplate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Imp";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Imp Garb");

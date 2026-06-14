@@ -1,12 +1,13 @@
-using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
+﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Accessories
 {
-    public class ArcticMedallion : BaseAAItem
+    public class ArcticMedallion : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Arctic Medallion");

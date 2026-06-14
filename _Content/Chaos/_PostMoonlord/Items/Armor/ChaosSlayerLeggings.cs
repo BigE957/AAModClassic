@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
@@ -14,8 +14,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class ChaosSlayerLeggings : BaseAAItem, ICustomEquipGlow
+    public class ChaosSlayerLeggings : BaseAAItem, ILocalizedModType, ICustomEquipGlow
 	{
+        public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
 
         public override Color GlowmaskDrawColor => AAColor.Shen3;

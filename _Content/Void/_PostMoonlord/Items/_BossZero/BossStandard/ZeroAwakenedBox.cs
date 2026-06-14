@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using System.Collections.Generic;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
-    public class ZeroAwakenedBox : BaseAAItem
+    public class ZeroAwakenedBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
         
         public override void SetStaticDefaults()
         {

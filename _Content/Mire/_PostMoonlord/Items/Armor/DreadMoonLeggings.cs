@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DreadMoonLeggings : BaseAAItem
+	public class DreadMoonLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.DreadMoon";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dread Moon Hakama");

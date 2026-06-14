@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DemonLeggings : BaseAAItem
+	public class DemonLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Demon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Hoofs");

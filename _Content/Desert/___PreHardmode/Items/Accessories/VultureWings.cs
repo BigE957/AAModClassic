@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class VultureWings : BaseAAItem
+	public class VultureWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Vulture Wings");

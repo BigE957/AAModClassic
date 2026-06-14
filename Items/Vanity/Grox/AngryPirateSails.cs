@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Grox
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class AngryPirateSails : BaseAAItem
+    public class AngryPirateSails : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Angry Pirate's Skysails");

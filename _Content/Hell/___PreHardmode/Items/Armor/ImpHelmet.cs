@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ImpHelmet : BaseAAItem
+    public class ImpHelmet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Imp";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Imp Hood");

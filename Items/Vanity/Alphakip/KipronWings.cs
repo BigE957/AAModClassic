@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Alphakip
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class KipronWings : BaseAAItem
+    public class KipronWings : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Kipron Wings");

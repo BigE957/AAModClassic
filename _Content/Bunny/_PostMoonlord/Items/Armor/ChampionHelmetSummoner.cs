@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
@@ -12,8 +12,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ChampionHelmetSummoner : BaseAAItem
+    public class ChampionHelmetSummoner : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Champion";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Champion Headdress");

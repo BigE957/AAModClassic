@@ -1,4 +1,4 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard
 {
-    public class RajahAwakenedBox : BaseAAItem
+    public class RajahAwakenedBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             //DisplayName.SetDefault("Music Box (Champion of the Innocent)");

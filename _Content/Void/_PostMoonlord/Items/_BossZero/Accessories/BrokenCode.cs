@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
-    public class BrokenCode : BaseAAItem
+    public class BrokenCode : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         
         public int CodeCD = 0;
         public bool on = true;

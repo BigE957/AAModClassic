@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shoes)]
-    public class DragonstrideBoots : BaseAAItem
+    public class DragonstrideBoots : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragonstride Boots");

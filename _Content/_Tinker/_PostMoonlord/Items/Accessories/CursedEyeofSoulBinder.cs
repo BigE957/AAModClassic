@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
@@ -10,8 +10,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Face)]
-    public class CursedEyeofSoulBinder : BaseAAItem
+    public class CursedEyeofSoulBinder : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 48;

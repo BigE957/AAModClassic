@@ -1,4 +1,4 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class RadiumWings : BaseAAItem
+	public class RadiumWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radium Wings");

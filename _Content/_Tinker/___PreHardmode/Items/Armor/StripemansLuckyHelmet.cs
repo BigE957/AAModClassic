@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -10,8 +10,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class StripemansLuckyHelmet : BaseAAItem
+	public class StripemansLuckyHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StripemansLucky";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stripeman's Lucky Hat");

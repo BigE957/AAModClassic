@@ -1,4 +1,4 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -12,8 +12,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class RadiumChestplate : BaseAAItem, ICustomEquipGlow
+    public class RadiumChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.Radium";
         public Color Color => AAColor.Glow;
 
         public bool Condition(Player p) => Main.dayTime && p.GetModPlayer<AAPlayer>().Radium;

@@ -1,4 +1,4 @@
-using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+﻿using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ModLoader;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class HydraPendant : BaseAAItem
+    public class HydraPendant : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hydra Pendant");

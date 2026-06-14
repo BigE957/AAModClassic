@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
@@ -9,8 +9,9 @@ using AAModClassic.Rarities;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class FuryWitchsHelmet : BaseAAItem
+	public class FuryWitchsHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.FuryWitchs";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Fury Witch's Cowl");

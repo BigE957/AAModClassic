@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class OrnateBand : BaseAAItem
+    public class OrnateBand : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 30;

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class OceanHelmet : BaseAAItem
+	public class OceanHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Ocean";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();

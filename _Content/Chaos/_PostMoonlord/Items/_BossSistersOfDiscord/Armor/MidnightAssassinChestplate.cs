@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	class MidnightAssassinChestplate : BaseAAItem
+	class MidnightAssassinChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.MidnightAssassin";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Midnight Assassin Shirt");

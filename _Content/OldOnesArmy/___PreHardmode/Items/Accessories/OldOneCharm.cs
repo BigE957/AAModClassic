@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class OldOneCharm : BaseAAItem
+    public class OldOneCharm : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetDefaults()
 		{
 			Item.width = 20;

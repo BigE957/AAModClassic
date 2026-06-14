@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,8 +9,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class AquamancerWings : BaseAAItem
+    public class AquamancerWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Aquamancer Wings");

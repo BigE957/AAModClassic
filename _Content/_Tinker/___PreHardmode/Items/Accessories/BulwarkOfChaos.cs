@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class BulwarkOfChaos : BaseAAItem
+    public class BulwarkOfChaos : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 30;

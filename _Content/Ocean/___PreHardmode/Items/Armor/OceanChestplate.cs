@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -6,8 +6,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class OceanChestplate : BaseAAItem
+	public class OceanChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Ocean";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Ocean Chestplate");

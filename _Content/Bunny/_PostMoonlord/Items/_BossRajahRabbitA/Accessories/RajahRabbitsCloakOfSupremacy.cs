@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories
 {
     [AutoloadEquip(EquipType.Back, EquipType.Front)]
-    public class RajahRabbitsCloakOfSupremacy : BaseAAItem
+    public class RajahRabbitsCloakOfSupremacy : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rajah Rabbit's Cloak of Supremecy");

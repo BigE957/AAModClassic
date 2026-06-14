@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
@@ -12,8 +12,9 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class HoppingHoodlumHelmet : BaseAAItem, ICustomEquipGlow
+    public class HoppingHoodlumHelmet : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.HoppingHoodlum";
         public Color Color => AAColor.COLOR_WHITEFADE1;
 
         public bool Condition(Player p) => p.statLife < (p.statLifeMax2 / 2);

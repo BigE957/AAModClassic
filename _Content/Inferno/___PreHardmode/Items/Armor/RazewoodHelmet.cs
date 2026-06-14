@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class RazewoodHelmet : BaseAAItem
+    public class RazewoodHelmet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Razewood";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Razewood Helmet");

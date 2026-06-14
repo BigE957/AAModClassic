@@ -1,4 +1,4 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -14,8 +14,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class DarkmatterChestplate : BaseAAItem, ICustomEquipGlow
+    public class DarkmatterChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
 
         public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;

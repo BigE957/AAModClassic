@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories
 {
-    public class HeartOfPassion : BaseAAItem
+    public class HeartOfPassion : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Heart of Passion");

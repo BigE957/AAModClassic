@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -12,8 +12,9 @@ namespace AAModClassic.Items.Vanity.Blazen
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class BlazenBooster : BaseAAItem
+    public class BlazenBooster : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Tactical Assault Booster");

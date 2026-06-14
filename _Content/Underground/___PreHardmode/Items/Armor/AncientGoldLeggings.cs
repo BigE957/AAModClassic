@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AncientGoldLeggings : BaseAAItem
+	public class AncientGoldLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.AncientGold";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Ancient Gold Greaves");

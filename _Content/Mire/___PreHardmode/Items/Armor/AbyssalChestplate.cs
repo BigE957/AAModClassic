@@ -1,4 +1,4 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class AbyssalChestplate : BaseAAItem
+	public class AbyssalChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Abyssal";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();

@@ -1,4 +1,4 @@
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class FulguriteHelmetRanged : BaseAAItem
+	public class FulguriteHelmetRanged : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Fulgurite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fulgurite Visor");

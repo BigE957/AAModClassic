@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories
 {
-    public class HeartyTruffle : BaseAAItem
+    public class HeartyTruffle : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
 
         public override void SetStaticDefaults()
         {

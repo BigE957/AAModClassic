@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
@@ -9,8 +9,9 @@ using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {
-    public class BlackLotusEmblem : BaseAAItem
+    public class BlackLotusEmblem : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Black Lotus Emblem");

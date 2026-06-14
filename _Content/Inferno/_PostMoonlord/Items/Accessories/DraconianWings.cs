@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DraconianWings : BaseAAItem
+	public class DraconianWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Draconian Sun Wings");

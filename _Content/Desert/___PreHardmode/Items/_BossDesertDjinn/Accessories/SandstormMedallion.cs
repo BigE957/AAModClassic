@@ -1,12 +1,13 @@
-using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
+﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories
 {
-    public class SandstormMedallion : BaseAAItem
+    public class SandstormMedallion : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sandstorm Medallion");

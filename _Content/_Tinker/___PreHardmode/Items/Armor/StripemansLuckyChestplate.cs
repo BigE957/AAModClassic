@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
+﻿using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class StripemansLuckyChestplate : BaseAAItem
+	public class StripemansLuckyChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StripemansLucky";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stripeman's Lucky Shirt");

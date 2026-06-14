@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class PalladiumShield : BaseAAItem
+    public class PalladiumShield : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 30;

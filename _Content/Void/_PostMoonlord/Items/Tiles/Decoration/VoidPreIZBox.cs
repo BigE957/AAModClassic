@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
@@ -9,8 +9,9 @@ using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
-    public class VoidPreIZBox : BaseAAItem
+    public class VoidPreIZBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
         
 		public override void SetStaticDefaults()
 		{

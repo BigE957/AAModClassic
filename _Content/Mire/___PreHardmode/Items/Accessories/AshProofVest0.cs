@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.Audio;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 {
-    public class AshProofVest0 : BaseAAItem
+    public class AshProofVest0 : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 26;

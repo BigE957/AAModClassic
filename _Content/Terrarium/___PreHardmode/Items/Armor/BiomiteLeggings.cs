@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BiomiteLeggings : BaseAAItem
+	public class BiomiteLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Biomite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Biomite Greaves");

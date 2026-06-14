@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class FuryWitchsLeggings : BaseAAItem
+	public class FuryWitchsLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.FuryWitchs";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fury Witch's Boots");

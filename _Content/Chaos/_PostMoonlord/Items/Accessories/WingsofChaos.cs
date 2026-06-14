@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Accessories;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class WingsOfChaos : BaseAAItem
+	public class WingsOfChaos : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
         public override void Load()
         {
             EquipLoader.AddEquipTexture(Mod, Texture + "_Wings_Alt", EquipType.Wings, name: "WingsOfChaos_Wings_Alt");

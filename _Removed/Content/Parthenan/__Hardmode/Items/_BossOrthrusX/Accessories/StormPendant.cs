@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class StormPendant : BaseAAItem
+    public class StormPendant : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Pendant");

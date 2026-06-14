@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class MidnightAssassinLeggings : BaseAAItem
+	public class MidnightAssassinLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.MidnightAssassin";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Midnight Assassin's Boots");

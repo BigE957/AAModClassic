@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class TribalLeggings : BaseAAItem
+	public class TribalLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Tribal";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Tribal Kilt");

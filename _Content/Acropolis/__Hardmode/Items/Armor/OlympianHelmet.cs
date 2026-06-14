@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class OlympianHelmet : BaseAAItem
+	public class OlympianHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Olympian";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();

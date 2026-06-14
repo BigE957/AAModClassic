@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class KindledLeggings : BaseAAItem
+	public class KindledLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Kindled";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Kindled Suneate");

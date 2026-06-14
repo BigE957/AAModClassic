@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -15,8 +15,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class DarkmatterLeggings : BaseAAItem, ICustomEquipGlow
+    public class DarkmatterLeggings : BaseAAItem, ILocalizedModType, ICustomEquipGlow
 	{
+        public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
 
         public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;

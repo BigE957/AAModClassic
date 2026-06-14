@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
@@ -10,8 +10,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
-    public class ShenBox : BaseAAItem
+    public class ShenBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
             
 		public override void SetStaticDefaults()
 		{

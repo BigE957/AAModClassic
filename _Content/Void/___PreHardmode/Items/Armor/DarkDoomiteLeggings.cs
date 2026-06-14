@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DarkDoomiteLeggings : BaseAAItem
+	public class DarkDoomiteLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.DarkDoomite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dark Doomite Greaves");

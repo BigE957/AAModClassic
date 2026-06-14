@@ -1,4 +1,4 @@
-using Terraria.Graphics.Shaders;
+﻿using Terraria.Graphics.Shaders;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -10,8 +10,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GoblinSlayersHelmet : BaseAAItem
+	public class GoblinSlayersHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.GoblinSlayers";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Goblin Slayer's Helm");

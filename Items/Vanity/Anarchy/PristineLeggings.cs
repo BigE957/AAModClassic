@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Anarchy
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class PristineLeggings : BaseAAItem
+	public class PristineLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Pristine";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

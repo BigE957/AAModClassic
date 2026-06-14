@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Charlie
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class CharlieWings : BaseAAItem
+    public class CharlieWings : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Grim Nightmare Wings");

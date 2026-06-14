@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class MushiumHelmet : BaseAAItem
+	public class MushiumHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Mushium";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushium Hat");

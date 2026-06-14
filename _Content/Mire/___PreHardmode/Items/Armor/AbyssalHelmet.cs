@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AbyssalHelmet : BaseAAItem
+	public class AbyssalHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Abyssal";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

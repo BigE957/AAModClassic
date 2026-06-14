@@ -17,8 +17,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 {
-    public class Duality : BaseAAItem
+    public class Duality : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Duality");

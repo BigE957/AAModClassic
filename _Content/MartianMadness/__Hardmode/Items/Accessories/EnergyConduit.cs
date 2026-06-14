@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories
 {
-    public class EnergyConduit : BaseAAItem
+    public class EnergyConduit : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetDefaults()
 		{
 			Item.width = 20;

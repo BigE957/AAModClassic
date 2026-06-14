@@ -1,4 +1,4 @@
-using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
+﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.Accessories;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class StormRiot : BaseAAItem
+    public class StormRiot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 30;

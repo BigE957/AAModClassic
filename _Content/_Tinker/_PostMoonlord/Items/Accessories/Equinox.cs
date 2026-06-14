@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,8 +10,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
 {
-    public class Equinox : BaseAAItem
+    public class Equinox : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Equinox");

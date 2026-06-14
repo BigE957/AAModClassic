@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Anarchy
 {
     [AutoloadEquip(EquipType.Head)]
-	public class PristineHelmet : BaseAAItem
+	public class PristineHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Pristine";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

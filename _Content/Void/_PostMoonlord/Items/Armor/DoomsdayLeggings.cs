@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
@@ -10,8 +10,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class DoomsdayLeggings : BaseAAItem
+    public class DoomsdayLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Doomsday";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Doomsday Assault Greaves");

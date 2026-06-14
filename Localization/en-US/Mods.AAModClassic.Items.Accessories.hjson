@@ -1,0 +1,639 @@
+DemonGauntlet: {
+	DisplayName: Demon Gauntlet
+	Tooltip: ""
+}
+
+Equinox: {
+	DisplayName: Equinox
+	Tooltip: ""
+}
+
+Duality: {
+	DisplayName: Duality
+	Tooltip: ""
+}
+
+DragontamersCloak: {
+	DisplayName: Dragontamers Cloak
+	Tooltip: ""
+}
+
+BroodmotherBox: {
+	DisplayName: Broodmother Box
+	Tooltip: ""
+}
+
+Lantern: {
+	DisplayName: Lantern
+	Tooltip: ""
+}
+
+TaiyangBaolei: {
+	DisplayName: Taiyang Baolei
+	Tooltip: ""
+}
+
+EnergyConduit: {
+	DisplayName: Energy Conduit
+	Tooltip: ""
+}
+
+Naitokurosu: {
+	DisplayName: Naitokurosu
+	Tooltip: ""
+}
+
+DarkVoid: {
+	DisplayName: Dark Void
+	Tooltip: ""
+}
+
+RadiantStar: {
+	DisplayName: Radiant Star
+	Tooltip: ""
+}
+
+EquinoxBox: {
+	DisplayName: Equinox Box
+	Tooltip: ""
+}
+
+DarkmatterJetpack: {
+	DisplayName: Darkmatter Jetpack
+	Tooltip: ""
+}
+
+BrokenCode: {
+	DisplayName: Broken Code
+	Tooltip: ""
+}
+
+StormCharm: {
+	DisplayName: Storm Charm
+	Tooltip: ""
+}
+
+StormRiot: {
+	DisplayName: Storm Riot
+	Tooltip: ""
+}
+
+StormPendant: {
+	DisplayName: Storm Pendant
+	Tooltip: ""
+}
+
+HoloCape: {
+	DisplayName: Holo Cape
+	Tooltip: ""
+}
+
+StormClaw: {
+	DisplayName: Storm Claw
+	Tooltip: ""
+}
+
+InfinityZeroBox: {
+	DisplayName: Infinity Zero Box
+	Tooltip: ""
+}
+
+DuckstepWings: {
+	DisplayName: Duckstep Wings
+	Tooltip: ""
+}
+
+AleisterBook: {
+	DisplayName: Aleister Book
+	Tooltip: ""
+}
+
+EmperorFishronWings: {
+	DisplayName: Emperor Fishron Wings
+	Tooltip: ""
+}
+
+TheBookOfTheLaw: {
+	DisplayName: The Book Of The Law
+	Tooltip: ""
+}
+
+CCBookofRunes: {
+	DisplayName: C C Bookof Runes
+	Tooltip: ""
+}
+
+CCRuneBookPage: {
+	DisplayName: C C Rune Book Page
+	Tooltip: ""
+}
+
+BulwarkOfChaos: {
+	DisplayName: Bulwark Of Chaos
+	Tooltip: ""
+}
+
+FireFrostMedallion: {
+	DisplayName: Fire Frost Medallion
+	Tooltip: ""
+}
+
+CursedEyeofSoulBinder: {
+	DisplayName: Cursed Eyeof Soul Binder
+	Tooltip: ""
+}
+
+OlympianWings: {
+	DisplayName: Olympian Wings
+	Tooltip: ""
+}
+
+SeraphHarp: {
+	DisplayName: Seraph Harp
+	Tooltip: ""
+}
+
+AthenaBox: {
+	DisplayName: Athena Box
+	Tooltip: ""
+}
+
+AcropolisBox: {
+	DisplayName: Acropolis Box
+	Tooltip: ""
+}
+
+GoddessHarp: {
+	DisplayName: Goddess Harp
+	Tooltip: ""
+}
+
+AthenaAwakenedBox: {
+	DisplayName: Athena Awakened Box
+	Tooltip: ""
+}
+
+RabbitcopterEars: {
+	DisplayName: Rabbitcopter Ears
+	Tooltip: ""
+}
+
+RajahRabbitsSashOfVengeance: {
+	DisplayName: Rajah Rabbits Sash Of Vengeance
+	Tooltip: ""
+}
+
+RajahBox: {
+	DisplayName: Rajah Box
+	Tooltip: ""
+}
+
+RajahRabbitsCloakOfSupremacy: {
+	DisplayName: Rajah Rabbits Cloak Of Supremacy
+	Tooltip: ""
+}
+
+RajahAwakenedBox: {
+	DisplayName: Rajah Awakened Box
+	Tooltip: ""
+}
+
+ClawOfChaos: {
+	DisplayName: Claw Of Chaos
+	Tooltip: ""
+}
+
+GripsBox: {
+	DisplayName: Grips Box
+	Tooltip: ""
+}
+
+ChaosWings: {
+	DisplayName: Chaos Wings
+	Tooltip: ""
+}
+
+DragonstrideBoots: {
+	DisplayName: Dragonstride Boots
+	Tooltip: ""
+}
+
+ShenAwakenedBox: {
+	DisplayName: Shen Awakened Box
+	Tooltip: ""
+}
+
+ShenBox: {
+	DisplayName: Shen Box
+	Tooltip: ""
+}
+
+HeartOfPassion: {
+	DisplayName: Heart Of Passion
+	Tooltip: ""
+}
+
+HeartOfSorrow: {
+	DisplayName: Heart Of Sorrow
+	Tooltip: ""
+}
+
+SistersBox: {
+	DisplayName: Sisters Box
+	Tooltip: ""
+}
+
+WingsOfChaos: {
+	DisplayName: Wings Of Chaos
+	Tooltip: ""
+}
+
+ChaosPreShenBox: {
+	DisplayName: Chaos Pre Shen Box
+	Tooltip: ""
+}
+
+SandstormMedallion: {
+	DisplayName: Sandstorm Medallion
+	Tooltip: ""
+}
+
+DjinnBox: {
+	DisplayName: Djinn Box
+	Tooltip: ""
+}
+
+VultureWings: {
+	DisplayName: Vulture Wings
+	Tooltip: ""
+}
+
+ArtifactOfJudgement: {
+	DisplayName: Artifact Of Judgement
+	Tooltip: ""
+}
+
+AnubisBox: {
+	DisplayName: Anubis Box
+	Tooltip: ""
+}
+
+ArtifactOfGuilt: {
+	DisplayName: Artifact Of Guilt
+	Tooltip: ""
+}
+
+AnubisAwakenedBox: {
+	DisplayName: Anubis Awakened Box
+	Tooltip: ""
+}
+
+PalladiumShield: {
+	DisplayName: Palladium Shield
+	Tooltip: ""
+}
+
+GlowingTruffle: {
+	DisplayName: Glowing Truffle
+	Tooltip: ""
+}
+
+FungusBox: {
+	DisplayName: Fungus Box
+	Tooltip: ""
+}
+
+TruffleLegs: {
+	DisplayName: Truffle Legs
+	Tooltip: ""
+}
+
+TruffleToadBox: {
+	DisplayName: Truffle Toad Box
+	Tooltip: ""
+}
+
+CharmOfDesire: {
+	DisplayName: Charm Of Desire
+	Tooltip: ""
+}
+
+GreedBox: {
+	DisplayName: Greed Box
+	Tooltip: ""
+}
+
+HoardBox: {
+	DisplayName: Hoard Box
+	Tooltip: ""
+}
+
+TalismanOfDesire: {
+	DisplayName: Talisman Of Desire
+	Tooltip: ""
+}
+
+GreedAwakenedBox: {
+	DisplayName: Greed Awakened Box
+	Tooltip: ""
+}
+
+DragonsGuard: {
+	DisplayName: Dragons Guard
+	Tooltip: ""
+}
+
+MagmancerWings: {
+	DisplayName: Magmancer Wings
+	Tooltip: ""
+}
+
+OrnateBand: {
+	DisplayName: Ornate Band
+	Tooltip: ""
+}
+
+InfernoNightBox: {
+	DisplayName: Inferno Night Box
+	Tooltip: ""
+}
+
+InfernoSurfaceBox: {
+	DisplayName: Inferno Surface Box
+	Tooltip: ""
+}
+
+InfernoUndergroundBox: {
+	DisplayName: Inferno Underground Box
+	Tooltip: ""
+}
+
+AkumaAwakenedBox: {
+	DisplayName: Akuma Awakened Box
+	Tooltip: ""
+}
+
+AkumaBox: {
+	DisplayName: Akuma Box
+	Tooltip: ""
+}
+
+DraconianWings: {
+	DisplayName: Draconian Wings
+	Tooltip: ""
+}
+
+InfernoPagodaBox: {
+	DisplayName: Inferno Pagoda Box
+	Tooltip: ""
+}
+
+HydraPendant: {
+	DisplayName: Hydra Pendant
+	Tooltip: ""
+}
+
+HydraBox: {
+	DisplayName: Hydra Box
+	Tooltip: ""
+}
+
+AshProofVest0: {
+	DisplayName: Ash Proof Vest0
+	Tooltip: ""
+}
+
+AshProofVest1: {
+	DisplayName: Ash Proof Vest1
+	Tooltip: ""
+}
+
+AshProofVest2: {
+	DisplayName: Ash Proof Vest2
+	Tooltip: ""
+}
+
+AshProofVest3: {
+	DisplayName: Ash Proof Vest3
+	Tooltip: ""
+}
+
+ShadowBand: {
+	DisplayName: Shadow Band
+	Tooltip: ""
+}
+
+AquamancerWings: {
+	DisplayName: Aquamancer Wings
+	Tooltip: ""
+}
+
+BlackLotusEmblem: {
+	DisplayName: Black Lotus Emblem
+	Tooltip: ""
+}
+
+BotchedBand: {
+	DisplayName: Botched Band
+	Tooltip: ""
+}
+
+MireDayBox: {
+	DisplayName: Mire Day Box
+	Tooltip: ""
+}
+
+MireSurfaceBox: {
+	DisplayName: Mire Surface Box
+	Tooltip: ""
+}
+
+MireUndergroundBox: {
+	DisplayName: Mire Underground Box
+	Tooltip: ""
+}
+
+YamataAwakenedBox: {
+	DisplayName: Yamata Awakened Box
+	Tooltip: ""
+}
+
+YamataBox: {
+	DisplayName: Yamata Box
+	Tooltip: ""
+}
+
+DreadWings: {
+	DisplayName: Dread Wings
+	Tooltip: ""
+}
+
+MireLakeBox: {
+	DisplayName: Mire Lake Box
+	Tooltip: ""
+}
+
+OldOneCharm: {
+	DisplayName: Old One Charm
+	Tooltip: ""
+}
+
+HeartyTruffle: {
+	DisplayName: Hearty Truffle
+	Tooltip: ""
+}
+
+MonarchBox: {
+	DisplayName: Monarch Box
+	Tooltip: ""
+}
+
+MushroomSurfaceBox: {
+	DisplayName: Mushroom Surface Box
+	Tooltip: ""
+}
+
+ArcticMedallion: {
+	DisplayName: Arctic Medallion
+	Tooltip: ""
+}
+
+SubzeroBox: {
+	DisplayName: Subzero Box
+	Tooltip: ""
+}
+
+RadiumWings: {
+	DisplayName: Radium Wings
+	Tooltip: ""
+}
+
+StarsBox: {
+	DisplayName: Stars Box
+	Tooltip: ""
+}
+
+TerraWings: {
+	DisplayName: Terra Wings
+	Tooltip: ""
+}
+
+TerrariumBox: {
+	DisplayName: Terrarium Box
+	Tooltip: ""
+}
+
+SagittariusBox: {
+	DisplayName: Sagittarius Box
+	Tooltip: ""
+}
+
+SagittariusShield: {
+	DisplayName: Sagittarius Shield
+	Tooltip: ""
+}
+
+VoidBox: {
+	DisplayName: Void Box
+	Tooltip: ""
+}
+
+ZeroAwakenedBox: {
+	DisplayName: Zero Awakened Box
+	Tooltip: ""
+}
+
+ZeroBox: {
+	DisplayName: Zero Box
+	Tooltip: ""
+}
+
+ZeroWings: {
+	DisplayName: Zero Wings
+	Tooltip: ""
+}
+
+VoidPostMLBox: {
+	DisplayName: Void Post M L Box
+	Tooltip: ""
+}
+
+VoidPreIZBox: {
+	DisplayName: Void Pre I Z Box
+	Tooltip: ""
+}
+
+DragonSerpentNecklace: {
+	DisplayName: Dragon Serpent Necklace
+	Tooltip: ""
+}
+
+ParthenanBox: {
+	DisplayName: Parthenan Box
+	Tooltip: ""
+}
+
+SunkenShipBox: {
+	DisplayName: Sunken Ship Box
+	Tooltip: ""
+}
+
+SoulOfCthulhuBox: {
+	DisplayName: Soul Of Cthulhu Box
+	Tooltip: ""
+}
+
+SunkenShipPreSoCBox: {
+	DisplayName: Sunken Ship Pre So C Box
+	Tooltip: ""
+}
+
+MetallicTruffle: {
+	DisplayName: Metallic Truffle
+	Tooltip: ""
+}
+
+KipronWings: {
+	DisplayName: Kipron Wings
+	Tooltip: ""
+}
+
+ShinyKipronWings: {
+	DisplayName: Shiny Kipron Wings
+	Tooltip: ""
+}
+
+BlazenBooster: {
+	DisplayName: Blazen Booster
+	Tooltip: ""
+}
+
+CharlieWings: {
+	DisplayName: Charlie Wings
+	Tooltip: ""
+}
+
+GibsJet: {
+	DisplayName: Gibs Jet
+	Tooltip: ""
+}
+
+AngryPirateSails: {
+	DisplayName: Angry Pirate Sails
+	Tooltip: ""
+}
+
+HappySunSticker: {
+	DisplayName: Happy Sun Sticker
+	Tooltip: ""
+}
+
+MoonWings: {
+	DisplayName: Moon Wings
+	Tooltip: ""
+}
+
+Ono: {
+	DisplayName: Ono
+	Tooltip: ""
+}

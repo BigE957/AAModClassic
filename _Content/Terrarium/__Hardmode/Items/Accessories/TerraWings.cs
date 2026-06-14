@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class TerraWings : BaseAAItem
+	public class TerraWings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Terra Wings");

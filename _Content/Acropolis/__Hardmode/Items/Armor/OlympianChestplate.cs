@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class OlympianChestplate : BaseAAItem
+	public class OlympianChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Olympian";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Olympian Breastplate");

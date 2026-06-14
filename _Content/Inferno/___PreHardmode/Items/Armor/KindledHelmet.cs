@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class KindledHelmet : BaseAAItem
+	public class KindledHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Kindled";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Kindled Kabuto");

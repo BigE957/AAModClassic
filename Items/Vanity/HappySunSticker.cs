@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity
 {
-    public class HappySunSticker : BaseAAItem
+    public class HappySunSticker : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 26;

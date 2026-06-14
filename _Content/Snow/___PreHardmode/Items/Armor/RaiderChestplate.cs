@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
@@ -9,8 +9,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class RaiderChestplate : BaseAAItem
+	public class RaiderChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Raider";
 		public static int counter = 0;
 		public override void SetStaticDefaults()
 		{

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -12,8 +12,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DoomsdayHelmetMage : BaseAAItem
+    public class DoomsdayHelmetMage : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Doomsday";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Doomsday Assault Visor");

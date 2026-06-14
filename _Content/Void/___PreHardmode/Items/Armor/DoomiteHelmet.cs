@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
@@ -14,8 +14,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DoomiteHelmet : BaseAAItem, ICustomEquipGlow
+    public class DoomiteHelmet : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.Doomite";
         public Color Color => AAColor.ZeroShield;
 
         public bool Condition(Player p) => p.GetModPlayer<AAPlayer>().doomite;

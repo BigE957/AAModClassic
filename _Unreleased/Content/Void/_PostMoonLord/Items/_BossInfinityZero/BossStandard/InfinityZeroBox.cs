@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard
 {
-    public class InfinityZeroBox : ModItem
+    public class InfinityZeroBox : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Infinity Zero )");

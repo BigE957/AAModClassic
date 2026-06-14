@@ -1,10 +1,12 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
-    public class SagittariusShield : BaseAAItem
+    public class SagittariusShield : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sagittarius Shield");

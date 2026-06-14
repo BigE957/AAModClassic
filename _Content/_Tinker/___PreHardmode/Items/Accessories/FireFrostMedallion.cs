@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
 {
-    public class FireFrostMedallion : BaseAAItem
+    public class FireFrostMedallion : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fire Frost Medallion");

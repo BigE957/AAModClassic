@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	class FuryWitchsChestplate : BaseAAItem
+	class FuryWitchsChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.FuryWitchs";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fury Witch's Robe");

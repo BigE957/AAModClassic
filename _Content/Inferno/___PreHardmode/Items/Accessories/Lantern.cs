@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
 {
-    public class Lantern : BaseAAItem
+    public class Lantern : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

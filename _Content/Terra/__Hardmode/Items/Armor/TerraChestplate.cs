@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class TerraChestplate : BaseAAItem
+	public class TerraChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

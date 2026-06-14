@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -13,8 +13,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DreadMoonHelmet : BaseAAItem
+	public class DreadMoonHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.DreadMoon";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dread Moon Fukumen");

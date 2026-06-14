@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BlazingLeggings : BaseAAItem
+	public class BlazingLeggings : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Blazing";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Blazing Suneate");

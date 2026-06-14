@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
-    public class InfernoPagodaBox : BaseAAItem
+    public class InfernoPagodaBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Pagoda of the Rising Sun)");

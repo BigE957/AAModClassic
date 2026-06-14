@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.Localization;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories
 {
-    public class RajahRabbitsSashOfVengeance : BaseAAItem
+    public class RajahRabbitsSashOfVengeance : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rajah Rabbit's Sash of Vengeance");

@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories
 {
-    public class TalismanOfDesire : BaseAAItem
+    public class TalismanOfDesire : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Talisman of Desire");

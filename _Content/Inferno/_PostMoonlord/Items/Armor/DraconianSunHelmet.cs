@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,8 +17,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DraconianSunHelmet : BaseAAItem
+    public class DraconianSunHelmet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.DraconianSun";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Draconian Sun Kabuto");

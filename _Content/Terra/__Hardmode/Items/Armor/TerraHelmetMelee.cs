@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -12,8 +12,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
 	[AutoloadEquip(EquipType.Head)]
-	public class TerraHelmetMelee : BaseAAItem
+	public class TerraHelmetMelee : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Terra";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Helm");
