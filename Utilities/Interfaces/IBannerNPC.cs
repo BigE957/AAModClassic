@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Terraria;
 using Terraria.DataStructures;
@@ -83,57 +84,36 @@ namespace AAModClassic.Utilities.Interfaces
 
     public class BannerNPCLoader : ModSystem
     {
-        public delegate void orig_ResizeArrays(bool optional);
-        private static readonly MethodInfo resizeMethod = typeof(ModContent).GetMethod("ResizeArrays", BindingFlags.Static | BindingFlags.NonPublic);
-        private static Hook loadBannersHook;
-
         internal static Queue<int> NPCsToDoubleCheck = [];
 
-        public override void Load()
+        public override void OnModLoad()
         {
-            loadBannersHook = new Hook(resizeMethod, ResizeArraysWithRocks);
-        }
+            Mod mod = ModContent.GetInstance<AAMod>();
 
-        public override void Unload()
-        {
-            loadBannersHook = null;
-        }
+            mod.Logger.Info("Dynamically Adding Banners:");
 
-        public static void ResizeArraysWithRocks(orig_ResizeArrays orig, bool unloading)
-        {
-            FieldInfo modLoading = typeof(Mod).GetField("loading", BindingFlags.Instance | BindingFlags.NonPublic);
-            if (modLoading != null)
+            foreach (ModNPC modNPC in mod.GetContent<ModNPC>().ToList())
             {
-                Mod mod = ModContent.GetInstance<AAMod>();
-                modLoading.SetValue(mod, true);
-
-                mod.Logger.Info("Dynamically Adding Banners:");
-                foreach (ModNPC modNPC in mod.GetContent<ModNPC>())
+                if (modNPC is IBannerNPC inter)
                 {
-                    if (modNPC is IBannerNPC inter)
-                    {
-                        mod.Logger.Info("- Attempting to add a banner to " + modNPC.Name);
+                    mod.Logger.Info("- Attempting to add a banner to " + modNPC.Name);
 
-                        bool success = inter.TryAddBanner(modNPC);
-                        if (success)
-                            mod.Logger.Info("  - Successfully added a banner");
-                    }
+                    bool success = inter.TryAddBanner(modNPC);
+                    if (success)
+                        mod.Logger.Info("  - Successfully added a banner");
                 }
-
-                mod.Logger.Info("- Double checking skipped NPCs");
-
-                while (NPCsToDoubleCheck.Count > 0)
-                {
-                    int type = NPCsToDoubleCheck.Dequeue();
-                    ModNPC me = ModContent.GetModNPC(type);
-                    me.BannerItem = ModContent.GetModNPC((me as IBannerNPC).OverrideBannerNPCType).Banner;
-
-                    mod.Logger.Info($"  - {me.Name}'s BannerItem updated from 0 to {me.BannerItem}");
-                }
-                
-                modLoading.SetValue(mod, false);
             }
-            orig(unloading);
+
+            mod.Logger.Info("- Double checking skipped NPCs");
+
+            while (NPCsToDoubleCheck.Count > 0)
+            {
+                int type = NPCsToDoubleCheck.Dequeue();
+                ModNPC me = ModContent.GetModNPC(type);
+                me.BannerItem = ModContent.GetModNPC((me as IBannerNPC).OverrideBannerNPCType).Banner;
+
+                mod.Logger.Info($"  - {me.Name}'s BannerItem updated from 0 to {me.BannerItem}");
+            }
         }
     }
 
