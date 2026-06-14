@@ -238,7 +238,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                 spriteBatch.Draw(Asteroids3, Asteroidpos3, null, (NPC.downedMoonlord ? astroGlow : Color.White) * Intensity, 0f, new Vector2(Asteroids3.Width >> 1, Asteroids3.Height >> 1), 1f, SpriteEffects.None, 1f);
             }
             float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
-            Vector2 value3 = Main.gameMenu ? (new(Main.screenWidth / 2, Main.screenHeight / 2)) : Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
+            Vector2 screenCenter = Main.gameMenu ? (new(Main.screenWidth / 2, Main.screenHeight / 2)) : Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
             Vector2 screenPos = Main.gameMenu ? Vector2.Zero : Main.screenPosition;
             Rectangle rectangle = new Rectangle(-1000, -1000, 4000, 4000);
             for (int i = 0; i < bolts.Length; i++)
@@ -246,7 +246,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                 if (bolts[i].IsAlive && bolts[i].Depth > minDepth && bolts[i].Depth < maxDepth)
                 {
                     Vector2 value4 = new Vector2(1f / bolts[i].Depth, 0.9f / bolts[i].Depth);
-                    Vector2 position = (bolts[i].Position - value3) * value4 + value3 - screenPos;
+                    Vector2 position = (bolts[i].Position - screenCenter) * value4 + screenCenter - screenPos;
                     if (rectangle.Contains((int)position.X, (int)position.Y))
                     {
                         Texture2D texture = boltTexture;

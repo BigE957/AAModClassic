@@ -2,6 +2,7 @@
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
 using AAModClassic._Content.Inferno.World.Biomes.Waters;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -127,7 +128,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             if (AAMod.instance == null)
                 return;
 
-            Texture2D PlanetTexture = SunTex.Value;
+            Texture2D sunTex = SunTex.Value;
             Texture2D demonSun = DemonSunTex.Value;
             Texture2D MeteorTexture = MeteorTex.Value;
             Texture2D SkyTexture = SkyTex.Value;
@@ -141,40 +142,40 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                         spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.OrangeRed * Intensity);
                     else
                         spriteBatch.Draw(SkyTexture, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.OrangeRed * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
-                    float num64 = 1f;
-                    num64 -= Main.cloudAlpha * 1.5f;
-                    if (num64 < 0f)
-                    {
-                        num64 = 0f;
-                    }
-                    int num20 = (int)(Main.time / 54000.0 * (Main.screenWidth + TextureAssets.Sun.Value.Width * 2)) - TextureAssets.Sun.Value.Width;
-                    int num21 = 0;
-                    float num22 = 1f;
+                    float sunOpacity = 1f;
+                    sunOpacity -= Main.cloudAlpha * 1.5f;
+                    if (sunOpacity < 0f)
+                        sunOpacity = 0f;
+
+                    int sunX = (int)(Main.time / 54000.0 * (Main.screenWidth + TextureAssets.Sun.Value.Width * 2)) - TextureAssets.Sun.Value.Width;
+                    int sunY = 0;
+                    float sunScale = 1f;
                     float rotation = (float)(Main.time / 54000.0) * 2f - 7.3f;
                     double bgTop = (-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0;
                     if (Main.dayTime)
                     {
-                        double num26;
+                        double timeMult;
                         if (Main.time < 27000.0)
                         {
-                            num26 = Math.Pow(1.0 - Main.time / 54000.0 * 2.0, 2.0);
-                            num21 = (int)(bgTop + num26 * 250.0 + 180.0);
+                            timeMult = Math.Pow(1.0 - Main.time / 54000.0 * 2.0, 2.0);
+                            sunY = (int)(bgTop + timeMult * 250.0 + 180.0);
                         }
                         else
                         {
-                            num26 = Math.Pow((Main.time / 54000.0 - 0.5) * 2.0, 2.0);
-                            num21 = (int)(bgTop + num26 * 250.0 + 180.0);
+                            timeMult = Math.Pow((Main.time / 54000.0 - 0.5) * 2.0, 2.0);
+                            sunY = (int)(bgTop + timeMult * 250.0 + 180.0);
                         }
-                        num22 = (float)(1.2 - num26 * 0.4);
+                        sunScale = (float)(1.2 - timeMult * 0.4);
                     }
 
-                    num22 = MathHelper.Lerp(0.25f, num22, Intensity);
+                    AkumaASky akumaSky = ModContent.GetInstance<AkumaASky>();
+                    if (!Main.gameMenu && (akumaSky == null || !akumaSky.IsActive()))
+                        sunScale = MathHelper.Lerp(0.25f, sunScale, Intensity);
 
-                    Color color6 = new Color((byte)(255f * num64), (byte)(Color.White.G * num64), (byte)(Color.White.B * num64), (byte)(255f * num64));
                     if (!Main.gameMenu && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
-                        Main.spriteBatch.Draw(demonSun, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, demonSun.Width, demonSun.Height)), color6 * Intensity, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(demonSun, new Vector2(sunX, sunY + Main.sunModY), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);
                     else
-                        Main.spriteBatch.Draw(PlanetTexture, new Vector2(num20, num21 + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Height)), color6 * Intensity, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(sunTex, new Vector2(sunX, sunY + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);
                 }
             }
             int num = -1;
@@ -266,13 +267,8 @@ namespace AAModClassic._Content.Inferno.World.Biomes
         }
     }
 
-    public class InfernoSkyData : ScreenShaderData
+    public class InfernoSkyData(string passName) : ScreenShaderData(passName)
     {
-        public InfernoSkyData(string passName) : base(passName)
-        {
-
-        }
-
         private static void UpdateInfernoSky()
         {
             if (AAWorld.infernoTiles < 100)

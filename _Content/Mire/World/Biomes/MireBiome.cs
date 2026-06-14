@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic._Content.Mire.World.Biomes.Water;
@@ -72,24 +73,18 @@ namespace AAModClassic._Content.Mire.World.Biomes
         public override void Update(GameTime gameTime)
         {
             if (Active)
-            {
                 Intensity = Math.Min(1f, 0.01f + Intensity);
-            }
             else
-            {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
-            }
         }
 
         public override Color OnTileColor(Color inColor)
         {
-            Vector4 value = inColor.ToVector4();
             bool SilouetteMode = !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().Clueless;
             if (SilouetteMode)
-            {
-                return new Color(1, 1, 1);
-            }
-            return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
+                return new(1, 1, 1);
+
+            return Color.Lerp(inColor, Color.White, Intensity * 0.5f);
         }
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
@@ -103,43 +98,37 @@ namespace AAModClassic._Content.Mire.World.Biomes
                     spriteBatch.Draw(sky, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                     double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
                     Main.ColorOfTheSkies = Color.White;
-                    if (Main.gameMenu || Main.netMode == NetmodeID.Server)
-                    {
-                        bgTop = -200;
-                    }
-                    int num23 = (int)(Main.time / 32400.0 * (Main.screenWidth + TextureAssets.Moon[Main.moonType].Width() * 2)) - TextureAssets.Moon[Main.moonType].Width();
-                    int num24 = 0;
-                    Color white2 = Color.White;
-                    float num25 = 1f;
+                    
+                    int moonX = (int)(Main.time / 32400.0 * (Main.screenWidth + TextureAssets.Moon[Main.moonType].Width() * 2)) - TextureAssets.Moon[Main.moonType].Width();
+                    int moonY = 0;
+                    float moonScale = 1f;
                     float rotation2 = (float)(Main.time / 32400.0) * 2f - 7.3f;
                     if (!Main.dayTime)
                     {
-                        double num27;
+                        double timeMult;
                         if (Main.time < 16200.0)
                         {
-                            num27 = Math.Pow(1.0 - Main.time / 32400.0 * 2.0, 2.0);
-                            num24 = (int)(bgTop + num27 * 250.0 + 180.0);
+                            timeMult = Math.Pow(1.0 - Main.time / 32400.0 * 2.0, 2.0);
+                            moonY = (int)(bgTop + timeMult * 250.0 + 180.0);
                         }
                         else
                         {
-                            num27 = Math.Pow((Main.time / 32400.0 - 0.5) * 2.0, 2.0);
-                            num24 = (int)(bgTop + num27 * 250.0 + 180.0);
+                            timeMult = Math.Pow((Main.time / 32400.0 - 0.5) * 2.0, 2.0);
+                            moonY = (int)(bgTop + timeMult * 250.0 + 180.0);
                         }
-                        num25 = (float)(1.2 - num27 * 0.4);
-                    }
-                    float num65 = 1f - Main.cloudAlpha * 1.5f;
-                    if (num65 < 0f)
-                    {
-                        num65 = 0f;
+                        moonScale = (float)(1.2 - timeMult * 0.4);
                     }
 
-                    num25 = MathHelper.Lerp(0.25f, num25, Intensity);
+                    float moonOpacity = 1f - Main.cloudAlpha * 1.5f;
+                    if (moonOpacity < 0f)
+                        moonOpacity = 0f;
 
-                    white2.R = (byte)(white2.R * num65);
-                    white2.G = (byte)(white2.G * num65);
-                    white2.B = (byte)(white2.B * num65);
-                    white2.A = (byte)(white2.A * num65);
-                    Main.spriteBatch.Draw(moon, new Vector2(num23, num24 + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY)), new Rectangle?(new Rectangle(0, 0, moon.Width, moon.Width)), white2 * Intensity, rotation2, new Vector2(moon.Width / 2, moon.Width / 2), num25, SpriteEffects.None, 0f);
+                    var yamataSky = ModContent.GetInstance<YamataASky>();
+                    if (!Main.gameMenu && (yamataSky == null || !yamataSky.IsActive()))
+                        moonScale = MathHelper.Lerp(0.25f, moonScale, Intensity);
+
+                    Vector2 drawPos = new(moonX, moonY + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY));
+                    spriteBatch.Draw(moon, drawPos, null, Color.White * moonOpacity * Intensity, rotation2, moon.Size() / 2f, moonScale, SpriteEffects.None, 0f);
                 }
             }
         }
