@@ -255,19 +255,63 @@ namespace AAModClassic._Unreleased
             new SunkenShipGen().Place(origin, GenVars.structures);
         }
 
+
+        private List<(int type, int min, int max)> GetLootPool(int chestID)
+        {
+            return chestID switch
+            {
+                0 =>    [   //Captain's Quarters
+                            (ModContent.ItemType<CursedCompass>(), 1, 1)
+                        ],
+                9 =>    [   //Medical Ward
+                            (ItemID.HealingPotion, 1, 1)
+                        ],
+                10 =>   [   //Kitchen
+                            (ItemID.Bass, 1, 1)
+                        ],
+                _ =>    [   //Supplies Storage
+                            (ItemID.Rope, 1, 1)
+                        ],
+            };
+        }
+
         public override void PostWorldGen()
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
+                    Rectangle shipArea = new(shipPos.X, shipPos.Y, SunkenShipTexGenAssets.BigShipTileData.Width, SunkenShipTexGenAssets.BigShipTileData.Height);
+                    int chestCounter = 0;
 
+                    foreach(Chest chest in Main.chest)
+                    {
+                        if (chest is null)
+                            continue;
+
+                        if (!shipArea.Contains(chest.x, chest.y))
+                            continue;
+
+                        Tile tile = Main.tile[chest.x, chest.y];
+
+                        if (!Main.tileContainer[tile.TileType])
+                            continue;
+
+                        if (chestCounter == 0 && tile.TileType != ModContent.TileType<SunkenChest_Tile>())
+                            continue;
+
+                        var lootPool = GetLootPool(chestCounter);
+
+                        chest.item[0].SetDefaults(lootPool[0].type);
+
+                        chestCounter++;
+                    }
                 }
                 else
                 {
                     int[] itemsToPlaceInSunkenChest = [ModContent.ItemType<CursedCompass>()];
                     int itemsToPlaceInSunkenChestsChoice = 0;
-                    for (int chestIndex = 0; chestIndex < Main.chest.Length; chestIndex++)
+                    for (int chestIndex = 0; chestIndex < Main.maxChests; chestIndex++)
                     {
                         Chest chest = Main.chest[chestIndex];
                         if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest

@@ -73,18 +73,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 
             AAWorld_Unreleased.shipPos = new Point(newOriginX, newOriginY);
 
-            for (int x = newOriginX; x < newOriginX + tileTex.Width; x++)
-            {
-                for (int y = newOriginY; y < newOriginY + tileTex.Height; y++)
-                {
-                    if (Main.tile[x, y].TileType == TileID.EmeraldGemspark)
-                    {
-                        Main.tile[x, y].ClearTile();
-                        WorldGen.PlaceTile(x, y, ModContent.TileType<RottedPlatform_Tile>());
-                    }
-                }
-            }
-
             /*
             if (WorldGenUtils.GetWorldSize() == 1)
             {
@@ -109,7 +97,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 WorldGen.PlaceObject(newOriginX + 152, newOriginY + 47, TileID.Statues, true, 71);
 
                 //Captain's Quarters
-                WorldGen.PlaceChest(newOriginX + 141, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
+                WorldGen.PlaceChest(newOriginX + 141, newOriginY + 54, (ushort)ModContent.TileType<SunkenChest_Tile>(), false);
                 WorldGen.PlaceObject(newOriginX + 139, newOriginY + 54, TileID.Bookcases, true, 25);
                 WorldGen.PlaceObject(newOriginX + 145, newOriginY + 54, TileID.Tables, true, 28);
                 WorldGen.PlaceObject(newOriginX + 145, newOriginY + 52, TileID.Books, true);
@@ -171,14 +159,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 WorldGen.PlaceObject(newOriginX + 112, newOriginY + 59, TileID.FishingCrate, true, 0);
                 WorldGen.PlaceObject(newOriginX + 118, newOriginY + 59, TileID.FishingCrate, true, 0);
 
-                WorldGen.PlaceObject(newOriginX + 111, newOriginY + 63, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 115, newOriginY + 63, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 118, newOriginY + 63, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 123, newOriginY + 63, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 110, newOriginY + 59, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 114, newOriginY + 59, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 120, newOriginY + 59, TileID.Containers, true, 5);
-                WorldGen.PlaceObject(newOriginX + 122, newOriginY + 59, TileID.Containers, true, 5);
+                WorldGen.PlaceChest(newOriginX + 111, newOriginY + 63, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 115, newOriginY + 63, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 118, newOriginY + 63, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 123, newOriginY + 63, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 110, newOriginY + 59, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 114, newOriginY + 59, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 120, newOriginY + 59, TileID.Containers, false, 5);
+                WorldGen.PlaceChest(newOriginX + 122, newOriginY + 59, TileID.Containers, false, 5);
 
                 //Medical Ward
                 WorldGen.PlaceObject(newOriginX + 72, newOriginY + 80, TileID.Beds, true, 9);
@@ -231,7 +219,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 WorldGen.PlaceObject(newOriginX + 147, newOriginY + 80, TileID.Tables, true, 17);
                 WorldGen.PlaceObject(newOriginX + 150, newOriginY + 80, TileID.CookingPots, true, 0);
                 WorldGen.PlaceObject(newOriginX + 152, newOriginY + 80, TileID.Kegs, true, 0);
-                WorldGen.PlaceObject(newOriginX + 154, newOriginY + 80, TileID.Containers, true, 5);
+                WorldGen.PlaceChest(newOriginX + 154, newOriginY + 80, TileID.Containers, false, 5);
 
                 WorldGen.PlaceObject(newOriginX + 143, newOriginY + 76, TileID.Bottles, true, Main.rand.Next(4, 7)); //Cup, Mug, Glass
                 WorldGen.PlaceObject(newOriginX + 149, newOriginY + 76, TileID.Bottles, true, Main.rand.Next(4, 7)); //Cup, Mug, Glass
