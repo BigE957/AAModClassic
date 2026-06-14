@@ -9,10 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
-    public class TheVortex : BaseAAItem
+    public class TheVortex : BaseAAItem, ILocalizedModType
     {
-
-        
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             

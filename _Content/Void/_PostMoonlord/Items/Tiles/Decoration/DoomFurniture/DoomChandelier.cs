@@ -1,12 +1,13 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
-    public class DoomChandelier : ModItem
+    public class DoomChandelier : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doom Chandelier");

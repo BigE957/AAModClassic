@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons   //where is located
 {
-    public class TheDragonsBreath : BaseAAItem
+    public class TheDragonsBreath : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetDefaults()
         {
 

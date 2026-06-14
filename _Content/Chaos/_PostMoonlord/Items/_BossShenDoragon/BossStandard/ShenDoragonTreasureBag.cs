@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
-    public class ShenDoragonTreasureBag : BaseAAItem
+    public class ShenDoragonTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

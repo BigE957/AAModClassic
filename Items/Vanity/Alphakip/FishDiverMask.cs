@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Alphakip
 {
     [AutoloadEquip(EquipType.Head)]
-	public class FishDiverMask : BaseAAItem
+	public class FishDiverMask : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Alphakip";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

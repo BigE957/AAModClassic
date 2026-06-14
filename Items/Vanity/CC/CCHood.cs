@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ID;
 namespace AAModClassic.Items.Vanity.CC
 {
     [AutoloadEquip(EquipType.Head)]
-	public class CCHood : ModItem
+	public class CCHood : ModItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.CC";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dread Cultist Mask");

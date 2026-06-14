@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
-	public class EventideTorch : BaseAAItem
+	public class EventideTorch : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Eventide Torch");

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
@@ -15,8 +15,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 {
     //imported from my tAPI mod because I'm lazy
-    public class DesertLamp : BaseAAItem
+    public class DesertLamp : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Desert Lamp");

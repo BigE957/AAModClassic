@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TerraHelmetMageTest : EquipAbstract
+    public class TerraHelmetMageTest : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Hood");

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
@@ -20,8 +20,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon
 {
-    public class ChaosRune : BaseAAItem
+    public class ChaosRune : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

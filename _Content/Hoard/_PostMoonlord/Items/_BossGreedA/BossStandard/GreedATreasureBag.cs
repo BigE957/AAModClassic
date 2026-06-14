@@ -1,4 +1,4 @@
-using AAModClassic._Content.__PLACEHOLDER.ore;
+﻿using AAModClassic._Content.__PLACEHOLDER.ore;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard
 {
-    public class GreedATreasureBag : BaseAAItem
+    public class GreedATreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");

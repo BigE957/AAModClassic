@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -8,9 +8,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Hallam.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ShinyHalHat : BaseAAItem
+	public class ShinyHalHat : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Hallam.Shiny";
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Hallam's Velvet Top Hat");

@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class ShenPainting : ModItem
+public class ShenPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Discordian Doomsayer");
 		// ((ModItem)this).Tooltip.SetDefault("'I sealed him away, but the thing about containing chaos forever...is that you can't.'");

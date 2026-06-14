@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Mikpin
 {
     [AutoloadEquip(EquipType.Legs)]
-    public class MikpinPants : BaseAAItem
+    public class MikpinPants : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Mikpin";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

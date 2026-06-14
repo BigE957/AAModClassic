@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class JojoBagginsPainting : ModItem
+public class JojoBagginsPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("The Architect");
 		// ((ModItem)this).Tooltip.SetDefault("'Weird guy but boy was he ever a great builder.'");

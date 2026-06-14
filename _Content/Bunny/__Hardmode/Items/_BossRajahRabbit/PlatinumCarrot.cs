@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,8 +14,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
 {
-    public class PlatinumCarrot : BaseAAItem
+    public class PlatinumCarrot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ten Karat Carrot");

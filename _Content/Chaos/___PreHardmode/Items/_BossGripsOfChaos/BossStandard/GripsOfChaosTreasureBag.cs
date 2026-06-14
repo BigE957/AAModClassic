@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
-    public class GripsOfChaosTreasureBag : BaseAAItem
+    public class GripsOfChaosTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Treasure Bag");

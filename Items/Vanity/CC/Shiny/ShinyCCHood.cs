@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -6,9 +6,10 @@ using Terraria.ID;
 namespace AAModClassic.Items.Vanity.CC.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ShinyCCHood : ModItem
+	public class ShinyCCHood : ModItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.CC.Shiny";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Draconian Cultist Mask");
 			/* Tooltip.SetDefault(@"The mask of a crazy dragon enthusiast

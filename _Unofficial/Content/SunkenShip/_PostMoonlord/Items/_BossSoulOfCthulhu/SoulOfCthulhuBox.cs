@@ -10,7 +10,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossS
 {
     public class SoulOfCthulhuBox : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Soul of Cthulhu)");

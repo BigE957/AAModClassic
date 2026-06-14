@@ -5,8 +5,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.Items.Vanity.Tied
 {
-    public class OldMagiciansHat : BaseAAItem
+    public class OldMagiciansHat : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Old Magician's Top Hat");

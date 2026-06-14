@@ -5,8 +5,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.Items.Vanity.Pluto
 {
-    public class PlutoBag : BaseAAItem
+    public class PlutoBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Outer God's Bag");

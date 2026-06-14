@@ -532,3 +532,28 @@ CthulhuCannon: {
 	DisplayName: Cthulhu Cannon
 	Tooltip: ""
 }
+
+OreCannon: {
+	DisplayName: Ore Cannon
+	Tooltip: ""
+}
+
+OreCannonEX: {
+	DisplayName: Ore Cannon E X
+	Tooltip: ""
+}
+
+Independence: {
+	DisplayName: Independence
+	Tooltip: ""
+}
+
+SharkLauncher: {
+	DisplayName: Shark Launcher
+	Tooltip: ""
+}
+
+Skystrike: {
+	DisplayName: Skystrike
+	Tooltip: ""
+}

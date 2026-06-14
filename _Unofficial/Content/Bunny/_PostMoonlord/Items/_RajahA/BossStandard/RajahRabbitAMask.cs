@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Content.Bunny._PostMoonlord.Items._RajahA.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class RajahRabbitAMask : BaseAAItem
+	public class RajahRabbitAMask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

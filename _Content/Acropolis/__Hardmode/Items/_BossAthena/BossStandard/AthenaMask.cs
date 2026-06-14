@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AthenaMask : BaseAAItem
+	public class AthenaMask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

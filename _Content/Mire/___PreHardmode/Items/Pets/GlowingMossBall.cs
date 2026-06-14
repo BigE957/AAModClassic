@@ -6,13 +6,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Pets
 {
-    public class GlowingMossBall : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    public class GlowingMossBall : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Glowing Moss Ball");
 			/* Tooltip.SetDefault(@"Summons a glowmoss ball
-Don?t ask what makes it glow, Trust me"); */
+Don't ask what makes it glow, Trust me"); */
 		}
 
 		public override void SetDefaults()

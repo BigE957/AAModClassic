@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Tied
 {
     [AutoloadEquip(EquipType.Body)]
-	class TiedsSuit : BaseAAItem
+	class TiedsSuit : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Tied";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Spooky Suit");

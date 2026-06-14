@@ -10,9 +10,10 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class SoapBlaster : BaseAAItem
+    public class SoapBlaster : BaseAAItem, ILocalizedModType
     {
-        
+        public new string LocalizationCategory => "Items.Weapons.Magic";
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soap Blaster");

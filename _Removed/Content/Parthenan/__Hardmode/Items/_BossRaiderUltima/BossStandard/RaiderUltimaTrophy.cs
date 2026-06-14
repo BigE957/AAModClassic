@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -6,8 +6,9 @@ using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard
 {
-    public class RaiderUltimaTrophy : BaseAAItem
+    public class RaiderUltimaTrophy : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Raider Ultima Trophy");

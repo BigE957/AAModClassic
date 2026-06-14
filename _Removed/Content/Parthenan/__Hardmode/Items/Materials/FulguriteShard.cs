@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -6,8 +6,9 @@ using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
 {
-    public class FulguriteShard : BaseAAItem
+    public class FulguriteShard : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fulgurite Shard");

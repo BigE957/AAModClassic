@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.World.Tiles;
+﻿using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.Audio;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 {
-    public class ScorchedSeeds : BaseAAItem
+    public class ScorchedSeeds : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scorched Seeds");

@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Gibs
 {
-    public class GibsBag : BaseAAItem
+    public class GibsBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Angry Revenant's Sarcophagus");

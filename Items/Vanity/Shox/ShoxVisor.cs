@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,9 +7,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Shox
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ShoxVisor : BaseAAItem
+	public class ShoxVisor : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Shox";
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Shock Lord's Visor");

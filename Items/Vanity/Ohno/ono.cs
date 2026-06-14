@@ -7,7 +7,7 @@ namespace AAModClassic.Items.Vanity.Ohno
 {
     public class Ono : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Vanity.Ohno";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("ono");
@@ -19,6 +19,7 @@ namespace AAModClassic.Items.Vanity.Ohno
 			Item.width = 16;
 			Item.height = 16;
 			Item.accessory = true;
+			Item.vanity = true;
 			Item.value = 100;
 			Item.rare = ItemRarityID.Gray;
 		}

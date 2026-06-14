@@ -13,17 +13,19 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever
 {
-    //imported from my tAPI mod because I'm lazy
-    public class CyberneticClaw : BaseAAItem
-	{
+    public class CyberneticClaw : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+
             // DisplayName.SetDefault("Cybernetic Claw");
             /* Tooltip.SetDefault(@"Summons the Retriever
 Only useable at night"); */
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.width = 32;
 			Item.height = 24;

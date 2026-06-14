@@ -11,7 +11,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 {
     public class InfinityZeroBox : ModItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Infinity Zero )");

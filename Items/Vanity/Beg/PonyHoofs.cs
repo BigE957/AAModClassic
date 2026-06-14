@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,9 +7,10 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Beg
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class PonyHoofs : BaseAAItem
+	public class PonyHoofs : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Beg";
+        public override void SetStaticDefaults()
 		{
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Weird Horse Hoofs");

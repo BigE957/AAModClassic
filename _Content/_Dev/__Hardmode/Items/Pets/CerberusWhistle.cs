@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 {
-    public class CerberusWhistle : BaseAAItem
-	{
+    public class CerberusWhistle : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Hades' Whistle");

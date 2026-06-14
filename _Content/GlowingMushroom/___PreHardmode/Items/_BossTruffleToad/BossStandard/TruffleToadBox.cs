@@ -9,7 +9,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 {
     public class TruffleToadBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
             
 		public override void SetStaticDefaults()
 		{

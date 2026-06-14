@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Beg
 {
-    public class BegBag : BaseAAItem
+    public class BegBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Weird Horse Bag");

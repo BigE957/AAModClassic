@@ -1,12 +1,13 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Tiles.Functional
 {
-    public class FurnitureDynamo : BaseAAItem
+    public class FurnitureDynamo : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Furniture Dynamo");

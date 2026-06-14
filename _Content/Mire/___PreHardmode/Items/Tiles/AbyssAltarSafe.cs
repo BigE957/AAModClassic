@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles
 {
-    public class AbyssAltarSafe : BaseAAItem
+    public class AbyssAltarSafe : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Abyss Altar");

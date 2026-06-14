@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
-    class ScorchedDynastyWoodUnsafe : BaseAAItem
+    class ScorchedDynastyWoodUnsafe : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         //TODO: add the unsafe marker
         public override string Texture => ModContent.GetInstance<ScorchedDynastyWood>().Texture;
 

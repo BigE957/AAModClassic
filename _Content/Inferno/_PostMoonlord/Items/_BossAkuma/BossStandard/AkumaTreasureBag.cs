@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
@@ -14,8 +14,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard
 {
-    public class AkumaTreasureBag : BaseAAItem
+    public class AkumaTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

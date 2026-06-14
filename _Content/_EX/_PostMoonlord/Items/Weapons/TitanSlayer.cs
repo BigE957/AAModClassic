@@ -9,8 +9,9 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class TitanSlayer : BaseAAItem
-	{
+    public class TitanSlayer : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         private static bool RogueMaxxing = false;
 		public override void SetStaticDefaults()
 		{

@@ -1,0 +1,21 @@
+Healer: {
+	AuroraScythe: {
+		DisplayName: Aurora Scythe
+		Tooltip: ""
+	}
+
+	CarrotFarmer: {
+		DisplayName: Carrot Farmer
+		Tooltip: ""
+	}
+
+	DragonsClaw: {
+		DisplayName: Dragons Claw
+		Tooltip: ""
+	}
+
+	HydrasFury: {
+		DisplayName: Hydras Fury
+		Tooltip: ""
+	}
+}

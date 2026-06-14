@@ -1,4 +1,4 @@
-using AAModClassic._Content.RedMushroom.World.Tiles;
+﻿using AAModClassic._Content.RedMushroom.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.Audio;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 {
-    public class MyceliumSeeds : BaseAAItem
+    public class MyceliumSeeds : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mycelium Seeds");

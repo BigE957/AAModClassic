@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class RetrieverMask : BaseAAItem
+    public class RetrieverMask : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Masks";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

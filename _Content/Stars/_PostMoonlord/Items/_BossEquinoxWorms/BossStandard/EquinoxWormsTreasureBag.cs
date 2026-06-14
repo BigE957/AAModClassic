@@ -1,4 +1,4 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
-    public class EquinoxWormsTreasureBag : BaseAAItem
+    public class EquinoxWormsTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> DaybringerTreasureBagTex;
         public static Asset<Texture2D> DaybringerTreasureBagGlowmask;
         public static Asset<Texture2D> NightcrawlerTreasureBagTex;

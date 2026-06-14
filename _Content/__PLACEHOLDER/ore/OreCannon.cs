@@ -21,8 +21,9 @@ using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore
 {
-    public class OreCannon : BaseAAItem
+    public class OreCannon : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ore Cannon");

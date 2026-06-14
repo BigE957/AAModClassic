@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class DaedalusPainting : ModItem
+public class DaedalusPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Lord of Light");
 		// ((ModItem)this).Tooltip.SetDefault("'Does what's right...even if it's not the best thing to do.'");

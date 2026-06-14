@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Moon
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class MoonRobe : BaseAAItem
+    public class MoonRobe : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Moon";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

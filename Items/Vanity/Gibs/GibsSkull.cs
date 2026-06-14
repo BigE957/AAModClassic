@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Gibs
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class GibsSkull : BaseAAItem, ICustomEquipGlow
+    public class GibsSkull : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Vanity.Gibs";
         public Color Color => AAColor.COLOR_WHITEFADE1;
 
         public override void SetStaticDefaults()

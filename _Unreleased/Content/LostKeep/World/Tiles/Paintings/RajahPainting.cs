@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class RajahPainting : ModItem
+public class RajahPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Pouncing Punisher");
 		// ((ModItem)this).Tooltip.SetDefault("'The king of the small and helpless, both of which he is most certainly not.'");

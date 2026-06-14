@@ -1,0 +1,249 @@
+BroodmotherBox: {
+	DisplayName: Broodmother Box
+	Tooltip: ""
+}
+
+EquinoxBox: {
+	DisplayName: Equinox Box
+	Tooltip: ""
+}
+
+InfinityZeroBox: {
+	DisplayName: Infinity Zero Box
+	Tooltip: ""
+}
+
+AthenaBox: {
+	DisplayName: Athena Box
+	Tooltip: ""
+}
+
+AcropolisBox: {
+	DisplayName: Acropolis Box
+	Tooltip: ""
+}
+
+AthenaAwakenedBox: {
+	DisplayName: Athena Awakened Box
+	Tooltip: ""
+}
+
+RajahBox: {
+	DisplayName: Rajah Box
+	Tooltip: ""
+}
+
+RajahAwakenedBox: {
+	DisplayName: Rajah Awakened Box
+	Tooltip: ""
+}
+
+GripsBox: {
+	DisplayName: Grips Box
+	Tooltip: ""
+}
+
+ShenAwakenedBox: {
+	DisplayName: Shen Awakened Box
+	Tooltip: ""
+}
+
+ShenBox: {
+	DisplayName: Shen Box
+	Tooltip: ""
+}
+
+SistersBox: {
+	DisplayName: Sisters Box
+	Tooltip: ""
+}
+
+ChaosPreShenBox: {
+	DisplayName: Chaos Pre Shen Box
+	Tooltip: ""
+}
+
+DjinnBox: {
+	DisplayName: Djinn Box
+	Tooltip: ""
+}
+
+AnubisBox: {
+	DisplayName: Anubis Box
+	Tooltip: ""
+}
+
+AnubisAwakenedBox: {
+	DisplayName: Anubis Awakened Box
+	Tooltip: ""
+}
+
+FungusBox: {
+	DisplayName: Fungus Box
+	Tooltip: ""
+}
+
+TruffleToadBox: {
+	DisplayName: Truffle Toad Box
+	Tooltip: ""
+}
+
+GreedBox: {
+	DisplayName: Greed Box
+	Tooltip: ""
+}
+
+HoardBox: {
+	DisplayName: Hoard Box
+	Tooltip: ""
+}
+
+GreedAwakenedBox: {
+	DisplayName: Greed Awakened Box
+	Tooltip: ""
+}
+
+InfernoNightBox: {
+	DisplayName: Inferno Night Box
+	Tooltip: ""
+}
+
+InfernoSurfaceBox: {
+	DisplayName: Inferno Surface Box
+	Tooltip: ""
+}
+
+InfernoUndergroundBox: {
+	DisplayName: Inferno Underground Box
+	Tooltip: ""
+}
+
+AkumaAwakenedBox: {
+	DisplayName: Akuma Awakened Box
+	Tooltip: ""
+}
+
+AkumaBox: {
+	DisplayName: Akuma Box
+	Tooltip: ""
+}
+
+InfernoPagodaBox: {
+	DisplayName: Inferno Pagoda Box
+	Tooltip: ""
+}
+
+HydraBox: {
+	DisplayName: Hydra Box
+	Tooltip: ""
+}
+
+MireDayBox: {
+	DisplayName: Mire Day Box
+	Tooltip: ""
+}
+
+MireSurfaceBox: {
+	DisplayName: Mire Surface Box
+	Tooltip: ""
+}
+
+MireUndergroundBox: {
+	DisplayName: Mire Underground Box
+	Tooltip: ""
+}
+
+YamataAwakenedBox: {
+	DisplayName: Yamata Awakened Box
+	Tooltip: ""
+}
+
+YamataBox: {
+	DisplayName: Yamata Box
+	Tooltip: ""
+}
+
+MireLakeBox: {
+	DisplayName: Mire Lake Box
+	Tooltip: ""
+}
+
+MonarchBox: {
+	DisplayName: Monarch Box
+	Tooltip: ""
+}
+
+MushroomSurfaceBox: {
+	DisplayName: Mushroom Surface Box
+	Tooltip: ""
+}
+
+SubzeroBox: {
+	DisplayName: Subzero Box
+	Tooltip: ""
+}
+
+StarsBox: {
+	DisplayName: Stars Box
+	Tooltip: ""
+}
+
+TerrariumBox: {
+	DisplayName: Terrarium Box
+	Tooltip: ""
+}
+
+SagittariusBox: {
+	DisplayName: Sagittarius Box
+	Tooltip: ""
+}
+
+VoidBox: {
+	DisplayName: Void Box
+	Tooltip: ""
+}
+
+ZeroAwakenedBox: {
+	DisplayName: Zero Awakened Box
+	Tooltip: ""
+}
+
+ZeroBox: {
+	DisplayName: Zero Box
+	Tooltip: ""
+}
+
+VoidPostMLBox: {
+	DisplayName: Void Post M L Box
+	Tooltip: ""
+}
+
+VoidPreIZBox: {
+	DisplayName: Void Pre I Z Box
+	Tooltip: ""
+}
+
+SiegeBox: {
+	DisplayName: Siege Box
+	Tooltip: ""
+}
+
+ParthenanBox: {
+	DisplayName: Parthenan Box
+	Tooltip: ""
+}
+
+SunkenShipBox: {
+	DisplayName: Sunken Ship Box
+	Tooltip: ""
+}
+
+SoulOfCthulhuBox: {
+	DisplayName: Soul Of Cthulhu Box
+	Tooltip: ""
+}
+
+SunkenShipPreSoCBox: {
+	DisplayName: Sunken Ship Pre So C Box
+	Tooltip: ""
+}

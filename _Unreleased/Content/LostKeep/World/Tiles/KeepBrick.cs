@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 
-public class KeepBrick : BaseAAItem
+public class KeepBrick : BaseAAItem, ILocalizedModType
 {
+        public new string LocalizationCategory => "Items.Placeables";
 	public override void SetDefaults()
 	{
 		Item.width = 16;

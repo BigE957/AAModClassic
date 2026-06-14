@@ -7,9 +7,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pets
 {
-    public class ScorchedEgg : BaseAAItem
-	{
-        
+    public class ScorchedEgg : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.

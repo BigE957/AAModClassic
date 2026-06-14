@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class CRajahPainting : ModItem
+public class CRajahPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Champion of the Innocent");
 		// ((ModItem)this).Tooltip.SetDefault("'The only thing more powerful than a defender is his unending fury.'");

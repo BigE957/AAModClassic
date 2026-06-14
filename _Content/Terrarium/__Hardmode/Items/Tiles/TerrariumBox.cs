@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Tiles
 {
     public class TerrariumBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
             
 		public override void SetStaticDefaults()
 		{

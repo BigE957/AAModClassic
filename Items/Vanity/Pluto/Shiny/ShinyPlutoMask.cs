@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -8,9 +8,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Pluto.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ShinyPlutoMask : BaseAAItem
+	public class ShinyPlutoMask : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Pluto.Shiny";
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Outer God's Ancient Mask");

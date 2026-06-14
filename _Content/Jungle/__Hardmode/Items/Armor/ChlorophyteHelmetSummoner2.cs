@@ -8,9 +8,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Jungle.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ChlorophyteHelmetSummoner2 : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+	public class ChlorophyteHelmetSummoner2 : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Armor.Chlorophyte";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Face Paint");
 			/* Tooltip.SetDefault(@"42% increased minion damage

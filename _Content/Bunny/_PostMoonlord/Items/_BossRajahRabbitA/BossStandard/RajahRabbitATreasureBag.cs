@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard
 {
-    public class RajahRabbitATreasureBag : BaseAAItem
+    public class RajahRabbitATreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Cache");

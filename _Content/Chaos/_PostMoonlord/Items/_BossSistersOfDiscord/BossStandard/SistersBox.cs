@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 {
     public class SistersBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Sisters of Discord)");

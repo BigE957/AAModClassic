@@ -1,12 +1,13 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
-public class KeepSink : ModItem
+public class KeepSink : ModItem, ILocalizedModType
 {
+        public new string LocalizationCategory => "Items.Placeables";
 	public override void SetStaticDefaults()
 	{
 		// DisplayName.SetDefault("Keep Sink");

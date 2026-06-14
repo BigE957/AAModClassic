@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Boss
 {
 	public class EquinoxBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         
 		public override void SetStaticDefaults()
 		{

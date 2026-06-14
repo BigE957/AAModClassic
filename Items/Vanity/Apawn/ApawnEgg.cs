@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Apawn
 {
-    public class ApawnEgg : BaseAAItem
+    public class ApawnEgg : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Surprise Egg");

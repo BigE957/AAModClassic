@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard
 {
-    internal class TruffleToadRelic : ModItem
+    internal class TruffleToadRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<TruffleToadRelic_Tile>().Texture;
 
         public override void SetDefaults()

@@ -15,7 +15,7 @@ namespace AAModClassic._Unofficial.Content.Parthenan.___PreHardmode.Items
 {
     public class ParthenanBox : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Parthenan)");

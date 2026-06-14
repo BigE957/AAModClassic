@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Charlie
 {
-    public class CharlieBag : BaseAAItem
+    public class CharlieBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Reaper's Bag");

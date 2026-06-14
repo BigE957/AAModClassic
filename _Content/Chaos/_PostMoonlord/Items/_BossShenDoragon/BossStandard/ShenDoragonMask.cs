@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,8 +6,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
 {
     [AutoloadEquip(EquipType.Head)]
     //TODO: give this the chaos wings treatment
-	public class ShenDoragonMask : BaseAAItem
+	public class ShenDoragonMask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
         public override void SetStaticDefaults()
         {

@@ -18,9 +18,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
-	public class AleisterStaff : BanishDamageItemAbstract
-	{
-		public override void SetStaticDefaults()
+	public class AleisterStaff : BanishDamageItemAbstract, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
+        public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Aleister Staff");
 			// Tooltip.SetDefault("");

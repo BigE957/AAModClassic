@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Delly
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DellyShirt : BaseAAItem
+    public class DellyShirt : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Delly";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

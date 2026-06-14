@@ -12,8 +12,8 @@ namespace AAModClassic.Items.Vanity.Moon
     [AutoloadEquip(EquipType.Wings)]
     public class MoonWings : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Moon";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Lunar Wasp Wings");
             /* Tooltip.SetDefault(@"Allows flight and slow fall

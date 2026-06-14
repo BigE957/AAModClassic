@@ -10,9 +10,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class Independence : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    public class Independence : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Independence");
 			/* Tooltip.SetDefault("Shoots 3 firework rockets"

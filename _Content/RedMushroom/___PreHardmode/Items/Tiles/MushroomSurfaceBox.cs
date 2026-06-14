@@ -7,7 +7,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
 {
     public class MushroomSurfaceBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Red Mushroom Music Box");

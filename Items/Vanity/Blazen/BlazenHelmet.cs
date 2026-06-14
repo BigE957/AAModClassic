@@ -12,7 +12,7 @@ namespace AAModClassic.Items.Vanity.Blazen
     [AutoloadEquipGlow(EquipType.Head)]
     public class BlazenHelmet : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
-        public new string LocalizationCategory => "Items.Armor.Blazen";
+        public new string LocalizationCategory => "Items.Vanity.Blazen";
         public Color Color => AAColor.COLOR_WHITEFADE1;
 
         public override void SetStaticDefaults()

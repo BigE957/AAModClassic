@@ -7,7 +7,7 @@ namespace AAModClassic.Items.Vanity
 {
     public class HappySunSticker : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Vanity";
         public override void SetDefaults()
         {
             Item.width = 26;

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Tied   //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TiedsMask : BaseAAItem
+    public class TiedsMask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Tied";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Spooky Skull");

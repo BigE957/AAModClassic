@@ -1,12 +1,13 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration.Statues
 {
-	public class EnderStatue : BaseAAItem
+	public class EnderStatue : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hero of Legend Statue");

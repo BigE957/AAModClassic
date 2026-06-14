@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard
 {
-    public class DesertDjinnRelic : ModItem
+    public class DesertDjinnRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<DesertDjinnRelic_Tile>().Texture;
 
         public override void SetDefaults()

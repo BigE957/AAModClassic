@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Hallam
 {
     [AutoloadEquip(EquipType.Body)]
-    public class HalTux : BaseAAItem
+    public class HalTux : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Hallam";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

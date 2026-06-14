@@ -5,8 +5,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
 {
-    public class CovetiteBrickWall : BaseAAItem
+    public class CovetiteBrickWall : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
             Item.width = 16;

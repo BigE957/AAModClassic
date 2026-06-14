@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -11,8 +11,9 @@ namespace AAModClassic.Items.Vanity.Universe
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class CursedRobe : BaseAAItem, ICustomEquipGlow
+    public class CursedRobe : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Vanity.Universe";
         public Color Color => AAColor.COLOR_WHITEFADE1;
 
         public override void SetStaticDefaults()

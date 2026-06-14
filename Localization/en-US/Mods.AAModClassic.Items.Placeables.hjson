@@ -1,0 +1,1354 @@
+ChaosCrucible: {
+	DisplayName: Chaos Crucible
+	Tooltip: ""
+}
+
+TruePaladinsSmeltery: {
+	DisplayName: True Paladins Smeltery
+	Tooltip: ""
+}
+
+HaphestusForge: {
+	DisplayName: Haphestus Forge
+	Tooltip: ""
+}
+
+IncineriteBar: {
+	DisplayName: Incinerite Bar
+	Tooltip: ""
+}
+
+IncineriteOre: {
+	DisplayName: Incinerite Ore
+	Tooltip: ""
+}
+
+DragonAltarSafe: {
+	DisplayName: Dragon Altar Safe
+	Tooltip: ""
+}
+
+RadiantIncineriteBar: {
+	DisplayName: Radiant Incinerite Bar
+	Tooltip: ""
+}
+
+EventideAbyssiumOre: {
+	DisplayName: Eventide Abyssium Ore
+	Tooltip: ""
+}
+
+QuantumFusionAccelerator: {
+	DisplayName: Quantum Fusion Accelerator
+	Tooltip: ""
+}
+
+RadiantArcanum: {
+	DisplayName: Radiant Arcanum
+	Tooltip: ""
+}
+
+TerraCrystal: {
+	DisplayName: Terra Crystal
+	Tooltip: ""
+}
+
+ApocalyptiteOre: {
+	DisplayName: Apocalyptite Ore
+	Tooltip: ""
+}
+
+DoomBathtub: {
+	DisplayName: Doom Bathtub
+	Tooltip: ""
+}
+
+DoomBed: {
+	DisplayName: Doom Bed
+	Tooltip: ""
+}
+
+DoomCandelabra: {
+	DisplayName: Doom Candelabra
+	Tooltip: ""
+}
+
+DoomCandle: {
+	DisplayName: Doom Candle
+	Tooltip: ""
+}
+
+DoomChair: {
+	DisplayName: Doom Chair
+	Tooltip: ""
+}
+
+DoomChandelier: {
+	DisplayName: Doom Chandelier
+	Tooltip: ""
+}
+
+DoomChest: {
+	DisplayName: Doom Chest
+	Tooltip: ""
+}
+
+DoomClock: {
+	DisplayName: Doom Clock
+	Tooltip: ""
+}
+
+DoomCouch: {
+	DisplayName: Doom Couch
+	Tooltip: ""
+}
+
+DoomDresser: {
+	DisplayName: Doom Dresser
+	Tooltip: ""
+}
+
+DoomLamp: {
+	DisplayName: Doom Lamp
+	Tooltip: ""
+}
+
+DoomLantern: {
+	DisplayName: Doom Lantern
+	Tooltip: ""
+}
+
+DoomPiano: {
+	DisplayName: Doom Piano
+	Tooltip: ""
+}
+
+DoomSink: {
+	DisplayName: Doom Sink
+	Tooltip: ""
+}
+
+DoomTable: {
+	DisplayName: Doom Table
+	Tooltip: ""
+}
+
+DoomWorkbench: {
+	DisplayName: Doom Workbench
+	Tooltip: ""
+}
+
+DoomsdayCircuitPlating: {
+	DisplayName: Doomsday Circuit Plating
+	Tooltip: ""
+}
+
+DoomstoneBrick: {
+	DisplayName: Doomstone Brick
+	Tooltip: ""
+}
+
+VoidUnit: {
+	DisplayName: Void Unit
+	Tooltip: ""
+}
+
+BinaryReassembler: {
+	DisplayName: Binary Reassembler
+	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: Fulgurite Bar
+	Tooltip: ""
+}
+
+FulguriteShard: {
+	DisplayName: Fulgurite Shard
+	Tooltip: ""
+}
+
+AvesInABox: {
+	DisplayName: Aves In A Box
+	Tooltip: ""
+}
+
+AvesStatue: {
+	DisplayName: Aves Statue
+	Tooltip: ""
+}
+
+BegStatue: {
+	DisplayName: Beg Statue
+	Tooltip: ""
+}
+
+CharlieStatue: {
+	DisplayName: Charlie Statue
+	Tooltip: ""
+}
+
+DallinStatue: {
+	DisplayName: Dallin Statue
+	Tooltip: ""
+}
+
+EnderStatue: {
+	DisplayName: Ender Statue
+	Tooltip: ""
+}
+
+FargoStatue: {
+	DisplayName: Fargo Statue
+	Tooltip: ""
+}
+
+FazerStatue: {
+	DisplayName: Fazer Statue
+	Tooltip: ""
+}
+
+GroxStatue: {
+	DisplayName: Grox Statue
+	Tooltip: ""
+}
+
+HallamStatue: {
+	DisplayName: Hallam Statue
+	Tooltip: ""
+}
+
+KyuuStatue: {
+	DisplayName: Kyuu Statue
+	Tooltip: ""
+}
+
+LCSStatue: {
+	DisplayName: L C S Statue
+	Tooltip: ""
+}
+
+MoonStatue: {
+	DisplayName: Moon Statue
+	Tooltip: ""
+}
+
+SauceStatue: {
+	DisplayName: Sauce Statue
+	Tooltip: ""
+}
+
+TailsStatue: {
+	DisplayName: Tails Statue
+	Tooltip: ""
+}
+
+EnderMemory: {
+	DisplayName: Ender Memory
+	Tooltip: ""
+}
+
+FurnitureDynamo: {
+	DisplayName: Furniture Dynamo
+	Tooltip: ""
+}
+
+SkyCrystal: {
+	DisplayName: Sky Crystal
+	Tooltip: ""
+}
+
+SkycrystalBrick: {
+	DisplayName: Skycrystal Brick
+	Tooltip: ""
+}
+
+SkymarbleBrick: {
+	DisplayName: Skymarble Brick
+	Tooltip: ""
+}
+
+RoyalRabbitCage: {
+	DisplayName: Royal Rabbit Cage
+	Tooltip: ""
+}
+
+RitualAltar: {
+	DisplayName: Ritual Altar
+	Tooltip: ""
+}
+
+DiscordianTorch: {
+	DisplayName: Discordian Torch
+	Tooltip: ""
+}
+
+CorruptAltar: {
+	DisplayName: Corrupt Altar
+	Tooltip: ""
+}
+
+CrimsonAltar: {
+	DisplayName: Crimson Altar
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: Dynaskull Fossil
+	Tooltip: ""
+}
+
+GlowingMushiumBar: {
+	DisplayName: Glowing Mushium Bar
+	Tooltip: ""
+}
+
+HallowedOre: {
+	DisplayName: Hallowed Ore
+	Tooltip: ""
+}
+
+HallowedAnvil: {
+	DisplayName: Hallowed Anvil
+	Tooltip: ""
+}
+
+HallowedForge: {
+	DisplayName: Hallowed Forge
+	Tooltip: ""
+}
+
+PaladinsSmeltery: {
+	DisplayName: Paladins Smeltery
+	Tooltip: ""
+}
+
+HellstoneAnvil: {
+	DisplayName: Hellstone Anvil
+	Tooltip: ""
+}
+
+CovetiteBar: {
+	DisplayName: Covetite Bar
+	Tooltip: ""
+}
+
+CovetiteOre: {
+	DisplayName: Covetite Ore
+	Tooltip: ""
+}
+
+CovetiteBrick: {
+	DisplayName: Covetite Brick
+	Tooltip: ""
+}
+
+CovetiteBrickWall: {
+	DisplayName: Covetite Brick Wall
+	Tooltip: ""
+}
+
+GreedChest: {
+	DisplayName: Greed Chest
+	Tooltip: ""
+}
+
+GreedLantern: {
+	DisplayName: Greed Lantern
+	Tooltip: ""
+}
+
+ScorchedSeeds: {
+	DisplayName: Scorched Seeds
+	Tooltip: ""
+}
+
+IncineriteBrick: {
+	DisplayName: Incinerite Brick
+	Tooltip: ""
+}
+
+IncineriteBrickWall: {
+	DisplayName: Incinerite Brick Wall
+	Tooltip: ""
+}
+
+Razewood: {
+	DisplayName: Razewood
+	Tooltip: ""
+}
+
+RazewoodBed: {
+	DisplayName: Razewood Bed
+	Tooltip: ""
+}
+
+RazewoodBookshelf: {
+	DisplayName: Razewood Bookshelf
+	Tooltip: ""
+}
+
+RazewoodCandelabra: {
+	DisplayName: Razewood Candelabra
+	Tooltip: ""
+}
+
+RazewoodCandle: {
+	DisplayName: Razewood Candle
+	Tooltip: ""
+}
+
+RazewoodChair: {
+	DisplayName: Razewood Chair
+	Tooltip: ""
+}
+
+RazewoodChandelier: {
+	DisplayName: Razewood Chandelier
+	Tooltip: ""
+}
+
+RazewoodChest: {
+	DisplayName: Razewood Chest
+	Tooltip: ""
+}
+
+RazewoodClock: {
+	DisplayName: Razewood Clock
+	Tooltip: ""
+}
+
+RazewoodCouch: {
+	DisplayName: Razewood Couch
+	Tooltip: ""
+}
+
+RazewoodDoor: {
+	DisplayName: Razewood Door
+	Tooltip: ""
+}
+
+RazewoodDresser: {
+	DisplayName: Razewood Dresser
+	Tooltip: ""
+}
+
+RazewoodLamp: {
+	DisplayName: Razewood Lamp
+	Tooltip: ""
+}
+
+RazewoodLantern: {
+	DisplayName: Razewood Lantern
+	Tooltip: ""
+}
+
+RazewoodPiano: {
+	DisplayName: Razewood Piano
+	Tooltip: ""
+}
+
+RazewoodPlatform: {
+	DisplayName: Razewood Platform
+	Tooltip: ""
+}
+
+RazewoodSink: {
+	DisplayName: Razewood Sink
+	Tooltip: ""
+}
+
+RazewoodTable: {
+	DisplayName: Razewood Table
+	Tooltip: ""
+}
+
+RazewoodTub: {
+	DisplayName: Razewood Tub
+	Tooltip: ""
+}
+
+RazewoodWall: {
+	DisplayName: Razewood Wall
+	Tooltip: ""
+}
+
+RazewoodWorkbench: {
+	DisplayName: Razewood Workbench
+	Tooltip: ""
+}
+
+DragonfireTorch: {
+	DisplayName: Dragonfire Torch
+	Tooltip: ""
+}
+
+SharpeningLavaFish: {
+	DisplayName: Sharpening Lava Fish
+	Tooltip: ""
+}
+
+SunAltar: {
+	DisplayName: Sun Altar
+	Tooltip: ""
+}
+
+SunAltarA: {
+	DisplayName: Sun Altar A
+	Tooltip: ""
+}
+
+DaybreakIncineriteBar: {
+	DisplayName: Daybreak Incinerite Bar
+	Tooltip: ""
+}
+
+DaybreakIncineriteOre: {
+	DisplayName: Daybreak Incinerite Ore
+	Tooltip: ""
+}
+
+DaybreakBrick: {
+	DisplayName: Daybreak Brick
+	Tooltip: ""
+}
+
+DaybreakBrickWall: {
+	DisplayName: Daybreak Brick Wall
+	Tooltip: ""
+}
+
+DaybreakTorch: {
+	DisplayName: Daybreak Torch
+	Tooltip: ""
+}
+
+InfernoChest: {
+	DisplayName: Inferno Chest
+	Tooltip: ""
+}
+
+ScorchedDynastyWood: {
+	DisplayName: Scorched Dynasty Wood
+	Tooltip: ""
+}
+
+ScorchedDynastyWoodUnsafe: {
+	DisplayName: Scorched Dynasty Wood Unsafe
+	Tooltip: ""
+}
+
+ScorchedShingles: {
+	DisplayName: Scorched Shingles
+	Tooltip: ""
+}
+
+TorchAsh: {
+	DisplayName: Torch Ash
+	Tooltip: ""
+}
+
+Torchice: {
+	DisplayName: Torchice
+	Tooltip: ""
+}
+
+Torchsand: {
+	DisplayName: Torchsand
+	Tooltip: ""
+}
+
+TorchsandHardened: {
+	DisplayName: Torchsand Hardened
+	Tooltip: ""
+}
+
+Torchsandstone: {
+	DisplayName: Torchsandstone
+	Tooltip: ""
+}
+
+Torchstone: {
+	DisplayName: Torchstone
+	Tooltip: ""
+}
+
+DankSeeds: {
+	DisplayName: Dank Seeds
+	Tooltip: ""
+}
+
+AbyssiumBar: {
+	DisplayName: Abyssium Bar
+	Tooltip: ""
+}
+
+AbyssiumOre: {
+	DisplayName: Abyssium Ore
+	Tooltip: ""
+}
+
+AbyssAltarSafe: {
+	DisplayName: Abyss Altar Safe
+	Tooltip: ""
+}
+
+AbyssiumBrick: {
+	DisplayName: Abyssium Brick
+	Tooltip: ""
+}
+
+Bogwood: {
+	DisplayName: Bogwood
+	Tooltip: ""
+}
+
+BogwoodBathtub: {
+	DisplayName: Bogwood Bathtub
+	Tooltip: ""
+}
+
+BogwoodBed: {
+	DisplayName: Bogwood Bed
+	Tooltip: ""
+}
+
+BogwoodBench: {
+	DisplayName: Bogwood Bench
+	Tooltip: ""
+}
+
+BogwoodBookshelf: {
+	DisplayName: Bogwood Bookshelf
+	Tooltip: ""
+}
+
+BogwoodCandelabra: {
+	DisplayName: Bogwood Candelabra
+	Tooltip: ""
+}
+
+BogwoodCandle: {
+	DisplayName: Bogwood Candle
+	Tooltip: ""
+}
+
+BogwoodChair: {
+	DisplayName: Bogwood Chair
+	Tooltip: ""
+}
+
+BogwoodChandelier: {
+	DisplayName: Bogwood Chandelier
+	Tooltip: ""
+}
+
+BogwoodChest: {
+	DisplayName: Bogwood Chest
+	Tooltip: ""
+}
+
+BogwoodClock: {
+	DisplayName: Bogwood Clock
+	Tooltip: ""
+}
+
+BogwoodCouch: {
+	DisplayName: Bogwood Couch
+	Tooltip: ""
+}
+
+BogwoodDoor: {
+	DisplayName: Bogwood Door
+	Tooltip: ""
+}
+
+BogwoodDresser: {
+	DisplayName: Bogwood Dresser
+	Tooltip: ""
+}
+
+BogwoodLamp: {
+	DisplayName: Bogwood Lamp
+	Tooltip: ""
+}
+
+BogwoodLantern: {
+	DisplayName: Bogwood Lantern
+	Tooltip: ""
+}
+
+BogwoodPiano: {
+	DisplayName: Bogwood Piano
+	Tooltip: ""
+}
+
+BogwoodPlatform: {
+	DisplayName: Bogwood Platform
+	Tooltip: ""
+}
+
+BogwoodSink: {
+	DisplayName: Bogwood Sink
+	Tooltip: ""
+}
+
+BogwoodTable: {
+	DisplayName: Bogwood Table
+	Tooltip: ""
+}
+
+BogwoodWall: {
+	DisplayName: Bogwood Wall
+	Tooltip: ""
+}
+
+BogwoodWorkbench: {
+	DisplayName: Bogwood Workbench
+	Tooltip: ""
+}
+
+DeepAbyssiumBar: {
+	DisplayName: Deep Abyssium Bar
+	Tooltip: ""
+}
+
+BogtoxinTorch: {
+	DisplayName: Bogtoxin Torch
+	Tooltip: ""
+}
+
+ToxinMonkfish: {
+	DisplayName: Toxin Monkfish
+	Tooltip: ""
+}
+
+DreadMoonAltar: {
+	DisplayName: Dread Moon Altar
+	Tooltip: ""
+}
+
+DreadMoonAltarA: {
+	DisplayName: Dread Moon Altar A
+	Tooltip: ""
+}
+
+EventideAbyssiumBar: {
+	DisplayName: Eventide Abyssium Bar
+	Tooltip: ""
+}
+
+EventideAbyssiumBrick: {
+	DisplayName: Eventide Abyssium Brick
+	Tooltip: ""
+}
+
+EventideBrickWall: {
+	DisplayName: Eventide Brick Wall
+	Tooltip: ""
+}
+
+EventideTorch: {
+	DisplayName: Eventide Torch
+	Tooltip: ""
+}
+
+MireChest: {
+	DisplayName: Mire Chest
+	Tooltip: ""
+}
+
+Darkmud: {
+	DisplayName: Darkmud
+	Tooltip: ""
+}
+
+Depthsand: {
+	DisplayName: Depthsand
+	Tooltip: ""
+}
+
+DepthsandHardened: {
+	DisplayName: Depthsand Hardened
+	Tooltip: ""
+}
+
+Depthsandstone: {
+	DisplayName: Depthsandstone
+	Tooltip: ""
+}
+
+Depthstone: {
+	DisplayName: Depthstone
+	Tooltip: ""
+}
+
+IndigoIce: {
+	DisplayName: Indigo Ice
+	Tooltip: ""
+}
+
+MyceliumSeeds: {
+	DisplayName: Mycelium Seeds
+	Tooltip: ""
+}
+
+MushiumBar: {
+	DisplayName: Mushium Bar
+	Tooltip: ""
+}
+
+MushroomBlock: {
+	DisplayName: Mushroom Block
+	Tooltip: ""
+}
+
+RelicBar: {
+	DisplayName: Relic Bar
+	Tooltip: ""
+}
+
+RelicBrick: {
+	DisplayName: Relic Brick
+	Tooltip: ""
+}
+
+RelicBrickWall: {
+	DisplayName: Relic Brick Wall
+	Tooltip: ""
+}
+
+DarkmatterBar: {
+	DisplayName: Darkmatter Bar
+	Tooltip: ""
+}
+
+DarkmatterOre: {
+	DisplayName: Darkmatter Ore
+	Tooltip: ""
+}
+
+RadiumBar: {
+	DisplayName: Radium Bar
+	Tooltip: ""
+}
+
+RadiumOre: {
+	DisplayName: Radium Ore
+	Tooltip: ""
+}
+
+DarkmatterBrick: {
+	DisplayName: Darkmatter Brick
+	Tooltip: ""
+}
+
+DarkmatterBrickWall: {
+	DisplayName: Darkmatter Brick Wall
+	Tooltip: ""
+}
+
+EquinoxBrick: {
+	DisplayName: Equinox Brick
+	Tooltip: ""
+}
+
+EquinoxBrickWall: {
+	DisplayName: Equinox Brick Wall
+	Tooltip: ""
+}
+
+RadiumBrick: {
+	DisplayName: Radium Brick
+	Tooltip: ""
+}
+
+RadiumBrickWall: {
+	DisplayName: Radium Brick Wall
+	Tooltip: ""
+}
+
+TerraCore: {
+	DisplayName: Terra Core
+	Tooltip: ""
+}
+
+TerraPrismStation: {
+	DisplayName: Terra Prism Station
+	Tooltip: ""
+}
+
+PermeableTerraWoodWand: {
+	DisplayName: Permeable Terra Wood Wand
+	Tooltip: ""
+}
+
+TerraLeafWand: {
+	DisplayName: Terra Leaf Wand
+	Tooltip: ""
+}
+
+TerraWoodWand: {
+	DisplayName: Terra Wood Wand
+	Tooltip: ""
+}
+
+DoomiteBar: {
+	DisplayName: Doomite Bar
+	Tooltip: ""
+}
+
+DoomiteScrap: {
+	DisplayName: Doomite Scrap
+	Tooltip: ""
+}
+
+OroborosWood: {
+	DisplayName: Oroboros Wood
+	Tooltip: ""
+}
+
+OroborosWoodBathtub: {
+	DisplayName: Oroboros Wood Bathtub
+	Tooltip: ""
+}
+
+OroborosWoodBed: {
+	DisplayName: Oroboros Wood Bed
+	Tooltip: ""
+}
+
+OroborosWoodBookcase: {
+	DisplayName: Oroboros Wood Bookcase
+	Tooltip: ""
+}
+
+OroborosWoodCandle: {
+	DisplayName: Oroboros Wood Candle
+	Tooltip: ""
+}
+
+OroborosWoodChair: {
+	DisplayName: Oroboros Wood Chair
+	Tooltip: ""
+}
+
+OroborosWoodChest: {
+	DisplayName: Oroboros Wood Chest
+	Tooltip: ""
+}
+
+OroborosWoodClock: {
+	DisplayName: Oroboros Wood Clock
+	Tooltip: ""
+}
+
+OroborosWoodDoor: {
+	DisplayName: Oroboros Wood Door
+	Tooltip: ""
+}
+
+OroborosWoodLamp: {
+	DisplayName: Oroboros Wood Lamp
+	Tooltip: ""
+}
+
+OroborosWoodLantern: {
+	DisplayName: Oroboros Wood Lantern
+	Tooltip: ""
+}
+
+OroborosWoodPlatform: {
+	DisplayName: Oroboros Wood Platform
+	Tooltip: ""
+}
+
+OroborosWoodWall: {
+	DisplayName: Oroboros Wood Wall
+	Tooltip: ""
+}
+
+OroborosWoodWorkbench: {
+	DisplayName: Oroboros Wood Workbench
+	Tooltip: ""
+}
+
+DoomBookcase: {
+	DisplayName: Doom Bookcase
+	Tooltip: ""
+}
+
+DoomDoor: {
+	DisplayName: Doom Door
+	Tooltip: ""
+}
+
+DoomPlatform: {
+	DisplayName: Doom Platform
+	Tooltip: ""
+}
+
+DoomsdayPlatingWall: {
+	DisplayName: Doomsday Plating Wall
+	Tooltip: ""
+}
+
+DoomstoneBrickWall: {
+	DisplayName: Doomstone Brick Wall
+	Tooltip: ""
+}
+
+DoomstoneB: {
+	DisplayName: Doomstone B
+	Tooltip: ""
+}
+
+Doomstone: {
+	DisplayName: Doomstone
+	Tooltip: ""
+}
+
+DoomsdayChest: {
+	DisplayName: Doomsday Chest
+	Tooltip: ""
+}
+
+DoomitePlatingWall: {
+	DisplayName: Doomite Plating Wall
+	Tooltip: ""
+}
+
+KeepBath: {
+	DisplayName: Keep Bath
+	Tooltip: ""
+}
+
+KeepBed: {
+	DisplayName: Keep Bed
+	Tooltip: ""
+}
+
+KeepBookcase: {
+	DisplayName: Keep Bookcase
+	Tooltip: ""
+}
+
+KeepCandelabra: {
+	DisplayName: Keep Candelabra
+	Tooltip: ""
+}
+
+KeepCandle: {
+	DisplayName: Keep Candle
+	Tooltip: ""
+}
+
+KeepChair: {
+	DisplayName: Keep Chair
+	Tooltip: ""
+}
+
+KeepChandelier: {
+	DisplayName: Keep Chandelier
+	Tooltip: ""
+}
+
+KeepClock: {
+	DisplayName: Keep Clock
+	Tooltip: ""
+}
+
+KeepCouch: {
+	DisplayName: Keep Couch
+	Tooltip: ""
+}
+
+KeepDoor: {
+	DisplayName: Keep Door
+	Tooltip: ""
+}
+
+KeepDresser: {
+	DisplayName: Keep Dresser
+	Tooltip: ""
+}
+
+KeepLamp: {
+	DisplayName: Keep Lamp
+	Tooltip: ""
+}
+
+KeepLantern: {
+	DisplayName: Keep Lantern
+	Tooltip: ""
+}
+
+KeepPiano: {
+	DisplayName: Keep Piano
+	Tooltip: ""
+}
+
+KeepSink: {
+	DisplayName: Keep Sink
+	Tooltip: ""
+}
+
+KeepTable: {
+	DisplayName: Keep Table
+	Tooltip: ""
+}
+
+KeepWorkbench: {
+	DisplayName: Keep Workbench
+	Tooltip: ""
+}
+
+SpiralStairs: {
+	DisplayName: Spiral Stairs
+	Tooltip: ""
+}
+
+TerraBath: {
+	DisplayName: Terra Bath
+	Tooltip: ""
+}
+
+TerraBed: {
+	DisplayName: Terra Bed
+	Tooltip: ""
+}
+
+TerraBookcase: {
+	DisplayName: Terra Bookcase
+	Tooltip: ""
+}
+
+TerraCandelabra: {
+	DisplayName: Terra Candelabra
+	Tooltip: ""
+}
+
+TerraCandle: {
+	DisplayName: Terra Candle
+	Tooltip: ""
+}
+
+TerraChair: {
+	DisplayName: Terra Chair
+	Tooltip: ""
+}
+
+TerraChandelier: {
+	DisplayName: Terra Chandelier
+	Tooltip: ""
+}
+
+TerraChest: {
+	DisplayName: Terra Chest
+	Tooltip: ""
+}
+
+TerraClock: {
+	DisplayName: Terra Clock
+	Tooltip: ""
+}
+
+TerraCouch: {
+	DisplayName: Terra Couch
+	Tooltip: ""
+}
+
+TerraDoor: {
+	DisplayName: Terra Door
+	Tooltip: ""
+}
+
+TerraDresser: {
+	DisplayName: Terra Dresser
+	Tooltip: ""
+}
+
+TerraLamp: {
+	DisplayName: Terra Lamp
+	Tooltip: ""
+}
+
+TerraLantern: {
+	DisplayName: Terra Lantern
+	Tooltip: ""
+}
+
+TerraPiano: {
+	DisplayName: Terra Piano
+	Tooltip: ""
+}
+
+TerraSink: {
+	DisplayName: Terra Sink
+	Tooltip: ""
+}
+
+TerraTable: {
+	DisplayName: Terra Table
+	Tooltip: ""
+}
+
+TerraWorkbench: {
+	DisplayName: Terra Workbench
+	Tooltip: ""
+}
+
+KeepBrick: {
+	DisplayName: Keep Brick
+	Tooltip: ""
+}
+
+AcropolisPainting: {
+	DisplayName: Acropolis Painting
+	Tooltip: ""
+}
+
+AkumaPainting: {
+	DisplayName: Akuma Painting
+	Tooltip: ""
+}
+
+AnubisPainting: {
+	DisplayName: Anubis Painting
+	Tooltip: ""
+}
+
+CRajahPainting: {
+	DisplayName: C Rajah Painting
+	Tooltip: ""
+}
+
+DaedalusPainting: {
+	DisplayName: Daedalus Painting
+	Tooltip: ""
+}
+
+DecayPainting: {
+	DisplayName: Decay Painting
+	Tooltip: ""
+}
+
+FulgurusPainting: {
+	DisplayName: Fulgurus Painting
+	Tooltip: ""
+}
+
+GreedPainting: {
+	DisplayName: Greed Painting
+	Tooltip: ""
+}
+
+HotJPainting: {
+	DisplayName: Hot J Painting
+	Tooltip: ""
+}
+
+IZPainting: {
+	DisplayName: I Z Painting
+	Tooltip: ""
+}
+
+JojoBagginsPainting: {
+	DisplayName: Jojo Baggins Painting
+	Tooltip: ""
+}
+
+KingQueenPainting: {
+	DisplayName: King Queen Painting
+	Tooltip: ""
+}
+
+LuciferPainting: {
+	DisplayName: Lucifer Painting
+	Tooltip: ""
+}
+
+MushmadPainting: {
+	DisplayName: Mushmad Painting
+	Tooltip: ""
+}
+
+NKPainting: {
+	DisplayName: N K Painting
+	Tooltip: ""
+}
+
+RajahPainting: {
+	DisplayName: Rajah Painting
+	Tooltip: ""
+}
+
+SanguinePainting: {
+	DisplayName: Sanguine Painting
+	Tooltip: ""
+}
+
+ShenPainting: {
+	DisplayName: Shen Painting
+	Tooltip: ""
+}
+
+ShipPainting: {
+	DisplayName: Ship Painting
+	Tooltip: ""
+}
+
+SoCPainting: {
+	DisplayName: So C Painting
+	Tooltip: ""
+}
+
+TerraPainting: {
+	DisplayName: Terra Painting
+	Tooltip: ""
+}
+
+UmbraPainting: {
+	DisplayName: Umbra Painting
+	Tooltip: ""
+}
+
+ValkyriePainting: {
+	DisplayName: Valkyrie Painting
+	Tooltip: ""
+}
+
+WizardPainting: {
+	DisplayName: Wizard Painting
+	Tooltip: ""
+}
+
+YamataPainting: {
+	DisplayName: Yamata Painting
+	Tooltip: ""
+}
+
+ZeroPainting: {
+	DisplayName: Zero Painting
+	Tooltip: ""
+}
+
+TerraBrick: {
+	DisplayName: Terra Brick
+	Tooltip: ""
+}
+
+RottedDynastyWood: {
+	DisplayName: Rotted Dynasty Wood
+	Tooltip: ""
+}
+
+RottedShingles: {
+	DisplayName: Rotted Shingles
+	Tooltip: ""
+}
+
+Sticker: {
+	DisplayName: Sticker
+	Tooltip: ""
+}

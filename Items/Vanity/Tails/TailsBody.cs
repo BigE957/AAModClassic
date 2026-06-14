@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Tails
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class TailsBody : BaseAAItem
+    public class TailsBody : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Tails";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

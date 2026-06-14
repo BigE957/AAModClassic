@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class SanguinePainting : ModItem
+public class SanguinePainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Blood and Bones");
 		// ((ModItem)this).Tooltip.SetDefault("'They seem to have taken the term 'face monster' a bit too seriously.'");

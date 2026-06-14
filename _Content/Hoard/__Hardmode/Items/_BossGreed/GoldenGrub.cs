@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed
 {
-    public class GoldenGrub : BaseAAItem
+    public class GoldenGrub : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Golden Grub");

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Apawn
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class ApawnPlate : BaseAAItem
+    public class ApawnPlate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Apawn";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

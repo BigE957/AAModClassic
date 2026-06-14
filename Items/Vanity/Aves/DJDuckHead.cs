@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -9,8 +9,9 @@ namespace AAModClassic.Items.Vanity.Aves
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DJDuckHead : BaseAAItem
+    public class DJDuckHead : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Aves";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

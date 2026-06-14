@@ -1,11 +1,12 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard
 {
-    public class TechnoTruffleTrophy : BaseAAItem
+    public class TechnoTruffleTrophy : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Techno Truffle Trophy");

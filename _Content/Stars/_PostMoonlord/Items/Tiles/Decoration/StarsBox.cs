@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
     public class StarsBox : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         
         public override void SetStaticDefaults()
         {

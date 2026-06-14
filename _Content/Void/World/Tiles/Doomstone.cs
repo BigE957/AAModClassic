@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +8,9 @@ using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Void.World.Tiles
 {
-    public class Doomstone : BaseAAItem
+    public class Doomstone : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 

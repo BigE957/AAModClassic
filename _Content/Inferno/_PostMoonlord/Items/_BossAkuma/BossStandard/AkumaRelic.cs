@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard
 {
-    public class AkumaRelic : ModItem
+    public class AkumaRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<AkumaRelic_Tile>().Texture;
 
         public override void SetDefaults()

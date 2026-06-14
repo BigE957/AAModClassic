@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
 {
-    public class GreedRelic : ModItem
+    public class GreedRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<GreedRelic_Tile>().Texture;
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
     public class InfernoPagodaBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Pagoda of the Rising Sun)");

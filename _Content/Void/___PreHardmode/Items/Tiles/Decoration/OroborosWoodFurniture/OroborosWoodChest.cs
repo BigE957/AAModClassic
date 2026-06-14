@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosWoodFurniture
 {
-    public class OroborosWoodChest : BaseAAItem
+    public class OroborosWoodChest : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
         
         public override void SetStaticDefaults()
         {

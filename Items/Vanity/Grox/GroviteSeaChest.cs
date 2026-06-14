@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Grox
 {
-    public class GroviteSeaChest : BaseAAItem
+    public class GroviteSeaChest : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Grovite Sea Chest");

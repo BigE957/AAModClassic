@@ -4,11 +4,6 @@ ChaosSlayer: {
 		Tooltip: ""
 	}
 
-	ChaosSlayerLeggings: {
-		DisplayName: Chaos Slayer Leggings
-		Tooltip: ""
-	}
-
 	ChaosSlayerHelmetMage: {
 		DisplayName: Chaos Slayer Helmet Mage
 		Tooltip: ""
@@ -28,16 +23,16 @@ ChaosSlayer: {
 		DisplayName: Chaos Slayer Helmet Summoner
 		Tooltip: ""
 	}
+
+	ChaosSlayerLeggings: {
+		DisplayName: Chaos Slayer Leggings
+		Tooltip: ""
+	}
 }
 
 Chaos: {
 	ChaosChestplate: {
 		DisplayName: Chaos Chestplate
-		Tooltip: ""
-	}
-
-	ChaosLeggings: {
-		DisplayName: Chaos Leggings
 		Tooltip: ""
 	}
 
@@ -58,6 +53,11 @@ Chaos: {
 
 	ChaosHelmetSummoner: {
 		DisplayName: Chaos Helmet Summoner
+		Tooltip: ""
+	}
+
+	ChaosLeggings: {
+		DisplayName: Chaos Leggings
 		Tooltip: ""
 	}
 }
@@ -85,11 +85,6 @@ Darkmatter: {
 		Tooltip: ""
 	}
 
-	DarkmatterLeggings: {
-		DisplayName: Darkmatter Leggings
-		Tooltip: ""
-	}
-
 	DarkmatterHelmetMage: {
 		DisplayName: Darkmatter Helmet Mage
 		Tooltip: ""
@@ -109,16 +104,16 @@ Darkmatter: {
 		DisplayName: Darkmatter Helmet Summoner
 		Tooltip: ""
 	}
+
+	DarkmatterLeggings: {
+		DisplayName: Darkmatter Leggings
+		Tooltip: ""
+	}
 }
 
 Radium: {
 	RadiumChestplate: {
 		DisplayName: Radium Chestplate
-		Tooltip: ""
-	}
-
-	RadiumLeggings: {
-		DisplayName: Radium Leggings
 		Tooltip: ""
 	}
 
@@ -139,6 +134,11 @@ Radium: {
 
 	RadiumHelmetSummoner: {
 		DisplayName: Radium Helmet Summoner
+		Tooltip: ""
+	}
+
+	RadiumLeggings: {
+		DisplayName: Radium Leggings
 		Tooltip: ""
 	}
 }
@@ -166,11 +166,6 @@ Doomsday: {
 		Tooltip: ""
 	}
 
-	DoomsdayLeggings: {
-		DisplayName: Doomsday Leggings
-		Tooltip: ""
-	}
-
 	DoomsdayHelmetMage: {
 		DisplayName: Doomsday Helmet Mage
 		Tooltip: ""
@@ -178,6 +173,11 @@ Doomsday: {
 
 	DoomsdayHelmetSummoner: {
 		DisplayName: Doomsday Helmet Summoner
+		Tooltip: ""
+	}
+
+	DoomsdayLeggings: {
+		DisplayName: Doomsday Leggings
 		Tooltip: ""
 	}
 }
@@ -256,11 +256,6 @@ Champion: {
 		Tooltip: ""
 	}
 
-	ChampionLeggings: {
-		DisplayName: Champion Leggings
-		Tooltip: ""
-	}
-
 	ChampionHelmetMage: {
 		DisplayName: Champion Helmet Mage
 		Tooltip: ""
@@ -278,6 +273,11 @@ Champion: {
 
 	ChampionHelmetSummoner: {
 		DisplayName: Champion Helmet Summoner
+		Tooltip: ""
+	}
+
+	ChampionLeggings: {
+		DisplayName: Champion Leggings
 		Tooltip: ""
 	}
 }
@@ -418,6 +418,13 @@ GoblinSlayers: {
 	}
 }
 
+Hallowed: {
+	HallowedPaint: {
+		DisplayName: Hallowed Paint
+		Tooltip: ""
+	}
+}
+
 Demon: {
 	DemonChestplate: {
 		DisplayName: Demon Chestplate
@@ -533,6 +540,18 @@ Tribal: {
 
 	TribalLeggings: {
 		DisplayName: Tribal Leggings
+		Tooltip: ""
+	}
+}
+
+Chlorophyte: {
+	ChlorophyteHelmetSummoner: {
+		DisplayName: Chlorophyte Helmet Summoner
+		Tooltip: ""
+	}
+
+	ChlorophyteHelmetSummoner2: {
+		DisplayName: Chlorophyte Helmet Summoner2
 		Tooltip: ""
 	}
 }
@@ -696,11 +715,6 @@ Terra: {
 		Tooltip: ""
 	}
 
-	TerraLeggings: {
-		DisplayName: Terra Leggings
-		Tooltip: ""
-	}
-
 	TerraHelmetMage: {
 		DisplayName: Terra Helmet Mage
 		Tooltip: ""
@@ -720,6 +734,16 @@ Terra: {
 		DisplayName: Terra Helmet Summoner
 		Tooltip: ""
 	}
+
+	TerraLeggings: {
+		DisplayName: Terra Leggings
+		Tooltip: ""
+	}
+
+	TerraHelmetMageTest: {
+		DisplayName: Terra Helmet Mage Test
+		Tooltip: ""
+	}
 }
 
 AncientGold: {
@@ -730,6 +754,48 @@ AncientGold: {
 
 	AncientGoldLeggings: {
 		DisplayName: Ancient Gold Leggings
+		Tooltip: ""
+	}
+}
+
+Adamantite: {
+	AdamantiteHelmetSummoner: {
+		DisplayName: Adamantite Helmet Summoner
+		Tooltip: ""
+	}
+}
+
+Cobalt: {
+	CobaltHelmetSummoner: {
+		DisplayName: Cobalt Helmet Summoner
+		Tooltip: ""
+	}
+}
+
+Mythril: {
+	MythrilHelmetSummoner: {
+		DisplayName: Mythril Helmet Summoner
+		Tooltip: ""
+	}
+}
+
+Orichalcum: {
+	OrichalcumHelmetSummoner: {
+		DisplayName: Orichalcum Helmet Summoner
+		Tooltip: ""
+	}
+}
+
+Palladium: {
+	PalladiumHelmetSummoner: {
+		DisplayName: Palladium Helmet Summoner
+		Tooltip: ""
+	}
+}
+
+Titanium: {
+	TitaniumHelmetSummoner: {
+		DisplayName: Titanium Helmet Summoner
 		Tooltip: ""
 	}
 }
@@ -791,11 +857,6 @@ Fulgurite: {
 		Tooltip: ""
 	}
 
-	FulguriteLeggings: {
-		DisplayName: Fulgurite Leggings
-		Tooltip: ""
-	}
-
 	FulguriteHelmetMage: {
 		DisplayName: Fulgurite Helmet Mage
 		Tooltip: ""
@@ -810,84 +871,9 @@ Fulgurite: {
 		DisplayName: Fulgurite Helmet Ranged
 		Tooltip: ""
 	}
-}
 
-Pristine: {
-	PristineChestplate: {
-		DisplayName: Pristine Chestplate
-		Tooltip: ""
-	}
-
-	PristineHelmet: {
-		DisplayName: Pristine Helmet
-		Tooltip: ""
-	}
-
-	PristineLeggings: {
-		DisplayName: Pristine Leggings
-		Tooltip: ""
-	}
-}
-
-Blazen: {
-	BlazenHelmet: {
-		DisplayName: Blazen Helmet
-		Tooltip: ""
-	}
-}
-
-Tieds: {
-	TiedsLeggings: {
-		DisplayName: Tieds Leggings
-		Tooltip: ""
-	}
-}
-
-Chlorophyte: {
-	ChlorophyteHelmetSummoner: {
-		DisplayName: Chlorophyte Helmet Summoner
-		Tooltip: ""
-	}
-}
-
-Adamantite: {
-	AdamantiteHelmetSummoner: {
-		DisplayName: Adamantite Helmet Summoner
-		Tooltip: ""
-	}
-}
-
-Cobalt: {
-	CobaltHelmetSummoner: {
-		DisplayName: Cobalt Helmet Summoner
-		Tooltip: ""
-	}
-}
-
-Mythril: {
-	MythrilHelmetSummoner: {
-		DisplayName: Mythril Helmet Summoner
-		Tooltip: ""
-	}
-}
-
-Orichalcum: {
-	OrichalcumHelmetSummoner: {
-		DisplayName: Orichalcum Helmet Summoner
-		Tooltip: ""
-	}
-}
-
-Palladium: {
-	PalladiumHelmetSummoner: {
-		DisplayName: Palladium Helmet Summoner
-		Tooltip: ""
-	}
-}
-
-Titanium: {
-	TitaniumHelmetSummoner: {
-		DisplayName: Titanium Helmet Summoner
+	FulguriteLeggings: {
+		DisplayName: Fulgurite Leggings
 		Tooltip: ""
 	}
 }

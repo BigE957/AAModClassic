@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Tails
 {
-    public class TailsToolbox : BaseAAItem
+    public class TailsToolbox : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Tails' Toolbox");

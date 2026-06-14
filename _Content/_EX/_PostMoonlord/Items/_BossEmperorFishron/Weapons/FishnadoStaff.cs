@@ -7,9 +7,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
-    public class FishnadoStaff : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    public class FishnadoStaff : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fishnado Staff");
 		}

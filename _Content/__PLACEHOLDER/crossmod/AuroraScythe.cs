@@ -10,9 +10,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 {
-    public class AuroraScythe : CrossoverItem
-	{
-		public override void SetStaticDefaults()
+    public class AuroraScythe : CrossoverItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
+        public override void SetStaticDefaults()
 		{
 			crossoverModName = "Thorium";
             // DisplayName.SetDefault("Aurora Scythe");

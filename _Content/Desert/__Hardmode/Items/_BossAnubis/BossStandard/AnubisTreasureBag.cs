@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
-    public class AnubisTreasureBag : BaseAAItem
+    public class AnubisTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,8 +11,9 @@ using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional
 {
-    public class BinaryReassembler : BaseAAItem
+    public class BinaryReassembler : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         
         public override void SetStaticDefaults()
         {

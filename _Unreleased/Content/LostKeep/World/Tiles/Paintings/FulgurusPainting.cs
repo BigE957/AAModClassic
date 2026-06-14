@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class FulgurusPainting : ModItem
+public class FulgurusPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Storm's Siege");
 		// ((ModItem)this).Tooltip.SetDefault("'I didn't paint this one. It was a gift from the fulgarians...they seem alright.'");

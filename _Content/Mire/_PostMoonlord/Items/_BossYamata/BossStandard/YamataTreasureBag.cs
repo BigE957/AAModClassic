@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
@@ -14,8 +14,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataTreasureBag : BaseAAItem
+    public class YamataTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");

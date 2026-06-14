@@ -7,9 +7,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Pets
 {
-    public class CyberneticEgg : BaseAAItem
-	{
-        
+    public class CyberneticEgg : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Cybernetic Egg");

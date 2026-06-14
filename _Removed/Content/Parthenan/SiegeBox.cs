@@ -6,8 +6,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan
 {
-    public class SiegeBox : BaseAAItem
-	{
+    public class SiegeBox : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
+	
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (S.I.E.G.E. Units)");

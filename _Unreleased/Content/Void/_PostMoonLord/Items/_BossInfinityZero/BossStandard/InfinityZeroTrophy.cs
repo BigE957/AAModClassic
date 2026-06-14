@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using System.Collections.Generic;
 using Terraria;
@@ -7,9 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard
 {
-    public class InfinityZeroTrophy : ModItem
+    public class InfinityZeroTrophy : ModItem, ILocalizedModType
 	{
-        public static int type;
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         
         public override void SetStaticDefaults()
         {

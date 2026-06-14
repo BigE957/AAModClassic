@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Tails
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TailsHead : BaseAAItem
+    public class TailsHead : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Tails";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Grox
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AngryPirateBoots : BaseAAItem
+	public class AngryPirateBoots : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Grox";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

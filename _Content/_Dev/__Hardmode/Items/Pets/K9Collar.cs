@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 {
-    public class K9Collar : BaseAAItem
-	{
+    public class K9Collar : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("K9 Collar");

@@ -9,9 +9,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories
 {
     [AutoloadEquip(EquipType.Head)]
-	public class OrthrusXMask : BaseAAItem
+	public class OrthrusXMask : BaseAAItem, ILocalizedModType
     {
-        public static int type;
+        public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

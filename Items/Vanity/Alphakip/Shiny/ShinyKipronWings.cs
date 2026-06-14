@@ -11,9 +11,9 @@ namespace AAModClassic.Items.Vanity.Alphakip.Shiny
 
     [AutoloadEquip(EquipType.Wings)]
     public class ShinyKipronWings : BaseAAItem, ILocalizedModType
-	{
-        public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+    {
+        public new string LocalizationCategory => "Items.Vanity.Alpha.Shiny";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Shiny Kipron Wings");
             /* Tooltip.SetDefault(@"Allows flight and slow fall

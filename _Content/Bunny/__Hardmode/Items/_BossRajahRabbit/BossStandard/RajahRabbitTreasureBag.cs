@@ -1,4 +1,4 @@
-using AAModClassic._Content.__PLACEHOLDER.crossmod;
+﻿using AAModClassic._Content.__PLACEHOLDER.crossmod;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {
-    public class RajahRabbitTreasureBag : BaseAAItem
+    public class RajahRabbitTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
 
         public override void SetStaticDefaults()
         {

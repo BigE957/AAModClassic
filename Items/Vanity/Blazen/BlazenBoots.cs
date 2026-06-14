@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Blazen
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class BlazenBoots : BaseAAItem, ICustomEquipGlow
+    public class BlazenBoots : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Vanity.Blazen";
         public Color Color => AAColor.COLOR_WHITEFADE1;
 
         public override void SetStaticDefaults()     

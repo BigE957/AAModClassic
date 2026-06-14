@@ -9,7 +9,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
 {
     public class SunkenShipPreSoCBox : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Sleeping Curse)");

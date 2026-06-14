@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
-    public class FuryWitchsBag : BaseAAItem
+    public class FuryWitchsBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetDefaults()
         {
             Item.maxStack = Item.CommonMaxStack;

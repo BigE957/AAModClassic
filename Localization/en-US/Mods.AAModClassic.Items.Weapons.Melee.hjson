@@ -803,6 +803,11 @@ Voidsaber: {
 	Tooltip: ""
 }
 
+Void: {
+	DisplayName: Void
+	Tooltip: ""
+}
+
 EventHorizon: {
 	DisplayName: Event Horizon
 	Tooltip: ""
@@ -810,5 +815,70 @@ EventHorizon: {
 
 RealityAnchor: {
 	DisplayName: Reality Anchor
+	Tooltip: ""
+}
+
+Solar: {
+	DisplayName: Solar
+	Tooltip: ""
+}
+
+TheVortex: {
+	DisplayName: The Vortex
+	Tooltip: ""
+}
+
+TimeTeller: {
+	DisplayName: Time Teller
+	Tooltip: ""
+}
+
+NoodleSword: {
+	DisplayName: Noodle Sword
+	Tooltip: ""
+}
+
+EmperorFlairon: {
+	DisplayName: Emperor Flairon
+	Tooltip: ""
+}
+
+Chronos: {
+	DisplayName: Chronos
+	Tooltip: ""
+}
+
+CosmicFury: {
+	DisplayName: Cosmic Fury
+	Tooltip: ""
+}
+
+SlapBone: {
+	DisplayName: Slap Bone
+	Tooltip: ""
+}
+
+TitanSlayer: {
+	DisplayName: Titan Slayer
+	Tooltip: ""
+}
+
+Incineration: {
+	DisplayName: Incineration
+	Tooltip: ""
+}
+
+Depthwalker: {
+	DisplayName: Depthwalker
+	Tooltip: ""
+}
+
+TheDragonsBreath: {
+	DisplayName: The Dragons Breath
+	Tooltip: ""
+}
+
+Crescent: {
+	DisplayName: Crescent
 	Tooltip: ""
 }

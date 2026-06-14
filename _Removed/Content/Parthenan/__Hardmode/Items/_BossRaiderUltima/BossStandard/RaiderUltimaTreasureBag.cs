@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
@@ -16,8 +16,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard
 {
-    public class RaiderUltimaTreasureBag : BaseAAItem
+    public class RaiderUltimaTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         
         public override void SetStaticDefaults()
         {

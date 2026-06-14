@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
 {
-    public class TerraCore : BaseAAItem
+    public class TerraCore : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Core of Terraria");

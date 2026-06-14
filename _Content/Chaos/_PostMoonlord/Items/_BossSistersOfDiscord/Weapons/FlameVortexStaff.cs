@@ -11,9 +11,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    public class FlameVortexStaff : BaseAAItem
+    public class FlameVortexStaff : BaseAAItem, ILocalizedModType
     {
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Weapons.Summon";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Flame Vortex Staff");
             /* Tooltip.SetDefault(@"Conjures flaming spheres that increase your minion damage

@@ -352,3 +352,18 @@ SquidStorm: {
 	DisplayName: Squid Storm
 	Tooltip: ""
 }
+
+NovaFlare: {
+	DisplayName: Nova Flare
+	Tooltip: ""
+}
+
+SoapBlaster: {
+	DisplayName: Soap Blaster
+	Tooltip: ""
+}
+
+HiveArtillery: {
+	DisplayName: Hive Artillery
+	Tooltip: ""
+}

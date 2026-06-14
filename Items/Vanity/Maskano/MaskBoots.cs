@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Maskano
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class MaskBoots : BaseAAItem
+	public class MaskBoots : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Maskano";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

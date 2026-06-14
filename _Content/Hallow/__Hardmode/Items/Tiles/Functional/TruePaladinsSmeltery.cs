@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
@@ -8,8 +8,9 @@ using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
 {
-    public class TruePaladinsSmeltery : BaseAAItem
+    public class TruePaladinsSmeltery : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         
         public override void SetStaticDefaults()
         {

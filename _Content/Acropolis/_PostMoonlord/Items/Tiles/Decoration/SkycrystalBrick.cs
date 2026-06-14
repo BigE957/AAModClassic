@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration
 {
-    public class SkycrystalBrick : BaseAAItem
+    public class SkycrystalBrick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
             Item.width = 16;

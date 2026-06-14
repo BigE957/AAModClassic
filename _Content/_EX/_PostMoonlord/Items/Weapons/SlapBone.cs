@@ -7,9 +7,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-	public class SlapBone : BaseAAItem
-	{
-		public override void SetDefaults()
+	public class SlapBone : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
+        public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.SlapHand);
 			Item.damage = 56;

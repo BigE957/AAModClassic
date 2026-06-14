@@ -14,8 +14,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore
 {
-    public class OreCannonEX : BaseAAItem
+    public class OreCannonEX : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ultimate Ore Cannon");

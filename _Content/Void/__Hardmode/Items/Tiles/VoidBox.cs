@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles
 {
     public class VoidBox : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         
         public override void SetStaticDefaults()
         {

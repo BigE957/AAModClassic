@@ -1,24 +1,24 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
 using Terraria.Localization;
-using System;
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
-using AAModClassic.Utilities;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {
-    public class CursedCompass : ModItem
+    public class CursedCompass : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             // DisplayName.SetDefault("Cursed Compass");
             // Tooltip.SetDefault(@"An old Compass. Who knows what it's for?");
         }

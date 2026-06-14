@@ -15,12 +15,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
 {
-    //imported from my tAPI mod because I'm lazy
-    public class ScrapHeap : BaseAAItem
+    public class ScrapHeap : BaseAAItem, ILocalizedModType
     {
-        
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+
             // DisplayName.SetDefault("Scrap Heap");
             /* Tooltip.SetDefault(@"A bunch of metal garbage
 Summons the Orthrus X

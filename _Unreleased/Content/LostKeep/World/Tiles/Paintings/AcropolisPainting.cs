@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class AcropolisPainting : ModItem
+public class AcropolisPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("Palace in the Sky");
 		// ((ModItem)this).Tooltip.SetDefault("'Those seraphs act more like harpies than actual harpies...'");

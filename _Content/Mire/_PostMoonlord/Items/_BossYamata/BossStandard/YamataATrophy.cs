@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataATrophy : BaseAAItem
-	{        
+    public class YamataATrophy : BaseAAItem, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";        
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Yamata No Orochi Trophy");

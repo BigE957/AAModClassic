@@ -11,9 +11,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 {
-    public class DragonsClaw : CrossoverItem
-	{
-		public override void SetStaticDefaults()
+    public class DragonsClaw : CrossoverItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
+        public override void SetStaticDefaults()
 		{
 			crossoverModName = "Thorium";
             // DisplayName.SetDefault("Dragon's Claw");

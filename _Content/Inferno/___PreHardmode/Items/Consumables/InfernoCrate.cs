@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 {
-    public class InfernoCrate : CrateAbstract
+    public class InfernoCrate : CrateAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Crates";
         public override int Tile => ModContent.TileType<InfernoCrate_Tile>();
         public override IItemDropRule[] TopLoot =>
         [

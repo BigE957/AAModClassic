@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
@@ -7,8 +7,9 @@ using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Tiles
 {
-	public class Sticker : ModItem
+	public class Sticker : ModItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 
         
         public override void SetStaticDefaults()

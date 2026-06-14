@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -6,8 +6,9 @@ using AAModClassic._Content.Evil.___PreHardmode.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Tiles.Functional
 {
-    public class CrimsonAltar : BaseAAItem
+    public class CrimsonAltar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Crimson Altar");

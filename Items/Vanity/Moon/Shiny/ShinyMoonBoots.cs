@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -8,9 +8,10 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Moon.Shiny
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ShinyMoonBoots : BaseAAItem
+	public class ShinyMoonBoots : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Moon.Shiny";
+        public override void SetStaticDefaults()
 		{
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Lunar Boots");

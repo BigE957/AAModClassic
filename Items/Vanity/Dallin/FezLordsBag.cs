@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Dallin
 {
-    public class FezLordsBag : BaseAAItem
+    public class FezLordsBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fez Lord's Bag");

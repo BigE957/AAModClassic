@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BroodmotherMask : BaseAAItem
+	public class BroodmotherMask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
         public override void SetStaticDefaults()
         {

@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {
-    public class MireCrate : CrateAbstract
+    public class MireCrate : CrateAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Crates";
         public override int Tile => ModContent.TileType<MireCrate_Tile>();
         public override IItemDropRule[] TopLoot =>
         [

@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -8,9 +8,10 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Alphakip.Shiny
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ShinyFishDiverBoots : BaseAAItem
+	public class ShinyFishDiverBoots : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Alpha.Shiny";
+        public override void SetStaticDefaults()
        
 		{
             base.SetStaticDefaults();

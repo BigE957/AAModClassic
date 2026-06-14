@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class GreedPainting : ModItem
+public class GreedPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("The Worm King");
 		// ((ModItem)this).Tooltip.SetDefault("'Deep in the caverns lies mountains of treasure...guarded by a serpent made of it.'");

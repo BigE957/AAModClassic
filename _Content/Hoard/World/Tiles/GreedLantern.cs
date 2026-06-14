@@ -1,11 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.World.Tiles
 {
-    public class GreedLantern : ModItem
+    public class GreedLantern : ModItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stone Lantern");

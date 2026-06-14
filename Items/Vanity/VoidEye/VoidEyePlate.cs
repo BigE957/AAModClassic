@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.VoidEye
 {
     [AutoloadEquip(EquipType.Body)]
-    public class VoidEyePlate : BaseAAItem
+    public class VoidEyePlate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.VoidEye";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

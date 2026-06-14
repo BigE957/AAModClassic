@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Beg
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class PonyBody : BaseAAItem
+    public class PonyBody : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Beg";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

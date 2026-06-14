@@ -4,9 +4,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 
-public class YamataPainting : ModItem
+public class YamataPainting : ModItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetStaticDefaults()
 	{
 		// ((ModItem)this).DisplayName.SetDefault("7-Headed Scream");
 		// ((ModItem)this).Tooltip.SetDefault("'Sweet Azathoth, will this oversized lizard zip his lip?!'");

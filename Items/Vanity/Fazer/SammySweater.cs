@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Fazer
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class SammySweater : BaseAAItem
+    public class SammySweater : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Fazer";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

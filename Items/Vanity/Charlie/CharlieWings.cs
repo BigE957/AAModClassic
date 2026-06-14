@@ -12,7 +12,7 @@ namespace AAModClassic.Items.Vanity.Charlie
     [AutoloadEquip(EquipType.Wings)]
     public class CharlieWings : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Vanity.Charlie";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Grim Nightmare Wings");

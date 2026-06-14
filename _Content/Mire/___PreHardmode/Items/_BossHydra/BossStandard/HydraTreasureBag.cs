@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
@@ -14,8 +14,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
-    public class HydraTreasureBag : BaseAAItem
+    public class HydraTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         //TODO: Doesnt seem to exist
         //public static Asset<Texture2D> Glowmask;
 

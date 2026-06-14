@@ -6,9 +6,10 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.CC.Shiny
 {
 	[AutoloadEquip(EquipType.Body)]
-	internal class ShinyCCRobe : ModItem
+	internal class ShinyCCRobe : ModItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.CC.Shiny";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Draconian Cultist Robe");
 			/* Tooltip.SetDefault(@"The hood of a crazy dragon enthusiast

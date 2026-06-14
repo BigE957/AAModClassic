@@ -6,9 +6,10 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.CC
 {
 	[AutoloadEquip(EquipType.Body)]
-	internal class CCRobe : ModItem
+	internal class CCRobe : ModItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.CC";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dread Cultist Robe");
 			/* Tooltip.SetDefault(@"The hood of a crazy lizard enthusiast

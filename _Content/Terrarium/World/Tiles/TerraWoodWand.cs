@@ -11,8 +11,9 @@ using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Terrarium.World.Tiles
 {
-    public class TerraWoodWand : BaseAAItem
+    public class TerraWoodWand : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Wood Wand");

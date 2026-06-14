@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
     public class AnubisBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Anubis)");

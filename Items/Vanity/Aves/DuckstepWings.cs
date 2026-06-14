@@ -12,8 +12,8 @@ namespace AAModClassic.Items.Vanity.Aves
     [AutoloadEquip(EquipType.Wings)]
     public class DuckstepWings : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Aves";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Duckstep Bass Boosters");
             /* Tooltip.SetDefault(@"Allows flight and slow fall

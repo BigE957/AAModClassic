@@ -8,7 +8,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
 {
     public class FungusBox : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Feudal Fungus)");

@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 {
-    class RottedDynastyWood : BaseAAItem
+    public class RottedDynastyWood : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 

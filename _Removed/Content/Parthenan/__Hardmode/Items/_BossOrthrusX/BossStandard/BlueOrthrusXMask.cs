@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BlueOrthrusXMask : BaseAAItem
+	public class BlueOrthrusXMask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
         public override void SetStaticDefaults()
         {

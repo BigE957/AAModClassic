@@ -1,12 +1,13 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
-public class KeepCouch : ModItem
+public class KeepCouch : ModItem, ILocalizedModType
 {
+        public new string LocalizationCategory => "Items.Placeables";
 	public override void SetStaticDefaults()
 	{
 		// DisplayName.SetDefault("Keep Couch");

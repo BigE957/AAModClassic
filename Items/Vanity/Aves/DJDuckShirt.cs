@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -10,8 +10,9 @@ namespace AAModClassic.Items.Vanity.Aves
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class DJDuckShirt : BaseAAItem
+    public class DJDuckShirt : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Aves";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -7,9 +7,10 @@ using Terraria.ModLoader;
 namespace AAModClassic.Items.Vanity.Gibs
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class GibsShorts : BaseAAItem
+	public class GibsShorts : BaseAAItem, ILocalizedModType
 	{
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Gibs";
+        public override void SetStaticDefaults()
 		{
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Revenant Legs");

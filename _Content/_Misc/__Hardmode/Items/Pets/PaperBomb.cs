@@ -6,9 +6,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Pets
 {
-    public class PaperBomb : BaseAAItem
-	{
-        
+    public class PaperBomb : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.

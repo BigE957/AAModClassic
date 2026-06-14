@@ -1,16 +1,18 @@
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class HallowedPaint : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+	public class HallowedPaint : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Armor.Hallowed";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Hallowed Face Paint");
 			/* Tooltip.SetDefault(@"32% increased minion damage

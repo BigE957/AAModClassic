@@ -1,13 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard
 {
-    public class DesertDjinnTrophy : BaseAAItem
+    public class DesertDjinnTrophy : BaseAAItem, ILocalizedModType
 	{
-        public static int type;
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         
         public override void SetStaticDefaults()
         {

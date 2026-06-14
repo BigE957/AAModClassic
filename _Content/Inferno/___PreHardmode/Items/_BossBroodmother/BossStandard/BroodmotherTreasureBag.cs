@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
@@ -16,8 +16,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
-    public class BroodmotherTreasureBag : BaseAAItem
+    public class BroodmotherTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag");

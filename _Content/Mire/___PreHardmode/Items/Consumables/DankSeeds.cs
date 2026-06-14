@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.World.Tiles;
+﻿using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.Audio;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {
-    public class DankSeeds : BaseAAItem
+    public class DankSeeds : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dank Seeds");

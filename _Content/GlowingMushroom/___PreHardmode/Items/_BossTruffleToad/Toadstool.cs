@@ -1,4 +1,4 @@
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
@@ -13,8 +13,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad
 {
-    public class Toadstool : BaseAAItem
+    public class Toadstool : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {

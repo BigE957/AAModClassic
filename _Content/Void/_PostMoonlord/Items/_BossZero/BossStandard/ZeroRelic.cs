@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
-    internal class ZeroRelic : ModItem
+    internal class ZeroRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<ZeroRelic_Tile>().Texture;
 
         public override void SetDefaults()

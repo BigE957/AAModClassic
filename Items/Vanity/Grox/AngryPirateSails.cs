@@ -12,8 +12,8 @@ namespace AAModClassic.Items.Vanity.Grox
     [AutoloadEquip(EquipType.Wings)]
     public class AngryPirateSails : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Grox";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Angry Pirate's Skysails");
             /* Tooltip.SetDefault(@"Allows flight and slow fall

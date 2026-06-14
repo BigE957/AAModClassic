@@ -13,11 +13,14 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 {
-    public class CyberneticBell : BaseAAItem
+    public class CyberneticBell : BaseAAItem, ILocalizedModType
     {
-        
+        public new string LocalizationCategory => "Items.BossSummon";
+
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+
             // DisplayName.SetDefault("Cybernetic Bell");
             /* Tooltip.SetDefault(@"A carefully tinkered bell
 Summons the Raider Ultima

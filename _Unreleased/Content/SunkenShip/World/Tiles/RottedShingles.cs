@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 {
-    class RottedShingles : BaseAAItem
+    public class RottedShingles : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 

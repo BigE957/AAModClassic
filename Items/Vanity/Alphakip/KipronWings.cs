@@ -12,7 +12,7 @@ namespace AAModClassic.Items.Vanity.Alphakip
     [AutoloadEquip(EquipType.Wings)]
     public class KipronWings : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Vanity.Alphakip";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Kipron Wings");

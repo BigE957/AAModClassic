@@ -1,4 +1,4 @@
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration
 {
-    public abstract class StormChest : BaseAAItem
+    public abstract class StormChest : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Storm Chest");

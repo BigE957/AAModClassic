@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
 {
     public class ChaosPreShenBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         
 		public override void SetStaticDefaults()
 		{

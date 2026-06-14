@@ -1,4 +1,4 @@
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
@@ -20,8 +20,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA
 {
-    public class TenCaratCarrot : BaseAAItem
+    public class TenCaratCarrot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ten Carat Carrot");

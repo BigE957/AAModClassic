@@ -7,10 +7,10 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets
 {
-    public class Seashroom : BaseAAItem
-	{
-        
-        public override void SetStaticDefaults()
+    public class Seashroom : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets"; 
+		public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
 			// DisplayName.SetDefault("Seashroom");

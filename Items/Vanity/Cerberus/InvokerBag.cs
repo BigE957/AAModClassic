@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration;
+﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Cerberus
 {
-    public class InvokerBag : BaseAAItem
+    public class InvokerBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Pup Cerberus' Kennel");

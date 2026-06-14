@@ -7,8 +7,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic.Items.Vanity.Mikpin
 {
     [AutoloadEquip(EquipType.Body)]
-    public class MikpinCloak : BaseAAItem
+    public class MikpinCloak : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Mikpin";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

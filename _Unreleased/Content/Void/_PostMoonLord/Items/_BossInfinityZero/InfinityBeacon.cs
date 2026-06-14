@@ -20,12 +20,15 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero
 {
-    public class InfinityBeacon : ModItem
-	{
-        public static Asset<Texture2D> Glowmask;
+    public class InfinityBeacon : ModItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.BossSummon";
+        private static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+
             // DisplayName.SetDefault("Infinity Beacon");
             /* Tooltip.SetDefault(@"An ominous device with unstable code
 Summons the Infinity Slayer

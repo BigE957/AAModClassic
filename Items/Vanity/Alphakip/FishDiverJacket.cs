@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -8,8 +8,9 @@ namespace AAModClassic.Items.Vanity.Alphakip
 
 {
     [AutoloadEquip(EquipType.Body)]
-    public class FishDiverJacket : BaseAAItem
+    public class FishDiverJacket : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Vanity.Alphakip";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

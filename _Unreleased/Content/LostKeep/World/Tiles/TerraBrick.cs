@@ -6,9 +6,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 
-public class TerraBrick : BaseAAItem
+public class TerraBrick : BaseAAItem, ILocalizedModType
 {
-	public override void SetDefaults()
+    public new string LocalizationCategory => "Items.Placeables";
+    public override void SetDefaults()
 	{
 		Item.width = 16;
 		Item.height = 16;

@@ -14,11 +14,13 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle
 {
-    public class CyberneticShroom : BaseAAItem
+    public class CyberneticShroom : BaseAAItem, ILocalizedModType
     {
-
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+
             // DisplayName.SetDefault("Cybernetic Shroom");
             /* Tooltip.SetDefault(@"Summons the Techno Truffle
 Can only be used at night"); */

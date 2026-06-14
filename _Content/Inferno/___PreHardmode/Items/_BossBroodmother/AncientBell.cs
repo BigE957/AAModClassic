@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -16,8 +16,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother
 {
     //imported from my tAPI mod because I'm lazy
-    public class AncientBell : BaseAAItem
+    public class AncientBell : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ancient Bell");

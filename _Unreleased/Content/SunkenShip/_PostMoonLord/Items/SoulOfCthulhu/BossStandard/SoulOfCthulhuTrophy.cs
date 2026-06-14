@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard
 {
-    public class SoulOfCthulhuTrophy : BaseAAItem
+    public class SoulOfCthulhuTrophy : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul of Cthulhu Trophy");

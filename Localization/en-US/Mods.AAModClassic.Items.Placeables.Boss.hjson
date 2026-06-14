@@ -1,0 +1,263 @@
+Trophy: {
+	InfernoGripTrophy: {
+		DisplayName: Inferno Grip Trophy
+		Tooltip: ""
+	}
+
+	BroodmotherTrophy: {
+		DisplayName: Broodmother Trophy
+		Tooltip: ""
+	}
+
+	DaybringerTrophy: {
+		DisplayName: Daybringer Trophy
+		Tooltip: ""
+	}
+
+	NightcrawlerTrophy: {
+		DisplayName: Nightcrawler Trophy
+		Tooltip: ""
+	}
+
+	OrthrusXTrophy: {
+		DisplayName: Orthrus X Trophy
+		Tooltip: ""
+	}
+
+	RaiderUltimaTrophy: {
+		DisplayName: Raider Ultima Trophy
+		Tooltip: ""
+	}
+
+	RetrieverTrophy: {
+		DisplayName: Retriever Trophy
+		Tooltip: ""
+	}
+
+	TechnoTruffleTrophy: {
+		DisplayName: Techno Truffle Trophy
+		Tooltip: ""
+	}
+
+	InfinityZeroTrophy: {
+		DisplayName: Infinity Zero Trophy
+		Tooltip: ""
+	}
+
+	AthenaTrophy: {
+		DisplayName: Athena Trophy
+		Tooltip: ""
+	}
+
+	AthenaATrophy: {
+		DisplayName: Athena A Trophy
+		Tooltip: ""
+	}
+
+	RajahRabbitTrophy: {
+		DisplayName: Rajah Rabbit Trophy
+		Tooltip: ""
+	}
+
+	MireGripTrophy: {
+		DisplayName: Mire Grip Trophy
+		Tooltip: ""
+	}
+
+	ShenDoragonATrophy: {
+		DisplayName: Shen Doragon A Trophy
+		Tooltip: ""
+	}
+
+	ShenDoragonTrophy: {
+		DisplayName: Shen Doragon Trophy
+		Tooltip: ""
+	}
+
+	AsheTrophy: {
+		DisplayName: Ashe Trophy
+		Tooltip: ""
+	}
+
+	HarukaTrophy: {
+		DisplayName: Haruka Trophy
+		Tooltip: ""
+	}
+
+	DesertDjinnTrophy: {
+		DisplayName: Desert Djinn Trophy
+		Tooltip: ""
+	}
+
+	AnubisTrophy: {
+		DisplayName: Anubis Trophy
+		Tooltip: ""
+	}
+
+	AnubisATrophy: {
+		DisplayName: Anubis A Trophy
+		Tooltip: ""
+	}
+
+	FeudalFungusTrophy: {
+		DisplayName: Feudal Fungus Trophy
+		Tooltip: ""
+	}
+
+	TruffleToadTrophy: {
+		DisplayName: Truffle Toad Trophy
+		Tooltip: ""
+	}
+
+	GreedTrophy: {
+		DisplayName: Greed Trophy
+		Tooltip: ""
+	}
+
+	GreedATrophy: {
+		DisplayName: Greed A Trophy
+		Tooltip: ""
+	}
+
+	AkumaATrophy: {
+		DisplayName: Akuma A Trophy
+		Tooltip: ""
+	}
+
+	AkumaTrophy: {
+		DisplayName: Akuma Trophy
+		Tooltip: ""
+	}
+
+	HydraTrophy: {
+		DisplayName: Hydra Trophy
+		Tooltip: ""
+	}
+
+	YamataATrophy: {
+		DisplayName: Yamata A Trophy
+		Tooltip: ""
+	}
+
+	YamataTrophy: {
+		DisplayName: Yamata Trophy
+		Tooltip: ""
+	}
+
+	MushroomMonarchTrophy: {
+		DisplayName: Mushroom Monarch Trophy
+		Tooltip: ""
+	}
+
+	SubzeroSerpentTrophy: {
+		DisplayName: Subzero Serpent Trophy
+		Tooltip: ""
+	}
+
+	SagittariusTrophy: {
+		DisplayName: Sagittarius Trophy
+		Tooltip: ""
+	}
+
+	ZeroATrophy: {
+		DisplayName: Zero A Trophy
+		Tooltip: ""
+	}
+
+	ZeroTrophy: {
+		DisplayName: Zero Trophy
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuTrophy: {
+		DisplayName: Soul Of Cthulhu Trophy
+		Tooltip: ""
+	}
+}
+
+Relic: {
+	AthenaRelic: {
+		DisplayName: Athena Relic
+		Tooltip: ""
+	}
+
+	GripsOfChaosRelic: {
+		DisplayName: Grips Of Chaos Relic
+		Tooltip: ""
+	}
+
+	SistersOfDiscordRelic: {
+		DisplayName: Sisters Of Discord Relic
+		Tooltip: ""
+	}
+
+	DesertDjinnRelic: {
+		DisplayName: Desert Djinn Relic
+		Tooltip: ""
+	}
+
+	AnubisRelic: {
+		DisplayName: Anubis Relic
+		Tooltip: ""
+	}
+
+	FeudalFungusRelic: {
+		DisplayName: Feudal Fungus Relic
+		Tooltip: ""
+	}
+
+	TruffleToadRelic: {
+		DisplayName: Truffle Toad Relic
+		Tooltip: ""
+	}
+
+	GreedRelic: {
+		DisplayName: Greed Relic
+		Tooltip: ""
+	}
+
+	BroodmotherRelic: {
+		DisplayName: Broodmother Relic
+		Tooltip: ""
+	}
+
+	AkumaRelic: {
+		DisplayName: Akuma Relic
+		Tooltip: ""
+	}
+
+	HydraRelic: {
+		DisplayName: Hydra Relic
+		Tooltip: ""
+	}
+
+	YamataRelic: {
+		DisplayName: Yamata Relic
+		Tooltip: ""
+	}
+
+	MushroomMonarchRelic: {
+		DisplayName: Mushroom Monarch Relic
+		Tooltip: ""
+	}
+
+	SubzeroSerpentRelic: {
+		DisplayName: Subzero Serpent Relic
+		Tooltip: ""
+	}
+
+	EquinoxWormsRelic: {
+		DisplayName: Equinox Worms Relic
+		Tooltip: ""
+	}
+
+	SagittariusRelic: {
+		DisplayName: Sagittarius Relic
+		Tooltip: ""
+	}
+
+	ZeroRelic: {
+		DisplayName: Zero Relic
+		Tooltip: ""
+	}
+}

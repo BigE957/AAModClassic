@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
@@ -18,8 +18,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
-    public class ZeroTreasureBag : BaseAAItem
+    public class ZeroTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()

@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -20,8 +20,9 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {
     //imported from my tAPI mod because I'm lazy
-    public class DoomsdayTesseract : BaseAAItem
+    public class DoomsdayTesseract : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {

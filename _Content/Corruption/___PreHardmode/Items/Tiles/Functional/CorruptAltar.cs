@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -6,8 +6,9 @@ using AAModClassic._Content.Evil.___PreHardmode.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Tiles.Functional
 {
-    public class CorruptAltar : BaseAAItem
+    public class CorruptAltar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Altar");

@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
     public class ZeroBox : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
         
         public override void SetStaticDefaults()
         {

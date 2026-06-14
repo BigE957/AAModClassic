@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
 {
-	public class DiscordianTorch : BaseAAItem
+	public class DiscordianTorch : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Discordian Torch");

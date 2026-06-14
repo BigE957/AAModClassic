@@ -1,4 +1,4 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -13,8 +13,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
 {
     //imported from my tAPI mod because I'm lazy
-    public class SubzeroCrystal : BaseAAItem
+    public class SubzeroCrystal : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {

@@ -9,7 +9,7 @@ namespace AAModClassic.Items.Vanity.Anarchy
     [AutoloadEquip(EquipType.Head)]
 	public class PristineHelmet : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Armor.Pristine";
+        public new string LocalizationCategory => "Items.Vanity.Anarchy";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

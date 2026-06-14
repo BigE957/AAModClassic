@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
-    public class SistersOfDiscordRelic : ModItem
+    public class SistersOfDiscordRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<SistersOfDiscordRelic_Tile>().Texture;
 
         public override void SetDefaults()

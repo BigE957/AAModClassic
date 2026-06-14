@@ -4,8 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard
 {
-    internal class SubzeroSerpentRelic : ModItem
+    internal class SubzeroSerpentRelic : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
         public override string Texture => ModContent.GetInstance<SubzeroSerpentRelic_Tile>().Texture;
 
         public override void SetDefaults()

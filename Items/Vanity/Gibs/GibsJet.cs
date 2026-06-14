@@ -12,8 +12,8 @@ namespace AAModClassic.Items.Vanity.Gibs
     [AutoloadEquip(EquipType.Wings)]
     public class GibsJet : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Vanity.Gibs";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Revenant's Jet Booster");
             /* Tooltip.SetDefault(@"Allows flight and slow fall

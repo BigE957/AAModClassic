@@ -1,0 +1,310 @@
+TreasureBags: {
+	ShenDoragonTreasureBag: {
+		DisplayName: Shen Doragon Treasure Bag
+		Tooltip: ""
+	}
+
+	AnubisTreasureBag: {
+		DisplayName: Anubis Treasure Bag
+		Tooltip: ""
+	}
+
+	AnubisATreasureBag: {
+		DisplayName: Anubis A Treasure Bag
+		Tooltip: ""
+	}
+
+	BroodmotherTreasureBag: {
+		DisplayName: Broodmother Treasure Bag
+		Tooltip: ""
+	}
+
+	AkumaTreasureBag: {
+		DisplayName: Akuma Treasure Bag
+		Tooltip: ""
+	}
+
+	HydraTreasureBag: {
+		DisplayName: Hydra Treasure Bag
+		Tooltip: ""
+	}
+
+	YamataTreasureBag: {
+		DisplayName: Yamata Treasure Bag
+		Tooltip: ""
+	}
+
+	ZeroTreasureBag: {
+		DisplayName: Zero Treasure Bag
+		Tooltip: ""
+	}
+
+	OrthrusXTreasureBag: {
+		DisplayName: Orthrus X Treasure Bag
+		Tooltip: ""
+	}
+
+	RaiderUltimaTreasureBag: {
+		DisplayName: Raider Ultima Treasure Bag
+		Tooltip: ""
+	}
+
+	RetrieverTreasureBag: {
+		DisplayName: Retriever Treasure Bag
+		Tooltip: ""
+	}
+
+	TechnoTruffleTreasureBag: {
+		DisplayName: Techno Truffle Treasure Bag
+		Tooltip: ""
+	}
+
+	InfinityZeroTreasureBag: {
+		DisplayName: Infinity Zero Treasure Bag
+		Tooltip: ""
+	}
+
+	AthenaTreasureBag: {
+		DisplayName: Athena Treasure Bag
+		Tooltip: ""
+	}
+
+	AthenaATreasureBag: {
+		DisplayName: Athena A Treasure Bag
+		Tooltip: ""
+	}
+
+	RajahRabbitTreasureBag: {
+		DisplayName: Rajah Rabbit Treasure Bag
+		Tooltip: ""
+	}
+
+	RajahRabbitATreasureBag: {
+		DisplayName: Rajah Rabbit A Treasure Bag
+		Tooltip: ""
+	}
+
+	GripsOfChaosTreasureBag: {
+		DisplayName: Grips Of Chaos Treasure Bag
+		Tooltip: ""
+	}
+
+	SistersOfDiscordTreasureBag: {
+		DisplayName: Sisters Of Discord Treasure Bag
+		Tooltip: ""
+	}
+
+	DesertDjinnTreasureBag: {
+		DisplayName: Desert Djinn Treasure Bag
+		Tooltip: ""
+	}
+
+	FeudalFungusTreasureBag: {
+		DisplayName: Feudal Fungus Treasure Bag
+		Tooltip: ""
+	}
+
+	TruffleToadTreasureBag: {
+		DisplayName: Truffle Toad Treasure Bag
+		Tooltip: ""
+	}
+
+	GreedTreasureBag: {
+		DisplayName: Greed Treasure Bag
+		Tooltip: ""
+	}
+
+	GreedATreasureBag: {
+		DisplayName: Greed A Treasure Bag
+		Tooltip: ""
+	}
+
+	MushroomMonarchTreasureBag: {
+		DisplayName: Mushroom Monarch Treasure Bag
+		Tooltip: ""
+	}
+
+	SubzeroSerpentTreasureBag: {
+		DisplayName: Subzero Serpent Treasure Bag
+		Tooltip: ""
+	}
+
+	EquinoxWormsTreasureBag: {
+		DisplayName: Equinox Worms Treasure Bag
+		Tooltip: ""
+	}
+
+	SagittariusTreasureBag: {
+		DisplayName: Sagittarius Treasure Bag
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuTreasureBag: {
+		DisplayName: Soul Of Cthulhu Treasure Bag
+		Tooltip: ""
+	}
+}
+
+Crates: {
+	InfernoCrate: {
+		DisplayName: Inferno Crate
+		Tooltip: ""
+	}
+
+	DaybreakCrate: {
+		DisplayName: Daybreak Crate
+		Tooltip: ""
+	}
+
+	MireCrate: {
+		DisplayName: Mire Crate
+		Tooltip: ""
+	}
+
+	EventideCrate: {
+		DisplayName: Eventide Crate
+		Tooltip: ""
+	}
+
+	VoidCrate: {
+		DisplayName: Void Crate
+		Tooltip: ""
+	}
+
+	NullCrate: {
+		DisplayName: Null Crate
+		Tooltip: ""
+	}
+}
+
+Vanity: {
+	FuryWitchsBag: {
+		DisplayName: Fury Witchs Bag
+		Tooltip: ""
+	}
+
+	MidnightAssassinBag: {
+		DisplayName: Midnight Assassin Bag
+		Tooltip: ""
+	}
+
+	AlphaBag: {
+		DisplayName: Alpha Bag
+		Tooltip: ""
+	}
+
+	AnarchyBag: {
+		DisplayName: Anarchy Bag
+		Tooltip: ""
+	}
+
+	ApawnEgg: {
+		DisplayName: Apawn Egg
+		Tooltip: ""
+	}
+
+	AvesBag: {
+		DisplayName: Aves Bag
+		Tooltip: ""
+	}
+
+	BegBag: {
+		DisplayName: Beg Bag
+		Tooltip: ""
+	}
+
+	BlazenBag: {
+		DisplayName: Blazen Bag
+		Tooltip: ""
+	}
+
+	CCBox: {
+		DisplayName: C C Box
+		Tooltip: ""
+	}
+
+	InvokerBag: {
+		DisplayName: Invoker Bag
+		Tooltip: ""
+	}
+
+	CharlieBag: {
+		DisplayName: Charlie Bag
+		Tooltip: ""
+	}
+
+	FezLordsBag: {
+		DisplayName: Fez Lords Bag
+		Tooltip: ""
+	}
+
+	DellyBag: {
+		DisplayName: Delly Bag
+		Tooltip: ""
+	}
+
+	WetFurrbag: {
+		DisplayName: Wet Furrbag
+		Tooltip: ""
+	}
+
+	GibsBag: {
+		DisplayName: Gibs Bag
+		Tooltip: ""
+	}
+
+	GroviteSeaChest: {
+		DisplayName: Grovite Sea Chest
+		Tooltip: ""
+	}
+
+	MagiciansHat: {
+		DisplayName: Magicians Hat
+		Tooltip: ""
+	}
+
+	MikBag: {
+		DisplayName: Mik Bag
+		Tooltip: ""
+	}
+
+	MoonBag: {
+		DisplayName: Moon Bag
+		Tooltip: ""
+	}
+
+	PlutoBag: {
+		DisplayName: Pluto Bag
+		Tooltip: ""
+	}
+
+	ShoxBag: {
+		DisplayName: Shox Bag
+		Tooltip: ""
+	}
+
+	TailsToolbox: {
+		DisplayName: Tails Toolbox
+		Tooltip: ""
+	}
+
+	OldMagiciansHat: {
+		DisplayName: Old Magicians Hat
+		Tooltip: ""
+	}
+
+	VoidBag: {
+		DisplayName: Void Bag
+		Tooltip: ""
+	}
+
+	TopHat: {
+		DisplayName: Top Hat
+		Tooltip: ""
+	}
+
+	MaskBag: {
+		DisplayName: Mask Bag
+		Tooltip: ""
+	}
+}

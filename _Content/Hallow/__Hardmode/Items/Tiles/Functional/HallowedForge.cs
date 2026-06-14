@@ -1,4 +1,4 @@
-using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
 {
-    public class HallowedForge : BaseAAItem
+    public class HallowedForge : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hallowed Forge");

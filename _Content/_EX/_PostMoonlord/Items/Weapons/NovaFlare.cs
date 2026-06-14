@@ -10,9 +10,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class NovaFlare : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    public class NovaFlare : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
+        public override void SetStaticDefaults()
 		{
 		// DisplayName.SetDefault("Nova Flare");
 		/* Tooltip.SetDefault("Shoots homing flares from the sky"
