@@ -5,23 +5,48 @@ Reexperience the original 1.3 version of Ancients Awakened; ported to 1.4.4.
 Looking for a new, modern take on the original mod? Check out Ancients Awakened [BETA]!
 https://steamcommunity.com/sharedfiles/filedetails/?id=3596943461
 
-Ancients Awakened: Classic features:
-- 800+ Items, including EX items; powerful upgrades to previous weapons with a new twist to them!
+Ancients Awakened: Classic features the original mod's:
+- 800+ Items
 - 100+ NPCs
 - 21 Bosses (7 Pre-Hardmode, 4 Hardmode, and 5 Post-Moon Lord)
-- 4 New Biomes.
+- 4 New Biomes:
 	- The World Chaoses: Alternatives to the World Evils. 
 		* The Inferno, a volcanic biome ravaged by dragons, with gear mainly focusing on raw defense.
 		* The Mire, a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
 	- The Void: Floating Islands at the top right of the world. Nothing is there, there is no reason to go there (Or is there?)
-	- The Terrarium: A crystal biosphere safe from the ever-corrupting world around you. Underdeveloped, but it has content post-plantera.
+	- The Terrarium: A crystal biosphere safe from the ever-corrupting world around you.
 - Cross-Mod content with GRealm and Thorium
 - Fargo's Mutant Mod and Calamity Mod support
-- A unique soundtrack
+- Unique soundtrack
 
-Note: Some tracks have been removed or replaced at the request of the original composers. Please respect their decision.
+Additionally, Ancients Awakened: Classic features new World Generation options to add additional content, both old and new, to a world:
+- Removed: Brings back older content from previous versions of the mod that were removed over the course of development:
+	- Techno Truffle: A cybernetic mushroom menace created by the enigmatic Fulgarians, it combines moves from both the Mushroom Monarch and Feudal Fungus.
+	- The Siege Mechs: This trio of bosses fought around the same time as the vanilla Mechanical Bosses,
+		* The Retriever: A cybernetic Grip of Chaos.
+		* Orthrus X: A cybernetic version of the Hydra.
+		* Raider Ultima: A cybernetic version of the Broodmother.
+- Unreleased: Features new content never-before-seen in public versions of the mod. This content has been pulled from in-dev versions of Ancients Awakened:
+	- The Lost Keep: An underground citadel which was once the home of a legendary hero, it is the home of a slew of mysteries to be uncovered.
+		* The Biomite Core: The Lost Keep's defence mechanism which wields powers from every Biome, it can be challenged with the offering of a Biome Prism.
+	- Anubis; Legendscribe: Anubis has been reworked with an all new fight! Only by paying careful attention to the runes he wields will you emerge victorious.
+	- Infinity Zero: Face the Void's Superancient, commanding 6 Zero Units and harboring an even more malicious presence.
+	- The Soul of Cthulhu: Awaken the Ocean's Superancient which lurks within the new Sunken Ship structure, and can call upon fearsome recreations of previous bosses.
+- Unofficial: Includes a handful of QoL changes, visual enhancements, and more created by the porting team to enhance the mod's experience:
+	- Boss Visual Improvements: Many bosses have been given visual enhancements to make them feel more alive and dynamic.
+	- Anubis Quest UI: Anubis' boss dialogue has been expanded into a full Quest UI, making it easier to follow along.
+	- And More!
 
-Credit to the original team behind this version of the mod:
+Note: Some tracks have been removed or replaced at the request of their original composers. Please respect their decision.
+
+Developers and Contributors behind this port:
+- Big E
+- CaligulasAquarium
+- ProduceVGM
+- Sulphur
+- Pil
+
+Credit of course to the original team behind the mod:
 - Beg
 - Charlie Debnam
 - Chinzilla00
