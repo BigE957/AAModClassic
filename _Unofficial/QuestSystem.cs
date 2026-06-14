@@ -342,87 +342,6 @@ namespace AAModClassic._Unofficial
             InitializeAllQuestlines();
         }
 
-        public override void PostWorldLoad()
-        {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
-            {
-                Questlines["LegendscribeLateGame"].AddQuest(
-                    "InfinityZero",
-                    [
-                        new FlagObjective(() => NPCExtensions.BeenKilled<InfinityZero>(), false)
-                    ],
-                    [],
-                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<InfinityZero>()]],
-                    hasCompleteText: true
-                );
-
-                Questlines["LegendscribeLateGame"].AddQuest(
-                    "SoulOfCthulhu",
-                    [
-                        new FlagObjective(() => NPCExtensions.BeenKilled<SoulOfCthulhu>(), false)
-                    ],
-                    [],
-                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<SoulOfCthulhu>()]],
-                    hasCompleteText: true
-                );
-            }
-            else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
-            {
-                Questlines["LegendscribeLateGame"].Quests.Remove("InfinityZero");
-                Questlines["LegendscribeLateGame"].Quests.Remove("SoulOfCthulhu");
-            }
-
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && !Questlines["LegendscribeEarlyGame"].Quests.ContainsKey("Retriever"))
-            {
-                Questlines["LegendscribeEarlyGame"].AddQuest(
-                    "Retriever",
-                    [
-                        new FlagObjective(() => NPCExtensions.BeenKilled<Retriever>(), false)
-                    ],
-                    ["Anubis"],
-                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Retriever>()]],
-                    hasCompleteText: true
-                );
-
-                Questlines["LegendscribeEarlyGame"].AddQuest(
-                    "OrthrusX",
-                    [
-                        new FlagObjective(() => NPCExtensions.BeenKilled<OrthrusXBody>(), false)
-                    ],
-                    ["Anubis"],
-                    TextureAssets.Item[ModContent.ItemType<BlueOrthrusXMask>()],
-                    hasCompleteText: true
-                );
-
-                Questlines["LegendscribeEarlyGame"].AddQuest(
-                    "RaiderUltima",
-                    [
-                        new FlagObjective(() => NPCExtensions.BeenKilled<RaiderUltima>(), false)
-                    ],
-                    ["Anubis"],
-                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<RaiderUltima>()]],
-                    hasCompleteText: true
-                );
-
-                Questlines["LegendscribeEarlyGame"].Quests["Sagittarius"].QuestUnlocks = ["Retriever", "OrthrusX", "RaiderUltima"];
-                Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Retriever", "OrthrusX", "RaiderUltima"];
-            }
-            else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Questlines["LegendscribeEarlyGame"].Quests.ContainsKey("Retriever"))
-            {
-                Questlines["LegendscribeEarlyGame"].Quests.Remove("Retriever");
-                Questlines["LegendscribeEarlyGame"].Quests.Remove("OrthrusX");
-                Questlines["LegendscribeEarlyGame"].Quests.Remove("RaiderUltima");
-                Questlines["LegendscribeEarlyGame"].Quests["Sagittarius"].QuestUnlocks = ["Anubis"];
-                Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Sagittarius"];
-            }
-
-            if (!Main.dedServ)
-            {
-                LegendscribeQuestUISystem.questUI.OnInitialize();
-                LegendscribeQuestUISystem.questUI.OnActivate();
-            }
-        }
-
         public override void PostUpdateEverything()
         {
             foreach (Questline questline in Questlines.Values.Where(ql => ql.Started))
@@ -537,7 +456,87 @@ namespace AAModClassic._Unofficial
 
         public override void LoadWorldData(TagCompound tag)
         {
-            base.LoadWorldData(tag);
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
+            {
+                Questlines["LegendscribeLateGame"].AddQuest(
+                    "InfinityZero",
+                    [
+                        new FlagObjective(() => NPCExtensions.BeenKilled<InfinityZero>(), false)
+                    ],
+                    [],
+                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<InfinityZero>()]],
+                    hasCompleteText: true
+                );
+
+                Questlines["LegendscribeLateGame"].AddQuest(
+                    "SoulOfCthulhu",
+                    [
+                        new FlagObjective(() => NPCExtensions.BeenKilled<SoulOfCthulhu>(), false)
+                    ],
+                    [],
+                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<SoulOfCthulhu>()]],
+                    hasCompleteText: true
+                );
+            }
+            else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
+            {
+                Questlines["LegendscribeLateGame"].Quests.Remove("InfinityZero");
+                Questlines["LegendscribeLateGame"].Quests.Remove("SoulOfCthulhu");
+            }
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && !Questlines["LegendscribeEarlyGame"].Quests.ContainsKey("Retriever"))
+            {
+                Questlines["LegendscribeEarlyGame"].AddQuest(
+                    "Retriever",
+                    [
+                        new FlagObjective(() => NPCExtensions.BeenKilled<Retriever>(), false)
+                    ],
+                    ["Anubis"],
+                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Retriever>()]],
+                    hasCompleteText: true
+                );
+
+                Questlines["LegendscribeEarlyGame"].AddQuest(
+                    "OrthrusX",
+                    [
+                        new FlagObjective(() => NPCExtensions.BeenKilled<OrthrusXBody>(), false)
+                    ],
+                    ["Anubis"],
+                    TextureAssets.Item[ModContent.ItemType<BlueOrthrusXMask>()],
+                    hasCompleteText: true
+                );
+
+                Questlines["LegendscribeEarlyGame"].AddQuest(
+                    "RaiderUltima",
+                    [
+                        new FlagObjective(() => NPCExtensions.BeenKilled<RaiderUltima>(), false)
+                    ],
+                    ["Anubis"],
+                    TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<RaiderUltima>()]],
+                    hasCompleteText: true
+                );
+
+                Questlines["LegendscribeEarlyGame"].Quests["Sagittarius"].QuestUnlocks = ["Retriever", "OrthrusX", "RaiderUltima"];
+                Questlines["LegendscribeEarlyGame"].Quests["Retriever"].QuestRequirements = ["Sagittarius"];
+                Questlines["LegendscribeEarlyGame"].Quests["OrthrusX"].QuestRequirements = ["Sagittarius"];
+                Questlines["LegendscribeEarlyGame"].Quests["RaiderUltima"].QuestRequirements = ["Sagittarius"];
+                Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Retriever", "OrthrusX", "RaiderUltima"];
+            }
+            else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Questlines["LegendscribeEarlyGame"].Quests.ContainsKey("Retriever"))
+            {
+                Questlines["LegendscribeEarlyGame"].Quests.Remove("Retriever");
+                Questlines["LegendscribeEarlyGame"].Quests.Remove("OrthrusX");
+                Questlines["LegendscribeEarlyGame"].Quests.Remove("RaiderUltima");
+                Questlines["LegendscribeEarlyGame"].Quests["Sagittarius"].QuestUnlocks = ["Anubis"];
+                Questlines["LegendscribeEarlyGame"].Quests["Anubis"].QuestRequirements = ["Sagittarius"];
+            }
+
+            if (!Main.dedServ)
+            {
+                LegendscribeQuestUISystem.questUI.OnInitialize();
+                LegendscribeQuestUISystem.questUI.OnActivate();
+            }
+
             foreach (Questline questline in Questlines.Values)
                 foreach (Quest quest in questline.Quests.Values)
                 {
