@@ -13,8 +13,10 @@ using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
@@ -256,21 +258,44 @@ namespace AAModClassic._Unreleased
         }
 
 
-        private List<(int type, int min, int max)> GetLootPool(int chestID)
+        private static List<(int type, int min, int max)> GetLootPool(int chestID)
         {
             return chestID switch
             {
                 0 =>    [   //Captain's Quarters
-                            (ModContent.ItemType<CursedCompass>(), 1, 1)
+                            (ModContent.ItemType<CursedCompass>(), 1, 1),
+                            (ItemID.TrifoldMap, 0, 1),
+                            (ItemID.Binoculars, 0, 1),
+                            (ItemID.Sextant, 0, 1),
+                            (ItemID.GoldBar, 8, 12),
+                            (ItemID.FlintlockPistol, 1, 1),
+                            (ItemID.Book, 1, 4),
                         ],
                 9 =>    [   //Medical Ward
-                            (ItemID.HealingPotion, 1, 1)
+                            (ItemID.HealingPotion, 3, 5),
+                            (ItemID.ManaPotion, 2, 4),
+                            (ItemID.RegenerationPotion, 0, 2),
+                            (ItemID.IronskinPotion, 0, 2),
+                            (ItemID.Silk, 8, 12),
+                            (ItemID.LifeCrystal, 1, 2),
                         ],
                 10 =>   [   //Kitchen
-                            (ItemID.Bass, 1, 1)
+                            (ItemID.Bass, 4, 8),
+                            (ItemID.Tuna, 4, 8),
+                            (ItemID.Trout, 4, 8),
+                            (ItemID.FruitJuice, 3, 5),
+                            (ItemID.ShuckedOyster, 2, 3),
+                            (ItemID.BottledWater, 12, 18),
+                            (ItemID.Lemon, 3, 5),
                         ],
                 _ =>    [   //Supplies Storage
-                            (ItemID.Rope, 1, 1)
+                            (ItemID.Rope, 18, 32),
+                            (ItemID.Sail, 6, 18),
+                            (ItemID.Rope, 18, 32),
+                            (ItemID.IronHammer, 0, 1),
+                            (ItemID.IronAxe, 0, 1),
+                            (ItemID.IronBar, 3, 6),
+                            (ItemID.Wood, 24, 48),
                         ],
             };
         }
@@ -301,8 +326,31 @@ namespace AAModClassic._Unreleased
                             continue;
 
                         var lootPool = GetLootPool(chestCounter);
+                        List<int> validIndices = Enumerable.Range(0, chest.item.Length).ToList();
 
-                        chest.item[0].SetDefaults(lootPool[0].type);
+                        foreach (var (type, min, max) in lootPool)
+                        {
+                            int myStack = Main.rand.Next(min, max + 1);
+                            if (myStack == 0)
+                                continue;
+
+                            int rand = Main.rand.Next(validIndices.Count);
+                            int myIndex = validIndices[rand];
+                            validIndices.RemoveAt(rand);
+
+                            chest.item[myIndex].SetDefaults(type);
+                            chest.item[myIndex].stack = myStack;
+                        }
+
+                        int webCount = Main.rand.Next(4, 8);
+                        for(int i = 0; i < webCount; i++)
+                        {
+                            int rand = Main.rand.Next(validIndices.Count);
+                            int myIndex = validIndices[rand];
+                            validIndices.RemoveAt(rand);
+
+                            chest.item[myIndex].SetDefaults(ItemID.Cobweb);
+                        }
 
                         chestCounter++;
                     }
