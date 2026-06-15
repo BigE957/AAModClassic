@@ -1,6 +1,6 @@
+using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

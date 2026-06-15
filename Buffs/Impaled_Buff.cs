@@ -20,20 +20,13 @@ namespace AAModClassic.Buffs
         {
             //int num = npc.lifeRegenExpectedLossPerSecond;
             if (npc.lifeRegen > 0)
-            {
                 npc.lifeRegen = 0;
-            }
             int JavelinCount = 0;
             int impaleDamage = 0;
             for (int i = 0; i < 1000; i++)
             {
-                if (
-                    Main.projectile[i].active && Main.projectile[i].GetGlobalProjectile<ImplaingProjectile>().CanImpale && 
-                    ((Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == npc.whoAmI) || 
-                    (Main.projectile[i].type == ModContent.ProjectileType<OreChunk>() && Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == ItemID.TungstenOre && Main.projectile[i].localAI[1] == npc.whoAmI))
-                )
+                if (Main.projectile[i].active && Main.projectile[i].GetGlobalProjectile<ImplaingProjectile>().CanImpale && ((Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == npc.whoAmI) || (Main.projectile[i].type == ModContent.ProjectileType<OreChunk>() && Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == ItemID.TungstenOre && Main.projectile[i].localAI[1] == npc.whoAmI)))
                 {
-
                     impaleDamage += Main.projectile[i].GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler;
                     JavelinCount++;
                 }

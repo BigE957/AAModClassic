@@ -1,9 +1,9 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 {
-    public class Hunted_Buff : ModBuff
+    public class HydraBody_Hunted : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -59,10 +58,10 @@ Scythe of the Grim Reaper EX"); */
 				Item.shoot = ModContent.ProjectileType<SoulShredder_Proj>();
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ReaperCD_Buff>()))
+			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown>()))
 			{
-				player.AddBuff(ModContent.BuffType<ReaperImmune2_Buff>(), 60);
-				player.AddBuff(ModContent.BuffType<ReaperCD_Buff>(), 300);
+				player.AddBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunity>(), 60);
+				player.AddBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown>(), 300);
 				Item.shoot = ModContent.ProjectileType<ScytheOfTheGrimReaper_Hitbox>();
 				player.velocity.X = 26f * side;
 				return true;
@@ -94,7 +93,7 @@ Scythe of the Grim Reaper EX"); */
 					{
 						vector15 -= vector14;
 					}
-					if (type == ModContent.ProjectileType<SoulShredder_Proj>() && player.HasBuff(ModContent.BuffType<ReaperImmune2_Buff>()))
+					if (type == ModContent.ProjectileType<SoulShredder_Proj>() && player.HasBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunity>()))
 					{
 						Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage/15, knockback, player.whoAmI);
 					}

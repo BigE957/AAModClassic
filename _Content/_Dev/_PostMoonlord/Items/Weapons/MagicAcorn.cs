@@ -36,7 +36,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.rare = ItemRarityID.Orange;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
-			Item.buffType = ModContent.BuffType<Squirrel_Buff>();
+			Item.buffType = ModContent.BuffType<MagicAcorn_Buff>();
         }
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

@@ -1,5 +1,5 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic.Assets;
-using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -35,15 +35,14 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 		
 		public override void ModifyHitNPC (NPC target, ref NPC.HitModifiers modifiers)
 		{
-			Player player = Main.player[Projectile.owner]; 
-			if (player.HasBuff(ModContent.BuffType<ReaperImmune2_Buff>()))
-			{
-				modifiers.TargetDamageMultiplier *= 15;
-			}
-			else if (player.HasBuff(ModContent.BuffType<ReaperImmune_Buff>()))
-			{
-				modifiers.TargetDamageMultiplier *= 10;
-			}
-		}
+			Player player = Main.player[Projectile.owner];
+            if (player.HasBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunity>()))
+            {
+                if (player.HeldItem.type == ModContent.ItemType<SoulShredder>())
+                    modifiers.TargetDamageMultiplier *= 15;
+                else if (player.HeldItem.type == ModContent.ItemType<ScytheOfTheGrimReaper>())
+                    modifiers.TargetDamageMultiplier *= 10;
+            }
+        }
 	}
 }

@@ -3,24 +3,24 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    public class SockPuppet_Buff : ModBuff
+    public class MagicAcorn_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Sock Puppet");
-			// Description.SetDefault("Summons a Sock Puppet to fight for you");
+			// DisplayName.SetDefault("Squirrel");
+			// Description.SetDefault("Throws nuts");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<SockStaff_SockPuppet>()] > 0)
+			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<MagicAcorn_Squirrel1>()] + player.ownedProjectileCounts[ModContent.ProjectileType<MagicAcorn_Squirrel2>()] > 0)
 			{
-				modPlayer.Sock = true;
+				modPlayer.Squirrel = true;
 			}
-			if (!modPlayer.Sock)
+			if (!modPlayer.Squirrel)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

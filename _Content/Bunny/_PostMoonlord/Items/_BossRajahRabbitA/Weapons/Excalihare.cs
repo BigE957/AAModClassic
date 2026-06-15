@@ -1,4 +1,4 @@
-﻿using AAModClassic.Buffs;
+﻿using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;

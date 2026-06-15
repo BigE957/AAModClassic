@@ -1,5 +1,4 @@
 ﻿using System;
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -40,7 +39,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             bool flag64 = Projectile.type == ModContent.ProjectileType<SoccOnAStick_SockDudeFromBaldis>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<Socc_Buff>(), 3600);
+            player.AddBuff(ModContent.BuffType<SoccOnAStick_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead)

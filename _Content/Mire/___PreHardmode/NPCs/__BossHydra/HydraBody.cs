@@ -253,6 +253,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.oldPos[0] = NPC.position;
 
             bool foundTarget = TargetClosest();
+            if (playerTarget != null)
+                playerTarget.AddBuff(ModContent.BuffType<HydraBody_Hunted>(), 10, true);
 
             if (!runningAway && foundTarget)
             {

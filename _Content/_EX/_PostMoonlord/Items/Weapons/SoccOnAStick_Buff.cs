@@ -1,10 +1,9 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class Socc_Buff : ModBuff
+    public class SoccOnAStick_Buff : ModBuff
 	{
         public override void SetStaticDefaults()
         {

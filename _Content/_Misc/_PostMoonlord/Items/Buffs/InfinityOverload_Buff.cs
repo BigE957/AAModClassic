@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._Misc._PostMoonlord.Items.Buffs
 {
     public class InfinityOverload_Buff : ModBuff
 	{

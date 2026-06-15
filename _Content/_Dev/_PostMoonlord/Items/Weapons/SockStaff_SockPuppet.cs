@@ -39,7 +39,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             bool flag64 = Projectile.type == ModContent.ProjectileType<SockStaff_SockPuppet>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<SockPuppet_Buff>(), 3600);
+            player.AddBuff(ModContent.BuffType<SockStaff_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead)

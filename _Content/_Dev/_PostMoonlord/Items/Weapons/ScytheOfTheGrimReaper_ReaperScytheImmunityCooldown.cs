@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    public class ReaperCD_Buff : ModBuff
+    public class ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

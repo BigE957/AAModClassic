@@ -1,5 +1,4 @@
-﻿using AAModClassic.Buffs;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -55,10 +54,10 @@ Dashing ability has 10 seconds CD
 				Item.shoot = ModContent.ProjectileType<ScytheOfTheGrimReaper_Proj>();
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ReaperCD_Buff>()))
+			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown>()))
 			{
-				player.AddBuff(ModContent.BuffType<ReaperImmune_Buff>(), 60);
-				player.AddBuff(ModContent.BuffType<ReaperCD_Buff>(), 600);
+				player.AddBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunity>(), 60);
+				player.AddBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown>(), 600);
 				Item.shoot = ModContent.ProjectileType<ScytheOfTheGrimReaper_Hitbox>();
 				player.velocity.X = 26f * side;
 				return true;
@@ -71,7 +70,7 @@ Dashing ability has 10 seconds CD
 		
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (type == ModContent.ProjectileType<ScytheOfTheGrimReaper_Proj>() && player.HasBuff(ModContent.BuffType<ReaperImmune_Buff>()))
+			if (type == ModContent.ProjectileType<ScytheOfTheGrimReaper_Proj>() && player.HasBuff(ModContent.BuffType<ScytheOfTheGrimReaper_ReaperScytheImmunity>()))
 			{
 				damage /= 10;
 			}
