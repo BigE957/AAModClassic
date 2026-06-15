@@ -601,4 +601,5 @@ Conditions: {
 	ReleaseExclusive: In worlds where Unreleased content is disabled
 	DownedRajah: After defeating Rajah Rabbit
 	InSunkenShipPreSoC: Near the Sunken Ship after defeating all Ancients
+	IsMaster: In Master Mode
 }

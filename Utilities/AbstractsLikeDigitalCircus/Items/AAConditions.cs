@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.UI.WorldGen;
 using System;
 using System.Collections.Generic;
@@ -35,9 +36,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         public class RevOrMaster : IItemDropRuleCondition, IProvideItemConditionDescription
         {
-            public bool CanDrop(DropAttemptInfo info) => Main.masterMode || ();
-            public bool CanShowItemDropInUI() => Main.masterMode;
-            public string GetConditionDescription() => null;
+            public bool CanDrop(DropAttemptInfo info) => Main.masterMode || CalamityMod.IsRevengance;
+            public bool CanShowItemDropInUI() => Main.masterMode || CalamityMod.IsRevengance;
+            public string GetConditionDescription() => CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Condition.RevOrMM") : Language.GetTextValue("Mods.AAModClassic.Common.Conditions.IsMaster");
         }
     }
 }

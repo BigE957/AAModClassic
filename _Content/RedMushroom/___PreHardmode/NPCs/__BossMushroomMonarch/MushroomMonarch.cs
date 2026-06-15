@@ -5,6 +5,7 @@ using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -384,7 +385,11 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MushroomMonarchTreasureBag>()));
 
-            npcLoot.DefineConditionalDropSet(DropHelper.RevAndMaster).Add(ModContent.ItemType<MushroomMonarchRelic>());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchTrophy>(), 10));
 
