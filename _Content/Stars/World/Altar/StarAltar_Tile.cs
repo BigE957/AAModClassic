@@ -121,6 +121,8 @@ namespace AAModClassic._Content.Stars.World.Altar
             return false;
         }
 
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => false;
+
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;

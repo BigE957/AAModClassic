@@ -25,9 +25,11 @@ public class TerraPillar_Tile : ModTile
 	public override bool CanKillTile(int i, int j, ref bool blockDamaged)
 	{
 		return false;
-	}
+    }
 
-	public override bool CanExplode(int i, int j)
+    public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => false;
+
+    public override bool CanExplode(int i, int j)
 	{
 		return false;
 	}

@@ -20,10 +20,15 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {
-            if (AAWorld.downedShen)
-            {
+            if (AAWorld_Unreleased.DownedSoC)
                 return true;
-            }
+            return false;
+        }
+
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced)
+        {
+            if (AAWorld_Unreleased.DownedSoC)
+                return true;
             return false;
         }
 

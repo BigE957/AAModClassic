@@ -93,6 +93,8 @@ namespace AAModClassic._Content.Stars.World.Altar
             return AAWorld.downedEquinox;
         }
 
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AAWorld.downedEquinox;
+
         public override bool CanExplode(int i, int j)
         {
             return AAWorld.downedEquinox;

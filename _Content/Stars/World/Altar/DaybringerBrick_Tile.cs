@@ -18,13 +18,8 @@ namespace AAModClassic._Content.Stars.World.Altar
             DustType = ModContent.DustType<Dusts.RadiumDust>();
         }
 
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-        {
-            if (AAWorld.downedEquinox)
-            {
-                return true;
-            }
-            return false;
-        }
+        public override bool CanKillTile(int i, int j, ref bool blockDamaged) => AAWorld.downedEquinox;
+
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AAWorld.downedEquinox;
     }
 }

@@ -26,6 +26,8 @@ namespace AAModClassic._Content.Void.World.Tiles
             return AAWorld.downedZero;
         }
 
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AAWorld.downedZero;
+
         public static bool PlaceObject(int x, int y, int type, bool mute = false, int style = 0, int random = -1, int direction = -1)
         {
             if (!TileObject.CanPlace(x, y, type, style, direction, out TileObject toBePlaced, false))

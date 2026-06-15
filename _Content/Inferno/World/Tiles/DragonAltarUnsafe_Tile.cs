@@ -47,6 +47,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             }
         }
 
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => false;
+
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
             Color color = BaseUtility.ColorMult(AAPlayer.IncineriteColor, 0.7f);

@@ -31,6 +31,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
             return false;
         }
 
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => false;
+
         public override bool CanExplode(int i, int j)
         {
             return false;

@@ -207,7 +207,7 @@ namespace AAModClassic.Globals
             Tile t = Main.tile[i, j - 1];
 
             if(!t.HasTile)
-                return base.CanKillTile(i, j, type, ref blockDamaged);
+                return true;
 
             if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
@@ -218,7 +218,29 @@ namespace AAModClassic.Globals
             if ((t.TileType == ModContent.TileType<StarAltar_Tile>() || t.TileType == ModContent.TileType<GravAltar_Tile>() || t.TileType == ModContent.TileType<WormAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<StarAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<GravAltar_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<WormAltar_Tile>()))
                 return false;
 
-            return base.CanKillTile(i, j, type, ref blockDamaged);
+            return true;
+        }
+
+        public override bool CanReplace(int i, int j, int type, int tileTypeBeingPlaced)
+        {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
+                return false;
+
+            Tile t = Main.tile[i, j - 1];
+
+            if (!t.HasTile)
+                return true;
+
+            if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+                return false;
+
+            if ((t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+                return false;
+
+            if ((t.TileType == ModContent.TileType<StarAltar_Tile>() || t.TileType == ModContent.TileType<GravAltar_Tile>() || t.TileType == ModContent.TileType<WormAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<StarAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<GravAltar_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<WormAltar_Tile>()))
+                return false;
+
+            return true;
         }
 
         public override bool CanExplode(int i, int j, int type)
@@ -230,7 +252,7 @@ namespace AAModClassic.Globals
             if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
 
-            return base.CanExplode(i, j, type);
+            return true;
         }
 
         public override bool Slope(int i, int j, int type)
@@ -245,7 +267,7 @@ namespace AAModClassic.Globals
                 return false;
             }
 
-            return base.Slope(i, j, type);
+            return true;
         }
 
         public override void RandomUpdate(int i, int j, int type)

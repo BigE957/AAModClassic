@@ -34,11 +34,6 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration
 			num = 1;
 		}
 
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-        {
-            return true;
-        }
-
         public override bool RightClick(int i, int j)
         {
             if (Quack == false)

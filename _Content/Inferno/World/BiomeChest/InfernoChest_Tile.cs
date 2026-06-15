@@ -107,6 +107,22 @@ namespace AAModClassic._Content.Inferno.World.BiomeChest
             return Chest.CanDestroyChest(left, top);
         }
 
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced)
+        {
+            Tile tile = Main.tile[i, j];
+            int left = i;
+            int top = j;
+            if (tile.TileFrameX % 36 != 0)
+            {
+                left--;
+            }
+            if (tile.TileFrameY != 0)
+            {
+                top--;
+            }
+            return Chest.CanDestroyChest(left, top);
+        }
+
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Chest.DestroyChest(i, j);

@@ -110,9 +110,25 @@ public class TerraChest_Tile : ModTile
 			num2--;
 		}
 		return Chest.CanDestroyChest(num, num2);
-	}
+    }
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
+    public override bool CanReplace(int i, int j, int tileTypeBeingPlaced)
+	{
+        Tile tile = Main.tile[i, j];
+        int num = i;
+        int num2 = j;
+        if (tile.TileFrameX % 36 != 0)
+        {
+            num--;
+        }
+        if (tile.TileFrameY != 0)
+        {
+            num2--;
+        }
+        return Chest.CanDestroyChest(num, num2);
+    }
+
+    public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
 		Chest.DestroyChest(i, j);
 	}
