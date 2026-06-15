@@ -21,6 +21,7 @@ using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
+using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -824,35 +825,33 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
             #endregion
 
             #region crossmod
-            Mod GRealm = ModSupport.GetMod("Grealm");
-            Mod Fargos = ModSupport.GetMod("Fargowiltas");
-            Mod Redemption = ModSupport.GetMod("Redemption");
-            Mod Thorium = ModSupport.GetMod("ThoriumMod");
-            Mod SOTS = ModSupport.GetMod("SOTS");
 
-            int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("GRealm", "HordeZombie").NPC.type);
+            int HordeZombie = !ModLoader.TryGetMod("GRealm", out Mod GRealm) ? -1 : NPC.FindFirstNPC(GRealm.Find<ModNPC>("HordeZombie").Type);
             if (HordeZombie >= 0)
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat23") + Main.npc[HordeZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat24"));
 
-            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Fargowiltas", "Mutant").NPC.type);
+            int Mutant = !ModLoader.TryGetMod("Fargowiltas", out Mod Fargos) ? -1 : NPC.FindFirstNPC(Fargos.Find<ModNPC>("Mutant").Type);
             if (Mutant >= 0)
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat25") + Main.npc[Mutant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat26"));
 
-            int Newb = Redemption == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Redemption", "Newb").NPC.type);
+            int Newb = !ModLoader.TryGetMod("Redemption", out Mod Redemption) ? -1 : NPC.FindFirstNPC(Redemption.Find<ModNPC>("Newb").Type);
             if (Newb >= 0)
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat27") + Main.npc[Newb].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat28"));
 
-            int Cobbler = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "Cobbler").NPC.type);
-            if (Cobbler >= 0)
-                chat.Add(Main.npc[Cobbler].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat29"));
-
-            int ConfusedZombie = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "ConfusedZombie").NPC.type);
-            if (ConfusedZombie >= 0)
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat31"));
-
-            if (ModLoader.TryGetMod("CalamityMod", out var cal))
+            if (ModLoader.TryGetMod("ThoriumMod", out Mod Thorium))
             {
-                if (NPCExtensions.BeenKilled<GreedAHead>() && (bool)cal.Call("GetBossDowned", "devourerofgods"))
+                int Cobbler = NPC.FindFirstNPC(Thorium.Find<ModNPC>("Cobbler").Type);
+                if (Cobbler >= 0)
+                    chat.Add(Main.npc[Cobbler].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat29"));
+
+                int ConfusedZombie = NPC.FindFirstNPC(Thorium.Find<ModNPC>("ConfusedZombie").Type);
+                if (ConfusedZombie >= 0)
+                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat31"));
+            }
+
+            if (CalamityMod.IsEnabled)
+            {
+                if (NPCExtensions.BeenKilled<GreedAHead>() && (bool)CalamityMod.Call("GetBossDowned", "devourerofgods"))
                 {
                     chat.Add("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GreedACalamityMod");
                 }
@@ -860,7 +859,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                bool isWearingAnubisHatFromSOTS = SOTS != null && (player.armor[0].type == ModSupport.GetModItem("SOTS", "AnubisHat").Item.type || player.armor[10].type == ModSupport.GetModItem("SOTS", "AnubisHat").Item.type) ? true : false;
+                bool isWearingAnubisHatFromSOTS = ModLoader.TryGetMod("SOTS", out Mod SOTS) && (player.armor[0].type == SOTS.Find<ModItem>("AnubisHat").Type || player.armor[10].type == SOTS.Find<ModItem>("AnubisHat").Type);
                 if (isWearingAnubisHatFromSOTS)
                 {
                     int textToUse = Main.rand.Next(4);

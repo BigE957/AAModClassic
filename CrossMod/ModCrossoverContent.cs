@@ -8,437 +8,13 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic.CrossMod
 {
-    public class ModSupport
-    {
-
-        public static FieldInfo CRevengence = null, CDeath = null, CDefiled = null;
-
-        /*
-        public static bool Revengence
-        {
-            get
-            {
-                if (calamity != null)
-                {
-                    if (calamity.Version >= new Version(1, 4, 2, 201))
-                    {
-                        return CalamityMod.world.CalamityWorld.revenge;
-                    }
-                    else
-                    {
-                        return CalamityMod.CalamityWorld.revenge;
-                    }
-                    
-                }
-                return false;
-            }
-        }
-
-        public static bool Death
-        {
-            get
-            {
-                if (calamity != null)
-                {
-                    if (calamity.Version >= new Version(1, 4, 2, 201))
-                    {
-                        return CalamityMod.world.CalamityWorld.death;
-                    }
-                    else
-                    {
-                        return CalamityMod.CalamityWorld.death;
-                    }
-                    
-                }
-                return false;
-            }
-        }
-
-        public static bool Defiled
-        {
-            get
-            {
-                if (calamity != null)
-                {
-                    if (calamity.Version >= new Version(1, 4, 2, 201))
-                    {
-                        return CalamityMod.world.CalamityWorld.defiled;
-                    }
-                    else
-                    {
-                        return CalamityMod.CalamityWorld.defiled;
-                    }
-                }
-                return false;
-            }
-        }*/
-
-        public static Mod GetMod(string modname)
-		{
-            if(ModLoader.TryGetMod(modname, out var mod))
-			{
-                return mod;
-            }
-            return null;
-        }
-
-        public static ModItem GetModItem(string modname, string itemname)
-		{
-			ModItem item = null;
-			if(ModLoader.GetMod(modname) != null)
-			{
-				Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					mod.TryFind<ModItem>(itemname, out item);
-				}
-				catch(Exception)
-				{
-					item = null;
-					throw new Exception("Can't find this item" + itemname);
-				}
-			}
-
-			return item;
-		}
-
-        public static ModNPC GetModNPC(string modname, string npcname)
-		{
-			ModNPC npc = null;
-			if(ModLoader.GetMod(modname) != null)
-			{
-				Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					mod.TryFind<ModNPC>(npcname, out npc);
-				}
-				catch(Exception)
-				{
-					npc = null;
-					throw new Exception("Can't find this npc" + npcname);
-				}
-			}
-
-			return npc;
-		}
-
-        public static ModProjectile GetModProjectile(string modname, string projname)
-		{
-			ModProjectile projectile = null;
-
-			if(ModLoader.GetMod(modname) != null)
-			{
-				Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					mod.TryFind<ModProjectile>(projname, out projectile);
-				}
-				catch(Exception)
-				{
-					projectile = null;
-					throw new Exception("Can't find this projectile" + projname);
-				}
-			}
-
-			return projectile;
-		}
-
-        public static ModDust GetModDust(string modname, string dustname)
-		{
-            ModDust dust = null;
-			if(ModLoader.GetMod(modname) != null)
-			{
-				Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					mod.TryFind<ModDust>(dustname, out dust);
-				}
-				catch(Exception)
-				{
-					dust = null;
-					throw new Exception("Can't find this dust" + dustname);
-				}
-			}
-
-			return dust;
-        }
-
-        public static ModBuff GetModBuff(string modname, string buffname)
-		{
-            ModBuff buff = null;
-			if(ModLoader.GetMod(modname) != null)
-			{
-				Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					mod.TryFind<ModBuff>(buffname, out buff);
-				}
-				catch(Exception)
-				{
-					buff = null;
-					throw new Exception("Can't find this buff" + buffname);
-				}
-			}
-
-			return buff;
-        }
-
-        public static object GetModWorldConditions(string modname, string worldname, string ConditionName, bool nopub = false, bool sta = false)
-		{
-			object condition = null;
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					if(mod.TryFind<ModSystem>(worldname, out ModSystem world))
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						return world.GetType().GetField(ConditionName, binding).GetValue(world);
-					}
-				}
-				catch
-				{
-					return null;
-					throw new Exception("Error in reading world data.");
-				}
-            }
-			return condition;
-        }
-
-        public static void SetModWorldConditions(string modname, string worldname, string ConditionName, object Set_value, bool nopub = false, bool sta = false)
-		{
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-					if(mod.TryFind<ModSystem>(worldname, out ModSystem world))
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						FieldInfo field = world.GetType().GetField(ConditionName, binding);
-                        if(field.FieldType == Set_value.GetType())
-                        {
-                            field.SetValue(world, Set_value);
-                        }
-					}
-				}
-				catch
-				{
-					throw new Exception("Error in setting world data.");
-				}
-            }
-        }
-
-        public static object GetModPlayerConditions(string modname, Player player, string playername, string ConditionName, bool nopub = false, bool sta = false)
-		{
-            object condition = null;
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-                    if (mod.TryFind<ModPlayer>(playername, out ModPlayer mpInst))
-                    {
-                        ModPlayer modplayer = null;
-                        foreach(ModPlayer mp in player.ModPlayers)
-                            if(mp.GetType() == mpInst.GetType())
-                            {
-                                modplayer = mp;
-                            }
-
-                        if (modplayer != null)
-                        {
-                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
-                            return modplayer.GetType().GetField(ConditionName, binding).GetValue(modplayer);
-                        }
-                    }
-				}
-				catch
-				{
-					return null;
-					throw new Exception("Error in reading modplayer data.");
-				}
-            }
-			return condition;
-        }
-
-        public static void SetModPlayerConditions(string modname, Player player, string playername, string ConditionName, object Set_value, bool nopub = false, bool sta = false)
-		{
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-                    if (mod.TryFind<ModPlayer>(playername, out ModPlayer mpInst))
-                    {
-                        ModPlayer modplayer = null;
-                        foreach (ModPlayer mp in player.ModPlayers)
-                            if (mp.GetType() == mpInst.GetType())
-                            {
-                                modplayer = mp;
-                            }
-
-                        if (modplayer != null)
-                        {
-                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
-                            FieldInfo field = modplayer.GetType().GetField(ConditionName, binding);
-                            if (field.FieldType == Set_value.GetType())
-                            {
-                                field.SetValue(modplayer, Set_value);
-                            }
-                        }
-                    }
-				}
-				catch
-				{
-					throw new Exception("Error in setting modplayer data.");
-				}
-            }
-        }
-
-        public static object GetModGlobalItemConditions(string modname, Item item, string globalitemname, string ConditionName, bool nopub = false, bool sta = false)
-		{
-            object condition = null;
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-                    if (mod.TryFind<GlobalItem>(globalitemname, out GlobalItem giInst))
-                    {
-                        GlobalItem global = null;
-                        foreach (GlobalItem mp in item.Globals)
-                            if (mp.GetType() == giInst.GetType())
-                            {
-                                global = mp;
-                            }
-
-                        if (global != null)
-                        {
-                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
-                            return global.GetType().GetField(ConditionName, binding).GetValue(global);
-                        }
-                    }
-				}
-				catch
-				{
-					return null;
-					throw new Exception("Error in reading globalitem data.");
-				}
-            }
-			return condition;
-        }
-
-        public static void SetModGlobalItemConditions(string modname, Item item, string globalitemname, string ConditionName, object Set_value, bool nopub = false, bool sta = false)
-		{
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-                    if (mod.TryFind<GlobalItem>(globalitemname, out GlobalItem giInst))
-                    {
-                        GlobalItem global = null;
-                        foreach (GlobalItem mp in item.Globals)
-                            if (mp.GetType() == giInst.GetType())
-                            {
-                                global = mp;
-                            }
-
-                        if (global != null)
-                        {
-                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
-                            FieldInfo field = global.GetType().GetField(ConditionName, binding);
-                            if (field.FieldType == Set_value.GetType())
-                            {
-                                field.SetValue(global, Set_value);
-                            }
-                        }
-                    }
-				}
-				catch
-				{
-					throw new Exception("Error in setting globalitem data.");
-				}
-            }
-        }
-
-        public static object GetModGlobalProjConditions(string modname, Projectile proj, string globalprojname, string ConditionName, bool nopub = false, bool sta = false)
-		{
-            object condition = null;
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-                    if (mod.TryFind<GlobalProjectile>(globalprojname, out GlobalProjectile giInst))
-                    {
-                        GlobalProjectile global = null;
-                        foreach (GlobalProjectile mp in proj.Globals)
-                            if (mp.GetType() == giInst.GetType())
-                            {
-                                global = mp;
-                            }
-
-                        if (global != null)
-                        {
-                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
-                            return global.GetType().GetField(ConditionName, binding).GetValue(global);
-                        }
-                    }
-				}
-				catch
-				{
-					return null;
-					throw new Exception("Error in reading globalproj data.");
-				}
-            }
-			return condition;
-        }
-
-        public static void SetModGlobalProjConditions(string modname, Projectile proj, string globalprojname, string ConditionName, object Set_value, bool nopub = false, bool sta = false)
-		{
-            if(ModLoader.GetMod(modname) != null)
-			{
-                Mod mod = ModLoader.GetMod(modname);
-				try
-				{
-                    if (mod.TryFind<GlobalProjectile>(globalprojname, out GlobalProjectile giInst))
-                    {
-                        GlobalProjectile global = null;
-                        foreach (GlobalProjectile mp in proj.Globals)
-                            if (mp.GetType() == giInst.GetType())
-                            {
-                                global = mp;
-                            }
-
-                        if (global != null)
-                        {
-                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
-                            FieldInfo field = global.GetType().GetField(ConditionName, binding);
-                            if (field.FieldType == Set_value.GetType())
-                            {
-                                field.SetValue(global, Set_value);
-                            }
-                        }
-					}
-				}
-				catch
-				{
-					throw new Exception("Error in setting globalitem data.");
-				}
-            }
-        }
-    }
-
     public abstract class CrossoverItem : BaseAAItem
     {
         public string crossoverModName = "(N/A)";
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (ModSupport.GetMod(crossoverModName) != null)
+            if (!ModLoader.TryGetMod(crossoverModName, out _))
             {
                 TooltipLine error = new TooltipLine(Mod, "Error", "WARNING: ITEM WILL NOT FUNCTION WITHOUT " + crossoverModName.ToUpper() + " ENABLED!")
                 {
@@ -451,23 +27,34 @@ namespace AAModClassic.CrossMod
 
     public class ModSupportPlayer : ModPlayer
     {
+        private static Mod Redeption = null;
+        private static Mod Thorium = null;
+
+        public override void Load()
+        {
+            if (!ModLoader.TryGetMod("Redemption", out Redeption))
+                Redeption = null;
+            if (!ModLoader.TryGetMod("ThoriumMod", out Thorium))
+                Thorium = null;
+        }
+
         #region Thorium
         public float Thorium_radiantBoost
         {
             get
             {
-                if (ModSupport.GetMod("ThoriumMod") != null)
+                if (Thorium != null)
                 {
-                    float? boost = (float?)ModSupport.GetMod("ThoriumMod").Call("GetRadiantBoost", Player.whoAmI);
+                    float? boost = (float?)Thorium.Call("GetRadiantBoost", Player.whoAmI);
                     if (boost != null) return (float)boost;
                 }
                 return 1f;
             }
             set
             {
-                if (ModSupport.GetMod("ThoriumMod") != null)
+                if (Thorium != null)
                 {
-                    ModSupport.GetMod("ThoriumMod").Call("SetRadiantBoost", Player.whoAmI, value);
+                    Thorium.Call("SetRadiantBoost", Player.whoAmI, value);
                 }
             }
         }
@@ -475,18 +62,18 @@ namespace AAModClassic.CrossMod
         {
             get
             {
-                if (ModSupport.GetMod("ThoriumMod") != null)
+                if (Thorium != null)
                 {
-                    int? boost = (int?)ModSupport.GetMod("ThoriumMod").Call("GetRadiantCrit", Player.whoAmI);
+                    int? boost = (int?)Thorium.Call("GetRadiantCrit", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
             }
             set
             {
-                if (ModSupport.GetMod("ThoriumMod") != null)
+                if (Thorium != null)
                 {
-                    ModSupport.GetMod("ThoriumMod").Call("SetRadiantCrit", Player.whoAmI, value);
+                    Thorium.Call("SetRadiantCrit", Player.whoAmI, value);
                 }
             }
         }
@@ -494,18 +81,18 @@ namespace AAModClassic.CrossMod
         {
             get
             {
-                if (ModSupport.GetMod("ThoriumMod") != null)
+                if (Thorium != null)
                 {
-                    int? boost = (int?)ModSupport.GetMod("ThoriumMod").Call("GetHealBonus", Player.whoAmI);
+                    int? boost = (int?)Thorium.Call("GetHealBonus", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
             }
             set
             {
-                if (ModSupport.GetMod("ThoriumMod") != null)
+                if (Thorium != null)
                 {
-                    ModSupport.GetMod("ThoriumMod").Call("SetHealBonus", Player.whoAmI, value);
+                    Thorium.Call("SetHealBonus", Player.whoAmI, value);
                 }
             }
         }
@@ -517,18 +104,18 @@ namespace AAModClassic.CrossMod
         {
             get
             {
-                if (ModSupport.GetMod("Redemption") != null)
+                if (Redeption != null)
                 {
-                    float? boost = (float?)ModSupport.GetMod("Redemption").Call("GetDruidicBoost", Player.whoAmI);
+                    float? boost = (float?)Redeption.Call("GetDruidicBoost", Player.whoAmI);
                     if (boost != null) return (float)boost;
                 }
                 return 1f;
             }
             set
             {
-                if (ModSupport.GetMod("Redemption") != null)
+                if (Redeption != null)
                 {
-                    ModSupport.GetMod("Redemption").Call("SetDruidicBoost", Player.whoAmI, value);
+                    Redeption.Call("SetDruidicBoost", Player.whoAmI, value);
                 }
             }
         }
@@ -536,18 +123,18 @@ namespace AAModClassic.CrossMod
         {
             get
             {
-                if (ModSupport.GetMod("Redemption") != null)
+                if (Redeption != null)
                 {
-                    int? boost = (int?)ModSupport.GetMod("Redemption").Call("GetDruidicCrit", Player.whoAmI);
+                    int? boost = (int?)Redeption.Call("GetDruidicCrit", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
             }
             set
             {
-                if (ModSupport.GetMod("Redemption") != null)
+                if (Redeption != null)
                 {
-                    ModSupport.GetMod("Redemption").Call("SetDruidicCrit", Player.whoAmI, value);
+                    Redeption.Call("SetDruidicCrit", Player.whoAmI, value);
                 }
             }
         }

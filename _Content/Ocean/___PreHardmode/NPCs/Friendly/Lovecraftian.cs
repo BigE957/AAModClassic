@@ -94,15 +94,13 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.NPCs.Friendly
         
         public override string GetChat()
         {   
-			Mod Fargos = ModSupport.GetMod("FargoMod");
-			Mod GRealm = ModSupport.GetMod("Grealm");
-
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
-
             int Pirate = NPC.FindFirstNPC(NPCID.Pirate);
-            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(Fargos.Find<ModNPC>("Mutant").Type);
-            int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(GRealm.Find<ModNPC>("HordeZombie").Type);
+
+            int Mutant = !ModLoader.TryGetMod("Fargowiltas", out Mod Fargos) ? -1 : NPC.FindFirstNPC(Fargos.Find<ModNPC>("Mutant").Type);
+
+            int HordeZombie = !ModLoader.TryGetMod("GRealm", out Mod GRealm) ? -1 : NPC.FindFirstNPC(GRealm.Find<ModNPC>("HordeZombie").Type);
 
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat1"));
 

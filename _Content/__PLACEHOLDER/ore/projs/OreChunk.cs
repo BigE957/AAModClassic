@@ -22,6 +22,7 @@ using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hoard.Projectiles;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
+using AAModClassic.CrossMod.CalamityMod;
 
 namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 {
@@ -322,9 +323,9 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     Projectile.Kill();
                 }
             }
-            else if(ModSupport.GetMod("CalamityMod") != null)
+            else if(CalamityMod.IsEnabled)
             {
-                if (Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "ChaoticOre").Item.type)
+                if (Projectile.ai[1] == CalamityMod.GetModItem("ChaoticOre"))
                 {
                     if(Projectile.ai[0]++ > 800)
                     {
@@ -332,14 +333,14 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     }
                     if (Main.rand.NextBool(30))
                     {
-                        int projtype = ModSupport.GetModProjectile("CalamityMod", "LavaChunk").Projectile.type;
+                        int projtype = CalamityMod.GetModProjectileType("LavaChunk");
                         int p = NewProjectile(Projectile.Center.X + Projectile.velocity.X, Projectile.Center.Y + Projectile.velocity.Y, 0f, 0.1f, projtype, Projectile.damage, 2f, Projectile.owner, 0f, 0f);
                         Main.projectile[p].DamageType = DamageClass.Ranged;
                         Main.projectile[p].hostile = false;
                         Main.projectile[p].friendly = true;
                     }
                 }
-                else if(Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "AstralOre").Item.type)
+                else if(Projectile.ai[1] == CalamityMod.GetModItem("AstralOre"))
                 {
                     if(Projectile.ai[0]++ > 800)
                     {
@@ -359,7 +360,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                             int num18 = Main.rand.Next(3);
                             if (num18 == 0)
                             {
-                                num18 = ModSupport.GetModProjectile("CalamityMod", "AstralStar").Projectile.type;
+                                num18 = CalamityMod.GetModProjectileType("AstralStar");
                             }
                             else if (num18 == 1)
                             {
@@ -379,7 +380,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     }
                 }
             }
-            else if(ModSupport.GetMod("Redemption") != null)
+            else if(ModLoader.TryGetMod("Redemption", out _))
             {
                 
             }
@@ -498,9 +499,9 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     Main.projectile[p].Center = Projectile.Center;
                 }
             }
-            else if(ModSupport.GetMod("CalamityMod") != null)
+            else if(CalamityMod.IsEnabled)
             {
-                if(Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "CryonicOre").Item.type)
+                if(Projectile.ai[1] == CalamityMod.GetModItem("CryonicOre"))
                 {
                     SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
 					float num36 = 0.783f;
@@ -518,18 +519,18 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     }
                     return;
                 }
-                else if (Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "ChaoticOre").Item.type)
+                else if (Projectile.ai[1] == CalamityMod.GetModItem("ChaoticOre"))
                 {
                     SoundEngine.PlaySound(SoundID.Item74, Projectile.position);
-                    int projtype = ModSupport.GetModProjectile("CalamityMod", "ChaosBlaze").Projectile.type;
+                    int projtype = CalamityMod.GetModProjectileType("ChaosBlaze");
 					int p = NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, projtype, Projectile.damage / 3, 1f, Projectile.owner, 0f, 0f);
                     Main.projectile[p].DamageType = DamageClass.Ranged;
 					return;
                 }
-                else if(Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "CharredOre").Item.type)
+                else if(Projectile.ai[1] == CalamityMod.GetModItem("CharredOre"))
                 {
 					Vector2 vector5 = new Vector2(Projectile.position.X, Projectile.position.Y);
-                    int num40 = ModSupport.GetModProjectile("CalamityMod", "BrimstoneHellblast").Projectile.type;
+                    int num40 = CalamityMod.GetModProjectileType("BrimstoneHellblast");
                     float num35 = Projectile.velocity.X;
                     float num37 = Projectile.velocity.Y;
                     for (int m = 0; m < 6; m++)
@@ -549,7 +550,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     float num46 = 6f;
                     for (int n = 0; n < 6; n++)
                     {
-                        int projtype = ModSupport.GetModProjectile("CalamityMod", "BrimstoneBarrage").Projectile.type;
+                        int projtype = CalamityMod.GetModProjectileType("BrimstoneBarrage");
                         double num47 = num44 + num45 * (n + n * n) / 2.0 + 32f * n + 0.5f * Main.rand.NextDouble();
                         int id1 = NewProjectile(vector5.X, vector5.Y, (float)(Math.Sin(num47) * num46), (float)(Math.Cos(num47) * num46), projtype, Projectile.damage, 0f, Projectile.owner, 1f, 0f);
                         int id2 = NewProjectile(vector5.X, vector5.Y, (float)(-(float)Math.Sin(num47) * (double)num46), (float)(-(float)Math.Cos(num47) * (double)num46), projtype, Projectile.damage, 0f, Projectile.owner, 1f, 0f);
@@ -562,14 +563,14 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     }
                     return;
                 }
-                else if(Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "PerennialOre").Item.type)
+                else if(Projectile.ai[1] == CalamityMod.GetModItem("PerennialOre"))
                 {
-                    int projtype = ModSupport.GetModProjectile("CalamityMod", "ReaverBlast").Projectile.type;
+                    int projtype = CalamityMod.GetModProjectileType("ReaverBlast");
                     int id = NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, projtype, Projectile.damage, 0f, Projectile.owner, 0f, 0f);
                     Main.projectile[id].DamageType = DamageClass.Ranged;
                     return;
                 }
-                else if(Projectile.ai[1] == ModSupport.GetModItem("CalamityMod", "UelibloomOre").Item.type)
+                else if(Projectile.ai[1] == CalamityMod.GetModItem("UelibloomOre"))
                 {
                     int num21 = Main.rand.Next(2, 4);
 					for (int i = 0; i < num21; i++)
@@ -903,9 +904,9 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 
                 if(Projectile.velocity.Length() < 10f) Projectile.velocity = 10 * Vector2.Normalize(Projectile.velocity);
             }
-            else if(ModSupport.GetMod("CalamityMod") != null)
+            else if(CalamityMod.IsEnabled)
             {
-                if(k == ModSupport.GetModItem("CalamityMod", "AerialiteOre").Item.type)
+                if(k == CalamityMod.GetModItem("AerialiteOre"))
                 {
                     for (int i = 0; i < 4; i++)
 					{
@@ -920,20 +921,20 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 						num6 = num5 / num6;
 						num3 *= num6;
 						num4 *= num6;
-                        int projtype = ModSupport.GetModProjectile("CalamityMod", "StickyFeatherAero").Projectile.type;
+                        int projtype = CalamityMod.GetModProjectileType("StickyFeatherAero");
 						NewProjectile(num, num2, num3, num4, projtype, Projectile.damage, 1f, Projectile.owner, 0f, 0f);
 					}
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "CryonicOre").Item.type)
+                else if(k == CalamityMod.GetModItem("CryonicOre"))
                 {
                     target.AddBuff(BuffID.OnFire, 240, false);
                     target.AddBuff(BuffID.Frostburn, 240, false);
-                    int bufftype = ModSupport.GetModBuff("CalamityMod", "GlacialState").Type;
+                    int bufftype = CalamityMod.GetModBuffType("GlacialState");
                     target.AddBuff(bufftype, 120, false);
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "AstralOre").Item.type)
+                else if(k == CalamityMod.GetModItem("AstralOre"))
                 {
-                    int bufftype = ModSupport.GetModBuff("CalamityMod", "AstralInfectionDebuff").Type;
+                    int bufftype = CalamityMod.GetModBuffType("AstralInfectionDebuff");
                     target.AddBuff(bufftype, 360, false);
                     for (int j = 0; j < 6; j++)
 					{
@@ -947,7 +948,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 						int num18 = Main.rand.Next(3);
 						if (num18 == 0)
 						{
-							num18 = ModSupport.GetModProjectile("CalamityMod", "AstralStar").Projectile.type;
+							num18 = CalamityMod.GetModProjectileType("AstralStar");
 						}
 						else if (num18 == 1)
 						{
@@ -966,16 +967,16 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.projectile[num20].noDropItem = true;
 					}
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "ChaoticOre").Item.type)
+                else if(k == CalamityMod.GetModItem("ChaoticOre"))
                 {
                     target.AddBuff(BuffID.OnFire, 720, false);
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "CharredOre").Item.type)
+                else if(k == CalamityMod.GetModItem("CharredOre"))
                 {
-                    int bufftype = ModSupport.GetModBuff("CalamityMod", "BrimstoneFlames").Type;
+                    int bufftype = CalamityMod.GetModBuffType("BrimstoneFlames");
                     target.AddBuff(bufftype, 720, false);
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "PerennialOre").Item.type)
+                else if(k == CalamityMod.GetModItem("PerennialOre"))
                 {
                     SoundEngine.PlaySound(SoundID.NPCHit1, Projectile.position);
 					float num46 = 0.783f;
@@ -996,7 +997,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.projectile[num53].localNPCHitCooldown = 60;
                     }
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "UelibloomOre").Item.type)
+                else if(k == CalamityMod.GetModItem("UelibloomOre"))
                 {
                     int num3 = 9 + Main.rand.Next(3);
                     for (int i = 0; i < num3; i++)
@@ -1021,7 +1022,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         }
                         if(Main.bloodMoon)
                         {
-                            int droptype = ModSupport.GetModItem("CalamityMod", "BloodOrb").Item.type;
+                            int droptype = CalamityMod.GetModItem("BloodOrb");
                             itemcreat = Item.NewItem(Projectile.GetSource_DropAsItem(), (int)target.position.X, (int)target.position.Y, 16, 16, droptype, 1, false, 0, false, false);
                             if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                             {
@@ -1030,12 +1031,14 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         }
                     }
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "ExodiumClusterOre").Item.type)
+                else if(k == CalamityMod.GetModItem("ExodiumClusterOre"))
                 {
-                    int bufftype1 = ModSupport.GetModBuff("CalamityMod", "Horror").Type;
-                    int bufftype2 = ModSupport.GetModBuff("CalamityMod", "MarkedforDeath").Type;
+                    int bufftype1 = CalamityMod.GetModBuffType("Horror");
+                    int bufftype2 = CalamityMod.GetModBuffType("MarkedforDeath");
                     target.AddBuff(bufftype1, 240, false);
                     target.AddBuff(bufftype2, 240, false);
+                    //TODO: What the fuck is this piece of shit
+                    /*
                     if(!target.immortal)
                     {
                         int rangedLevel = (int)ModSupport.GetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "rangedLevel", false, false);
@@ -1045,28 +1048,27 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                             ModSupport.SetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "rangedLevel", rangedLevel, false, false);
                         }
                     }
-                    bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
-                    if(revenge)
+                    if(CalamityMod.IsRevengance)
                     {
-                        bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
                         int stress = (int)ModSupport.GetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "stress", false, false);
                         bool rageMode = (bool)ModSupport.GetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "rageMode", false, false);
                         int adrenaline = (int)ModSupport.GetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "adrenaline", false, false);
                         bool adrenalineMode = (bool)ModSupport.GetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "adrenalineMode", false, false);
                         if(stress < 10000 && !rageMode)
                         {
-                            stress += Death? 350 : 150;
+                            stress += CalamityMod.IsDeath ? 350 : 150;
                             ModSupport.SetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "stress", stress, false, false);
                         }
                         if(adrenaline < 10000 && !adrenalineMode)
                         {
-                            adrenaline += Death? 350 : 150;
+                            adrenaline += CalamityMod.IsDeath ? 350 : 150;
                             ModSupport.SetModPlayerConditions("CalamityMod", Main.player[Projectile.owner], "CalamityPlayer", "adrenaline", adrenaline, false, false);
                         }
                     }
+                    */
                     return;
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "AuricOre").Item.type)
+                else if(k == CalamityMod.GetModItem("AuricOre"))
                 {
                     float num2 = Main.rand.Next(22, 30);
                     int num6 = 4;
@@ -1083,7 +1085,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         num4 *= num5;
                         float num7 = num3 + Main.rand.Next(-360, 361) * 0.02f;
                         float num8 = num4 + Main.rand.Next(-360, 361) * 0.02f;
-                        int projtype = ModSupport.GetModProjectile("CalamityMod", "ElementBall").Projectile.type;
+                        int projtype = CalamityMod.GetModProjectileType("ElementBall");
                         NewProjectile(vector.X, vector.Y, num7, num8, projtype, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, Main.rand.Next(3));
                     }
                 }
@@ -1130,9 +1132,9 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     Main.dust[num292].noGravity = true;
                 };
             }
-            else if(ModSupport.GetMod("CalamityMod") != null)
+            else if(CalamityMod.IsEnabled)
             {
-                if(k == ModSupport.GetModItem("CalamityMod", "AerialiteOre").Item.type)
+                if(k == CalamityMod.GetModItem("AerialiteOre"))
                 {
                     for (int num291 = 0; num291 < 5; num291++)
                     {
@@ -1141,7 +1143,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.dust[num292].noGravity = true;
                     };
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "CryonicOre").Item.type)
+                else if(k == CalamityMod.GetModItem("CryonicOre"))
                 {
                     for (int num291 = 0; num291 < 5; num291++)
                     {
@@ -1150,17 +1152,17 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.dust[num292].noGravity = true;
                     };
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "AstralOre").Item.type)
+                else if(k == CalamityMod.GetModItem("AstralOre"))
                 {
                     for (int num291 = 0; num291 < 5; num291++)
                     {
-                        int dustType = ModSupport.GetModDust("Calamity", "AstralChunkDust").Type;
+                        int dustType = CalamityMod.AstralChunkDust;
                         int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100);
                         Main.dust[num292].velocity *= 2f;
                         Main.dust[num292].noGravity = true;
                     };
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "ChaoticOre").Item.type)
+                else if(k == CalamityMod.GetModItem("ChaoticOre"))
                 {
                     for (int num291 = 0; num291 < 5; num291++)
                     {
@@ -1169,7 +1171,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.dust[num292].noGravity = true;
                     };
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "CharredOre").Item.type)
+                else if(k == CalamityMod.GetModItem("CharredOre"))
                 {
                     for (int num291 = 0; num291 < 5; num291++)
                     {
@@ -1178,7 +1180,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.dust[num292].noGravity = true;
                     };
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "PerennialOre").Item.type)
+                else if(k == CalamityMod.GetModItem("PerennialOre"))
                 {
                     for (int num291 = 0; num291 < 3; num291++)
                     {
@@ -1186,7 +1188,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.dust[num292].noGravity = true;
                     };
                 }
-                else if(k == ModSupport.GetModItem("CalamityMod", "UelibloomOre").Item.type)
+                else if(k == CalamityMod.GetModItem("UelibloomOre"))
                 {
                     for (int num291 = 0; num291 < 2; num291++)
                     {

@@ -35,8 +35,8 @@ namespace AAModClassic.CrossMod.Overhaul
             if (player.itemAnimation > 0)
             {
                 // JUST attacked
-                bool onAttackFrame = player.itemAnimation == player.itemAnimationMax - 1; 
-                if(ModSupport.GetMod("TerrariaOverhaul") != null)
+                bool onAttackFrame = player.itemAnimation == player.itemAnimationMax - 1;
+                if(ModLoader.TryGetMod("TerrariaOverhaul", out _))
                 { onAttackFrame = player.itemAnimation == player.itemAnimationMax - 2; }
 
                 if (onAttackFrame)

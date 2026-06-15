@@ -67,7 +67,7 @@ Grants 1 soul essence on direct hit"); */
 
         public override void UpdateInventory(Player player)
         {
-            if (ModSupport.GetMod("ThoriumMod") == null)
+            if (!ModLoader.TryGetMod("ThoriumMod", out _))
             {
                 Item.TurnToAir();
             }
@@ -96,7 +96,7 @@ Grants 1 soul essence on direct hit"); */
 
         public override void AddRecipes()
         {
-            if (ModSupport.GetMod("ThoriumMod") == null) return;
+            if (!ModLoader.TryGetMod("ThoriumMod", out _)) return;
             Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IceSickle);
             recipe.AddIngredient(ItemID.AdamantiteBar, 8);

@@ -36,7 +36,7 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void SetDefaults(NPC npc)
         {
-            if (ModSupport.GetMod("CalamityMod") != null)
+            if(CalamityMod.IsEnabled)
 			{
                 if(npc.type == ModContent.NPCType<Athena>()) CalamityDR = 0.8f;
                 if(npc.type == ModContent.NPCType<OlympianDragon>()) CalamityDR = 0.8f;
@@ -112,27 +112,26 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
-            if (ModSupport.GetMod("CalamityMod") != null)
+            if(CalamityMod.IsEnabled)
 			{
-                if (npc.realLife > 0 && Main.npc[npc.realLife].GetGlobalNPC<CalamityGlobalNPC>().CalamityDR < 1f) CalamityDR = Main.npc[npc.realLife].GetGlobalNPC<CalamityGlobalNPC>().CalamityDR;
+                if (npc.realLife > 0 && Main.npc[npc.realLife].GetGlobalNPC<CalamityGlobalNPC>().CalamityDR < 1f)
+                    CalamityDR = Main.npc[npc.realLife].GetGlobalNPC<CalamityGlobalNPC>().CalamityDR;
             }
         }
 
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
 		{
-            if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
+            if(CalamityMod.IsEnabled)
 			{
                 if (npc.type >= NPCID.Count && npc.ModNPC.Mod == AAMod.instance && npc.boss)
                 {
-                    bool revenge = (bool)calamity.Call("GetDifficultyActive", "revengeance");
-                    bool Death = (bool)calamity.Call("GetDifficultyActive", "death");
                     if(!NPC.downedMoonlord)
                     {
-                        modifiers.IncomingDamageMultiplier *= (1.1f + (revenge? 0.2f:0f) + (Death? 0.3f:0f));
+                        modifiers.IncomingDamageMultiplier *= (1.1f + (CalamityMod.IsRevengance ? 0.2f:0f) + (CalamityMod.IsDeath ? 0.3f:0f));
                     }
                     else
                     {
-                        modifiers.IncomingDamageMultiplier *= (1.2f + (revenge? 0.4f:0f) + (Death? 0.6f:0f));
+                        modifiers.IncomingDamageMultiplier *= (1.2f + (CalamityMod.IsRevengance ? 0.4f:0f) + (CalamityMod.IsDeath ? 0.6f:0f));
                     }
                 }
             }
@@ -140,18 +139,18 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
-            if (ModSupport.GetMod("CalamityMod") != null)
+            if(CalamityMod.IsEnabled)
 			{
                 if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == AAMod.instance)
                 {
-                    if (item.type > ItemID.Celeb2 && item.ModItem.Mod == ModLoader.GetMod("CalamityMod"))
+                    if (item.type >= ItemID.Count && item.ModItem.Mod.Name == "CalamityMod")
                     {
                         modifiers.TargetDamageMultiplier *= CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f);
                     }
                 }
-                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
+                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod.Name == "CalamityMod")
                 {
-                    if (item.type > ItemID.Celeb2 && item.ModItem.Mod == AAMod.instance)
+                    if (item.type >= ItemID.Count && item.ModItem.Mod == AAMod.instance)
                     {
                         modifiers.TargetDamageMultiplier *= (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f);
                     }
@@ -161,16 +160,16 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
 		{
-            if (ModSupport.GetMod("CalamityMod") != null)
+            if(CalamityMod.IsEnabled)
 			{
                 if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == AAMod.instance)
                 {
-                    if (projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == ModSupport.GetMod("CalamityMod"))
+                    if (projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod.Name == "CalamityMod")
                     {
                         modifiers.TargetDamageMultiplier *= CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f);
                     }
                 }
-                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == ModSupport.GetMod("CalamityMod"))
+                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod.Name == "CalamityMod")
                 {
                     if (projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == AAMod.instance)
                     {
@@ -185,19 +184,17 @@ namespace AAModClassic.CrossMod.CalamityMod
     {
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers)
 		{
-            if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
+            if(CalamityMod.IsEnabled)
             {
                 if (projectile.hostile && !projectile.friendly && projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == AAMod.instance)
                 {
-                    bool revenge = (bool)calamity.Call("GetDifficultyActive", "revengeance");
-                    bool Death = (bool)calamity.Call("GetDifficultyActive", "death");
                     if (!NPC.downedMoonlord)
                     {
-                        modifiers.IncomingDamageMultiplier *= (1.1f + (revenge ? 0.2f : 0f) + (Death ? 0.3f : 0f));
+                        modifiers.IncomingDamageMultiplier *= (1.1f + (CalamityMod.IsRevengance ? 0.2f : 0f) + (CalamityMod.IsDeath ? 0.3f : 0f));
                     }
                     else
                     {
-                        modifiers.IncomingDamageMultiplier *= (1.2f + (revenge ? 0.4f : 0f) + (Death ? 0.6f : 0f));
+                        modifiers.IncomingDamageMultiplier *= (1.2f + (CalamityMod.IsRevengance ? 0.4f : 0f) + (CalamityMod.IsDeath ? 0.6f : 0f));
                     }
                 }
             }

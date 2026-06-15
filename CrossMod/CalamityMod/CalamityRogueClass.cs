@@ -15,11 +15,14 @@ namespace AAModClassic.CrossMod.CalamityMod
 		public override void SetDefaults()
 		{
 			SafeSetDefaults();
-			Item.DamageType = DamageClass.Throwing;
+			Item.DamageType = CalamityMod.IsEnabled ? CalamityMod.RogueClass : DamageClass.Throwing;
 		}
+
+		//TODO: These are terrifying and I would hope are not actually needed... I really hope.
+		/*
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
 		{
-			if (ModSupport.GetMod("CalamityMod") != null)
+			if(CalamityMod.IsEnabled)
 			{
 				float throwingDamage = (float) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingDamage", false, false);
                 damage.Flat += throwingDamage - 1f;
@@ -27,7 +30,7 @@ namespace AAModClassic.CrossMod.CalamityMod
 		}
 		public override void ModifyWeaponCrit(Player player, ref float crit)
 		{
-			if (ModSupport.GetMod("CalamityMod") != null)
+			if(CalamityMod.IsEnabled)
 			{
 				int throwingCrit = (int) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingCrit", false, false);
 				crit = Item.crit + throwingCrit;
@@ -36,7 +39,7 @@ namespace AAModClassic.CrossMod.CalamityMod
 		public override float UseTimeMultiplier(Player player)
 		{
 			float num = 1f;
-			if (ModSupport.GetMod("CalamityMod") != null)
+			if(CalamityMod.IsEnabled)
 			{
 				bool gloveOfPrecision = (bool) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "gloveOfPrecision", false, false);
 				bool gloveOfRecklessness = (bool) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "gloveOfRecklessness", false, false);
@@ -51,17 +54,15 @@ namespace AAModClassic.CrossMod.CalamityMod
 			}
 			return num;
 		}
-		public override void ModifyTooltips(List<TooltipLine> tooltips)
+		*/
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			if (ModSupport.GetMod("CalamityMod") != null)
+			if(CalamityMod.IsEnabled)
 			{
 				TooltipLine tooltipLine = tooltips.FirstOrDefault((TooltipLine x) => x.Name == "Damage" && x.Mod == "Terraria");
 				if (tooltipLine != null)
 				{
-					string[] source = tooltipLine.Text.Split(new char[]
-					{
-						' '
-					});
+					string[] source = tooltipLine.Text.Split(' ');
 					string str = source.First();
 					string str2 = source.Last();
 					tooltipLine.Text = str + " rogue " + str2;
@@ -76,9 +77,12 @@ namespace AAModClassic.CrossMod.CalamityMod
                 tooltips.Add(error);
 			}
 		}
+
+		//TODO: See above, though this one might be needed. However calamity doesnt do consumable rogue weapons anymore sooooooooooooooo
+		/*
 		public override bool ConsumeItem(Player player)
 		{
-			if (ModSupport.GetMod("CalamityMod") != null)
+			if(CalamityMod.IsEnabled)
 			{
 				bool throwingAmmoCost50 = (bool) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingAmmoCost50", false, false);
 				bool throwingAmmoCost66 = (bool) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingAmmoCost66", false, false);
@@ -86,15 +90,18 @@ namespace AAModClassic.CrossMod.CalamityMod
 			}
 			return base.ConsumeItem(player);
 		}
+		*/
     }
 
 	public class RoguePlayer : ModPlayer
 	{
-		public float throwingDamage
+        //TODO: See above, like why would you need these.
+        /*
+		public float ThrowingDamage
         {
 			get
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
+				if(CalamityMod.IsEnabled)
                 {
                     float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingDamage", false, false);
                     if (stealth != null) return (float)stealth;
@@ -103,38 +110,18 @@ namespace AAModClassic.CrossMod.CalamityMod
 			}
 			set
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
+				if(CalamityMod.IsEnabled)
                 {
 					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingDamage", value, false, false);
 				}
 			}
 		}
 
-		public float throwingVelocity
+		public int ThrowingCrit
         {
 			get
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingVelocity", false, false);
-                    if (stealth != null) return (float)stealth;
-                }
-                return 1f;
-			}
-			set
-			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealthMax", value, false, false);
-				}
-			}
-		}
-
-		public int throwingCrit
-        {
-			get
-			{
-				if (ModSupport.GetMod("CalamityMod") != null)
+				if(CalamityMod.IsEnabled)
                 {
                     int? stealth = (int?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingCrit", false, false);
                     if (stealth != null) return (int)stealth;
@@ -143,63 +130,55 @@ namespace AAModClassic.CrossMod.CalamityMod
 			}
 			set
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
+				if(CalamityMod.IsEnabled)
                 {
 					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingCrit", value, false, false);
 				}
 			}
 		}
+		*/
 
-		public float rogueStealth
+        public float ThrowingVelocity
         {
 			get
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealth", false, false);
-                    if (stealth != null) return (float)stealth;
-                }
-                return 0f;
-			}
+                if (CalamityMod.IsEnabled)
+                    return (float)CalamityMod.Call("GetRogueVelocity", Player);
+                return 0;
+            }
 			set
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealth", value, false, false);
-				}
-			}
+				if(CalamityMod.IsEnabled)
+                    CalamityMod.Call("AddRogueVelocity", Player, value - (float)CalamityMod.Call("GetRogueVelocity", Player));
+            }
 		}
 
-		public float rogueStealthMax
+		public float RogueStealth
         {
-			get
-			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealthMax", false, false);
-                    if (stealth != null) return (float)stealth;
-                }
-                return 0f;
-			}
-			set
-			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealthMax", value, false, false);
-				}
-			}
-		}
+            get
+            {
+                if (CalamityMod.IsEnabled)
+                    return (float)CalamityMod.Call("GetCurrentStealth", Player);
+                return 0;
+            }
+        }
+
+		public float RogueStealthMax
+        {
+            get
+            {
+                if (CalamityMod.IsEnabled)
+                    return (float)CalamityMod.Call("GetMaxStealth", Player);
+                return 0;
+            }
+        }
 
 		public bool StealthStrikeAvailable
         {
 			get
 			{
-				if (ModSupport.GetMod("CalamityMod") != null)
-                {
-					Mod mod = ModSupport.GetMod("CalamityMod");
-					
-                    return (bool)mod.Call("CanStealthStrike", Player);
-                }
+				if(CalamityMod.IsEnabled)
+                    return (bool)CalamityMod.Call("CanStealthStrike", Player);
                 return false;
 			}
 		}
@@ -213,10 +192,9 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void SetDefaults(Item item)
 		{
-			if (ModLoader.TryGetMod("CalamityMod", out var calamity))
+			if(CalamityMod.IsEnabled)
 			{
-				DamageClass rogueClass = calamity.Find<DamageClass>("RogueDamageClass");
-				rogue = item.CountsAsClass(rogueClass);
+				rogue = item.CountsAsClass(CalamityMod.RogueClass);
 				//ModSupport.SetModGlobalItemConditions("CalamityMod", item, "CalamityGlobalItem", "rogue", true, false, false);
 			}
 		}
@@ -230,10 +208,9 @@ namespace AAModClassic.CrossMod.CalamityMod
 		public bool stealthStrike = false;
         public override void SetDefaults(Projectile projectile)
 		{
-            if (ModLoader.TryGetMod("CalamityMod", out var calamity))
+            if(CalamityMod.IsEnabled)
             {
-                DamageClass rogueClass = calamity.Find<DamageClass>("RogueDamageClass");
-                rogue = projectile.CountsAsClass(rogueClass);
+                rogue = projectile.CountsAsClass(CalamityMod.RogueClass);
                 //ModSupport.SetModGlobalProjConditions("CalamityMod", projectile, "CalamityGlobalProjectile", "rogue", true, false, false);
             }
 		}

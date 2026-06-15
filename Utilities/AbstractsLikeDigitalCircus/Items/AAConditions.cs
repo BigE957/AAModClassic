@@ -32,5 +32,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             public bool CanShowItemDropInUI() => !Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             public string GetConditionDescription() => Language.GetTextValue("Bestiary_ItemDropConditions.NotExpert");
         }
+
+        public class RevOrMaster : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => Main.masterMode || ();
+            public bool CanShowItemDropInUI() => Main.masterMode;
+            public string GetConditionDescription() => null;
+        }
     }
 }

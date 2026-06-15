@@ -515,7 +515,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         elegibleAttacks.Add(RajahAttacks.FluffyFury);
                         elegibleAttacks.Add(RajahAttacks.RabbitsWrath);
                     }
-                    if (ModSupport.GetMod("ThoriumMod") != null)
+                    if (ModLoader.TryGetMod("ThoriumMod", out _))
                         elegibleAttacks.Add(RajahAttacks.CarrotFarmer);
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         elegibleAttacks.Add(RajahAttacks.ThePunisher);
@@ -1193,7 +1193,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahPelt>(), 1, 10, 26));
 
             List<int> lootTable = [ ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<RabbitcopterEars>() ];
-            if (ModSupport.GetMod("ThoriumMod") != null)
+            if (ModLoader.TryGetMod("ThoriumMod", out _))
                 lootTable.Add(ModContent.ItemType<CarrotFarmer>());
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable.ToArray()));
