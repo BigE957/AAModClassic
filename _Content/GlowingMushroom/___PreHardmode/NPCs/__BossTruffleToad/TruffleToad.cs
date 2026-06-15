@@ -1,10 +1,12 @@
-﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -16,6 +18,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos.BaseGripOfChaos;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {
@@ -618,6 +621,12 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TruffleToadTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TruffleToadRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TruffleToadTrophy>(), 10));
 

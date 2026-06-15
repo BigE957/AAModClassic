@@ -1,10 +1,12 @@
-﻿using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -19,6 +21,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer
@@ -785,9 +788,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DaybringerTrophy>(), 10));
-
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new LastWormInMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EquinoxWormsRelic>()));
+
+            npcLoot.Add(masterMode);
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DaybringerTrophy>(), 10));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
@@ -801,6 +810,24 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 
             npcLoot.Add(starGenned);
             npcLoot.Add(notExpert);
+        }
+
+        public class LastWormInMaster : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                if (!Main.masterMode && !CalamityMod.IsRevengance)
+                    return false;
+
+                int type = ModContent.NPCType<DaybringerHead>();
+                if (info.npc.type == ModContent.NPCType<NightcrawlerHead>())
+                    type = ModContent.NPCType<DaybringerHead>();
+
+                return !NPC.AnyNPCs(type);
+            }
+
+            public bool CanShowItemDropInUI() => Main.masterMode || CalamityMod.IsRevengance;
+            public string GetConditionDescription() => CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Condition.RevOrMM") : Language.GetTextValue("Mods.AAModClassic.Common.Conditions.IsMaster");
         }
 
         public class RadiumStarsGenerated : IItemDropRuleCondition, IProvideItemConditionDescription

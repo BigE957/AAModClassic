@@ -74,6 +74,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<InfernoGripTrophy>(), 10));
 
+            LeadingConditionRule masterMode = new(new MissingGripMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripsOfChaosRelic>()));
+
+            npcLoot.Add(masterMode);
+
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
             notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IncineriteOre>(), 1, 30, 44));

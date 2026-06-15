@@ -4,6 +4,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Achievements;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -52,6 +53,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MireGripTrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new MissingGripMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripsOfChaosRelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 

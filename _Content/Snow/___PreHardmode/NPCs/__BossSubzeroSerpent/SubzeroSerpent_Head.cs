@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
@@ -8,6 +9,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -868,6 +870,12 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SubzeroSerpentTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SubzeroSerpentTrophy>(), 10));
 

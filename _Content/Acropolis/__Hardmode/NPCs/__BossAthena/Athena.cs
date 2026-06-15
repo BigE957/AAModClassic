@@ -9,6 +9,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -614,6 +615,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AthenaRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaTrophy>(), 10));
 

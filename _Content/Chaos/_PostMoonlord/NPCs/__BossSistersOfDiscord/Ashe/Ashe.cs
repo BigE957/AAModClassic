@@ -7,6 +7,7 @@ using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfD
 using AAModClassic.Achievements;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -584,6 +585,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
+            LeadingConditionRule masterMode = new(new MissingSisterInMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SistersOfDiscordRelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AsheTrophy>(), 10));
 
             LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
@@ -599,6 +606,24 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             npcLoot.Add(notExpert);
+        }
+
+        public class MissingSisterInMaster : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                if (!Main.masterMode && !CalamityMod.IsRevengance)
+                    return false;
+
+                int type = ModContent.NPCType<Ashe>();
+                if (info.npc.type == ModContent.NPCType<Ashe>())
+                    type = ModContent.NPCType<Haruka.Haruka>();
+
+                return !NPC.AnyNPCs(type);
+            }
+
+            public bool CanShowItemDropInUI() => Main.masterMode || CalamityMod.IsRevengance;
+            public string GetConditionDescription() => CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Condition.RevOrMM") : Language.GetTextValue("Mods.AAModClassic.Common.Conditions.IsMaster");
         }
 
         public class MissingSister : IItemDropRuleCondition, IProvideItemConditionDescription

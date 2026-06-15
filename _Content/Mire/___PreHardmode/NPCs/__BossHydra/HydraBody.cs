@@ -8,6 +8,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -98,6 +99,12 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HydraTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraTrophy>(), 10));
 

@@ -2,6 +2,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -416,6 +417,24 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             }
             public bool CanShowItemDropInUI() => !Main.expertMode;
             public string GetConditionDescription() => Language.GetTextValue("Bestiary_ItemDropConditions.NotExpert");
+        }
+
+        public class MissingGripMaster : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                if (!Main.masterMode && !CalamityMod.IsRevengance)
+                    return false;
+
+                int type = ModContent.NPCType<GripOfChaosMire>();
+                if (info.npc.type == ModContent.NPCType<GripOfChaosMire>())
+                    type = ModContent.NPCType<GripOfChaosInferno>();
+
+                return !NPC.AnyNPCs(type);
+            }
+
+            public bool CanShowItemDropInUI() => Main.masterMode || CalamityMod.IsRevengance;
+            public string GetConditionDescription() => CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Condition.RevOrMM") : Language.GetTextValue("Mods.AAModClassic.Common.Conditions.IsMaster");
         }
     }
 }

@@ -11,6 +11,7 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -823,6 +824,12 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AnubisTrophy>(), 10));
 

@@ -260,4 +260,14 @@ Relic: {
 		DisplayName: Zero Relic
 		Tooltip: ""
 	}
+
+	RajahRabbitRelic: {
+		DisplayName: Rajah Rabbit Relic
+		Tooltip: ""
+	}
+
+	RajahRabbitARelic: {
+		DisplayName: Rajah Rabbit A Relic
+		Tooltip: ""
+	}
 }

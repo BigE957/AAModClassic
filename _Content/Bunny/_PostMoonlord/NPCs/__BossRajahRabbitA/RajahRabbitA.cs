@@ -58,6 +58,12 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahRabbitATreasureBag>()));
 
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitARelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitTrophy>(), 10));
 
             LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());

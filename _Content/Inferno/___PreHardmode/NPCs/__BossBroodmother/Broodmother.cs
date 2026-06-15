@@ -9,6 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -141,6 +142,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodmotherTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherTrophy>(), 10));
 

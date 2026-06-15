@@ -194,6 +194,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
+            LeadingConditionRule masterMode = new(new MissingSisterInMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SistersOfDiscordRelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HarukaTrophy>(), 10));
 
             LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());

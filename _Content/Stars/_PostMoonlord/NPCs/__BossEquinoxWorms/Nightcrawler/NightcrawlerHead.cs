@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumab
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -48,9 +49,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NightcrawlerTrophy>(), 10));
-
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
+
+            LeadingConditionRule masterMode = new(new LastWormInMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EquinoxWormsRelic>()));
+
+            npcLoot.Add(masterMode);
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NightcrawlerTrophy>(), 10));
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
