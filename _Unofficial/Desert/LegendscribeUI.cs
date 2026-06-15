@@ -60,9 +60,11 @@ namespace AAModClassic._Unofficial.Desert
         internal static UIList QuestTasksList;
         internal static UIScrollbar QuestTasksScrollBar;
 
+        /*
         internal static UITextPanel<string> QuestRewardsHeader;
         internal static UIPanel QuestRewardsArea;
         internal static List<UIPanel> QuestRewards;
+        */
 
         internal static UIPanel MouseTextPanel;
         internal static UIText MouseText;
@@ -293,6 +295,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestDetailsArea.Append(QuestTasksArea);
             #endregion
 
+            /*
             #region Quest Rewards Header
             QuestRewardsHeader = new("Rewards", 0.66f, true)
             {
@@ -321,7 +324,8 @@ namespace AAModClassic._Unofficial.Desert
 
             QuestDetailsArea.Append(QuestRewardsArea);
             #endregion
-
+            */
+            
             Area.Append(QuestDetailsArea);
 
             Append(Area);
@@ -480,6 +484,7 @@ namespace AAModClassic._Unofficial.Desert
                     line.Color = CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.Navy : Color.SeaGreen;
             }
 
+            /*
             var RewardsList = CurrentQuest == null ? null : CurrentQuest.EverTurnedIn && CurrentQuest.RepeatRewards != null ? CurrentQuest.RepeatRewards : CurrentQuest.Rewards;
 
             if (RewardsList != null)
@@ -532,6 +537,7 @@ namespace AAModClassic._Unofficial.Desert
                     }
                 }
             }
+            */
 
             #region Mouse Text Updates
             if (MouseText.Text != "")
@@ -626,9 +632,10 @@ namespace AAModClassic._Unofficial.Desert
                     QuestTasksArea.Append(QuestTasksScrollBar);
             }
 
-            UpdateRewardsArea();
+            //UpdateRewardsArea();
         }
 
+        /*
         private static void UpdateRewardsArea(bool forceToRepeatable = false)
         {
             QuestRewards.Clear();
@@ -673,6 +680,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
             }
         }
+        */
 
         private static void UpdateTasksText()
         {
