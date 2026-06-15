@@ -15,7 +15,7 @@ Ancients Awakened: Classic features the original mod's:
 		* The Mire, a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
 	- The Void: Floating Islands at the top right of the world. Nothing is there, there is no reason to go there (Or is there?)
 	- The Terrarium: A crystal biosphere safe from the ever-corrupting world around you.
-- Cross-Mod content with GRealm and Thorium
+- Cross-Mod content with Thorium
 - Fargo's Mutant Mod and Calamity Mod support
 - Unique soundtrack
 
