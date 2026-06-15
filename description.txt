@@ -23,21 +23,23 @@ Additionally, Ancients Awakened: Classic features new World Generation options t
 - Removed: Brings back older content from previous versions of the mod that were removed over the course of development:
 	- Techno Truffle: A cybernetic mushroom menace created by the enigmatic Fulgarians, it combines moves from both the Mushroom Monarch and Feudal Fungus.
 	- The Siege Mechs: This trio of bosses fought around the same time as the vanilla Mechanical Bosses,
-		* The Retriever: A cybernetic Grip of Chaos.
-		* Orthrus X: A cybernetic version of the Hydra.
-		* Raider Ultima: A cybernetic version of the Broodmother.
+		* The Retriever: A cybernetic Grip of Chaos that can move at high speeds.
+		* Orthrus X: A cybernetic version of the Hydra wielding high-power lasers.
+		* Raider Ultima: A cybernetic version of the Broodmother armed with devastating firepower.
 - Unreleased: Features new content never-before-seen in public versions of the mod. This content has been pulled from in-dev versions of Ancients Awakened:
-	- The Lost Keep: An underground citadel which was once the home of a legendary hero, it is the home of a slew of mysteries to be uncovered.
-		* The Biomite Core: The Lost Keep's defence mechanism which wields powers from every Biome, it can be challenged with the offering of a Biome Prism.
+	- The Lost Keep: An underground citadel which was once the home of a legendary hero, it holds a slew of mysteries to be uncovered.
+		* The Biomite Core: The Lost Keep's defence mechanism which wields powers from every Biome, it can be challenged by offering a Biome Prism.
 	- Anubis; Legendscribe: Anubis has been reworked with an all new fight! Only by paying careful attention to the runes he wields will you emerge victorious.
 	- Infinity Zero: Face the Void's Superancient, commanding 6 Zero Units and harboring an even more malicious presence.
-	- The Soul of Cthulhu: Awaken the Ocean's Superancient which lurks within the new Sunken Ship structure, and can call upon fearsome recreations of previous bosses.
+	- The Soul of Cthulhu: Awaken the Ocean's Superancient which lurks within the new Sunken Ship structure. It calls upon fearsome recreations of previous bosses.
 - Unofficial: Includes a handful of QoL changes, visual enhancements, and more created by the porting team to enhance the mod's experience:
 	- Boss Visual Improvements: Many bosses have been given visual enhancements to make them feel more alive and dynamic.
 	- Anubis Quest UI: Anubis' boss dialogue has been expanded into a full Quest UI, making it easier to follow along.
 	- And More!
 
-Note: Some tracks have been removed or replaced at the request of their original composers. Please respect their decision.
+Finally, Ancients Awakened: Classic aims to offer full compatibility with the new Ancients Awakened, disabling classic content that overlaps with new content to facilitate a smooth, complete playthrough with both enabled.
+
+Note: Some of the mod's tracks have been removed or replaced at the request of their original composers. Please respect their decision.
 
 Developers and Contributors behind this port:
 - Big E
