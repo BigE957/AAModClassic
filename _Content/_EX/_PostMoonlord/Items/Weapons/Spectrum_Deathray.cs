@@ -37,6 +37,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			target.immune[Projectile.owner] = 5;
 		}
 
+		//TODO: What? Huh? Wuh? Completely unused?
+		/*
         public float GetHue(float indexing)
         {
             string playerName;
@@ -112,6 +114,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             }
             return (int)indexing / 6f;
         }
+		*/
 
         public override void AI()
         {
