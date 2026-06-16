@@ -5,6 +5,7 @@ using AAModClassic._Content._Dev.__Hardmode.Items.Mounts;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Accessories.Vanity;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
@@ -65,6 +66,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
@@ -2606,306 +2608,305 @@ namespace AAModClassic
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<HallamBag>());
 
                         if (dropType >= 4)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("Prismeow" + addonEX).Type);
-                        }
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PrismeowSpectrum>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Prismeow>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 1:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BigEBag>());
-
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("AmphibianLongsword" + addonEX).Type);
-                        }
+                        
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ExquisiteExtravagantGreatblade>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ExtravagantLongsword>());
 
                         if (dropType >= 4)
-                        {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ExtravagantTerratool>());
-                        }
-
+                        
                         spawnedDevItems = true;
                         break;
-
                     case 2:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BegBag>());
 
-                        if (dropType >= 1)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MonochromeApple>());
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PoniumUltiscepter>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PoniumStaff>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("PoniumStaff" + addonEX).Type);
-                        }
+                        if (dropType >= 1)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MonochromeApple>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 3:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MaskanoBag>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 4:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CharlieBag>());
 
                         if (dropType >= 3)
-                        {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SoulSiphon>());
-                        }
-                        break;
-
-                        //TODO: does he not like have a bag?
-                    case 5:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsHelmet>());
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsChestplate>());
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsLeggings>());
-
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>(dropType == 4 ? "FreedomStar" : "MobianBuster").Type);
-                        }
 
                         spawnedDevItems = true;
                         break;
+                    case 5:
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsBag>());
 
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MobianBuster>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FreedomStar>());
+
+                        spawnedDevItems = true;
+                        break;
                     case 6:
                         if (dropType >= 3)
                         {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SkrallStaff>());
                             spawnedDevItems = true;
                         }
-
                         break;
-
                     case 7:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<DellyBag>());
 
+                        spawnedDevItems = true;
                         break;
-
                     case 8:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<DallinBag>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>(dropType == 4 ? "Chronos" : "TimeTeller").Type);
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TimeTeller>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Chronos>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 9:
-                        if (dropType >= 3)
+                        if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("TitanAxe" + addonEX).Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TitanSlayer>());
+                            spawnedDevItems = true;
+                        }
+                        else if (dropType >= 3)
+                        {
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TitanAxe>());
                             spawnedDevItems = true;
                         }
 
                         break;
-
                     case 10:
-                        if (dropType >= 3)
+                        if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("EnderStaff" + addonEX).Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ConflagrateScythe>());
+                            spawnedDevItems = true;
+                        }
+                        else if (dropType >= 3)
+                        {
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ConflagrateStaff>());
                             spawnedDevItems = true;
                         }
 
                         break;
-
                     case 12:
-
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AvesBag>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("DuckstepGun" + addonEX).Type);
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<DuckstepREMIX>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<DuckstepLauncher>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 13:
-
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TiedBag>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>(dropType == 4 ? "GentlemansLongblade" : "GentlemansRapier").Type);
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GentlemansLongblade>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GentlemansRapier>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 14:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MoonBag>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("Etheral" + addonEX).Type);
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Light>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Ethereal>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 15:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GroxBag>());
 
                         if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>(dropType == 4 ? "SoccStaff" : "SockStaff").Type);
-                        }
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SoccOnAStick>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SockStaff>());
 
                         if (dropType >= 4)
-                        {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GroviteTerratool>());
-                        }
 
                         spawnedDevItems = true;
                         break;
-
                     case 16:
 
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CCBag>());
 
                         if (dropType >= 2)
-                        {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CCRuneBookPage>());
-                        }
 
                         spawnedDevItems = true;
                         break;
-
                     case 17:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GibsBag>());
 
                         if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.NextBool(2) ? ModContent.ItemType<Skullshot>() : ModContent.ItemType<GibsFemur>());
-                        }
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.NextBool() ? ModContent.ItemType<Skullshot>() : ModContent.ItemType<GibsFemur>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 18:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ApawnBag>());
+
                         spawnedDevItems = true;
                         break;
-
                     case 19:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UniverseHelmet>());
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UniverseChestplate>());
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UniverseLeggings>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("CursedSickle" + addonEX).Type);
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TartarusReaper>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedSickle>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 20:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MikpinBag>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 21:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FargoBag>());
 
                         if (dropType >= 3)
-                        {
-                            if (Main.rand.NextBool(2))
-                            {
-                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("MagicAcorn" + addonEX).Type);
-                            }
-                            else
-                            {
-                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Placeholder>());
-                            }
-                        }
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.NextBool() ? ModContent.ItemType<MagicAcorn>() : ModContent.ItemType<Placeholder>());
 
                         spawnedDevItems = true;
                         break;
-
                     case 22:
 
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BlazenBag>());
 
-                        if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("ThunderLord" + addonEX).Type);
-                        }
+                        if (dropType >= 4)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ThunderLord>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<StormRifle>());
+
                         spawnedDevItems = true;
                         break;
-
                     case 23:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ItemID.ReaperHood);
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ItemID.ReaperRobe);
 
                         if (dropType >= 3)
-                        {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("GrimReaperScythe" + addonEX).Type);
-                        }
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SoulShredder>());
+                        else if (dropType >= 3)
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ScytheOfTheGrimReaper>());
+
                         spawnedDevItems = true;
                         break;
-
                     case 24:
                         if (dropType >= 2)
                         {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UmbralReaper>());
-                        }
-                        spawnedDevItems = true;
-                        break;
 
+                            spawnedDevItems = true;
+                        }
+                        break;
                     case 25:
-                        if (dropType >= 2)
+                        if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("FuryForger" + addonEX).Type);
-                        }
-                        spawnedDevItems = true;
-                        break;
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FuryGreatforger>());
 
+                            spawnedDevItems = true;
+                        }
+                        else if (dropType >= 2)
+                        {
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FuryForger>());
+
+                            spawnedDevItems = true;
+                        }
+
+                        break;
                     case 26:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CerberusBag>());
+
                         if (dropType >= 3)
-                        {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AleisterStaff>());
-                        }
+
                         spawnedDevItems = true;
                         break;
-
                     case 27:
                         if (dropType >= 2)
                         {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GameRaider>());
+
+                            spawnedDevItems = true;
                         }
-                        spawnedDevItems = true;
+
                         break;
                     case 28:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PlutoBag>());
+
+                        spawnedDevItems = true;
                         break;
                     case 29:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<VoidEyeBag>());
+
+                        spawnedDevItems = true;
                         break;
                     case 30:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AnarchyBag>());
+
+                        spawnedDevItems = true;
                         break;
                     case 31:
-                        if (dropType >= 3)
+                        if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("UmbreonSP" + addonEX).Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Umbra>());
+
+                            spawnedDevItems = true;
+                        }
+                        else if (dropType >= 3)
+                        {
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BladeOfNight>());
+
+                            spawnedDevItems = true;
                         }
                         break;
                     case 32:
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ShoxBag>());
-                        break;
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ShoxBag>());
 
+                        spawnedDevItems = true;
+                        break;
+                    case 33:
+                        if (dropType >= 1)
+                        {
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PineBreaker>());
+                            if (Main.zenithWorld)
+                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PlanterrorBag>());
+                            spawnedDevItems = true;
+                        }
+
+                        break;
                     default:
                         spawnedDevItems = false;
                         break;

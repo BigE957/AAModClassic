@@ -307,4 +307,9 @@ Vanity: {
 		DisplayName: Midnight Assassin Bag
 		Tooltip: ""
 	}
+
+	PlanterrorBag: {
+		DisplayName: Planterror Bag
+		Tooltip: ""
+	}
 }

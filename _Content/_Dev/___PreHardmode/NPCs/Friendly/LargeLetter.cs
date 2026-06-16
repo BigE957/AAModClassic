@@ -1,14 +1,16 @@
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Utilities;
-using Terraria.Localization;
+using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
+using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
-using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
+using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
+using AAModClassic.UI.WorldGen;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 {
@@ -151,7 +153,15 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<AvesBag>());
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                {
+                    // thrown randomly in middle cuz i feel like it
+					items[nextSlot] = new Item(ModContent.ItemType<PlanterrorBag>());
+                    items[nextSlot].shopCustomPrice = new int?(15);
+                    items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
+                    nextSlot++;
+                }
+                items[nextSlot] = new Item(ModContent.ItemType<AvesBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;

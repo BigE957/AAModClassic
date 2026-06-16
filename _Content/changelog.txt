@@ -51,6 +51,7 @@ base
 -terra armor melee armor set bonus now properly gives you melee speed instead of movement speed
 -most if not all set bonus and armor item descriptions have been rewritten for clarity and accuracy
 -cleaned up many mistakes with armor pieces and armor set bonuses listing effects but not giving them, having unlisted effects, giving duplicate effects, ect
+-multiple dev items can no longer drop from one boss bag
 -
 
 removed
@@ -102,6 +103,7 @@ unofficial
 -terra armor explosion effect is now centered
 -terra armor ranged set bullets now ignore gravity, making them hit their target much more often
 -terra armor summoner set crystal now has an associated buff
+-restored an unused dev set bag for planterror!
 -
 
 crossmod

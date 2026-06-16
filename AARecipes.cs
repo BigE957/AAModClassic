@@ -58,6 +58,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
@@ -1037,7 +1038,8 @@ namespace AAModClassic
                 ModContent.ItemType<MikpinBag>(),
                 ModContent.ItemType<TailsBag>(),
                 ModContent.ItemType<ShoxBag>(),
-                ModContent.ItemType<ApawnBag>()
+                ModContent.ItemType<ApawnBag>(),
+                ModContent.ItemType<PlanterrorBag>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DevBag", group23);
 
