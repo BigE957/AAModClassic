@@ -2609,7 +2609,7 @@ namespace AAModClassic
                 {
                     case 0:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MagiciansHat>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<HallamBag>());
 
                         if (dropType >= 4)
                         {
@@ -2652,7 +2652,7 @@ namespace AAModClassic
                         break;
 
                     case 3:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Maskano.MaskBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Maskano.MaskanoBag>());
 
                         spawnedDevItems = true;
                         break;
@@ -2668,9 +2668,9 @@ namespace AAModClassic
 
                         //TODO: does he not like have a bag?
                     case 5:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsHead>());
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsBody>());
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsLegs>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsHelmet>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsChestplate>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsLeggings>());
 
                         if (dropType >= 3)
                         {
@@ -2695,7 +2695,7 @@ namespace AAModClassic
                         break;
 
                     case 8:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FezLordsBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<DallinBag>());
 
                         if (dropType >= 3)
                         {
@@ -2737,7 +2737,7 @@ namespace AAModClassic
 
                     case 13:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Tied.OldMagiciansHat>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Tied.TiedBag>());
 
                         if (dropType >= 3)
                         {
@@ -2759,7 +2759,7 @@ namespace AAModClassic
                         break;
 
                     case 15:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Grox.GroviteSeaChest>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Grox.GroxBag>());
 
                         if (dropType >= 3)
                         {
@@ -2776,7 +2776,7 @@ namespace AAModClassic
 
                     case 16:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.CC.CCBox>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.CC.CCBag>());
 
                         if (dropType >= 2)
                         {
@@ -2798,14 +2798,14 @@ namespace AAModClassic
                         break;
 
                     case 18:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ApawnEgg>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ApawnBag>());
                         spawnedDevItems = true;
                         break;
 
                     case 19:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedHood>());
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedRobe>());
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedPants>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UniverseHelmet>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UniverseChestplate>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UniverseLeggings>());
 
                         if (dropType >= 3)
                         {
@@ -2816,13 +2816,13 @@ namespace AAModClassic
                         break;
 
                     case 20:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Mikpin.MikBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Mikpin.MikpinBag>());
 
                         spawnedDevItems = true;
                         break;
 
                     case 21:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Fargo.TopHat>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Fargo.FargoBag>());
 
                         if (dropType >= 3)
                         {
@@ -2878,7 +2878,7 @@ namespace AAModClassic
                         break;
 
                     case 26:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Cerberus.InvokerBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Cerberus.CerberusBag>());
                         if (dropType >= 3)
                         {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AleisterStaff>());
@@ -2897,7 +2897,7 @@ namespace AAModClassic
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Pluto.PlutoBag>());
                         break;
                     case 29:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.VoidEye.VoidBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.VoidEye.VoidEyeBag>());
                         break;
                     case 30:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Anarchy.AnarchyBag>());
@@ -4240,7 +4240,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateHood>()))
+                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxHelmet>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateHood_Head_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cHead, drawPlayer, drawPlayer.bodyFrame, drawPlayer.headRotation, drawPlayer.headPosition, drawInfo.headVect);
@@ -4260,7 +4260,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateCofferplate>()))
+                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxChestplate>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/GroviteCofferplateBodyGlow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cBody, drawPlayer, drawPlayer.bodyFrame, drawPlayer.bodyRotation, drawPlayer.bodyPosition, drawInfo.bodyVect);
@@ -4280,7 +4280,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != MountID.Minecart) && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateBoots>()))
+                if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != MountID.Minecart) && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxLeggings>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateBoots_Legs_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cLegs, drawPlayer, drawPlayer.legFrame, drawPlayer.legRotation, drawPlayer.legPosition, drawInfo.legVect);
@@ -4300,7 +4300,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateCofferplate>()))
+                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxChestplate>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateCofferplate_Arms_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cBody, drawPlayer, drawPlayer.bodyFrame, drawPlayer.bodyRotation, drawPlayer.bodyPosition, drawInfo.bodyVect);
@@ -4323,7 +4323,7 @@ namespace AAModClassic
                 int accSlot = 0;
                 bool social = false;
 
-                if (drawInfo.shadow == 0 && !drawPlayer.mount.Active && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateSails>(), ref social, ref accSlot))
+                if (drawInfo.shadow == 0 && !drawPlayer.mount.Active && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxWings>(), ref social, ref accSlot))
                 {
                     int dye = BaseDrawing.GetDye(drawPlayer, accSlot, social, true);
                     if (dye == -1)

@@ -1698,3 +1698,33 @@ StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff: {
 	DisplayName: Star Helmet Ranged Player_ Darkmatter Sphere_ Dark Lock_ Buff
 	Description: Mods.AAModClassic.Buffs.StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff.Description
 }
+
+MagicAcorn_Buff: {
+	DisplayName: Magic Acorn_ Buff
+	Description: Mods.AAModClassic.Buffs.MagicAcorn_Buff.Description
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunity: {
+	DisplayName: Scythe Of The Grim Reaper_ Reaper Scythe Immunity
+	Description: Mods.AAModClassic.Buffs.ScytheOfTheGrimReaper_ReaperScytheImmunity.Description
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown: {
+	DisplayName: Scythe Of The Grim Reaper_ Reaper Scythe Immunity Cooldown
+	Description: Mods.AAModClassic.Buffs.ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown.Description
+}
+
+SockStaff_Buff: {
+	DisplayName: Sock Staff_ Buff
+	Description: Mods.AAModClassic.Buffs.SockStaff_Buff.Description
+}
+
+SoccOnAStick_Buff: {
+	DisplayName: Socc On A Stick_ Buff
+	Description: Mods.AAModClassic.Buffs.SoccOnAStick_Buff.Description
+}
+
+HydraBody_Hunted: {
+	DisplayName: Hydra Body_ Hunted
+	Description: Mods.AAModClassic.Buffs.HydraBody_Hunted.Description
+}

@@ -178,6 +178,16 @@ BossSummon: {
 		DisplayName: Cursed Compass
 		Tooltip: ""
 	}
+
+	GlowingMasshroom: {
+		DisplayName: Glowing Masshroom
+		Tooltip: ""
+	}
+
+	Masshroom: {
+		DisplayName: Masshroom
+		Tooltip: ""
+	}
 }
 
 ChaosScale: {

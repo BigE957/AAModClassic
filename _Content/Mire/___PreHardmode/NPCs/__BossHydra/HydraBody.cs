@@ -7,6 +7,7 @@ using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Music;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -253,7 +254,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.oldPos[0] = NPC.position;
 
             bool foundTarget = TargetClosest();
-            if (playerTarget != null)
+            if (playerTarget != null && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 playerTarget.AddBuff(ModContent.BuffType<HydraBody_Hunted>(), 10, true);
 
             if (!runningAway && foundTarget)

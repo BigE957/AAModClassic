@@ -32,18 +32,18 @@ namespace AAModClassic.Items.Vanity.Pluto
 		{
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyPlutoMask>());
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyPlutoPlate>());
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoBoots>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoHelmetS>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoChestplateS>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoLeggings>());
                 if (Main.hardMode)
                 {
                     //player.QuickSpawnItem(ModContent.ItemType<>());
                 }
                 return;
             }
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoMask>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoPlate>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoLeggings>());
             if (Main.hardMode)
             {
                 //player.QuickSpawnItem(ModContent.ItemType<>());

@@ -29,12 +29,12 @@ namespace AAModClassic.Items.Vanity.Gibs
 
  		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsSkull>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsPlate>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsShorts>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsLeggings>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsJet>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<GibsWings>());
             }
         }
     }

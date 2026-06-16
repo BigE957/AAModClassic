@@ -30,11 +30,11 @@ namespace AAModClassic.Items.Vanity.Blazen
  		public override void RightClick(Player player)
 		{
 			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenHelmet>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenPlate>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenBoots>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenLeggings>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenBooster>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BlazenWings>());
             }
         }
     }

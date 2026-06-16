@@ -25,7 +25,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration
 			LocalizedText modTranslation = CreateMapEntryName();
 			// modTranslation.SetDefault("Cerberus Kennel");
 			AddMapEntry(Color.Gold, modTranslation);
-            RegisterItemDrop(ModContent.ItemType<InvokerBag>());
+            RegisterItemDrop(ModContent.ItemType<CerberusBag>());
 		}
     }
 }

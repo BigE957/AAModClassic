@@ -38,14 +38,14 @@ namespace AAModClassic.Items.Vanity.Moon
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonBeeInAJar>());
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonHood>());
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonRobe>());
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonBoots>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHelmetS>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonChestplateS>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonLeggingsS>());
                 return;
             }
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHood>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonRobe>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonLeggings>());
         }
     }
 }

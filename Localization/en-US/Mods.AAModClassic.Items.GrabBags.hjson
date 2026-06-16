@@ -307,4 +307,69 @@ Vanity: {
 		DisplayName: Mask Bag
 		Tooltip: ""
 	}
+
+	ApawnBag: {
+		DisplayName: Apawn Bag
+		Tooltip: ""
+	}
+
+	CCBag: {
+		DisplayName: C C Bag
+		Tooltip: ""
+	}
+
+	CerberusBag: {
+		DisplayName: Cerberus Bag
+		Tooltip: ""
+	}
+
+	DallinBag: {
+		DisplayName: Dallin Bag
+		Tooltip: ""
+	}
+
+	FargoBag: {
+		DisplayName: Fargo Bag
+		Tooltip: ""
+	}
+
+	FazerBag: {
+		DisplayName: Fazer Bag
+		Tooltip: ""
+	}
+
+	GroxBag: {
+		DisplayName: Grox Bag
+		Tooltip: ""
+	}
+
+	HallamBag: {
+		DisplayName: Hallam Bag
+		Tooltip: ""
+	}
+
+	MaskanoBag: {
+		DisplayName: Maskano Bag
+		Tooltip: ""
+	}
+
+	MikpinBag: {
+		DisplayName: Mikpin Bag
+		Tooltip: ""
+	}
+
+	TailsBag: {
+		DisplayName: Tails Bag
+		Tooltip: ""
+	}
+
+	TiedBag: {
+		DisplayName: Tied Bag
+		Tooltip: ""
+	}
+
+	VoidEyeBag: {
+		DisplayName: Void Eye Bag
+		Tooltip: ""
+	}
 }

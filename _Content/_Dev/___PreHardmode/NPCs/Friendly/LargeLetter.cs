@@ -136,12 +136,12 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 			int nextSlot = 0;
 			if (VanityShop)
 			{
-				items[nextSlot] = new Item(ModContent.ItemType<ApawnEgg>());
+				items[nextSlot] = new Item(ModContent.ItemType<ApawnBag>());
 				items[nextSlot].shopCustomPrice = new int?(5);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
 
-				items[nextSlot] = new Item(ModContent.ItemType<WetFurrbag>());
+				items[nextSlot] = new Item(ModContent.ItemType<FazerBag>());
 				items[nextSlot].shopCustomPrice = new int?(10);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
@@ -154,11 +154,11 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
 
-				items[nextSlot] = new Item(ModContent.ItemType<CCBox>());
+				items[nextSlot] = new Item(ModContent.ItemType<CCBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<InvokerBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<CerberusBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
@@ -174,15 +174,15 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<OldMagiciansHat>());
+				items[nextSlot] = new Item(ModContent.ItemType<TiedBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<MagiciansHat>());
+				items[nextSlot] = new Item(ModContent.ItemType<HallamBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<TailsToolbox>());
+				items[nextSlot] = new Item(ModContent.ItemType<TailsBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
@@ -191,7 +191,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<FezLordsBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<DallinBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;

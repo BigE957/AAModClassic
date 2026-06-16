@@ -292,6 +292,26 @@ Aves: {
 		DisplayName: D J Duck Shirt
 		Tooltip: ""
 	}
+
+	AvesWings: {
+		DisplayName: Aves Wings
+		Tooltip: ""
+	}
+
+	AvesChestplate: {
+		DisplayName: Aves Chestplate
+		Tooltip: ""
+	}
+
+	AvesHelmet: {
+		DisplayName: Aves Helmet
+		Tooltip: ""
+	}
+
+	AvesLeggings: {
+		DisplayName: Aves Leggings
+		Tooltip: ""
+	}
 }
 
 Alphakip: {
@@ -377,6 +397,21 @@ Anarchy: {
 		DisplayName: Pristine Leggings
 		Tooltip: ""
 	}
+
+	AnarchyChestplate: {
+		DisplayName: Anarchy Chestplate
+		Tooltip: ""
+	}
+
+	AnarchyHelmet: {
+		DisplayName: Anarchy Helmet
+		Tooltip: ""
+	}
+
+	AnarchyLeggings: {
+		DisplayName: Anarchy Leggings
+		Tooltip: ""
+	}
 }
 
 Apawn: {
@@ -394,6 +429,21 @@ Apawn: {
 		DisplayName: Apawn Plate
 		Tooltip: ""
 	}
+
+	ApawnChestplate: {
+		DisplayName: Apawn Chestplate
+		Tooltip: ""
+	}
+
+	ApawnHelmet: {
+		DisplayName: Apawn Helmet
+		Tooltip: ""
+	}
+
+	ApawnLeggings: {
+		DisplayName: Apawn Leggings
+		Tooltip: ""
+	}
 }
 
 Beg: {
@@ -409,6 +459,21 @@ Beg: {
 
 	PonyMask: {
 		DisplayName: Pony Mask
+		Tooltip: ""
+	}
+
+	BegChestplate: {
+		DisplayName: Beg Chestplate
+		Tooltip: ""
+	}
+
+	BegHelmet: {
+		DisplayName: Beg Helmet
+		Tooltip: ""
+	}
+
+	BegLeggings: {
+		DisplayName: Beg Leggings
 		Tooltip: ""
 	}
 }
@@ -431,6 +496,21 @@ Blazen: {
 
 	BlazenPlate: {
 		DisplayName: Blazen Plate
+		Tooltip: ""
+	}
+
+	BlazenChestplate: {
+		DisplayName: Blazen Chestplate
+		Tooltip: ""
+	}
+
+	BlazenLeggings: {
+		DisplayName: Blazen Leggings
+		Tooltip: ""
+	}
+
+	BlazenWings: {
+		DisplayName: Blazen Wings
 		Tooltip: ""
 	}
 }
@@ -456,6 +536,26 @@ CC: {
 			DisplayName: Shiny C C Robe
 			Tooltip: ""
 		}
+
+		CCChestplateS: {
+			DisplayName: C C Chestplate S
+			Tooltip: ""
+		}
+
+		CCHelmetS: {
+			DisplayName: C C Helmet S
+			Tooltip: ""
+		}
+	}
+
+	CCChestplate: {
+		DisplayName: C C Chestplate
+		Tooltip: ""
+	}
+
+	CCHelmet: {
+		DisplayName: C C Helmet
+		Tooltip: ""
 	}
 }
 
@@ -472,6 +572,21 @@ Cerberus: {
 
 	InvokerRobe: {
 		DisplayName: Invoker Robe
+		Tooltip: ""
+	}
+
+	CerberusChestplate: {
+		DisplayName: Cerberus Chestplate
+		Tooltip: ""
+	}
+
+	CerberusHelmet: {
+		DisplayName: Cerberus Helmet
+		Tooltip: ""
+	}
+
+	CerberusLeggings: {
+		DisplayName: Cerberus Leggings
 		Tooltip: ""
 	}
 }
@@ -496,6 +611,21 @@ Charlie: {
 		DisplayName: Charlie Wings
 		Tooltip: ""
 	}
+
+	CharlieChestplate: {
+		DisplayName: Charlie Chestplate
+		Tooltip: ""
+	}
+
+	CharlieHelmet: {
+		DisplayName: Charlie Helmet
+		Tooltip: ""
+	}
+
+	CharlieLeggings: {
+		DisplayName: Charlie Leggings
+		Tooltip: ""
+	}
 }
 
 Delly: {
@@ -511,6 +641,21 @@ Delly: {
 
 	DellyWig: {
 		DisplayName: Delly Wig
+		Tooltip: ""
+	}
+
+	DellyChestplate: {
+		DisplayName: Delly Chestplate
+		Tooltip: ""
+	}
+
+	DellyHelmet: {
+		DisplayName: Delly Helmet
+		Tooltip: ""
+	}
+
+	DellyLeggings: {
+		DisplayName: Delly Leggings
 		Tooltip: ""
 	}
 }
@@ -530,6 +675,21 @@ Fargo: {
 		DisplayName: Fargo Suit
 		Tooltip: ""
 	}
+
+	FargoChestplate: {
+		DisplayName: Fargo Chestplate
+		Tooltip: ""
+	}
+
+	FargoHelmet: {
+		DisplayName: Fargo Helmet
+		Tooltip: ""
+	}
+
+	FargoLeggings: {
+		DisplayName: Fargo Leggings
+		Tooltip: ""
+	}
 }
 
 Fazer: {
@@ -545,6 +705,21 @@ Fazer: {
 
 	SammyWig: {
 		DisplayName: Sammy Wig
+		Tooltip: ""
+	}
+
+	FazerChestplate: {
+		DisplayName: Fazer Chestplate
+		Tooltip: ""
+	}
+
+	FazerHelmet: {
+		DisplayName: Fazer Helmet
+		Tooltip: ""
+	}
+
+	FazerLeggings: {
+		DisplayName: Fazer Leggings
 		Tooltip: ""
 	}
 }
@@ -569,6 +744,26 @@ Gibs: {
 		DisplayName: Gibs Skull
 		Tooltip: ""
 	}
+
+	GibsChestplate: {
+		DisplayName: Gibs Chestplate
+		Tooltip: ""
+	}
+
+	GibsHelmet: {
+		DisplayName: Gibs Helmet
+		Tooltip: ""
+	}
+
+	GibsLeggings: {
+		DisplayName: Gibs Leggings
+		Tooltip: ""
+	}
+
+	GibsWings: {
+		DisplayName: Gibs Wings
+		Tooltip: ""
+	}
 }
 
 Grox: {
@@ -589,6 +784,26 @@ Grox: {
 
 	AngryPirateSails: {
 		DisplayName: Angry Pirate Sails
+		Tooltip: ""
+	}
+
+	GroxChestplate: {
+		DisplayName: Grox Chestplate
+		Tooltip: ""
+	}
+
+	GroxHelmet: {
+		DisplayName: Grox Helmet
+		Tooltip: ""
+	}
+
+	GroxLeggings: {
+		DisplayName: Grox Leggings
+		Tooltip: ""
+	}
+
+	GroxWings: {
+		DisplayName: Grox Wings
 		Tooltip: ""
 	}
 }
@@ -624,6 +839,36 @@ Hallam: {
 			DisplayName: Shiny Hal Tux
 			Tooltip: ""
 		}
+
+		HallamChestplateS: {
+			DisplayName: Hallam Chestplate S
+			Tooltip: ""
+		}
+
+		HallamHelmetS: {
+			DisplayName: Hallam Helmet S
+			Tooltip: ""
+		}
+
+		HallamLeggingsS: {
+			DisplayName: Hallam Leggings S
+			Tooltip: ""
+		}
+	}
+
+	HallamChestplate: {
+		DisplayName: Hallam Chestplate
+		Tooltip: ""
+	}
+
+	HallamHelmet: {
+		DisplayName: Hallam Helmet
+		Tooltip: ""
+	}
+
+	HallamLeggings: {
+		DisplayName: Hallam Leggings
+		Tooltip: ""
 	}
 }
 
@@ -647,6 +892,21 @@ Maskano: {
 		DisplayName: Mask Plate
 		Tooltip: ""
 	}
+
+	MaskanoChestplate: {
+		DisplayName: Maskano Chestplate
+		Tooltip: ""
+	}
+
+	MaskanoHelmet: {
+		DisplayName: Maskano Helmet
+		Tooltip: ""
+	}
+
+	MaskanoLeggings: {
+		DisplayName: Maskano Leggings
+		Tooltip: ""
+	}
 }
 
 Mikpin: {
@@ -662,6 +922,21 @@ Mikpin: {
 
 	MikpinWig: {
 		DisplayName: Mikpin Wig
+		Tooltip: ""
+	}
+
+	MikpinChestplate: {
+		DisplayName: Mikpin Chestplate
+		Tooltip: ""
+	}
+
+	MikpinHelmet: {
+		DisplayName: Mikpin Helmet
+		Tooltip: ""
+	}
+
+	MikpinLeggings: {
+		DisplayName: Mikpin Leggings
 		Tooltip: ""
 	}
 }
@@ -702,6 +977,36 @@ Moon: {
 			DisplayName: Shiny Moon Robe
 			Tooltip: ""
 		}
+
+		MoonChestplateS: {
+			DisplayName: Moon Chestplate S
+			Tooltip: ""
+		}
+
+		MoonHelmetS: {
+			DisplayName: Moon Helmet S
+			Tooltip: ""
+		}
+
+		MoonLeggingsS: {
+			DisplayName: Moon Leggings S
+			Tooltip: ""
+		}
+	}
+
+	MoonChestplate: {
+		DisplayName: Moon Chestplate
+		Tooltip: ""
+	}
+
+	MoonHelmet: {
+		DisplayName: Moon Helmet
+		Tooltip: ""
+	}
+
+	MoonLeggings: {
+		DisplayName: Moon Leggings
+		Tooltip: ""
 	}
 }
 
@@ -738,6 +1043,31 @@ Pluto: {
 			DisplayName: Shiny Pluto Plate
 			Tooltip: ""
 		}
+
+		PlutoChestplateS: {
+			DisplayName: Pluto Chestplate S
+			Tooltip: ""
+		}
+
+		PlutoHelmetS: {
+			DisplayName: Pluto Helmet S
+			Tooltip: ""
+		}
+	}
+
+	PlutoChestplate: {
+		DisplayName: Pluto Chestplate
+		Tooltip: ""
+	}
+
+	PlutoHelmet: {
+		DisplayName: Pluto Helmet
+		Tooltip: ""
+	}
+
+	PlutoLeggings: {
+		DisplayName: Pluto Leggings
+		Tooltip: ""
 	}
 }
 
@@ -754,6 +1084,21 @@ Shox: {
 
 	ShoxVisor: {
 		DisplayName: Shox Visor
+		Tooltip: ""
+	}
+
+	ShoxChestplate: {
+		DisplayName: Shox Chestplate
+		Tooltip: ""
+	}
+
+	ShoxHelmet: {
+		DisplayName: Shox Helmet
+		Tooltip: ""
+	}
+
+	ShoxLeggings: {
+		DisplayName: Shox Leggings
 		Tooltip: ""
 	}
 }
@@ -773,6 +1118,21 @@ Tails: {
 		DisplayName: Tails Legs
 		Tooltip: ""
 	}
+
+	TailsChestplate: {
+		DisplayName: Tails Chestplate
+		Tooltip: ""
+	}
+
+	TailsHelmet: {
+		DisplayName: Tails Helmet
+		Tooltip: ""
+	}
+
+	TailsLeggings: {
+		DisplayName: Tails Leggings
+		Tooltip: ""
+	}
 }
 
 Tied: {
@@ -788,6 +1148,21 @@ Tied: {
 
 	TiedsSuit: {
 		DisplayName: Tieds Suit
+		Tooltip: ""
+	}
+
+	TiedChestplate: {
+		DisplayName: Tied Chestplate
+		Tooltip: ""
+	}
+
+	TiedHelmet: {
+		DisplayName: Tied Helmet
+		Tooltip: ""
+	}
+
+	TiedLeggings: {
+		DisplayName: Tied Leggings
 		Tooltip: ""
 	}
 }
@@ -807,6 +1182,21 @@ Universe: {
 		DisplayName: Cursed Robe
 		Tooltip: ""
 	}
+
+	UniverseChestplate: {
+		DisplayName: Universe Chestplate
+		Tooltip: ""
+	}
+
+	UniverseHelmet: {
+		DisplayName: Universe Helmet
+		Tooltip: ""
+	}
+
+	UniverseLeggings: {
+		DisplayName: Universe Leggings
+		Tooltip: ""
+	}
 }
 
 VoidEye: {
@@ -822,6 +1212,21 @@ VoidEye: {
 
 	VoidEyePlate: {
 		DisplayName: Void Eye Plate
+		Tooltip: ""
+	}
+
+	VoidEyeChestplate: {
+		DisplayName: Void Eye Chestplate
+		Tooltip: ""
+	}
+
+	VoidEyeHelmet: {
+		DisplayName: Void Eye Helmet
+		Tooltip: ""
+	}
+
+	VoidEyeLeggings: {
+		DisplayName: Void Eye Leggings
 		Tooltip: ""
 	}
 }

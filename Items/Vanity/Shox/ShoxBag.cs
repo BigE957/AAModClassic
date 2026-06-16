@@ -29,9 +29,9 @@ namespace AAModClassic.Items.Vanity.Shox
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShoxVisor>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShoxPlate>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShoxPants>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShoxHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShoxChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShoxLeggings>());
         }
     }
 }

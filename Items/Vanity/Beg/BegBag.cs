@@ -29,9 +29,9 @@ namespace AAModClassic.Items.Vanity.Beg
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PonyMask>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PonyBody>());
-            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PonyHoofs>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BegHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BegChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BegLeggings>());
         }
     }
 }

@@ -1037,28 +1037,28 @@ namespace AAModClassic
             RecipeGroup group23 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.DevBag"), new int[]
             {
                 ModContent.ItemType<AlphaBag>(),
-                ModContent.ItemType<InvokerBag>(),
-                ModContent.ItemType<CCBox>(),
+                ModContent.ItemType<CerberusBag>(),
+                ModContent.ItemType<CCBag>(),
                 ModContent.ItemType<BlazenBag>(),
                 ModContent.ItemType<AvesBag>(),
                 ModContent.ItemType<DellyBag>(),
-                ModContent.ItemType<OldMagiciansHat>(),
-                ModContent.ItemType<MagiciansHat>(),
-                ModContent.ItemType<FezLordsBag>(),
+                ModContent.ItemType<TiedBag>(),
+                ModContent.ItemType<HallamBag>(),
+                ModContent.ItemType<DallinBag>(),
                 ModContent.ItemType<MoonBag>(),
                 ModContent.ItemType<GibsBag>(),
-                ModContent.ItemType<GroviteSeaChest>(),
+                ModContent.ItemType<GroxBag>(),
                 ModContent.ItemType<PlutoBag>(),
-                ModContent.ItemType<VoidBag>(),
+                ModContent.ItemType<VoidEyeBag>(),
                 ModContent.ItemType<AnarchyBag>(),
-                ModContent.ItemType<MaskBag>(),
-                ModContent.ItemType<TopHat>(),
+                ModContent.ItemType<MaskanoBag>(),
+                ModContent.ItemType<FargoBag>(),
                 ModContent.ItemType<BegBag>(),
                 ModContent.ItemType<CharlieBag>(),
-                ModContent.ItemType<MikBag>(),
-                ModContent.ItemType<TailsToolbox>(),
+                ModContent.ItemType<MikpinBag>(),
+                ModContent.ItemType<TailsBag>(),
                 ModContent.ItemType<ShoxBag>(),
-                ModContent.ItemType<ApawnEgg>()
+                ModContent.ItemType<ApawnBag>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DevBag", group23);
 

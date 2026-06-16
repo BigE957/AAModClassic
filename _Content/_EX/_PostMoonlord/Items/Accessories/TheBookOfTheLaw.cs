@@ -89,9 +89,9 @@ Includes the effects of all the pieces used to make this.
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AleisterBook>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<InvokerHood>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<InvokerRobe>(), 1);
-            recipe.AddIngredient(ModContent.ItemType<InvokerPants>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CerberusHelmet>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CerberusChestplate>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<CerberusLeggings>(), 1);
 			recipe.AddIngredient(ItemID.SquireGreatHelm, 1);
             recipe.AddIngredient(ItemID.SquireAltShirt, 1);
             recipe.AddIngredient(ItemID.ShinyStone, 1);

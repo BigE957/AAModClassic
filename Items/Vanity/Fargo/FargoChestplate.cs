@@ -1,0 +1,40 @@
+﻿using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
+using System.Collections.Generic;
+using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+
+namespace AAModClassic.Items.Vanity.Fargo
+{
+    [AutoloadEquip(EquipType.Body)]
+    public class FargoChestplate : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Fargo";
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            // DisplayName.SetDefault("Dapper Squirrel Suit");
+            /* Tooltip.SetDefault(@"soonTM
+'Great for impersonating Ancients Awakened Devs!'"); */
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> list)
+        {
+            foreach (TooltipLine line2 in list)
+            {
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    line2.OverrideColor = new Color(189, 76, 15);
+                }
+            }
+        }
+
+        public override void SetDefaults()
+        {
+            Item.width = 26;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
+        }
+    }
+}
