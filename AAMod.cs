@@ -48,6 +48,7 @@ using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Assets;
@@ -564,16 +565,16 @@ namespace AAModClassic
             EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligula_Body", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
             EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligula_Legs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/Ono_Head", EquipType.Head, name: "Ono_Head", equipTexture: new Items.Vanity.Ohno.OnoHead());
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/Ono_Body", EquipType.Body, name: "Ono_Body", equipTexture: new Items.Vanity.Ohno.OnoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/Ono_Legs", EquipType.Legs, name: "Ono_Legs", equipTexture: new Items.Vanity.Ohno.OnoLegs());
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Head", EquipType.Head, name: "Ono_Head", equipTexture: new OnoHead());
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Body", EquipType.Body, name: "Ono_Body", equipTexture: new OnoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Legs", EquipType.Legs, name: "Ono_Legs", equipTexture: new OnoLegs());
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/CerberusHelmet_Head", EquipType.Head, name: "CerberusHelmet_Head", equipTexture: new InvokerHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/CerberusChestplate_Body", EquipType.Body, name: "CerberusChestplate_Body", equipTexture: new InvokerBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/CerberusLeggings_Legs", EquipType.Legs, name: "CerberusLeggings_Legs", equipTexture: new InvokerLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CerberusHelmet_Head", EquipType.Head, name: "CerberusHelmet_Head", equipTexture: new InvokerHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CerberusChestplate_Body", EquipType.Body, name: "CerberusChestplate_Body", equipTexture: new InvokerBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CerberusLeggings_Legs", EquipType.Legs, name: "CerberusLeggings_Legs", equipTexture: new InvokerLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/CCChestplate_Legs", EquipType.Legs, name: "CCChestplate_Legs");
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/Shiny/CCChestplateS_Legs", EquipType.Legs, name: "CCChestplateS_Legs");
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CCChestplate_Legs", EquipType.Legs, name: "CCChestplate_Legs");
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CCChestplateS_Legs", EquipType.Legs, name: "CCChestplateS_Legs");
 
             BackgroundTextureLoader.AddBackgroundTexture(this, AssetDirectory.General.Nothing);
         }

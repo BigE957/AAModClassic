@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Items.Vanity.Cerberus;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Dev.Invoker;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {

@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+﻿using AAModClassic._Content._Misc.___PreHardmode.Items.Accessories.Vanity;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
 using AAModClassic._Content.Inferno.World.Biomes.Waters;
@@ -172,7 +173,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                     if (!Main.gameMenu && (akumaSky == null || !akumaSky.IsActive()))
                         sunScale = MathHelper.Lerp(0.25f, sunScale, Intensity);
 
-                    if (!Main.gameMenu && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
+                    if (!Main.gameMenu && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<HappySunSticker>(), true, true))
                         spriteBatch.Draw(demonSun, new Vector2(sunX, sunY + Main.sunModY), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);
                     else
                         spriteBatch.Draw(sunTex, new Vector2(sunX, sunY + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);

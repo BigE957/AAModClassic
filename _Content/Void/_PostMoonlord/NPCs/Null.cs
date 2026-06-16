@@ -1,7 +1,7 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Vanity.Ohno;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -1,9 +1,12 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
+using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Content._Dev.__Hardmode.Items.Mounts;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Accessories.Vanity;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
 using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
@@ -59,6 +62,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Unreleased.Content.Void.Buffs;
@@ -67,16 +71,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Items.Vanity.Apawn;
-using AAModClassic.Items.Vanity.Aves;
-using AAModClassic.Items.Vanity.Blazen;
-using AAModClassic.Items.Vanity.Dallin;
-using AAModClassic.Items.Vanity.Delly;
-using AAModClassic.Items.Vanity.Gibs;
-using AAModClassic.Items.Vanity.Grox;
-using AAModClassic.Items.Vanity.Hallam;
-using AAModClassic.Items.Vanity.Tails;
-using AAModClassic.Items.Vanity.Universe;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -1403,7 +1397,7 @@ namespace AAModClassic
                 Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
             }
 
-            if (BasePlayer.HasAccessory(Player, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
+            if (BasePlayer.HasAccessory(Player, ModContent.ItemType<HappySunSticker>(), true, true))
             {
                 TextureAssets.Sun = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/DemonSun");
                 TextureAssets.Sun3 = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/DemonSunEclipse");
@@ -2636,7 +2630,7 @@ namespace AAModClassic
                         break;
 
                     case 2:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Beg.BegBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BegBag>());
 
                         if (dropType >= 1)
                         {
@@ -2652,13 +2646,13 @@ namespace AAModClassic
                         break;
 
                     case 3:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Maskano.MaskanoBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MaskanoBag>());
 
                         spawnedDevItems = true;
                         break;
 
                     case 4:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Charlie.CharlieBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CharlieBag>());
 
                         if (dropType >= 3)
                         {
@@ -2737,7 +2731,7 @@ namespace AAModClassic
 
                     case 13:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Tied.TiedBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TiedBag>());
 
                         if (dropType >= 3)
                         {
@@ -2748,7 +2742,7 @@ namespace AAModClassic
                         break;
 
                     case 14:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Moon.MoonBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MoonBag>());
 
                         if (dropType >= 3)
                         {
@@ -2759,7 +2753,7 @@ namespace AAModClassic
                         break;
 
                     case 15:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Grox.GroxBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GroxBag>());
 
                         if (dropType >= 3)
                         {
@@ -2776,7 +2770,7 @@ namespace AAModClassic
 
                     case 16:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.CC.CCBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CCBag>());
 
                         if (dropType >= 2)
                         {
@@ -2787,7 +2781,7 @@ namespace AAModClassic
                         break;
 
                     case 17:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Gibs.GibsBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GibsBag>());
 
                         if (dropType >= 3)
                         {
@@ -2816,13 +2810,13 @@ namespace AAModClassic
                         break;
 
                     case 20:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Mikpin.MikpinBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MikpinBag>());
 
                         spawnedDevItems = true;
                         break;
 
                     case 21:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Fargo.FargoBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FargoBag>());
 
                         if (dropType >= 3)
                         {
@@ -2841,7 +2835,7 @@ namespace AAModClassic
 
                     case 22:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Blazen.BlazenBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BlazenBag>());
 
                         if (dropType >= 3)
                         {
@@ -2878,7 +2872,7 @@ namespace AAModClassic
                         break;
 
                     case 26:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Cerberus.CerberusBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CerberusBag>());
                         if (dropType >= 3)
                         {
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AleisterStaff>());
@@ -2894,13 +2888,13 @@ namespace AAModClassic
                         spawnedDevItems = true;
                         break;
                     case 28:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Pluto.PlutoBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<PlutoBag>());
                         break;
                     case 29:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.VoidEye.VoidEyeBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<VoidEyeBag>());
                         break;
                     case 30:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Anarchy.AnarchyBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AnarchyBag>());
                         break;
                     case 31:
                         if (dropType >= 3)
@@ -2909,7 +2903,7 @@ namespace AAModClassic
                         }
                         break;
                     case 32:
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Shox.ShoxBag>());
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ShoxBag>());
                         break;
 
                     default:
@@ -3730,7 +3724,7 @@ namespace AAModClassic
                     Player.accOreFinder = true;
                     Player.accDreamCatcher = true;
                 }
-                if (item.type == ModContent.ItemType<Items.Vanity.Ohno.Ono>())
+                if (item.type == ModContent.ItemType<Ono>())
                 {
                     onoHideVanity = false;
                     onoForceVanity = true;

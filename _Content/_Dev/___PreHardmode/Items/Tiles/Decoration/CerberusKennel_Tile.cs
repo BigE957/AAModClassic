@@ -1,4 +1,4 @@
-using AAModClassic.Items.Vanity.Cerberus;
+using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
