@@ -1,4 +1,5 @@
 ﻿using AAModClassic.CrossMod;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 
 namespace AAModClassic.Utilities
@@ -12,6 +13,8 @@ namespace AAModClassic.Utilities
         public static bool ZoneAnyInferno(this Player player) => player.GetModPlayer<AAPlayer>().ZoneInferno || ContentReplacementSystem.InNewInferno(player);
 
         public static bool ZoneAnyMire(this Player player) => player.GetModPlayer<AAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(player);
+
+        public static TransformationPlayer Transformation(this Player player) => player.GetModPlayer<TransformationPlayer>();
 
     }
 }

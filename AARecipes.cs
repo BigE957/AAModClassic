@@ -61,7 +61,6 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
-using AAModClassic.Items.Vanity.Alphakip;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -1016,7 +1015,7 @@ namespace AAModClassic
 
             RecipeGroup group23 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.DevBag"), new int[]
             {
-                ModContent.ItemType<AlphaBag>(),
+                ModContent.ItemType<BigEBag>(),
                 ModContent.ItemType<CerberusBag>(),
                 ModContent.ItemType<CCBag>(),
                 ModContent.ItemType<BlazenBag>(),

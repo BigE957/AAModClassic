@@ -4,7 +4,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.Localization;
-using AAModClassic.Items.Vanity.Alphakip;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
@@ -173,7 +172,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;
 
-				items[nextSlot] = new Item(ModContent.ItemType<AlphaBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<BigEBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.AncientCoin;
 				nextSlot++;

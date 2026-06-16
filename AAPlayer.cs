@@ -2614,7 +2614,7 @@ namespace AAModClassic
                         break;
 
                     case 1:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Alphakip.AlphaBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BigEBag>());
 
                         if (dropType >= 3)
                         {

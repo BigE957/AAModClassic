@@ -6,16 +6,16 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Vanity.Alphakip.Shiny
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class ShinyKipronWings : BaseAAItem, ILocalizedModType
+    public class BigEWingsS : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Vanity.Alpha.Shiny";
+        public new string LocalizationCategory => "Items.Vanity.BigE.Shiny";
         public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Shiny Kipron Wings");
+            // DisplayName.SetDefault("Evicerating Elevators");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
 'Great for impersonating Ancients Awakened Devs!'"); */
@@ -28,8 +28,8 @@ Hold down and jump to hover for an extended period of time
 			Item.width = 42;
 			Item.height = 42;
 			Item.value = 500000;
-			Item.rare = ItemRarityID.Purple;
-			Item.accessory = true;
+            Item.rare = ItemRarityID.Purple;
+            Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -38,7 +38,7 @@ Hold down and jump to hover for an extended period of time
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.OverrideColor = new Color(39, 115, 189);
+                    line2.OverrideColor = new Color(255, 0, 0);
                 }
             }
         }
@@ -102,7 +102,7 @@ Hold down and jump to hover for an extended period of time
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<KipronWings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<BigEWings>(), 1);
             recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }

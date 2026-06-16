@@ -178,28 +178,13 @@ Crates: {
 }
 
 Vanity: {
-	FuryWitchsBag: {
-		DisplayName: Fury Witchs Bag
-		Tooltip: ""
-	}
-
-	MidnightAssassinBag: {
-		DisplayName: Midnight Assassin Bag
-		Tooltip: ""
-	}
-
-	AlphaBag: {
-		DisplayName: Alpha Bag
-		Tooltip: ""
-	}
-
 	AnarchyBag: {
 		DisplayName: Anarchy Bag
 		Tooltip: ""
 	}
 
-	ApawnEgg: {
-		DisplayName: Apawn Egg
+	ApawnBag: {
+		DisplayName: Apawn Bag
 		Tooltip: ""
 	}
 
@@ -213,103 +198,13 @@ Vanity: {
 		Tooltip: ""
 	}
 
+	BigEBag: {
+		DisplayName: Big E Bag
+		Tooltip: ""
+	}
+
 	BlazenBag: {
 		DisplayName: Blazen Bag
-		Tooltip: ""
-	}
-
-	CCBox: {
-		DisplayName: C C Box
-		Tooltip: ""
-	}
-
-	InvokerBag: {
-		DisplayName: Invoker Bag
-		Tooltip: ""
-	}
-
-	CharlieBag: {
-		DisplayName: Charlie Bag
-		Tooltip: ""
-	}
-
-	FezLordsBag: {
-		DisplayName: Fez Lords Bag
-		Tooltip: ""
-	}
-
-	DellyBag: {
-		DisplayName: Delly Bag
-		Tooltip: ""
-	}
-
-	WetFurrbag: {
-		DisplayName: Wet Furrbag
-		Tooltip: ""
-	}
-
-	GibsBag: {
-		DisplayName: Gibs Bag
-		Tooltip: ""
-	}
-
-	GroviteSeaChest: {
-		DisplayName: Grovite Sea Chest
-		Tooltip: ""
-	}
-
-	MagiciansHat: {
-		DisplayName: Magicians Hat
-		Tooltip: ""
-	}
-
-	MikBag: {
-		DisplayName: Mik Bag
-		Tooltip: ""
-	}
-
-	MoonBag: {
-		DisplayName: Moon Bag
-		Tooltip: ""
-	}
-
-	PlutoBag: {
-		DisplayName: Pluto Bag
-		Tooltip: ""
-	}
-
-	ShoxBag: {
-		DisplayName: Shox Bag
-		Tooltip: ""
-	}
-
-	TailsToolbox: {
-		DisplayName: Tails Toolbox
-		Tooltip: ""
-	}
-
-	OldMagiciansHat: {
-		DisplayName: Old Magicians Hat
-		Tooltip: ""
-	}
-
-	VoidBag: {
-		DisplayName: Void Bag
-		Tooltip: ""
-	}
-
-	TopHat: {
-		DisplayName: Top Hat
-		Tooltip: ""
-	}
-
-	MaskBag: {
-		DisplayName: Mask Bag
-		Tooltip: ""
-	}
-
-	ApawnBag: {
-		DisplayName: Apawn Bag
 		Tooltip: ""
 	}
 
@@ -323,8 +218,13 @@ Vanity: {
 		Tooltip: ""
 	}
 
-	DallinBag: {
-		DisplayName: Dallin Bag
+	CharlieBag: {
+		DisplayName: Charlie Bag
+		Tooltip: ""
+	}
+
+	DellyBag: {
+		DisplayName: Delly Bag
 		Tooltip: ""
 	}
 
@@ -335,6 +235,11 @@ Vanity: {
 
 	FazerBag: {
 		DisplayName: Fazer Bag
+		Tooltip: ""
+	}
+
+	GibsBag: {
+		DisplayName: Gibs Bag
 		Tooltip: ""
 	}
 
@@ -358,6 +263,21 @@ Vanity: {
 		Tooltip: ""
 	}
 
+	MoonBag: {
+		DisplayName: Moon Bag
+		Tooltip: ""
+	}
+
+	PlutoBag: {
+		DisplayName: Pluto Bag
+		Tooltip: ""
+	}
+
+	ShoxBag: {
+		DisplayName: Shox Bag
+		Tooltip: ""
+	}
+
 	TailsBag: {
 		DisplayName: Tails Bag
 		Tooltip: ""
@@ -370,6 +290,21 @@ Vanity: {
 
 	VoidEyeBag: {
 		DisplayName: Void Eye Bag
+		Tooltip: ""
+	}
+
+	DallinBag: {
+		DisplayName: Dallin Bag
+		Tooltip: ""
+	}
+
+	FuryWitchsBag: {
+		DisplayName: Fury Witchs Bag
+		Tooltip: ""
+	}
+
+	MidnightAssassinBag: {
+		DisplayName: Midnight Assassin Bag
 		Tooltip: ""
 	}
 }

@@ -6,16 +6,16 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Vanity.Alphakip
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class KipronWings : BaseAAItem, ILocalizedModType
+    public class BigEWings : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Vanity.Alphakip";
+        public new string LocalizationCategory => "Items.Vanity.BigE";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Kipron Wings");
+            // DisplayName.SetDefault("Efficient Elevators");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
 'Great for impersonating Ancients Awakened Devs!'"); */
@@ -38,7 +38,7 @@ Hold down and jump to hover for an extended period of time
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.OverrideColor = new Color(39, 115, 189);
+                    line2.OverrideColor = new Color(255, 0, 0);
                 }
             }
         }
