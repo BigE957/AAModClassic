@@ -104,6 +104,7 @@ unofficial
 -terra armor ranged set bullets now ignore gravity, making them hit their target much more often
 -terra armor summoner set crystal now has an associated buff
 -restored an unused dev set bag for planterror!
+-the large letter can no longer move in if the world is not in hardmode as he has no fucking point to do this
 -
 
 crossmod

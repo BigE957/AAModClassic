@@ -64,6 +64,8 @@ namespace AAModClassic._Content._Dev.___PreHardmode.NPCs.Friendly
 				Player player = Main.player[k];
 				if (player.active && Main.expertMode)
 				{
+					if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !Main.hardMode)
+						return false;
 					return true;
 				}
 			}
