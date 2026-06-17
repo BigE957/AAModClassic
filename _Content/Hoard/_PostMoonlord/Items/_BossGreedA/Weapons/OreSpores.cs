@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
     public class OreSpores : ModProjectile
     {

@@ -185,7 +185,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 
             if (soulAkuma && soulYamata && soulZero && soulShen && soulRajah)
                 DarkCaligula = true;
-
+			/*
             Main.NewText("start");
             Main.NewText(soulAkuma);
             Main.NewText(soulYamata);
@@ -195,7 +195,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             Main.NewText("end");
             Main.NewText(soulAkuma && soulYamata && soulZero && soulShen && soulRajah);
             Main.NewText(DarkCaligula);
-
+			*/
             if (Thebookoflaw && DarkCaligula)
                 Player.AddBuff(ModContent.BuffType<TheBookOfTheLaw_InvokedCaligula>(), 3600);
 

@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic._Content.__PLACEHOLDER.ore.projs;
+using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 
 namespace AAModClassic.Buffs
 {

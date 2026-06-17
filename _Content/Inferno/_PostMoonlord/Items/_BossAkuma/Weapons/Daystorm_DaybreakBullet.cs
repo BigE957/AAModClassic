@@ -1,4 +1,4 @@
-using AAModClassic._Content.__PLACEHOLDER.ore.projs;
+using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
     public class AFrag : ModProjectile
     {

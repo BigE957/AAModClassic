@@ -1,8 +1,8 @@
-using AAModClassic._Content.__PLACEHOLDER.ore.projs;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

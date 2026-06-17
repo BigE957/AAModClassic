@@ -1,5 +1,5 @@
-using AAModClassic._Content.__PLACEHOLDER.ore.projs;
 using Microsoft.Xna.Framework;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -44,22 +44,9 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
             {
                 int x = Main.rand.Next(-6, 6);
                 int y = -Main.rand.Next(3, 5);
-                int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(x, y), ModContent.ProjectileType<OreStaff_Ore>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, Main.rand.Next(23));
-                Main.projectile[p].Center = Projectile.Center - new Vector2(0, 25);
-
-                if (Main.projectile[p].ai[1] == 10)
-                {
-                    Main.projectile[p].knockBack *= 1.5f;
-                }
-                if (Main.projectile[p].ai[1] == 19)
-                {
-                    for (int k = 0; k < 2; k++)
-                    {
-                        Vector2 perturbedSpeed = new Vector2(x, y).RotatedByRandom(MathHelper.ToRadians(20));
-                        int q = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<OreStaff_Ore>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 5, 19);
-                        Main.projectile[q].Center = Projectile.Center - new Vector2(0, 4);
-                    }
-                }
+                int type = OreCannonSystem.OreData.Keys.ToArray()[Main.rand.Next(OreCannonSystem.OreData.Count)];
+                int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(x, y), ModContent.ProjectileType<GravityAffectedOreChunk>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, ai1: type);
+                OreProjectileUtils.TriggerOreOnSpawn(Main.projectile[p]);
             }
         }
     }

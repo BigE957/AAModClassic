@@ -2,9 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
-    public class DaybreakBlast : ModProjectile
+    public class LuminiteBlast : ModProjectile
     {
         public override void SetStaticDefaults()
         {    
@@ -22,6 +22,8 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
             Projectile.DamageType = DamageClass.Ranged;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 15;
         }
 
         public override Color? GetAlpha(Color lightColor)

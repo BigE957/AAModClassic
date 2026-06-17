@@ -12,8 +12,10 @@ using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.Assets;
 using AAModClassic.Buffs;
 using AAModClassic.CrossMod.CalamityMod;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -24,11 +26,11 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
     public delegate void OnHitDelegate(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers);
 
-    public struct OreProjectileData(int dustType, Action<Projectile> oreEffect = null, Action<Projectile> extraAI = null, OnHitDelegate onHit = null, Action<Projectile> onKill = null, Action<Projectile, Color> extraDraw = null)
+    public struct OreProjectileData(int dustType, Action<Projectile> oreEffect = null, Action<Projectile> extraAI = null, OnHitDelegate onHit = null, Action<Projectile> onKill = null, Action<Projectile, Color> extraDraw = null, Action<Projectile> onSpawn = null)
     {
         public int DustType = dustType;
         public Action<Projectile> OreEffect = oreEffect;
@@ -36,6 +38,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
         public OnHitDelegate OnHit = onHit;
         public Action<Projectile> OnKill = onKill;
         public Action<Projectile, Color> ExtraDraw = extraDraw;
+        public Action<Projectile> OnSpawn = onSpawn;
     }
 
     public static class OreProjectileUtils
@@ -45,7 +48,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             int index = Projectile.NewProjectile(sourceProjectile.GetSource_Death(), x, y, speedX, speedY, type, damage, knockback, player, ai0, ai1);
             Main.projectile[index].hostile = false;
             Main.projectile[index].friendly = true;
-            Main.projectile[index].DamageType = DamageClass.Ranged;
+            Main.projectile[index].DamageType = sourceProjectile.DamageType;
             Main.projectile[index].minion = false;
             Main.projectile[index].sentry = false;
             return index;
@@ -56,7 +59,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             int index = Projectile.NewProjectile(sourceProjectile.GetSource_Death(), position, velocity, type, damage, knockback, player, ai0, ai1);
             Main.projectile[index].hostile = false;
             Main.projectile[index].friendly = true;
-            Main.projectile[index].DamageType = DamageClass.Ranged;
+            Main.projectile[index].DamageType = sourceProjectile.DamageType;
             Main.projectile[index].minion = false;
             Main.projectile[index].sentry = false;
             return index;
@@ -81,6 +84,12 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             }
             return selectedTarget;
         }
+
+        public static void TriggerOreOnSpawn(this Projectile projectile)
+        {
+            if (OreCannonSystem.OreData.TryGetValue((int)projectile.ai[1], out var data))
+                data.OnSpawn?.Invoke(projectile);
+        }
     }
 
     public class OreCannonSystem : ModSystem
@@ -94,6 +103,8 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             RegisterCalamityOres();
         }
 
+        public static bool TryGetOreData(Projectile projectile, out OreProjectileData data) => OreCannonSystem.OreData.TryGetValue((int)projectile.ai[1], out data);
+
         private static void RegisterVanillaOres()
         {
             // Copper
@@ -101,11 +112,21 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                 onHit: (Projectile projectile, NPC target, ref NPC.HitModifiers modifiers) =>
                 {
                     modifiers.TargetDamageMultiplier *= 1.1f;
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.velocity *= 0.5f;
                 }
             ));
 
             // Tin
-            OreData.Add(ItemID.TinOre, new(DustID.Tin));
+            OreData.Add(ItemID.TinOre, new(DustID.Tin,
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.velocity *= 0.5f;
+                    projectile.knockBack *= 1.3f;
+                }
+            ));
 
             // Iron
             OreData.Add(ItemID.IronOre, new(DustID.Iron,
@@ -137,6 +158,10 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         projectile.velocity = -projectile.velocity;
                         projectile.penetrate--;
                     }
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.penetrate = 2;
                 }
             ));
 
@@ -272,6 +297,38 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         Main.dust[d].velocity *= 2f;
                         Main.dust[d].noGravity = true;
                     }
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    int count = 3;
+                    if (Main.rand.NextBool(3))
+                        count++;
+
+                    Player player = Main.player[projectile.owner];
+
+                    for (int i = 0; i < count; i++)
+                    {
+                        Vector2 spawnPos = new(
+                            player.position.X + player.width * 0.5f + Main.rand.Next(201) * -(float)player.direction + (Main.mouseX + Main.screenPosition.X - player.position.X),
+                            player.MountedCenter.Y - 600f);
+                        spawnPos.X = (spawnPos.X * 10f + player.Center.X) / 11f + Main.rand.Next(-100, 101);
+                        spawnPos.Y -= 150 * i;
+
+                        float diffX = Main.mouseX + Main.screenPosition.X - spawnPos.X;
+                        float diffY = Main.mouseY + Main.screenPosition.Y - spawnPos.Y;
+                        if (diffY < 0f)
+                            diffY *= -1f;
+                        if (diffY < 20f)
+                            diffY = 20f;
+
+                        float velX = diffX + Main.rand.Next(-40, 41) * 0.03f;
+                        float velY = diffY + Main.rand.Next(-40, 41) * 0.03f;
+                        velX *= Main.rand.Next(75, 150) * 0.01f;
+                        spawnPos.X += Main.rand.Next(-50, 51);
+
+                        Vector2 finalVelocity = Vector2.Normalize(new Vector2(velX, velY)) * 12f;
+                        OreProjectileUtils.NewProjectile(projectile, spawnPos, finalVelocity, ModContent.ProjectileType<OreChunk>(), projectile.damage, projectile.knockBack, player.whoAmI, 0f, ItemID.Meteorite);
+                    }
                 }
             ));
 
@@ -305,10 +362,13 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     if (Main.LocalPlayer.lifeSteal <= 0f)
                         return;
                     Main.LocalPlayer.lifeSteal -= (float)(modifiers.FinalDamage.Flat * 0.02);
-                    Projectile.NewProjectile(projectile.GetSource_Death(), target.position.X, target.position.Y, 0f, 0f,
-                        ProjectileID.VampireHeal, 0, 0f, projectile.owner, projectile.owner, (float)(modifiers.FinalDamage.Flat * 0.02));
+                    Projectile.NewProjectile(projectile.GetSource_Death(), target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, projectile.owner, projectile.owner, (float)(modifiers.FinalDamage.Flat * 0.02));
                     if (Main.rand.NextBool(5))
                         target.AddBuff(BuffID.Confused, 180);
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.knockBack *= 1.5f;
                 }
             ));
 
@@ -386,6 +446,10 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                 {
                     if (projectile.tileCollide)
                         projectile.velocity = -projectile.velocity;
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.velocity *= 1.5f;
                 }
             ));
 
@@ -395,6 +459,10 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                 {
                     if (projectile.damage / 2 > 100f)
                         OreProjectileUtils.NewProjectile(projectile, projectile.position, -projectile.velocity, ModContent.ProjectileType<OreChunk>(), projectile.damage / 2, projectile.knockBack, projectile.owner, 0f, ItemID.PalladiumOre);
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.velocity *= 1.3f;
                 }
             ));
 
@@ -443,11 +511,27 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     projectile.width = (int)(projectile.width / 1.3);
                     projectile.height = (int)(projectile.height / 1.3);
                     projectile.damage = (int)(projectile.damage / 1.3);
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.scale *= 1.5f;
+                    projectile.width *= 2;
+                    projectile.height *= 2;
+                    projectile.damage = (int)(projectile.damage * 1.3);
                 }
             ));
 
             // Titanium
-            OreData.Add(ItemID.TitaniumOre, new(DustID.Titanium)); // TODO: Bro got nothing :<
+            OreData.Add(ItemID.TitaniumOre, new(DustID.Titanium,
+                onSpawn: (Projectile projectile) =>
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Vector2 perturbedSpeed = projectile.velocity.RotatedByRandom(MathHelper.ToRadians(20));
+                        OreProjectileUtils.NewProjectile(projectile, projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, projectile.type, (int)(projectile.damage * 0.8), projectile.knockBack, projectile.owner, 0, ItemID.TitaniumOre);
+                    }
+                }
+            ));
 
             // Chlorophyte
             OreData.Add(ItemID.ChlorophyteOre, new(DustID.Chlorophyte,
@@ -491,6 +575,10 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                 onKill: (Projectile projectile) =>
                 {
                     OreProjectileUtils.NewProjectile(projectile, projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), projectile.damage, projectile.knockBack, Main.myPlayer);
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.velocity *= 2;
                 },
                 extraDraw: (Projectile projectile, Color lightColor) =>
                 {
@@ -606,6 +694,10 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                             Main.projectile[p].height /= 2;
                         }
                     }
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.penetrate = 1;
                 }
             ));
 
@@ -642,7 +734,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                         diffX *= Main.rand.Next(75, 150) * 0.01f;
                         spawnPos.X += Main.rand.Next(-50, 51);
 
-                        Vector2 speed = Vector2.Normalize(new Vector2(diffX, diffY)) * projectile.velocity.Length();
+                        Vector2 speed = Vector2.Normalize(new Vector2(diffX, diffY)) * 12f;
                         OreProjectileUtils.NewProjectile(projectile, spawnPos, speed, ModContent.ProjectileType<SeraphFeather>(), projectile.damage, 0, projectile.owner, 0f, 1f);
                     }
                 }
@@ -715,6 +807,11 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     else
                         projectile.damage += 4;
                     projectile.velocity += Vector2.Normalize(projectile.velocity) * 0.03f;
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.damage = (int)(projectile.damage / 1.3);
+                    projectile.velocity /= 2;
                 }
             ));
 
@@ -791,6 +888,11 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     projectile.localAI[0]++;
                     if (projectile.velocity.Length() < 10f)
                         projectile.velocity = 10f * Vector2.Normalize(projectile.velocity);
+                },
+                onSpawn: (Projectile projectile) =>
+                {
+                    projectile.aiStyle = -1;
+                    projectile.penetrate = 6;
                 },
                 extraDraw: (Projectile projectile, Color lightColor) =>
                 {
@@ -1034,7 +1136,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                     int hellblastType = CalamityMod.GetModProjectileType("BrimstoneHellblast");
                     for (int m = 0; m < 6; m++)
                     {
-                        Vector2 vel = Vector2.Normalize(new Vector2( projectile.velocity.X + Main.rand.Next(-4, 4), projectile.velocity.Y + Main.rand.Next(-4, 4))) * Main.rand.Next(6, 12);
+                        Vector2 vel = Vector2.Normalize(new Vector2(projectile.velocity.X + Main.rand.Next(-4, 4), projectile.velocity.Y + Main.rand.Next(-4, 4))) * Main.rand.Next(6, 12);
                         int p = OreProjectileUtils.NewProjectile(projectile, pos, vel, hellblastType, projectile.damage, 0f, projectile.owner, 1f, 0f);
                         Main.projectile[p].timeLeft = 300;
                         Main.projectile[p].tileCollide = false;
@@ -1199,7 +1301,6 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             // Mod of Redemption was active so now thats here too.
         }
 
-        // Helper for Mythril/Orichalcum chain behavior
         private static void ChainToNearbyNPC(Projectile projectile, NPC hitTarget)
         {
             for (int i = 0; i < Main.maxNPCs; i++)
@@ -1249,6 +1350,8 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 
     public class OreChunk : ModProjectile
     {
+        public override string Texture => AssetDirectory.General.Nothing;
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -1260,11 +1363,9 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
             Projectile.ignoreWater = true;
         }
 
-        private bool TryGetOreData(out OreProjectileData data) => OreCannonSystem.OreData.TryGetValue((int)Projectile.ai[1], out data);
-
         public override void AI()
         {
-            bool hasData = TryGetOreData(out var data);
+            bool hasData = OreCannonSystem.TryGetOreData(Projectile, out var data);
 
             if (hasData)
                 data.OreEffect?.Invoke(Projectile);
@@ -1291,7 +1392,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                 Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
 
-            if (TryGetOreData(out var data) && data.ExtraDraw != null)
+            if (OreCannonSystem.TryGetOreData(Projectile, out var data) && data.ExtraDraw != null)
                 data.ExtraDraw(Projectile, lightColor);
 
             return false;
@@ -1299,7 +1400,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 
         public override void OnKill(int timeLeft)
         {
-            bool hasData = TryGetOreData(out var data);
+            bool hasData = OreCannonSystem.TryGetOreData(Projectile, out var data);
             int dustType = hasData ? data.DustType : FallbackDustType((int)Projectile.ai[1]);
 
             for (int i = 0; i < 5; i++)
@@ -1315,16 +1416,16 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            if (TryGetOreData(out var data))
+            if (OreCannonSystem.TryGetOreData(Projectile, out var data))
                 data.OnHit?.Invoke(Projectile, target, ref modifiers);
         }
 
         private static int FallbackDustType(int oreItemType)
         {
-            if (AALuckyConfig.LuckyOre[oreItemType] <= 300)
+            if (AALuckyConfig.LuckyOre.TryGetValue(oreItemType, out var luckyVal) && luckyVal <= 300)
                 return DustID.Copper;
 
-            if (AALuckyConfig.LuckyOre[oreItemType] <= 700)
+            if (AALuckyConfig.LuckyOre.TryGetValue(oreItemType, out luckyVal) && luckyVal <= 700)
                 return DustID.Gold;
 
             return WorldGen.genRand.Next(18) switch
@@ -1349,5 +1450,143 @@ namespace AAModClassic._Content.__PLACEHOLDER.ore.projs
                 _ => DustID.Torch,
             };
         }
+    }
+
+    public class GravityAffectedOreChunk : ModProjectile
+    {
+        public override string Texture => AssetDirectory.General.Nothing;
+
+        public override void SetDefaults()
+        {
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
+            Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                Projectile.timeLeft = 600;
+        }
+
+        public float rotationspeed = 0.2f;
+
+        public override void AI()
+        {
+            bool hasData = OreCannonSystem.TryGetOreData(Projectile, out var data);
+
+            if (hasData)
+            {
+                data.OreEffect?.Invoke(Projectile);
+
+                data.ExtraAI?.Invoke(Projectile);
+            }
+
+            if (Projectile.velocity.X > 0)
+            {
+                Projectile.direction = 1;
+            }
+            else
+            {
+                Projectile.direction = -1;
+            }
+
+            bool flag = false;
+            Vector2 velocity = Collision.TileCollision(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height, true, true, 1); ;
+            if (velocity != Projectile.velocity)
+            {
+                flag = true;
+            }
+            if (flag && ProjectileLoader.OnTileCollide(Projectile, Projectile.velocity))
+            {
+                rotationspeed -= .021f;
+            }
+
+            if (rotationspeed <= 0)
+            {
+                rotationspeed = 0f;
+            }
+
+            Projectile.rotation += rotationspeed * Projectile.direction;
+
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
+            {
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
+            }
+            Projectile.oldPos[0] = Projectile.position;
+
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Vector2 drawOrigin = new(TextureAssets.Item[(int)Projectile.ai[1]].Value.Width * 0.5f, Projectile.height * 0.5f);
+
+            for (int k = 0; k < 3; k++)
+            {
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color color = Projectile.GetAlpha(lightColor) * ((3 - k) / 3f);
+                Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+            }
+
+            if (OreCannonSystem.TryGetOreData(Projectile, out var data) && data.ExtraDraw != null)
+                data.ExtraDraw(Projectile, lightColor);
+
+            return false;
+        }
+
+        public override void OnKill(int timeLeft)
+        {
+            bool hasData = OreCannonSystem.TryGetOreData(Projectile, out var data);
+            int dustType = hasData ? data.DustType : FallbackDustType((int)Projectile.ai[1]);
+
+            for (int i = 0; i < 5; i++)
+            {
+                float velX = -Projectile.velocity.X * 0.2f;
+                float velY = -Projectile.velocity.Y * 0.2f;
+                Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, dustType, velX, velY);
+            }
+
+            if (hasData)
+                data.OnKill?.Invoke(Projectile);
+        }
+
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+        {
+            if (OreCannonSystem.TryGetOreData(Projectile, out var data))
+                data.OnHit?.Invoke(Projectile, target, ref modifiers);
+        }
+
+        private static int FallbackDustType(int oreItemType)
+        {
+            if (AALuckyConfig.LuckyOre.TryGetValue(oreItemType, out var luckyVal) && luckyVal <= 300)
+                return DustID.Copper;
+
+            if (AALuckyConfig.LuckyOre.TryGetValue(oreItemType, out luckyVal) && luckyVal <= 700)
+                return DustID.Gold;
+
+            return WorldGen.genRand.Next(18) switch
+            {
+                0 => DustID.Copper,
+                1 => DustID.Tin,
+                2 => DustID.Iron,
+                3 => DustID.Lead,
+                4 => DustID.Silver,
+                5 => DustID.Tungsten,
+                6 => DustID.Gold,
+                7 => DustID.Platinum,
+                8 => DustID.t_Meteor,
+                9 => ModContent.DustType<Dusts.LuminiteDust>(),
+                10 => ModContent.DustType<Dusts.DarkmatterDust>(),
+                11 => ModContent.DustType<Dusts.RadiumDust>(),
+                12 => ModContent.DustType<Dusts.DaybreakIncineriteDust>(),
+                13 => ModContent.DustType<Dusts.YamataDust>(),
+                14 => ModContent.DustType<Dusts.VoidDust>(),
+                15 => ModContent.DustType<Dusts.IncineriteDust>(),
+                16 => ModContent.DustType<Dusts.AbyssiumDust>(),
+                _ => DustID.Torch,
+            };
+        }
+
     }
 }
