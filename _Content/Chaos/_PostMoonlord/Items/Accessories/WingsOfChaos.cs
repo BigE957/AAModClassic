@@ -2,6 +2,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Accessories;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
@@ -32,7 +33,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 			Item.width = 22;
 			Item.height = 20;
             Item.value = Item.sellPrice(0, 12, 0, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
 			Item.accessory = true;
             
         }
