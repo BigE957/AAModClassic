@@ -1,19 +1,19 @@
+using System;
 using AAModClassic.Assets;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.__PLACEHOLDER.crossmod
+namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
-    public class AuroraScythe_Holdout : ModProjectile
-    { 
+    public class HydrasFury_Holdout : ModProjectile
+	{
 		public override void SetDefaults()
 		{
 			Projectile.width = 130;
-			Projectile.height = 128;
+			Projectile.height = 130;
 			Projectile.aiStyle = 0;
 			Projectile.penetrate = -1;
 			Projectile.light = 0.2f;
@@ -38,25 +38,25 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 			
 			if (player.direction > 0)
 			{
-				Projectile.rotation += 0.35f;
+				Projectile.rotation += 0.45f;
 				Projectile.spriteDirection = 1;
 			}
 			else
 			{
-				Projectile.rotation -= 0.35f;
+				Projectile.rotation -= 0.45f;
 				Projectile.spriteDirection = -1;
 			}
 			
 			Projectile.position.X = player.Center.X - Projectile.width / 2f;
 			Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
 			
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<AuroraScytheDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<AuroraScytheDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(),Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<HydrasFuryDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<HydrasFuryDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			
 			if (Projectile.timeLeft == 13)
 			{
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<AuroraScytheDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<AuroraScytheDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<HydrasFuryDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<HydrasFuryDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
 			}
 			
 			if (Projectile.timeLeft < 8)
@@ -77,13 +77,14 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 			}
 		}
 	}
-    public class AuroraScytheDamage : ModProjectile
+
+    public class HydrasFuryDamage : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
-            Projectile.height = 128;
+            Projectile.height = 130;
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
             Projectile.tileCollide = false;
@@ -98,7 +99,7 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
         {
             if (Main.rand.NextBool(2))
             {
-                target.AddBuff(BuffID.Frostburn, 200, false);
+                target.AddBuff(BuffID.Poisoned, 200, false);
             }
         }
 
@@ -119,13 +120,13 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
             Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
         }
     }
-    public class AuroraScytheDamage2 : ModProjectile
+    public class HydrasFuryDamage2 : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 130;
-            Projectile.height = 128;
+            Projectile.height = 130;
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
             Projectile.tileCollide = false;
@@ -153,11 +154,10 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
             Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
         }
     }
-    public class AuroraScytheEffect : ModProjectile
+    public class HydrasFuryEffect : ModProjectile
     {
-        public override string Texture => AssetDirectory.General.Nothing;
         public static Color lightColor = new Color(41, 60, 103);
-
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetDefaults()
         {
@@ -195,11 +195,11 @@ namespace AAModClassic._Content.__PLACEHOLDER.crossmod
 
             Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + Projectile.ai[0] * (6.28f / 2));
 
-            for (int m = 0; m < 5; m++)
+            for (int m = 0; m < 3; m++)
             {
                 float velX = Projectile.velocity.X / 3f * m;
                 float velY = Projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.IceDust>(), 0, 0, 0);
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), 0, 0, 0);
                 //int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, 55, 0f, 0f, 0, default, 1.2f);
                 Main.dust[dustID].position.X = Projectile.Center.X - velX;
                 Main.dust[dustID].position.Y = Projectile.Center.Y - velY;

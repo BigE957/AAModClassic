@@ -1,10 +1,10 @@
-using AAModClassic._Content.__PLACEHOLDER.crossmod;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._CrossMod.Thorium.Weapons.Healer;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;

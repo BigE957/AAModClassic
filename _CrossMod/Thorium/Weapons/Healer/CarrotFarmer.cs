@@ -1,25 +1,23 @@
 using System.Collections.Generic;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
-
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic._Content.__PLACEHOLDER.crossmod
+namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
-    public class DragonsClaw : CrossoverItem, ILocalizedModType
+	public class CarrotFarmer : CrossoverItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
         public override void SetStaticDefaults()
 		{
-			crossoverModName = "Thorium";
-            // DisplayName.SetDefault("Dragon's Claw");
-            /* Tooltip.SetDefault(@"Spins a fiery scythe around you that shreds through enemies
-Scythes ignites enemies on contact
+			crossoverModName = "ThoriumMod";
+            // DisplayName.SetDefault("Carrot Farmer");
+            /* Tooltip.SetDefault(@"Spins a Carrot Scythe around you that shreds through enemies
+Scythes fire off carrots while spun
 Grants 1 soul essence on direct hit"); */			
 		}
 
@@ -28,19 +26,18 @@ Grants 1 soul essence on direct hit"); */
             Item.width = 40;
             Item.height = 40;
             Item.maxStack = Item.CommonMaxStack;
-            Item.rare = ItemRarityID.Orange;
-            Item.value = Item.sellPrice(0, 5, 50, 50);
-
+            Item.rare = ItemRarityID.Yellow;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.useAnimation = 27;
-            Item.useTime = 27;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
             Item.UseSound = SoundID.Item1;
-            Item.damage = 14;
-            Item.knockBack = 8;
+            Item.damage = 80;
+            Item.knockBack = 9;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<DragonsClaw_Holdout>();
+            Item.shoot = ModContent.ProjectileType<CarrotFarmer_Holdout>();
             Item.shootSpeed = 0.1f;
 		}
 		
@@ -48,7 +45,7 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<DragonsClawEffect>(), damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}
@@ -93,15 +90,6 @@ Grants 1 soul essence on direct hit"); */
             };
             list.Insert(index2, colorLine);
 			base.ModifyTooltips(list);
-        }
-
-        public override void AddRecipes()
-        {
-            if (!ModLoader.TryGetMod("ThoriumMod", out _)) return;
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
         }
     }
 }

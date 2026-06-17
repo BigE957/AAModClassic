@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.__PLACEHOLDER.crossmod
+namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class CarrotFarmer_FarmedCarrot : ModProjectile
 	{

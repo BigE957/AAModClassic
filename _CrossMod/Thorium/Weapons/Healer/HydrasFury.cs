@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 
@@ -8,17 +9,17 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic._Content.__PLACEHOLDER.crossmod
+namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
-    public class AuroraScythe : CrossoverItem, ILocalizedModType
+    public class HydrasFury : CrossoverItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
         public override void SetStaticDefaults()
 		{
 			crossoverModName = "Thorium";
-            // DisplayName.SetDefault("Aurora Scythe");
-            /* Tooltip.SetDefault(@"Spins a frostburning scythe around you that shreds through enemies
-Scythes inflict frostburn on contact
+            // DisplayName.SetDefault("Hydra's Fury");
+            /* Tooltip.SetDefault(@"Spins an abyssal scythe around you that shreds through enemies
+Scythes inflict poison on contact
 Grants 1 soul essence on direct hit"); */			
 		}
 
@@ -34,12 +35,12 @@ Grants 1 soul essence on direct hit"); */
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.UseSound = SoundID.Item1;
-            Item.damage = 24;
-            Item.knockBack = 6;
+            Item.damage = 10;
+            Item.knockBack = 4;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<AuroraScythe_Holdout>();
+            Item.shoot = ModContent.ProjectileType<HydrasFury_Holdout>();
             Item.shootSpeed = 0.1f;
 		}
 		
@@ -47,7 +48,7 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<AuroraScytheEffect>(), damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<HydrasFuryEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}
@@ -61,7 +62,7 @@ Grants 1 soul essence on direct hit"); */
 		{
 			if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
 			{
-                modifiers.SetCrit();
+				modifiers.SetCrit();
 			}
 		}
 
@@ -98,14 +99,8 @@ Grants 1 soul essence on direct hit"); */
         {
             if (!ModLoader.TryGetMod("ThoriumMod", out _)) return;
             Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.IceSickle);
-            recipe.AddIngredient(ItemID.AdamantiteBar, 8);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.IceSickle);
-            recipe.AddIngredient(ItemID.TitaniumBar, 8);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 8);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }
