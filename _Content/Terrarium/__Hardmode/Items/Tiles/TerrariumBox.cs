@@ -3,9 +3,9 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Void.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Void.__Hardmode.Items.Tiles.Decoration;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Tiles
 {

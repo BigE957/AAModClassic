@@ -342,3 +342,13 @@ MetallicTruffle: {
 	DisplayName: Metallic Truffle
 	Tooltip: ""
 }
+
+APageOfTheRuneBook: {
+	DisplayName: A Page Of The Rune Book
+	Tooltip: ""
+}
+
+TheBookOfRunes: {
+	DisplayName: The Book Of Runes
+	Tooltip: ""
+}

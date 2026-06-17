@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -23,7 +23,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Weapons
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            damage.Scale(InvokerPlayer.ModPlayer(player).BanishDamageMult);
+            damage.Scale(TheBookOfTheLaw_InvokerPlayer.ModPlayer(player).BanishDamageMult);
         }
 
         public override void ModifyWeaponKnockback(Player player, ref StatModifier knockback)

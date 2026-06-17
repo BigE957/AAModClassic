@@ -413,7 +413,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 {
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
-                    Main.player[p].AddBuff(ModContent.BuffType<YamataGravity_Buff>(), 10, true);
+                    Main.player[p].AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
                 }
                 NoFlyCountDown--;
                 if (!NoFly4U && NoFlyCountDown <= 0 && !AAWorld.downedYamata)

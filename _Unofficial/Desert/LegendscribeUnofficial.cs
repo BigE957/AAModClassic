@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;

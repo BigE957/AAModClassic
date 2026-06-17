@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -26,7 +25,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.width = 32;
             Item.height = 32;
             Item.expert = true; Item.expertOnly = true;
-            Item.createTile = ModContent.TileType<CerberusKennel_Tile>(); 
+            Item.createTile = ModContent.TileType<CerberusBag_Tile>(); 
         }
 
         public override bool CanRightClick()

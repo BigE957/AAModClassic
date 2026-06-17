@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.World.Tiles;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Terrarium.World.Tiles;
@@ -287,8 +287,8 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 					}
 				}
 			}
-			WorldGen.PlaceTile(origin.X + 32, origin.Y + 137, ModContent.TileType<InvokerBook_Tile>(), mute: true);
-			WorldGen.PlaceTile(origin.X + 36, origin.Y + 137, ModContent.TileType<InvokerBook_Tile>(), mute: true);
+			WorldGen.PlaceTile(origin.X + 32, origin.Y + 137, ModContent.TileType<AleisterBook_Tile>(), mute: true);
+			WorldGen.PlaceTile(origin.X + 36, origin.Y + 137, ModContent.TileType<AleisterBook_Tile>(), mute: true);
 			WorldGen.PlaceChest(origin.X + 238, origin.Y + 104, (ushort)ModContent.TileType<TerraDresser_Tile>());
 			WorldGen.PlaceTile(origin.X + 226, origin.Y + 104, ModContent.TileType<TerraBookcase_Tile>(), mute: true);
 			WorldGen.PlaceTile(origin.X + 97, origin.Y + 60, ModContent.TileType<KeepDoor1_Tile>(), mute: true);

@@ -17,7 +17,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 {
     [AutoloadBossHead]
-    public class GripOfChaosInferno : BaseGripOfChaos
+    public class GripOfChaosInferno : GripOfChaosAbstract
     {
         public static Asset<Texture2D> Glowmask;
 

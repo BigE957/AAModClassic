@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -18,7 +18,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
         {
             npc.GetGlobalNPC<AleisterStaffGlobalNPC>().Banished = true;
 
-            InvokerPlayer InvokerPlayer = Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>();
+            TheBookOfTheLaw_InvokerPlayer InvokerPlayer = Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>();
             if ((InvokerPlayer.banishing && npc.active && (InvokerPlayer.BanishDamage * InvokerPlayer.BanishDamageMult * InvokerPlayer.BanishLimit > npc.life)) || npc.GetGlobalNPC<AleisterStaffGlobalNPC>().IsBeingBanished)
             {
                 npc.GetGlobalNPC<AleisterStaffGlobalNPC>().IsBeingBanished = true;

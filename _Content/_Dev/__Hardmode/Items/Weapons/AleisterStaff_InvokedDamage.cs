@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using System;
@@ -87,7 +87,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
                         if (Projectile.owner == Main.myPlayer)
                         {
                             Player player = Main.player[num492];
-                            player.GetModPlayer<InvokerPlayer>().CaligulaSoul.Add((int)Projectile.ai[1]);
+                            player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().CaligulaSoul.Add((int)Projectile.ai[1]);
                             CombatText.NewText(new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height), Color.DarkGray, Language.GetTextValue("Mods.AAModClassic.Common.CaligulaSoul"), false, false);
                         }
                         Projectile.Kill();

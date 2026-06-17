@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -115,7 +115,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 
             double Realdamage = modifiers.FinalDamage.Flat;
 
-            if (Main.player[Projectile.owner].GetModPlayer<InvokerPlayer>().SpringInvoker)
+            if (Main.player[Projectile.owner].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker)
             {
                 if (target.realLife >= 0)
                 {
