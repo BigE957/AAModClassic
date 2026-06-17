@@ -71,57 +71,38 @@ namespace AAModClassic._Content._Dev.Invoker
 			FinisherElysium = false;
 			CaligulaSoul = new List<int>();
 		}
-
-		public override void SaveData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
+		
+		public override void SaveData(TagCompound tag)// tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound 
 		{
-			List<string> list = new List<string>();
-			if (DarkCaligula)
-			{
-				list.Add("DarkCaligula");
-			}
-			if (WindRaidjin)
-			{
-				list.Add("WindRaidjin");
-			}
-			if (WaterCocytus)
-			{
-				list.Add("WaterCocytus");
-			}
-			if (FirePurgatrio)
-			{
-				list.Add("FirePurgatrio");
-			}
-			if (EarthMagellanica)
-			{
-				list.Add("EarthMagellanica");
-			}
-			if (LightingMechaba)
-			{
-				list.Add("LightingMechaba");
-			}
-			if (FinisherElysium)
-			{
-				list.Add("FinisherElysium");
-			}
-			TagCompound tagCompound = new TagCompound();
-			tagCompound.Add("InvokerSummon", list);
-			tagCompound.Add("CaligulaSoul", CaligulaSoul);
-		}
+            tag.Add("CaligulaSoul", CaligulaSoul);
+            tag.Add("DarkCaligula", DarkCaligula);
+            tag.Add("WindRaidjin", WindRaidjin);
+            tag.Add("WaterCocytus", WaterCocytus);
+            tag.Add("FirePurgatrio", FirePurgatrio);
+            tag.Add("EarthMagellanica", EarthMagellanica);
+            tag.Add("LightingMechaba", LightingMechaba);
+            tag.Add("FinisherElysium", FinisherElysium);
+
+        }
 		public override void LoadData(TagCompound tag)
 		{
-			IList<string> list = tag.GetList<string>("InvokerSummon");
-			DarkCaligula = list.Contains("DarkCaligula");
-			WindRaidjin = list.Contains("WindRaidjin");
-			WaterCocytus = list.Contains("WaterCocytus");
-			FirePurgatrio = list.Contains("FirePurgatrio");
-			EarthMagellanica = list.Contains("EarthMagellanica");
-			LightingMechaba = list.Contains("LightingMechaba");
-			FinisherElysium = list.Contains("FinisherElysium");
-			foreach(int k in tag.GetList<int>("CaligulaSoul"))
-			{
-				CaligulaSoul.Add(k);
-			}
-		}
+            if (!tag.TryGet("CaligulaSoul", out CaligulaSoul))
+                CaligulaSoul = new List<int>();
+            if (!tag.TryGet("DarkCaligula", out DarkCaligula))
+                DarkCaligula = false;
+            if (!tag.TryGet("WindRaidjin", out WindRaidjin))
+                WindRaidjin = false;
+            if (!tag.TryGet("WaterCocytus", out WaterCocytus))
+                WaterCocytus = false;
+            if (!tag.TryGet("FirePurgatrio", out FirePurgatrio))
+                FirePurgatrio = false;
+            if (!tag.TryGet("EarthMagellanica", out EarthMagellanica))
+                EarthMagellanica = false;
+            if (!tag.TryGet("LightingMechaba", out LightingMechaba))
+                LightingMechaba = false;
+            if (!tag.TryGet("FinisherElysium", out FinisherElysium))
+                FinisherElysium = false;
+        }
 		
 		/*
 		public override void LoadLegacy(BinaryReader reader)
@@ -182,38 +163,57 @@ namespace AAModClassic._Content._Dev.Invoker
 		}
 		public override void FrameEffects()
 		{
-			int soulcount = 0;
+			bool soulAkuma = false;
+			bool soulYamata = false;
+			bool soulZero = false;
+			bool soulShen = false;
+			bool soulRajah = false;
 			foreach(int soul in CaligulaSoul)
 			{
-				if(soul == ModContent.NPCType<AkumaAHead>()) soulcount ++;
-				if(soul == ModContent.NPCType<YamataABody>()) soulcount ++;
-				if(soul == ModContent.NPCType<ZeroA>()) soulcount ++;
-				if(soul == ModContent.NPCType<ShenDoragonA>()) soulcount ++;
-				if(soul == ModContent.NPCType<RajahRabbitA>()) soulcount ++;
-			}
-			if(soulcount >= 5)
+				if(soul == ModContent.NPCType<AkumaAHead>())
+                    soulAkuma = true;
+                else if (soul == ModContent.NPCType<YamataABody>())
+                    soulYamata = true;
+                else if (soul == ModContent.NPCType<ZeroA>())
+                    soulZero = true;
+				//TODO: shen and rajah dont actually count their deaths when u banish them. related to them spawning a diff entity on death?
+                else if (soul == ModContent.NPCType<ShenDoragonA>())
+                    soulShen = true;
+                else if (soul == ModContent.NPCType<RajahRabbitA>())
+                    soulRajah = true;
+            }
+
+            if (soulAkuma && soulYamata && soulZero && soulShen && soulRajah)
+                DarkCaligula = true;
+
+            Main.NewText("start");
+            Main.NewText(soulAkuma);
+            Main.NewText(soulYamata);
+            Main.NewText(soulZero);
+            Main.NewText(soulShen);
+            Main.NewText(soulRajah);
+            Main.NewText("end");
+            Main.NewText(soulAkuma && soulYamata && soulZero && soulShen && soulRajah);
+            Main.NewText(DarkCaligula);
+
+            if (Thebookoflaw && DarkCaligula)
+                Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe_Buff>(), 3600);
+
+            if (InvokerShow)
 			{
-				DarkCaligula = true;
-			}
-			if (Thebookoflaw && DarkCaligula)
-			{
-				Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe_Buff>(), 3600);
-			}
-			if (InvokerShow)
-			{
-                Player.legs = EquipLoader.GetEquipSlot(Mod, "InvokerLegs", EquipType.Legs);
-                Player.body = EquipLoader.GetEquipSlot(Mod, "InvokerBody", EquipType.Body);
-                Player.head = EquipLoader.GetEquipSlot(Mod, "InvokerHead", EquipType.Head);
+                Player.head = EquipLoader.GetEquipSlot(Mod, "CerberusHelmet_Head", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "CerberusChestplate_Body", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "CerberusLeggings_Legs", EquipType.Legs);
 			}
 			if (InvokedCaligula)
 			{
-                Player.legs = EquipLoader.GetEquipSlot(Mod, "InvokedCaligulaLegs", EquipType.Legs);
-                Player.body = EquipLoader.GetEquipSlot(Mod, "InvokedCaligulaBody", EquipType.Body);
-                Player.head = EquipLoader.GetEquipSlot(Mod, "InvokedCaligulaHead", EquipType.Head);
-				
-				if(Main.mouseLeft && Player.inventory[Player.selectedItem].damage > 0)
+                Player.head = EquipLoader.GetEquipSlot(Mod, "InvokedCaligula_Head", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "InvokedCaligula_Body", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "InvokedCaligula_Legs", EquipType.Legs);
+
+                if (Main.mouseLeft && Player.inventory[Player.selectedItem].damage > 0)
 				{
-					InvokedCaligulaClaw ++;
+					InvokedCaligulaClaw++;
 					if(InvokedCaligulaClaw == 1)
 					{
 						float scaleFactor6 = 15f;

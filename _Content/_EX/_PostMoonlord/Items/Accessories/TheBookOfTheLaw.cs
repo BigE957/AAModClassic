@@ -80,7 +80,8 @@ Includes the effects of all the pieces used to make this.
             //InvokerPlayer.BanishProjClear = true;  //This need change.
             InvokerPlayer.Thebookoflaw = true;
             InvokerPlayer.SpringInvoker = true;
-            if(!hideVisual) InvokerPlayer.InvokerShow = true;
+            if(!hideVisual) 
+                InvokerPlayer.InvokerShow = true;
             InvokerPlayer.BanishDamageMult += 4.5f;
             InvokerPlayer.BanishLimit += 5;
         }
@@ -95,8 +96,7 @@ Includes the effects of all the pieces used to make this.
 			recipe.AddIngredient(ItemID.SquireGreatHelm, 1);
             recipe.AddIngredient(ItemID.SquireAltShirt, 1);
             recipe.AddIngredient(ItemID.ShinyStone, 1);
-            recipe.AddIngredient(ItemID.FrozenTurtleShell, 1);
-            recipe.AddIngredient(ItemID.PaladinsShield, 1);
+            recipe.AddIngredient(ItemID.FrozenShield, 1);
             recipe.AddIngredient(ItemID.SpectreBar, 60);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
 			recipe.AddTile(ModContent.TileType<ACS_Tile>());

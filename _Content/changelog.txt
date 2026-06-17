@@ -52,6 +52,7 @@ base
 -most if not all set bonus and armor item descriptions have been rewritten for clarity and accuracy
 -cleaned up many mistakes with armor pieces and armor set bonuses listing effects but not giving them, having unlisted effects, giving duplicate effects, ect
 -multiple dev items can no longer drop from one boss bag
+-the book of the law now uses frozen shield instead of paladin shield and frozen turtle shell
 -
 
 removed

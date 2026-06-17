@@ -18,7 +18,7 @@ namespace AAModClassic._Content._Dev.Invoker
         {
             player.GetModPlayer<InvokerPlayer>().InvokedCaligula = true;
 			
-			player.buffTime[buffIndex] = 18000;
+			player.buffTime[buffIndex] = 20;
         }
 	}
 }
