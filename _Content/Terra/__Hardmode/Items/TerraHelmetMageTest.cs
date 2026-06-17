@@ -37,6 +37,8 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             base.RegisterEquipStats();
 
             damageMap.GetDamage(DamageClass.Magic) += 0.20f;
+            damageMap.GetArmorPenetration(DamageClass.Magic) += 5;
+            damageMap.GetArmorPenetration(DamageClass.Melee) -= 5;
 
 
             AddEffect<ManaFlower>();

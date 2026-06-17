@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.__PLACEHOLDER.ore.projs;
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;

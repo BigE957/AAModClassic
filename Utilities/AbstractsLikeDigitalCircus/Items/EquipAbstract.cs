@@ -88,7 +88,21 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     }
                     if (damageMap.GetArmorPenetration(currentClass) != 0)
                     {
+                        string increaseOrDecrease = "Increased";
+                        if (damageMap.GetArmorPenetration(currentClass) < 0)
+                            increaseOrDecrease = "Decreased";
 
+                        string extraSpaceForGeneric = " ";
+                        if (currentClass == DamageClass.Generic)
+                            extraSpaceForGeneric = "";
+
+                        string adlibPath = $"{rootPath}.ClassGlobalStats.ArmorPenetration";
+                        string increaseOrDecreasePath = $"{rootPath}.{statModifierPath}.{increaseOrDecrease}";
+                        string damageTypePath = $"{rootPath}.ClassGlobalStats.{currentClass.Name}";
+
+                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, damageMap.GetArmorPenetration(currentClass));
+                        line = new TooltipLine(Mod, finalTooltipText, finalTooltipText);
+                        list.Add(line);
                     }
                     if (damageMap.GetKnockback(currentClass) != StatModifier.Default)
                     {

@@ -9,6 +9,9 @@ ClassGlobalStats: {
 	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
 	MagicSummonHybridDamageClass: magic and summon
 	ThrowingDamageClass: throwing
+	CritChance: ""
+	AttackSpeed: ""
+	ArmorPenetration: "{0} {1}{2}armor penetration by {3}"
 
 	StatModifier: {
 		Adlibs: {
@@ -35,6 +38,9 @@ ClassGlobalStats: {
 		Knockback: knockback
 		CritSameAsDamageAdditive: " & critical strike chance"
 	}
+}
+
+SpecificStats: {
 }
 
 Misc.Nothing: ""
