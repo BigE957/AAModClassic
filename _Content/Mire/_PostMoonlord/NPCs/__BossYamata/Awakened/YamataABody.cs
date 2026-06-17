@@ -463,7 +463,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
                     {
-                        Main.player[p].AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
+                        Main.player[p].AddBuff(ModContent.BuffType<YamataABody_TrueAbyssalGravity>(), 10, true);
                     }
                 }
 

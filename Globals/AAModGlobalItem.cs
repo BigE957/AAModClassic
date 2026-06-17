@@ -1,5 +1,5 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
@@ -1025,7 +1025,7 @@ namespace AAModClassic.Globals
         }
         public override bool CanUseItem(Item item, Player player)
         {
-            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<AleisterStaff>() && player.altFunctionUse == 2))
+            if (player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<AleisterStaff>() && player.altFunctionUse == 2))
             {
                 return false;
             }

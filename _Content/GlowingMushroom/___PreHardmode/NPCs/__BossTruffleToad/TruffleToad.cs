@@ -18,7 +18,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos.BaseGripOfChaos;
+using static AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos.GripOfChaosAbstract;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {

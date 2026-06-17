@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
@@ -34,7 +34,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 		{
             string text = "";
 			Player player = Main.player[Main.myPlayer];
-			if(!player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
+			if(!player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
 				text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerStaff1");
 			}
@@ -49,7 +49,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 					string[] splitText = tooltipLine.Text.Split(' ');
 					string damageValue = splitText.First();
 					string damageWord = splitText.Last();
-					if(Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw) 
+					if(Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw) 
 					{
 						tooltipLine.Text = damageValue + " " + Language.GetTextValue("Mods.AAModClassic.Common.InvokerDamage1") + damageWord;
 					}
@@ -80,7 +80,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
         }
 		public override bool CanUseItem(Player player)
 		{
-			if(!player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
+			if(!player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
 				Item.noMelee = false;
 				Item.staff[Item.type] = false;
@@ -89,7 +89,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				Item.DamageType = DamageClass.Summon;
 				return true;
 			}
-			else if(player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
+			else if(player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
 				Item.noMelee = true;
 				Item.staff[Item.type] = true;
@@ -101,17 +101,17 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (player.altFunctionUse != 2 && player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
+			if (player.altFunctionUse != 2 && player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
 				Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, ModContent.ProjectileType<AleisterStaff_Proj>(), damage, knockback, player.whoAmI, 0f, 0f);
 			}
-			if (player.altFunctionUse == 2 && player.GetModPlayer<InvokerPlayer>().SpringInvoker)
+			if (player.altFunctionUse == 2 && player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker)
 			{
-				if(!player.GetModPlayer<InvokerPlayer>().InvokerMadness)
+				if(!player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().InvokerMadness)
 				{
-					player.AddBuff(ModContent.BuffType<AleisterStaff_InvokerofMadness_Buff>(), player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
-					player.GetModPlayer<InvokerPlayer>().BanishDamage = Item.damage * 5;
-					player.GetModPlayer<InvokerPlayer>().banishing = true;
+					player.AddBuff(ModContent.BuffType<AleisterStaff_InvokerOfMadness>(), player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula? 30:3000);
+					player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().BanishDamage = Item.damage * 5;
+					player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().banishing = true;
 				}
 			}
 			return false;
@@ -124,7 +124,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 
 		public override bool AltFunctionUse(Player player)
 		{
-			return !(!player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.GetModPlayer<InvokerPlayer>().InvokedCaligula) && player.GetModPlayer<InvokerPlayer>().SpringInvoker;
+			return !(!player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula && player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().InvokedCaligula) && player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker;
 		}
 
     }
@@ -211,7 +211,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				}
 			}
 
-			InvokerPlayer InvokerPlayer = Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>();
+			TheBookOfTheLaw_InvokerPlayer InvokerPlayer = Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>();
 
 			if(npc.boss)
 			{
@@ -219,7 +219,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				{
 					InvokerPlayer.nohit = false;
 				}
-				bool flag = (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ModContent.ItemType<AleisterStaff>() || Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ItemID.RodofDiscord) && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw;
+				bool flag = (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ModContent.ItemType<AleisterStaff>() || Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ItemID.RodofDiscord) && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw;
 				if(npc.life/npc.lifeMax > 0.95)
 				{
 					CaligulaSoulFight = true;
@@ -269,7 +269,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 		
 		public override bool PreKill(NPC npc)
 		{
-			if(Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ModContent.ItemType<AleisterStaff>() && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw)
+			if(Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ModContent.ItemType<AleisterStaff>() && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
             	//Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().BanishProjClear = true; // Just for test.
 				float nump7 = 4f;
@@ -321,7 +321,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) 
 						Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
 				}
-				if(npc.GetGlobalNPC<AleisterStaffGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroA>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaAHead>() || npc.type == ModContent.NPCType<ShenDoragonA>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
+				if(npc.GetGlobalNPC<AleisterStaffGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroA>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaAHead>() || npc.type == ModContent.NPCType<ShenDoragonA>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
 				{
 					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
 				}

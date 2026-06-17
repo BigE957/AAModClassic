@@ -47,18 +47,18 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             }
             if (overloadCount >0)
             {
-                if (player.HasBuff(ModContent.BuffType<ManaOverload_Buff>()))
+                if (player.HasBuff(ModContent.BuffType<StarHelmetRangedPlayer_SunSiphon_ManaOverload>()))
                 {
 
-                    player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload_Buff>())] += overloadCount * 2;
-                    if (player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload_Buff>())] > 600)
+                    player.buffTime[player.FindBuffIndex(ModContent.BuffType<StarHelmetRangedPlayer_SunSiphon_ManaOverload>())] += overloadCount * 2;
+                    if (player.buffTime[player.FindBuffIndex(ModContent.BuffType<StarHelmetRangedPlayer_SunSiphon_ManaOverload>())] > 600)
                     {
-                        player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload_Buff>())] = 600;
+                        player.buffTime[player.FindBuffIndex(ModContent.BuffType<StarHelmetRangedPlayer_SunSiphon_ManaOverload>())] = 600;
                     }
                 }
                 else
                 {
-                    player.AddBuff(ModContent.BuffType<ManaOverload_Buff>(), overloadCount * 2);
+                    player.AddBuff(ModContent.BuffType<StarHelmetRangedPlayer_SunSiphon_ManaOverload>(), overloadCount * 2);
                 }
                 CombatText.NewText(player.Hitbox, Color.Purple, overloadCount * 2);
             }

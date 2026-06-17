@@ -1,12 +1,13 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Content._Dev.__Hardmode.Items.Mounts;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
-using AAModClassic._Content._EX._PostMoonlord.Items.Weapons.RuneBook;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Accessories.Vanity;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
@@ -31,7 +32,7 @@ using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
@@ -42,7 +43,7 @@ using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
-using AAModClassic._Content.Mire.__Hardmode.Items.Tiles;
+using AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
@@ -58,7 +59,7 @@ using AAModClassic._Content.SunkenShip.__PreHardmode.Items.Tools;
 using AAModClassic._Content.Terra.__Hardmode.Items.Armor;
 using AAModClassic._Content.Terra.Projectiles;
 using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Accessories;
 using AAModClassic._Content.Void.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
@@ -1391,12 +1392,12 @@ namespace AAModClassic
 
                 if (akuma.ai[0] >= 660)
                 {
-                    Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
+                    Player.AddBuff(ModContent.BuffType<AkumaAHead_ScorchingPain>(), 2);
                 }
             }
             else if (NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
             {
-                Player.AddBuff(ModContent.BuffType<ScorchingPain_Buff>(), 2);
+                Player.AddBuff(ModContent.BuffType<AkumaAHead_ScorchingPain>(), 2);
             }
 
             if (BasePlayer.HasAccessory(Player, ModContent.ItemType<HappySunSticker>(), true, true))
@@ -1649,13 +1650,13 @@ namespace AAModClassic
             //TODO: is this needed? the same thing is done in YamataBody
             if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()))
             {
-                Player.AddBuff(ModContent.BuffType<YamataGravity_Buff>(), 10, true);
+                Player.AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
             }
 
             //TODO: is this needed? the same thing is done in YamataABody
             if (NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
-                Player.AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
+                Player.AddBuff(ModContent.BuffType<YamataABody_TrueAbyssalGravity>(), 10, true);
             }
 
             if (Player.GetModPlayer<AAPlayer>().ZoneMire || Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
@@ -1786,44 +1787,44 @@ namespace AAModClassic
                 float slotscanuse = Player.maxMinions - Player.slotsMinions;
                 if (slotscanuse > 1)
                 {
-                    bool RuneControl = Player.ownedProjectileCounts[ModContent.ProjectileType<BunnyRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<DiscordRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<EnergyRune>()] > 1;
-                    bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] > 1;
+                    bool RuneControl = Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>()] > 1;
+                    bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_VoidRune>()] > 1;
                     if (RuneControl || RuneControlEX)
                     {
-                        Player.ClearBuff(ModContent.BuffType<CCRune_Buff>());
+                        Player.ClearBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>());
                     }
-                    if (Player.FindBuffIndex(ModContent.BuffType<CCRune_Buff>()) == -1)
+                    if (Player.FindBuffIndex(ModContent.BuffType<APageOfTheRuneBook_Buff>()) == -1)
                     {
-                        Player.AddBuff(ModContent.BuffType<CCRune_Buff>(), 3600, true);
+                        Player.AddBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>(), 3600, true);
                     }
                     if (CCBook)
                     {
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<BunnyRune>()] < 1 && slotscanuse > 1f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>()] < 1 && slotscanuse > 1f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<BunnyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<DiscordRune>()] < 1 && slotscanuse > 2f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>()] < 1 && slotscanuse > 2f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<DiscordRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(50), 4f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(50), 4f, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<EnergyRune>()] < 1 && slotscanuse > 3f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>()] < 1 && slotscanuse > 3f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<EnergyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(100), 2f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(100), 2f, Player.whoAmI, 0f, 0f);
                         }
                     }
                     if (CCBookEX)
                     {
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] < 1 && slotscanuse > 1f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_TerraRune>()] < 1 && slotscanuse > 1f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TerraRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunes_TerraRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] < 1 && slotscanuse > 2f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_ChaosRune>()] < 1 && slotscanuse > 2f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<ChaosRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(400), 4f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunes_ChaosRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(400), 4f, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] < 1 && slotscanuse > 3f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_VoidRune>()] < 1 && slotscanuse > 3f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<VoidRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(800), 2f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunes_VoidRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(800), 2f, Player.whoAmI, 0f, 0f);
                         }
                     }
                 }
@@ -2759,7 +2760,7 @@ namespace AAModClassic
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CCBag>());
 
                         if (dropType >= 2)
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CCRuneBookPage>());
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<APageOfTheRuneBook>());
 
                         spawnedDevItems = true;
                         break;
@@ -3041,7 +3042,7 @@ namespace AAModClassic
             {
                 if (AAMod.AccessoryAbilityKey.JustPressed && SagCooldown == 0)
                 {
-                    Player.AddBuff(ModContent.BuffType<SagShield_Buff>(), 300);
+                    Player.AddBuff(ModContent.BuffType<SagittariusShield_ShieldsUp>(), 300);
                     SagCooldown = 5400;
                 }
             }
@@ -4348,13 +4349,13 @@ namespace AAModClassic
 
                 if (drawPlayer.GetModPlayer<AAPlayer>().ShieldScale > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusShield").Value;
+                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield").Value;
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.ZeroShield, true);
 
-                    Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusRing").Value;
+                    Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield_Ring").Value;
                     BaseDrawing.DrawTexture(Main.spriteBatch, Ring, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
 
-                    Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SagittariusFreeRing_Glow").Value;
+                    Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield_RingActive").Value;
                     BaseDrawing.DrawTexture(Main.spriteBatch, RingGlow, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), ColorUtils.COLOR_GLOWPULSE, true);
                 }
 
@@ -4369,14 +4370,14 @@ namespace AAModClassic
 
                 if (cbuff > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/CBoost1").Value;
+                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMage_ChampionBoost1_Aura").Value;
                     if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost2>()))
                     {
-                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/CBoost2").Value;
+                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMage_ChampionBoost2_Aura").Value;
                     }
                     if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost3>()))
                     {
-                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/CBoost3").Value;
+                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMage_ChampionBoost3_Aura").Value;
                     }
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), Main.DiscoColor, true);
                 }

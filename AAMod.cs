@@ -1,5 +1,6 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Currency;
-using AAModClassic._Content._Dev.Invoker;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
@@ -519,7 +520,7 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<StarStaff_Star2>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<TruffleToad_LargeFungusBubble>().Texture, AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/__BossZero/Awakened/ZeroA_ProtoStarRay", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Weapons/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
 
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Bolt", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Flash", AssetRequestMode.ImmediateLoad).Value);
@@ -561,9 +562,9 @@ namespace AAModClassic
             ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligula_Head", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligula_Body", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligula_Legs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_EX/_PostMoonlord/Items/Accessories/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligula_Head", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_EX/_PostMoonlord/Items/Accessories/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligula_Body", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_EX/_PostMoonlord/Items/Accessories/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligula_Legs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
             EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Head", EquipType.Head, name: "Ono_Head", equipTexture: new OnoHead());
             EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Body", EquipType.Body, name: "Ono_Body", equipTexture: new OnoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;

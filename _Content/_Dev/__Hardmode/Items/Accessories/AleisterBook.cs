@@ -3,8 +3,8 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using AAModClassic._Content._Dev.Invoker;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
@@ -58,9 +58,32 @@ I need more powerful souls, *****,*********,**********"); */
             player.GetDamage(DamageClass.Summon) += .1f;
             player.maxMinions += 2;
 
-            InvokerPlayer InvokerPlayer = InvokerPlayer.ModPlayer(player);
+            TheBookOfTheLaw_InvokerPlayer InvokerPlayer = TheBookOfTheLaw_InvokerPlayer.ModPlayer(player);
             //InvokerPlayer.BanishProjClear = true;  //This need change.
             InvokerPlayer.Thebookoflaw = true;
+        }
+    }
+
+    [AutoloadEquip(EquipType.Head)]
+    public class InvokerHead : EquipTexture
+    {
+    }
+
+    [AutoloadEquip(EquipType.Body)]
+    public class InvokerBody : EquipTexture
+    {
+        public override void PreUpdateVanitySet(Player player)
+        {
+            ArmorIDs.Body.Sets.HidesTopSkin[Slot] = true;
+        }
+    }
+
+    [AutoloadEquip(EquipType.Legs)]
+    public class InvokerLegs : EquipTexture
+    {
+        public override void PreUpdateVanitySet(Player player)
+        {
+            ArmorIDs.Legs.Sets.HidesBottomSkin[Slot] = true;
         }
     }
 }

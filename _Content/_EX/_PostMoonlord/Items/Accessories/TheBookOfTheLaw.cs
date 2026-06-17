@@ -6,7 +6,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
-using AAModClassic._Content._Dev.Invoker;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
@@ -33,7 +32,7 @@ Includes the effects of all the pieces used to make this.
             string text = "";
             text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX1");
             
-            if(!Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula)
+            if(!Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula)
             text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX2");
             else
             text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX3");
@@ -76,7 +75,7 @@ Includes the effects of all the pieces used to make this.
             player.maxTurrets++;
             
 
-            InvokerPlayer InvokerPlayer = InvokerPlayer.ModPlayer(player);
+            TheBookOfTheLaw_InvokerPlayer InvokerPlayer = TheBookOfTheLaw_InvokerPlayer.ModPlayer(player);
             //InvokerPlayer.BanishProjClear = true;  //This need change.
             InvokerPlayer.Thebookoflaw = true;
             InvokerPlayer.SpringInvoker = true;

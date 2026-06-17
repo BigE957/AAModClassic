@@ -1728,3 +1728,43 @@ HydraBody_Hunted: {
 	DisplayName: Hydra Body_ Hunted
 	Description: Mods.AAModClassic.Buffs.HydraBody_Hunted.Description
 }
+
+APageOfTheRuneBook_Buff: {
+	DisplayName: A Page Of The Rune Book_ Buff
+	Description: Mods.AAModClassic.Buffs.APageOfTheRuneBook_Buff.Description
+}
+
+AleisterStaff_InvokerOfMadness: {
+	DisplayName: Aleister Staff_ Invoker Of Madness
+	Description: Mods.AAModClassic.Buffs.AleisterStaff_InvokerOfMadness.Description
+}
+
+TheBookOfTheLaw_InvokedCaligula: {
+	DisplayName: The Book Of The Law_ Invoked Caligula
+	Description: Mods.AAModClassic.Buffs.TheBookOfTheLaw_InvokedCaligula.Description
+}
+
+AkumaAHead_ScorchingPain: {
+	DisplayName: Akuma A Head_ Scorching Pain
+	Description: Mods.AAModClassic.Buffs.AkumaAHead_ScorchingPain.Description
+}
+
+YamataABody_TrueAbyssalGravity: {
+	DisplayName: Yamata A Body_ True Abyssal Gravity
+	Description: Mods.AAModClassic.Buffs.YamataABody_TrueAbyssalGravity.Description
+}
+
+YamataBody_AbyssalGravity: {
+	DisplayName: Yamata Body_ Abyssal Gravity
+	Description: Mods.AAModClassic.Buffs.YamataBody_AbyssalGravity.Description
+}
+
+StarHelmetRangedPlayer_SunSiphon_ManaOverload: {
+	DisplayName: Star Helmet Ranged Player_ Sun Siphon_ Mana Overload
+	Description: Mods.AAModClassic.Buffs.StarHelmetRangedPlayer_SunSiphon_ManaOverload.Description
+}
+
+SagittariusShield_ShieldsUp: {
+	DisplayName: Sagittarius Shield_ Shields Up
+	Description: Mods.AAModClassic.Buffs.SagittariusShield_ShieldsUp.Description
+}

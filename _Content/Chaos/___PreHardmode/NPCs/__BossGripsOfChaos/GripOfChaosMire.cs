@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 {
     [AutoloadBossHead]
-    public class GripOfChaosMire : BaseGripOfChaos
+    public class GripOfChaosMire : GripOfChaosAbstract
     {
         public override void SetDefaults()
         {
