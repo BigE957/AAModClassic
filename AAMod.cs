@@ -313,9 +313,9 @@ namespace AAModClassic
 
             //Set Bonus Text Generator
 
-            foreach(var content in instance.GetContent())
+            foreach(ModItem modItem in instance.GetContent<ModItem>())
             {
-                if (content is ModItem modItem && modItem.Name.Contains("Helmet"))
+                if (!modItem.Item.vanity && modItem.Name.Contains("Helmet"))
                 {
                     Player dummyPlayerA = new();
                     Player dummyPlayerB = new();

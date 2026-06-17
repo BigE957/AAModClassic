@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Humanizer;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Steamworks;
 using System;
 using System.Collections.Generic;
@@ -96,12 +98,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                         if (currentClass == DamageClass.Generic)
                             extraSpaceForGeneric = "";
 
-                        string adlibPath = $"{rootPath}.ClassGlobalStats.ArmorPenetration";
-                        string increaseOrDecreasePath = $"{rootPath}.{statModifierPath}.{increaseOrDecrease}";
-                        string damageTypePath = $"{rootPath}.ClassGlobalStats.{currentClass.Name}";
+                        string adlibPath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.ArmorPenetration");
+                        string increaseOrDecreasePath = Language.GetTextValue($"{rootPath}.{statModifierPath}.{increaseOrDecrease}");
+                        string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
 
-                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, damageMap.GetArmorPenetration(currentClass));
-                        line = new TooltipLine(Mod, finalTooltipText, finalTooltipText);
+                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, Math.Abs(damageMap.GetArmorPenetration(currentClass)));
+                        line = new TooltipLine(Mod, "ArmorPenetrationLine", finalTooltipText.FirstCharToUpper());
                         list.Add(line);
                     }
                     if (damageMap.GetKnockback(currentClass) != StatModifier.Default)
@@ -113,7 +115,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
             foreach (EquipmentEffectData effect in effectMap)
             {
-                line = new TooltipLine(Mod, effect.Name, Language.GetOrRegister(effect.Description).ToString());
+                line = new TooltipLine(Mod, effect.Name, effect.GetDescription());
                 list.Add(line);
             }
         }
@@ -124,6 +126,16 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             {
                 effect = new T();
                 _effectCache[typeof(T)] = effect;
+            }
+            effectMap.Add(effect);
+        }
+
+        public void AddEffect(EquipmentEffectData data)
+        {
+            if (!_effectCache.TryGetValue(data.GetType(), out var effect))
+            {
+                effect = data;
+                _effectCache[data.GetType()] = effect;
             }
             effectMap.Add(effect);
         }
@@ -243,6 +255,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
 
         }
+
+        public virtual string GetDescription() => Language.GetTextValue(Description);
     }
 
     public class ManaFlower : EquipmentEffectData 
@@ -259,6 +273,39 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             player.crimsonRegen = true;
         }
+    }
+
+    public class Endurance(float amount) : EquipmentEffectData
+    {
+        private readonly float Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.endurance += Amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith((Amount * 100));
+    }
+
+    public class MaxLife(int amount) : EquipmentEffectData
+    {
+        private readonly int Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.statLifeMax2 += Amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount);
+    }
+
+    public class MovementSpeed(float amount) : EquipmentEffectData
+    {
+        private readonly float Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.endurance += Amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith((Amount * 100));
     }
 
     public static class StatModifierUtils
@@ -337,7 +384,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     break;
                 default:
                     return "SOMETHING WENT TERRIBLY WRONG WITH THE TOOLTIPIFIER";
-                    break;
             }
             bool statIsIncreased = damageToDisplay > statIncreasedThreshold;
 
@@ -360,7 +406,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     break;
                 default:
                     return "SOMETHING WENT TERRIBLY WRONG WITH THE TOOLTIPIFIER";
-                    break;
             }
 
             string increaseOrDecreasePath = statIsIncreased ? $"{rootPath}.{statModifierPath}.Increase{currentIncreaseDecreaseThing}" : $"{rootPath}.{statModifierPath}.Decrease{currentIncreaseDecreaseThing}";
@@ -369,10 +414,10 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             string andCritPath = doCritSameAsDamageThing ? $"{rootPath}.{statModifierPath}.CritSameAsDamageAdditive" : $"{rootPath}.Misc.Nothing";
             string currentDamageThingPath = $"{rootPath}.{statModifierPath}.Adlibs.{statModifierAdlib}.{Enum.GetName(typeof(StatModifierValueType), statType)}";
 
-            LocalizedText increaseOrDecreaseText = Language.GetText(increaseOrDecreasePath);
-            LocalizedText damageTypeText = Language.GetText(damageTypePath);
-            LocalizedText damageOrKBText = Language.GetText(damageOrKBPath);
-            LocalizedText andCritText = Language.GetText(andCritPath);
+            string increaseOrDecreaseText = Language.GetTextValue(increaseOrDecreasePath);
+            string damageTypeText = Language.GetTextValue(damageTypePath);
+            string damageOrKBText = Language.GetTextValue(damageOrKBPath);
+            string andCritText = Language.GetTextValue(andCritPath);
 
             string finalTooltipText = Language.GetOrRegister(currentDamageThingPath).Format(damageToDisplay, increaseOrDecreaseText, damageTypeText, extraSpaceForGeneric, damageOrKBText, andCritText);
             finalTooltipText = finalTooltipText.FirstCharToUpper();
