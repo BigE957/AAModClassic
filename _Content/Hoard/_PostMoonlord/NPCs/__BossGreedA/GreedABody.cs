@@ -12,12 +12,10 @@ using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
