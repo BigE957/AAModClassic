@@ -35,7 +35,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.CrossMod
+namespace AAModClassic._CrossMod
 {
     //Based on Calamity: Fables' "ParasiteCore"
     public class ContentReplacementSystem : ModSystem

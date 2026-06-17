@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Mire.Projectiles;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.CrossMod;
+using AAModClassic._CrossMod;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

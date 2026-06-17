@@ -4,9 +4,9 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumab
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

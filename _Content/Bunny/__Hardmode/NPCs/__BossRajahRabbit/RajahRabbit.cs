@@ -7,7 +7,6 @@ using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

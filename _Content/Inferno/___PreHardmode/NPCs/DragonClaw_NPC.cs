@@ -1,6 +1,6 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.CrossMod;
+using AAModClassic._CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;

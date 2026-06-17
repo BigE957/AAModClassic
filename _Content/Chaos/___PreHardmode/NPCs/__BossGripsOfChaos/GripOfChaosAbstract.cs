@@ -1,8 +1,8 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

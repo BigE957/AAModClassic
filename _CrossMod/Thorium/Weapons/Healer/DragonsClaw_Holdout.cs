@@ -1,6 +1,5 @@
 using System;
 using AAModClassic.Assets;
-using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

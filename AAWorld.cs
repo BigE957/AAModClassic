@@ -43,7 +43,6 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Conversions;
-using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.UI.WorldGen;
@@ -82,6 +81,7 @@ using AAModClassic._Content.Void.World.Tiles.Trees;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
+using AAModClassic._CrossMod;
 
 namespace AAModClassic
 {

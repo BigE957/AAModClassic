@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 
 using Terraria;

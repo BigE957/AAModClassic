@@ -6,7 +6,7 @@ using System;
 using System.Reflection;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
-namespace AAModClassic.CrossMod
+namespace AAModClassic._CrossMod
 {
     public abstract class CrossoverItem : BaseAAItem
     {

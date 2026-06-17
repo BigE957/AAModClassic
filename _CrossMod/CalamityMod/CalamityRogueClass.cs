@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
-namespace AAModClassic.CrossMod.CalamityMod
+namespace AAModClassic._CrossMod.CalamityMod
 {
     public abstract class RogueWeapon : BaseAAItem
 	{

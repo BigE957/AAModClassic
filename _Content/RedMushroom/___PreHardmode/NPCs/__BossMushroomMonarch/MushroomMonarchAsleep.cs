@@ -1,4 +1,4 @@
-using AAModClassic.CrossMod;
+using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using Terraria;
 using Terraria.ID;

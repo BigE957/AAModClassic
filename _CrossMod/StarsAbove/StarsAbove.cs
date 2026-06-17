@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.CrossMod
+namespace AAModClassic._CrossMod.StarsAbove
 {
     public class StarsAbove : ModSystem
     {

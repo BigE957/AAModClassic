@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.CrossMod.CalamityMod
+namespace AAModClassic._CrossMod.CalamityMod
 {
     public class CalamityMod : ModSystem
     {

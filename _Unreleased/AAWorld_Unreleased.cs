@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
@@ -8,7 +9,6 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
-using AAModClassic.CrossMod;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

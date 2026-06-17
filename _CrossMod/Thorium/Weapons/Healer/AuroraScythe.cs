@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 
 using Terraria;

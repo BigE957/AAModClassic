@@ -1,4 +1,3 @@
-using AAModClassic.CrossMod;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

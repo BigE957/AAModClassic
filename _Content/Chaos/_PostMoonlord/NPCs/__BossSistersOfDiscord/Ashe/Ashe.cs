@@ -3,11 +3,11 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Boss
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Achievements;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod.CalamityMod;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;

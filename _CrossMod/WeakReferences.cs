@@ -206,7 +206,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.CrossMod
+namespace AAModClassic._CrossMod
 {
     internal class WeakReferences
     {
@@ -754,11 +754,12 @@ namespace AAModClassic.CrossMod
 
                 Action<SpriteBatch, Rectangle, Color> GetPortrait(string name)
                 {
-                    Action<SpriteBatch, Rectangle, Color> portrait = (SpriteBatch sb, Rectangle rect, Color color) => {
-                        Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/CrossMod/BossChecklist/" + name).Value;
-                        Vector2 centered = new Vector2(rect.Center.X - (texture.Width / 2), rect.Center.Y - (texture.Height / 2));
+                    void portrait(SpriteBatch sb, Rectangle rect, Color color)
+                    {
+                        Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_CrossMod/BossChecklist/Textures/" + name).Value;
+                        Vector2 centered = new(rect.Center.X - (texture.Width / 2), rect.Center.Y - (texture.Height / 2));
                         sb.Draw(texture, centered, color);
-                    };
+                    }
                     return portrait;
                 };
 

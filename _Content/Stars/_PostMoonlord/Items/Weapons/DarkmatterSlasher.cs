@@ -5,12 +5,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using AAModClassic.CrossMod.Overhaul;
 using AAModClassic.Globals;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._CrossMod.Overhaul;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {

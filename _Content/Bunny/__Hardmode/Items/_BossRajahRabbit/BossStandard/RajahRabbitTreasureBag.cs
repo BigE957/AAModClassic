@@ -2,7 +2,6 @@
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
-using AAModClassic.CrossMod;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
