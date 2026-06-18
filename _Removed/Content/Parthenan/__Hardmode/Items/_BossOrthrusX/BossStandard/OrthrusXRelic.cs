@@ -4,10 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard
 {
-    internal class OrthrusXRelic : ModItem, ILocalizedModType
+    public class OrthrusXRelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<OrthrusXRelic_Tile>().Texture;
 
         public override void SetDefaults()
         {

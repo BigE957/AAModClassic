@@ -270,4 +270,54 @@ Relic: {
 		DisplayName: Rajah Rabbit A Relic
 		Tooltip: ""
 	}
+
+	AthenaARelic: {
+		DisplayName: Athena A Relic
+		Tooltip: ""
+	}
+
+	ShenDoragonRelic: {
+		DisplayName: Shen Doragon Relic
+		Tooltip: ""
+	}
+
+	AnubisARelic: {
+		DisplayName: Anubis A Relic
+		Tooltip: ""
+	}
+
+	GreedARelic: {
+		DisplayName: Greed A Relic
+		Tooltip: ""
+	}
+
+	OrthrusXRelic: {
+		DisplayName: Orthrus X Relic
+		Tooltip: ""
+	}
+
+	RaiderUltimaRelic: {
+		DisplayName: Raider Ultima Relic
+		Tooltip: ""
+	}
+
+	RetrieverRelic: {
+		DisplayName: Retriever Relic
+		Tooltip: ""
+	}
+
+	TechnoTruffleRelic: {
+		DisplayName: Techno Truffle Relic
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuRelic: {
+		DisplayName: Soul Of Cthulhu Relic
+		Tooltip: ""
+	}
+
+	InfinityZeroRelic: {
+		DisplayName: Infinity Zero Relic
+		Tooltip: ""
+	}
 }

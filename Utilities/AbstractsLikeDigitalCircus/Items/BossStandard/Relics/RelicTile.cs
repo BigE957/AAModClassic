@@ -93,7 +93,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.BossStandard.R
             Rectangle frame = texture.Frame(1, 1, 0, frameY);
 
             Vector2 origin = frame.Size() / 2f;
-            Vector2 worldPos = p.ToWorldCoordinates(24f, 64f);
+            Vector2 worldPos = p.ToWorldCoordinates(PedestalStyle == 2 ? 40f : 24f, PedestalStyle == 2 ? 48f : 64f);
 
             Color color = Lighting.GetColor(p.X, p.Y);
 

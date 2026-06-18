@@ -4,10 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
-    internal class AnubisARelic : ModItem, ILocalizedModType
+    public class AnubisARelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<AnubisARelic_Tile>().Texture;
 
         public override void SetDefaults()
         {

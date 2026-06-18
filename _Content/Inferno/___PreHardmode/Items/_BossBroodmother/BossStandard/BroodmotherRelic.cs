@@ -7,7 +7,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
     public class BroodmotherRelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<BroodmotherRelic_Tile>().Texture;
 
         public override void SetDefaults()
         {

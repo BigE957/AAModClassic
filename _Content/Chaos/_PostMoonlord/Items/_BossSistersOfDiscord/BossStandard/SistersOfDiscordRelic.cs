@@ -7,7 +7,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
     public class SistersOfDiscordRelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<SistersOfDiscordRelic_Tile>().Texture;
 
         public override void SetDefaults()
         {

@@ -4,10 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard
 {
-    internal class RaiderUltimaRelic : ModItem, ILocalizedModType
+    public class RaiderUltimaRelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<RaiderUltimaRelic_Tile>().Texture;
 
         public override void SetDefaults()
         {

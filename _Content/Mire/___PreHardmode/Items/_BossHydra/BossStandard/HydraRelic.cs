@@ -4,10 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
-    internal class HydraRelic : ModItem, ILocalizedModType
+    public class HydraRelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<HydraRelic_Tile>().Texture;
 
         public override void SetDefaults()
         {

@@ -5,7 +5,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
 {
     public class ShenDoragonRelic_Tile : RelicTile
     {
-        public override int PedestalStyle => 1;
+        public override int PedestalStyle => 2;
 
         public override int ItemType => ModContent.ItemType<ShenDoragonRelic>();
     }

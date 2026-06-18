@@ -4,10 +4,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard
 {
-    internal class SoulOfCthulhuRelic : ModItem, ILocalizedModType
+    public class SoulOfCthulhuRelic : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Boss.Relic";
-        public override string Texture => ModContent.GetInstance<SoulOfCthulhuRelic_Tile>().Texture;
 
         public override void SetDefaults()
         {
