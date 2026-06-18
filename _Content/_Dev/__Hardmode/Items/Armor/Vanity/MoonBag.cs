@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {

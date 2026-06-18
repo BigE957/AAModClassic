@@ -61,6 +61,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
@@ -1681,7 +1682,7 @@ namespace AAModClassic
 
             if (Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake || Player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
             {
-                if (AAWorld.downedAllAncients && !AAWorld.downedShen)
+                if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AAWorld.downedAllAncients) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AAWorld.downedAkuma && AAWorld.downedYamata)) && !AAWorld.downedShen)
                 {
                     EmberRain(Player);
                 }
@@ -2479,92 +2480,86 @@ namespace AAModClassic
                 return;
             }
 
-            if ((player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda || player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake) && AAWorld.downedAllAncients && !AAWorld.downedShen)
+            if (Main.LocalPlayer.position.Y < Main.worldSurface * 16.0)
             {
-                if (Main.LocalPlayer.position.Y < Main.worldSurface * 16.0)
+                int maxValue = 8;
+                float num = Main.screenWidth / (float)Main.maxScreenW;
+                int num2 = (int)(500f * num);
+                num2 = (int)(num2 * (1f + 2f * Main.cloudAlpha));
+                float num3 = 1f + 50f * Main.cloudAlpha;
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    num3 = 1f + 25f;
+                int num4 = 0;
+
+                while (num4 < num3)
                 {
-                    int maxValue = 8;
-                    float num = Main.screenWidth / (float)Main.maxScreenW;
-                    int num2 = (int)(500f * num);
-                    num2 = (int)(num2 * (1f + 2f * Main.cloudAlpha));
-                    float num3 = 1f + 50f * Main.cloudAlpha;
-                    int num4 = 0;
-
-                    while (num4 < num3)
+                    try
                     {
-                        try
+                        if (Ashes >= num2 * (Main.gfxQuality / 2f + 0.5f) + num2 * 0.1f)
                         {
-                            if (Ashes >= num2 * (Main.gfxQuality / 2f + 0.5f) + num2 * 0.1f)
+                            break;
+                        }
+
+                        if (Main.rand.Next(maxValue) == 0)
+                        {
+                            int num5 = Main.rand.Next(Main.screenWidth + 1000) - 500;
+                            int num6 = (int)Main.screenPosition.Y - Main.rand.Next(50);
+
+                            if (Main.LocalPlayer.velocity.Y > 0f)
                             {
-                                break;
+                                num6 -= (int)Main.LocalPlayer.velocity.Y;
                             }
 
-                            if (Main.rand.Next(maxValue) == 0)
+                            if (Main.rand.NextBool(5))
                             {
-                                int num5 = Main.rand.Next(Main.screenWidth + 1000) - 500;
-                                int num6 = (int)Main.screenPosition.Y - Main.rand.Next(50);
+                                num5 = Main.rand.Next(500) - 500;
+                            }
+                            else if (Main.rand.NextBool(5))
+                            {
+                                num5 = Main.rand.Next(500) + Main.screenWidth;
+                            }
 
-                                if (Main.LocalPlayer.velocity.Y > 0f)
+                            if (num5 < 0 || num5 > Main.screenWidth)
+                            {
+                                num6 += Main.rand.Next((int)(Main.screenHeight * 0.8)) + (int)(Main.screenHeight * 0.1);
+                            }
+
+                            num5 += (int)Main.screenPosition.X;
+
+                            int num7 = num5 / 16;
+                            int num8 = num6 / 16;
+
+                            if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
+                            {
+                                int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Discord_Dust>(), 0f, 0f, 0);
+                                Dust expr_292_cp_0 = Main.dust[dust];
+
+                                expr_292_cp_0.velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
+                                expr_292_cp_0.velocity.Y *= Main.dust[dust].scale;
+                                expr_292_cp_0.velocity.X = Main.rand.Next(-10, 10) * 0.1f;
+
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                 {
-                                    num6 -= (int)Main.LocalPlayer.velocity.Y;
+                                    expr_292_cp_0.velocity.X += Main.WindForVisuals * 10f;
+                                    expr_292_cp_0.velocity.Y *= 0.8f;
+                                    expr_292_cp_0.scale += 0.2f;
+                                    expr_292_cp_0.velocity *= 1.5f;
                                 }
-
-                                if (Main.rand.NextBool(5))
+                                else
                                 {
-                                    num5 = Main.rand.Next(500) - 500;
-                                }
-                                else if (Main.rand.NextBool(5))
-                                {
-                                    num5 = Main.rand.Next(500) + Main.screenWidth;
-                                }
-
-                                if (num5 < 0 || num5 > Main.screenWidth)
-                                {
-                                    num6 += Main.rand.Next((int)(Main.screenHeight * 0.8)) + (int)(Main.screenHeight * 0.1);
-                                }
-
-                                num5 += (int)Main.screenPosition.X;
-
-                                int num7 = num5 / 16;
-                                int num8 = num6 / 16;
-
-                                if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
-                                {
-                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord_Dust>(), 0f, 0f, 0);
-                                    Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
-
-                                    Dust expr_292_cp_0 = Main.dust[dust];
-                                    expr_292_cp_0.velocity.Y *= Main.dust[dust].scale;
-
-                                    if (!player.GetModPlayer<AAPlayer>().AshCurse)
-                                    {
-                                        Main.dust[dust].velocity.X = Main.rand.Next(-10, 10) * 0.1f;
-
-                                        Dust expr_2EC_cp_0 = Main.dust[dust];
-                                        expr_2EC_cp_0.velocity.X += Main.WindForVisuals * Main.cloudAlpha * 10f;
-                                    }
-                                    else
-                                    {
-                                        Main.dust[dust].velocity.X = (Main.cloudAlpha + 0.5f) * 25f + Main.rand.NextFloat() * 0.2f - 0.1f;
-
-                                        Dust expr_370_cp_0 = Main.dust[dust];
-                                        expr_370_cp_0.velocity.Y *= 0.5f;
-                                    }
-
-                                    Dust expr_38E_cp_0 = Main.dust[dust];
-                                    expr_38E_cp_0.velocity.Y *= 1f + 0.3f * Main.cloudAlpha;
-
-                                    Main.dust[dust].scale += Main.cloudAlpha * 0.2f;
-                                    Main.dust[dust].velocity *= 1f + Main.cloudAlpha * 0.5f;
+                                    expr_292_cp_0.velocity.X += Main.WindForVisuals * Main.cloudAlpha * 10f;
+                                    expr_292_cp_0.velocity.Y *= 1f + 0.3f * Main.cloudAlpha;
+                                    expr_292_cp_0.scale += Main.cloudAlpha * 0.2f;
+                                    expr_292_cp_0.velocity *= 1f + Main.cloudAlpha * 0.5f;
                                 }
                             }
                         }
-                        catch
-                        {
-                        }
-
-                        num4++;
                     }
+                    catch
+                    {
+                    }
+
+                    num4++;
                 }
             }
         }

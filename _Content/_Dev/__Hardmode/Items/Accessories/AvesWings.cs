@@ -6,16 +6,16 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class GroxWings : BaseAAItem, ILocalizedModType
+    public class AvesWings : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Vanity.Grox";
+        public new string LocalizationCategory => "Items.Vanity.Aves";
         public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Angry Pirate's Skysails");
+            // DisplayName.SetDefault("Duckstep Bass Boosters");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 'Great for impersonating Ancients Awakened Devs!'"); */
 
@@ -27,21 +27,20 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 			Item.width = 42;
 			Item.height = 42;
 			Item.value = 500000;
-			Item.rare = ItemRarityID.Lime;
+			Item.rare = ItemRarityID.Purple;
 			Item.accessory = true;
 		}
-
+        
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.OverrideColor = new Color(89, 119, 71);
+                    line2.OverrideColor = new Color(158, 255, 61);
                 }
             }
         }
-
 
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
@@ -56,12 +55,6 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 			maxCanAscendMultiplier = 1f;
 			maxAscentMultiplier = 3f;
 			constantAscend = 0.135f;
-        }
-
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-            speed = 10f;
-            acceleration *= 2.5f;
-        }
+		}
 	}
 }

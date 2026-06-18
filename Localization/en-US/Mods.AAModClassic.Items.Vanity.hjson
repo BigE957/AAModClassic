@@ -367,6 +367,11 @@ BigE: {
 		DisplayName: Little E
 		Tooltip: "'That's a little version of me, {0}. I want you to have it.'"
 	}
+
+	LittleES: {
+		DisplayName: Little E S
+		Tooltip: ""
+	}
 }
 
 Blazen: {

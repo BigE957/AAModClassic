@@ -11,19 +11,19 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories.Vanity
 {
-    public class CalamitE : TransformationAccessory, ILocalizedModType
+    public class LittleE : TransformationAccessory, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.BigE";
 
-        public override string AssetPath => "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/";
+        public override string AssetPath => "AAModClassic/_Content/_Dev/__Hardmode/Items/Accessories/Vanity/";
 
         public override (EquipType, string, string)[] EquipSlots =>
         [
-            (EquipType.Head, "BigE_Shiny", null),
-            (EquipType.Body, "BigE_Shiny", null),
-            (EquipType.Legs, "BigE_Shiny", null),
+            (EquipType.Head, "LittleE", null),
+            (EquipType.Body, "LittleE", null),
+            (EquipType.Legs, "LittleE", null),
         ];
 
         public override void SetStaticDefaults()

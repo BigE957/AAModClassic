@@ -8,7 +8,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]

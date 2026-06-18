@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories.Vanity;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
@@ -31,7 +33,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 		{
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CalamitE>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<LittleES>());
                 if (Main.hardMode)
                 {
                     player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<BigEWingsS>());

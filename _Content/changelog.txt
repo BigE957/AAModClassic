@@ -54,6 +54,7 @@ base
 -multiple dev items can no longer drop from one boss bag
 -the book of the law now uses frozen shield instead of paladin shield and frozen turtle shell
 -added recipes for abyssal yari, Amenomuraku, and doom portal (thanks diamondwalker!)
+-removed a single pixel from the wyrm third body segment sprite (thanks diamondwalker!)
 -
 
 removed
@@ -109,6 +110,9 @@ unofficial
 -restored an unused dev set bag for planterror!
 -the large letter can no longer move in if the world is not in hardmode as he has no fucking point to do this
 -athena (and all adjacent fools) now tilts slightly when moving (thanks diamondwalker!)
+-awakened athena and awakened greed are now properly locked behind awakened anubis (thanks diamondwalker!)
+-improved the previously virtually invisible chaos ember rain effect that plays at the rising sun pagoda and rising moon lake post-ancients pre-shen (thanks diamondwalker!)
+-the chaos ember rain effect now plays after akuma and yamata are killed instead of akuma, yamata, and zero (thanks diamondwalker!)
 -
 
 crossmod

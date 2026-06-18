@@ -6,16 +6,16 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class BigEWingsS : BaseAAItem, ILocalizedModType
+    public class BigEWings : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Vanity.BigE.Shiny";
+        public new string LocalizationCategory => "Items.Vanity.BigE";
         public override void SetStaticDefaults()
-		{
-            // DisplayName.SetDefault("Evicerating Elevators");
+        {
+            // DisplayName.SetDefault("Efficient Elevators");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
 'Great for impersonating Ancients Awakened Devs!'"); */
@@ -23,14 +23,14 @@ Hold down and jump to hover for an extended period of time
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 6.25f, true, 15, 10);
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 42;
-			Item.height = 42;
-			Item.value = 500000;
+        public override void SetDefaults()
+        {
+            Item.width = 42;
+            Item.height = 42;
+            Item.value = 500000;
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -42,20 +42,21 @@ Hold down and jump to hover for an extended period of time
                 }
             }
         }
-        
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 300;
-		}
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
-			ascentWhenFalling = 0.85f;
-			ascentWhenRising = 0.15f;
-			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 3f;
-			constantAscend = 0.135f;
-		}
+        public override void UpdateAccessory(Player player, bool hideVisual)
+        {
+            player.wingTimeMax = 300;
+        }
+
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+            ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        {
+            ascentWhenFalling = 0.85f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 3f;
+            constantAscend = 0.135f;
+        }
 
         public override bool WingUpdate(Player player, bool inUse)
         {
@@ -82,10 +83,6 @@ Hold down and jump to hover for an extended period of time
                 {
                     player.wingFrame++;
                     player.wingFrameCounter = 0;
-                    if (player.wingFrame > 3)
-                    {
-                        player.wingFrame = 0;
-                    }
                 }
             }
             else
@@ -96,15 +93,11 @@ Hold down and jump to hover for an extended period of time
                     player.wingFrame = 1;
                 }
             }
+            if (player.wingFrame > 3)
+            {
+                player.wingFrame = 0;
+            }
             return true;
-        }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<BigEWings>(), 1);
-            recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
-            recipe.Register();
         }
     }
 }

@@ -6,16 +6,16 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class MoonWings : BaseAAItem, ILocalizedModType
-	{
-        public new string LocalizationCategory => "Items.Vanity.Moon";
+    public class BigEWingsS : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.BigE.Shiny";
         public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Lunar Wasp Wings");
+            // DisplayName.SetDefault("Evicerating Elevators");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
 'Great for impersonating Ancients Awakened Devs!'"); */
@@ -28,8 +28,8 @@ Hold down and jump to hover for an extended period of time
 			Item.width = 42;
 			Item.height = 42;
 			Item.value = 500000;
-			Item.rare = ItemRarityID.Purple;
-			Item.accessory = true;
+            Item.rare = ItemRarityID.Purple;
+            Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -38,11 +38,11 @@ Hold down and jump to hover for an extended period of time
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.OverrideColor = new Color(159, 207, 190);
+                    line2.OverrideColor = new Color(255, 0, 0);
                 }
             }
         }
-
+        
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.wingTimeMax = 300;
@@ -59,6 +59,8 @@ Hold down and jump to hover for an extended period of time
 
         public override bool WingUpdate(Player player, bool inUse)
         {
+            int fspeed = 6;
+
             if (player.controlDown && player.controlJump && player.wingTime > 0f && !player.merman)
             {
                 player.velocity.Y *= 0.01f;
@@ -66,6 +68,7 @@ Hold down and jump to hover for an extended period of time
                 {
                     player.velocity.Y = 1E-05f;
                 }
+                fspeed = 4;
             }
 
             if (inUse)
@@ -75,18 +78,33 @@ Hold down and jump to hover for an extended period of time
                     player.wingFrame = 2;
                 }
                 player.wingFrameCounter++;
-                if (player.wingFrameCounter > 2)
+                if (player.wingFrameCounter > fspeed)
                 {
                     player.wingFrame++;
                     player.wingFrameCounter = 0;
+                    if (player.wingFrame > 3)
+                    {
+                        player.wingFrame = 0;
+                    }
                 }
             }
-
-            if (player.wingFrame > 3)
+            else
             {
                 player.wingFrame = 0;
+                if (player.velocity.Y != 0)
+                {
+                    player.wingFrame = 1;
+                }
             }
             return true;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<BigEWings>(), 1);
+            recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
+            recipe.Register();
         }
     }
 }
