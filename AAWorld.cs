@@ -45,7 +45,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Conversions;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -82,6 +81,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic._CrossMod;
+using AAModClassic.UI.World;
 
 namespace AAModClassic
 {

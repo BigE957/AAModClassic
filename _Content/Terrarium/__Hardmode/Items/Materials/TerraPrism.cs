@@ -5,7 +5,7 @@ using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic.Assets;
 using AAModClassic.Globals;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;

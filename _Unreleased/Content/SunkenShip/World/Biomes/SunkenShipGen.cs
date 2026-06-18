@@ -1,6 +1,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

@@ -9,7 +9,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;

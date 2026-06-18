@@ -4,7 +4,7 @@ using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

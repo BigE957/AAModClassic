@@ -6,11 +6,11 @@ using Terraria.ModLoader;
 
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.WorldGen;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis
 {

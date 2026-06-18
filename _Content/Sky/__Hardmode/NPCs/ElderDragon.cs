@@ -1,6 +1,6 @@
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;

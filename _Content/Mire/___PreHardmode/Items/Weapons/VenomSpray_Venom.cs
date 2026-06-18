@@ -1,5 +1,5 @@
 ﻿using AAModClassic.Assets;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

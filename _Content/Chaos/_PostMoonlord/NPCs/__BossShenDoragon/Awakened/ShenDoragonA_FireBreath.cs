@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Content.Chaos.Buffs;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;

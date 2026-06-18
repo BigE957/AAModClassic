@@ -1,5 +1,5 @@
 using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;

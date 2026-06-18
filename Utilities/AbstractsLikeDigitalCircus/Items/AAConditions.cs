@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._CrossMod.CalamityMod;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,7 +5,7 @@ using AAModClassic.DiscordSupport;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Humanizer;
 using Microsoft.Win32;

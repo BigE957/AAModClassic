@@ -15,7 +15,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic.Assets;
 using AAModClassic.Buffs;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

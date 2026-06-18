@@ -1,6 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Dusts;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

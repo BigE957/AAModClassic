@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;

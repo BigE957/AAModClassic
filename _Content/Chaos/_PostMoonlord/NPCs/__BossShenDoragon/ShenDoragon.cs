@@ -17,7 +17,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.UI.Titles;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;

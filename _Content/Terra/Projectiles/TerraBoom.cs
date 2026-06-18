@@ -1,5 +1,5 @@
 using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;

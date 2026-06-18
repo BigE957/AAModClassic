@@ -17,7 +17,7 @@ using Terraria.ModLoader.IO;
 using Terraria.UI;
 using static Terraria.UI.UIElement;
 
-namespace AAModClassic.UI.WorldGen
+namespace AAModClassic.UI.World
 {
     public enum AAWorldOption
     {
