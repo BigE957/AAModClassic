@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Terraria.ID.TileID.Sets.Conversion.Stone[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
-            HitSound = SoundID.Dig;
+            HitSound = SoundID.Tink;
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
             RegisterItemDrop(ModContent.ItemType<Torchstone>());   
             AddMapEntry(new Color(50, 25, 12));

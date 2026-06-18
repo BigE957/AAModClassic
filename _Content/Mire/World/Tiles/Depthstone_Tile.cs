@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
 			Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            HitSound = SoundID.Dig;
+            HitSound = SoundID.Tink;
             MinPick = 65;
             TileID.Sets.JungleSpecial[Type] = true;
             DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
