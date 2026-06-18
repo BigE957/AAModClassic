@@ -3,15 +3,16 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
 using AAModClassic._Content.Inferno.World.Biomes.Waters;
-using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Reflection;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
@@ -24,6 +25,15 @@ namespace AAModClassic._Content.Inferno.World.Biomes
         public override string MapBackground => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
 
         public override string BackgroundPath => "AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/InfernoMap";
+
+        internal static FieldInfo BackgroundTopY = null;
+
+        public override void Load()
+        {
+            var field = typeof(Main).GetField("bgTopY", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (field != null)
+                BackgroundTopY = field;
+        }
 
         public override bool IsBiomeActive(Player player)
         {
@@ -312,17 +322,99 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
+            return -1;// BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
         }
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return base.ChooseCloseTexture(ref scale, ref parallax, ref a, ref b);
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
         }
 
         public override int ChooseMiddleTexture()
         {
-            return base.ChooseMiddleTexture();
+            return -1;//BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
+        }
+
+        public override bool PreDrawCloseBackground(SpriteBatch spriteBatch)
+        {
+            float num = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+            float num2 = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - num / 2f;
+            float scAdj = (float)(Main.worldSurface * 16.0) / (num2 + num);
+            float num3 = (float)Main.maxTilesY * 0.15f * 16f;
+            num3 -= num2;
+            if (num3 < 0f)
+                num3 = 0f;
+
+            num3 *= 0.00025f;
+            float num4 = num3 * num3;
+            scAdj *= 0.45f - num4;
+            if (Main.maxTilesY <= 1200)
+                scAdj *= -500f;
+            else if (Main.maxTilesY <= 1800)
+                scAdj *= -300f;
+            else
+                scAdj *= -150f;
+
+            float screenOff = Main.screenHeight - 600f;
+
+            int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
+
+            if (textureSlot < 0 || textureSlot >= TextureAssets.Background.Length)
+            {
+                return false;
+            }
+
+            double surface = Main.worldSurface == 0 ? 1 : Main.worldSurface;
+            float numagicNumberSetup = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
+            double backgroundTopMagicNumber = (0f - numagicNumberSetup + screenOff / 2f) / (surface * 16f);
+
+            int pushBGTopHack = Main.gameMenu ? 180 : 0;
+            int bump = 30;
+            if (Main.gameMenu)
+                bump = 0;
+
+            if (WorldGen.drunkWorldGen)
+                bump = -180;
+            pushBGTopHack += bump;
+
+            //Custom: bgScale, textureslot, patallaz, these 2 numbers...., Top and Start?
+            Main.instance.LoadBackground(textureSlot);
+
+            float bgScale = 1.85f * 2;
+
+            double bgParallax = 0.15;
+            int bgWidthScaled = (int)(382 * bgScale);
+            int bgStartX = (int)(-Math.IEEERemainder((double)Main.screenPosition.X * bgParallax, bgWidthScaled) - (double)(bgWidthScaled / 2));
+            if (bgWidthScaled == 0)
+                bgWidthScaled = 1024;
+
+            int bgLoops = Main.screenWidth / bgWidthScaled + 2;
+
+            bgScale = 1f;
+            int bgTopY = (int)(backgroundTopMagicNumber * 1300.0 + 1090.0) + (int)scAdj + pushBGTopHack;
+            if (Main.gameMenu)
+                bgTopY = 100 + pushBGTopHack;
+
+            bgTopY -= 40;
+
+            if (Main.screenPosition.Y >= Main.worldSurface * 16.0 + 16.0)
+                return false;
+
+            for (int k = 0; k < bgLoops; k++)
+            {
+                spriteBatch.Draw(
+                    TextureAssets.Background[textureSlot].Value,
+                    new Vector2(bgStartX + bgWidthScaled * k, bgTopY),
+                    new Rectangle(0, 0, Main.backgroundWidth[textureSlot], Main.backgroundHeight[textureSlot]),
+                    Main.ColorOfTheSkies * Main.bgAlphaFarBackLayer[Slot],
+                    0f,
+                    default,
+                    bgScale,
+                    SpriteEffects.None,
+                    0f
+                );
+            }
+            return false;
         }
     }
 

@@ -11,6 +11,7 @@ using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -184,7 +185,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
     public class MireSurfaceBgStyle : ModSurfaceBackgroundStyle
     {
-        readonly ScreenFog mireBGFog = new ScreenFog(true);
+        readonly ScreenFog mireBGFog = new(true);
 
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
         {
@@ -211,11 +212,11 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override int ChooseFarTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
+            return -1;// BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
         }
         public override int ChooseMiddleTexture()
         {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceForeground2");
+            return -1;// BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
         }
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
@@ -231,7 +232,90 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
             mireBGFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/FogTex").Value);
             mireBGFog.Draw(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
-            return !Main.dayTime;
+            
+            if(!Main.dayTime)
+            {
+                float num = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+                float num2 = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - num / 2f;
+                float scAdj = (float)(Main.worldSurface * 16.0) / (num2 + num);
+                float num3 = (float)Main.maxTilesY * 0.15f * 16f;
+                num3 -= num2;
+                if (num3 < 0f)
+                    num3 = 0f;
+
+                num3 *= 0.00025f;
+                float num4 = num3 * num3;
+                scAdj *= 0.45f - num4;
+                if (Main.maxTilesY <= 1200)
+                    scAdj *= -500f;
+                else if (Main.maxTilesY <= 1800)
+                    scAdj *= -300f;
+                else
+                    scAdj *= -150f;
+
+                float screenOff = Main.screenHeight - 600f;
+
+                int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
+
+                if (textureSlot < 0 || textureSlot >= TextureAssets.Background.Length)
+                {
+                    return false;
+                }
+
+                double surface = Main.worldSurface == 0 ? 1 : Main.worldSurface;
+                float numagicNumberSetup = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
+                double backgroundTopMagicNumber = (0f - numagicNumberSetup + screenOff / 2f) / (surface * 16f);
+
+                int pushBGTopHack = Main.gameMenu ? 180 : 0;
+                int bump = 30;
+                if (Main.gameMenu)
+                    bump = 0;
+
+                if (WorldGen.drunkWorldGen)
+                    bump = -180;
+                pushBGTopHack += bump;
+
+                Main.instance.LoadBackground(textureSlot);
+
+                float bgScale = 1.85f * 2;
+
+                double bgParallax = 0.15;
+                int bgWidthScaled = (int)(430 * bgScale);
+                int bgStartX = (int)(-Math.IEEERemainder((double)Main.screenPosition.X * bgParallax, bgWidthScaled) - (double)(bgWidthScaled / 2));
+                if (bgWidthScaled == 0)
+                    bgWidthScaled = 1024;
+
+                int bgLoops = Main.screenWidth / bgWidthScaled + 2;
+
+                bgScale = 1f;
+                int bgTopY = (int)(backgroundTopMagicNumber * 1300.0 + 1090.0) + (int)scAdj + pushBGTopHack;
+                if (Main.gameMenu)
+                    bgTopY = 60 + pushBGTopHack;
+                else
+                    bgTopY += 360;
+
+                if (Main.screenPosition.Y >= Main.worldSurface * 16.0 + 16.0)
+                    return false;
+
+                for (int k = 0; k < bgLoops; k++)
+                {
+                    spriteBatch.Draw(
+                        TextureAssets.Background[textureSlot].Value,
+                        new Vector2(bgStartX + bgWidthScaled * k, bgTopY),
+                        new Rectangle(0, 0, Main.backgroundWidth[textureSlot], Main.backgroundHeight[textureSlot]),
+                        Main.ColorOfTheSkies * Main.bgAlphaFarBackLayer[Slot],
+                        0f,
+                        default,
+                        bgScale,
+                        SpriteEffects.None,
+                        0f
+                    );
+                }
+
+                return true;
+            }
+            
+            return false;
         }
     }
 
