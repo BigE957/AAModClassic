@@ -28,7 +28,7 @@ namespace AAModClassic.UI.World
         {
             if (self.Data.ZenithWorld || self.Data.DrunkWorld || self.Data.ForTheWorthy || self.Data.NotTheBees || self.Data.Anniversary || self.Data.DontStarve || self.Data.RemixWorld || self.Data.NoTrapsWorld)
                 return orig(self);
-            else if (self.Data != null && self.Data.TryGetModVersionGeneratedWith("AAModClassic", out _))
+            else if (self.Data.WorldGenModsRecorded && self.Data.TryGetModVersionGeneratedWith("AAModClassic", out _))
                 return AAMod.instance.Assets.Request<Texture2D>("UI/World/AAWorldIcon_" + (self.Data.HasCorruption ? "Corruption_" : "Crimson_") + (self.Data.IsHardMode ? "Hardmode" : "PreHardmode"), AssetRequestMode.ImmediateLoad);
             else
                 return orig(self);
