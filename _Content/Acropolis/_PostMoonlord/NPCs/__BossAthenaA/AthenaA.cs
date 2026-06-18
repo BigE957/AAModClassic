@@ -155,8 +155,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                         int Choice = Main.rand.Next(2);
                         if (Choice == 0)
                         {
-                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
-                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
+                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>(), ai1: 1);
+                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>(), ai1: 1);
                         }
                         else
                         {

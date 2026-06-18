@@ -75,9 +75,11 @@ using AAModClassic._Content.Void.__Hardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs;
 using AAModClassic._CrossMod;
 using AAModClassic._Unreleased;
+using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.Core;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -1090,14 +1092,10 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<ChaoticTwilight>(), .005f);
 
                         if (spawnInfo.Player.ZoneSnow)
-                        {
                             pool.Add(ModContent.NPCType<PigronMire>(), .005f);
-                        }
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
-                        {
                             pool.Add(ModContent.NPCType<ShadowGhoul>(), .025f);
-                        }
                     }
                 }
 
@@ -1128,9 +1126,7 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<Searcher>(), .005f);
 
                     if (AAWorld.downedZero)
-                    {
                         pool.Add(ModContent.NPCType<Null>(), .005f);
-                    }
                 }
                 else
                 {
@@ -1180,10 +1176,10 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
                 pool.Add(NPCID.Harpy, .06f);
+                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                    pool.Add(ModContent.NPCType<OlympianDragon>(), .025f);
                 if (NPC.downedPlantBoss)
-                {
                     pool.Add(ModContent.NPCType<Seraph>(), .03f);
-                }
             }
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneHoard)
@@ -1195,9 +1191,7 @@ namespace AAModClassic.Globals
                 pool.Add(NPCID.Worm, .005f);
 
                 if (NPC.downedPlantBoss)
-                {
                     pool.Add(ModContent.NPCType<ScavengerHead>(), .03f);
-                }
             }
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
@@ -1214,22 +1208,20 @@ namespace AAModClassic.Globals
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().StripeManSpawn)
             {
-                if(NPC.goldCritterChance >= 30) NPC.goldCritterChance = 30;
-                if(!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<AAPlayer>().luckycalm)
+                if(NPC.goldCritterChance >= 30)
+                    NPC.goldCritterChance = 30;
+                if (!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<AAPlayer>().luckycalm)
                 {
                     foreach (int npctype in AALuckyConfig.ListRareNpc)
-                    {
-                        if (pool.Keys.Contains(npctype) && pool[npctype] <= 0.05f)
-                        {
+                        if (pool.TryGetValue(npctype, out float value) && value <= 0.05f)
                             pool[npctype] = 0.05f;
-                        }
-                    }
                 }
             }
 
             else if(spawnInfo.Player.GetModPlayer<AAPlayer>().AncientGoldLeg)
             {
-                if(NPC.goldCritterChance >= 40) NPC.goldCritterChance = 40;
+                if(NPC.goldCritterChance >= 40)
+                    NPC.goldCritterChance = 40;
             }
 
             else

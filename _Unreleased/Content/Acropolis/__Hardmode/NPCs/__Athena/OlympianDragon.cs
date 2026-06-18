@@ -51,9 +51,11 @@ namespace AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena
             bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
+        public bool SpawnedByAthena => NPC.ai[1] == 1;
+
         public override bool PreAI()
         {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) &&!NPC.AnyNPCs(ModContent.NPCType<Athena>()) && !NPC.AnyNPCs(ModContent.NPCType<AthenaA>()))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) || (SpawnedByAthena && !NPC.AnyNPCs(ModContent.NPCType<Athena>()) && !NPC.AnyNPCs(ModContent.NPCType<AthenaA>())))
             {
                 NPC.velocity *= .95f;
                 if (NPC.alpha != 0)
@@ -117,15 +119,5 @@ namespace AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena
                 }
             }
         }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.PlayerSafe || !Main.hardMode)
-            {
-                return 0f;
-            }
-            return SpawnCondition.Sky.Chance * 0.10f;
-        }
-
     }
 }
