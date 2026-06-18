@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Grips of Chaos)");
-            // Tooltip.SetDefault(@"Plays 'Twin Terror' by Spectral Aves");
+            // Tooltip.SetDefault(@"Plays 'Twin Terror' by SpectralAves");
         }
 
         public override void SetDefaults()

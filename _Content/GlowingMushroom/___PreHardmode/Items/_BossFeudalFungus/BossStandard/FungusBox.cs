@@ -12,7 +12,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Feudal Fungus)");
-            // Tooltip.SetDefault("Plays 'Bioluminescent Beatdown' by Spectral Aves");
+            // Tooltip.SetDefault("Plays 'Bioluminescent Beatdown' by SpectralAves");
         }
 
         public override void SetDefaults()

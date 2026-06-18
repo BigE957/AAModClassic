@@ -11,7 +11,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Red Mushroom Music Box");
-            // Tooltip.SetDefault("Plays 'Overgrowth' by Spectral Aves");
+            // Tooltip.SetDefault("Plays 'Overgrowth' by SpectralAves");
         }
 
         public override void SetDefaults()

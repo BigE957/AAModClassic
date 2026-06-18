@@ -217,12 +217,12 @@ MusicDisplay: {
 	ModName: Ancients Awakened: Classic
 
 	SuperancientsPinch: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Bygone Battles
 	}
 
 	Broodmother: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Blazing Fury
 	}
 
@@ -272,7 +272,7 @@ MusicDisplay: {
 	}
 
 	Fungus: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Bioluminescent Beatdown
 	}
 
@@ -292,17 +292,17 @@ MusicDisplay: {
 	}
 
 	Grips: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Twin Terror
 	}
 
 	Hoard: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Cove
 	}
 
 	Hydra: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Abyssal Wrath
 	}
 
@@ -312,7 +312,7 @@ MusicDisplay: {
 	}
 
 	MireLake: {
-		Author: by Rockwwizard
+		Author: by Rockwizard
 		DisplayName: Lake of Souls
 	}
 
@@ -347,17 +347,17 @@ MusicDisplay: {
 	}
 
 	Monarch: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Fungal Face-off
 	}
 
 	MushroomSurface: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Overgrowth
 	}
 
 	Rajah: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: JUSTICE
 	}
 
@@ -367,7 +367,7 @@ MusicDisplay: {
 	}
 
 	Sagittarius: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Event Horizon
 	}
 
@@ -412,7 +412,7 @@ MusicDisplay: {
 	}
 
 	Zero: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: Clockwork Catastrophe
 	}
 
@@ -432,7 +432,7 @@ MusicDisplay: {
 	}
 
 	TruffleToad: {
-		Author: by Spectral Aves
+		Author: by SpectralAves
 		DisplayName: TODESTOOL
 	}
 
@@ -447,7 +447,7 @@ MusicDisplay: {
 	}
 
 	VoidPreIZ: {
-		Author: by LionCakeSpy
+		Author: by Cosmoptera
 		DisplayName: Sleeping Giant
 	}
 
@@ -467,8 +467,8 @@ MusicDisplay: {
 	}
 	
 	TechnoTruffle: {
-		Author: by Spectral Aves
-		DisplayName: Mechanical Mold
+		Author: by SpectralAves
+		DisplayName: Mechanical Mold Match
 	}
 
 	Parthenan: {

@@ -14,7 +14,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Truffle Toad)");
-            // Tooltip.SetDefault("Plays 'TODESTOOL' by Spectral Aves");
+            // Tooltip.SetDefault("Plays 'TODESTOOL' by SpectralAves");
         }
 
         public override void SetDefaults()

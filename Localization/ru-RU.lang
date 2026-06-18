@@ -1343,7 +1343,7 @@ ItemName.AthenaBox=Музыкальная шкатулка "Афина"
 ItemTooltip.AthenaBox=Проигрывает 'Magisaint' by Turquoise
 
 ItemName.BroodBox=Музыкальная шкатулка "Мать Стаи"
-ItemTooltip.BroodBox=Проигрывает 'Blazing Fury' by Spectral Aves
+ItemTooltip.BroodBox=Проигрывает 'Blazing Fury' by SpectralAves
 
 ItemName.DjinnBox=Музыкальная шкатулка "Пустынный Джинн"
 ItemTooltip.DjinnBox=Проигрывает 'The Dust Bowl' by Universe
@@ -1355,7 +1355,7 @@ ItemName.FateBox=Музыкальная шкатулка Истинной Пус
 ItemTooltip.FateBox=Проигрывает 'Nihil' by Charlie Debnam
 
 ItemName.FungusBox=Музыкальная шкатулка "Феодальный Гриб"
-ItemTooltip.FungusBox=Проигрывает 'Bioluminescent Beatdown' by Spectral Aves
+ItemTooltip.FungusBox=Проигрывает 'Bioluminescent Beatdown' by SpectralAves
 
 ItemName.GreedABox=Музыкальная шкатулка "Король Червей"
 ItemTooltip.GreedABox=Проигрывает 'Ira De Riquezas Perdidas' by Universe
@@ -1364,13 +1364,13 @@ ItemName.GreedBox=Музыкальная шкатулка "Жадность"
 ItemTooltip.GreedBox=Проигрывает 'Gold Digger' by Universe
 
 ItemName.GripsBox=Музыкальная шкатулка "Тиски Хаоса"
-ItemTooltip.GripsBox=Проигрывает 'Twin Terror' by Spectral Aves
+ItemTooltip.GripsBox=Проигрывает 'Twin Terror' by SpectralAves
 
 ItemName.HoardBox=Музыкальная шкатулка "Сокровищница"
 ItemTooltip.HoardBox=Проигрывает 'Cove' by Universe
 
 ItemName.HydraBox=Музыкальная шкатулка "Гидра"
-ItemTooltip.HydraBox=Проигрывает 'Abyssal Wrath' by Spectral Aves
+ItemTooltip.HydraBox=Проигрывает 'Abyssal Wrath' by SpectralAves
 
 ItemName.InfernoBox=Музыкальная шкатулка "Инферно"
 ItemTooltip.InfernoBox=Проигрывает 'Flame-Razed Rock' by Karamitasu
@@ -1394,13 +1394,13 @@ ItemName.MireUBox=Музыкальная шкатулка "Подземная Т
 ItemTooltip.MireUBox=Проигрывает 'The Deepest Reaches' by Charlie Debnam
 
 ItemName.MonarchBox=Музыкальная шкатулка "Красные грибы"
-ItemTooltip.MonarchBox=Проигрывает 'Fungal Face-off' by Spectral Aves
+ItemTooltip.MonarchBox=Проигрывает 'Fungal Face-off' by SpectralAves
 
 ItemName.PagodaBox=Музыкальная шкатулка "Пагода просыпающегося Солнца"
 ItemTooltip.PagodaBox=Проигрывает 'Scorched Tower' by Rockwizard
 
 ItemName.RajahBox=Музыкальная шкатулка "Кролик Раджа"
-ItemTooltip.RajahBox=Проигрывает 'JUSTICE' by Spectral Aves
+ItemTooltip.RajahBox=Проигрывает 'JUSTICE' by SpectralAves
 
 ItemName.SagBox=Музыкальная шкатулка "Несгибаемый Древний"
 ItemTooltip.SagBox=Проигрывает 'Event Horizon' by SpectralAves
@@ -1430,7 +1430,7 @@ ItemName.TerrariumBox==Музыкальная шкатулка "Террариу
 ItemTooltip.TerrariumBox=Проигрывает 'Heart of the World' by Quicksilvur feat Charlie Debnam
 
 ItemName.ToadBox=Музыкальная шкатулка "Трюфельная Жаба"
-ItemTooltip.ToadBox=Проигрывает 'TODESTOOL' by Spectral Aves
+ItemTooltip.ToadBox=Проигрывает 'TODESTOOL' by SpectralAves
 
 ItemName.VoidBox=Музыкальная шкатулка "Пустота"
 ItemTooltip.VoidBox=Проигрывает 'Gaze into Darkness' by Charlie Debnam

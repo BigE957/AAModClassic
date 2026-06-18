@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Music Box (Broodmother)");
-            // Tooltip.SetDefault(@"Plays 'Blazing Fury' by Spectral Aves");
+            // Tooltip.SetDefault(@"Plays 'Blazing Fury' by SpectralAves");
         }
 
         public override void SetDefaults()

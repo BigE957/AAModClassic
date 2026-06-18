@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStan
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Rajah Rabbit)");
-            // Tooltip.SetDefault(@"Plays 'JUSTICE' by Spectral Aves");
+            // Tooltip.SetDefault(@"Plays 'JUSTICE' by SpectralAves");
         }
 
         public override void SetDefaults()
