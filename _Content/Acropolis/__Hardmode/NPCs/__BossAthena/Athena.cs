@@ -5,6 +5,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;

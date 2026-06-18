@@ -1,4 +1,4 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.BossStandard.Relics;
 using System;
 using System.Collections.Generic;
 using System.Linq;

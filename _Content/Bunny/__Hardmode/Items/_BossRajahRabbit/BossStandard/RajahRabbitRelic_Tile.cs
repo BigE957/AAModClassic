@@ -1,4 +1,4 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.BossStandard.Relics;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard

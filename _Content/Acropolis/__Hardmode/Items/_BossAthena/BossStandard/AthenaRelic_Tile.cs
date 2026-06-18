@@ -1,9 +1,4 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.BossStandard.Relics;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard

@@ -1,12 +1,8 @@
-﻿using AAModClassic.Assets;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -15,15 +11,17 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
+namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.BossStandard.Relics
 {
     public abstract class RelicTile : ModTile
     {
         private static readonly Dictionary<int, Asset<Texture2D>> RelicTextures = [];
 
-        public const int FrameWidth = 18 * 3;
+        public int FrameWidth => 18 * (PedestalStyle == 2 ? 5 : 3);
         public const int FrameHeight = 18 * 4;
-        public override string Texture => "AAModClassic/Relics/RelicPedestal_" + PedestalStyle;
+        
+        public override string Texture => "AAModClassic/Utilities/AbstractsLikeDigitalCircus/Items/BossStandard/Relics/RelicPedestal_" + PedestalStyle;
+        
         public virtual int PedestalStyle { get; }
 
         public virtual int ItemType { get; }
@@ -34,7 +32,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             Main.tileFrameImportant[Type] = true; // Any multitile requires this
             TileID.Sets.InteractibleByNPCs[Type] = true; // Town NPCs will palm their hand at this tile
 
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4); // Relics are 3x4
+            TileObjectData.newTile.CopyFrom(PedestalStyle == 2 ? TileObjectData.Style5x4 : TileObjectData.Style3x4); // Relics are 3x4
             TileObjectData.newTile.LavaDeath = false; // Does not break when lava touches it
             TileObjectData.newTile.DrawYOffset = 2; // So the tile sinks into the ground
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft; // Player faces to the left
@@ -52,7 +50,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             // "MapObject.Relic" refers to the translation key for the vanilla "Relic" text
             AddMapEntry(new Color(233, 207, 94), Language.GetText("MapObject.Relic"));
 
-            Asset<Texture2D> newAsset = ModContent.Request<Texture2D>("AAModClassic/Relics/" + Name, AssetRequestMode.ImmediateLoad);
+            Asset<Texture2D> newAsset = ModContent.Request<Texture2D>(ModContent.GetModItem(ItemType).Texture + "_Tile", AssetRequestMode.ImmediateLoad);
             RelicTextures.Add(Type, newAsset);
 
             RegisterItemDrop(ItemType);
