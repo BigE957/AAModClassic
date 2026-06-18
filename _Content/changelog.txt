@@ -53,6 +53,7 @@ base
 -cleaned up many mistakes with armor pieces and armor set bonuses listing effects but not giving them, having unlisted effects, giving duplicate effects, ect
 -multiple dev items can no longer drop from one boss bag
 -the book of the law now uses frozen shield instead of paladin shield and frozen turtle shell
+-added recipes for abyssal yari, Amenomuraku, and doom portal (thanks diamondwalker!)
 -
 
 removed
@@ -74,6 +75,7 @@ unreleased
 -added the lost ship. not to be confused with the lost sea, this ship is located at the jungle-side ocean
 -finished constructing the pit. no other pit content has been added, as none was ever completed
 -after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
+-fixed one of athenas minions instantly despawning. the olympian dragon has been let loose
 -
 
 unofficial
@@ -106,6 +108,7 @@ unofficial
 -terra armor summoner set crystal now has an associated buff
 -restored an unused dev set bag for planterror!
 -the large letter can no longer move in if the world is not in hardmode as he has no fucking point to do this
+-athena (and all adjacent fools) now tilts slightly when moving (thanks diamondwalker!)
 -
 
 crossmod

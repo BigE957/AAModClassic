@@ -1,4 +1,9 @@
-﻿using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
@@ -38,11 +43,19 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
         public override bool CanUseItem(Player player)
         {
             return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DuskBringer>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
         }
     }
 }

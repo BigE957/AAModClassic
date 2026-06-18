@@ -2,6 +2,7 @@
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -52,7 +53,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override bool PreAI()
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<Athena>()) || !NPC.AnyNPCs(ModContent.NPCType<AthenaA>()))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) &&(!NPC.AnyNPCs(ModContent.NPCType<Athena>()) && !NPC.AnyNPCs(ModContent.NPCType<AthenaA>())))
             {
                 NPC.velocity *= .95f;
                 if (NPC.alpha != 0)

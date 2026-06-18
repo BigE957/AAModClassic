@@ -9,6 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -354,7 +355,10 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                 NPC.direction = 1;
             }
 
-            NPC.rotation = 0;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.rotation = NPC.velocity.X * 0.03F;
+            else
+                NPC.rotation = 0;
         }
 
         public int Repeats()
@@ -578,6 +582,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             {
                 NPC.frame.Y = 0;
             }
+
+            NPC.spriteDirection = NPC.direction;
         }
 
         public void MoveToVector2(Vector2 p)

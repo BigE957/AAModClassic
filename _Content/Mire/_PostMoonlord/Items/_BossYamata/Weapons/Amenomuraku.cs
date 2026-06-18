@@ -1,4 +1,7 @@
-﻿using AAModClassic.Rarities;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -59,6 +62,16 @@ Inflicts Moonrazed"); */
                 }
             }
             return false;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ItemID.Seedler);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
         }
     }
 }

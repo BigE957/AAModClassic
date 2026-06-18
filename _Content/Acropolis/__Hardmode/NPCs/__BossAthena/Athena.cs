@@ -8,6 +8,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -439,7 +440,10 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 }
             }
 
-            NPC.rotation = 0;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.rotation = NPC.velocity.X * 0.03F;
+            else
+                NPC.rotation = 0;
         }
 
         public Vector2 CloudPick()
@@ -538,6 +542,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             {
                 NPC.frame.Y = 0;
             }
+
+            NPC.spriteDirection = NPC.direction;
         }
 
         public void MoveToVector2(Vector2 p)
