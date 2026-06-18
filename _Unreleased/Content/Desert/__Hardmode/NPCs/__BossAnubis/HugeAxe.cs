@@ -1,11 +1,9 @@
+using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.WorldGen;
-using System;
 
 namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
