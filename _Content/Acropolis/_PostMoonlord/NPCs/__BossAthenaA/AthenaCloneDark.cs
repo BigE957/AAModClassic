@@ -1,4 +1,5 @@
 using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -88,6 +89,9 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                     NPC.netUpdate = true;
                 }
             }
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.rotation = NPC.velocity.X * 0.03F;
         }
         public override void FindFrame(int frameHeight)
         {

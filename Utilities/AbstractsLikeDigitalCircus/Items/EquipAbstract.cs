@@ -103,7 +103,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                         string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
 
                         string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, Math.Abs(damageMap.GetArmorPenetration(currentClass)));
-                        line = new TooltipLine(Mod, "ArmorPenetrationLine", finalTooltipText.FirstCharToUpper());
+                        finalTooltipText = finalTooltipText.FirstCharToUpper();
+                        line = new TooltipLine(Mod, "ArmorPenetrationLine", finalTooltipText);
                         list.Add(line);
                     }
                     if (damageMap.GetKnockback(currentClass) != StatModifier.Default)

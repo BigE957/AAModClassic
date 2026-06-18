@@ -1,8 +1,15 @@
-﻿using System;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -96,6 +103,17 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         public override void PostUpdate()
         {
             Lighting.AddLight(Item.Center, AAColor.Oblivion.ToVector3() * 0.55f * Main.essScale);
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<VoidProbeControlUnit>());
+            recipe.AddIngredient(ModContent.ItemType<OverloadedDoomiteRadio>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
         }
     }
 }
