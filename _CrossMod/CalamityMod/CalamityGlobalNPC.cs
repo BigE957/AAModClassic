@@ -23,6 +23,7 @@ using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybring
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
