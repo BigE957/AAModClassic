@@ -82,6 +82,7 @@ using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
+using AAModClassic._Unreleased;
 
 namespace AAModClassic
 {
@@ -143,7 +144,7 @@ namespace AAModClassic
         public static bool downedEquinox;
 
         public static bool downedAncient => downedAkuma || downedYamata || downedZero;
-        public static bool downedSAncient => downedShen;
+        public static bool downedSAncient => downedShen || AAWorld_Unreleased.DownedIZ || AAWorld_Unreleased.DownedSoC;
         public static bool downedAnySiegeUnits => NPCExtensions.BeenKilled<Retriever>() || NPCExtensions.BeenKilled<OrthrusXBody>() || NPCExtensions.BeenKilled<RaiderUltima>();
         public static bool downedAllSiegeUnits => NPCExtensions.BeenKilled<Retriever>() && NPCExtensions.BeenKilled<OrthrusXBody>() && NPCExtensions.BeenKilled<RaiderUltima>();
         public static bool downedAkuma => (NPCExtensions.BeenKilled<AkumaHead>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaAHead>();

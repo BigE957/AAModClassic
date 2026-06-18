@@ -61,8 +61,6 @@ namespace AAModClassic.UI.World
         {
             orig(gameTime);
 
-            int globalTime = (int)(Main.GlobalTimeWrappedHourly * 60);
-
             if (Main.MenuUI.CurrentState is UIWorldCreation worldCreation)
             {
                 if (perviousStateWorldCreation)
