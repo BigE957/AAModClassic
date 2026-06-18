@@ -89,14 +89,14 @@ namespace AAModClassic
                             Logger.Error($"Ancients Awakened Call Error: {args[1].GetType().Name} is invalid for the first argument of {methodName}. Must be a string");
                             return null;
                         }
-                        if(args[2] is not int)
+                        if(args[2] is not short)
                         {
-                            Logger.Error($"Ancients Awakened Call Error: {args[2].GetType().Name} is invalid for the second argument of {methodName}. Must be an int");
+                            Logger.Error($"Ancients Awakened Call Error: {args[2].GetType().Name} is invalid for the second argument of {methodName}. Must be a short");
                             return null;
                         }
 
                         string key = (string)args[1];
-                        int slot = (int)args[2];
+                        short slot = (short)args[2];
                         return MusicManagementSystem.ReplaceTrack(key, slot);
                     case "AddShenDialogue":
                         if (args.Length <= 4)

@@ -1,0 +1,493 @@
+BossChecklist: {
+	MushroomMonarch: {
+		Name: Mushroom Monarch
+		Spawn: Use an {0} during the day.
+		Despawn: "[c/F08080:The Mushroom Monarch escapes into the sky]"
+	}
+
+	FeudalFungus: {
+		Name: Feudal Fungus
+		Spawn: Use a {0} in a Glowing Mushroom biome.
+		Despawn: "[c/70FFF3:The Feudal Fungus vanishes]"
+	}
+
+	GripsOfChaos: {
+		Name: Grips of Chaos
+		Spawn: Use a {0} or an {1} at night.
+		Despawn: "[c/75008C:The Grips fly away, having dealt with you]"
+	}
+
+	TruffleToad: {
+		Name: Truffle Toad
+		Spawn: Use a {0} in a glowing Mushroom biome.
+		Despawn: "[c/70FFF3:The Truffle Toad croaks, then vanishes]"
+	}
+
+	Broodmother: {
+		Name: Broodmother
+		Spawn: Use a {0} in the Inferno during the day.
+		Despawn: "[c/FFA500:The Broodmother returns to the fiery depths]"
+	}
+
+	Hydra: {
+		Name: Hydra
+		Spawn: Use a {0} in the Mire at night.
+		Despawn: "[c/483D8B:The Hydra slinks back into her dark lair]"
+	}
+
+	SubzeroSerpent: {
+		Name: Subzero Serpent
+		Spawn: Use a {0} in the Tundra at night.
+		Despawn: "[c/6495ED:The Subzero Serpent burrows back down into the snow]"
+	}
+
+	DesertDjinn: {
+		Name: Desert Djinn
+		Spawn: Use a {0} in the Desert during the day.
+		Despawn: "[c/F4A460:The Desert Djinn flexes upon you triumphantly]"
+	}
+
+	Sagittarius: {
+		Name: Sagittarius
+		Spawn: Use a {0} in the Void.
+		Despawn: "[c/FF0000:Sagittarius gallops off into the endless darkness...]"
+	}
+
+	TechnoTruffle: {
+		Name: Techno Truffle
+		Spawn: Use a {0} at night.
+		Despawn: "[c/eb34eb:Techno Truffle disposed its target.]"
+	}
+
+	Retriever: {
+		Name: The Retriever
+		Spawn: Use a {0} at night.
+		Despawn: "[c/eb34eb:The Retriever receives its bounty.]"
+	}
+
+	OrthrusX: {
+		Name: Orthrus X
+		Spawn: Use a {0} at night.
+		Despawn: "[c/eb34eb:Orthrus teleports to homebase.]"
+	}
+
+	RaiderUltima: {
+		Name: Raider Ultima
+		Spawn: Use a {0} at night.
+		Despawn: "[c/eb34eb:Raider Ultima returns to base.]"
+	}
+
+	Anubis: {
+		Name: Anubis
+		Spawn: Use a {0} in the Desert.
+		Despawn: "[c/FFD700:Anubis jokes then returns to his form.]"
+	}
+
+	BiomiteCore: {
+		Name: Biomite Core
+		Spawn: Use a {0} at the Lost Keep's pedestal.
+		Despawn: "[c/228B22:The Keep's mechanisms slow to a halt.]"
+	}
+
+	Athena: {
+		Name: Athena
+		Spawn: Use a {0} at the owl altar in the Acropolis, or wound a Seraph in the Acropolis.
+		Despawn: "[c/008AA6:Athena scolds you before flying off.]"
+	}
+
+	Greed: {
+		Name: Greed
+		Spawn: Use a {0} at the Altar of Desire in the Hoard, or open 3 Greed Chests in the Hoard.
+		Despawn: "[c/E39F00:Greed returns to counting his shinys.]"
+	}
+
+	RajahRabbit: {
+		Name: Rajah Rabbit
+		Spawn: Use a {0} or kill 100 Rabbits like a jerk.
+		Despawn: "[c/D3D3D3:The Pouncing Punisher's justice has been served.]"
+	}
+
+	ForsakenAnubis: {
+		Name: Forsaken Anubis
+		Spawn: Challenge the Legendscribe after having slain the Moon Lord.
+		Despawn: "[c/228B22:The Judge's power reverts, his disappointment immeasurable.]"
+	}
+
+	AthenaA: {
+		Name: Olympian Athena
+		Spawn: Challenge Athena after having proven yourself to Anubis.
+		Despawn: "[c/008AA6:The Goddess soars off, thoroughly pleased.]"
+	}
+
+	GreedA: {
+		Name: Worm King Greed
+		Spawn: Challenge Greed after having proven yourself to Anubis.
+		Despawn: "[c/E39F00:The Hoarder slinks into his cove, another treasure to the pile.]"
+	}
+
+	EquinoxWorms: {
+		Name: Daybringer & Nightcrawler
+		Spawn: Use the {0}.
+		Despawn: "[c/2F1F6C:The pair disappear to the stars to continue their equilibrium.]"
+	}
+
+	SistersOfDiscord: {
+		Name: Sisters of Discord
+		Spawn: Use the {0}.
+		Despawn: "[c/FF00FF:The sisters scurry home to tell their fathers of their victory.]"
+	}
+
+	Akuma: {
+		Name: Akuma
+		Spawn: Use the {0} in the Inferno during the day.
+		Despawn: "[c/92251E:The Demon returns to his Pagoda unamused with his battle.]"
+	}
+
+	AkumaA: {
+		Name: Oni Akuma
+		Spawn: Defeat Akuma in Expert Mode or use the {0}.
+		Despawn: "[c/00BFFF:The Demon crawls back to his Pagoda seething from his battle.]"
+	}
+
+	Yamata: {
+		Name: Yamata
+		Spawn: Use the {0} in the Mire at night.
+		Despawn: "[c/35397E:The Fiend trails into the Lake of Souls to bask in his victory.]"
+	}
+
+	YamataA: {
+		Name: Yamata No Orochi
+		Spawn: Defeat Yamata in Expert Mode or use the {0}.
+		Despawn: "[c/921E44:The Fiend slips back into the Lake of Souls to lick its wounds.]"
+	}
+
+	Zero: {
+		Name: Zero
+		Spawn: Use the {0} in the Void.
+		Despawn: "[c/FF0000:The machine executes return protocol and resumes its silent vigil.]"
+	}
+
+	ZeroP: {
+		Name: Zero Protocol
+		Spawn: Defeat Zero in Expert Mode or use the {0}.
+		Despawn: "[c/FF0000:The machine executes repair protocol before resuming its silent vigil.]"
+	}
+
+	RajahRabbitR: {
+		Name: Rajah Rabbit's Revenge
+		Spawn: Use the {0} or kill 100 rabbits after having killed at least 1000.
+		Despawn: "[c/D3D3D3:The Champion of the Innocent's justice has been served.]"
+	}
+
+	Shen: {
+		Name: Shen Doragon
+		Spawn: Use the {0}.
+		Despawn: "[c/FF00FF:Chaos reigns all the same, the discordian doomsayer continues its discord.]"
+	}
+
+	ShenA: {
+		Name: Awakened Shen Doragon
+		Spawn: Defeat Shen Doragon in Expert Mode or use the {0}.
+		Despawn: "[c/FF00FF:Despite your best efforts, Chaos reigns all the same.]"
+	}
+
+	InfinityZero: {
+		Name: Infinity Zero
+		Spawn: Use the {0}.
+		Despawn: "[c/A9A9A9:Its directive successful, the mechanical malice awaits another.]"
+	}
+
+	SoulOfCthulhu: {
+		Name: Soul of Cthulhu
+		Spawn: Use the {0}.
+		Despawn: "[c/00FFFF:The old gods wrath enacted, the cosmic calamity returns to his slumber.]"
+	}
+
+	Cthulhu: {
+		Name: Cthulhu, Cosmic Calamity
+		Spawn: Defeat the Soul of Cthulhu in Expert Mode.
+		Despawn: "[c/00FFFF:The old gods wrath enacted, the cosmic calamity sets its sights upon Terraria.]"
+	}
+
+	#Despawn Messages
+	DespawnKraken: The cephalopod warps into a conjured rift.
+}
+
+MusicDisplay: {
+	ModName: Ancients Awakened: Classic
+
+	SuperancientsPinch: {
+		Author: by Spectral Aves
+		DisplayName: Bygone Battles
+	}
+
+	Broodmother: {
+		Author: by Spectral Aves
+		DisplayName: Blazing Fury
+	}
+
+	ChaosPreShen: {
+		Author: by MaestroVGM
+		DisplayName: Condemned
+	}
+
+	Djinn: {
+		Author: by Tyeski
+		DisplayName: The Dust Bowl
+	}
+
+	Acropolis: {
+		Author: by ENNWAY
+		DisplayName: Palace in the Sky
+	}
+
+	Akuma: {
+		Author: by Saucecoie
+		DisplayName: Trial By Fire
+	}
+
+	AkumaAwakened: {
+		Author: by Tyeski
+		DisplayName: Dawn of the Dragon
+	}
+
+	Anubis: {
+		Author: by Tyeski
+		DisplayName: Strings of Judgement
+	}
+
+	Equinox: {
+		Author: by ProduceVGM
+		DisplayName: Celestial Cyclone
+	}
+
+	AnubisAwakened: {
+		Author: by Tyeski
+		DisplayName: Purgatorium
+	}
+
+	Athena: {
+		Author: by ENNWAY
+		DisplayName: Magisaint
+	}
+
+	Fungus: {
+		Author: by Spectral Aves
+		DisplayName: Bioluminescent Beatdown
+	}
+
+	AthenaAwakened: {
+		Author: by ENNWAY
+		DisplayName: Goddess of Those Winged
+	}
+
+	Greed: {
+		Author: by Tyeski
+		DisplayName: Gold Digger
+	}
+
+	GreedAwakened: {
+		Author: by Tyeski
+		DisplayName: Ira De Riquezas Perdidas
+	}
+
+	Grips: {
+		Author: by Spectral Aves
+		DisplayName: Twin Terror
+	}
+
+	Hoard: {
+		Author: by Spectral Aves
+		DisplayName: Cove
+	}
+
+	Hydra: {
+		Author: by Spectral Aves
+		DisplayName: Abyssal Wrath
+	}
+
+	MireDay: {
+		Author: by ProduceVGM
+		DisplayName: Through the Toxic Mist
+	}
+
+	MireLake: {
+		Author: by Rockwwizard
+		DisplayName: Lake of Souls
+	}
+
+	InfernoNight: {
+		Author: by ProduceVGM
+		DisplayName: Emberstorm
+	}
+
+	InfernoPagoda: {
+		Author: by Rockwizard
+		DisplayName: Scorched Tower
+	}
+
+	MireSurface: {
+		Author: by ProduceVGM
+		DisplayName: Secluded Swamp
+	}
+
+	InfernoSurface: {
+		Author: by ProduceVGM
+		DisplayName: Scorched Earth
+	}
+
+	InfernoUnderground: {
+		Author: by ProduceVGM
+		DisplayName: Inner Mantle
+	}
+
+	MireUnderground: {
+		Author: by ProduceVGM
+		DisplayName: Creepy Crawlers
+	}
+
+	Monarch: {
+		Author: by Spectral Aves
+		DisplayName: Fungal Face-off
+	}
+
+	MushroomSurface: {
+		Author: by Spectral Aves
+		DisplayName: Overgrowth
+	}
+
+	Rajah: {
+		Author: by Spectral Aves
+		DisplayName: JUSTICE
+	}
+
+	RajahAwakened: {
+		Author: by Toby Fox
+		DisplayName: Black Knife
+	}
+
+	Sagittarius: {
+		Author: by Spectral Aves
+		DisplayName: Event Horizon
+	}
+
+	Shen: {
+		Author: by MaestroVGM
+		DisplayName: Wings of Duality
+	}
+
+	Sisters: {
+		Author: by MaestroVGM
+		DisplayName: United
+	}
+
+	Stars: {
+		Author: by ProduceVGM
+		DisplayName: Scattered Stars
+	}
+
+	Subzero: {
+		Author: by ProduceVGM
+		DisplayName: Glacial Grace
+	}
+
+	ShenAwakened: {
+		Author: by MaestroVGM
+		DisplayName: Discordant Coda
+	}
+
+	SunkenShipPreSoC: {
+		Author: by ProduceVGM
+		DisplayName: Sleeping Curse
+	}
+
+	SunkenShip: {
+		Author: by Cosmoptera
+		DisplayName: Rift-Torn Ruins
+	}
+
+	ZeroAwakened: {
+		Author: by Saucecoie
+		DisplayName: Doomsday Arrives
+	}
+
+	Zero: {
+		Author: by Spectral Aves
+		DisplayName: Clockwork Catastrophe
+	}
+
+	Terrarium: {
+		Author: by ProduceVGM
+		DisplayName: Resting Place
+	}
+
+	LostKeep: {
+		Author: by Saucecoie
+		DisplayName: Hall of Memories
+	}
+
+	BiomiteCore: {
+		Author: by ProduceVGM
+		DisplayName: Restless Spirit
+	}
+
+	TruffleToad: {
+		Author: by Spectral Aves
+		DisplayName: TODESTOOL
+	}
+
+	Void: {
+		Author: by ProduceVGM
+		DisplayName: Waste
+	}
+
+	VoidPostML: {
+		Author: by ProduceVGM
+		DisplayName: Inanis
+	}
+
+	VoidPreIZ: {
+		Author: by LionCakeSpy
+		DisplayName: Sleeping Giant
+	}
+
+	Yamata: {
+		Author: by Saucecoie
+		DisplayName: Crescent of Madness
+	}
+
+	YamataAwakened: {
+		Author: by Tyeski
+		DisplayName: Abyssal Nightmare
+	}
+
+	Siege: {
+		Author: by ProduceVGM
+		DisplayName: Controlled Chaos
+	}
+	
+	TechnoTruffle: {
+		Author: by Spectral Aves
+		DisplayName: Mechanical Mold
+	}
+
+	Parthenan: {
+		Author: by Tyeski
+		DisplayName: Maelstrom
+	}
+
+	SoulOfCthulhu: {
+		Author: by Keisuke Ito
+		DisplayName: Dharkon
+	}
+
+	Cthulhu: {
+		Author: by Hideki Sakamoto
+		DisplayName: Galeem/Dharkon
+	}
+
+	InfinityZero: {
+		Author: by MaestroVGM
+		DisplayName: Infinitum
+	}
+}

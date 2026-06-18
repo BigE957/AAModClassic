@@ -195,6 +195,7 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZer
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
+using AAModClassic.Music;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -254,6 +255,8 @@ namespace AAModClassic._CrossMod
             PerformHealthBarSupport();
 
             PerformBossChecklistSupport();
+
+            PerformMusicDisplaySupport();
 
             PerformFargosSupport();
 
@@ -763,7 +766,7 @@ namespace AAModClassic._CrossMod
                     return portrait;
                 };
 
-                string path = "Mods.AAModClassic.BossChecklistSupport.";
+                string path = "Mods.AAModClassic.CrossMod.BossChecklist.";
 
                 if (!ContentReplacementSystem.NeedToReplaceContent)
                 {
@@ -1379,6 +1382,29 @@ namespace AAModClassic._CrossMod
                 });
                 #endregion
             }
+        }
+
+        private static void PerformMusicDisplaySupport()
+        {
+            if (!ModLoader.TryGetMod("MusicDisplay", out Mod display))
+                return;
+
+            string displayPath = "Mods.AAModClassic.CrossMod.MusicDisplay.";
+
+            LocalizedText modName = Language.GetOrRegister(displayPath + "ModName");
+
+            void AddMusic(string name)
+            {
+                LocalizedText author = Language.GetOrRegister(displayPath + name.Replace("_", "") + ".Author");
+                LocalizedText displayName = Language.GetOrRegister(displayPath + name.Replace("_", "") + ".DisplayName");
+                display.Call("AddMusic", MusicManagementSystem.MusicSlots[name], displayName, author, modName);
+            }
+
+            AddMusic("BiomiteCore");
+            AddMusic("LostKeep");
+            AddMusic("TechnoTruffle");
+            AddMusic("Cthulhu");
+            AddMusic("Superancients_Pinch");
         }
 
         private static void PerformFargosSupport()
