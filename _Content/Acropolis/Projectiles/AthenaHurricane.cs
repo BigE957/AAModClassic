@@ -7,6 +7,7 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AAModClassic._Content.Acropolis.Projectiles
 {
@@ -32,92 +33,82 @@ namespace AAModClassic._Content.Acropolis.Projectiles
 
         public override void AI()
         {
-			float num1125 = 600f;
-			if (Projectile.soundDelay == 0)
-			{
-				Projectile.soundDelay = -1;
-				SoundEngine.PlaySound(SoundID.Item122, Projectile.Center);
-			}
-			Projectile.ai[0] += 1f;
-			if (Projectile.ai[0] >= num1125)
-			{
-				Projectile.Kill();
-			}
-			if (Projectile.localAI[0] >= 30f)
-			{
-				Projectile.damage = 0;
-				if (Projectile.ai[0] < num1125 - 120f)
-				{
-					float num1126 = Projectile.ai[0] % 60f;
-					Projectile.ai[0] = num1125 - 120f + num1126;
-					Projectile.netUpdate = true;
-				}
-			}
-			float num1127 = 15f;
-			float num1128 = 15f;
-			Point point8 = Projectile.Center.ToTileCoordinates();
-            Collision.ExpandVertically(point8.X, point8.Y, out int num1129, out int num1130, (int)num1127, (int)num1128);
-            num1129++;
-			num1130--;
-			Vector2 value72 = new Vector2(point8.X, num1129) * 16f + new Vector2(8f);
-			Vector2 value73 = new Vector2(point8.X, num1130) * 16f + new Vector2(8f);
-			Vector2 vector146 = Vector2.Lerp(value72, value73, 0.5f);
-			Vector2 value74 = new Vector2(0f, value73.Y - value72.Y);
-			value74.X = value74.Y * 0.2f;
-			Projectile.width = (int)(value74.X * 0.65f);
-			Projectile.height = (int)value74.Y;
-			Projectile.Center = vector146;
-			if (Projectile.owner == Main.myPlayer)
-			{
-				bool flag74 = false;
-				Vector2 center16 = Main.player[Projectile.owner].Center;
-				Vector2 top = Main.player[Projectile.owner].Top;
-				for (float num1131 = 0f; num1131 < 1f; num1131 += 0.05f)
-				{
-					Vector2 position2 = Vector2.Lerp(value72, value73, num1131);
-					if (Collision.CanHitLine(position2, 0, 0, center16, 0, 0) || Collision.CanHitLine(position2, 0, 0, top, 0, 0))
-					{
-						flag74 = true;
-						break;
-					}
-				}
-				if (!flag74 && Projectile.ai[0] < num1125 - 120f)
-				{
-					float num1132 = Projectile.ai[0] % 60f;
-					Projectile.ai[0] = num1125 - 120f + num1132;
-					Projectile.netUpdate = true;
-				}
-			}
-			if (Projectile.ai[0] < num1125 - 120f)
-			{
-				for (int num1133 = 0; num1133 < 1; num1133++)
-				{
-					float value75 = -0.5f;
-					float value76 = 0.9f;
-					float amount3 = Main.rand.NextFloat();
-					Vector2 value77 = new Vector2(MathHelper.Lerp(0.1f, 1f, Main.rand.NextFloat()), MathHelper.Lerp(value75, value76, amount3));
-					value77.X *= MathHelper.Lerp(2.2f, 0.6f, amount3);
-					value77.X *= -1f;
-					Vector2 value78 = new Vector2(6f, 10f);
-					Vector2 position3 = vector146 + value74 * value77 * 0.5f + value78;
-					Dust dust33 = Main.dust[Dust.NewDust(position3, 0, 0, DustID.Cloud, 0f, 0f, 0, default, 1.5f)];
-					dust33.position = position3;
-					dust33.customData = vector146 + value78;
-					dust33.fadeIn = 1f;
-					dust33.scale = 0.3f;
-					if (value77.X > -1.2f)
-					{
-						dust33.velocity.X = 1f + Main.rand.NextFloat();
-					}
-					dust33.velocity.Y = Main.rand.NextFloat() * -0.5f - 1f;
-				}
-			}
-
-            for (int u = 0; u < Main.maxNPCs; u++)
+			float upTime = 600f;
+            if (Projectile.soundDelay == 0)
             {
-                NPC target = Main.npc[u];
+                Projectile.soundDelay = -1;
+                SoundEngine.PlaySound(SoundID.Item82, Projectile.Center);
+            }
+            Projectile.ai[0]++;
+            if (Projectile.ai[0] >= upTime)
+            {
+                Projectile.Kill();
+            }
 
-                if (target.type != NPCID.TargetDummy && target.active && !target.boss && target.chaseable && target.chaseable && Vector2.Distance(Projectile.Center, target.Center) < 150)
+            float num1043 = 15f;
+            float num1044 = 15f;
+            Point centerTile = Projectile.Center.ToTileCoordinates();
+            Collision.ExpandVertically(centerTile.X, centerTile.Y, out var topY, out var bottomY, (int)num1043, (int)num1044);
+            topY++;
+            bottomY--;
+            Vector2 collisionTop = new Vector2(centerTile.X, topY) * 16f + new Vector2(8f);
+            Vector2 collisionBottom = new Vector2(centerTile.X, bottomY) * 16f + new Vector2(8f);
+            Vector2 collisionMiddle = Vector2.Lerp(collisionTop, collisionBottom, 0.5f);
+            Vector2 sizeVector = new Vector2(0f, collisionBottom.Y - collisionTop.Y);
+            sizeVector.X = sizeVector.Y * 0.2f;
+            Projectile.width = (int)(sizeVector.X * 0.65f);
+            Projectile.height = (int)sizeVector.Y;
+            Projectile.Center = collisionMiddle;
+            if (Projectile.owner == Main.myPlayer)
+            {
+                bool canHit = false;
+                Vector2 center20 = Main.player[Projectile.owner].Center;
+                Vector2 top = Main.player[Projectile.owner].Top;
+                for (float num1045 = 0f; num1045 < 1f; num1045 += 0.05f)
+                {
+                    Vector2 position = Vector2.Lerp(collisionTop, collisionBottom, num1045);
+                    if (Collision.CanHitLine(position, 0, 0, center20, 0, 0) || Collision.CanHitLine(position, 0, 0, top, 0, 0))
+                    {
+                        canHit = true;
+                        break;
+                    }
+                }
+                if (!canHit && Projectile.ai[0] < upTime - 120f)
+                {
+                    float seconds = Projectile.ai[0] % 60f;
+                    Projectile.ai[0] = upTime - 120f + seconds;
+                    Projectile.netUpdate = true;
+                }
+            }
+            if (!(Projectile.ai[0] < upTime - 120f))
+            {
+                return;
+            }
+            for (int i = 0; i < 1; i++)
+            {
+                float value22 = -0.5f;
+                float value23 = 0.9f;
+                float amount3 = Main.rand.NextFloat();
+                Vector2 vector166 = new Vector2(MathHelper.Lerp(0.1f, 1f, Main.rand.NextFloat()), MathHelper.Lerp(value22, value23, amount3));
+                vector166.X *= MathHelper.Lerp(2.2f, 0.6f, amount3);
+                vector166.X *= -1f;
+                Vector2 vector167 = new Vector2(6f, 10f);
+                Vector2 vector168 = collisionMiddle + sizeVector * vector166 * 0.5f + vector167;
+                Dust dust57 = Main.dust[Dust.NewDust(vector168, 0, 0, DustID.Cloud)];
+                dust57.position = vector168;
+                dust57.customData = collisionMiddle + vector167;
+                dust57.fadeIn = 1f;
+                dust57.scale = 0.3f;
+                if (vector166.X > -1.2f)
+                {
+                    dust57.velocity.X = 1f + Main.rand.NextFloat();
+                }
+                dust57.velocity.Y = Main.rand.NextFloat() * -0.5f - 1f;
+            }
+
+            foreach (NPC target in Main.ActiveNPCs)
+            {
+                if (target.type != NPCID.TargetDummy && !target.boss && target.chaseable && target.chaseable && Vector2.Distance(Projectile.Center, target.Center) < 150)
                 {
                     float num3 = 6f;
                     Vector2 vector = new Vector2(target.position.X + target.width / 2, target.position.Y + target.height / 2);
@@ -135,60 +126,41 @@ namespace AAModClassic._Content.Acropolis.Projectiles
             }
         }
 
-		//TODO: rendering here is def broken 
         public override bool PreDraw(ref Color lightColor)
         {
-        	float num226 = 600f;
-			float num227 = 15f;
-			float num228 = 15f;
-			float num229 = Projectile.ai[0];
-			float scale5 = MathHelper.Clamp(num229 / 30f, 0f, 1f);
-			if (num229 > num226 - 60f)
-			{
-				scale5 = MathHelper.Lerp(1f, 0f, (num229 - (num226 - 60f)) / 60f);
-			}
+            float upTime = 600f;
+            float counter = Projectile.ai[0];
+            float opacity = MathHelper.Clamp(counter / 30f, 0f, 1f);
+            if (counter > upTime - 60f)
+                opacity = MathHelper.Lerp(1f, 0f, (counter - (upTime - 60f)) / 60f);
+            
             Point point5 = Projectile.Center.ToTileCoordinates();
-            Collision.ExpandVertically(point5.X, point5.Y, out int num230, out int num231, (int)num227, (int)num228);
-            num230++;
-			num231--;
-			float num232 = 0.2f;
-			Vector2 value32 = new Vector2(point5.X, num230) * 16f + new Vector2(8f);
-			Vector2 value33 = new Vector2(point5.X, num231) * 16f + new Vector2(8f);
-			Vector2.Lerp(value32, value33, 0.5f);
-			Vector2 vector33 = new Vector2(0f, value33.Y - value32.Y);
-			vector33.X = vector33.Y * num232;
-			new Vector2(value32.X - vector33.X / 2f, value32.Y);
-			Texture2D texture2D23 = TextureAssets.Projectile[Projectile.type].Value;
-            Rectangle rectangle9 = texture2D23.Frame(1, 1, 0, 0);
-			Vector2 origin3 = rectangle9.Size() / 2f;
-			float num233 = -0.06283186f * num229;
-			Vector2 spinningpoint2 = Vector2.UnitY.RotatedBy(num229 * 0.1f, default);
-			float num234 = 0f;
-			float num235 = 5.1f;
-            Color value34 = new Color(225, 225, 225);
-			for (float num236 = (int)value33.Y; num236 > (int)value32.Y; num236 -= num235)
-			{
-				num234 += num235;
-				float num237 = num234 / vector33.Y;
-				float num238 = num234 * 6.28318548f / -20f;
-				float num239 = num237 - 0.15f;
-				Vector2 vector34 = spinningpoint2.RotatedBy(num238, default);
-				Vector2 value35 = new Vector2(0f, num237 + 1f);
-				value35.X = value35.Y * num232;
-                Color color39 = Color.Lerp(Color.Transparent, value34, num237 * 2f);
-				if (num237 > 0.5f)
-				{
-					color39 = Color.Lerp(Color.Transparent, value34, 2f - num237 * 2f);
-				}
-				color39.A = (byte)(color39.A * 0.5f);
-				color39 *= scale5;
-				vector34 *= value35 * 100f;
-				vector34.Y = 0f;
-				vector34.X = 0f;
-				vector34 += new Vector2(value33.X, num236) - Main.screenPosition;
-				Main.spriteBatch.Draw(texture2D23, vector34, new Rectangle?(rectangle9), color39, num233 + num238, origin3, 1f + num239, SpriteEffects.None, 0f);
-			}
-			return false;
+            Collision.ExpandVertically(point5.X, point5.Y, out var topY, out var bottomY, 15, 15);
+			float topWorld = (topY + 1) * 16 + 8;
+			float bottomWorld = (bottomY - 1) * 16 + 8;
+            float distance = bottomWorld - topWorld;
+            Texture2D texture = TextureAssets.Projectile[ProjectileID.SandnadoFriendly].Value;
+            float baseRotation = -(float)Math.PI / 50f * counter;
+            float distTravelled = 0f;
+            float jump = 5.1f;
+            Color baseColor = new(225, 225, 225);
+            for (float i = (int)bottomWorld; i > (int)topWorld; i -= jump)
+            {
+                distTravelled += jump;
+                float travelRatio = distTravelled / distance;
+                float rotationOffset = distTravelled * ((float)Math.PI * 2f) / -20f;
+                float scale = travelRatio - 0.15f;
+                Color drawColor = Color.Lerp(Color.Transparent, baseColor, travelRatio * 2f);
+                if (travelRatio > 0.5f)
+                {
+                    drawColor = Color.Lerp(Color.Transparent, baseColor, 2f - travelRatio * 2f);
+                }
+                drawColor.A = (byte)(drawColor.A * 0.5f);
+                drawColor *= opacity;
+                Vector2 drawPos = new Vector2(Projectile.Center.X, i) - Main.screenPosition;
+                Main.EntitySpriteDraw(texture, drawPos, null, drawColor, baseRotation + rotationOffset, texture.Size() * 0.5f, 1f + scale, SpriteEffects.None);
+            }
+            return false;
         }
     }
 }
