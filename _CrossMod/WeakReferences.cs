@@ -21,6 +21,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos;
@@ -178,6 +179,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.Bo
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
@@ -772,7 +774,7 @@ namespace AAModClassic._CrossMod
                 if (!ContentReplacementSystem.NeedToReplaceContent)
                 {
                     #region Mushroom Monarch
-                    AddBoss(bossChecklist, mod, "MushroomMonarch", (Func<bool>)(() => NPCExtensions.BeenKilled<MushroomMonarch>()), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
+                    AddBoss(bossChecklist, mod, "MushroomMonarch", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "MushroomMonarch.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "MushroomMonarch.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingLookingMushroom>() + "]"),
@@ -782,14 +784,15 @@ namespace AAModClassic._CrossMod
                         {
                             ModContent.ItemType<MushroomMonarchTrophy>(),
                             ModContent.ItemType<MushroomMonarchMask>(),
-                            ModContent.ItemType<MonarchBox>()
+                            ModContent.ItemType<MonarchBox>(),
+                            ModContent.ItemType<MushroomMonarchRelic>()
                         },
                         ["customPortrait"] = GetPortrait("Monarch")
                     });
                     #endregion
 
                     #region Feudal Fungus
-                    AddBoss(bossChecklist, mod, "FeudalFungus", (Func<bool>)(() => NPCExtensions.BeenKilled<FeudalFungus>()), ModContent.NPCType<FeudalFungus>(), new Dictionary<string, object>()
+                    AddBoss(bossChecklist, mod, "FeudalFungus", (() => NPCExtensions.BeenKilled<FeudalFungus>()), ModContent.NPCType<FeudalFungus>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "FeudalFungus.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "FeudalFungus.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingLookingMushroom>() + "]"),
@@ -799,14 +802,15 @@ namespace AAModClassic._CrossMod
                         {
                             ModContent.ItemType<FeudalFungusTrophy>(),
                             ModContent.ItemType<FeudalFungusMask>(),
-                            ModContent.ItemType<FungusBox>()
+                            ModContent.ItemType<FungusBox>(),
+                            ModContent.ItemType<FeudalFungusRelic>()
                         },
                         ["customPortrait"] = GetPortrait("Fungus")
                     });
                     #endregion
 
                     #region Grips
-                    AddBoss(bossChecklist, mod, "GripsOfChaos", (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosInferno>(), ModContent.NPCType<GripOfChaosMire>() }, new Dictionary<string, object>()
+                    AddBoss(bossChecklist, mod, "GripsOfChaos", (() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosInferno>(), ModContent.NPCType<GripOfChaosMire>() }, new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "GripsOfChaos.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").Format("[i:" + ModContent.ItemType<CuriousLookingClaw>() + "]", "[i:" + ModContent.ItemType<InterestingLookingClaw>() + "]"),
@@ -818,14 +822,15 @@ namespace AAModClassic._CrossMod
                             ModContent.ItemType<InfernoGripTrophy>(),
                             ModContent.ItemType<MireGripMask>(),
                             ModContent.ItemType<InfernoGripMask>(),
-                            ModContent.ItemType<GripsBox>()
+                            ModContent.ItemType<GripsBox>(),
+                            ModContent.ItemType<GripsOfChaosRelic>()
                         },
                             ["customPortrait"] = GetPortrait("Grips")
                         });
                         #endregion
 
                     #region Truffle Toad
-                    AddBoss(bossChecklist, mod, "TruffleToad", (Func<bool>)(() => NPCExtensions.BeenKilled<TruffleToad>()), ModContent.NPCType<TruffleToad>(), new Dictionary<string, object>()
+                    AddBoss(bossChecklist, mod, "TruffleToad", (() => NPCExtensions.BeenKilled<TruffleToad>()), ModContent.NPCType<TruffleToad>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "TruffleToad.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "TruffleToad.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Toadstool>() + "]"),
@@ -835,16 +840,17 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<TruffleToadTrophy>(),
                         ModContent.ItemType<TruffleToadMask>(),
-                        ModContent.ItemType<TruffleToadBox>()
+                        ModContent.ItemType<TruffleToadBox>(),
+                        ModContent.ItemType<TruffleToadRelic>()
                     },
                         ["customPortrait"] = GetPortrait("Toad"),
-                        //["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
+                        //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                     });
                     #endregion
                 }
 
                 #region Broodmother
-                AddBoss(bossChecklist, mod, "Broodmother", (Func<bool>)(() => NPCExtensions.BeenKilled<Broodmother>()), ModContent.NPCType<Broodmother>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Broodmother", (() => NPCExtensions.BeenKilled<Broodmother>()), ModContent.NPCType<Broodmother>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Broodmother.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Broodmother.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<AncientBell>() + "]"),
@@ -854,14 +860,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<BroodmotherTrophy>(),
                         ModContent.ItemType<BroodmotherMask>(),
-                        ModContent.ItemType<BroodmotherBox>()
+                        ModContent.ItemType<BroodmotherBox>(),
+                        ModContent.ItemType<BroodmotherRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Brood")
                 });
                 #endregion
 
                 #region Hydra
-                AddBoss(bossChecklist, mod, "Hydra", (Func<bool>)(() => NPCExtensions.BeenKilled<HydraBody>()), ModContent.NPCType<HydraBody>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Hydra", (() => NPCExtensions.BeenKilled<HydraBody>()), ModContent.NPCType<HydraBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Hydra.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Hydra.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<HydraChow>() + "]"),
@@ -871,14 +878,17 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<HydraTrophy>(),
                         ModContent.ItemType<HydraMask1>(),
-                        ModContent.ItemType<HydraBox>()
+                        ModContent.ItemType<HydraMask2>(),
+                        ModContent.ItemType<HydraMask3>(),
+                        ModContent.ItemType<HydraBox>(),
+                        ModContent.ItemType<HydraRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Hydra")
                 });
                 #endregion
 
                 #region Serpent
-                AddBoss(bossChecklist, mod, "SubzeroSerpent", (Func<bool>)(() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), new List<int>() { ModContent.NPCType<SubzeroSerpent_Head>(), ModContent.NPCType<SubzeroSerpent_Body>(), ModContent.NPCType<SubzeroSerpent_Tail>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "SubzeroSerpent", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), new List<int>() { ModContent.NPCType<SubzeroSerpent_Head>(), ModContent.NPCType<SubzeroSerpent_Body>(), ModContent.NPCType<SubzeroSerpent_Tail>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SubzeroSerpent.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SubzeroSerpent.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<SubzeroCrystal>() + "]"),
@@ -888,15 +898,16 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<SubzeroSerpentTrophy>(),
                         ModContent.ItemType<SubzeroSerpentMask>(),
-                        ModContent.ItemType<SubzeroBox>()
+                        ModContent.ItemType<SubzeroBox>(),
+                        ModContent.ItemType<SubzeroSerpentRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Serpent1"),
-                    //["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
+                    //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
                 #region Djinn
-                AddBoss(bossChecklist, mod, "DesertDjinn", (Func<bool>)(() => NPCExtensions.BeenKilled<DesertDjinn>()), ModContent.NPCType<DesertDjinn>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "DesertDjinn", (() => NPCExtensions.BeenKilled<DesertDjinn>()), ModContent.NPCType<DesertDjinn>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "DesertDjinn.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "DesertDjinn.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DesertLamp>() + "]"),
@@ -906,15 +917,16 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<DesertDjinnTrophy>(),
                         ModContent.ItemType<DesertDjinnMask>(),
-                        ModContent.ItemType<DjinnBox>()
+                        ModContent.ItemType<DjinnBox>(),
+                        ModContent.ItemType<DesertDjinnRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Djinn"),
-                    //["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
+                    //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
                 #region Sagittarius
-                AddBoss(bossChecklist, mod, "Sagittarius", (Func<bool>)(() => NPCExtensions.BeenKilled<Sagittarius>()), ModContent.NPCType<Sagittarius>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Sagittarius", (() => NPCExtensions.BeenKilled<Sagittarius>()), ModContent.NPCType<Sagittarius>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Sagittarius.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Sagittarius.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Lifescanner>() + "]"),
@@ -924,14 +936,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<SagittariusTrophy>(),
                         ModContent.ItemType<SagittariusMask>(),
-                        ModContent.ItemType<SagittariusBox>()
+                        ModContent.ItemType<SagittariusBox>(),
+                        ModContent.ItemType<SagittariusRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Sag")
                 });
                 #endregion
 
                 #region Siege Units
-                AddBoss(bossChecklist, mod, "TechnoTruffle", (Func<bool>)(() => NPCExtensions.BeenKilled<TechnoTruffle>()), ModContent.NPCType<TechnoTruffle>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "TechnoTruffle", (() => NPCExtensions.BeenKilled<TechnoTruffle>()), ModContent.NPCType<TechnoTruffle>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "TechnoTruffle.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "TechnoTruffle.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticShroom>() + "]"),
@@ -941,12 +954,13 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<TechnoTruffleTrophy>(),
                         ModContent.ItemType<TechnoTruffleMask>(),
-                        ModContent.ItemType<SiegeBox>()
+                        ModContent.ItemType<SiegeBox>(),
+                        ModContent.ItemType<TechnoTruffleRelic>()
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
 
-                AddBoss(bossChecklist, mod, "Retriever", (Func<bool>)(() => NPCExtensions.BeenKilled<Retriever>()), ModContent.NPCType<Retriever>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Retriever", (() => NPCExtensions.BeenKilled<Retriever>()), ModContent.NPCType<Retriever>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Retriever.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Retriever.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticClaw>() + "]"),
@@ -956,11 +970,12 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<RetrieverTrophy>(),
                         ModContent.ItemType<RetrieverMask>(),
-                        ModContent.ItemType<SiegeBox>()
+                        ModContent.ItemType<SiegeBox>(),
+                        ModContent.ItemType<RetrieverRelic>()
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
-                AddBoss(bossChecklist, mod, "OrthrusX", (Func<bool>)(() => NPCExtensions.BeenKilled<OrthrusXBody>()), ModContent.NPCType<OrthrusXBody>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "OrthrusX", (() => NPCExtensions.BeenKilled<OrthrusXBody>()), ModContent.NPCType<OrthrusXBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "OrthrusX.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "OrthrusX.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ScrapHeap>() + "]"),
@@ -970,11 +985,12 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<OrthrusXTrophy>(),
                         ModContent.ItemType<OrthrusXMask>(),
-                        ModContent.ItemType<SiegeBox>()
+                        ModContent.ItemType<SiegeBox>(),
+                        ModContent.ItemType<OrthrusXRelic>()
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
-                AddBoss(bossChecklist, mod, "RaiderUltima", (Func<bool>)(() => NPCExtensions.BeenKilled<RaiderUltima>()), ModContent.NPCType<RaiderUltima>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RaiderUltima", (() => NPCExtensions.BeenKilled<RaiderUltima>()), ModContent.NPCType<RaiderUltima>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RaiderUltima.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RaiderUltima.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticBell>() + "]"),
@@ -984,18 +1000,19 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<RaiderUltimaTrophy>(),
                         ModContent.ItemType<RaiderUltimaMask>(),
-                        ModContent.ItemType<SiegeBox>()
+                        ModContent.ItemType<SiegeBox>(),
+                        ModContent.ItemType<RaiderUltimaRelic>()
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
                 #endregion
 
                 #region Anubis
-                AddBoss(bossChecklist, mod, "Anubis", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Anubis", (() => NPCExtensions.BeenKilled<Anubis>()), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>() + "]"),
-                    ["despawnMessage"] = (Func<NPC, LocalizedText>)((NPC npc) => {
+                    ["despawnMessage"] = ((NPC npc) => {
                         if (NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
@@ -1005,14 +1022,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<AnubisTrophy>(),
                         ModContent.ItemType<AnubisMask>(),
-                        ModContent.ItemType<AnubisBox>()
+                        ModContent.ItemType<AnubisBox>(),
+                        ModContent.ItemType<AnubisRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Anubis")
                 });
                 #endregion
 
                 #region Biomite Core
-                AddMiniBoss(bossChecklist, mod, "BiomiteCore", (Func<bool>)(() => NPCExtensions.BeenKilled<BiomiteCore>()), ModContent.NPCType<BiomiteCore>(), new Dictionary<string, object>()
+                AddMiniBoss(bossChecklist, mod, "BiomiteCore", (() => NPCExtensions.BeenKilled<BiomiteCore>()), ModContent.NPCType<BiomiteCore>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "BiomiteCore.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "BiomiteCore.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<BiomePrism>() + "]"),
@@ -1030,12 +1048,12 @@ namespace AAModClassic._CrossMod
                         Main.spriteBatch.Draw(shellTex, centered, shellFrame, color, 0, shellFrame.Size() * 0.5f, 1.5f, SpriteEffects.None, 0f);
                         Main.spriteBatch.Draw(coreTex, centered, coreFrame, color, 0, coreFrame.Size() * 0.5f, 1.5f, SpriteEffects.None, 0f);
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 });
                 #endregion
 
                 #region Athena
-                AddBoss(bossChecklist, mod, "Athena", (Func<bool>)(() => NPCExtensions.BeenKilled<Athena>()), ModContent.NPCType<Athena>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Athena", (() => NPCExtensions.BeenKilled<Athena>()), ModContent.NPCType<Athena>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Athena.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Athena.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<OwlStatue>() + "]"),
@@ -1045,14 +1063,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<AthenaTrophy>(),
                         ModContent.ItemType<AthenaMask>(),
-                        ModContent.ItemType<AthenaBox>()
+                        ModContent.ItemType<AthenaBox>(),
+                        ModContent.ItemType<AthenaRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Athena")
                 });
                 #endregion
 
                 #region Greed
-                AddBoss(bossChecklist, mod, "Greed", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Greed.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
@@ -1062,14 +1081,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<GreedTrophy>(),
                         ModContent.ItemType<GreedMask>(),
-                        ModContent.ItemType<GreedBox>()
+                        ModContent.ItemType<GreedBox>(),
+                        ModContent.ItemType<GreedRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Greed")
                 });
                 #endregion
 
                 #region Rajah Rabbit
-                AddBoss(bossChecklist, mod, "RajahRabbit", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbit>()), ModContent.NPCType<RajahRabbit>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RajahRabbit", (() => NPCExtensions.BeenKilled<RajahRabbit>()), ModContent.NPCType<RajahRabbit>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbit.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbit.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenCarrot>() + "]"),
@@ -1079,14 +1099,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<RajahRabbitTrophy>(),
                         ModContent.ItemType<RajahRabbitMask>(),
-                        ModContent.ItemType<RajahBox>()
+                        ModContent.ItemType<RajahBox>(),
+                        ModContent.ItemType<RajahRabbitRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Rajah")
                 });
                 #endregion
 
                 #region Forsaken Anubis
-                AddBoss(bossChecklist, mod, "ForsakenAnubis", (Func<bool>)(() => NPCExtensions.BeenKilled<AnubisA>()), ModContent.NPCType<AnubisA>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ForsakenAnubis", (() => NPCExtensions.BeenKilled<AnubisA>()), ModContent.NPCType<AnubisA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ForsakenAnubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ForsakenAnubis.Spawn"),
@@ -1096,14 +1117,15 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<AnubisATrophy>(),
                         ModContent.ItemType<AnubisAMask>(),
-                        ModContent.ItemType<AnubisAwakenedBox>()
+                        ModContent.ItemType<AnubisAwakenedBox>(),
+                        ModContent.ItemType<AnubisARelic>()
                     },
                     ["customPortrait"] = GetPortrait("FAnubis")
                 });
                 #endregion
 
                 #region Olympian Athena
-                AddBoss(bossChecklist, mod, "AthenaA", (Func<bool>)(() => NPCExtensions.BeenKilled<AthenaA>()), ModContent.NPCType<AthenaA>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "AthenaA", (() => NPCExtensions.BeenKilled<AthenaA>()), ModContent.NPCType<AthenaA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AthenaA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "AthenaA.Spawn"),
@@ -1111,15 +1133,18 @@ namespace AAModClassic._CrossMod
                     ["spawnItems"] = ModContent.ItemType<OwlStatue>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<AthenaAwakenedBox>()
+                        ModContent.ItemType<AthenaATrophy>(),
+                        ModContent.ItemType<AthenaAMask>(),
+                        ModContent.ItemType<AthenaAwakenedBox>(),
+                        ModContent.ItemType<AthenaARelic>()
                     },
                     ["customPortrait"] = GetPortrait("AthenaA"),
-                    ["availability"] = (Func<bool>)(() => NPCExtensions.BeenKilled<AnubisA>())
+                    ["availability"] = (() => NPCExtensions.BeenKilled<AnubisA>())
                 });
                 #endregion
 
                 #region Worm King Greed
-                AddBoss(bossChecklist, mod, "GreedA", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedAHead>()), ModContent.NPCType<GreedAHead>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "GreedA", (() => NPCExtensions.BeenKilled<GreedAHead>()), ModContent.NPCType<GreedAHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "GreedA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "GreedA.Spawn"),
@@ -1127,15 +1152,18 @@ namespace AAModClassic._CrossMod
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<GreedAwakenedBox>()
+                        ModContent.ItemType<GreedATrophy>(),
+                        ModContent.ItemType<GreedAMask>(),
+                        ModContent.ItemType<GreedAwakenedBox>(),
+                        ModContent.ItemType<GreedARelic>()
                     },
                     ["customPortrait"] = GetPortrait("GreedA"),
-                    ["availability"] = (Func<bool>)(() => NPCExtensions.BeenKilled<AnubisA>())
+                    ["availability"] = (() => NPCExtensions.BeenKilled<AnubisA>())
                 });
                 #endregion
 
                 #region Equinox Worms
-                AddBoss(bossChecklist, mod, "EquinoxWorms", (Func<bool>)(() => AAWorld.downedEquinox), new List<int>() { ModContent.NPCType<DaybringerHead>(), ModContent.NPCType<NightcrawlerHead>(), ModContent.NPCType<DaybringerBody>(), ModContent.NPCType<NightcrawlerBody>(), ModContent.NPCType<DaybringerTail>(), ModContent.NPCType<NightcrawlerTail>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "EquinoxWorms", (() => AAWorld.downedEquinox), new List<int>() { ModContent.NPCType<DaybringerHead>(), ModContent.NPCType<NightcrawlerHead>(), ModContent.NPCType<DaybringerBody>(), ModContent.NPCType<NightcrawlerBody>(), ModContent.NPCType<DaybringerTail>(), ModContent.NPCType<NightcrawlerTail>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "EquinoxWorms.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "EquinoxWorms.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<EquinoxWorm>() + "]"),
@@ -1147,14 +1175,15 @@ namespace AAModClassic._CrossMod
                         ModContent.ItemType<NightcrawlerTrophy>(),
                         ModContent.ItemType<DaybringerMask>(),
                         ModContent.ItemType<NightcrawlerMask>(),
-                        ModContent.ItemType<EquinoxBox>()
+                        ModContent.ItemType<EquinoxBox>(),
+                        ModContent.ItemType<EquinoxWormsRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Equinox")
                 });
                 #endregion
 
                 #region Ashe & Haruka
-                AddBoss(bossChecklist, mod, "SistersOfDiscord", (Func<bool>)(() => AAWorld.downedSisters), new List<int>() { ModContent.NPCType<Ashe>(), ModContent.NPCType<Haruka>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "SistersOfDiscord", (() => AAWorld.downedSisters), new List<int>() { ModContent.NPCType<Ashe>(), ModContent.NPCType<Haruka>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SistersOfDiscord.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SistersOfDiscord.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<FlamesOfAnarchy>() + "]"),
@@ -1164,7 +1193,10 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<AsheTrophy>(),
                         ModContent.ItemType<HarukaTrophy>(),
-                        ModContent.ItemType<SistersBox>()
+                        ModContent.ItemType<AsheMask>(),
+                        ModContent.ItemType<HarukaMask>(),
+                        ModContent.ItemType<SistersBox>(),
+                        ModContent.ItemType<SistersOfDiscordRelic>()
                     },
                     ["customPortrait"] = GetPortrait("AH")
                 });
@@ -1181,12 +1213,13 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<AkumaTrophy>(),
                         ModContent.ItemType<AkumaMask>(),
-                        ModContent.ItemType<AkumaBox>()
+                        ModContent.ItemType<AkumaBox>(),
+                        ModContent.ItemType<AkumaRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Akuma")
                 });
 
-                AddBoss(bossChecklist, mod, "AkumaA", (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<AkumaAHead>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "AkumaA", (() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<AkumaAHead>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AkumaA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "AkumaA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunRune>() + "]"),
@@ -1196,15 +1229,16 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<AkumaATrophy>(),
                         ModContent.ItemType<AkumaAMask>(),
-                        ModContent.ItemType<AkumaAwakenedBox>()
+                        ModContent.ItemType<AkumaAwakenedBox>(),
+                        ModContent.ItemType<AkumaRelic>()
                     },
                     ["customPortrait"] = GetPortrait("AkumaA"),
-                    ["availability"] = (Func<bool>)(() => AAWorld.downedAkuma && Main.expertMode)
+                    ["availability"] = (() => AAWorld.downedAkuma && Main.expertMode)
                 });
                 #endregion
 
                 #region Yamata
-                AddBoss(bossChecklist, mod, "Yamata", (Func<bool>)(() => AAWorld.downedYamata), ModContent.NPCType<YamataBody>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Yamata", (() => AAWorld.downedYamata), ModContent.NPCType<YamataBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Yamata.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Yamata.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadMoonSigil>() + "]"),
@@ -1214,12 +1248,13 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<YamataTrophy>(),
                         ModContent.ItemType<YamataMask>(),
-                        ModContent.ItemType<YamataBox>()
+                        ModContent.ItemType<YamataBox>(),
+                        ModContent.ItemType<YamataRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Yamata")
                 });
 
-                AddBoss(bossChecklist, mod, "YamataA", (Func<bool>)(() => AAWorld.downedYamata), ModContent.NPCType<YamataABody>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "YamataA", (() => AAWorld.downedYamata), ModContent.NPCType<YamataABody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "YamataA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "YamataA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadMoonRune>() + "]"),
@@ -1229,15 +1264,16 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<YamataATrophy>(),
                         ModContent.ItemType<YamataAMask>(),
-                        ModContent.ItemType<YamataAwakenedBox>()
+                        ModContent.ItemType<YamataAwakenedBox>(),
+                        ModContent.ItemType<YamataRelic>()
                     },
                     ["customPortrait"] = GetPortrait("YamataA"),
-                    ["availability"] = (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode)
+                    ["availability"] = (() => AAWorld.downedYamata && Main.expertMode)
                 });
                 #endregion
 
                 #region Zero
-                AddBoss(bossChecklist, mod, "Zero", (Func<bool>)(() => AAWorld.downedZero), ModContent.NPCType<Zero>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Zero", (() => AAWorld.downedZero), ModContent.NPCType<Zero>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Zero.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Zero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DoomsdayTesseract>() + "]"),
@@ -1247,12 +1283,13 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<ZeroTrophy>(),
                         ModContent.ItemType<ZeroMask>(),
-                        ModContent.ItemType<ZeroBox>()
+                        ModContent.ItemType<ZeroBox>(),
+                        ModContent.ItemType<ZeroRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Zero")
                 });
 
-                AddBoss(bossChecklist, mod, "ZeroP", (Func<bool>)(() => AAWorld.downedZero), ModContent.NPCType<ZeroA>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ZeroP", (() => AAWorld.downedZero), ModContent.NPCType<ZeroA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ZeroP.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ZeroP.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ERROR_NULL>() + "]"),                    
@@ -1262,15 +1299,16 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<ZeroATrophy>(),
                         ModContent.ItemType<ZeroAMask>(),
-                        ModContent.ItemType<ZeroAwakenedBox>(), 
+                        ModContent.ItemType<ZeroAwakenedBox>(),
+                        ModContent.ItemType<ZeroRelic>()
                     },
                     ["customPortrait"] = GetPortrait("ZeroProtocol"),
-                    ["availability"] = (Func<bool>)(() => AAWorld.downedZero && Main.expertMode)
+                    ["availability"] = (() => AAWorld.downedZero && Main.expertMode)
                 });
                 #endregion
 
                 #region Champion Rajah Rabbit
-                AddBoss(bossChecklist, mod, "RajahRabbitR", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbitA>()), ModContent.NPCType<RajahRabbitA>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RajahRabbitR", (() => NPCExtensions.BeenKilled<RajahRabbitA>()), ModContent.NPCType<RajahRabbitA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbitR.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbitR.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<TenCaratCarrot>() + "]"),
@@ -1278,15 +1316,16 @@ namespace AAModClassic._CrossMod
                     ["spawnItems"] = ModContent.ItemType<TenCaratCarrot>(),
                     ["collectibles"] = new List<int>
                     {
-                        ///ModContent.ItemType<SRajahBox>()
+                        ModContent.ItemType<RajahAwakenedBox>(),
+                        ModContent.ItemType<RajahRabbitARelic>()
                     },
                     ["customPortrait"] = GetPortrait("CRajah"),
-                    //["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
+                    //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
                 #region Shen
-                AddBoss(bossChecklist, mod, "Shen", (Func<bool>)(() => AAWorld.downedShen), ModContent.NPCType<ShenDoragon>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Shen", (() => AAWorld.downedShen), ModContent.NPCType<ShenDoragon>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Shen.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Shen.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ChaosSigil>() + "]"),
@@ -1296,12 +1335,13 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<ShenDoragonTrophy>(),
                         ModContent.ItemType<ShenDoragonMask>(),
-                        ModContent.ItemType<ShenBox>()
+                        ModContent.ItemType<ShenBox>(),
+                        ModContent.ItemType<ShenDoragonRelic>()
                     },
                     ["customPortrait"] = GetPortrait("Shen")
                 });
 
-                AddBoss(bossChecklist, mod, "ShenA", (Func<bool>)(() => AAWorld.downedShen), ModContent.NPCType<ShenDoragonA>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ShenA", (() => AAWorld.downedShen), ModContent.NPCType<ShenDoragonA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ShenA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ShenA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ChaosRune>() + "]"),                    
@@ -1311,15 +1351,16 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<ShenDoragonATrophy>(),
                         ModContent.ItemType<ShenDoragonAMask>(),
-                        ModContent.ItemType<ShenAwakenedBox>()
+                        ModContent.ItemType<ShenAwakenedBox>(),
+                        ModContent.ItemType<ShenDoragonRelic>()
                     },
                     ["customPortrait"] = GetPortrait("ShenA"),
-                    ["availability"] = (Func<bool>)(() => AAWorld.downedShen && Main.expertMode)
+                    ["availability"] = (() => AAWorld.downedShen && Main.expertMode)
                 });
                 #endregion
 
                 #region Infinity Zero
-                AddBoss(bossChecklist, mod, "InfinityZero", (Func<bool>)(() => NPCExtensions.BeenKilled<InfinityZero>()), ModContent.NPCType<InfinityZero>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "InfinityZero", (() => NPCExtensions.BeenKilled<InfinityZero>()), ModContent.NPCType<InfinityZero>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "InfinityZero.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "InfinityZero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<InfinityBeacon>() + "]"),
@@ -1329,7 +1370,8 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<InfinityZeroTrophy>(),
                         ModContent.ItemType<InfinityZeroMask>(),
-                        ModContent.ItemType<InfinityZeroBox>()
+                        ModContent.ItemType<InfinityZeroBox>(),
+                        ModContent.ItemType<InfinityZeroRelic>()
                     },
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
                         Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<InfinityZero>().Texture).Value;
@@ -1337,12 +1379,12 @@ namespace AAModClassic._CrossMod
                         Vector2 centered = new(rect.Center.X, rect.Center.Y);
                         sb.Draw(texture, centered, frame, color, 0, frame.Size() * 0.5f, 0.75f, 0, 0);
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 });
                 #endregion
 
                 #region Soul of Cthulhu
-                AddBoss(bossChecklist, mod, "SoulOfCthulhu", (Func<bool>)(() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<SoulOfCthulhu>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "SoulOfCthulhu", (() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<SoulOfCthulhu>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SoulOfCthulhu.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SoulOfCthulhu.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CursedCompass>() + "]"),
@@ -1352,7 +1394,8 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<SoulOfCthulhuTrophy>(),
                         ModContent.ItemType<SoulOfCthulhuMask>(),
-                        ModContent.ItemType<SoulOfCthulhuBox>()
+                        ModContent.ItemType<SoulOfCthulhuBox>(),
+                        ModContent.ItemType<SoulOfCthulhuRelic>()
                     },
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
                         string path = ModContent.GetInstance<SoulOfCthulhu>().Texture;
@@ -1362,10 +1405,10 @@ namespace AAModClassic._CrossMod
                         Main.spriteBatch.Draw(WheelTex, centered, null, color, 0, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), 1.5f, SpriteEffects.None, 0f);
                         Main.spriteBatch.Draw(texture2D13, centered, null, color, 0, new Vector2(texture2D13.Width / 2f, texture2D13.Height / 2f), 1.5f, SpriteEffects.None, 0f);
                     },
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 });
 
-                AddBoss(bossChecklist, mod, "Cthulhu", (Func<bool>)(() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<Cthulhu>(), new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Cthulhu", (() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<Cthulhu>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Cthulhu.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Cthulhu.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CursedCompass>() + "]"),
@@ -1374,11 +1417,12 @@ namespace AAModClassic._CrossMod
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<SoulOfCthulhuTrophy>(),
-                        ModContent.ItemType<SoulOfCthulhuMask>(),
-                        ModContent.ItemType<CthulhuBox>()
+                        ModContent.ItemType<SoulOfCthulhuAMask>(),
+                        ModContent.ItemType<CthulhuBox>(),
+                        ModContent.ItemType<SoulOfCthulhuRelic>()
                     },
                     //["customPortrait"] = GetPortrait("ZeroProtocol"),
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.expertMode && NPCExtensions.BeenKilled<SoulOfCthulhu>())
+                    ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.expertMode && NPCExtensions.BeenKilled<SoulOfCthulhu>())
                 });
                 #endregion
             }
@@ -1413,32 +1457,32 @@ namespace AAModClassic._CrossMod
                 // AddSummon, order or value in terms of vanilla bosses, your mod internal name, summon   
                 //item internal name, inline method for retrieving downed value, price to sell for in copper
 
-                fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingMushroom", (Func<bool>)(() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom",(Func<bool>)(() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingClaw", (Func<bool>)(() => AAWorld.downedGrips), 80000);
-                fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (Func<bool>)(() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
-                fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "DragonBell", (Func<bool>)(() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (Func<bool>)(() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (Func<bool>)(() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DesertLamp", (Func<bool>)(() => NPCExtensions.BeenKilled<DesertDjinn>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (Func<bool>)(() => NPCExtensions.BeenKilled<Sagittarius>()), 200000);
-                fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "Scepter", (Func<bool>)(() => NPCExtensions.BeenKilled<Anubis>()), 400000);
-                fargos.Call("AddSummon", BossProgressionValues["Athena"], "AAModClassic", "OwlStatue", (Func<bool>)(() => NPCExtensions.BeenKilled<Athena>()), 500000);
-                fargos.Call("AddSummon", BossProgressionValues["Greed"], "AAModClassic", "GoldenGrub", (Func<bool>)(() => NPCExtensions.BeenKilled<GreedHead>()), 500000);
-                fargos.Call("AddSummon", BossProgressionValues["RajahRabbit"], "AAModClassic", "GoldenCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbit>()), 600000);
-                fargos.Call("AddSummon", BossProgressionValues["EquinoxWorms"], "AAModClassic", "EquinoxWorm", (Func<bool>)(() => AAWorld.downedEquinox), 1000000);
-                fargos.Call("AddSummon", BossProgressionValues["SistersOfDiscord"], "AAModClassic", "FlamesOfAnarchy", (Func<bool>)(() => AAWorld.downedSisters), 1000000);
-                fargos.Call("AddSummon", BossProgressionValues["Akuma"], "AAModClassic", "DraconianSunSigil", (Func<bool>)(() => AAWorld.downedAkuma), 1000000);
-                fargos.Call("AddSummon", BossProgressionValues["AkumaA"], "AAModClassic", "DraconianSunRune", (Func<bool>)(() => AAWorld.downedAkuma && Main.expertMode), 2000000);
-                fargos.Call("AddSummon", BossProgressionValues["Yamata"], "AAModClassic", "DreadMoonSigil", (Func<bool>)(() => AAWorld.downedYamata), 1000000);
-                fargos.Call("AddSummon", BossProgressionValues["YamataA"], "AAModClassic", "DreadMoonRune", (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode), 2000000);
-                fargos.Call("AddSummon", BossProgressionValues["Zero"], "AAModClassic", "DoomsdayTesseract", (Func<bool>)(() => AAWorld.downedZero), 1000000);
-                fargos.Call("AddSummon", BossProgressionValues["ZeroP"], "AAModClassic", "ERROR_NULL", (Func<bool>)(() => AAWorld.downedZero && Main.expertMode), 2000000);
-                fargos.Call("AddSummon", BossProgressionValues["RajahRabbitR"], "AAModClassic", "TenCaratCarrot", (Func<bool>)(() => NPCExtensions.BeenKilled<RajahRabbitA>()), 2500000);
-                fargos.Call("AddSummon", BossProgressionValues["Shen"], "AAModClassic", "ChaosSigil", (Func<bool>)(() => AAWorld.downedShen), 2500000);
-                fargos.Call("AddSummon", BossProgressionValues["ShenA"], "AAModClassic", "ChaosRune", (Func<bool>)(() => AAWorld.downedShen && Main.expertMode), 4000000);
-                fargos.Call("AddSummon", BossProgressionValues["InfinityZero"], "AAModClassic", "InfinityOverloader", (Func<bool>)(() => NPCExtensions.BeenKilled<InfinityZero>()), 2500000);
-                fargos.Call("AddSummon", BossProgressionValues["SoulOfCthulhu"], "AAModClassic", "CursedCompass", (Func<bool>)(() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), 2500000);
+                fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingMushroom", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
+                fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom",(() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
+                fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingClaw", (() => AAWorld.downedGrips), 80000);
+                fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
+                fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "DragonBell", (() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
+                fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
+                fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), 100000);
+                fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DesertLamp", (() => NPCExtensions.BeenKilled<DesertDjinn>()), 100000);
+                fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (() => NPCExtensions.BeenKilled<Sagittarius>()), 200000);
+                fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "Scepter", (() => NPCExtensions.BeenKilled<Anubis>()), 400000);
+                fargos.Call("AddSummon", BossProgressionValues["Athena"], "AAModClassic", "OwlStatue", (() => NPCExtensions.BeenKilled<Athena>()), 500000);
+                fargos.Call("AddSummon", BossProgressionValues["Greed"], "AAModClassic", "GoldenGrub", (() => NPCExtensions.BeenKilled<GreedHead>()), 500000);
+                fargos.Call("AddSummon", BossProgressionValues["RajahRabbit"], "AAModClassic", "GoldenCarrot", (() => NPCExtensions.BeenKilled<RajahRabbit>()), 600000);
+                fargos.Call("AddSummon", BossProgressionValues["EquinoxWorms"], "AAModClassic", "EquinoxWorm", (() => AAWorld.downedEquinox), 1000000);
+                fargos.Call("AddSummon", BossProgressionValues["SistersOfDiscord"], "AAModClassic", "FlamesOfAnarchy", (() => AAWorld.downedSisters), 1000000);
+                fargos.Call("AddSummon", BossProgressionValues["Akuma"], "AAModClassic", "DraconianSunSigil", (() => AAWorld.downedAkuma), 1000000);
+                fargos.Call("AddSummon", BossProgressionValues["AkumaA"], "AAModClassic", "DraconianSunRune", (() => AAWorld.downedAkuma && Main.expertMode), 2000000);
+                fargos.Call("AddSummon", BossProgressionValues["Yamata"], "AAModClassic", "DreadMoonSigil", (() => AAWorld.downedYamata), 1000000);
+                fargos.Call("AddSummon", BossProgressionValues["YamataA"], "AAModClassic", "DreadMoonRune", (() => AAWorld.downedYamata && Main.expertMode), 2000000);
+                fargos.Call("AddSummon", BossProgressionValues["Zero"], "AAModClassic", "DoomsdayTesseract", (() => AAWorld.downedZero), 1000000);
+                fargos.Call("AddSummon", BossProgressionValues["ZeroP"], "AAModClassic", "ERROR_NULL", (() => AAWorld.downedZero && Main.expertMode), 2000000);
+                fargos.Call("AddSummon", BossProgressionValues["RajahRabbitR"], "AAModClassic", "TenCaratCarrot", (() => NPCExtensions.BeenKilled<RajahRabbitA>()), 2500000);
+                fargos.Call("AddSummon", BossProgressionValues["Shen"], "AAModClassic", "ChaosSigil", (() => AAWorld.downedShen), 2500000);
+                fargos.Call("AddSummon", BossProgressionValues["ShenA"], "AAModClassic", "ChaosRune", (() => AAWorld.downedShen && Main.expertMode), 4000000);
+                fargos.Call("AddSummon", BossProgressionValues["InfinityZero"], "AAModClassic", "InfinityOverloader", (() => NPCExtensions.BeenKilled<InfinityZero>()), 2500000);
+                fargos.Call("AddSummon", BossProgressionValues["SoulOfCthulhu"], "AAModClassic", "CursedCompass", (() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), 2500000);
             }
         }
 
