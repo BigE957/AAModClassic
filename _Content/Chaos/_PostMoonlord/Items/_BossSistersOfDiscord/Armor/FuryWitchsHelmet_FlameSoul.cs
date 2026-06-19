@@ -9,12 +9,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 {
     public class FuryWitchsHelmet_FlameSoul : ModProjectile
     {
-
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Flame Soul");
 			Main.projFrames[Projectile.type] = 4;
-            ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+            //ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
@@ -22,17 +21,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         public override void SetDefaults()
         {
             Projectile.netImportant = true;
-            Projectile.width = 28;
-            Projectile.height = 40;
-            Projectile.aiStyle = ProjAIStyleID.Hornet;
+            Projectile.width = 20;
+            Projectile.height = 20;
+            //Projectile.aiStyle = ProjAIStyleID.Hornet;
             Projectile.penetrate = -1;
             Projectile.timeLeft *= 5;
             Projectile.minion = true;
             Projectile.friendly = true;
-            Projectile.minionSlots = 1f;
+            //Projectile.minionSlots = 1f;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
-            Projectile.scale = .2f;
         }
 
         public int FrameTimer = 0;
@@ -58,11 +56,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 
             float num8 = 0.1f;
             float num9 = Projectile.width * 2f;
-            for (int j = 0; j < 1000; j++)
+            foreach(Projectile p in Main.ActiveProjectiles)
             {
-                if (j != Projectile.whoAmI && Main.projectile[j].active && Main.projectile[j].owner == Projectile.owner && Main.projectile[j].type == Projectile.type && Math.Abs(Projectile.position.X - Main.projectile[j].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[j].position.Y) < num9)
+                int j = p.whoAmI;
+                if (j != Projectile.whoAmI && p.active && p.owner == Projectile.owner && p.type == Projectile.type && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < num9)
                 {
-                    if (Projectile.position.X < Main.projectile[j].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - num8;
                     }
@@ -70,7 +69,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                     {
                         Projectile.velocity.X = Projectile.velocity.X + num8;
                     }
-                    if (Projectile.position.Y < Main.projectile[j].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - num8;
                     }
@@ -102,6 +101,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                     Projectile.alpha = 60;
                 }
             }
+
             Vector2 center = Main.player[Projectile.owner].Center;
             Vector2 value = new Vector2(0.5f);
             if (Projectile.type == ProjectileID.UFOMinion)
@@ -274,13 +274,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                     }
                 }
             }
-            Projectile.frameCounter++;
-            if (Projectile.frameCounter >= 15)
+            if (Projectile.frameCounter >= 5)
             {
                 Projectile.frame += 1;
                 Projectile.frameCounter = 0;
             }
-            if (Projectile.frame >= 3)
+            if (Projectile.frame > 3)
             {
                 Projectile.frame = 0;
             }
@@ -301,48 +300,49 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         {
             glowColor = new Color(glowColorR, glowColorG, glowColorB);
 
-            glowColorR = BaseUtility.MultiLerp(player.statLife / player.statLifeMax, glowColor.R, glowColor2.R);
-            glowColorG = BaseUtility.MultiLerp(player.statLife / player.statLifeMax, glowColor.G, glowColor2.G);
-            glowColorB = BaseUtility.MultiLerp(player.statLife / player.statLifeMax, glowColor.B, glowColor2.B);
+            glowColorR = BaseUtility.MultiLerp(player.statLife / player.statLifeMax2, glowColor.R, glowColor2.R);
+            glowColorG = BaseUtility.MultiLerp(player.statLife / player.statLifeMax2, glowColor.G, glowColor2.G);
+            glowColorB = BaseUtility.MultiLerp(player.statLife / player.statLifeMax2, glowColor.B, glowColor2.B);
 
-            Projectile.scale = 1f-player.statLife/(float)player.statLifeMax+0.1f;
-            if(Projectile.scale>1f)
-            Projectile.scale = 1f;
-            if(Projectile.scale<0f)
-            Projectile.scale = 0f;
-            if (player.statLife > player.statLifeMax * .9f)
+            Projectile.scale = (1f - (player.statLife / (float)player.statLifeMax2)) + 0.5f;
+            if(Projectile.scale > 1f)
+                Projectile.scale = 1f;
+            if(Projectile.scale < 0f)
+                Projectile.scale = 0f;
+
+            if (player.statLife > player.statLifeMax2 * .9f)
             {
                 Projectile.damage = 60 + 0;
             }
-            else if (player.statLife > player.statLifeMax * .8f)
+            else if (player.statLife > player.statLifeMax2 * .8f)
             {
                 Projectile.damage = 60 + 5;
             }
-            else if (player.statLife > player.statLifeMax * .7f)
+            else if (player.statLife > player.statLifeMax2 * .7f)
             {
                 Projectile.damage = 60 + 10;
             }
-            else if (player.statLife > player.statLifeMax * .6f)
+            else if (player.statLife > player.statLifeMax2 * .6f)
             {
                 Projectile.damage = 60 + 15;
             }
-            else if (player.statLife > player.statLifeMax * .5f)
+            else if (player.statLife > player.statLifeMax2 * .5f)
             {
                 Projectile.damage = 60 + 20;
             }
-            else if (player.statLife > player.statLifeMax * .4f)
+            else if (player.statLife > player.statLifeMax2 * .4f)
             {
                 Projectile.damage = 60 + 25;
             }
-            else if (player.statLife > player.statLifeMax * .3f)
+            else if (player.statLife > player.statLifeMax2 * .3f)
             {
                 Projectile.damage = 60 + 30;
             }
-            else if (player.statLife > player.statLifeMax * .2f)
+            else if (player.statLife > player.statLifeMax2 * .2f)
             {
                 Projectile.damage = 60 + 35;
             }
-            else if (player.statLife > player.statLifeMax * .1f)
+            else if (player.statLife > player.statLifeMax2 * .1f)
             {
                 Projectile.damage = 60 + 40;
             }
