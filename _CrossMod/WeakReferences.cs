@@ -1444,6 +1444,7 @@ namespace AAModClassic._CrossMod
                 display.Call("AddMusic", MusicManagementSystem.MusicSlots[name], displayName, author, modName);
             }
 
+            AddMusic("Equinox_Altar");
             AddMusic("BiomiteCore");
             AddMusic("LostKeep");
             AddMusic("TechnoTruffle");

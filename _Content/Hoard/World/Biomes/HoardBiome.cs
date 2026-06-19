@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
             return player.GetModPlayer<AAPlayer>().ZoneHoard = active;
         }
 
-        public override int Music => MusicManagementSystem.MusicSlots["Hoard"];
+        public override int Music => Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneStars ? -1 : MusicManagementSystem.MusicSlots["Hoard"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 

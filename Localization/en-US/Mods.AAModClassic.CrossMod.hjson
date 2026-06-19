@@ -297,7 +297,7 @@ MusicDisplay: {
 	}
 
 	Hoard: {
-		Author: by SpectralAves
+		Author: by Tyeski
 		DisplayName: Cove
 	}
 
@@ -384,6 +384,11 @@ MusicDisplay: {
 	Stars: {
 		Author: by ProduceVGM
 		DisplayName: Scattered Stars
+	}
+
+	EquinoxAltar: {
+		Author: by ProduceVGM
+		DisplayName: Offerings
 	}
 
 	Subzero: {
