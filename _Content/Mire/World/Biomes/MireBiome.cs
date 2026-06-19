@@ -97,9 +97,14 @@ namespace AAModClassic._Content.Mire.World.Biomes
                 if (Main.gameMenu || !Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().MoonAltar)
                 {
                     spriteBatch.Draw(sky, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
-                    double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
-                    Main.ColorOfTheSkies = Color.White;
-                    
+                    double bgTop = 0;
+                    if (!Main.gameMenu)
+                    {
+                        float clampedScreenH = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+                        float screenMidY = Main.screenPosition.Y + Main.screenHeight / 2f - clampedScreenH / 2f;
+                        bgTop = (int)((-screenMidY) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
+                    }
+
                     int moonX = (int)(Main.time / 32400.0 * (Main.screenWidth + TextureAssets.Moon[Main.moonType].Width() * 2)) - TextureAssets.Moon[Main.moonType].Width();
                     int moonY = 0;
                     float moonScale = 1f;
@@ -128,7 +133,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
                     if (!Main.gameMenu && (yamataSky == null || !yamataSky.IsActive()))
                         moonScale = MathHelper.Lerp(0.25f, moonScale, Intensity);
 
-                    Vector2 drawPos = new(moonX, moonY + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY));
+                    Vector2 drawPos = new(moonX, moonY + Main.moonModY);
                     spriteBatch.Draw(moon, drawPos, null, Color.White * moonOpacity * Intensity, rotation2, moon.Size() / 2f, moonScale, SpriteEffects.None, 0f);
                 }
             }

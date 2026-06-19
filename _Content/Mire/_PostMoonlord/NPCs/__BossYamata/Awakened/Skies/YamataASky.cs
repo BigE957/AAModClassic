@@ -6,6 +6,7 @@ using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -89,12 +90,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Sk
                 if (!Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().YamataAltar)
                 {
                     spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
-                    double bgTop = (int)(-Main.screenPosition.Y / (Main.worldSurface * 16.0 - 600.0) * 200.0);
-                    Main.ColorOfTheSkies = Color.White;
-                    if (Main.gameMenu || Main.netMode == NetmodeID.Server)
+                    double bgTop = 0;
+                    if (!Main.gameMenu)
                     {
-                        bgTop = -200;
+                        float clampedScreenH = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+                        float screenMidY = Main.screenPosition.Y + Main.screenHeight / 2f - clampedScreenH / 2f;
+                        bgTop = (int)((-screenMidY) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
                     }
+                    //Main.ColorOfTheSkies = Color.White;
                     int moonX = (int)(Main.time / 32400.0 * (Main.screenWidth + TextureAssets.Moon[Main.moonType].Width() * 2)) - TextureAssets.Moon[Main.moonType].Width();
                     int moonY = 0;
                     float moonScale = 1f;

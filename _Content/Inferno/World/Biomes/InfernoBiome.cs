@@ -162,7 +162,15 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                     int sunY = 0;
                     float sunScale = 1f;
                     float rotation = (float)(Main.time / 54000.0) * 2f - 7.3f;
-                    double bgTop = (-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0;
+
+                    double bgTop = 0;
+                    if (!Main.gameMenu)
+                    {
+                        float clampedScreenH = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+                        float screenMidY = Main.screenPosition.Y + Main.screenHeight / 2f - clampedScreenH / 2f;
+                        bgTop = (int)((-screenMidY) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
+                    }
+
                     if (Main.dayTime)
                     {
                         double timeMult;
@@ -186,7 +194,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                     if (!Main.gameMenu && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<HappySunSticker>(), true, true))
                         spriteBatch.Draw(demonSun, new Vector2(sunX, sunY + Main.sunModY), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);
                     else
-                        spriteBatch.Draw(sunTex, new Vector2(sunX, sunY + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(sunTex, new Vector2(sunX, sunY + Main.sunModY), null, Color.White * sunOpacity * Intensity, rotation, sunTex.Size() / 2f, sunScale, SpriteEffects.None, 0f);
                 }
             }
             int num = -1;

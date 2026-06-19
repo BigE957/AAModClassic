@@ -6,6 +6,7 @@ using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
@@ -104,7 +105,13 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
                     int sunY = 0;
                     float sunScale = 1f;
                     float rotation = (float)(Main.time / 54000.0) * 2f - 7.3f;
-                    double bgTop = -Main.screenPosition.Y / (Main.worldSurface * 16.0 - 600.0) * 200.0;
+                    double bgTop = 0;
+                    if (!Main.gameMenu)
+                    {
+                        float clampedScreenH = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+                        float screenMidY = Main.screenPosition.Y + Main.screenHeight / 2f - clampedScreenH / 2f;
+                        bgTop = (int)((-screenMidY) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
+                    }
                     if (Main.dayTime)
                     {
                         double timeMult;
