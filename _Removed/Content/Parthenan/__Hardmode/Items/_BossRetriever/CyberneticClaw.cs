@@ -65,7 +65,7 @@ Only useable at night"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAModClassic:ChaosClaw", 6);
-            recipe.AddRecipeGroup("AAModClassic:Iron", 6);
+            recipe.AddRecipeGroup("AAModClassic:IronBar", 6);
             recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 3);
             recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 3);
             recipe.AddTile(TileID.MythrilAnvil);

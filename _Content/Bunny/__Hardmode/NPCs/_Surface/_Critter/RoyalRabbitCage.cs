@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RoyalRabbit_Item>(), 1);
             recipe.AddIngredient(ItemID.Terrarium, 1);
-            recipe.AddRecipeGroup("AAModClassic:Gold", 20);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 20);
             recipe.Register();
         }
 

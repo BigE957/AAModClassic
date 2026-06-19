@@ -66,7 +66,7 @@ Can only be used at night"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 6);
-            recipe.AddRecipeGroup("AAModClassic:Iron", 6);
+            recipe.AddRecipeGroup("AAModClassic:IronBar", 6);
             recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 6);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

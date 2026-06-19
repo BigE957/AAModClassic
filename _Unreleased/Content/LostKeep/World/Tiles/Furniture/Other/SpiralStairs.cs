@@ -34,7 +34,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Other
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Wood, 10);
-            recipe.AddRecipeGroup("AAModClassic:Iron", 2);
+            recipe.AddRecipeGroup("AAModClassic:IronBar", 2);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }

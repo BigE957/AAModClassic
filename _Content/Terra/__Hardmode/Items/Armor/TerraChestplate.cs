@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAModClassic:TerraPlates");
+            recipe.AddRecipeGroup("AAModClassic:TerraChestplate");
             recipe.AddIngredient(ModContent.ItemType<TerraPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

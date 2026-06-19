@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<HallowedOre>(), 20);
-            recipe.AddRecipeGroup("AAModClassic:HForge");
+            recipe.AddRecipeGroup("AAModClassic:HardmodeForge");
             recipe.Register();
         }
     }

@@ -97,7 +97,7 @@ Can only be used at night"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient<AbyssiumBar>(6);
-            recipe.AddRecipeGroup("AAModClassic:Iron", 6);
+            recipe.AddRecipeGroup("AAModClassic:IronBar", 6);
             recipe.AddIngredient<SoulOfSpite>(6);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

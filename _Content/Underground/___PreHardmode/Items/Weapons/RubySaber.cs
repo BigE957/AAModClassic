@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Ruby, 5);   
-            recipe.AddRecipeGroup("AAModClassic:Gold", 12);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 12);
             recipe.AddTile(TileID.WorkBenches);   
             recipe.Register();
 

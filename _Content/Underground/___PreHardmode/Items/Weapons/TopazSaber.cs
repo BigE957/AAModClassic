@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Topaz, 5);   
-            recipe.AddRecipeGroup("AAModClassic:Copper", 12);
+            recipe.AddRecipeGroup("AAModClassic:CopperBar", 12);
             recipe.AddTile(TileID.WorkBenches);   
             recipe.Register();
 

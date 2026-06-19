@@ -66,7 +66,7 @@ Can only be used at night"); */
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<ConfusingLookingMushroom>());
-                recipe.AddRecipeGroup("AAModClassic:Iron", 6);
+                recipe.AddRecipeGroup("AAModClassic:IronBar", 6);
                 recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 3);
                 recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 3);
                 recipe.AddTile(TileID.MythrilAnvil);
@@ -75,7 +75,7 @@ Can only be used at night"); */
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<IntimidatingLookingMushroom>());
-                recipe.AddRecipeGroup("AAModClassic:Iron", 6);
+                recipe.AddRecipeGroup("AAModClassic:IronBar", 6);
                 recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 3);
                 recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 3);
                 recipe.AddTile(TileID.MythrilAnvil);

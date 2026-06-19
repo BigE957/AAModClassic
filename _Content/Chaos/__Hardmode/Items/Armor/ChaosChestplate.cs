@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAModClassic:ChaosPlates");
+            recipe.AddRecipeGroup("AAModClassic:ChaosChestplate");
             recipe.AddIngredient(ModContent.ItemType<ChaosPrism>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

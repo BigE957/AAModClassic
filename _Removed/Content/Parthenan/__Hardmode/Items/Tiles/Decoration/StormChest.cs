@@ -33,7 +33,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
 		public override void AddRecipes()
 		{
             Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAModClassic:Iron", 2);
+            recipe.AddRecipeGroup("AAModClassic:IronBar", 2);
             recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 12);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
