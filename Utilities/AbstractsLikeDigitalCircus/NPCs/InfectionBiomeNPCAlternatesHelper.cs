@@ -45,8 +45,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
                 Biomes.Add(new("Default"));
                 Biomes.Add(new("Corruption", 1, (p) => p.ZoneCorrupt));
                 Biomes.Add(new("Crimson", 1, (p) => p.ZoneCrimson));
-                Biomes.Add(new("Inferno", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneMire));
-                Biomes.Add(new("Mire", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneInferno));
+                Biomes.Add(new("Inferno", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneInferno));
+                Biomes.Add(new("Mire", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneMire));
                 Biomes.Add(new("Void", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneVoid));
                 Biomes.Add(new("Hallow", 3, (p) => p.ZoneHallow));
             }
