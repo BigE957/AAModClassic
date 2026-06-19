@@ -1,14 +1,3 @@
-using System;
-using System.IO;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
-using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard;
-using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;
-using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
-using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Music;
-using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

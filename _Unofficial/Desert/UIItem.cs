@@ -15,7 +15,7 @@ internal class UIItem : UIElement
     public bool AllowResizingDimensions = true;
     public Color Color = Color.White;
     public Vector2 NormalizedOrigin = Vector2.Zero;
-    public bool RemoveFloatingPointsFromDrawPosition;
+    public bool RemoveFloatingPointsFromDrawPosition = false;
     public SpriteEffects spriteEffects;
     public Item Item = null;
     public Func<bool> shouldDisplay = () => true;

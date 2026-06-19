@@ -24,13 +24,9 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Currency
         }
     }
 
-    public class ACoin : CustomCurrencySingleCoin
+    public class ACoin(int coinItemID) : CustomCurrencySingleCoin(coinItemID, 999L)
     {
         public static Color color = Color.LightBlue;
-
-        public ACoin(int coinItemID) : base(coinItemID, 999L)
-        {
-        }
 
         public override void GetPriceText(string[] lines, ref int currentLine, long price)
         {

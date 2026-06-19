@@ -2,6 +2,7 @@ using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

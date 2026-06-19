@@ -70,7 +70,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         */
 
         float Rot = 0;
-        int Dir = 1;
 		
 		public override void AI()
         {

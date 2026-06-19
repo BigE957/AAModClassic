@@ -16,7 +16,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -26,7 +26,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration
             Item.placeStyle = 1;
             Item.width = 28;
             Item.height = 24;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.value = 1000;
             Item.accessory = false;
         }
