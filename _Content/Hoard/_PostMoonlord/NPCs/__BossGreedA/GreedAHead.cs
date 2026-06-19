@@ -10,6 +10,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -593,6 +594,12 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GravitySphere>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreedATrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GreedARelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

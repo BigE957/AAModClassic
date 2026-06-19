@@ -12,6 +12,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -673,6 +674,12 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarChart>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AthenaATrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AthenaARelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

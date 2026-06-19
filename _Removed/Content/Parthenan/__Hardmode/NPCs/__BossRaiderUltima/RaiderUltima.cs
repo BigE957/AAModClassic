@@ -108,6 +108,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RaiderUltimaTreasureBag>()));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaTrophy>(), 10));
 
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaRelic>()));
+
+            npcLoot.Add(masterMode);
+
             LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaMask>(), 7));

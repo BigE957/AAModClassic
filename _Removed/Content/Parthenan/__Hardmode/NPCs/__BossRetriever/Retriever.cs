@@ -3,6 +3,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -111,6 +112,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RetrieverTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RetrieverTrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RetrieverRelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

@@ -5,6 +5,7 @@ using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -141,6 +142,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<OrthrusXTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OrthrusXTrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<OrthrusXRelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

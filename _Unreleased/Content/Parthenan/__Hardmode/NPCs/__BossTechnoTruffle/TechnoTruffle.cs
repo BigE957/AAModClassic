@@ -2,6 +2,7 @@ using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTru
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -416,6 +417,12 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TechnoTruffleTreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TechnoTruffleTrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TechnoTruffleRelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 

@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Music;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -58,6 +59,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenDoragonATrophy>(), 10));
 
             expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenDoragonRelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingShenA());
 

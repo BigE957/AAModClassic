@@ -9,6 +9,7 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -611,6 +612,12 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisATreasureBag>()));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AnubisATrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisARelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
