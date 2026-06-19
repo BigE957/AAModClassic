@@ -37,8 +37,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 3);
             recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 3);
             recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }

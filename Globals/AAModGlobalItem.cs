@@ -13,6 +13,7 @@ using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -128,6 +129,7 @@ namespace AAModClassic.Globals
             }
         }
 
+        //TODO: who are you? kill this guy?
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
             if(AAOnly)
@@ -149,10 +151,18 @@ namespace AAModClassic.Globals
 
         public override void GrabRange(Item item, Player player, ref int grabRange)
         {
-            Item HeldItem = player.HeldItem;
-            if (HeldItem.type == ModContent.ItemType<CodeMagnet>())
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                grabRange += 810;
+                foreach (Item invItem in player.inventory)
+                {
+                    if (invItem.type == ModContent.ItemType<CodeMagnet>())
+                        grabRange += 810;
+                } 
+            }
+            else
+            {
+                if (player.HeldItem.type == ModContent.ItemType<CodeMagnet>())
+                    grabRange += 810;
             }
         }
 

@@ -68,6 +68,9 @@ base
 -the celestial crafting stations are now made at a hardmode anvil
 -zero now drops black hole beater, neutralizer, and nova focus
 -zero no longer drops FUCKING STALLIONS STAR????????????????????????????
+-abyssal wrath dye no longer uses bottled water in its recipe (thanks diamondwalker!) 
+-bottled water is now placed before the material in dye recipes
+-the active version of code magnet is now crafted instead of the inactive one
 -
 
 removed
@@ -127,6 +130,8 @@ unofficial
 -awakened athena and awakened greed are now properly locked behind awakened anubis (thanks diamondwalker!)
 -improved the previously virtually invisible chaos ember rain effect that plays at the rising sun pagoda and rising moon lake post-ancients pre-shen (thanks diamondwalker!)
 -the chaos ember rain effect now plays after akuma and yamata are killed instead of akuma, yamata, and zero (thanks diamondwalker!)
+-code magnet now works from the inventory instead of needing to be held
+-improved and polished how enabling/disabling the code magnet works
 -
 
 crossmod

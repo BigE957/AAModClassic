@@ -1,18 +1,15 @@
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using ReLogic.Utilities;
+using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
+namespace AAModClassic._Content.Void.___PreHardmode.Items
 {
-    public class CodeMagnet : BaseAAItem
+    public class VoidGraivtyItemIDKTheNameYet : BaseAAItem
     {
-        public SlotId MagnetSoundSlot;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Binary Code Magnet");
@@ -32,22 +29,16 @@ Right click the item to turn it off"); */
 
         public override void RightClick(Player player)
         {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-            {
-                MagnetSoundSlot = SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/CodeMagnetOff"), player.Center);
-                bool favorited = Item.favorited;
-                Item.SetDefaults(ModContent.ItemType<CodeMagnetOff>());
-                Item.stack++;
-                Item.favorited = favorited;
-            }
-            else
-                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CodeMagnetOff>());
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.DD2_DarkMageHealImpact);
+            bool favorited = Item.favorited;
+            Item.SetDefaults(ModContent.ItemType<VoidGraivtyItemIDKTheNameYetOff>());
+            Item.stack++;
+            Item.favorited = favorited;
         }
 
         public override void UpdateInventory(Player player)
         {
-            if (SoundEngine.TryGetActiveSound(MagnetSoundSlot, out var magnetSound) && magnetSound.IsPlaying)
-                magnetSound.Position = player.Center;
+            player.gravity = Math.Max(player.gravity, Player.defaultGravity);
         }
 
         public override void AddRecipes()

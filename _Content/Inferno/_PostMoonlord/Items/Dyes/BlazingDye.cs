@@ -34,8 +34,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }

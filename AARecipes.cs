@@ -295,7 +295,6 @@ namespace AAModClassic
 
         private static void AddMusicBoxRecipes()
         {
-            // Music Box
             Recipe recipe = GetNewRecipe(ItemID.MusicBox, 1);
             recipe.AddIngredient(ItemID.Wood, 30);
             recipe.AddIngredient(ItemID.IronBar, 10);
