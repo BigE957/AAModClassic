@@ -48,13 +48,5 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 }
             }
         }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Skullshot>());
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.Register();
-        }
     }
 }

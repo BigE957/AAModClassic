@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons   //where is
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddRecipeGroup("AAModClassic:Gold", 15);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 15);
             recipe.AddTile(TileID.LivingLoom);   
             recipe.Register();
 

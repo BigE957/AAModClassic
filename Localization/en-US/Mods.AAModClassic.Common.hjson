@@ -484,34 +484,51 @@ AAWorldBuildLostKeep: Hiding a Hero's Keep
 AAWorldBuildAcropolis: Floating the Acropolis
 AAWorldBuildHoard: Amassing Treasure
 AAWorldBuildEquinoxAlt: Equalizing the Sun and Moon
-#AARecipeGroup
 
-darkmatterhelmet: darkmatter helmet
-radiumhelmet: radium helmet
-goldbar: gold bar
-celestialcraftingstation: celestial crafting station
-ancientmaterial: ancient material
-superancientmaterial: superancient material
-worldevilmaterial: world evil material
-hardmodeforge: hardmode forge
-chaosclaw: chaos claw
-ironbar: iron bar
-copperbar: copper bar
-silverbar: silver bar
-evilbar: evil bar
-chaosbar: chaos bar
-EvilorChaosBar: evil/chaos bar
-ancientcraftingstation: ancient crafting station
-evilsummonstaff: evil summon staff
-altar: altar
-ChaosLeggings: Chaos Leggings
-ChaosChestpiece: Chaos Chestpiece
-hardmodeanvil: hardmode anvil
-ShinyCharm: Shiny Charm
-DevBag: Dev Bag
-AATownNPC: Disable AA Town NPCs
+RecipeGroups: {
+	Bars: {
+		CopperBar: Copper Bar
+		IronBar: Iron Bar
+		SilverBar: Silver Bar
+		GoldBar: Gold Bar
+		EvilBar: Evil Bar
+		ChaosBar: Chaos Bar
+		EvilorChaosBar: Evil or Chaos Bar
+	}
+	Materials: {
+		ShinyCharm: Shiny Charm
+		ChaosClaw: Chaos Claw
+		HardmodeEvilMaterial: Hardmode Evil Material
+		EarlyAncientMaterial: Early Ancient Material
+		LateAncientMaterial: Late Ancient Material
+		SuperancientMaterial: Superancient Material
+	}
+	CraftingStations: {
+		Altar: Altar
+		HardmodeAnvil: Hardmode Anvil
+		HardmodeForge: Hardmode Forge
+		CelestialCraftingStation: Celestial Crafting Station
+		AncientCraftingStation: Ancient Crafting Station
+	}
+	Weapons: {
+		EvilStaff: Evil Staff
+	}
+	Armor: {
+		TerraChestplate: Terra Chestplate
+		TerraLeggings: Terra Leggings
+		ChaosChestplate: Chaos Chestplate
+		ChaosLeggings: Chaos Leggings
+		RadiumHelmet: Radium Helmet
+		DarkmatterHelmet: Darkmatter Helmet
+	}
+	Misc: {
+		DevBag: Dev Bag
+	}
+}
+
 #AAConfig
 
+AATownNPC: Disable AA Town NPCs
 AATownNPCInfo: Disables this mod's town npcs from spawning, for those who'd prefer to have other npcs spawn quicker. Note: This does not affect Anubis due to him being key to progression.
 DisableBossDialogue: Disable Boss Dialogue
 DisableBossDialogueInfo: Disables dialogue from bosses to prevent chatspam. Also makes animations that have boss dialogue go by a little quicker.

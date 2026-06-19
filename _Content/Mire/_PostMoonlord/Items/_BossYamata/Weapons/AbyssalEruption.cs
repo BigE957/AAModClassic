@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -77,8 +78,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 	        recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
 	        recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<Toxithrower>());
-            recipe.AddTile(TileID.LunarCraftingStation);
-	        recipe.Register();
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
 	    }
 	}
 }

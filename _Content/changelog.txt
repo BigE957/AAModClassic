@@ -55,6 +55,9 @@ base
 -the book of the law now uses frozen shield instead of paladin shield and frozen turtle shell
 -added recipes for abyssal yari, Amenomuraku, and doom portal (thanks diamondwalker!)
 -removed a single pixel from the wyrm third body segment sprite (thanks diamondwalker!)
+-changed abyssal eruption, midnight wrath, sevenshot, throwing crescent,  to use any ancient crafting station
+-throwing crescent now only requires 1 light disk
+-removed two recipes between gibs' femur and skullshot. you can instead shimmer between them
 -
 
 removed

@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Bone, 12);
-            recipe.AddRecipeGroup("AAModClassic:Gold", 8);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

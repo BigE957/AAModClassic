@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -54,12 +55,12 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         }
         public override void AddRecipes()
         {
-                Recipe recipe = CreateRecipe();
-				recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
-                recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
-                recipe.AddIngredient(ItemID.LightDisc, 5);
-				recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.Register();
+            Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ItemID.LightDisc);
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
 		}
     }
 }

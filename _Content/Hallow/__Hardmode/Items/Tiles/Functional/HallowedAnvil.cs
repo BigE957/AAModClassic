@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HallowedBar, 10);
-            recipe.AddRecipeGroup("AAModClassic:HAnvil");
+            recipe.AddRecipeGroup("AAModClassic:HardmodeAnvil");
             recipe.AddIngredient(ItemID.PearlwoodWorkBench, 1);
             recipe.AddIngredient(ItemID.CrystalBall, 1);
             recipe.AddIngredient(ItemID.Autohammer, 1);

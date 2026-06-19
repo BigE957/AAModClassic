@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Sapphire, 5);   
-            recipe.AddRecipeGroup("AAModClassic:Silver", 12);
+            recipe.AddRecipeGroup("AAModClassic:SilverBar", 12);
             recipe.AddTile(TileID.WorkBenches);   
             recipe.Register();
 

@@ -38,7 +38,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Weapons
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAModClassic:Gold", 15);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 15);
             recipe.AddIngredient(ItemID.WhiteString);
             recipe.AddIngredient(ItemID.ManaCrystal);
             recipe.AddTile(TileID.Anvils);   

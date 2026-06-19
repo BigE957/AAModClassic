@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -77,8 +78,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 	        recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<HydraTrishot>());
             recipe.AddIngredient(ItemID.OnyxBlaster);
-            recipe.AddTile(TileID.LunarCraftingStation);
-	        recipe.Register();
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.Register();
 	    }
 	}
 }

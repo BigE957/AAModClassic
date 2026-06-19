@@ -1,12 +1,13 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using System;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
@@ -23,6 +24,9 @@ Right click to fire spinning bones at your foe
 Uses Bullets and Bones as ammo
 'I have an irrational hatred for gods`
 -Gibs"); */
+
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<GibsFemur>();
+            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<GibsFemur>()] = Type;
         }
 
         public override void SetDefaults()
@@ -109,14 +113,6 @@ Uses Bullets and Bones as ammo
                 Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             return false;
-        }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<GibsFemur>());
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.Register();
         }
     }
 }

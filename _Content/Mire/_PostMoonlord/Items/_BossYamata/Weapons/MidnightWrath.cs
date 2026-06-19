@@ -1,15 +1,16 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -49,7 +50,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DarkmatterKunai>(), 999);
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }

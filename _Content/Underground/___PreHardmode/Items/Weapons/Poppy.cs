@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
             recipe.AddIngredient(ItemID.Diamond, 1);
             recipe.AddIngredient(ItemID.Amethyst, 1);
             recipe.AddIngredient(ModContent.ItemType<Prism>(), 10);
-            recipe.AddRecipeGroup("AAModClassic:Gold", 12);		
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 12);		
             recipe.AddTile(TileID.Anvils);   
             recipe.Register();
 
