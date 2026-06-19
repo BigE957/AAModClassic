@@ -33,7 +33,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.lavaImmune = true;
             NPC.defense = 9;
             NPC.lifeMax = 250;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0.3f;
@@ -42,20 +41,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             AnimationType = NPCID.MothronSpawn;
             SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
         }
-
-        /*public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
-        {
-            {
-                SpriteEffects spriteEffects = SpriteEffects.None;
-                if (npc.spriteDirection == 1)
-                {
-                    spriteEffects = SpriteEffects.FlipHorizontally;
-                }
-                spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2(npc.Center.X - Main.screenPosition.X, npc.Center.Y - Main.screenPosition.Y),
-                npc.frame, Color.White, npc.rotation,
-                new Vector2(npc.width * 0.5f, npc.height * 0.5f), 1f, spriteEffects, 0f);
-            }
-        }*/
 
         public override void HitEffect(NPC.HitInfo hit)
         {

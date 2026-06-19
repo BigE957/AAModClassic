@@ -810,17 +810,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             }
         }
 
-        //TODO: Temporary helper to make things have errors. Should be removed once things are properly moved to new system
-        private static int BiomeNumber(string biome) => biome switch
-        {
-            "Corruption" => 1,
-            "Crimson" => 2,
-            "Inferno" => 3,
-            "Mire" => 4,
-            "Hallow" => 5,
-            _ => 0,
-        };
-
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
 			if (Main.expertMode)

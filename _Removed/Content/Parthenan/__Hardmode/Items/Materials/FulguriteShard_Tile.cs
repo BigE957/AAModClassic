@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
@@ -19,8 +20,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
             Main.tileSpelunker[Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
-            //TODO
-            //HitSound = 21;
+            HitSound = SoundID.Tink;
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(204, 0, 150));
 			MinPick = 180;

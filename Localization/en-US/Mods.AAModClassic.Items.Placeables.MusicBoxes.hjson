@@ -247,3 +247,8 @@ SunkenShipPreSoCBox: {
 	DisplayName: Sunken Ship Pre So C Box
 	Tooltip: ""
 }
+
+CthulhuBox: {
+	DisplayName: Cthulhu Box
+	Tooltip: ""
+}

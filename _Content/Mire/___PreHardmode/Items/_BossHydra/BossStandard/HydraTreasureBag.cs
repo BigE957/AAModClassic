@@ -7,6 +7,7 @@ using AAModClassic._CrossMod;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -17,15 +18,15 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
     public class HydraTreasureBag : BaseAAItem, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        //TODO: Doesnt seem to exist
-        //public static Asset<Texture2D> Glowmask;
+        
+        public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Hydra)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
-            //Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
@@ -55,7 +56,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
         
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            /*
             Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
@@ -73,7 +73,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
                 SpriteEffects.None,
                 0f
             );
-            */
         }
 
         public override void RightClick(Player player)

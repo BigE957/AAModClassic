@@ -94,7 +94,6 @@ Your non-autoswinging weapons are lightning fast"); */
             return multiplier;
         }
 
-        //TODO: this should be reworked into like a BonusDamage stat on player that these accs add to
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (StormClaw)

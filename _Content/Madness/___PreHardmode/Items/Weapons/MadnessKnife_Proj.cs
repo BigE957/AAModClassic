@@ -39,12 +39,6 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
 				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Worm, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-			
-			//TODO: what did 1.4 do items that dropped themselves cuz ik they no longer do that
-			if (Main.rand.NextBool(2))
-			{
-				Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<MadnessKnife>());
-			};
 		}
 		private const int alphaReduction = 25;
         private const float maxTicks = 35f;

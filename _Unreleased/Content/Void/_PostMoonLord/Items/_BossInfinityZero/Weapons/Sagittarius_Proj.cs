@@ -11,25 +11,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 {
     public class Sagittarius_Proj : ModProjectile
     {
-        public short customGlowMask = 0;
-        //TODOIZ
-        /*
-        public override void SetStaticDefaults()
-        {
-            if (Main.netMode != 2)
-            {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
-                }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
-            }
-            Projectile.glowMask = customGlowMask;
-        }
-        */
         public override void SetDefaults()
         {
             Projectile.width = 16;

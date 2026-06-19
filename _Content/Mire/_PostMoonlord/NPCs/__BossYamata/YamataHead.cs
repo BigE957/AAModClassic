@@ -405,7 +405,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 modifiers.TargetDamageMultiplier *= .2f;
             }
-            else if (projectile.penetrate > 1) //TODO: Was >= 1, leading to weird immunity
+            else if (projectile.penetrate > 1)
             {
                 modifiers.TargetDamageMultiplier *= (int).2;
             }

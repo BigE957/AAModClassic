@@ -1,4 +1,6 @@
 ﻿using System;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -236,10 +238,9 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>(Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin").Type, 180); //TODO: yeah. maybe search for dupes of this
+            target.AddBuff(Main.rand.NextBool() ? ModContent.BuffType<DragonFire_Buff>() : ModContent.BuffType<HydraToxin_Buff>(), 180); 
         }
 
-        //TODO: does htis render?
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);

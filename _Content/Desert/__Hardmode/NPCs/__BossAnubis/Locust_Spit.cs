@@ -19,9 +19,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             Projectile.width = 14;
             Projectile.height = 14;
             Projectile.aiStyle = ProjAIStyleID.Arrow;
-            //TODO: These seemed unintentionally flipped...
-            Projectile.friendly = false;// true;
-            Projectile.hostile = true;// false;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;

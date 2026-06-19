@@ -133,7 +133,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
+            else if (projectile.penetrate > 1)
             {
                modifiers.TargetDamageMultiplier *= 0.2f;
             }

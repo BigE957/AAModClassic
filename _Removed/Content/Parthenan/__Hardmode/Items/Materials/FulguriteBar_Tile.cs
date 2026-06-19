@@ -1,6 +1,7 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -10,8 +11,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            //TODO
-            //HitSound = 21;
+            HitSound = SoundID.Tink;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = false;

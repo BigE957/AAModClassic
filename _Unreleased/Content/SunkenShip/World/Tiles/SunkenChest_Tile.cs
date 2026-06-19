@@ -38,15 +38,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 			// name.SetDefault("Sunken Chest");
 			DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AddMapEntry(new Color(200, 140, 0), name, MapChestName);
-			//disableSmartCursor/* tModPorter Note: _Unreleased. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
-			//chest/* tModPorter Note: _Unreleased. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Sunken Chest";
 			TileID.Sets.BasicChest[Type] = true;
-			//ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<SunkenChest>();
 		}
 
-        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("MireChest").DisplayName; //TODO: bro needs his proper SunkenChest item
+        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("SunkenChest").DisplayName;
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{

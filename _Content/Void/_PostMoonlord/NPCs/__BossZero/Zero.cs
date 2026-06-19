@@ -20,6 +20,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -173,9 +174,24 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             {
                 NPC.ai[0] = 10f;
 
+                List<int> choices =
+                [
+                    ModContent.NPCType<ZeroGenocideCannon>(),
+                    ModContent.NPCType<ZeroNeutralizer>(),
+                    ModContent.NPCType<ZeroNovaFocus>(),
+                    ModContent.NPCType<ZeroOmegaVolley>(),
+                    ModContent.NPCType<ZeroRealityCannon>(),
+                    ModContent.NPCType<ZeroRiftShredder>(),
+                    ModContent.NPCType<ZeroGigataser>(),
+                    ModContent.NPCType<ZeroVoidStar>(),
+                ];
+
                 for (int m = 0; m < WeaponCount; m++)
                 {
-                    int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ArmChoice(), 0, m);
+                    int choice = Main.rand.Next(choices.Count);
+
+                    int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, choices[choice], 0, m);
+                    choices.Remove(choice);
                     Main.npc[npcID].Center = NPC.Center;
                     Main.npc[npcID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                     Main.npc[npcID].velocity *= 8f;
@@ -825,49 +841,6 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                     ShieldScale = 0;
                 }
             }
-        }
-
-        //TODO: THIS SUCKS. REPLACE THIS.
-        public int ArmChoice()
-        {
-            int Choice = -1;
-            while (Choice == -1)
-            {
-                int Arms = Main.rand.Next(8);
-                switch (Arms)
-                {
-                    case 0:
-                        Choice = ModContent.NPCType<ZeroGenocideCannon>();
-                        break;
-                    case 1:
-                        Choice = ModContent.NPCType<ZeroNeutralizer>();
-                        break;
-                    case 2:
-                        Choice = ModContent.NPCType<ZeroNovaFocus>();
-                        break;
-                    case 3:
-                        Choice = ModContent.NPCType<ZeroOmegaVolley>();
-                        break;
-                    case 4:
-                        Choice = ModContent.NPCType<ZeroRealityCannon>();
-                        break;
-                    case 5:
-                        Choice = ModContent.NPCType<ZeroRiftShredder>();
-                        break;
-                    case 6:
-                        Choice = ModContent.NPCType<ZeroGigataser>();
-                        break;
-                    case 7:
-                        Choice = ModContent.NPCType<ZeroVoidStar>();
-                        break;
-                }
-
-                if (NPC.AnyNPCs((int)Choice))
-                {
-                    Choice = -1;
-                }
-            }
-            return Choice;
         }
     }
 }

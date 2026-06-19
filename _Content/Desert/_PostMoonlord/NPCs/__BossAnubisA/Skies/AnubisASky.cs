@@ -162,13 +162,9 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies
         }
     }
 
-    public class AnubisASkyData : ScreenShaderData
+    public class AnubisASkyData(string passName) : ScreenShaderData(passName)
     {
         private int anuIndex;
-
-        public AnubisASkyData(string passName) : base(passName)
-        {
-        }
 
         //TODO: all the boss skies do this verbatim. cna we mkae this a helper method?
         private void UpdateAnuIndex()

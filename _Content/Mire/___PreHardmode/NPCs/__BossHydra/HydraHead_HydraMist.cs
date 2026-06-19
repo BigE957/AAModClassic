@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 {
@@ -77,8 +78,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Poisoned, 300); //TODO: Was originally getting "Poison" from the mod. Odd.
-            // caligulas reaction: lock behind unofficial? this is a major change in function
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                target.AddBuff(BuffID.Poisoned, 300);
         }
     }
 }

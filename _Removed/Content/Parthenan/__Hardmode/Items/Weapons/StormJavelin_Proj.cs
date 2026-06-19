@@ -8,25 +8,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
 {
     public class StormJavelin_Proj : ModProjectile
     {
-        public short customGlowMask = 0;
-
         public override void SetStaticDefaults()
         {
-            //TODO
-            /*
-            if (Main.netMode != 2)
-            {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
-                }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
-            }
-            Projectile.glowMask = customGlowMask;
-            */
             // DisplayName.SetDefault("Storm Javelin");
             Main.projFrames[Projectile.type] = 3;
         }

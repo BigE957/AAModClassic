@@ -62,7 +62,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.boss = true;
             NPC.netAlways = true;
             NPC.friendly = false;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["Siege"];

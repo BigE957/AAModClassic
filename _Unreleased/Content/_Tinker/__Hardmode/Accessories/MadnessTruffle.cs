@@ -34,7 +34,6 @@ You know what? Just don't put it anywhere near your mouth."); */
             Item.defense = 8;
         }
 
-        //TODO: .
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             if (player.wingTime > 0)

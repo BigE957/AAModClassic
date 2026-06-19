@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
@@ -92,7 +94,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>(Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin").Type, 180); //TODO: yeah
+            target.AddBuff(Main.rand.NextBool() ? ModContent.BuffType<DragonFire_Buff>() : ModContent.BuffType<HydraToxin_Buff>(), 180);
         }
 
         public override void OnKill(int timeLeft)

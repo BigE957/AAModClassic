@@ -284,7 +284,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                 Projectile.frame = 0;
             }
         }
-        //TODO: this doesnt render for some reason
+
         public float glowColorR = 255;
         public float glowColorG = 255;
         public float glowColorB = 255;

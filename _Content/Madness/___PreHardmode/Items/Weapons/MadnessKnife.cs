@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
 
 		public override void AddRecipes()
 		{
-			Recipe recipe = CreateRecipe(75);
+			Recipe recipe = CreateRecipe(150);
 			recipe.AddIngredient(ModContent.ItemType<MadnessFragment>());
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

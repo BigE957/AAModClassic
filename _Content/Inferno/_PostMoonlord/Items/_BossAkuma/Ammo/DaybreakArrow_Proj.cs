@@ -1,4 +1,5 @@
 using AAModClassic._Content.Inferno.Projectiles;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -11,27 +12,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo
 {
     public class DaybreakArrow_Proj : ModProjectile
 	{
-
-        public short customGlowMask = 0;
-        public override void SetStaticDefaults()
-        {
-            //TODO kill
-            if (Main.netMode != NetmodeID.Server)
-            {
-                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i];
-                }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask = glowMasks;
-            }
-            Projectile.glowMask = customGlowMask;
-
-            // DisplayName.SetDefault("Daybreak Arrow");    
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;

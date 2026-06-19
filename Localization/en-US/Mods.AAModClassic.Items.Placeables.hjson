@@ -1352,3 +1352,8 @@ Sticker: {
 	DisplayName: Sticker
 	Tooltip: ""
 }
+
+SunkenChest: {
+	DisplayName: Sunken Chest
+	Tooltip: ""
+}

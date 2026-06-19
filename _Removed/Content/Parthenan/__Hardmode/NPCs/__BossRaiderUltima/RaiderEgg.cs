@@ -35,7 +35,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.defense = 30;
             NPC.lavaImmune = true;
             NPC.lifeMax = 50;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.value = 0f;

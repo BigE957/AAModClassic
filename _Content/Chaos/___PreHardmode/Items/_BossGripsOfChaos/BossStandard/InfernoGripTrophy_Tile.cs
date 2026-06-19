@@ -1,6 +1,7 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +11,9 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
 {
     public class InfernoGripTrophy_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
+        private static Asset<Texture2D> glowTex;
+
+        public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -21,19 +24,14 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
             DustType = DustID.WoodFurniture;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
-		}
 
-        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
-        {
-            Tile tile = Main.tile[i, j];
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
-            if (Main.drawToScreen)
-            {
-                zero = Vector2.Zero;
-            }
-            int height = tile.TileFrameY == 36 ? 18 : 16;
-            //TODO: tile glowmask standardization
-            //Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
-	}
+
+        public override void PostDraw(int x, int y, SpriteBatch spriteBatch)
+        {
+            Vector2 TileDrawOffset = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
+            spriteBatch.Draw(glowTex.Value, new Point(x, y).ToWorldCoordinates(1, 0) - Main.screenPosition + TileDrawOffset, new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY, 16, 16), AAColor.Glow);
+        }
+    }
 }

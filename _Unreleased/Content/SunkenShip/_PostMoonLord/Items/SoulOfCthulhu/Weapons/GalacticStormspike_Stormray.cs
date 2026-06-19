@@ -18,7 +18,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void SetStaticDefaults()
 		{
-            //TODOSOC
             //displayName = "Stormray";
 
             mainTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/GalacticStormspike_StormShockChainEnd3");

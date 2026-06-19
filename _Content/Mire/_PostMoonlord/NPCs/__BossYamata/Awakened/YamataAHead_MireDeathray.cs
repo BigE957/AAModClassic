@@ -122,8 +122,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             //Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], (float)projectile.width * projectile.scale, new Utils.TileActionAttempt(DelegateMethods.CastLight));
         }
 
-        //TODO: Cache these textures in a static Asset<Texture2D> field
-
         public override bool PreDraw(ref Color lightColor)
         {
             if (Projectile.velocity == Vector2.Zero)

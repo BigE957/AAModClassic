@@ -461,7 +461,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate > 1) //TODO: Was >= but that made everything be affected
+            else if (projectile.penetrate > 1)
             {
                 projectile.damage *= (int).2;
             }

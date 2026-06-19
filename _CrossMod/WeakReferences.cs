@@ -179,8 +179,8 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
-using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
+using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
@@ -1327,9 +1327,8 @@ namespace AAModClassic._CrossMod
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<InfinityZeroTrophy>(),
-                        //TODO: Add these chuds
-                        //ModContent.ItemType<InfinityZeroMask>(),
-                        //ModContent.ItemType<InfinityZeroMusicBox>()
+                        ModContent.ItemType<InfinityZeroMask>(),
+                        ModContent.ItemType<InfinityZeroBox>()
                     },
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
                         Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<InfinityZero>().Texture).Value;
@@ -1375,7 +1374,7 @@ namespace AAModClassic._CrossMod
                     {
                         ModContent.ItemType<SoulOfCthulhuTrophy>(),
                         ModContent.ItemType<SoulOfCthulhuMask>(),
-                        //ModContent.ItemType<CthulhuBox>()
+                        ModContent.ItemType<CthulhuBox>()
                     },
                     //["customPortrait"] = GetPortrait("ZeroProtocol"),
                     ["availability"] = (Func<bool>)(() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.expertMode && NPCExtensions.BeenKilled<SoulOfCthulhu>())
@@ -1403,7 +1402,6 @@ namespace AAModClassic._CrossMod
             AddMusic("BiomiteCore");
             AddMusic("LostKeep");
             AddMusic("TechnoTruffle");
-            AddMusic("Cthulhu");
             AddMusic("Superancients_Pinch");
         }
 

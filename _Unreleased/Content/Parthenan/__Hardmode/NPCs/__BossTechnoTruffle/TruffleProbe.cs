@@ -36,7 +36,6 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.lifeMax = 250;
             NPC.defense = 0;
             NPC.damage = 20;
-            //TODO
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0f;

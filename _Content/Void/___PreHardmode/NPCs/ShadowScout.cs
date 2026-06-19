@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Void.World.Biomes;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -85,31 +86,6 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
                 {
                     NPC.frame.Y = 0;
                 }
-                //TODO: Wtf were they cooking man
-                /*
-                if (NPC.ai[0] == 2f)
-                {
-                    if (NPC.frame.Y < frameHeight * 3)
-                    {
-                        NPC.frame.Y = frameHeight * 3;
-                    }
-                    if (NPC.frame.Y > frameHeight * 8)
-                    {
-                        NPC.frame.Y = frameHeight * 6;
-                    }
-                }
-                else
-                {
-                    if (NPC.frame.Y >= frameHeight * 6)
-                    {
-                        NPC.frame.Y = frameHeight * 9;
-                    }
-                    if (NPC.frame.Y > frameHeight * 11 || NPC.frame.Y == frameHeight * 3 )
-                    {
-                        NPC.frame.Y = 0;
-                    }
-                }
-                */
             }
         }
 
@@ -123,7 +99,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 
         public override void OnKill()
         {
-            //Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DoomiteScrap>(), 1);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DoomiteScrap>(), 1);
         }
     }
 }
