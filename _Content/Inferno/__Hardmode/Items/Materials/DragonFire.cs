@@ -1,12 +1,14 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
 {
-    public class DragonFire : BaseAAItem
+    public class DragonFire : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon's Fire");

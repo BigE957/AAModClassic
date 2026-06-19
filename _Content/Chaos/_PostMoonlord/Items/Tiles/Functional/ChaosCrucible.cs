@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
 {
     public class ChaosCrucible : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         
         public override void SetStaticDefaults()
         {

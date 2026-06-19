@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
 {
-    public class VultureFeather : BaseAAItem
+    public class VultureFeather : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Materials";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Vulture Feather");

@@ -1,4 +1,3 @@
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using ReLogic.Utilities;
@@ -9,10 +8,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
 {
-    public class CodeMagnetOff : BaseAAItem
+    public class CodeMagnetOff : BaseAAItem, ILocalizedModType
     {
-        public SlotId MagnetSoundSlot;
+        public new string LocalizationCategory => "Items.Tools";
 
+        public SlotId MagnetSoundSlot;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Binary Code Magnet");

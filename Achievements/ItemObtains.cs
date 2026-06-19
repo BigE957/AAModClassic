@@ -2,7 +2,6 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Accessories;
-using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Tools;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;

@@ -3,11 +3,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Sky.__Hardmode.Items.Materials
 {
-    public class DragonSpirit : BaseAAItem
+    public class DragonSpirit : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon Spirit");

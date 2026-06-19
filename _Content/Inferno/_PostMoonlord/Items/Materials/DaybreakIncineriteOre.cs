@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
 {
     public class DaybreakIncineriteOre : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
 

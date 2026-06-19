@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Tiles.Functional
 {
     public class CorruptAltar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Altar");

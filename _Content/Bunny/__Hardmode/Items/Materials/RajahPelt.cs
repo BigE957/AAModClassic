@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items.Materials
 {
-    public class RajahPelt : BaseAAItem
+    public class RajahPelt : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Materials";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Rabbit Pelt");

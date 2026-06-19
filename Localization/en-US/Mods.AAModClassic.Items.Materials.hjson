@@ -1,0 +1,464 @@
+RainbowMushroom: {
+	DisplayName: Rainbow Mushroom
+	Tooltip: ""
+}
+
+ChampionPlate: {
+	DisplayName: Champion Plate
+	Tooltip: ""
+}
+
+ChaosScale: {
+	DisplayName: Chaos Scale
+	Tooltip: ""
+}
+
+DiscordiumBar: {
+	DisplayName: Discordium Bar
+	Tooltip: ""
+}
+
+IncineriteBar: {
+	DisplayName: Incinerite Bar
+	Tooltip: ""
+}
+
+IncineriteOre: {
+	DisplayName: Incinerite Ore
+	Tooltip: ""
+}
+
+ScorchedScale: {
+	DisplayName: Scorched Scale
+	Tooltip: ""
+}
+
+RadiantIncineriteBar: {
+	DisplayName: Radiant Incinerite Bar
+	Tooltip: ""
+}
+
+DreadScale: {
+	DisplayName: Dread Scale
+	Tooltip: ""
+}
+
+EventideAbyssiumOre: {
+	DisplayName: Eventide Abyssium Ore
+	Tooltip: ""
+}
+
+DarkEnergy: {
+	DisplayName: Dark Energy
+	Tooltip: ""
+}
+
+ApocalyptiteOre: {
+	DisplayName: Apocalyptite Ore
+	Tooltip: ""
+}
+
+ShinyCharm: {
+	DisplayName: Shiny Charm
+	Tooltip: ""
+}
+
+ShinyCharmFish: {
+	DisplayName: Shiny Charm Fish
+	Tooltip: ""
+}
+
+EXSoul: {
+	DisplayName: E X Soul
+	Tooltip: ""
+}
+
+BiomePrism: {
+	DisplayName: Biome Prism
+	Tooltip: ""
+}
+
+M79Parts: {
+	DisplayName: M79 Parts
+	Tooltip: ""
+}
+
+BlueAlchemicalMushroom: {
+	DisplayName: Blue Alchemical Mushroom
+	Tooltip: ""
+}
+
+BrownAlchemicalMushroom: {
+	DisplayName: Brown Alchemical Mushroom
+	Tooltip: ""
+}
+
+GrayAlchemicalMushroom: {
+	DisplayName: Gray Alchemical Mushroom
+	Tooltip: ""
+}
+
+GreenAlchemicalMushroom: {
+	DisplayName: Green Alchemical Mushroom
+	Tooltip: ""
+}
+
+OrangeAlchemicalMushroom: {
+	DisplayName: Orange Alchemical Mushroom
+	Tooltip: ""
+}
+
+PinkAlchemicalMushroom: {
+	DisplayName: Pink Alchemical Mushroom
+	Tooltip: ""
+}
+
+PurpleAlchemicalMushroom: {
+	DisplayName: Purple Alchemical Mushroom
+	Tooltip: ""
+}
+
+RedAlchemicalMushroom: {
+	DisplayName: Red Alchemical Mushroom
+	Tooltip: ""
+}
+
+YellowAlchemicalMushroom: {
+	DisplayName: Yellow Alchemical Mushroom
+	Tooltip: ""
+}
+
+GoddessFeather: {
+	DisplayName: Goddess Feather
+	Tooltip: ""
+}
+
+SeraphFeather: {
+	DisplayName: Seraph Feather
+	Tooltip: ""
+}
+
+SkyCrystal: {
+	DisplayName: Sky Crystal
+	Tooltip: ""
+}
+
+StormSphere: {
+	DisplayName: Storm Sphere
+	Tooltip: ""
+}
+
+RajahPelt: {
+	DisplayName: Rajah Pelt
+	Tooltip: ""
+}
+
+ChaosPrism: {
+	DisplayName: Chaos Prism
+	Tooltip: ""
+}
+
+ChaosSoul: {
+	DisplayName: Chaos Soul
+	Tooltip: ""
+}
+
+DesertMana: {
+	DisplayName: Desert Mana
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: Dynaskull Fossil
+	Tooltip: ""
+}
+
+VultureFeather: {
+	DisplayName: Vulture Feather
+	Tooltip: ""
+}
+
+ForsakenFragment: {
+	DisplayName: Forsaken Fragment
+	Tooltip: ""
+}
+
+SoulFragment: {
+	DisplayName: Soul Fragment
+	Tooltip: ""
+}
+
+GlowingMushium: {
+	DisplayName: Glowing Mushium
+	Tooltip: ""
+}
+
+GlowingMushiumBar: {
+	DisplayName: Glowing Mushium Bar
+	Tooltip: ""
+}
+
+HallowedOre: {
+	DisplayName: Hallowed Ore
+	Tooltip: ""
+}
+
+DevilSilk: {
+	DisplayName: Devil Silk
+	Tooltip: ""
+}
+
+PureEvil: {
+	DisplayName: Pure Evil
+	Tooltip: ""
+}
+
+CovetiteCrystal: {
+	DisplayName: Covetite Crystal
+	Tooltip: ""
+}
+
+StoneShell: {
+	DisplayName: Stone Shell
+	Tooltip: ""
+}
+
+CovetiteBar: {
+	DisplayName: Covetite Bar
+	Tooltip: ""
+}
+
+CovetiteOre: {
+	DisplayName: Covetite Ore
+	Tooltip: ""
+}
+
+DragonClaw_Item: {
+	DisplayName: Dragon Claw_ Item
+	Tooltip: ""
+}
+
+DragonScale: {
+	DisplayName: Dragon Scale
+	Tooltip: ""
+}
+
+Hotshroom: {
+	DisplayName: Hotshroom
+	Tooltip: ""
+}
+
+DragonFire: {
+	DisplayName: Dragon Fire
+	Tooltip: ""
+}
+
+SoulOfSmite: {
+	DisplayName: Soul Of Smite
+	Tooltip: ""
+}
+
+CrucibleScale: {
+	DisplayName: Crucible Scale
+	Tooltip: ""
+}
+
+DaybreakIncineriteBar: {
+	DisplayName: Daybreak Incinerite Bar
+	Tooltip: ""
+}
+
+DaybreakIncineriteOre: {
+	DisplayName: Daybreak Incinerite Ore
+	Tooltip: ""
+}
+
+SearingSpark: {
+	DisplayName: Searing Spark
+	Tooltip: ""
+}
+
+PlanteraPetal: {
+	DisplayName: Plantera Petal
+	Tooltip: ""
+}
+
+MadnessFragment: {
+	DisplayName: Madness Fragment
+	Tooltip: ""
+}
+
+AbyssiumBar: {
+	DisplayName: Abyssium Bar
+	Tooltip: ""
+}
+
+AbyssiumOre: {
+	DisplayName: Abyssium Ore
+	Tooltip: ""
+}
+
+BlackLotus: {
+	DisplayName: Black Lotus
+	Tooltip: ""
+}
+
+Darkshroom: {
+	DisplayName: Darkshroom
+	Tooltip: ""
+}
+
+HydraClaw_Item: {
+	DisplayName: Hydra Claw_ Item
+	Tooltip: ""
+}
+
+HydraHide: {
+	DisplayName: Hydra Hide
+	Tooltip: ""
+}
+
+MirePod: {
+	DisplayName: Mire Pod
+	Tooltip: ""
+}
+
+Bogtoxin: {
+	DisplayName: Bogtoxin
+	Tooltip: ""
+}
+
+DeepAbyssiumBar: {
+	DisplayName: Deep Abyssium Bar
+	Tooltip: ""
+}
+
+SoulOfSpite: {
+	DisplayName: Soul Of Spite
+	Tooltip: ""
+}
+
+EventideAbyssiumBar: {
+	DisplayName: Eventide Abyssium Bar
+	Tooltip: ""
+}
+
+TerrorSoul: {
+	DisplayName: Terror Soul
+	Tooltip: ""
+}
+
+Mushium: {
+	DisplayName: Mushium
+	Tooltip: ""
+}
+
+MushiumBar: {
+	DisplayName: Mushium Bar
+	Tooltip: ""
+}
+
+DragonSpirit: {
+	DisplayName: Dragon Spirit
+	Tooltip: ""
+}
+
+RelicBar: {
+	DisplayName: Relic Bar
+	Tooltip: ""
+}
+
+SnowMana: {
+	DisplayName: Snow Mana
+	Tooltip: ""
+}
+
+VikingRelic: {
+	DisplayName: Viking Relic
+	Tooltip: ""
+}
+
+DarkmatterBar: {
+	DisplayName: Darkmatter Bar
+	Tooltip: ""
+}
+
+DarkmatterOre: {
+	DisplayName: Darkmatter Ore
+	Tooltip: ""
+}
+
+RadiantPhoton: {
+	DisplayName: Radiant Photon
+	Tooltip: ""
+}
+
+RadiumBar: {
+	DisplayName: Radium Bar
+	Tooltip: ""
+}
+
+RadiumOre: {
+	DisplayName: Radium Ore
+	Tooltip: ""
+}
+
+HeroRelics: {
+	DisplayName: Hero Relics
+	Tooltip: ""
+}
+
+TerraShard: {
+	DisplayName: Terra Shard
+	Tooltip: ""
+}
+
+TerraPrism: {
+	DisplayName: Terra Prism
+	Tooltip: ""
+}
+
+Prism: {
+	DisplayName: Prism
+	Tooltip: ""
+}
+
+DoomiteBar: {
+	DisplayName: Doomite Bar
+	Tooltip: ""
+}
+
+DoomiteScrap: {
+	DisplayName: Doomite Scrap
+	Tooltip: ""
+}
+
+ApocalyptitePlate: {
+	DisplayName: Apocalyptite Plate
+	Tooltip: ""
+}
+
+UnstableSingularity: {
+	DisplayName: Unstable Singularity
+	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: Fulgurite Bar
+	Tooltip: ""
+}
+
+RealityBar: {
+	DisplayName: Reality Bar
+	Tooltip: ""
+}
+
+Infinitium: {
+	DisplayName: Infinitium
+	Tooltip: ""
+}
+
+FulguriteShard: {
+	DisplayName: Fulgurite Shard
+	Tooltip: ""
+}

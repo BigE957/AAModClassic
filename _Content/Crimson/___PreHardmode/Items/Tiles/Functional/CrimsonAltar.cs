@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Tiles.Functional
 {
     public class CrimsonAltar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Crimson Altar");

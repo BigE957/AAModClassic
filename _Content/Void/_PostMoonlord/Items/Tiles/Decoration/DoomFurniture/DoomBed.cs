@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
 {
     public class DoomBed : ModItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Doom";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doom Bed");

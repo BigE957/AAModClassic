@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
@@ -15,8 +15,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Materials
 {
-    public class TerraPrism : BaseAAItem
+    public class TerraPrism : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override string Texture => AssetDirectory.Items.BiomePrism;
 
         public override void SetStaticDefaults()

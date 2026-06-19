@@ -1,14 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 {
-    public class RadiantPhoton : BaseAAItem
+    public class RadiantPhoton : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         
         public override void SetStaticDefaults()
         {

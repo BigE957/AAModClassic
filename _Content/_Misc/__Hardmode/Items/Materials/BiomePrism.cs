@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials
 {
-    public class BiomePrism : BaseAAItem
+    public class BiomePrism : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override string Texture => AssetDirectory.Items.BiomePrism;
 
         public override void SetStaticDefaults()

@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
@@ -8,8 +8,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms
 {
-    public class RainbowMushroom : BaseAAItem
+    public class RainbowMushroom : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override Color GlowmaskDrawColor => Main.DiscoColor;
 
         public override void SetStaticDefaults()

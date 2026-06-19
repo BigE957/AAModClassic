@@ -3,11 +3,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials
 {
-    public class ChaosSoul : BaseAAItem
+    public class ChaosSoul : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         
         public override void SetStaticDefaults()
         {

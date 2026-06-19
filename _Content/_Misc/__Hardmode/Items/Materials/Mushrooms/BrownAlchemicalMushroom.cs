@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms
 {
-    public class BrownAlchemicalMushroom : BaseAAItem
+    public class BrownAlchemicalMushroom : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Brown Alchemical Mushroom");

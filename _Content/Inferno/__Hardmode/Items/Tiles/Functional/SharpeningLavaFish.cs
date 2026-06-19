@@ -7,7 +7,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Functional
 {
     public class SharpeningLavaFish : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         
         public override void SetStaticDefaults()
         {

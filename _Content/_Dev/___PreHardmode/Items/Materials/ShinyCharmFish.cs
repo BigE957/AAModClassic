@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.Items.Materials
 {
-    public class ShinyCharmFish : BaseAAItem
+    public class ShinyCharmFish : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Materials";
 		public override void SetDefaults()
 		{
 			Item.width = 34;

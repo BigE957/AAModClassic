@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 {
     public class DeepAbyssiumBar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deep Abyssium Bar");

@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 {
-    public class GlowingSporeBag : BaseAAItem
+    public class GlowingSporeBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 22;

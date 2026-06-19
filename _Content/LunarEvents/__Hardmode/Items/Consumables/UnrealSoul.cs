@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.LunarEvents.__Hardmode.Items.Consumables
 {
-    public class UnrealSoul : BaseAAItem
+    public class UnrealSoul : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 32;

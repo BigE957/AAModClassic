@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items
 {
-    public class VoidGraivtyItemIDKTheNameYet : BaseAAItem
+    public class VoidGraivtyItemIDKTheNameYet : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Binary Code Magnet");

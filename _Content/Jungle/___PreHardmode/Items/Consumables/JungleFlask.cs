@@ -1,4 +1,4 @@
-using AAModClassic._Content.Jungle.__Hardmode.Items.Consumables;
+﻿using AAModClassic._Content.Jungle.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Consumables
 {
-    public class JungleFlask : BaseAAItem
+    public class JungleFlask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 22;

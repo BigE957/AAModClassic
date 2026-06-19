@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
 {
-    public class TerrorSoul : BaseAAItem
+    public class TerrorSoul : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terror Soul");

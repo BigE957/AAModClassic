@@ -1,11 +1,13 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.SunkenShip.__PreHardmode.Items.Tools
 {
-    public class RiftMirror : BaseAAItem
+    public class RiftMirror : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rift Mirror");

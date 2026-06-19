@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
 {
     public class DynaskullFossil : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
 

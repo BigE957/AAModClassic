@@ -1,4 +1,4 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items.Materials
 {
-    public class SoulFragment : BaseAAItem
+    public class SoulFragment : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul Fragment");

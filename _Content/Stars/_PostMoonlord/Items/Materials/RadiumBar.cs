@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 {
     public class RadiumBar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radium Bar");

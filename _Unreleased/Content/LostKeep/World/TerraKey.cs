@@ -1,12 +1,15 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World;
 
-public class TerraKey : BaseAAItem
+public class TerraKey : BaseAAItem, ILocalizedModType
 {
-	public override void SetStaticDefaults()
+    public new string LocalizationCategory => "Items.Consumables";
+
+    public override void SetStaticDefaults()
 	{
 		//((ModItem)this).DisplayName.SetDefault("Keep Key");
 		//((ModItem)this).Tooltip.SetDefault("A very ornate key");

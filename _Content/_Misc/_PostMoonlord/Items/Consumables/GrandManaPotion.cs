@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc._PostMoonlord.Items.Consumables
 {
-    public class GrandManaPotion : BaseAAItem
+    public class GrandManaPotion : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Grand Mana Potion");

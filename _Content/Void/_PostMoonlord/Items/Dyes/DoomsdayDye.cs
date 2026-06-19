@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
@@ -12,8 +12,9 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Dyes
 {
-    public class DoomsdayDye : BaseAAItem
+    public class DoomsdayDye : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Dyes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Dye");

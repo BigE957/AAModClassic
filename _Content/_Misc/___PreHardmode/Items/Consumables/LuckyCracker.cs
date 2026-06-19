@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables
 {
-    public class LuckyCracker : BaseAAItem
+    public class LuckyCracker : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Lucky Cracker");

@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.__Hardmode.Items.Consumables
 {
-    public class SwarmSolution : BaseAAItem
+    public class SwarmSolution : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Swarm Solution");

@@ -4,11 +4,13 @@ using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Currency
 {
-    public class HalloweenTreat : BaseAAItem
+    public class HalloweenTreat : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Currency";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Halloween Treat");

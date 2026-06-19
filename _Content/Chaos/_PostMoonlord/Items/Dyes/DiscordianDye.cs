@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Dyes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Dyes
 {
-    public class DiscordianDye : BaseAAItem
+    public class DiscordianDye : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Dyes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discordian Dye");

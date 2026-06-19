@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
 {
     public class HallowedForge : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hallowed Forge");

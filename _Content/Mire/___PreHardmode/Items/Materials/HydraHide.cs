@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent;
@@ -8,8 +8,9 @@ using Terraria.ModLoader.Config;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
 {
-    public class HydraHide : BaseAAItem
+    public class HydraHide : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hydra Hide");

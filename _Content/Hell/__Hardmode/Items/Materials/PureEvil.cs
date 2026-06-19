@@ -3,11 +3,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hell.__Hardmode.Items.Materials
 {
-    public class PureEvil : BaseAAItem
+    public class PureEvil : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Pure Evil");

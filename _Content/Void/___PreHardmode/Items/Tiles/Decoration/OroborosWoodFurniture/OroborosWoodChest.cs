@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Orobo
 {
     public class OroborosWoodChest : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.OroborosWood";
         
         public override void SetStaticDefaults()
         {

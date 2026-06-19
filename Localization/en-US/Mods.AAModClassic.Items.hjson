@@ -1,13 +1,3 @@
-RainbowMushroom: {
-	DisplayName: Rainbow Mushroom
-	Tooltip: ""
-}
-
-ChampionPlate: {
-	DisplayName: Champion Plate
-	Tooltip: ""
-}
-
 BossSummon: {
 	ChaosRune: {
 		DisplayName: Chaos Rune
@@ -178,76 +168,350 @@ BossSummon: {
 		DisplayName: Cursed Compass
 		Tooltip: ""
 	}
+}
 
-	GlowingMasshroom: {
-		DisplayName: Glowing Masshroom
+Consumables: {
+	InfernoKey: {
+		DisplayName: Inferno Key
 		Tooltip: ""
 	}
 
-	Masshroom: {
-		DisplayName: Masshroom
+	VoidKey: {
+		DisplayName: Void Key
+		Tooltip: ""
+	}
+
+	LuckyCracker: {
+		DisplayName: Lucky Cracker
+		Tooltip: ""
+	}
+
+	LuckyCalmingPotion: {
+		DisplayName: Lucky Calming Potion
+		Tooltip: ""
+	}
+
+	LuckyEndurancePotion: {
+		DisplayName: Lucky Endurance Potion
+		Tooltip: ""
+	}
+
+	LuckyIronskinPotion: {
+		DisplayName: Lucky Ironskin Potion
+		Tooltip: ""
+	}
+
+	LuckyLifeforcePotion: {
+		DisplayName: Lucky Lifeforce Potion
+		Tooltip: ""
+	}
+
+	LuckyRagePotion: {
+		DisplayName: Lucky Rage Potion
+		Tooltip: ""
+	}
+
+	LuckyRegenerationPotion: {
+		DisplayName: Lucky Regeneration Potion
+		Tooltip: ""
+	}
+
+	LuckySummoningPotion: {
+		DisplayName: Lucky Summoning Potion
+		Tooltip: ""
+	}
+
+	LuckySwiftnessPotion: {
+		DisplayName: Lucky Swiftness Potion
+		Tooltip: ""
+	}
+
+	LuckyThornsPotion: {
+		DisplayName: Lucky Thorns Potion
+		Tooltip: ""
+	}
+
+	LuckyWrathPotion: {
+		DisplayName: Lucky Wrath Potion
+		Tooltip: ""
+	}
+
+	RoninPotion: {
+		DisplayName: Ronin Potion
+		Tooltip: ""
+	}
+
+	Carrot: {
+		DisplayName: Carrot
+		Tooltip: ""
+	}
+
+	GrandHealingPotion: {
+		DisplayName: Grand Healing Potion
+		Tooltip: ""
+	}
+
+	GrandManaPotion: {
+		DisplayName: Grand Mana Potion
+		Tooltip: ""
+	}
+
+	TheBigOne: {
+		DisplayName: The Big One
+		Tooltip: ""
+	}
+
+	OrderBottle: {
+		DisplayName: Order Bottle
+		Tooltip: ""
+	}
+
+	OrderSolution: {
+		DisplayName: Order Solution
+		Tooltip: ""
+	}
+
+	CorruptionFlask: {
+		DisplayName: Corruption Flask
+		Tooltip: ""
+	}
+
+	CrimsonFlask: {
+		DisplayName: Crimson Flask
+		Tooltip: ""
+	}
+
+	YellowSolution: {
+		DisplayName: Yellow Solution
+		Tooltip: ""
+	}
+
+	GlowingSporeBag: {
+		DisplayName: Glowing Spore Bag
+		Tooltip: ""
+	}
+
+	HallowFlask: {
+		DisplayName: Hallow Flask
+		Tooltip: ""
+	}
+
+	GildedKey: {
+		DisplayName: Gilded Key
+		Tooltip: ""
+	}
+
+	AshJar: {
+		DisplayName: Ash Jar
+		Tooltip: ""
+	}
+
+	ScorchedSeeds: {
+		DisplayName: Scorched Seeds
+		Tooltip: ""
+	}
+
+	Sunpowder: {
+		DisplayName: Sunpowder
+		Tooltip: ""
+	}
+
+	FlaskOfDragonfire: {
+		DisplayName: Flask Of Dragonfire
+		Tooltip: ""
+	}
+
+	KeyOfSmite: {
+		DisplayName: Key Of Smite
+		Tooltip: ""
+	}
+
+	OrangeSolution: {
+		DisplayName: Orange Solution
+		Tooltip: ""
+	}
+
+	Fungicide: {
+		DisplayName: Fungicide
+		Tooltip: ""
+	}
+
+	JungleFlask: {
+		DisplayName: Jungle Flask
+		Tooltip: ""
+	}
+
+	LimeSolution: {
+		DisplayName: Lime Solution
+		Tooltip: ""
+	}
+
+	SwarmSolution: {
+		DisplayName: Swarm Solution
+		Tooltip: ""
+	}
+
+	GodlySoul: {
+		DisplayName: Godly Soul
+		Tooltip: ""
+	}
+
+	LegendarySoul: {
+		DisplayName: Legendary Soul
+		Tooltip: ""
+	}
+
+	MythicalSoul: {
+		DisplayName: Mythical Soul
+		Tooltip: ""
+	}
+
+	UnrealSoul: {
+		DisplayName: Unreal Soul
+		Tooltip: ""
+	}
+
+	DankSeeds: {
+		DisplayName: Dank Seeds
+		Tooltip: ""
+	}
+
+	DarkwaterFlask: {
+		DisplayName: Darkwater Flask
+		Tooltip: ""
+	}
+
+	Moonpowder: {
+		DisplayName: Moonpowder
+		Tooltip: ""
+	}
+
+	FlaskOfHydratoxin: {
+		DisplayName: Flask Of Hydratoxin
+		Tooltip: ""
+	}
+
+	IndigoSolution: {
+		DisplayName: Indigo Solution
+		Tooltip: ""
+	}
+
+	KeyOfSpite: {
+		DisplayName: Key Of Spite
+		Tooltip: ""
+	}
+
+	MireKey: {
+		DisplayName: Mire Key
+		Tooltip: ""
+	}
+
+	ForestFlask: {
+		DisplayName: Forest Flask
+		Tooltip: ""
+	}
+
+	DeepGreenSolution: {
+		DisplayName: Deep Green Solution
+		Tooltip: ""
+	}
+
+	BrownSolution: {
+		DisplayName: Brown Solution
+		Tooltip: ""
+	}
+
+	MyceliumSeeds: {
+		DisplayName: Mycelium Seeds
+		Tooltip: ""
+	}
+
+	SporeBag: {
+		DisplayName: Spore Bag
+		Tooltip: ""
+	}
+
+	IceFlask: {
+		DisplayName: Ice Flask
+		Tooltip: ""
+	}
+
+	IcemeltFlask: {
+		DisplayName: Icemelt Flask
+		Tooltip: ""
+	}
+
+	WhiteSolution: {
+		DisplayName: White Solution
+		Tooltip: ""
+	}
+
+	StarIdol: {
+		DisplayName: Star Idol
+		Tooltip: ""
+	}
+
+	PurityFlask: {
+		DisplayName: Purity Flask
+		Tooltip: ""
+	}
+
+	VoidFlask: {
+		DisplayName: Void Flask
+		Tooltip: ""
+	}
+
+	BlackSolution: {
+		DisplayName: Black Solution
+		Tooltip: ""
+	}
+
+	TerraKey: {
+		DisplayName: Terra Key
 		Tooltip: ""
 	}
 }
 
-ChaosScale: {
-	DisplayName: Chaos Scale
-	Tooltip: ""
-}
+Currency: {
+	AncientCoin: {
+		DisplayName: Ancient Coin
+		Tooltip: ""
+	}
 
-DiscordiumBar: {
-	DisplayName: Discordium Bar
-	Tooltip: ""
-}
+	BloodRune: {
+		DisplayName: Blood Rune
+		Tooltip: ""
+	}
 
-ScorchedScale: {
-	DisplayName: Scorched Scale
-	Tooltip: ""
-}
+	ChristmasCheer: {
+		DisplayName: Christmas Cheer
+		Tooltip: ""
+	}
 
-InfernoKey: {
-	DisplayName: Inferno Key
-	Tooltip: ""
-}
+	GoblinSoul: {
+		DisplayName: Goblin Soul
+		Tooltip: ""
+	}
 
-DreadScale: {
-	DisplayName: Dread Scale
-	Tooltip: ""
-}
+	MartianCredit: {
+		DisplayName: Martian Credit
+		Tooltip: ""
+	}
 
-DarkEnergy: {
-	DisplayName: Dark Energy
-	Tooltip: ""
-}
+	PirateBooty: {
+		DisplayName: Pirate Booty
+		Tooltip: ""
+	}
 
-VoidKey: {
-	DisplayName: Void Key
-	Tooltip: ""
-}
+	HalloweenTreat: {
+		DisplayName: Halloween Treat
+		Tooltip: ""
+	}
 
-RealityBar: {
-	DisplayName: Reality Bar
-	Tooltip: ""
-}
-
-Infinitium: {
-	DisplayName: Infinitium
-	Tooltip: ""
-}
-
-AncientCoin: {
-	DisplayName: Ancient Coin
-	Tooltip: ""
-}
-
-ShinyCharm: {
-	DisplayName: Shiny Charm
-	Tooltip: ""
-}
-
-ShinyCharmFish: {
-	DisplayName: Shiny Charm Fish
-	Tooltip: ""
+	MonsterSoul: {
+		DisplayName: Monster Soul
+		Tooltip: ""
+	}
 }
 
 MonochromeApple: {
@@ -265,171 +529,6 @@ FancyTruffle: {
 	Tooltip: ""
 }
 
-EXSoul: {
-	DisplayName: E X Soul
-	Tooltip: ""
-}
-
-LuckyCracker: {
-	DisplayName: Lucky Cracker
-	Tooltip: ""
-}
-
-LuckyCalmingPotion: {
-	DisplayName: Lucky Calming Potion
-	Tooltip: ""
-}
-
-LuckyEndurancePotion: {
-	DisplayName: Lucky Endurance Potion
-	Tooltip: ""
-}
-
-LuckyIronskinPotion: {
-	DisplayName: Lucky Ironskin Potion
-	Tooltip: ""
-}
-
-LuckyLifeforcePotion: {
-	DisplayName: Lucky Lifeforce Potion
-	Tooltip: ""
-}
-
-LuckyRagePotion: {
-	DisplayName: Lucky Rage Potion
-	Tooltip: ""
-}
-
-LuckyRegenerationPotion: {
-	DisplayName: Lucky Regeneration Potion
-	Tooltip: ""
-}
-
-LuckySummoningPotion: {
-	DisplayName: Lucky Summoning Potion
-	Tooltip: ""
-}
-
-LuckySwiftnessPotion: {
-	DisplayName: Lucky Swiftness Potion
-	Tooltip: ""
-}
-
-LuckyThornsPotion: {
-	DisplayName: Lucky Thorns Potion
-	Tooltip: ""
-}
-
-LuckyWrathPotion: {
-	DisplayName: Lucky Wrath Potion
-	Tooltip: ""
-}
-
-RoninPotion: {
-	DisplayName: Ronin Potion
-	Tooltip: ""
-}
-
-Carrot: {
-	DisplayName: Carrot
-	Tooltip: ""
-}
-
-BiomePrism: {
-	DisplayName: Biome Prism
-	Tooltip: ""
-}
-
-M79Parts: {
-	DisplayName: M79 Parts
-	Tooltip: ""
-}
-
-BlueAlchemicalMushroom: {
-	DisplayName: Blue Alchemical Mushroom
-	Tooltip: ""
-}
-
-BrownAlchemicalMushroom: {
-	DisplayName: Brown Alchemical Mushroom
-	Tooltip: ""
-}
-
-GrayAlchemicalMushroom: {
-	DisplayName: Gray Alchemical Mushroom
-	Tooltip: ""
-}
-
-GreenAlchemicalMushroom: {
-	DisplayName: Green Alchemical Mushroom
-	Tooltip: ""
-}
-
-OrangeAlchemicalMushroom: {
-	DisplayName: Orange Alchemical Mushroom
-	Tooltip: ""
-}
-
-PinkAlchemicalMushroom: {
-	DisplayName: Pink Alchemical Mushroom
-	Tooltip: ""
-}
-
-PurpleAlchemicalMushroom: {
-	DisplayName: Purple Alchemical Mushroom
-	Tooltip: ""
-}
-
-RedAlchemicalMushroom: {
-	DisplayName: Red Alchemical Mushroom
-	Tooltip: ""
-}
-
-YellowAlchemicalMushroom: {
-	DisplayName: Yellow Alchemical Mushroom
-	Tooltip: ""
-}
-
-GrandHealingPotion: {
-	DisplayName: Grand Healing Potion
-	Tooltip: ""
-}
-
-GrandManaPotion: {
-	DisplayName: Grand Mana Potion
-	Tooltip: ""
-}
-
-TheBigOne: {
-	DisplayName: The Big One
-	Tooltip: ""
-}
-
-GoddessFeather: {
-	DisplayName: Goddess Feather
-	Tooltip: ""
-}
-
-SeraphFeather: {
-	DisplayName: Seraph Feather
-	Tooltip: ""
-}
-
-StormSphere: {
-	DisplayName: Storm Sphere
-	Tooltip: ""
-}
-
-BloodRune: {
-	DisplayName: Blood Rune
-	Tooltip: ""
-}
-
-RajahPelt: {
-	DisplayName: Rajah Pelt
-	Tooltip: ""
-}
-
 RoyalRabbit_Item: {
 	DisplayName: Royal Rabbit_ Item
 	Tooltip: ""
@@ -440,163 +539,45 @@ ChampionHelmetMage_CarrotBooster: {
 	Tooltip: ""
 }
 
-OrderBottle: {
-	DisplayName: Order Bottle
-	Tooltip: ""
-}
+Dyes: {
+	DiscordianDye: {
+		DisplayName: Discordian Dye
+		Tooltip: ""
+	}
 
-OrderSolution: {
-	DisplayName: Order Solution
-	Tooltip: ""
-}
+	DiscordianInfernoDye: {
+		DisplayName: Discordian Inferno Dye
+		Tooltip: ""
+	}
 
-Timecaller: {
-	DisplayName: Timecaller
-	Tooltip: ""
-}
+	BlazingDye: {
+		DisplayName: Blazing Dye
+		Tooltip: ""
+	}
 
-ChaosPrism: {
-	DisplayName: Chaos Prism
-	Tooltip: ""
-}
+	BlazingFuryDye: {
+		DisplayName: Blazing Fury Dye
+		Tooltip: ""
+	}
 
-ChaosSoul: {
-	DisplayName: Chaos Soul
-	Tooltip: ""
-}
+	AbyssalDye: {
+		DisplayName: Abyssal Dye
+		Tooltip: ""
+	}
 
-DiscordianDye: {
-	DisplayName: Discordian Dye
-	Tooltip: ""
-}
+	AbyssalWrathDye: {
+		DisplayName: Abyssal Wrath Dye
+		Tooltip: ""
+	}
 
-DiscordianInfernoDye: {
-	DisplayName: Discordian Inferno Dye
-	Tooltip: ""
-}
-
-CorruptionFlask: {
-	DisplayName: Corruption Flask
-	Tooltip: ""
-}
-
-CrimsonFlask: {
-	DisplayName: Crimson Flask
-	Tooltip: ""
-}
-
-DesertMana: {
-	DisplayName: Desert Mana
-	Tooltip: ""
-}
-
-VultureFeather: {
-	DisplayName: Vulture Feather
-	Tooltip: ""
-}
-
-DesertCrate: {
-	DisplayName: Desert Crate
-	Tooltip: ""
-}
-
-YellowSolution: {
-	DisplayName: Yellow Solution
-	Tooltip: ""
-}
-
-ForsakenFragment: {
-	DisplayName: Forsaken Fragment
-	Tooltip: ""
+	DoomsdayDye: {
+		DisplayName: Doomsday Dye
+		Tooltip: ""
+	}
 }
 
 TheLifeAndEpicAdventuresOfAnubisTheWonderDog: {
 	DisplayName: The Life And Epic Adventures Of Anubis The Wonder Dog
-	Tooltip: ""
-}
-
-SoulFragment: {
-	DisplayName: Soul Fragment
-	Tooltip: ""
-}
-
-ChristmasCheer: {
-	DisplayName: Christmas Cheer
-	Tooltip: ""
-}
-
-GlowingSporeBag: {
-	DisplayName: Glowing Spore Bag
-	Tooltip: ""
-}
-
-GlowingMushium: {
-	DisplayName: Glowing Mushium
-	Tooltip: ""
-}
-
-GoblinSoul: {
-	DisplayName: Goblin Soul
-	Tooltip: ""
-}
-
-HallowFlask: {
-	DisplayName: Hallow Flask
-	Tooltip: ""
-}
-
-DevilSilk: {
-	DisplayName: Devil Silk
-	Tooltip: ""
-}
-
-HellCrate: {
-	DisplayName: Hell Crate
-	Tooltip: ""
-}
-
-PureEvil: {
-	DisplayName: Pure Evil
-	Tooltip: ""
-}
-
-GildedKey: {
-	DisplayName: Gilded Key
-	Tooltip: ""
-}
-
-CovetiteCrystal: {
-	DisplayName: Covetite Crystal
-	Tooltip: ""
-}
-
-StoneShell: {
-	DisplayName: Stone Shell
-	Tooltip: ""
-}
-
-AshJar: {
-	DisplayName: Ash Jar
-	Tooltip: ""
-}
-
-Sunpowder: {
-	DisplayName: Sunpowder
-	Tooltip: ""
-}
-
-DragonClaw_Item: {
-	DisplayName: Dragon Claw_ Item
-	Tooltip: ""
-}
-
-DragonScale: {
-	DisplayName: Dragon Scale
-	Tooltip: ""
-}
-
-Hotshroom: {
-	DisplayName: Hotshroom
 	Tooltip: ""
 }
 
@@ -610,198 +591,8 @@ Hellfisher: {
 	Tooltip: ""
 }
 
-FlaskOfDragonfire: {
-	DisplayName: Flask Of Dragonfire
-	Tooltip: ""
-}
-
-KeyOfSmite: {
-	DisplayName: Key Of Smite
-	Tooltip: ""
-}
-
-OrangeSolution: {
-	DisplayName: Orange Solution
-	Tooltip: ""
-}
-
-Suncaller: {
-	DisplayName: Suncaller
-	Tooltip: ""
-}
-
-DragonFire: {
-	DisplayName: Dragon Fire
-	Tooltip: ""
-}
-
-SoulOfSmite: {
-	DisplayName: Soul Of Smite
-	Tooltip: ""
-}
-
-BlazingDye: {
-	DisplayName: Blazing Dye
-	Tooltip: ""
-}
-
-BlazingFuryDye: {
-	DisplayName: Blazing Fury Dye
-	Tooltip: ""
-}
-
-CrucibleScale: {
-	DisplayName: Crucible Scale
-	Tooltip: ""
-}
-
-SearingSpark: {
-	DisplayName: Searing Spark
-	Tooltip: ""
-}
-
-Fungicide: {
-	DisplayName: Fungicide
-	Tooltip: ""
-}
-
-JungleFlask: {
-	DisplayName: Jungle Flask
-	Tooltip: ""
-}
-
-LimeSolution: {
-	DisplayName: Lime Solution
-	Tooltip: ""
-}
-
-SwarmSolution: {
-	DisplayName: Swarm Solution
-	Tooltip: ""
-}
-
-PlanteraPetal: {
-	DisplayName: Plantera Petal
-	Tooltip: ""
-}
-
-GodlySoul: {
-	DisplayName: Godly Soul
-	Tooltip: ""
-}
-
-LegendarySoul: {
-	DisplayName: Legendary Soul
-	Tooltip: ""
-}
-
-MythicalSoul: {
-	DisplayName: Mythical Soul
-	Tooltip: ""
-}
-
-UnrealSoul: {
-	DisplayName: Unreal Soul
-	Tooltip: ""
-}
-
-MadnessFragment: {
-	DisplayName: Madness Fragment
-	Tooltip: ""
-}
-
-MartianCredit: {
-	DisplayName: Martian Credit
-	Tooltip: ""
-}
-
-DarkwaterFlask: {
-	DisplayName: Darkwater Flask
-	Tooltip: ""
-}
-
-Moonpowder: {
-	DisplayName: Moonpowder
-	Tooltip: ""
-}
-
-BlackLotus: {
-	DisplayName: Black Lotus
-	Tooltip: ""
-}
-
-Darkshroom: {
-	DisplayName: Darkshroom
-	Tooltip: ""
-}
-
-HydraClaw_Item: {
-	DisplayName: Hydra Claw_ Item
-	Tooltip: ""
-}
-
-HydraHide: {
-	DisplayName: Hydra Hide
-	Tooltip: ""
-}
-
-MirePod: {
-	DisplayName: Mire Pod
-	Tooltip: ""
-}
-
 TriHeadedKoi: {
 	DisplayName: Tri Headed Koi
-	Tooltip: ""
-}
-
-FlaskOfHydratoxin: {
-	DisplayName: Flask Of Hydratoxin
-	Tooltip: ""
-}
-
-IndigoSolution: {
-	DisplayName: Indigo Solution
-	Tooltip: ""
-}
-
-KeyOfSpite: {
-	DisplayName: Key Of Spite
-	Tooltip: ""
-}
-
-MireKey: {
-	DisplayName: Mire Key
-	Tooltip: ""
-}
-
-Mooncaller: {
-	DisplayName: Mooncaller
-	Tooltip: ""
-}
-
-Bogtoxin: {
-	DisplayName: Bogtoxin
-	Tooltip: ""
-}
-
-SoulOfSpite: {
-	DisplayName: Soul Of Spite
-	Tooltip: ""
-}
-
-AbyssalDye: {
-	DisplayName: Abyssal Dye
-	Tooltip: ""
-}
-
-AbyssalWrathDye: {
-	DisplayName: Abyssal Wrath Dye
-	Tooltip: ""
-}
-
-TerrorSoul: {
-	DisplayName: Terror Soul
 	Tooltip: ""
 }
 
@@ -810,93 +601,8 @@ LovecraftiansResearchList: {
 	Tooltip: ""
 }
 
-PirateBooty: {
-	DisplayName: Pirate Booty
-	Tooltip: ""
-}
-
-HalloweenTreat: {
-	DisplayName: Halloween Treat
-	Tooltip: ""
-}
-
-ForestFlask: {
-	DisplayName: Forest Flask
-	Tooltip: ""
-}
-
-DeepGreenSolution: {
-	DisplayName: Deep Green Solution
-	Tooltip: ""
-}
-
-BrownSolution: {
-	DisplayName: Brown Solution
-	Tooltip: ""
-}
-
-SporeBag: {
-	DisplayName: Spore Bag
-	Tooltip: ""
-}
-
-Mushium: {
-	DisplayName: Mushium
-	Tooltip: ""
-}
-
 MadnessMushroom: {
 	DisplayName: Madness Mushroom
-	Tooltip: ""
-}
-
-DragonSpirit: {
-	DisplayName: Dragon Spirit
-	Tooltip: ""
-}
-
-IceFlask: {
-	DisplayName: Ice Flask
-	Tooltip: ""
-}
-
-IcemeltFlask: {
-	DisplayName: Icemelt Flask
-	Tooltip: ""
-}
-
-SnowMana: {
-	DisplayName: Snow Mana
-	Tooltip: ""
-}
-
-VikingRelic: {
-	DisplayName: Viking Relic
-	Tooltip: ""
-}
-
-IceCrate: {
-	DisplayName: Ice Crate
-	Tooltip: ""
-}
-
-WhiteSolution: {
-	DisplayName: White Solution
-	Tooltip: ""
-}
-
-MonsterSoul: {
-	DisplayName: Monster Soul
-	Tooltip: ""
-}
-
-StarIdol: {
-	DisplayName: Star Idol
-	Tooltip: ""
-}
-
-RadiantPhoton: {
-	DisplayName: Radiant Photon
 	Tooltip: ""
 }
 
@@ -925,102 +631,12 @@ SC: {
 	Tooltip: ""
 }
 
-RiftMirror: {
-	DisplayName: Rift Mirror
-	Tooltip: ""
-}
-
-HeroRelics: {
-	DisplayName: Hero Relics
-	Tooltip: ""
-}
-
-PurityFlask: {
-	DisplayName: Purity Flask
-	Tooltip: ""
-}
-
-TerraShard: {
-	DisplayName: Terra Shard
-	Tooltip: ""
-}
-
-TerraPrism: {
-	DisplayName: Terra Prism
-	Tooltip: ""
-}
-
-Prism: {
-	DisplayName: Prism
-	Tooltip: ""
-}
-
-VoidFlask: {
-	DisplayName: Void Flask
-	Tooltip: ""
-}
-
 GlitchFish: {
 	DisplayName: Glitch Fish
 	Tooltip: ""
 }
 
-CodeMagnet: {
-	DisplayName: Code Magnet
-	Tooltip: ""
-}
-
-CodeMagnetOff: {
-	DisplayName: Code Magnet Off
-	Tooltip: ""
-}
-
-BlackSolution: {
-	DisplayName: Black Solution
-	Tooltip: ""
-}
-
-DoomsdayDye: {
-	DisplayName: Doomsday Dye
-	Tooltip: ""
-}
-
-ApocalyptitePlate: {
-	DisplayName: Apocalyptite Plate
-	Tooltip: ""
-}
-
-UnstableSingularity: {
-	DisplayName: Unstable Singularity
-	Tooltip: ""
-}
-
-MadnessTruffle: {
-	DisplayName: Madness Truffle
-	Tooltip: ""
-}
-
 GreedLore: {
 	DisplayName: Greed Lore
-	Tooltip: ""
-}
-
-TerraKey: {
-	DisplayName: Terra Key
-	Tooltip: ""
-}
-
-TreasureRadar: {
-	DisplayName: Treasure Radar
-	Tooltip: ""
-}
-
-VoidGraivtyItemIDKTheNameYet: {
-	DisplayName: Void Graivty Item I D K The Name Yet
-	Tooltip: ""
-}
-
-VoidGraivtyItemIDKTheNameYetOff: {
-	DisplayName: Void Graivty Item I D K The Name Yet Off
 	Tooltip: ""
 }

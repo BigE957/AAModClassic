@@ -7,7 +7,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 {
     public class RadiumOre : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
 

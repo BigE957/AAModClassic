@@ -7,7 +7,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 
 public class TerraLamp : ModItem, ILocalizedModType
 {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Terra";
 	public override void SetStaticDefaults()
 	{
 		// DisplayName.SetDefault("Terra Lamp");

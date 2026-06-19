@@ -1,140 +1,102 @@
-ChaosCrucible: {
-	DisplayName: Chaos Crucible
-	Tooltip: ""
-}
+Functional: {
+	ChaosCrucible: {
+		DisplayName: Chaos Crucible
+		Tooltip: ""
+	}
 
-TruePaladinsSmeltery: {
-	DisplayName: True Paladins Smeltery
-	Tooltip: ""
-}
+	TruePaladinsSmeltery: {
+		DisplayName: True Paladins Smeltery
+		Tooltip: ""
+	}
 
-HaphestusForge: {
-	DisplayName: Haphestus Forge
-	Tooltip: ""
-}
+	HaphestusForge: {
+		DisplayName: Haphestus Forge
+		Tooltip: ""
+	}
 
-IncineriteBar: {
-	DisplayName: Incinerite Bar
-	Tooltip: ""
-}
+	DragonAltarSafe: {
+		DisplayName: Dragon Altar Safe
+		Tooltip: ""
+	}
 
-IncineriteOre: {
-	DisplayName: Incinerite Ore
-	Tooltip: ""
-}
+	QuantumFusionAccelerator: {
+		DisplayName: Quantum Fusion Accelerator
+		Tooltip: ""
+	}
 
-DragonAltarSafe: {
-	DisplayName: Dragon Altar Safe
-	Tooltip: ""
-}
+	RadiantArcanum: {
+		DisplayName: Radiant Arcanum
+		Tooltip: ""
+	}
 
-RadiantIncineriteBar: {
-	DisplayName: Radiant Incinerite Bar
-	Tooltip: ""
-}
+	BinaryReassembler: {
+		DisplayName: Binary Reassembler
+		Tooltip: ""
+	}
 
-EventideAbyssiumOre: {
-	DisplayName: Eventide Abyssium Ore
-	Tooltip: ""
-}
+	FurnitureDynamo: {
+		DisplayName: Furniture Dynamo
+		Tooltip: ""
+	}
 
-QuantumFusionAccelerator: {
-	DisplayName: Quantum Fusion Accelerator
-	Tooltip: ""
-}
+	CorruptAltar: {
+		DisplayName: Corrupt Altar
+		Tooltip: ""
+	}
 
-RadiantArcanum: {
-	DisplayName: Radiant Arcanum
-	Tooltip: ""
+	CrimsonAltar: {
+		DisplayName: Crimson Altar
+		Tooltip: ""
+	}
+
+	HallowedAnvil: {
+		DisplayName: Hallowed Anvil
+		Tooltip: ""
+	}
+
+	HallowedForge: {
+		DisplayName: Hallowed Forge
+		Tooltip: ""
+	}
+
+	PaladinsSmeltery: {
+		DisplayName: Paladins Smeltery
+		Tooltip: ""
+	}
+
+	HellstoneAnvil: {
+		DisplayName: Hellstone Anvil
+		Tooltip: ""
+	}
+
+	SharpeningLavaFish: {
+		DisplayName: Sharpening Lava Fish
+		Tooltip: ""
+	}
+
+	AbyssAltarSafe: {
+		DisplayName: Abyss Altar Safe
+		Tooltip: ""
+	}
+
+	ToxinMonkfish: {
+		DisplayName: Toxin Monkfish
+		Tooltip: ""
+	}
+
+	TerraCore: {
+		DisplayName: Terra Core
+		Tooltip: ""
+	}
+
+	TerraPrismStation: {
+		DisplayName: Terra Prism Station
+		Tooltip: ""
+	}
 }
 
 TerraCrystal: {
 	DisplayName: Terra Crystal
-	Tooltip: ""
-}
-
-ApocalyptiteOre: {
-	DisplayName: Apocalyptite Ore
-	Tooltip: ""
-}
-
-DoomBathtub: {
-	DisplayName: Doom Bathtub
-	Tooltip: ""
-}
-
-DoomBed: {
-	DisplayName: Doom Bed
-	Tooltip: ""
-}
-
-DoomCandelabra: {
-	DisplayName: Doom Candelabra
-	Tooltip: ""
-}
-
-DoomCandle: {
-	DisplayName: Doom Candle
-	Tooltip: ""
-}
-
-DoomChair: {
-	DisplayName: Doom Chair
-	Tooltip: ""
-}
-
-DoomChandelier: {
-	DisplayName: Doom Chandelier
-	Tooltip: ""
-}
-
-DoomChest: {
-	DisplayName: Doom Chest
-	Tooltip: ""
-}
-
-DoomClock: {
-	DisplayName: Doom Clock
-	Tooltip: ""
-}
-
-DoomCouch: {
-	DisplayName: Doom Couch
-	Tooltip: ""
-}
-
-DoomDresser: {
-	DisplayName: Doom Dresser
-	Tooltip: ""
-}
-
-DoomLamp: {
-	DisplayName: Doom Lamp
-	Tooltip: ""
-}
-
-DoomLantern: {
-	DisplayName: Doom Lantern
-	Tooltip: ""
-}
-
-DoomPiano: {
-	DisplayName: Doom Piano
-	Tooltip: ""
-}
-
-DoomSink: {
-	DisplayName: Doom Sink
-	Tooltip: ""
-}
-
-DoomTable: {
-	DisplayName: Doom Table
-	Tooltip: ""
-}
-
-DoomWorkbench: {
-	DisplayName: Doom Workbench
 	Tooltip: ""
 }
 
@@ -150,21 +112,6 @@ DoomstoneBrick: {
 
 VoidUnit: {
 	DisplayName: Void Unit
-	Tooltip: ""
-}
-
-BinaryReassembler: {
-	DisplayName: Binary Reassembler
-	Tooltip: ""
-}
-
-FulguriteBar: {
-	DisplayName: Fulgurite Bar
-	Tooltip: ""
-}
-
-FulguriteShard: {
-	DisplayName: Fulgurite Shard
 	Tooltip: ""
 }
 
@@ -248,16 +195,6 @@ EnderMemory: {
 	Tooltip: ""
 }
 
-FurnitureDynamo: {
-	DisplayName: Furniture Dynamo
-	Tooltip: ""
-}
-
-SkyCrystal: {
-	DisplayName: Sky Crystal
-	Tooltip: ""
-}
-
 SkycrystalBrick: {
 	DisplayName: Skycrystal Brick
 	Tooltip: ""
@@ -283,61 +220,6 @@ DiscordianTorch: {
 	Tooltip: ""
 }
 
-CorruptAltar: {
-	DisplayName: Corrupt Altar
-	Tooltip: ""
-}
-
-CrimsonAltar: {
-	DisplayName: Crimson Altar
-	Tooltip: ""
-}
-
-DynaskullFossil: {
-	DisplayName: Dynaskull Fossil
-	Tooltip: ""
-}
-
-GlowingMushiumBar: {
-	DisplayName: Glowing Mushium Bar
-	Tooltip: ""
-}
-
-HallowedOre: {
-	DisplayName: Hallowed Ore
-	Tooltip: ""
-}
-
-HallowedAnvil: {
-	DisplayName: Hallowed Anvil
-	Tooltip: ""
-}
-
-HallowedForge: {
-	DisplayName: Hallowed Forge
-	Tooltip: ""
-}
-
-PaladinsSmeltery: {
-	DisplayName: Paladins Smeltery
-	Tooltip: ""
-}
-
-HellstoneAnvil: {
-	DisplayName: Hellstone Anvil
-	Tooltip: ""
-}
-
-CovetiteBar: {
-	DisplayName: Covetite Bar
-	Tooltip: ""
-}
-
-CovetiteOre: {
-	DisplayName: Covetite Ore
-	Tooltip: ""
-}
-
 CovetiteBrick: {
 	DisplayName: Covetite Brick
 	Tooltip: ""
@@ -358,11 +240,6 @@ GreedLantern: {
 	Tooltip: ""
 }
 
-ScorchedSeeds: {
-	DisplayName: Scorched Seeds
-	Tooltip: ""
-}
-
 IncineriteBrick: {
 	DisplayName: Incinerite Brick
 	Tooltip: ""
@@ -378,113 +255,13 @@ Razewood: {
 	Tooltip: ""
 }
 
-RazewoodBed: {
-	DisplayName: Razewood Bed
-	Tooltip: ""
-}
-
-RazewoodBookshelf: {
-	DisplayName: Razewood Bookshelf
-	Tooltip: ""
-}
-
-RazewoodCandelabra: {
-	DisplayName: Razewood Candelabra
-	Tooltip: ""
-}
-
-RazewoodCandle: {
-	DisplayName: Razewood Candle
-	Tooltip: ""
-}
-
-RazewoodChair: {
-	DisplayName: Razewood Chair
-	Tooltip: ""
-}
-
-RazewoodChandelier: {
-	DisplayName: Razewood Chandelier
-	Tooltip: ""
-}
-
-RazewoodChest: {
-	DisplayName: Razewood Chest
-	Tooltip: ""
-}
-
-RazewoodClock: {
-	DisplayName: Razewood Clock
-	Tooltip: ""
-}
-
-RazewoodCouch: {
-	DisplayName: Razewood Couch
-	Tooltip: ""
-}
-
-RazewoodDoor: {
-	DisplayName: Razewood Door
-	Tooltip: ""
-}
-
-RazewoodDresser: {
-	DisplayName: Razewood Dresser
-	Tooltip: ""
-}
-
-RazewoodLamp: {
-	DisplayName: Razewood Lamp
-	Tooltip: ""
-}
-
-RazewoodLantern: {
-	DisplayName: Razewood Lantern
-	Tooltip: ""
-}
-
-RazewoodPiano: {
-	DisplayName: Razewood Piano
-	Tooltip: ""
-}
-
-RazewoodPlatform: {
-	DisplayName: Razewood Platform
-	Tooltip: ""
-}
-
-RazewoodSink: {
-	DisplayName: Razewood Sink
-	Tooltip: ""
-}
-
-RazewoodTable: {
-	DisplayName: Razewood Table
-	Tooltip: ""
-}
-
-RazewoodTub: {
-	DisplayName: Razewood Tub
-	Tooltip: ""
-}
-
 RazewoodWall: {
 	DisplayName: Razewood Wall
 	Tooltip: ""
 }
 
-RazewoodWorkbench: {
-	DisplayName: Razewood Workbench
-	Tooltip: ""
-}
-
 DragonfireTorch: {
 	DisplayName: Dragonfire Torch
-	Tooltip: ""
-}
-
-SharpeningLavaFish: {
-	DisplayName: Sharpening Lava Fish
 	Tooltip: ""
 }
 
@@ -495,16 +272,6 @@ SunAltar: {
 
 SunAltarA: {
 	DisplayName: Sun Altar A
-	Tooltip: ""
-}
-
-DaybreakIncineriteBar: {
-	DisplayName: Daybreak Incinerite Bar
-	Tooltip: ""
-}
-
-DaybreakIncineriteOre: {
-	DisplayName: Daybreak Incinerite Ore
 	Tooltip: ""
 }
 
@@ -573,26 +340,6 @@ Torchstone: {
 	Tooltip: ""
 }
 
-DankSeeds: {
-	DisplayName: Dank Seeds
-	Tooltip: ""
-}
-
-AbyssiumBar: {
-	DisplayName: Abyssium Bar
-	Tooltip: ""
-}
-
-AbyssiumOre: {
-	DisplayName: Abyssium Ore
-	Tooltip: ""
-}
-
-AbyssAltarSafe: {
-	DisplayName: Abyss Altar Safe
-	Tooltip: ""
-}
-
 AbyssiumBrick: {
 	DisplayName: Abyssium Brick
 	Tooltip: ""
@@ -603,123 +350,13 @@ Bogwood: {
 	Tooltip: ""
 }
 
-BogwoodBathtub: {
-	DisplayName: Bogwood Bathtub
-	Tooltip: ""
-}
-
-BogwoodBed: {
-	DisplayName: Bogwood Bed
-	Tooltip: ""
-}
-
-BogwoodBench: {
-	DisplayName: Bogwood Bench
-	Tooltip: ""
-}
-
-BogwoodBookshelf: {
-	DisplayName: Bogwood Bookshelf
-	Tooltip: ""
-}
-
-BogwoodCandelabra: {
-	DisplayName: Bogwood Candelabra
-	Tooltip: ""
-}
-
-BogwoodCandle: {
-	DisplayName: Bogwood Candle
-	Tooltip: ""
-}
-
-BogwoodChair: {
-	DisplayName: Bogwood Chair
-	Tooltip: ""
-}
-
-BogwoodChandelier: {
-	DisplayName: Bogwood Chandelier
-	Tooltip: ""
-}
-
-BogwoodChest: {
-	DisplayName: Bogwood Chest
-	Tooltip: ""
-}
-
-BogwoodClock: {
-	DisplayName: Bogwood Clock
-	Tooltip: ""
-}
-
-BogwoodCouch: {
-	DisplayName: Bogwood Couch
-	Tooltip: ""
-}
-
-BogwoodDoor: {
-	DisplayName: Bogwood Door
-	Tooltip: ""
-}
-
-BogwoodDresser: {
-	DisplayName: Bogwood Dresser
-	Tooltip: ""
-}
-
-BogwoodLamp: {
-	DisplayName: Bogwood Lamp
-	Tooltip: ""
-}
-
-BogwoodLantern: {
-	DisplayName: Bogwood Lantern
-	Tooltip: ""
-}
-
-BogwoodPiano: {
-	DisplayName: Bogwood Piano
-	Tooltip: ""
-}
-
-BogwoodPlatform: {
-	DisplayName: Bogwood Platform
-	Tooltip: ""
-}
-
-BogwoodSink: {
-	DisplayName: Bogwood Sink
-	Tooltip: ""
-}
-
-BogwoodTable: {
-	DisplayName: Bogwood Table
-	Tooltip: ""
-}
-
 BogwoodWall: {
 	DisplayName: Bogwood Wall
 	Tooltip: ""
 }
 
-BogwoodWorkbench: {
-	DisplayName: Bogwood Workbench
-	Tooltip: ""
-}
-
-DeepAbyssiumBar: {
-	DisplayName: Deep Abyssium Bar
-	Tooltip: ""
-}
-
 BogtoxinTorch: {
 	DisplayName: Bogtoxin Torch
-	Tooltip: ""
-}
-
-ToxinMonkfish: {
-	DisplayName: Toxin Monkfish
 	Tooltip: ""
 }
 
@@ -730,11 +367,6 @@ DreadMoonAltar: {
 
 DreadMoonAltarA: {
 	DisplayName: Dread Moon Altar A
-	Tooltip: ""
-}
-
-EventideAbyssiumBar: {
-	DisplayName: Eventide Abyssium Bar
 	Tooltip: ""
 }
 
@@ -788,23 +420,8 @@ IndigoIce: {
 	Tooltip: ""
 }
 
-MyceliumSeeds: {
-	DisplayName: Mycelium Seeds
-	Tooltip: ""
-}
-
-MushiumBar: {
-	DisplayName: Mushium Bar
-	Tooltip: ""
-}
-
 MushroomBlock: {
 	DisplayName: Mushroom Block
-	Tooltip: ""
-}
-
-RelicBar: {
-	DisplayName: Relic Bar
 	Tooltip: ""
 }
 
@@ -815,26 +432,6 @@ RelicBrick: {
 
 RelicBrickWall: {
 	DisplayName: Relic Brick Wall
-	Tooltip: ""
-}
-
-DarkmatterBar: {
-	DisplayName: Darkmatter Bar
-	Tooltip: ""
-}
-
-DarkmatterOre: {
-	DisplayName: Darkmatter Ore
-	Tooltip: ""
-}
-
-RadiumBar: {
-	DisplayName: Radium Bar
-	Tooltip: ""
-}
-
-RadiumOre: {
-	DisplayName: Radium Ore
 	Tooltip: ""
 }
 
@@ -868,16 +465,6 @@ RadiumBrickWall: {
 	Tooltip: ""
 }
 
-TerraCore: {
-	DisplayName: Terra Core
-	Tooltip: ""
-}
-
-TerraPrismStation: {
-	DisplayName: Terra Prism Station
-	Tooltip: ""
-}
-
 PermeableTerraWoodWand: {
 	DisplayName: Permeable Terra Wood Wand
 	Tooltip: ""
@@ -893,98 +480,13 @@ TerraWoodWand: {
 	Tooltip: ""
 }
 
-DoomiteBar: {
-	DisplayName: Doomite Bar
-	Tooltip: ""
-}
-
-DoomiteScrap: {
-	DisplayName: Doomite Scrap
-	Tooltip: ""
-}
-
 OroborosWood: {
 	DisplayName: Oroboros Wood
 	Tooltip: ""
 }
 
-OroborosWoodBathtub: {
-	DisplayName: Oroboros Wood Bathtub
-	Tooltip: ""
-}
-
-OroborosWoodBed: {
-	DisplayName: Oroboros Wood Bed
-	Tooltip: ""
-}
-
-OroborosWoodBookcase: {
-	DisplayName: Oroboros Wood Bookcase
-	Tooltip: ""
-}
-
-OroborosWoodCandle: {
-	DisplayName: Oroboros Wood Candle
-	Tooltip: ""
-}
-
-OroborosWoodChair: {
-	DisplayName: Oroboros Wood Chair
-	Tooltip: ""
-}
-
-OroborosWoodChest: {
-	DisplayName: Oroboros Wood Chest
-	Tooltip: ""
-}
-
-OroborosWoodClock: {
-	DisplayName: Oroboros Wood Clock
-	Tooltip: ""
-}
-
-OroborosWoodDoor: {
-	DisplayName: Oroboros Wood Door
-	Tooltip: ""
-}
-
-OroborosWoodLamp: {
-	DisplayName: Oroboros Wood Lamp
-	Tooltip: ""
-}
-
-OroborosWoodLantern: {
-	DisplayName: Oroboros Wood Lantern
-	Tooltip: ""
-}
-
-OroborosWoodPlatform: {
-	DisplayName: Oroboros Wood Platform
-	Tooltip: ""
-}
-
 OroborosWoodWall: {
 	DisplayName: Oroboros Wood Wall
-	Tooltip: ""
-}
-
-OroborosWoodWorkbench: {
-	DisplayName: Oroboros Wood Workbench
-	Tooltip: ""
-}
-
-DoomBookcase: {
-	DisplayName: Doom Bookcase
-	Tooltip: ""
-}
-
-DoomDoor: {
-	DisplayName: Doom Door
-	Tooltip: ""
-}
-
-DoomPlatform: {
-	DisplayName: Doom Platform
 	Tooltip: ""
 }
 
@@ -1015,186 +517,6 @@ DoomsdayChest: {
 
 DoomitePlatingWall: {
 	DisplayName: Doomite Plating Wall
-	Tooltip: ""
-}
-
-KeepBath: {
-	DisplayName: Keep Bath
-	Tooltip: ""
-}
-
-KeepBed: {
-	DisplayName: Keep Bed
-	Tooltip: ""
-}
-
-KeepBookcase: {
-	DisplayName: Keep Bookcase
-	Tooltip: ""
-}
-
-KeepCandelabra: {
-	DisplayName: Keep Candelabra
-	Tooltip: ""
-}
-
-KeepCandle: {
-	DisplayName: Keep Candle
-	Tooltip: ""
-}
-
-KeepChair: {
-	DisplayName: Keep Chair
-	Tooltip: ""
-}
-
-KeepChandelier: {
-	DisplayName: Keep Chandelier
-	Tooltip: ""
-}
-
-KeepClock: {
-	DisplayName: Keep Clock
-	Tooltip: ""
-}
-
-KeepCouch: {
-	DisplayName: Keep Couch
-	Tooltip: ""
-}
-
-KeepDoor: {
-	DisplayName: Keep Door
-	Tooltip: ""
-}
-
-KeepDresser: {
-	DisplayName: Keep Dresser
-	Tooltip: ""
-}
-
-KeepLamp: {
-	DisplayName: Keep Lamp
-	Tooltip: ""
-}
-
-KeepLantern: {
-	DisplayName: Keep Lantern
-	Tooltip: ""
-}
-
-KeepPiano: {
-	DisplayName: Keep Piano
-	Tooltip: ""
-}
-
-KeepSink: {
-	DisplayName: Keep Sink
-	Tooltip: ""
-}
-
-KeepTable: {
-	DisplayName: Keep Table
-	Tooltip: ""
-}
-
-KeepWorkbench: {
-	DisplayName: Keep Workbench
-	Tooltip: ""
-}
-
-SpiralStairs: {
-	DisplayName: Spiral Stairs
-	Tooltip: ""
-}
-
-TerraBath: {
-	DisplayName: Terra Bath
-	Tooltip: ""
-}
-
-TerraBed: {
-	DisplayName: Terra Bed
-	Tooltip: ""
-}
-
-TerraBookcase: {
-	DisplayName: Terra Bookcase
-	Tooltip: ""
-}
-
-TerraCandelabra: {
-	DisplayName: Terra Candelabra
-	Tooltip: ""
-}
-
-TerraCandle: {
-	DisplayName: Terra Candle
-	Tooltip: ""
-}
-
-TerraChair: {
-	DisplayName: Terra Chair
-	Tooltip: ""
-}
-
-TerraChandelier: {
-	DisplayName: Terra Chandelier
-	Tooltip: ""
-}
-
-TerraChest: {
-	DisplayName: Terra Chest
-	Tooltip: ""
-}
-
-TerraClock: {
-	DisplayName: Terra Clock
-	Tooltip: ""
-}
-
-TerraCouch: {
-	DisplayName: Terra Couch
-	Tooltip: ""
-}
-
-TerraDoor: {
-	DisplayName: Terra Door
-	Tooltip: ""
-}
-
-TerraDresser: {
-	DisplayName: Terra Dresser
-	Tooltip: ""
-}
-
-TerraLamp: {
-	DisplayName: Terra Lamp
-	Tooltip: ""
-}
-
-TerraLantern: {
-	DisplayName: Terra Lantern
-	Tooltip: ""
-}
-
-TerraPiano: {
-	DisplayName: Terra Piano
-	Tooltip: ""
-}
-
-TerraSink: {
-	DisplayName: Terra Sink
-	Tooltip: ""
-}
-
-TerraTable: {
-	DisplayName: Terra Table
-	Tooltip: ""
-}
-
-TerraWorkbench: {
-	DisplayName: Terra Workbench
 	Tooltip: ""
 }
 
@@ -1348,12 +670,27 @@ RottedShingles: {
 	Tooltip: ""
 }
 
+SunkenChest: {
+	DisplayName: Sunken Chest
+	Tooltip: ""
+}
+
 Sticker: {
 	DisplayName: Sticker
 	Tooltip: ""
 }
 
-SunkenChest: {
-	DisplayName: Sunken Chest
+DesertCrate: {
+	DisplayName: Desert Crate
+	Tooltip: ""
+}
+
+HellCrate: {
+	DisplayName: Hell Crate
+	Tooltip: ""
+}
+
+IceCrate: {
+	DisplayName: Ice Crate
 	Tooltip: ""
 }

@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Functional
 {
     public class DragonAltarSafe : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         
         public override void SetStaticDefaults()
         {

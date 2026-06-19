@@ -7,7 +7,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
 public class KeepCandle : ModItem, ILocalizedModType
 {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Keep";
 	public override void SetStaticDefaults()
 	{
 		// DisplayName.SetDefault("Keep Candle");

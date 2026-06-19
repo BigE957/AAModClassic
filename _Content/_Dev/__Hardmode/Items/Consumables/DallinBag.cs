@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;

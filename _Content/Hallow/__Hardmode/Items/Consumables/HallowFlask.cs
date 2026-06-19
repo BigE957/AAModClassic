@@ -1,12 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Consumables
 {
-    public class HallowFlask : BaseAAItem
+    public class HallowFlask : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 22;

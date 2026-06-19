@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc._PostMoonlord.Items.Consumables
 {
-    public class TheBigOne : BaseAAItem
+    public class TheBigOne : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("The Big One");

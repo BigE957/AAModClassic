@@ -9,8 +9,9 @@ using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
 {
-    public class StormSphere : BaseAAItem
+    public class StormSphere : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Sphere");

@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional
 {
     public class RadiantArcanum : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         
         public override void SetStaticDefaults()
         {

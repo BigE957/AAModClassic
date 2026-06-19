@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
 {
     public class EventideAbyssiumBar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Eventide Abyssium");

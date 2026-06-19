@@ -7,7 +7,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials
 {
     public class MushiumBar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
 

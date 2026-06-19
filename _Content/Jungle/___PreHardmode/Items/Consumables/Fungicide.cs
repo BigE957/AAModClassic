@@ -1,4 +1,4 @@
-using AAModClassic._Content.Jungle.__Hardmode.Items.Consumables;
+﻿using AAModClassic._Content.Jungle.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Consumables
 {
-    public class Fungicide : BaseAAItem
+    public class Fungicide : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 22;

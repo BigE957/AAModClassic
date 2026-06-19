@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional
 {
     public class HaphestusForge : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         
         public override void SetStaticDefaults()
         {

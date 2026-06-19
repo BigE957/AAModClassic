@@ -43,6 +43,11 @@ ChaosTerratool: {
 	Tooltip: ""
 }
 
+Timecaller: {
+	DisplayName: Timecaller
+	Tooltip: ""
+}
+
 DiscordianTerratool: {
 	DisplayName: Discordian Terratool
 	Tooltip: ""
@@ -123,6 +128,11 @@ ScorchShark: {
 	Tooltip: ""
 }
 
+Suncaller: {
+	DisplayName: Suncaller
+	Tooltip: ""
+}
+
 DraconianTerratool: {
 	DisplayName: Draconian Terratool
 	Tooltip: ""
@@ -160,6 +170,11 @@ ShadowDrill: {
 
 DepthDigger: {
 	DisplayName: Depth Digger
+	Tooltip: ""
+}
+
+Mooncaller: {
+	DisplayName: Mooncaller
 	Tooltip: ""
 }
 
@@ -213,8 +228,33 @@ Starminer: {
 	Tooltip: ""
 }
 
+RiftMirror: {
+	DisplayName: Rift Mirror
+	Tooltip: ""
+}
+
+CodeMagnet: {
+	DisplayName: Code Magnet
+	Tooltip: ""
+}
+
+CodeMagnetOff: {
+	DisplayName: Code Magnet Off
+	Tooltip: ""
+}
+
 DoomiteJacksaw: {
 	DisplayName: Doomite Jacksaw
+	Tooltip: ""
+}
+
+VoidGraivtyItemIDKTheNameYet: {
+	DisplayName: Void Graivty Item I D K The Name Yet
+	Tooltip: ""
+}
+
+VoidGraivtyItemIDKTheNameYetOff: {
+	DisplayName: Void Graivty Item I D K The Name Yet Off
 	Tooltip: ""
 }
 

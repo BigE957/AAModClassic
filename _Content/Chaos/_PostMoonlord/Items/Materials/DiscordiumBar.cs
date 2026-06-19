@@ -15,8 +15,9 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
 {
-    public class DiscordiumBar : BaseAAItem
+    public class DiscordiumBar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {

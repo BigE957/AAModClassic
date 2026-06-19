@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {
-    public class Moonpowder : BaseAAItem
+    public class Moonpowder : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetDefaults()
         {
             Item.shoot = ModContent.ProjectileType<Moonpowder_Proj>();

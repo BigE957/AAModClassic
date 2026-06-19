@@ -1,17 +1,19 @@
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire.__Hardmode.Items.Consumables
+namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tools
 {
-    public class Mooncaller : BaseAAItem
+    public class Suncaller : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
+        
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Mooncaller");
-            /* Tooltip.SetDefault(@"Brings forth the shimmering moon.
+            // DisplayName.SetDefault("Suncaller");
+            /* Tooltip.SetDefault(@"Brings forth the morning sun.
 Non-Consumable"); */
         }
 
@@ -29,16 +31,16 @@ Non-Consumable"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            if (!Main.dayTime || Main.IsFastForwardingTime()) /* tModPorter Note: _Unreleased. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */
+            if (Main.dayTime || Main.IsFastForwardingTime())
             {
                 return false;
             }
-            return base.CanUseItem(player);
+            return true;
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            Main.dayTime = false;
+            Main.dayTime = true;
             Main.time = 0;
             return true;
         }
@@ -46,8 +48,8 @@ Non-Consumable"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 10);
-            recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<SoulOfSmite>(), 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

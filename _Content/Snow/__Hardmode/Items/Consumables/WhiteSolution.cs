@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.__Hardmode.Items.Consumables
 {
-    public class WhiteSolution : BaseAAItem
+    public class WhiteSolution : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("White Solution");

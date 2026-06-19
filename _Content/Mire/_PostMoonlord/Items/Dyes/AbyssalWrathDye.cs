@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
 {
-	public class AbyssalWrathDye : BaseAAItem
+	public class AbyssalWrathDye : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Dyes";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Abyssal Wrath Dye");

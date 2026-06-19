@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Functional
 {
     public class AbyssAltarSafe : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Abyss Altar");

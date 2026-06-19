@@ -6,7 +6,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Materials
 {
     public class HallowedOre : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
 

@@ -1,4 +1,4 @@
-using AAModClassic._Content.Snow.__Hardmode.Items.Consumables;
+﻿using AAModClassic._Content.Snow.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Consumables
 {
-    public class IceFlask : BaseAAItem
+    public class IceFlask : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 22;

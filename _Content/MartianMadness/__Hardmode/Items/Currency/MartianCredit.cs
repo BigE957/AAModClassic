@@ -4,11 +4,13 @@ using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency
 {
-    public class MartianCredit : BaseAAItem
+    public class MartianCredit : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Currency";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Martian Credit");

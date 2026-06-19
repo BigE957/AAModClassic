@@ -4,11 +4,13 @@ using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.___PreHardmode.Items.Currency
 {
-    public class AncientCoin : BaseAAItem
+    public class AncientCoin : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Currency";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ancient Coin");

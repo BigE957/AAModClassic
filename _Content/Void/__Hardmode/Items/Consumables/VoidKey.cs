@@ -1,4 +1,4 @@
-
+﻿
 using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 namespace AAModClassic._Content.Void.__Hardmode.Items.Consumables
 {
-    public class VoidKey : BaseAAItem
+    public class VoidKey : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Consumables";
         
         public override void SetStaticDefaults()
         {

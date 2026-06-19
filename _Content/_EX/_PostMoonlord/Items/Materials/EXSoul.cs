@@ -11,8 +11,9 @@ using Terraria.UI;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Materials
 {
-    public class EXSoul : BaseAAItem
+    public class EXSoul : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("EX Soul");

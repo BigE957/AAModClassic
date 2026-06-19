@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories
 {
-    public class MadnessTruffle : BaseAAItem
+    public class MadnessTruffle : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
 
         public override void SetStaticDefaults()
         {

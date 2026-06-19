@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration
 {
-    public class HellCrate : BaseAAItem
+    public class HellCrate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hell Crate");

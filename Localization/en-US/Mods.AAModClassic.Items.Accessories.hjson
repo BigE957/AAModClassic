@@ -352,3 +352,8 @@ TheBookOfRunes: {
 	DisplayName: The Book Of Runes
 	Tooltip: ""
 }
+
+MadnessTruffle: {
+	DisplayName: Madness Truffle
+	Tooltip: ""
+}

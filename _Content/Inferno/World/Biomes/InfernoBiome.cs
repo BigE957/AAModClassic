@@ -355,7 +355,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             else
                 scAdj *= -150f;
 
-            float screenOff = Main.screenHeight - 600f;
+            float screenOff = num - 600f;
 
             int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
 

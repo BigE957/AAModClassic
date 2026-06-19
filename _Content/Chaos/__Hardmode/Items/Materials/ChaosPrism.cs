@@ -1,14 +1,16 @@
-using AAModClassic.Assets;
+﻿using AAModClassic.Assets;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Materials
 {
-    public class ChaosPrism : BaseAAItem
+    public class ChaosPrism : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override string Texture => AssetDirectory.Items.BiomePrism;
 
         public override void SetStaticDefaults()

@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency
 {
-    public class BloodRune : BaseAAItem
+    public class BloodRune : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Currency";
         public static Asset<Texture2D> AnimatedTexture;
 
         public override void SetStaticDefaults()

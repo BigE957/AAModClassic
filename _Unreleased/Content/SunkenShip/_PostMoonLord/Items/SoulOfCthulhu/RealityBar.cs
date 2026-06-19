@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {
-    public class RealityBar : ModItem
+    public class RealityBar : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         private static Asset<Texture2D> glowmask;
         public override void SetStaticDefaults()
         {

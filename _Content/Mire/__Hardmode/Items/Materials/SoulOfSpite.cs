@@ -3,11 +3,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 {
-    public class SoulOfSpite : BaseAAItem
+    public class SoulOfSpite : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul of Spite");

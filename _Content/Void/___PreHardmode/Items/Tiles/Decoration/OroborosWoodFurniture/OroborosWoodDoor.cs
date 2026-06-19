@@ -6,7 +6,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Orobo
 {
     public class OroborosWoodDoor : ModItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.OroborosWood";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oroboros Wood Door");

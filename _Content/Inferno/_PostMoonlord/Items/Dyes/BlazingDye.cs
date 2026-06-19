@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -11,8 +11,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
 {
-    public class BlazingDye : BaseAAItem
+    public class BlazingDye : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Dyes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blazing Dye");

@@ -1,4 +1,4 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Consumables
 {
-    public class CorruptionFlask : BaseAAItem
+    public class CorruptionFlask : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
             Item.width = 22;

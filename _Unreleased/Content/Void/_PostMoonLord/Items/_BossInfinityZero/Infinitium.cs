@@ -12,12 +12,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero
 {
-    public class Infinitium : ModItem
+    public class Infinitium : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         private static Asset<Texture2D> GlowTexture;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Infinite");
+            // DisplayName.SetDefault("Infinitium");
             // Tooltip.SetDefault("Pure, unpredictable malice");
             // ticksperframe, frameCount
             

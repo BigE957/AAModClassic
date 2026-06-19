@@ -7,7 +7,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
 {
     public class RelicBar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Relic Bar");

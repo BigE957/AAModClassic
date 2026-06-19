@@ -253,7 +253,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
                 else
                     scAdj *= -150f;
 
-                float screenOff = Main.screenHeight - 600f;
+                float screenOff = num - 600f;
 
                 int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
 

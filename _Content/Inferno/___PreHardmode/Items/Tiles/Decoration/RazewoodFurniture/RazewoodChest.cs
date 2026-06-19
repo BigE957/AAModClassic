@@ -7,7 +7,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
 {
     public class RazewoodChest : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Razewood";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Razewood Chest");

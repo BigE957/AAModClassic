@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.SolarEclipse.__Hardmode.Items.Currency
 {
-    public class MonsterSoul : BaseAAItem
+    public class MonsterSoul : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Currency";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Monster Soul");

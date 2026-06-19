@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
 {
-    public class ChaosScale : BaseAAItem
+    public class ChaosScale : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {

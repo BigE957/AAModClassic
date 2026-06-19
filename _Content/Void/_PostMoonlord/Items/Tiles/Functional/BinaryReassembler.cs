@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional
 {
     public class BinaryReassembler : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         
         public override void SetStaticDefaults()
         {

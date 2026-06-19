@@ -1,11 +1,13 @@
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials
 {
-    public class M79Parts : BaseAAItem
+    public class M79Parts : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Materials";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("M79 Parts");

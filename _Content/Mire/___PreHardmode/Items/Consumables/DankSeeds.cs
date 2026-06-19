@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {
     public class DankSeeds : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dank Seeds");

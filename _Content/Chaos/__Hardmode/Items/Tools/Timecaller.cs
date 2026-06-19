@@ -1,14 +1,15 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
-using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
+using AAModClassic._Content.Mire.__Hardmode.Items.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Chaos.__Hardmode.Items.Consumables
+namespace AAModClassic._Content.Chaos.__Hardmode.Items.Tools
 {
-    public class Timecaller : BaseAAItem
+    public class Timecaller : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Timecaller");

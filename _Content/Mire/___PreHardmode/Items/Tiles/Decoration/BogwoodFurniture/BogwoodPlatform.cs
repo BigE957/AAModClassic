@@ -6,7 +6,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
 {
     public class BogwoodPlatform : ModItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Bogwood";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Bogwood Platform");

@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 {
     public class ScorchedSeeds : BaseAAItem, ILocalizedModType
 	{
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scorched Seeds");

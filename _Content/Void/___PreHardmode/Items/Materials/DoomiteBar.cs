@@ -7,7 +7,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
 {
     public class DoomiteBar : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomite Bar");

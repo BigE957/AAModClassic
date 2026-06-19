@@ -7,7 +7,7 @@ namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Tiles.Functional
 {
     public class FurnitureDynamo : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Furniture Dynamo");

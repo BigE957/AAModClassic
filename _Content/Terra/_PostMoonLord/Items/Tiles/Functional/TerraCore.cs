@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
 {
     public class TerraCore : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Functional";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Core of Terraria");

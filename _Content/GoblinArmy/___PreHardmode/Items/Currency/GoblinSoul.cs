@@ -12,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency
 {
-    public class GoblinSoul : BaseAAItem
+    public class GoblinSoul : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Currency";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Goblin Soul");

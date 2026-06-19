@@ -10,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
 {
-    public class SearingSpark : BaseAAItem
+    public class SearingSpark : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Searing Spark");

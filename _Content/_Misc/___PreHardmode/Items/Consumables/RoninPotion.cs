@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables
 {
-    public class RoninPotion : BaseAAItem
+    public class RoninPotion : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Ronin Potion");
