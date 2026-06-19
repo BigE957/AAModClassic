@@ -233,9 +233,6 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override bool PreDrawCloseBackground(SpriteBatch spriteBatch)
         {
-            if (AAMod.instance == null)
-                return true;
-
             Color DefaultFog = new Color(120, 120, 200);
             Color YamataFog = new Color(200, 100, 100);
 
@@ -246,15 +243,14 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
             if (!Main.dayTime)
             {
+                // scAdj - uses clamped height
                 float clampedScreenH = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
-                float screenOff = clampedScreenH - 600f;
-                float num2 = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
+                float num2 = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - clampedScreenH / 2f;
                 float scAdj = (float)(Main.worldSurface * 16.0) / (num2 + clampedScreenH);
                 float num3 = (float)Main.maxTilesY * 0.15f * 16f;
                 num3 -= num2;
                 if (num3 < 0f)
                     num3 = 0f;
-
                 num3 *= 0.00025f;
                 float num4 = num3 * num3;
                 scAdj *= 0.45f - num4;
@@ -265,24 +261,23 @@ namespace AAModClassic._Content.Mire.World.Biomes
                 else
                     scAdj *= -150f;
 
-                int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
-
-                if (textureSlot < 0 || textureSlot >= TextureAssets.Background.Length)
-                    return false;
-
-                float worldSurface = (float)(Main.worldSurface == 0 ? 1 : Main.worldSurface);
+                // backgroundTopMagicNumber - uses raw screenHeight for screenOff
+                float screenOff = Main.screenHeight - 600f;
                 float num3v = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
+                float worldSurface = Main.gameMenu ? 600 : Main.worldSurface == 0 ? 1f : (float)Main.worldSurface;
                 double backgroundTopMagicNumber = (0f - num3v + screenOff / 2f) / (worldSurface * 16f);
 
                 int num6 = 0;
                 if (Main.gameMenu)
                     num6 += 180;
                 int bump = 30;
-                if (Main.gameMenu)
-                    bump = 0;
-                if (WorldGen.drunkWorldGen)
-                    bump = -180;
+                if (Main.gameMenu) bump = 0;
+                if (WorldGen.drunkWorldGen) bump = -180;
                 num6 += bump;
+
+                int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Mire/World/Biomes/Backgrounds/MireBiome_SurfaceBackground");
+                if (textureSlot < 0 || textureSlot >= TextureAssets.Background.Length)
+                    return false;
 
                 Main.instance.LoadBackground(textureSlot);
 
@@ -297,8 +292,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
                 bgScale = 1f;
                 int bgTopY = (int)(backgroundTopMagicNumber * 1300.0 + 1090.0) + (int)scAdj + num6;
-                if (Main.gameMenu)
-                    bgTopY = 100 + num6;
+                bgTopY += Main.gameMenu ? 100 : 360;
 
                 if (Main.screenPosition.Y >= Main.worldSurface * 16.0 + 16.0)
                     return false;
