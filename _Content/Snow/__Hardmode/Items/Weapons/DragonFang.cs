@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<IceLongsword>());
-            recipe.AddIngredient(ItemID.Arkhalis);
+            recipe.AddIngredient(ItemID.Terragrim);
             recipe.AddIngredient(ItemID.SoulofMight, 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

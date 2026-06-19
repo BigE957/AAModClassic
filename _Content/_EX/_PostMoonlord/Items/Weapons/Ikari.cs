@@ -62,7 +62,7 @@ Chaos Slayer EX"); */
             recipe.AddIngredient(ModContent.ItemType<ChaosSlayer>());
             recipe.AddIngredient(ModContent.ItemType<PerfectChaos>());
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

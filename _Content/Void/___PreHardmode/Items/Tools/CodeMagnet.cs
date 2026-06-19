@@ -27,6 +27,7 @@ Right click the item to turn it off"); */
             return true;
         }
 
+        //TODO: hotog does this in a really nice way for auric sole steal that
         public override void RightClick(Player player)
         {
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CodeMagnetOff>());

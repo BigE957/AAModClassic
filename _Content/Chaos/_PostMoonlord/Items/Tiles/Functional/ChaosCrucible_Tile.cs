@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[]
             {
-                ModContent.TileType<ACS_Tile>(),
+                ModContent.TileType<AnyAncientCraftingStation_Tile>(),
             };
             AnimationFrameHeight = 54;
         }

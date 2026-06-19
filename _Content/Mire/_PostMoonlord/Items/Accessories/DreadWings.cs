@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Accessories
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 15);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

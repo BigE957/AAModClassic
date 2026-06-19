@@ -95,7 +95,7 @@ Ignores enemy defense
 			recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
 			recipe.AddIngredient(ItemID.ChainGun);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

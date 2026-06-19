@@ -58,6 +58,16 @@ base
 -changed abyssal eruption, midnight wrath, sevenshot, throwing crescent,  to use any ancient crafting station
 -throwing crescent now only requires 1 light disk
 -removed two recipes between gibs' femur and skullshot. you can instead shimmer between them
+-all EX items now use acs as their crafting station
+-dapper acorn is now craftable
+-grand resource potions and the big one are now crafted at a bottle
+-madness bow and madness knives are now made at a work bench like the rest of their set
+-dragonfire and hydratoxin darts are now made at a mythril anvil like all other darts
+-yamata now drops abyssal yari, abyssal bomb, abyssal eruption, darksprayer, falling twilight, sevenshot, and throwing crescent
+-dragon fang is now made with terragrim instead of arkhalis
+-the celestial crafting stations are now made at a hardmode anvil
+-zero now drops black hole beater, neutralizer, and nova focus
+-zero no longer drops FUCKING STALLIONS STAR????????????????????????????
 -
 
 removed
@@ -67,6 +77,7 @@ removed
 -added the ancient hydra trishot
 -re-added the dragon serpent necklace
 -re-added fulgurite ore, and all of its items
+-dragon serpent necklance and storm charm are now crafted at a tinkers workshop
 -
 
 unreleased
@@ -126,4 +137,5 @@ notes
 -the changelogs for 1.0.3 note that mushmonarch drops his weapons. this is false. we cannot find evidence of this ever actually having been true. i guess we could add it if it was desired, but itd go under unofficial
 -this same changelog states elder dragons had their ai reworked. this is also false, as far as we can tell
 -lots of explosion type projectiles seemed to be offset towards the top left of where they should spawn. this is because these projectiles have a masssive hitbox relative to their sprite. since sprites are naitively drawn from the top left of a hitbox, the sprite appears offset relative to the hitboxs size
+-did u know abyssal yari was full-on unobtainable before this
 -

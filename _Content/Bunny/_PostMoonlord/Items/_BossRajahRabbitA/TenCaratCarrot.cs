@@ -89,7 +89,7 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
             recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<PlatinumCarrot>(), 1);
@@ -97,7 +97,7 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

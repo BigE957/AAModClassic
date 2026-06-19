@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
+namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
 {
     public class DapperAcorn_TopHat : ModProjectile
     {

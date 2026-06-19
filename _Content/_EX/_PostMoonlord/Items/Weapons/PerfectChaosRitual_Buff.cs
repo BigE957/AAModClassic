@@ -3,12 +3,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class ConflagrateConstructEX_Buff : ModBuff
+    public class PerfectChaosRitual_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Ender Minion EX");
-			// Description.SetDefault("Summons a terra construct to fight for you");
+			// DisplayName.SetDefault("Xiao Doragon");
+			// Description.SetDefault("Summons a small chaos dragon to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,11 +16,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<ConflagrateScythe_ConflagrateConstructEX>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<PerfectChaosRitual_XiaoDoragon>()] > 0)
 			{
-				modPlayer.enderMinionEX = true;
+				modPlayer.Xiao = true;
 			}
-			if (!modPlayer.enderMinionEX)
+			if (!modPlayer.Xiao)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

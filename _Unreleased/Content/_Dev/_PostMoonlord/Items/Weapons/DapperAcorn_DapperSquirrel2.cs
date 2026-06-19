@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
+namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
 {
     public class DapperAcorn_DapperSquirrel2 : ModProjectile
     {
@@ -108,7 +108,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     Projectile.position.X = player.position.X + player.width / 2 - Projectile.width / 2;
                     Projectile.position.Y = player.position.Y + player.height / 2 - Projectile.height / 2;
                 }
-                else if (num39 > num36 || (Math.Abs(num38) > 300f && (Projectile.localAI[0] <= 0f)))
+                else if (num39 > num36 || Math.Abs(num38) > 300f && Projectile.localAI[0] <= 0f)
                 {
                     if (num38 > 0f && Projectile.velocity.Y < 0f)
                     {

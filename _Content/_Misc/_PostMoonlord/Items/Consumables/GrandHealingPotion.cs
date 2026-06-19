@@ -35,7 +35,7 @@ namespace AAModClassic._Content._Misc._PostMoonlord.Items.Consumables
 			Recipe recipe = CreateRecipe(4);
 			recipe.AddIngredient(ItemID.SuperHealingPotion, 4);
             recipe.AddRecipeGroup("AAModClassic:LateAncientMaterial");
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 		}
 	}

@@ -1,12 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -89,8 +90,8 @@ Raven Staff EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.RavenStaff);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
         }
     }
 }

@@ -50,8 +50,8 @@ namespace AAModClassic._Content._Misc._PostMoonlord.Items.Consumables
 			recipe.AddIngredient(ModContent.ItemType<GrandHealingPotion>());
             recipe.AddIngredient(ModContent.ItemType<GrandManaPotion>());
             recipe.AddRecipeGroup("AAModClassic:SuperancientMaterial");
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
-			recipe.Register();
+            recipe.AddTile(TileID.Bottles);
+            recipe.Register();
 		}
 	}
 }

@@ -114,7 +114,7 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             recipe.AddIngredient(ModContent.ItemType<TaiyangBaolei>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Naitokurosu>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosSoul>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

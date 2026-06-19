@@ -33,6 +33,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Ammo
 		{
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 1);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

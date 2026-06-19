@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
+namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
 {
     class DapperAcorn_Fez : ModProjectile
     {

@@ -61,8 +61,8 @@ Small chance to fire an awakened bomb that explodes into abyss souls"); */
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<BogBomb>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddIngredient(ModContent.ItemType<BogBomb>(), 1); 
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

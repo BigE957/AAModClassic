@@ -1,12 +1,13 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -72,7 +73,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<PoniumStaff>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

@@ -44,7 +44,7 @@ Inflicts Moonraze"); */
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ItemID.Terrarian);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

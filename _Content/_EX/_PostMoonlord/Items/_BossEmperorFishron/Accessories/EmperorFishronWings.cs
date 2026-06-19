@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -54,7 +55,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Acce
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FishronWings);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

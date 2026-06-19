@@ -72,7 +72,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RiftShredder>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

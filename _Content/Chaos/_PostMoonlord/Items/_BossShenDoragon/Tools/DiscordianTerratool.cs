@@ -81,7 +81,7 @@ You may only have a maximum of 2 tool types active"); */
             recipe.AddIngredient(ModContent.ItemType<DreadTerratool>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

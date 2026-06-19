@@ -45,7 +45,7 @@ The armor of a champion feared across the land"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<HoppingHoodlumLeggings>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChampionPlate>(), 10);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

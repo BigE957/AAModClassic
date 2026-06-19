@@ -1,11 +1,16 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
+namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
 {
     public class DapperAcorn : BaseAAItem, ILocalizedModType
     {
@@ -66,6 +71,15 @@ Magic Acorn EX"); */
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
             Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, 0, 0, shootMe, damage, knockback, Main.myPlayer, 0f, 0f);
             return false;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<MagicAcorn>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
         }
     }
 }

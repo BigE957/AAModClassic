@@ -3,12 +3,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class DapperAcorn_Buff : ModBuff
+    public class ConflagrateScythe_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Dapper Squirrel");
-			// Description.SetDefault("Now with funny hats");
+			// DisplayName.SetDefault("Ender Minion EX");
+			// Description.SetDefault("Summons a terra construct to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,11 +16,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<DapperAcorn_DapperSquirrel1>()] + player.ownedProjectileCounts[ModContent.ProjectileType<DapperAcorn_DapperSquirrel2>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<ConflagrateScythe_ConflagrateConstructEX>()] > 0)
 			{
-				modPlayer.DapperSquirrel = true;
+				modPlayer.enderMinionEX = true;
 			}
-			if (!modPlayer.DapperSquirrel)
+			if (!modPlayer.enderMinionEX)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

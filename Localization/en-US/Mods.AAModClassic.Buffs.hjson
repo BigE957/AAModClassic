@@ -1768,3 +1768,13 @@ SagittariusShield_ShieldsUp: {
 	DisplayName: Sagittarius Shield_ Shields Up
 	Description: Mods.AAModClassic.Buffs.SagittariusShield_ShieldsUp.Description
 }
+
+ConflagrateScythe_Buff: {
+	DisplayName: Conflagrate Scythe_ Buff
+	Description: Mods.AAModClassic.Buffs.ConflagrateScythe_Buff.Description
+}
+
+PerfectChaosRitual_Buff: {
+	DisplayName: Perfect Chaos Ritual_ Buff
+	Description: Mods.AAModClassic.Buffs.PerfectChaosRitual_Buff.Description
+}

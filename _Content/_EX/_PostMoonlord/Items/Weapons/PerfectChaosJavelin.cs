@@ -44,7 +44,7 @@ Chaos Javelin EX"); */
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<ChaosJavelin>());
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

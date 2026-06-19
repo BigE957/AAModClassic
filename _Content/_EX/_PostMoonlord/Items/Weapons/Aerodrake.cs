@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -49,8 +50,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 		}
 
         public override void MeleeEffects(Player player, Rectangle hitbox)

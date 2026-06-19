@@ -1,10 +1,11 @@
 using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -28,7 +29,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<ExtravagantLongswordS>());
                 recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-                recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+                recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
                 recipe.Register();
             }
         }

@@ -33,7 +33,7 @@ Ignores 5 Enemy defense"); */
             recipe.AddIngredient(ModContent.ItemType<DragontamersCloak>(), 1);
             recipe.AddIngredient(ModContent.ItemType<HydraPendant>(), 1);
             recipe.AddIngredient(ItemID.SharkToothNecklace, 1);
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();
         }
 

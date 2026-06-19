@@ -1,12 +1,13 @@
-﻿using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -51,7 +52,7 @@ Terra Blade EX"); */
             recipe.AddIngredient(ItemID.TerraBlade);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddIngredient(ModContent.ItemType<TerraPrism>(), 1);
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

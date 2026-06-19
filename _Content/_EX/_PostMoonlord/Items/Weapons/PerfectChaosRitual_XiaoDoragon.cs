@@ -47,7 +47,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<XiaoDoragon_Buff>(), 3600);
+            player.AddBuff(ModContent.BuffType<PerfectChaosRitual_Buff>(), 3600);
 
             if (player.dead)
             {

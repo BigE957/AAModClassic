@@ -182,6 +182,7 @@ using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUlt
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;
@@ -2079,7 +2080,7 @@ namespace AAModClassic._CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Poison, ModContent.ItemType<MidnightWrath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<MidnightWrath>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<OreCannon>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<OreCannonEX>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<UltimateOreCannon>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<SharkLauncher>(), true);
 
                 #endregion

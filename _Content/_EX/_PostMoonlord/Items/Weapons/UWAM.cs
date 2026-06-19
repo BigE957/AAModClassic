@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -87,8 +88,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SDMG);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 		}
 	}
 }

@@ -1,8 +1,9 @@
-using System;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -122,8 +123,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			recipe.AddIngredient(ItemID.BeeGun);
 			recipe.AddIngredient(ItemID.ChainGun);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 		}
 	}
 }

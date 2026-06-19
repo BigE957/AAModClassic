@@ -1,11 +1,12 @@
-﻿using Terraria;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -112,6 +113,7 @@ Demise EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Demise>());
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

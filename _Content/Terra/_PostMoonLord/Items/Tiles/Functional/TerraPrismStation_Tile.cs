@@ -72,7 +72,7 @@ namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
                 ModContent.TileType<HallowedAnvil_Tile>(),
                 ModContent.TileType<HallowedForge_Tile>(),
                 ModContent.TileType<QuantumFusionAccelerator_Tile>(),
-                ModContent.TileType<ACS_Tile>(),
+                ModContent.TileType<AnyAncientCraftingStation_Tile>(),
             };
             TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;

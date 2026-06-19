@@ -62,7 +62,7 @@ When player has 3 minion slots it summons terra, chaos and void rune."); */
 			recipe.AddIngredient(ItemID.Book, 1);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 15);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-			recipe.AddTile(ModContent.TileType<ACS_Tile>());
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
     }

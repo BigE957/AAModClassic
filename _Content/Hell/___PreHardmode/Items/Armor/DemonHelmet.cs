@@ -62,16 +62,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
                 recipe.AddIngredient(ModContent.ItemType<ImpHelmet>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 5);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
-                recipe.AddIngredient(ItemID.ShadowScale, 5);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<ImpHelmet>(), 1);
-                recipe.AddIngredient(ItemID.Bone, 5);
-                recipe.AddIngredient(ItemID.JungleSpores, 5);
-                recipe.AddIngredient(ItemID.TissueSample, 5);
+                recipe.AddRecipeGroup("AAModClassic:EvilMaterial", 5);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }

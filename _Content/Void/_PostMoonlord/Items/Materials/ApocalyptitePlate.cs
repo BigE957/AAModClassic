@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
         {                                                   
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ApocalyptiteOre>(), 5);              //example of how to craft with a modded item
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

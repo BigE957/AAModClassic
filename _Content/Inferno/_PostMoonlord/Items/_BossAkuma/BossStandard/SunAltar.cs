@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
-			recipe.AddTile(ModContent.TileType<ACS_Tile>());
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
-			recipe.AddTile(ModContent.TileType<ACS_Tile>());
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

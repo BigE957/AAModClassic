@@ -87,7 +87,7 @@ Doesn't require ammo"); */
             //TODOIZ this item doesnt exist anymore
             //recipe.AddIngredient(ModContent.ItemType<AntimatterRifle>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

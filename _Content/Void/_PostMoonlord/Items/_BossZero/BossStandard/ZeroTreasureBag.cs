@@ -118,12 +118,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
                 ModContent.ItemType<RiftShredder>(),
                 ModContent.ItemType<VoidStar>(),
                 ModContent.ItemType<BrokenZeroWeapon>(),
-                ModContent.ItemType<StallionsStar>(),
                 ModContent.ItemType<DoomsdayTerratool>(),
                 ModContent.ItemType<DoomPortal>(),
                 ModContent.ItemType<Gigataser>(),
                 ModContent.ItemType<OmegaVolley>(),
-                ModContent.ItemType<GenocideCannon>() };
+                ModContent.ItemType<GenocideCannon>(),
+                ModContent.ItemType<BlackHoleBlaster>(),
+                ModContent.ItemType<Neutralizer>(),
+                ModContent.ItemType<NovaFocus>()
+            };
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
 	}

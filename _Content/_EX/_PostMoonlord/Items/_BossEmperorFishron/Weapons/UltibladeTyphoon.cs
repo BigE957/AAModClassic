@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -61,8 +62,8 @@ Razorblade Typhoon EX"); */
 			Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(ItemID.RazorbladeTyphoon);
 			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-			recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 		}
 	}
 }

@@ -40,12 +40,7 @@ Only 1 fountain may be active at once"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ItemID.GoldOre, 30);
-            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-            recipe = CreateRecipe(1);
-            recipe.AddIngredient(ItemID.PlatinumOre, 30);
+            recipe.AddRecipeGroup("AAModClassic:GoldOre", 30);
             recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

@@ -71,7 +71,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Accessories
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

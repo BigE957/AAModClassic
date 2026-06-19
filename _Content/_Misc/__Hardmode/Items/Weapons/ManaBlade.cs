@@ -37,14 +37,9 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaCrystal, 5);
-			recipe.AddIngredient(ItemID.SilverBar, 15);
+			recipe.AddRecipeGroup("AAModClassic:SilverBar", 15);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register(); 
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.ManaCrystal, 5);
-			recipe.AddIngredient(ItemID.TungstenBar, 15);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
 		}
         
 	}

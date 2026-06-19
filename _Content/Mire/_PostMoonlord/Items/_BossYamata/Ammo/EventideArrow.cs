@@ -48,7 +48,7 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 1);
             recipe.AddIngredient(ItemID.MoonlordArrow, 999);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

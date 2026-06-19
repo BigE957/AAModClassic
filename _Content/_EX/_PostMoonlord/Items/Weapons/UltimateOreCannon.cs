@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class OreCannonEX : BaseAAItem, ILocalizedModType
+    public class UltimateOreCannon : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
@@ -98,7 +98,7 @@ OreCannonEX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OreCannon>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }
