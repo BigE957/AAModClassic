@@ -844,45 +844,44 @@ namespace AAModClassic
                 ItemID.Snail
             });
 
-
-
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CopperBar"), new int[]
+            #region Bars
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.CopperBar"), new int[]
             {
                 ItemID.CopperBar,
                 ItemID.TinBar
             });
             RecipeGroup.RegisterGroup("AAModClassic:CopperBar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.IronBar"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.IronBar"), new int[]
             {
                 ItemID.IronBar,
                 ItemID.LeadBar
             });
             RecipeGroup.RegisterGroup("AAModClassic:IronBar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.SilverBar"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.SilverBar"), new int[]
             {
                 ItemID.SilverBar,
                 ItemID.TungstenBar
             });
             RecipeGroup.RegisterGroup("AAModClassic:SilverBar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.GoldBar"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.GoldBar"), new int[]
             {
                 ItemID.GoldBar,
                 ItemID.PlatinumBar
             });
             RecipeGroup.RegisterGroup("AAModClassic:GoldBar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.EvilBar"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.EvilBar"), new int[]
             {
                 ItemID.DemoniteBar,
                 ItemID.CrimtaneBar
             });
             RecipeGroup.RegisterGroup("AAModClassic:EvilBar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.ChaosBar"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.ChaosBar"), new int[]
             {
                 ModContent.ItemType<IncineriteBar>(),
                 ModContent.ItemType<AbyssiumBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosBar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.EvilorChaosBar"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Bars.EvilorChaosBar"), new int[]
             {
                 ItemID.DemoniteBar,
                 ItemID.CrimtaneBar,
@@ -890,51 +889,49 @@ namespace AAModClassic
                 ModContent.ItemType<AbyssiumBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:EvilOrChaosBar", recipeGroup);
-
-
-
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.ShinyCharm"), new int[]
+            #endregion
+            #region Materials
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Materials.ShinyCharm"), new int[]
             {
                 ModContent.ItemType<ShinyCharm>(),
                 ModContent.ItemType<ShinyCharmFish>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ShinyCharm", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.ChaosClaw"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Materials.ChaosClaw"), new int[]
             {
                 ModContent.ItemType<DragonClaw_Item>(),
                 ModContent.ItemType<HydraClaw_Item>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosClaw", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.HardmodeEvilMaterial"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Materials.HardmodeEvilMaterial"), new int[]
             {
                 ItemID.CursedFlame,
                 ItemID.Ichor
             });
             RecipeGroup.RegisterGroup("AAModClassic:HardmodeEvilMaterial", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.EarlyAncientMaterial"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Materials.EarlyAncientMaterial"), new int[]
             {
                 ModContent.ItemType<StormSphere>(),
                 ModContent.ItemType<CovetiteBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:EarlyAncientMaterial", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.LateAncientMaterial"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Materials.LateAncientMaterial"), new int[]
             {
                 ModContent.ItemType<UnstableSingularity>(),
                 ModContent.ItemType<CrucibleScale>(),
                 ModContent.ItemType<DreadScale>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:LateAncientMaterial", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.SuperancientMaterial"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Materials.SuperancientMaterial"), new int[]
             {
                 ModContent.ItemType<ChaosScale>(),
                 ModContent.ItemType<Infinitium>(),
                 ModContent.ItemType<RealityBar>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:SuperancientMaterial", recipeGroup);
-
-
-
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Altar"), new int[]
+            #endregion
+            #region Crafting Stations
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CraftingStations.Altar"), new int[]
             {
                 ModContent.ItemType<AbyssAltarSafe>(),
                 ModContent.ItemType<CrimsonAltar>(),
@@ -942,43 +939,41 @@ namespace AAModClassic
                 ModContent.ItemType<DragonAltarSafe>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:Altar", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.HardmodeAnvil"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CraftingStations.HardmodeAnvil"), new int[]
             {
                 ItemID.MythrilAnvil,
                 ItemID.OrichalcumAnvil
             });
             RecipeGroup.RegisterGroup("AAModClassic:HardmodeAnvil", recipeGroup);
-            recipeGroup = new RecipeGroup(getName: () => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.HardmodeForge"), validItems: new int[]
+            recipeGroup = new RecipeGroup(getName: () => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CraftingStations.HardmodeForge"), validItems: new int[]
             {
                 ItemID.AdamantiteForge,
                 ItemID.TitaniumForge
             });
             RecipeGroup.RegisterGroup("AAModClassic:HardmodeForge", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CelestialCraftingStation"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CraftingStations.CelestialCraftingStation"), new int[]
             {
                 ModContent.ItemType<RadiantArcanum>(),
                 ModContent.ItemType<QuantumFusionAccelerator>(),
             });
             RecipeGroup.RegisterGroup("AAModClassic:CelestialCraftingStation", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.AncientCraftingStation"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.CraftingStations.AncientCraftingStation"), new int[]
             {
                 ModContent.ItemType<BinaryReassembler>(),
                 ModContent.ItemType<ChaosCrucible>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:AncientCraftingStation", recipeGroup);
-
-
-
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.EvilStaff"), new int[]
+            #endregion
+            #region Weapons
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Weapons.EvilStaff"), new int[]
             {
                 ModContent.ItemType<DemoniteStaff>(),
                 ModContent.ItemType<CrimeraStaff>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:EvilStaff", recipeGroup);
-
-
-
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.TerraChestplate"), new int[]
+            #endregion
+            #region Armor
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.TerraChestplate"), new int[]
             {
                 ModContent.ItemType<NightsChestplate>(),
                 ModContent.ItemType<FleshrendChestplate>(),
@@ -987,7 +982,7 @@ namespace AAModClassic
                 ModContent.ItemType<DemonChestplate>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraChestplate", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.TerraBppts"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.TerraBppts"), new int[]
             {
                 ModContent.ItemType<FleshrendLeggings>(),
                 ModContent.ItemType<NightsLeggings>(),
@@ -996,7 +991,7 @@ namespace AAModClassic
                 ModContent.ItemType<DemonLeggings>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraLeggings", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.ChaosChestplate"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.ChaosChestplate"), new int[]
             {
                 ModContent.ItemType<BlazingChestplate>(),
                 ModContent.ItemType<AbyssalChestplate>(),
@@ -1006,7 +1001,7 @@ namespace AAModClassic
                 ModContent.ItemType<DynaskullChestplate>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosChestplate", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.ChaosLeggings"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.ChaosLeggings"), new int[]
             {
                 ModContent.ItemType<BlazingLeggings>(),
                 ModContent.ItemType<AbyssalLeggings>(),
@@ -1016,7 +1011,7 @@ namespace AAModClassic
                 ModContent.ItemType<DynaskullLeggings>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:ChaosLeggings", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.RadiumHelmet"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.RadiumHelmet"), new int[]
             {
                 ModContent.ItemType<RadiumHelmetSummoner>(),
                 //ModContent.ItemType<RadiumHelm>(),
@@ -1025,7 +1020,7 @@ namespace AAModClassic
                 ModContent.ItemType<RadiumHelmetMage>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:RadiumHelmet", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.DarkmatterHelmet"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.DarkmatterHelmet"), new int[]
             {
                 ModContent.ItemType<DarkmatterHelmetRanged>(),
                 //ModContent.ItemType<DarkmatterHelm>(),
@@ -1034,10 +1029,9 @@ namespace AAModClassic
                 ModContent.ItemType<DarkmatterHelmetMage>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DarkmatterHelmet", recipeGroup);
-
-
-
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.DevBag"), new int[]
+            #endregion
+            #region Misc
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Misc.DevBag"), new int[]
             {
                 ModContent.ItemType<BigEBag>(),
                 ModContent.ItemType<CerberusBag>(),
@@ -1065,9 +1059,8 @@ namespace AAModClassic
                 ModContent.ItemType<PlanterrorBag>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:DevBag", recipeGroup);
-
-
-
+            #endregion
+            #region Vanilla Sets
             if (RecipeGroup.recipeGroupIDs.ContainsKey("Wood"))
             {
                 int index = RecipeGroup.recipeGroupIDs["Wood"];
@@ -1075,6 +1068,7 @@ namespace AAModClassic
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Bogwood>());
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<OroborosWood>());
             }
+            #endregion
         }
     }
 }

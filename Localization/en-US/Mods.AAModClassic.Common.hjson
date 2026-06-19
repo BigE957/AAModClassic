@@ -486,37 +486,44 @@ AAWorldBuildHoard: Amassing Treasure
 AAWorldBuildEquinoxAlt: Equalizing the Sun and Moon
 
 RecipeGroups: {
-	CopperBar: Copper Bar
-	IronBar: Iron Bar
-	SilverBar: Silver Bar
-	GoldBar: Gold Bar
-	EvilBar: Evil Bar
-	ChaosBar: Chaos Bar
-	EvilorChaosBar: Evil or Chaos Bar
-
-	ShinyCharm: Shiny Charm
-	ChaosClaw: Chaos Claw
-	HardmodeEvilMaterial: Hardmode Evil Material
-	EarlyAncientMaterial: Early Ancient Material
-	LateAncientMaterial: Late Ancient Material
-	SuperancientMaterial: Superancient Material
-
-	Altar: Altar
-	HardmodeAnvil: Hardmode Anvil
-	HardmodeForge: Hardmode Forge
-	CelestialCraftingStation: Celestial Crafting Station
-	AncientCraftingStation: Ancient Crafting Station
-
-	EvilStaff: Evil Staff
-
-	TerraChestplate: Terra Chestplate
-	TerraLeggings: Terra Leggings
-	ChaosChestplate: Chaos Chestplate
-	ChaosLeggings: Chaos Leggings
-	RadiumHelmet: Radium Helmet
-	DarkmatterHelmet: Darkmatter Helmet
-
-	DevBag: Dev Bag
+	Bars: {
+		CopperBar: Copper Bar
+		IronBar: Iron Bar
+		SilverBar: Silver Bar
+		GoldBar: Gold Bar
+		EvilBar: Evil Bar
+		ChaosBar: Chaos Bar
+		EvilorChaosBar: Evil or Chaos Bar
+	}
+	Materials: {
+		ShinyCharm: Shiny Charm
+		ChaosClaw: Chaos Claw
+		HardmodeEvilMaterial: Hardmode Evil Material
+		EarlyAncientMaterial: Early Ancient Material
+		LateAncientMaterial: Late Ancient Material
+		SuperancientMaterial: Superancient Material
+	}
+	CraftingStations: {
+		Altar: Altar
+		HardmodeAnvil: Hardmode Anvil
+		HardmodeForge: Hardmode Forge
+		CelestialCraftingStation: Celestial Crafting Station
+		AncientCraftingStation: Ancient Crafting Station
+	}
+	Weapons: {
+		EvilStaff: Evil Staff
+	}
+	Armor: {
+		TerraChestplate: Terra Chestplate
+		TerraLeggings: Terra Leggings
+		ChaosChestplate: Chaos Chestplate
+		ChaosLeggings: Chaos Leggings
+		RadiumHelmet: Radium Helmet
+		DarkmatterHelmet: Darkmatter Helmet
+	}
+	Misc: {
+		DevBag: Dev Bag
+	}
 }
 
 #AAConfig
