@@ -1355,23 +1355,43 @@ namespace AAModClassic
                     Player.dash = 0;
                 }
             }
-			if (artifactJudgementCharge >= 250)
-			{
-				Player.AddBuff(ModContent.BuffType<ArtifactOfJudgement_Buff>(), 900);
-				artifactJudgementCharge = 0;
-			}
-			if (artifactGuiltCharge >= 250)
-			{
-				Player.AddBuff(ModContent.BuffType<ArtifactOfGuilt_Buff>(), 900);
-				artifactGuiltCharge = 0;
-			}
+            if (artifactJudgementCharge >= 250)
+            {
+                Player.AddBuff(ModContent.BuffType<ArtifactOfJudgement_Buff>(), 900);
+                artifactJudgementCharge = 0;
+            }
+            if (artifactGuiltCharge >= 250)
+            {
+                Player.AddBuff(ModContent.BuffType<ArtifactOfGuilt_Buff>(), 900);
+                artifactGuiltCharge = 0;
+            }
             if (!Greed1 && !Greed2)
             {
                 GreedyDamage = 0;
             }
             DarkmatterSet = darkmatterSetMe || darkmatterSetRa || darkmatterSetMa || darkmatterSetSu || darkmatterSetTh;
 
-            if (NPC.AnyNPCs(ModContent.NPCType<AkumaTransition>()))
+            bool anyAkumaTransition = false;
+            bool anyAkumaA = false;
+            bool anyEquinox = false;
+            bool anyZeroA = false;
+
+            foreach (NPC n in Main.ActiveNPCs)
+            {
+                if (n.type == ModContent.NPCType<AkumaTransition>())
+                    anyAkumaTransition = true;
+
+                else if (n.type == ModContent.NPCType<AkumaAHead>())
+                    anyAkumaA = true;
+
+                else if (n.type == ModContent.NPCType<DaybringerHead>() || n.type == ModContent.NPCType<NightcrawlerHead>())
+                    anyEquinox = true;
+
+                else if (n.type == ModContent.NPCType<ZeroA>())
+                    anyZeroA = true;
+            }
+
+            if (anyAkumaTransition)
             {
                 int n = BaseAI.GetNPC(Player.Center, ModContent.NPCType<AkumaTransition>(), -1);
                 NPC akuma = Main.npc[n];
@@ -1381,7 +1401,7 @@ namespace AAModClassic
                     Player.AddBuff(ModContent.BuffType<AkumaAHead_ScorchingPain>(), 2);
                 }
             }
-            else if (NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+            else if (anyAkumaA)
             {
                 Player.AddBuff(ModContent.BuffType<AkumaAHead_ScorchingPain>(), 2);
             }
@@ -1479,7 +1499,7 @@ namespace AAModClassic
 
             #endregion
 
-            if (NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>()) || NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>()))
+            if (anyEquinox)
             {
                 TimeScale = 0;
             }
@@ -1633,18 +1653,6 @@ namespace AAModClassic
                 Lighting.AddLight((int)(Player.position.X + Player.width / 2) / 16, (int)(Player.position.Y + Player.height / 2) / 16, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f);
             }
 
-            //TODO: is this needed? the same thing is done in YamataBody
-            if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()))
-            {
-                Player.AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
-            }
-
-            //TODO: is this needed? the same thing is done in YamataABody
-            if (NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
-            {
-                Player.AddBuff(ModContent.BuffType<YamataABody_TrueAbyssalGravity>(), 10, true);
-            }
-
             if (Player.GetModPlayer<AAPlayer>().ZoneMire || Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
             {
                 if (Main.dayTime && !AAWorld.downedYamata)
@@ -1662,7 +1670,7 @@ namespace AAModClassic
                 Player.AddBuff(BuffID.DryadsWard, 2);
             }
 
-            if (NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
+            if (anyZeroA)
             {
                 if (!Filters.Scene["MoonLordShake"].IsActive())
                 {
@@ -2292,12 +2300,13 @@ namespace AAModClassic
             float num12 = Main.screenHeight;
             Vector2 value = Main.screenPosition + player.velocity;
 
-            WeightedRandom<Color> weightedRandom = new WeightedRandom<Color>();
-            //TODO: Figure out wtf this was doing
-            weightedRandom.Add(new Color(200, 160, 20, 180), 1);// Main.screenTileCounts[53] + Main.screenTileCounts[396] + Main.screenTileCounts[397]);
-            weightedRandom.Add(new Color(103, 98, 122, 180), 1);// Main.screenTileCounts[112] + Main.screenTileCounts[400] + Main.screenTileCounts[398]);
-            weightedRandom.Add(new Color(135, 43, 34, 180), 1);// Main.screenTileCounts[234] + Main.screenTileCounts[401] + Main.screenTileCounts[399]);
-            weightedRandom.Add(new Color(213, 196, 197, 180), 1);// Main.screenTileCounts[116] + Main.screenTileCounts[403] + Main.screenTileCounts[402]);
+            Color color = new(200, 160, 20, 180);
+            if (player.ZoneHallow)
+                color = new(213, 196, 197, 180);
+            else if (player.ZoneCrimson)
+                color = new(135, 43, 34, 180);
+            else if (player.ZoneCorrupt)
+                color = new(103, 98, 122, 180);
 
             float num13 = MathHelper.Lerp(0.2f, 0.35f, Sandstorm.Severity);
             float num14 = MathHelper.Lerp(0.5f, 0.7f, Sandstorm.Severity);
@@ -2348,7 +2357,7 @@ namespace AAModClassic
 
                             dust.fadeIn += num14 * 0.2f;
                             dust.velocity *= 1f + num13 * 0.5f;
-                            dust.color = weightedRandom;
+                            dust.color = color;
                             dust.velocity *= 1f + num13;
                             dust.velocity *= num5;
                             dust.scale = 0.9f;

@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -116,7 +117,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
             return new Color(newR, newG, newB, newA);
         }
 
-        readonly AthenaAClouds clouds = new AthenaAClouds(false);
+        readonly AthenaAClouds clouds = new();
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
@@ -126,7 +127,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 clouds.Update(FogTex.Value);
-                clouds.Draw(FogTex.Value, false, Color.CornflowerBlue, true);
+                clouds.Draw(spriteBatch, FogTex.Value, false, Color.CornflowerBlue, true);
             }
             float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
             Vector2 value3 = Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
@@ -185,12 +186,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
         }
     }
 
-    public class AthenaASkyData : ScreenShaderData
+    public class AthenaASkyData(string passName) : ScreenShaderData(passName)
     {
-        public AthenaASkyData(string passName) : base(passName)
-        {
-        }
-
         private static void UpdateAthenaSky()
         {
             if (NPC.AnyNPCs(ModContent.NPCType<AthenaA>()))
@@ -206,29 +203,23 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
         }
     }
 
-    public class AthenaAClouds
+    public class AthenaAClouds()
     {
         public int fogOffsetX = 0;
         public float fadeOpacity = 0f;
         public float dayTimeOpacity = 0f;
-        public bool backgroundClouds = false;
-
-        public AthenaAClouds(bool bg)
-        {
-            backgroundClouds = bg;
-        }
 
         public void Update(Texture2D texture)
         {
-            if (Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
+            if (Main.dedServ) 
+                return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
-            //TODO: this is normally broken by the fact u need reg athena during athenaA but also it just doesnt work. bring back for unreleased?
-            bool athena = NPC.AnyNPCs(ModContent.NPCType<Athena>());
-            if (!backgroundClouds) athena = false;
+            bool athena = NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
 
             fogOffsetX += 1;
-            if (fogOffsetX >= texture.Width) fogOffsetX = 0;
-            if (athena)
+            if (fogOffsetX >= texture.Width) 
+                fogOffsetX = 0;
+            if (athena && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 fadeOpacity += 0.05f;
                 if (fadeOpacity > 1f) fadeOpacity = 1f;
@@ -238,23 +229,15 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
                 fadeOpacity -= 0.05f;
                 if (fadeOpacity < 0f) fadeOpacity = 0f;
             }
-            if (backgroundClouds)
-            {
-                dayTimeOpacity = BaseUtility.MultiLerp((float)Main.time / 52000f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f);
-                dayTimeOpacity *= 0.7f; //make it fadier as it's in the background
-            }
-            else
-            {
-                dayTimeOpacity = BaseUtility.MultiLerp((float)Main.time / 52000f, 0.3f, 1f, 1f, 1f, 1f, 1f, 0.3f);
-                dayTimeOpacity *= Main.dayTime ? 2f : 1f;
-            }
+
+            dayTimeOpacity = BaseUtility.MultiLerp((float)Main.time / 52000f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f);
+            dayTimeOpacity *= 0.7f; //make it fadier as it's in the background
         }
 
-        public void Draw(Texture2D texture, bool dir, Color defaultColor, bool setSB = false)
+        public void Draw(SpriteBatch spriteBatch, Texture2D texture, bool dir, Color defaultColor, bool setSB = false)
         {
-            if (fadeOpacity == 0f) return; //don't draw if no fog
-            if (setSB) Main.spriteBatch.Begin();
-
+            if (fadeOpacity == 0f)
+                return; //don't draw if no fog
 
             Color fogColor = GetAlpha(defaultColor, 0.4f * fadeOpacity * dayTimeOpacity);
 
@@ -263,15 +246,13 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
             int maxX = Main.screenWidth + texture.Width;
             int maxY = Main.screenHeight + texture.Height;
 
-
             for (int i = minX; i < maxX; i += texture.Width)
             {
                 for (int j = minY; j < maxY; j += texture.Height)
                 {
-                    Main.spriteBatch.Draw(texture, new Rectangle(i + (dir ? -fogOffsetX : fogOffsetX), j, texture.Width, texture.Height), null, fogColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(texture, new Rectangle(i + (dir ? -fogOffsetX : fogOffsetX), j, texture.Width, texture.Height), null, fogColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
                 }
             }
-            if (setSB) Main.spriteBatch.End();
         }
 
         public static Color GetAlpha(Color newColor, float alph)

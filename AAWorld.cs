@@ -827,7 +827,6 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next(0, y);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    //TODO: Figure out who Everleaf Root is.
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)ModContent.TileType<EverleafRoot_Tile>());
                 }
             }
