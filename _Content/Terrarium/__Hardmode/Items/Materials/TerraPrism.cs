@@ -44,23 +44,5 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Materials
         {
             Lighting.AddLight(Item.Center, AAColor.TerraGlow.ToVector3() * 0.55f * Main.essScale);
         }
-
-        public override void AddRecipes()
-        {
-            //Dropped by Biomite Core in Mixed and Beta
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<BiomePrism>());
-            recipe.AddTile(ModContent.TileType<TerraPrismStation_Tile>());
-            recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
-            recipe.Register();
-
-            recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<BiomePrism>());
-            recipe.AddTile(ModContent.TileType<TerraPrismStation_Tile>());
-            recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
-            recipe.Register();
-        }
     }
 }

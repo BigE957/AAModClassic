@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -45,7 +46,7 @@ Death Sickle EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DeathSickle);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
  

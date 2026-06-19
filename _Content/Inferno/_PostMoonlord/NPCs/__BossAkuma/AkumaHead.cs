@@ -557,7 +557,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CrucibleScale>(), 1, 20, 30));
 
-            int[] lootTable = { ModContent.ItemType<DraconianTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<AncientLungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunPartisan>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<Sunstorm>(), ModContent.ItemType<SolarStaff>(), ModContent.ItemType<DragonShiv>() };
+            int[] lootTable = { ModContent.ItemType<DraconianTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<AncientLungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunPartisan>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<Sunstorm>(), ModContent.ItemType<SolarStaff>(), ModContent.ItemType<DragonShiv>(), ModContent.ItemType<YearOfTheDragon>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             npcLoot.Add(notExpertRule);

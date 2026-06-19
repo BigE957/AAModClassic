@@ -74,7 +74,7 @@ Terratool EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Terratool>());
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

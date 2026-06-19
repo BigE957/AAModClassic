@@ -32,13 +32,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 		{
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.GoldBar, 15);
-            recipe.AddIngredient(ItemID.FlaskofGold, 5);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-
-            recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.PlatinumBar, 15);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 15);
             recipe.AddIngredient(ItemID.FlaskofGold, 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

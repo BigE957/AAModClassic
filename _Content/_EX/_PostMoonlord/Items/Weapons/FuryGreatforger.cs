@@ -1,12 +1,13 @@
-﻿using Terraria;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
+using AAModClassic._Content._Dev.Projectiles;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using System;
+using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
-using AAModClassic._Content._Dev.Projectiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -59,6 +60,7 @@ Fury Forger EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<FuryForger>());
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

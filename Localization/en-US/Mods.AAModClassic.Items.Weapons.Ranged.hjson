@@ -557,3 +557,8 @@ Skystrike: {
 	DisplayName: Skystrike
 	Tooltip: ""
 }
+
+UltimateOreCannon: {
+	DisplayName: Ultimate Ore Cannon
+	Tooltip: ""
+}

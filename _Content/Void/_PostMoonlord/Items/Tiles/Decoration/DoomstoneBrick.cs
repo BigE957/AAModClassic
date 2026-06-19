@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Doomstone>(), 2);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 
             recipe = CreateRecipe();

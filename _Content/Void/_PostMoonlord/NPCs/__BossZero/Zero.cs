@@ -260,22 +260,25 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<UnstableSingularity>(), 1, 25, 35));
 
-            int[] lootTable = 
-            { 
-                ModContent.ItemType<UnstablePowerCell>(), 
-                ModContent.ItemType<SingularityArrow>(), 
-                ModContent.ItemType<TheVortex>(), 
-                ModContent.ItemType<EventHorizon>(), 
-                ModContent.ItemType<RealityCannon>(), 
-                ModContent.ItemType<RiftShredder>(), 
-                ModContent.ItemType<VoidStar>(), 
-                ModContent.ItemType<BrokenZeroWeapon>(), 
-                ModContent.ItemType<StallionsStar>(), 
-                ModContent.ItemType<DoomsdayTerratool>(), 
-                ModContent.ItemType<DoomPortal>(), 
-                ModContent.ItemType<Gigataser>(), 
-                ModContent.ItemType<OmegaVolley>(), 
-                ModContent.ItemType<GenocideCannon>() };
+            int[] lootTable =
+            {
+                ModContent.ItemType<UnstablePowerCell>(),
+                ModContent.ItemType<SingularityArrow>(),
+                ModContent.ItemType<TheVortex>(),
+                ModContent.ItemType<EventHorizon>(),
+                ModContent.ItemType<RealityCannon>(),
+                ModContent.ItemType<RiftShredder>(),
+                ModContent.ItemType<VoidStar>(),
+                ModContent.ItemType<BrokenZeroWeapon>(),
+                ModContent.ItemType<DoomsdayTerratool>(),
+                ModContent.ItemType<DoomPortal>(),
+                ModContent.ItemType<Gigataser>(),
+                ModContent.ItemType<OmegaVolley>(),
+                ModContent.ItemType<GenocideCannon>(),
+                ModContent.ItemType<BlackHoleBlaster>(),
+                ModContent.ItemType<Neutralizer>(),
+                ModContent.ItemType<NovaFocus>()
+            };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             //TODO: BRING HIM BACK PLEASEEEEEEE

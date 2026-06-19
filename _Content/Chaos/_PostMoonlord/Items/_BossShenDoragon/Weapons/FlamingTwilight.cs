@@ -119,7 +119,7 @@ Consumes gel as ammo
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<Dawnstrike>());
             recipe.AddIngredient(ModContent.ItemType<Darksprayer>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

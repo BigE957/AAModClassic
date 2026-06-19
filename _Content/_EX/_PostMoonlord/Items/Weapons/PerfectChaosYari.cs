@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -48,8 +49,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ChaosYari>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 		}
     }
 }

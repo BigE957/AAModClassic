@@ -61,12 +61,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
         {
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SilverBar, 25);
-            recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-            recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.TungstenBar, 25);
+            recipe.AddRecipeGroup("AAModClassic:SilverBar", 25);
             recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

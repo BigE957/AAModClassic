@@ -67,7 +67,7 @@ Inflicts Daybroken"); */
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<TrueCopperShortsword>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

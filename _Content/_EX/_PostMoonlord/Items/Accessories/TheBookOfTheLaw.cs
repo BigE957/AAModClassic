@@ -98,7 +98,7 @@ Includes the effects of all the pieces used to make this.
             recipe.AddIngredient(ItemID.FrozenShield, 1);
             recipe.AddIngredient(ItemID.SpectreBar, 60);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-			recipe.AddTile(ModContent.TileType<ACS_Tile>());
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
     }

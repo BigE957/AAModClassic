@@ -112,7 +112,7 @@ Right click to fire normal arrows"); */
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
             recipe.AddIngredient(ModContent.ItemType<ApollosWrath>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

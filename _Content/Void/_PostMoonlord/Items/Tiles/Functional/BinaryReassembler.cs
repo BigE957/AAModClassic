@@ -1,13 +1,14 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional
 {
@@ -64,6 +65,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 30);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

@@ -486,23 +486,46 @@ AAWorldBuildHoard: Amassing Treasure
 AAWorldBuildEquinoxAlt: Equalizing the Sun and Moon
 
 RecipeGroups: {
+	Ore: {
+		Copper: Copper Ore
+		Iron: Iron Ore
+		Silver: Silver Ore
+		Gold: Gold Ore
+		Evil: Evil Ore
+		Chaos: Chaos Ore
+		EvilOrChaos: Evil or Chaos Ore
+		Cobalt: Cobalt Ore
+		Mythril: Mythril Ore
+		Adamantite: Adamantite Ore
+		Hallowed: Hallowed Ore
+	}
+
 	Bars: {
-		CopperBar: Copper Bar
-		IronBar: Iron Bar
-		SilverBar: Silver Bar
-		GoldBar: Gold Bar
-		EvilBar: Evil Bar
-		ChaosBar: Chaos Bar
-		EvilorChaosBar: Evil or Chaos Bar
+		Copper: Copper Bar
+		Iron: Iron Bar
+		Silver: Silver Bar
+		Gold: Gold Bar
+		Evil: Evil Bar
+		Chaos: Chaos Bar
+		EvilOrChaos: Evil or Chaos Bar
+		Cobalt: Cobalt Bar
+		Mythril: Mythril Bar
+		Adamantite: Adamantite Bar
+		Hallowed: Hallowed Bar
 	}
 
 	Materials: {
 		ShinyCharm: Shiny Charm
 		ChaosClaw: Chaos Claw
-		HardmodeEvilMaterial: Hardmode Evil Material
-		EarlyAncientMaterial: Early Ancient Material
-		LateAncientMaterial: Late Ancient Material
-		SuperancientMaterial: Superancient Material
+		Evil: Evil Material
+		Chaos: Chaos Material
+		EvilOrChaos: Evil or Chaos Material
+		HardmodeEvil: Hardmode Evil Material
+		HardmodeChaos: Hardmode Chaos Material
+		HardmodeEvilOrChaos: Hardmode Evil or Chaos Material
+		EarlyAncient: Early Ancient Material
+		LateAncient: Late Ancient Material
+		Superancient: Superancient Material
 	}
 
 	CraftingStations: {

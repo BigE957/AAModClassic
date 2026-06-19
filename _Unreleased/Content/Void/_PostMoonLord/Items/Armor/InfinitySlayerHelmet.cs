@@ -77,13 +77,13 @@ Infinite power and malice flows through this armor"); */
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetMage>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 
             Recipe recipe2 = CreateRecipe();
             recipe2.AddIngredient(ModContent.ItemType<DoomsdayHelmetSummoner>(), 1);
             recipe2.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
-            recipe2.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe2.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe2.Register();
         }
 

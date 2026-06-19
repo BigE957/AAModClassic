@@ -75,7 +75,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             recipe.AddIngredient(ItemID.VortexBeater, 1);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

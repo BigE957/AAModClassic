@@ -55,7 +55,7 @@ The blazing fury of the Inferno rests in this armor"); */
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 18);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<KindledLeggings>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

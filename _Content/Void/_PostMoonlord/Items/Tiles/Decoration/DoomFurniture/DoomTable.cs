@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>(), 8);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 
         }

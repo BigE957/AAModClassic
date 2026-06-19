@@ -59,7 +59,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 			recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ItemID.LightDisc);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 		}
     }

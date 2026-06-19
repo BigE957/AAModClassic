@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

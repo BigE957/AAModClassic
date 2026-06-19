@@ -66,6 +66,7 @@ Allows you to work with Dark Matter and Radium"); */
                 recipe.AddIngredient(ItemID.LunarCraftingStation, 1);
                 recipe.AddIngredient(ModContent.ItemType<RadiumOre>(), 30);
                 recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 15);
+                recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }
         }

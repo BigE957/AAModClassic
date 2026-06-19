@@ -1014,3 +1014,13 @@ TreasureRadar: {
 	DisplayName: Treasure Radar
 	Tooltip: ""
 }
+
+VoidGraivtyItemIDKTheNameYet: {
+	DisplayName: Void Graivty Item I D K The Name Yet
+	Tooltip: ""
+}
+
+VoidGraivtyItemIDKTheNameYetOff: {
+	DisplayName: Void Graivty Item I D K The Name Yet Off
+	Tooltip: ""
+}

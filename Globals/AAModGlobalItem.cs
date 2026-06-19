@@ -13,6 +13,7 @@ using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -26,13 +27,6 @@ namespace AAModClassic.Globals
 {
     public class AAModGlobalItem : GlobalItem
 	{
-        public override bool InstancePerEntity => true;
-		protected override bool CloneNewInstances => true;
-		public bool AAOnly = false;
-        public bool NOHitPlayer = false;
-        public bool HardCoreMode = false;
-        public bool spellbookmagic = false;
-
         public override void SetDefaults(Item item)
         {
             if (item.type == ItemID.Cannonball)
@@ -122,37 +116,22 @@ namespace AAModClassic.Globals
                     }
                 }
             }
-            if(item.CountsAsClass(DamageClass.Magic) && item.useStyle == ItemUseStyleID.Shoot && !Item.staff[item.type] && item.width < item.height * 1.25 && !item.channel)
-            {
-                spellbookmagic = true;
-            }
         }
-
-        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
-		{
-            if(AAOnly)
-            {
-                TooltipLine line = new TooltipLine(Mod, "AAOnly", "AAMod Loaded Only Item");
-			    tooltips.Insert(tooltips.Count,line);
-            }
-            if(NOHitPlayer)
-            {
-                TooltipLine line = new TooltipLine(Mod, "NOHitPlayer", "NohitPlayer bonus item");
-			    tooltips.Insert(tooltips.Count,line);
-            }
-            if(HardCoreMode)
-            {
-                TooltipLine line = new TooltipLine(Mod, "HardCoreMode", "HardCoreMode Item");
-			    tooltips.Insert(tooltips.Count,line);
-            }
-		}
 
         public override void GrabRange(Item item, Player player, ref int grabRange)
         {
-            Item HeldItem = player.HeldItem;
-            if (HeldItem.type == ModContent.ItemType<CodeMagnet>())
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                grabRange += 810;
+                foreach (Item invItem in player.inventory)
+                {
+                    if (invItem.type == ModContent.ItemType<CodeMagnet>())
+                        grabRange += 810;
+                } 
+            }
+            else
+            {
+                if (player.HeldItem.type == ModContent.ItemType<CodeMagnet>())
+                    grabRange += 810;
             }
         }
 

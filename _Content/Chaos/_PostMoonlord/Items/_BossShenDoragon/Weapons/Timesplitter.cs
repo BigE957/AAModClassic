@@ -59,7 +59,7 @@ Inflicts Daybroken and Moonraze"); */
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<AbyssalYari>());
 			recipe.AddIngredient(ModContent.ItemType<SunPartisan>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

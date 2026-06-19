@@ -1,12 +1,12 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -88,6 +88,7 @@ Cursed Sickle EX"); */
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<CursedSickle>());
                 recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+                recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
                 recipe.Register();
             }
         }

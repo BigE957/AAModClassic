@@ -76,7 +76,7 @@ The power of discordian rage radiates from this armor"); */
             recipe.AddIngredient(ModContent.ItemType<DreadMoonChestplate>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 10);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

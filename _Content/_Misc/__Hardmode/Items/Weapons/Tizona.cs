@@ -30,16 +30,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.Excalibur);
                 recipe.AddIngredient(ItemID.AdamantiteBar, 15);
-                recipe.AddIngredient(ItemID.SoulofSight, 5);
-                recipe.AddIngredient(ItemID.SoulofMight, 5);
-                recipe.AddIngredient(ItemID.SoulofFright, 5);
-                recipe.AddTile(TileID.MythrilAnvil);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ItemID.Excalibur);
-                recipe.AddIngredient(ItemID.TitaniumBar, 15);
+				recipe.AddRecipeGroup("AAModClassic:AdamantiteBar", 15);
                 recipe.AddIngredient(ItemID.SoulofSight, 5);
                 recipe.AddIngredient(ItemID.SoulofMight, 5);
                 recipe.AddIngredient(ItemID.SoulofFright, 5);

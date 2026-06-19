@@ -8,7 +8,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
 {
-    public class ACS_Tile : ModTile
+    public class AnyAncientCraftingStation_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

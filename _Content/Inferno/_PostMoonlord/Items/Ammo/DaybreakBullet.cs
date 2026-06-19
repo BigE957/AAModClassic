@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
@@ -35,7 +36,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
 			Recipe recipe = CreateRecipe(500);
             recipe.AddIngredient(ItemID.ExplodingBullet, 500);
 			recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 1);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

@@ -52,16 +52,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.NecroHelmet, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
-                recipe.AddIngredient(ItemID.ShadowScale, 5);
-                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 5);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ItemID.NecroHelmet, 1);
-                recipe.AddIngredient(ItemID.JungleSpores, 5);
-                recipe.AddIngredient(ItemID.TissueSample, 5);
+                recipe.AddRecipeGroup("AAModClassic:EvilMaterial", 5);
                 recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 5);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();

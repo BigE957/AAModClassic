@@ -47,7 +47,7 @@ Non-consumable"); */
 			recipe.AddIngredient(ItemID.MoonlordBullet, 999);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 1);
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

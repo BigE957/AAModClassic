@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -37,7 +38,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.UseSound = SoundID.Item44;
             Item.shoot = ModContent.ProjectileType<PerfectChaosRitual_XiaoDoragon>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<XiaoDoragon_Buff>();
+            Item.buffType = ModContent.BuffType<PerfectChaosRitual_Buff>();
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Purple;
             Item.expert = true;
@@ -68,7 +69,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<ChaosRitual>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

@@ -47,7 +47,7 @@ The abyssal wrath of the Mire rests in this armor"); */
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 18);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DepthLeggings>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

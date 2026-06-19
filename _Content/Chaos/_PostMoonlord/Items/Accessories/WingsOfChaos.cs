@@ -71,7 +71,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
             recipe.AddIngredient(ModContent.ItemType<DraconianWings>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DreadWings>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

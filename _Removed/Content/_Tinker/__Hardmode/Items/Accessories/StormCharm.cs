@@ -42,7 +42,7 @@ Grants the ability to dash."); */
             recipe.AddIngredient(ModContent.ItemType<StormPendant>());
             recipe.AddIngredient(ModContent.ItemType<StormRiot>());
             recipe.AddIngredient(ModContent.ItemType<DragonSerpentNecklace>());
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();
         }
 

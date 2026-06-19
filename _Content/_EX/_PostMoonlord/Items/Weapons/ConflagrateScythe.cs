@@ -1,12 +1,13 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -39,7 +40,7 @@ Conflagrate Staff EX"); */
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.shoot = ModContent.ProjectileType<ConflagrateScythe_ConflagrateConstructEX>();
-            Item.buffType = ModContent.BuffType<ConflagrateConstructEX_Buff>();
+            Item.buffType = ModContent.BuffType<ConflagrateScythe_Buff>();
             Item.rare = ItemRarityID.Yellow;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;
@@ -59,7 +60,7 @@ Conflagrate Staff EX"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ConflagrateStaff>());
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

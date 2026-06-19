@@ -50,7 +50,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RealityBar>(), 5);
             recipe.AddIngredient(ItemID.ShadowbeamStaff, 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

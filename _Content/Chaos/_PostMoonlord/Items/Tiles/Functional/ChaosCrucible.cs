@@ -9,6 +9,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
 {
@@ -68,6 +69,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
                 recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 15);
+                recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
                 recipe.Register();
             }
         }

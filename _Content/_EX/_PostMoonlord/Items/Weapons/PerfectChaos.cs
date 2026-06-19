@@ -52,7 +52,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             recipe.AddIngredient(ModContent.ItemType<Chaos_Item>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 

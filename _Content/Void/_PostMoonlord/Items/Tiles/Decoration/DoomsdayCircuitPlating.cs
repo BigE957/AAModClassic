@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Recipe recipe = CreateRecipe(5);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 
             recipe = CreateRecipe();

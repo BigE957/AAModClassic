@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<MadnessFragment>(), 6);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

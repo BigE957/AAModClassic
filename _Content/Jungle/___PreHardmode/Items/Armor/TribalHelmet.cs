@@ -52,16 +52,7 @@ Increases maximum mana by 20"); */
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.JungleHat, 1);
-                recipe.AddIngredient(ItemID.ShadowScale, 8);
-                recipe.AddIngredient(ItemID.Bone, 8);
-                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 8);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ItemID.JungleHat, 1);
-                recipe.AddIngredient(ItemID.TissueSample, 8);
+                recipe.AddRecipeGroup("AAModClassic:EvilMaterial", 8);
                 recipe.AddIngredient(ItemID.Bone, 8);
                 recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 8);
                 recipe.AddTile(TileID.DemonAltar);

@@ -45,7 +45,7 @@ The power to destroy entire planets rests in this armor"); */
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 20);
 			recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
-			recipe.AddTile(ModContent.TileType<ACS_Tile>());
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

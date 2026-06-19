@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 15);
-			recipe.AddTile(ModContent.TileType<ACS_Tile>());
+			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}

@@ -64,7 +64,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Naitokurosu>()));
 
-            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<DreadTerratool>() };
+            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<AbyssalYari>(), ModContent.ItemType<AbyssalBomb>(), ModContent.ItemType<AbyssalEruption>(), ModContent.ItemType<Darksprayer>(), ModContent.ItemType<FallingTwilight>(), ModContent.ItemType<Sevenshot>(), ModContent.ItemType<ThrowingCrescent>(), ModContent.ItemType<DreadTerratool>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }

@@ -61,7 +61,7 @@ Infinite power and malice flows through this armor"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomsdayLeggings>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 14);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 
