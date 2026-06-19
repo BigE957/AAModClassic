@@ -1310,9 +1310,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             if (RageMode)
             {
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-                //spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-                //TODO: shader
-                spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (sb) => sb.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0));
             }
 
             if (SupremeRageMode)
