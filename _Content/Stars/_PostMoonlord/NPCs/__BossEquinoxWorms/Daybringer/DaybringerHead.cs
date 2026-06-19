@@ -819,7 +819,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 if (!Main.masterMode && !CalamityMod.IsRevengance)
                     return false;
 
-                int type = ModContent.NPCType<DaybringerHead>();
+                int type = ModContent.NPCType<NightcrawlerHead>();
                 if (info.npc.type == ModContent.NPCType<NightcrawlerHead>())
                     type = ModContent.NPCType<DaybringerHead>();
 
