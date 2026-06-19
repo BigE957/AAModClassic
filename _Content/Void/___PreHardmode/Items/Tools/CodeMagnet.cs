@@ -11,8 +11,6 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
 {
     public class CodeMagnet : BaseAAItem
     {
-        public SlotId MagnetSoundSlot;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Binary Code Magnet");
@@ -24,7 +22,7 @@ Right click the item to turn it off"); */
         {
             Item.width = Item.height = 16;
             Item.rare = ItemRarityID.LightRed;
-            Item.maxStack = Item.CommonMaxStack;
+            Item.maxStack = 1;
 			Item.value = 8000;
         }
 
@@ -34,7 +32,7 @@ Right click the item to turn it off"); */
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                MagnetSoundSlot = SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/CodeMagnetOff"), player.Center);
+                player.GetModPlayer<Magfauhryiahwugyuarguyhfdsghuasdfghfadsghjfasdghjfasdgh>().MagnetSoundSlot = SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/CodeMagnetOff"), player.Center);
                 bool favorited = Item.favorited;
                 Item.SetDefaults(ModContent.ItemType<CodeMagnetOff>());
                 Item.stack++;
@@ -44,12 +42,6 @@ Right click the item to turn it off"); */
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CodeMagnetOff>());
         }
 
-        public override void UpdateInventory(Player player)
-        {
-            if (SoundEngine.TryGetActiveSound(MagnetSoundSlot, out var magnetSound) && magnetSound.IsPlaying)
-                magnetSound.Position = player.Center;
-        }
-
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
@@ -57,6 +49,19 @@ Right click the item to turn it off"); */
             recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 20);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
+        }
+    }
+
+    public class Magfauhryiahwugyuarguyhfdsghuasdfghfadsghjfasdghjfasdgh : ModPlayer
+    {
+        public SlotId MagnetSoundSlot;
+
+        public override void PostUpdate()
+        {
+            if (SoundEngine.TryGetActiveSound(MagnetSoundSlot, out var magnetSound) && magnetSound.IsPlaying)
+            {
+                magnetSound.Position = Player.Center;
+            }
         }
     }
 }

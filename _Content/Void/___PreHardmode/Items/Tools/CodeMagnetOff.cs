@@ -24,8 +24,8 @@ Right click the item to turn it on"); */
         {
             Item.width = Item.height = 16;
             Item.rare = ItemRarityID.LightRed;
-            Item.maxStack = Item.CommonMaxStack;
-			Item.value = 8000;
+            Item.maxStack = 1;
+            Item.value = 8000;
         }
 
         public override bool CanRightClick() => true;
@@ -34,7 +34,7 @@ Right click the item to turn it on"); */
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                MagnetSoundSlot = SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/CodeMagnetOn"), player.Center);
+                player.GetModPlayer<Magfauhryiahwugyuarguyhfdsghuasdfghfadsghjfasdghjfasdgh>().MagnetSoundSlot = SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/CodeMagnetOn"), player.Center);
                 bool favorited = Item.favorited;
                 Item.SetDefaults(ModContent.ItemType<CodeMagnet>());
                 Item.stack++;
@@ -42,12 +42,6 @@ Right click the item to turn it on"); */
             }
             else
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CodeMagnet>());
-        }
-
-        public override void UpdateInventory(Player player)
-        {
-            if (SoundEngine.TryGetActiveSound(MagnetSoundSlot, out var magnetSound) && magnetSound.IsPlaying)
-                magnetSound.Position = player.Center;
         }
     }
 }

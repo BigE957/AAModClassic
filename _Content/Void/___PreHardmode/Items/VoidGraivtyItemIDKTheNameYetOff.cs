@@ -20,8 +20,8 @@ Right click the item to turn it on"); */
         {
             Item.width = Item.height = 16;
             Item.rare = ItemRarityID.LightRed;
-            Item.maxStack = Item.CommonMaxStack;
-			Item.value = 8000;
+            Item.maxStack = 1;
+            Item.value = 8000;
         }
 
         public override bool CanRightClick() => true;
