@@ -110,7 +110,7 @@ public class CoreActivator_Tile : ModTile
 		}
 		else
 		{
-			AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, true, (int)val.X, (int)val.Y, "The Biome Core whirs to life!", false);
+			AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, true, (int)val.X, (int)val.Y, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.CoreSpawn"), false);
 		}
 	}
 

@@ -813,7 +813,7 @@ namespace AAModClassic._CrossMod
                     AddBoss(bossChecklist, mod, "GripsOfChaos", (() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosInferno>(), ModContent.NPCType<GripOfChaosMire>() }, new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "GripsOfChaos.Name"),
-                        ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").Format("[i:" + ModContent.ItemType<CuriousLookingClaw>() + "]", "[i:" + ModContent.ItemType<InterestingLookingClaw>() + "]"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").WithFormatArgs("[i:" + ModContent.ItemType<CuriousLookingClaw>() + "]", "[i:" + ModContent.ItemType<InterestingLookingClaw>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "GripsOfChaos.Despawn"),
                         ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousLookingClaw>(), ModContent.ItemType<InterestingLookingClaw>() },
                         ["collectibles"] = new List<int>

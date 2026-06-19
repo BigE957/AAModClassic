@@ -100,7 +100,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 
         public override void Update(GameTime gameTime)
         {
-            if (AAWorld.downedZero && Alpha != -1)
+            if (!Main.gameMenu && AAWorld.downedZero && Alpha != -1)
             {
                 Alpha += 0.05f;
                 if (Alpha > 1f) Alpha = 1f;
@@ -180,9 +180,6 @@ namespace AAModClassic._Content.Void.World.Biomes
             if (newA > 255) newA = 255;
             return new Color(newR, newG, newB, newA);
         }
-
-        readonly AAMod mod = AAMod.instance;
-
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
             if (AAMod.instance == null)

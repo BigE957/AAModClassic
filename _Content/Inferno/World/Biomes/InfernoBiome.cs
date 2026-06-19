@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
 using AAModClassic._Content.Inferno.World.Biomes.Waters;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -10,6 +11,8 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Reflection;
+using System.Reflection.PortableExecutable;
+using System.Threading.Channels;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameInput;
@@ -17,6 +20,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using static Terraria.ModLoader.PlayerDrawLayer;
 
 namespace AAModClassic._Content.Inferno.World.Biomes
 {
@@ -345,9 +349,13 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override bool PreDrawCloseBackground(SpriteBatch spriteBatch)
         {
-            float num = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
-            float num2 = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - num / 2f;
-            float scAdj = (float)(Main.worldSurface * 16.0) / (num2 + num);
+            if (AAMod.instance == null)
+                return true;
+
+            float clampedScreenH = Math.Min(PlayerInput.RealScreenHeight, Main.LogicCheckScreenHeight);
+            float screenOff = clampedScreenH - 600f;
+            float num2 = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
+            float scAdj = (float)(Main.worldSurface * 16.0) / (num2 + clampedScreenH);
             float num3 = (float)Main.maxTilesY * 0.15f * 16f;
             num3 -= num2;
             if (num3 < 0f)
@@ -363,33 +371,28 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             else
                 scAdj *= -150f;
 
-            float screenOff = num - 600f;
-
             int textureSlot = BackgroundTextureLoader.GetBackgroundSlot(AAMod.instance, "_Content/Inferno/World/Biomes/Backgrounds/InfernoBG");
 
             if (textureSlot < 0 || textureSlot >= TextureAssets.Background.Length)
-            {
                 return false;
-            }
 
-            double surface = Main.worldSurface == 0 ? 1 : Main.worldSurface;
-            float numagicNumberSetup = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
-            double backgroundTopMagicNumber = (0f - numagicNumberSetup + screenOff / 2f) / (surface * 16f);
+            float worldSurface = (float)(Main.worldSurface == 0 ? 1 : Main.worldSurface);
+            float num3v = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
+            double backgroundTopMagicNumber = (0f - num3v + screenOff / 2f) / (worldSurface * 16f);
 
-            int pushBGTopHack = Main.gameMenu ? 180 : 0;
+            int num6 = 0;
+            if (Main.gameMenu)
+                num6 += 180;
             int bump = 30;
             if (Main.gameMenu)
                 bump = 0;
-
             if (WorldGen.drunkWorldGen)
                 bump = -180;
-            pushBGTopHack += bump;
+            num6 += bump;
 
-            //Custom: bgScale, textureslot, patallaz, these 2 numbers...., Top and Start?
             Main.instance.LoadBackground(textureSlot);
 
             float bgScale = 1.85f * 2;
-
             double bgParallax = 0.15;
             int bgWidthScaled = (int)(382 * bgScale);
             int bgStartX = (int)(-Math.IEEERemainder((double)Main.screenPosition.X * bgParallax, bgWidthScaled) - (double)(bgWidthScaled / 2));
@@ -399,11 +402,9 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             int bgLoops = Main.screenWidth / bgWidthScaled + 2;
 
             bgScale = 1f;
-            int bgTopY = (int)(backgroundTopMagicNumber * 1300.0 + 1090.0) + (int)scAdj + pushBGTopHack;
+            int bgTopY = (int)(backgroundTopMagicNumber * 1300.0 + 1090.0) + (int)scAdj + num6;
             if (Main.gameMenu)
-                bgTopY = 100 + pushBGTopHack;
-
-            bgTopY -= 40;
+                bgTopY = 100 + num6;
 
             if (Main.screenPosition.Y >= Main.worldSurface * 16.0 + 16.0)
                 return false;
@@ -422,6 +423,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                     0f
                 );
             }
+
             return false;
         }
     }
