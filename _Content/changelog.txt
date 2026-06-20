@@ -132,6 +132,7 @@ unofficial
 -the chaos ember rain effect now plays after akuma and yamata are killed instead of akuma, yamata, and zero (thanks diamondwalker!)
 -code magnet now works from the inventory instead of needing to be held
 -improved and polished how enabling/disabling the code magnet works
+-added the gravitron centrifuge, a post-plantera tool that passively disables space gravity (thanks diamondwalker!)
 -
 
 crossmod
