@@ -262,3 +262,13 @@ DoomsdayTerratool: {
 	DisplayName: Doomsday Terratool
 	Tooltip: ""
 }
+
+GravitronCentrifuge: {
+	DisplayName: Gravitron Centrifuge
+	Tooltip: ""
+}
+
+GravitronCentrifugeOff: {
+	DisplayName: Gravitron Centrifuge Off
+	Tooltip: ""
+}

@@ -15,9 +15,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Binary Code Magnet");
-			/* Tooltip.SetDefault(@"Pulls items to you by moving its code closer to you
-Right click the item to turn it off"); */
-		}
+            /* Tooltip.SetDefault(@"Pulls items to you by moving its code closer to you
+            Right click to deactivate effects"); */
+        }
 
         public override void SetDefaults()
         {
