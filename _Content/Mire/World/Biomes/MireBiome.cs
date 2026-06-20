@@ -264,7 +264,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
                 // backgroundTopMagicNumber - uses raw screenHeight for screenOff
                 float screenOff = Main.screenHeight - 600f;
                 float num3v = Main.screenPosition.Y + (float)(Main.screenHeight / 2) - 600f;
-                float worldSurface = Main.gameMenu ? 600 : Main.worldSurface == 0 ? 1f : (float)Main.worldSurface;
+                float worldSurface = Main.worldSurface == 0 ? 1f : (float)Main.worldSurface;
                 double backgroundTopMagicNumber = (0f - num3v + screenOff / 2f) / (worldSurface * 16f);
 
                 int num6 = 0;
@@ -281,18 +281,20 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
                 Main.instance.LoadBackground(textureSlot);
 
-                float bgScale = 1.85f * 2;
+                float bgScale = 1.85f;
                 double bgParallax = 0.15;
-                int bgWidthScaled = (int)(430 * bgScale);
+                int bgWidthScaled = (int)(TextureAssets.Background[textureSlot].Width() * bgScale);
                 int bgStartX = (int)(-Math.IEEERemainder((double)Main.screenPosition.X * bgParallax, bgWidthScaled) - (double)(bgWidthScaled / 2));
                 if (bgWidthScaled == 0)
                     bgWidthScaled = 1024;
 
                 int bgLoops = Main.screenWidth / bgWidthScaled + 2;
 
-                bgScale = 1f;
                 int bgTopY = (int)(backgroundTopMagicNumber * 1300.0 + 1090.0) + (int)scAdj + num6;
-                bgTopY += Main.gameMenu ? 100 : 360;
+                if (Main.gameMenu)
+                    bgTopY = (int)screenOff - 80;
+                else
+                    bgTopY -= 96;
 
                 if (Main.screenPosition.Y >= Main.worldSurface * 16.0 + 16.0)
                     return false;
