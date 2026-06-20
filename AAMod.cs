@@ -48,6 +48,7 @@ using AAModClassic._Content.Underground.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void.World.Biomes;
@@ -726,6 +727,8 @@ namespace AAModClassic
             ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
 
             On_Player.GetPickaxeDamage += ModifyLuminitePickaxePower;
+
+            BrokenCodeTeleportUnofficialEdits.ApplyEdits();
         }
 
         private int ModifyLuminitePickaxePower(On_Player.orig_GetPickaxeDamage orig, Player self, int x, int y, int pickPower, int hitBufferIndex, Tile tileTarget)

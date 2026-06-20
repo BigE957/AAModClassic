@@ -1778,3 +1778,18 @@ PerfectChaosRitual_Buff: {
 	DisplayName: Perfect Chaos Ritual_ Buff
 	Description: Mods.AAModClassic.Buffs.PerfectChaosRitual_Buff.Description
 }
+
+BrokenCode_Freeze: {
+	DisplayName: Broken Code_ Freeze
+	Description: Mods.AAModClassic.Buffs.BrokenCode_Freeze.Description
+}
+
+BrokenCode_FreezeCooldown: {
+	DisplayName: Broken Code_ Freeze Cooldown
+	Description: Mods.AAModClassic.Buffs.BrokenCode_FreezeCooldown.Description
+}
+
+BrokenCode_Glitched: {
+	DisplayName: Broken Code_ Glitched
+	Description: Mods.AAModClassic.Buffs.BrokenCode_Glitched.Description
+}

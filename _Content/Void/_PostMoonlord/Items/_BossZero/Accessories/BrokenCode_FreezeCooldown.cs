@@ -4,25 +4,21 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
-    public class Glitched_Buff : ModBuff
+    public class BrokenCode_FreezeCooldown : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Glitched");
-			// Description.SetDefault("Your head is like 10 feet in front of you");
+			// DisplayName.SetDefault("Freeze Cooldown");
+			// Description.SetDefault("Atleast your head is still on your body!");
 			Main.persistentBuff[Type] = true;
-			Main.meleeBuff[Type] = true;
+            Main.debuff[Type] = true;
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-
         }
 
 
         public override void Update(Player player, ref int index)
         {
-            base.Update(player, ref index);
-            player.manaCost *= 0;
-            player.GetDamage(DamageClass.Magic) += .2f;
-            player.GetDamage(DamageClass.Summon) += .2f;
+            
         }
     }
 }

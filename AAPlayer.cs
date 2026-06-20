@@ -886,11 +886,6 @@ namespace AAModClassic
                 npc.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
             }
 
-            if (BrokenCode)
-            {
-                Player.AddBuff(BuffID.Panic, 180);
-                Player.immuneTime = Player.longInvince ? 180 : 120;
-            }
 
             if (npc.type == NPCID.GoblinArcher
                 || npc.type == NPCID.GoblinPeon

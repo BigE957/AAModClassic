@@ -51,4 +51,24 @@ Effect: {
 	Endurance: "{0}% increased damage resistance"
 	MaxLife: +{0} Max Life
 	MovementSpeed: "{0}% increased movement speed"
+	BrokenCodeTeleport:
+		'''
+		Allows you to glitch with a 5 second cooldown
+		Grapple to Glitch
+		While cooldown is occurring, your speed is increased, you gain invincibility frames
+		While cooldown is occurring, your magic/summon weapons require no mana and have 20% increased damage
+		Teleportation has 15 second cooldown
+		WARNING: May permanently displace appendages until game restart. This is a feature.
+		'''
+	BrokenCodeTeleportUnofficial:
+		'''
+		Press [grapple key] to glitch with a 20 second cooldown
+		Glitching teleports you to your cursor and causes all entities to freeze for 2.5 seconds
+		Pressing [grapple key] while glitched will telport you to your cursor and unfreeze the game
+		'''
+	BrokenCodeWhateverThisShitIs:
+		'''
+		Increases movement speed after taking damage
+		Increases length of invincibility after taking damage
+		'''
 }
