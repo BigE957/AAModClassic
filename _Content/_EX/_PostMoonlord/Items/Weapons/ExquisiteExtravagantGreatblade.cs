@@ -34,7 +34,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<ExquisiteExtravagantGreatblade_BiggerE>();
             Item.shootSpeed = 18f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
         
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

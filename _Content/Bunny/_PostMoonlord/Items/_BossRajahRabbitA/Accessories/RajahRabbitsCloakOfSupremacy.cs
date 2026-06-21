@@ -29,7 +29,7 @@ All effects of the Sash of Vengeance
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 10;
         }
 

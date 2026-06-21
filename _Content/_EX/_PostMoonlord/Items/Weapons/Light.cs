@@ -41,7 +41,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.channel = true;
             Item.shoot = ModContent.ProjectileType<Light_Holdout>();
             Item.shootSpeed = 30f;           
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

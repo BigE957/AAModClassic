@@ -33,7 +33,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
 		}
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)

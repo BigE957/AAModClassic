@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace AAModClassic.Utilities
             public virtual float MinionKnockback => 1;
             public virtual DamageClass MinionDamageType => DamageClass.Summon;
             public virtual bool ShouldScaleWithClassDamage => false;
+            public virtual bool MinionHasVanitySupport => false;
 
             public override void SetStaticDefaults()
             {
@@ -42,7 +44,7 @@ namespace AAModClassic.Utilities
 
             public override void Update(Player player, ref int buffIndex)
             {
-                if (!BasePlayer.HasEquipment(player, ModContent.ItemType<TEquip>(), true, false))
+                if (!BasePlayer.HasEquipment(player, ModContent.ItemType<TEquip>(), true, true))
                 {
                     player.DelBuff(buffIndex);
                     buffIndex--;
@@ -57,6 +59,12 @@ namespace AAModClassic.Utilities
 
                         Projectile.NewProjectile(player.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<TMinion>(), finalDamage, MinionKnockback, Main.myPlayer, 0f, 0f);
                     }
+                }
+
+                if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && MinionHasVanitySupport && BasePlayer.HasEquipment(player, ModContent.ItemType<TEquip>(), false, true))
+                {
+                    player.DelBuff(buffIndex);
+                    buffIndex--;
                 }
             }
         }

@@ -23,7 +23,6 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
             Item.defense = 4;
             Item.value = 10000;
             Item.expert = true;
-            Item.expertOnly = true;
 		}
 
         public override void UpdateEquip(Player player)

@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Acc
             Item.height = 50;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void UpdateAccessory(Player p, bool hideVisual)

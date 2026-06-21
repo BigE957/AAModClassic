@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
             Item.consumable = true;
             Item.width = 36;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 

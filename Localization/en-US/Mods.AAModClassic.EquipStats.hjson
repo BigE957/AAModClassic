@@ -62,6 +62,7 @@ Effect: {
 		'''
 	BrokenCodeTeleportUnofficialEffect:
 		'''
+		Replaces your grappling hook with the ability to glitch
 		Press {0} to glitch with a {1} second cooldown
 		Glitching teleports you to your cursor and causes all entities to freeze for {2} seconds
 		Pressing {0} while glitched will telport you to your cursor and unfreeze the game

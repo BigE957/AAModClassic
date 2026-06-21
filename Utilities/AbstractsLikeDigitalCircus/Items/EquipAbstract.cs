@@ -22,7 +22,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         private static readonly Dictionary<Type, EquipmentEffectData> _effectCache = new();
 
         #region the sealing
-        public override sealed void UpdateEquip(Player player)
+        public sealed override void UpdateEquip(Player player)
         {
             base.UpdateEquip(player);
             Clear();
@@ -41,7 +41,19 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             }
         }
 
-        public override sealed void UpdateArmorSet(Player player)
+        public sealed override void UpdateVanity(Player player)
+        {
+            base.UpdateVanity(player);
+            Clear();
+            RegisterAccVanity();
+
+            foreach (EquipmentEffectData effect in effectMap)
+            {
+                effect.DoEffect(player);
+            }
+        }
+
+        public sealed override void UpdateArmorSet(Player player)
         {
             base.UpdateArmorSet(player);
 
@@ -50,6 +62,11 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         #endregion
 
         public virtual void RegisterEquipStats()
+        {
+
+        }
+
+        public virtual void RegisterAccVanity()
         {
 
         }

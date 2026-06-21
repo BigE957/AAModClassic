@@ -38,7 +38,7 @@ Meowmere EX"); */
             Item.UseSound = SoundID.Item57;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.shoot = ProjectileID.Meowmere;
 			Item.shootSpeed = 12f;
         }

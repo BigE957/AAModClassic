@@ -36,7 +36,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<Aerodrake_AeroSlash>();
             Item.shootSpeed = 17f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

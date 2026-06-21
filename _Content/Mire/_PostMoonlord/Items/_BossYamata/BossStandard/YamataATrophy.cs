@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 			Item.consumable = true;
 			Item.value = 2000;
             Item.rare = ItemRarityID.Red;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.createTile = ModContent.TileType<YamataATrophy_Tile>();
 		}
 	}

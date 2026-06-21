@@ -42,7 +42,7 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             Item.height = 34;
             Item.value = Item.sellPrice(5, 0, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.accessory = true;
             Item.defense = 8;
         }

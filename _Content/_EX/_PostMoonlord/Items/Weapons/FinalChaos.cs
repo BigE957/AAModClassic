@@ -33,7 +33,7 @@ Legendary Weapon"); */
             Item.value = 300000;
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.useAnimation = 17;
             Item.useTime = 17;
             Item.shootSpeed = 5;

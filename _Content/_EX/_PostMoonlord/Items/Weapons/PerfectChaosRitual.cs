@@ -42,7 +42,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Purple;
             Item.expert = true;
-            Item.expertOnly = true;
             Item.value = Item.sellPrice(0, 30, 0, 0);
         }
 		

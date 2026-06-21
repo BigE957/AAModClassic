@@ -19,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
             Item.height = 30;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Expert;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.accessory = true;
         }
         

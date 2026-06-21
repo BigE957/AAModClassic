@@ -35,7 +35,7 @@ Horseman's Blade EX"); */
             Item.useTime = 5;
 			Item.useAnimation = 5;
 			Item.value = 1000000;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
 
         public override void AddRecipes()

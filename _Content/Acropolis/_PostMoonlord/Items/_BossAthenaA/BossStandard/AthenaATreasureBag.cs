@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 

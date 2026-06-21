@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Green;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.createTile = ModContent.TileType<ShenDoragonATrophy_Tile>();
 		}
 	}

@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.scale = 1.1f;
             Item.shootSpeed = 14f;
             Item.knockBack = 6.5f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
 
         

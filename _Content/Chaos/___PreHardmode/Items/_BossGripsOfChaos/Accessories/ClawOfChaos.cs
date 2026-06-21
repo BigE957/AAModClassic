@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Acc
             Item.height = 30;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Expert;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.accessory = true;
         }
 

@@ -28,7 +28,6 @@ Hitting enemies will sometimes drop extra coins"); */
             Item.value = Item.sellPrice(0, 12, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            Item.expertOnly = true;
             Item.expert = true;
         }
 

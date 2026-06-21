@@ -58,7 +58,6 @@ Includes the effects of all the pieces used to make this.
             Item.accessory = true;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTime = 1;
-            Item.expertOnly = true;
             Item.useTime = 30;
             Item.useAnimation = 30;
         }

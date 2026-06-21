@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 			Item.consumable = true;
 			Item.value = 2000;
             Item.rare = ItemRarityID.Red;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.createTile = ModContent.TileType<AkumaATrophy_Tile>();
 		}
 	}

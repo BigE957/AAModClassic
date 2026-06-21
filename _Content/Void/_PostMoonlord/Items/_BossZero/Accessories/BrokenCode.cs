@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
             Item.height = 52;
             Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.accessory = true;
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }

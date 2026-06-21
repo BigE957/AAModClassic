@@ -21,7 +21,7 @@ For the record, Anarchy sprited this himself."); */
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;  
+            Item.expert = true;  
         }
 
         public override bool CanRightClick()

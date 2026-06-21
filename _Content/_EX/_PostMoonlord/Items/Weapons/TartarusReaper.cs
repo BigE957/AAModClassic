@@ -41,7 +41,7 @@ Cursed Sickle EX"); */
             Item.shoot = ModContent.ProjectileType<TartarusReaper_Holdout>();
             Item.shootSpeed = 0.1f;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
 
         public override bool AltFunctionUse(Player player)

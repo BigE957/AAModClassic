@@ -43,7 +43,6 @@ I need more powerful souls, *****,*********,**********"); */
             Item.accessory = true;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTime = 1;
-            Item.expertOnly = true;
             Item.useTime = 30;
             Item.useAnimation = 30;
         }

@@ -29,7 +29,6 @@ Athena is boosted by minion damage"); */
             Item.rare = ItemRarityID.Purple;
 	        Item.accessory = true;
             Item.expert = true;
-            Item.expertOnly = true;
 	    }
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
@@ -38,6 +37,11 @@ Athena is boosted by minion damage"); */
         }
 
         public override void RegisterEquipStats()
+        {
+            AddEffect<GoddessHarpEffect>();
+        }
+
+        public override void RegisterAccVanity()
         {
             AddEffect<GoddessHarpEffect>();
         }

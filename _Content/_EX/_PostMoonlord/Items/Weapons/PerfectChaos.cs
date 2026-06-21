@@ -41,7 +41,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<PerfectChaos_ChaosBeam>();
             Item.shootSpeed = 16f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
 		public override void AddRecipes()

@@ -31,7 +31,7 @@ You know what? Just don't put it anywhere near your mouth."); */
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 8;
         }
 

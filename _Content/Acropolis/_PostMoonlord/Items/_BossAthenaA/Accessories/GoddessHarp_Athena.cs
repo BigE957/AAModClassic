@@ -1,4 +1,5 @@
 using AAModClassic._Content.Acropolis.Projectiles;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -42,6 +43,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
         {
             Player player = Main.player[Projectile.owner];
             Projectile.HandleMinionPersistence<GoddessHarp_Buff>(player);
+            bool isVanity = BasePlayer.HasAccessory(player, ModContent.ItemType<GoddessHarp>(), false, true);
 
             dust--;
             if (dust >= 0)
@@ -134,7 +136,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                    if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    if (!isVanity && (Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         num633 = num646;
                         vector46 = nPC2.Center;

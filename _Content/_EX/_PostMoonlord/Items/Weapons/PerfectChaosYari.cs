@@ -34,7 +34,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(5, 0, 0, 0);
             Item.rare = ItemRarityID.Purple;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.shootSpeed = 8f;
             Item.shoot = ModContent.ProjectileType<PerfectChaosYari_Holdout>();
         }

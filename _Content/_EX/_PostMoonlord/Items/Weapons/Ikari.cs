@@ -36,7 +36,7 @@ Chaos Slayer EX"); */
             Item.damage = 666;
             Item.knockBack = 12;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<Ikari_BladeOfUnyieldingChaos>();
 			Item.shootSpeed = 7;

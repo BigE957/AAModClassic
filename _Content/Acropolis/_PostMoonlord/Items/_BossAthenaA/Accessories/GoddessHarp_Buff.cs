@@ -10,6 +10,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
         public override int MinionDamage => 100;
         public override float MinionKnockback => 2;
         public override bool ShouldScaleWithClassDamage => true;
+        public override bool MinionHasVanitySupport => true;
 
 		public override void SetStaticDefaults()
 		{

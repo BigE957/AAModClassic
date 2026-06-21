@@ -25,7 +25,6 @@ Caps out at 20% damage"); */
             Item.value = Item.sellPrice(0, 6, 0, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.accessory = true;
-            Item.expertOnly = true;
             Item.expert = true;
         }
 

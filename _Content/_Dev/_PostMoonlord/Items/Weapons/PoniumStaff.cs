@@ -45,7 +45,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<PoniumStaff_PonyShot>();
 			Item.shootSpeed = 9f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)

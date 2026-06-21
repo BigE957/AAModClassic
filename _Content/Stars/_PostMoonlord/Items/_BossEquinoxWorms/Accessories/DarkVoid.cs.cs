@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Acce
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         

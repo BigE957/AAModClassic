@@ -28,7 +28,6 @@ Immunity to fall damage"); */
             Item.value = Item.sellPrice(0, 12, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.accessory = true;
-            Item.expertOnly = true;
             Item.expert = true;
         }
 

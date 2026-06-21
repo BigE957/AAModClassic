@@ -24,7 +24,6 @@ Seraph is boosted by minion damage"); */
             Item.rare = ItemRarityID.Yellow;
 	        Item.accessory = true;
             Item.expert = true;
-            Item.expertOnly = true;
         }
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)

@@ -28,7 +28,6 @@ Your defense is lowered and speed is raised while the Eye is active"); */
             Item.rare = ItemRarityID.LightPurple;
             Item.accessory = true;
             Item.expert = true;
-            Item.expertOnly = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

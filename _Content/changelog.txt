@@ -71,6 +71,7 @@ base
 -abyssal wrath dye no longer uses bottled water in its recipe (thanks diamondwalker!) 
 -bottled water is now placed before the material in dye recipes
 -the active version of code magnet is now crafted instead of the inactive one
+-ancients awakened items no longner set the unused Item.expertOnly value
 -
 
 removed
@@ -133,6 +134,7 @@ unofficial
 -code magnet now works from the inventory instead of needing to be held
 -improved and polished how enabling/disabling the code magnet works
 -added the gravitron centrifuge, a post-plantera tool that passively disables space gravity (thanks diamondwalker!)
+-seraph and goddess harp now provide a nonfunctional minion while in the vanity slot
 -
 
 crossmod
