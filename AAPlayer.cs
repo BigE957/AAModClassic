@@ -138,7 +138,6 @@ namespace AAModClassic
         public bool TerraSummon = false;
         public bool DragonSpirit = false;
         public bool Seraph = false;
-        public bool Athena = false;
         public bool Baron = false;
         public bool Xiao = false;
         public bool ChaosConstruct = false;
@@ -490,7 +489,6 @@ namespace AAModClassic
             TerraSummon = false;
             DragonSpirit = false;
             Seraph = false;
-            Athena = false;
             Baron = false;
             Xiao = false;
             ChaosConstruct = false;

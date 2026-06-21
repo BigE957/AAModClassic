@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,14 +27,9 @@ Seraph is boosted by minion damage"); */
             Item.expertOnly = true;
         }
 
-        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
+        public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (modPlayer.Athena)
-            {
-                return false;
-            }
-            return true;
+            return incomingItem.type != ModContent.ItemType<GoddessHarp>();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

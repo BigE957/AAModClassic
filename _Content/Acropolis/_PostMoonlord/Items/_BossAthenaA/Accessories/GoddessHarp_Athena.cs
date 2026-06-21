@@ -1,6 +1,7 @@
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -40,9 +41,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.dead) modPlayer.Athena = false;
-            if (modPlayer.Athena) Projectile.timeLeft = 2;
+            Projectile.HandleMinionPersistence<GoddessHarp_Buff>(player);
 
             dust--;
             if (dust >= 0)

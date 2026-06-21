@@ -51,7 +51,7 @@ Effect: {
 	Endurance: "{0}% increased damage resistance"
 	MaxLife: +{0} Max Life
 	MovementSpeed: "{0}% increased movement speed"
-	BrokenCodeTeleport:
+	BrokenCodeTeleportEffect:
 		'''
 		Allows you to glitch with a 5 second cooldown
 		Grapple to Glitch
@@ -60,15 +60,16 @@ Effect: {
 		Teleportation has 15 second cooldown
 		WARNING: May permanently displace appendages until game restart. This is a feature.
 		'''
-	BrokenCodeTeleportUnofficial:
+	BrokenCodeTeleportUnofficialEffect:
 		'''
 		Press [grapple key] to glitch with a 20 second cooldown
 		Glitching teleports you to your cursor and causes all entities to freeze for 2.5 seconds
 		Pressing [grapple key] while glitched will telport you to your cursor and unfreeze the game
 		'''
-	BrokenCodeWhateverThisShitIs:
+	BrokenCodeWhateverThisShitIsEffect: Increases movement speed and length of invincibility after taking damage
+	GoddessHarpEffect:
 		'''
-		Increases movement speed after taking damage
-		Increases length of invincibility after taking damage
+		Summons the Seraph Queen herself to fight alongside you
+		Athena is boosted by minion damage
 		'''
 }

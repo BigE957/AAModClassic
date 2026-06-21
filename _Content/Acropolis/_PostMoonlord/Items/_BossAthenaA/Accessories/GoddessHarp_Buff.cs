@@ -1,39 +1,21 @@
 using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.SummonEquipUtils;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories
 {
-    public class GoddessHarp_Buff : ModBuff
+    public class GoddessHarp_Buff : MinionBuffAbstract<GoddessHarp, GoddessHarp_Athena>
 	{
+        public override int MinionDamage => 100;
+        public override float MinionKnockback => 2;
+        public override bool ShouldScaleWithClassDamage => true;
+
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Athena");
+            base.SetStaticDefaults();
+            // DisplayName.SetDefault("Athena");
 			// Description.SetDefault("'I'll help you, but but I'll still thrash you someday.'");
-			Main.buffNoSave[Type] = true;
-			Main.buffNoTimeDisplay[Type] = true;
-		}
-
-		public override void Update(Player player, ref int buffIndex)
-		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<GoddessHarp_Athena>()] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<GoddessHarp>(), true, false))
-			{
-				modPlayer.Athena = true;
-			}
-            else
-            {
-                modPlayer.Athena = false;
-            }
-			if (!modPlayer.Athena)
-			{
-				player.DelBuff(buffIndex);
-				buffIndex--;
-			}
-			else
-			{
-				player.buffTime[buffIndex] = 18000;
-			}
 		}
 	}
 }

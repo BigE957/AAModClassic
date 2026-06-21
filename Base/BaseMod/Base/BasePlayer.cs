@@ -160,6 +160,13 @@ namespace AAModClassic.Base.BaseMod.Base
             }
             return false;
         }
+
+        public static bool HasEquipment(Player player, int type, bool normal, bool vanity)
+        {
+            if (HasAccessory(player, type, normal, vanity) || HasHelmet(player, type, vanity) || HasChestplate(player, type, vanity) || HasLeggings(player, type, vanity))
+                return true;
+            return false;
+        }
     }
 }
 
