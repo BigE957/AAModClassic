@@ -2,6 +2,7 @@
 using System;
 using Terraria;
 using Terraria.Chat;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
 
@@ -35,5 +36,24 @@ namespace AAModClassic.Utilities
             "" => throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input)),
             _ => string.Concat(input[0].ToString().ToUpper(), input.AsSpan(1))
         };
+
+        /// <summary>
+        /// for valid inputs refer to Reset() in PlayerInput
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static string GetVanillaKeybindGlyph(string input)
+        {
+            InputMode mode = PlayerInput.CurrentInputMode;
+            if (mode == InputMode.Mouse || mode == InputMode.KeyboardUI)
+                mode = InputMode.Keyboard;
+            else if (mode == InputMode.XBoxGamepadUI)
+                mode = InputMode.XBoxGamepad;
+
+            if (!PlayerInput.CurrentProfile.InputModes[mode].KeyStatus.ContainsKey(input))
+                return "get a proper input moron";
+
+            return PlayerInput.CurrentProfile.InputModes[mode].KeyStatus[input][0];
+        }
     }
 }
