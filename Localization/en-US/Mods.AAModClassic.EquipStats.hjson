@@ -46,11 +46,11 @@ SpecificStats: {
 Misc.Nothing: ""
 
 Effect: {
-	ManaFlower: Automatically use mana potions when needed
-	CrimsonArmorRegen: Greatly increased life regen
-	Endurance: "{0}% increased damage resistance"
-	MaxLife: +{0} Max Life
-	MovementSpeed: "{0}% increased movement speed"
+	ManaFlowerEffect: Automatically use mana potions when needed
+	CrimsonArmorRegenEffect: Greatly increased life regen
+	EnduranceEffect: "{0}% increased damage resistance"
+	MaxLifeEffect: +{0} Max Life
+	MovementSpeedEffect: "{0}% increased movement speed"
 	BrokenCodeTeleportEffect:
 		'''
 		Allows you to glitch with a 5 second cooldown
@@ -73,4 +73,6 @@ Effect: {
 		Summons the Seraph Queen herself to fight alongside you
 		Athena is boosted by minion damage
 		'''
+	OlympianWingsEffect: Grants a dash while flying
+	WingTimeMaxEffect: Allows flight and slow fall
 }

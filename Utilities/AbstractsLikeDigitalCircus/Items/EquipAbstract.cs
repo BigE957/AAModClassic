@@ -1,15 +1,7 @@
 ﻿using Humanizer;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Steamworks;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -277,7 +269,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public virtual string GetDescription() => Language.GetTextValue(Description);
     }
 
-    public class ManaFlower : EquipmentEffectData 
+    public class ManaFlowerEffect : EquipmentEffectData 
     {
         public override void DoEffect(Player player)
         {
@@ -285,7 +277,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class CrimsonArmorRegen : EquipmentEffectData
+    public class CrimsonArmorRegenEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -293,7 +285,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class Endurance(float amount) : EquipmentEffectData
+    public class EnduranceEffect(float amount) : EquipmentEffectData
     {
         private readonly float Amount = amount;
         public override void DoEffect(Player player)
@@ -304,7 +296,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith((Amount * 100));
     }
 
-    public class MaxLife(int amount) : EquipmentEffectData
+    public class MaxLifeEffect(int amount) : EquipmentEffectData
     {
         private readonly int Amount = amount;
         public override void DoEffect(Player player)
@@ -315,7 +307,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount);
     }
 
-    public class MovementSpeed(float amount) : EquipmentEffectData
+    public class MovementSpeedEffect(float amount) : EquipmentEffectData
     {
         private readonly float Amount = amount;
         public override void DoEffect(Player player)
@@ -324,6 +316,15 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith((Amount * 100));
+    }
+
+    public class WingTimeMaxEffect(int amount) : EquipmentEffectData
+    {
+        private readonly int Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.wingTimeMax = Amount;
+        }
     }
 
     public static class StatModifierUtils

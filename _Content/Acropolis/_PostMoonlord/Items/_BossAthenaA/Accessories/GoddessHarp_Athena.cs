@@ -1,3 +1,4 @@
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
@@ -42,8 +43,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            Projectile.HandleMinionPersistence<GoddessHarp_Buff>(player);
             bool isVanity = BasePlayer.HasAccessory(player, ModContent.ItemType<GoddessHarp>(), false, true);
+            Projectile.HandleMinionPersistence<GoddessHarp_Buff>(player, isVanity);
 
             dust--;
             if (dust >= 0)
@@ -243,7 +244,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
                 Projectile.ai[1] = 0f;
                 Projectile.netUpdate = true;
             }
-            if (Projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f && BasePlayer.HasAccessory(player, ModContent.ItemType<GoddessHarp>(), true, false))
             {
                 float scaleFactor3 = 14f;
                 if (flag25 && Projectile.ai[1] == 0f)

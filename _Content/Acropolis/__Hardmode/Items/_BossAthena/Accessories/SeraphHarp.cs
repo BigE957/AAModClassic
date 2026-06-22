@@ -1,12 +1,15 @@
 ﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories
 {
-    public class SeraphHarp : BaseAAItem, ILocalizedModType
+    public class SeraphHarp : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
@@ -28,25 +31,20 @@ Seraph is boosted by minion damage"); */
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return true;
+
             return incomingItem.type != ModContent.ItemType<GoddessHarp>();
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-			if (player.whoAmI == Main.myPlayer)
-			{
-                if (!hideVisual)
-                {
-                    if (player.FindBuffIndex(ModContent.BuffType<SeraphHarp_Buff>()) == -1)
-                    {
-                        player.AddBuff(ModContent.BuffType<SeraphHarp_Buff>(), 3600, true);
-                    }
-                    if (player.ownedProjectileCounts[ModContent.ProjectileType<SeraphHarp_Seraph>()] < 1)
-                    {
-                        Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<SeraphHarp_Seraph>(), (int)player.GetDamage(DamageClass.Summon).ApplyTo(60f), 2f, Main.myPlayer, 0f, 0f);
-                    }
-                }
-			}
-		}
-	}
+            AddEffect<SeraphHarpEffect>();
+        }
+
+        public override void RegisterAccVanity()
+        {
+            AddEffect<SeraphHarpEffect>();
+        }
+    }
 }

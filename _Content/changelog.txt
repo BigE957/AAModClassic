@@ -135,6 +135,7 @@ unofficial
 -improved and polished how enabling/disabling the code magnet works
 -added the gravitron centrifuge, a post-plantera tool that passively disables space gravity (thanks diamondwalker!)
 -seraph and goddess harp now provide a nonfunctional minion while in the vanity slot
+-seraph and goddess harp can now be equipped at the same time. wearing both will cause the seraph to follow athena
 -
 
 crossmod

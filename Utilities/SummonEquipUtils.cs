@@ -1,4 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using static AAModClassic.Assets.AssetDirectory;
+using static AAModClassic.Utilities.SummonEquipUtils;
 
 namespace AAModClassic.Utilities
 {
@@ -22,10 +25,15 @@ namespace AAModClassic.Utilities
             }
         }
 
-        public static void HandleMinionPersistence<TBuff>(this Projectile projectile, Player player) where TBuff : ModBuff
+        public static void HandleMinionPersistence<TBuff>(this Projectile projectile, Player player, bool isVanity = false) where TBuff : ModBuff
         {
             if (player.HasBuff<TBuff>())
                 projectile.timeLeft = 2;
+
+            if (isVanity)
+                projectile.friendly = false;
+            else
+                projectile.friendly = true;
         }
 
         public abstract class MinionBuffAbstract<TEquip, TMinion> : ModBuff where TEquip : ModItem where TMinion : ModProjectile

@@ -33,6 +33,9 @@ Athena is boosted by minion damage"); */
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return true;
+
             return incomingItem.type != ModContent.ItemType<SeraphHarp>();
         }
 
