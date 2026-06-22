@@ -1,4 +1,6 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,14 +9,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class RabbitcopterEars : BaseAAItem, ILocalizedModType
+	public class RabbitcopterEars : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Rabbitcopter Ears");
-            /* Tooltip.SetDefault(@"Allows flight and slow fall
-'Yeah that's not how rabbit ears work but whatever, it works.'"); */
+            /* Tooltip.SetDefault(@"'Yeah that's not how rabbit ears work but whatever, it works.'"); */
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 8f, 2f);
         }
@@ -27,9 +28,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessor
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Yellow;
         }
-        public override void UpdateAccessory(Player player, bool hideVisual)
+
+        public override void RegisterEquipStats()
         {
-            player.wingTimeMax = 180;
+            AddEffect(new WingTimeMaxEffect(180));
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,

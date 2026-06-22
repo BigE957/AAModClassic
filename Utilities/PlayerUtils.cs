@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities
 {
@@ -32,6 +33,12 @@ namespace AAModClassic.Utilities
 
             if (hideShield)
                 player.shield = -1;
+        }
+
+        public static DamageClass GetHighestDamageClass(this Player player)
+        {
+
+            return null;
         }
     }
 }

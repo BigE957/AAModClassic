@@ -3441,10 +3441,10 @@ namespace AAModClassic
 
         public static bool MeleeHighest(Player player)
         {
-            return player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
-                player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Magic).Flat &&
-                player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Summon).Flat &&
-                player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Throwing).Flat;
+            return player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Ranged).Additive &&
+                player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Magic).Additive &&
+                player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Summon).Additive &&
+                player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Throwing).Additive;
         }
 
         public static bool RangedHighest(Player player)

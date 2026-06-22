@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             damageMap.GetArmorPenetration(DamageClass.Melee) -= 5;
 
             AddEffect(new EnduranceEffect(0.04f));
-            AddEffect(new MovementSpeedEffect(0.75f));
+            AddEffect(new MovementSpeedEffect(0.55f));
             AddEffect(new MaxLifeEffect(75));
             AddEffect<ManaFlowerEffect>();
             AddEffect<CrimsonArmorRegenEffect>();

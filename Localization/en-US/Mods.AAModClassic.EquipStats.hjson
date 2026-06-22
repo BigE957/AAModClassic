@@ -75,4 +75,11 @@ Effect: {
 		'''
 	OlympianWingsEffect: Grants a dash while flying
 	WingTimeMaxEffect: Allows flight and slow fall
+	FallDamageImmunityEffect: Negates fall damage
+
+	JumpStatsEffect: {
+		JumpSpeed: jump speed
+		JumpHeight: jump height
+		AutoJump: allows auto-jump
+	}
 }
