@@ -39,7 +39,6 @@ Demise EX"); */
 			Item.shoot = ModContent.ProjectileType<Catastrophe_CatastropheSphere>();
             Item.shootSpeed = 13f;
             Item.expert = true;
-            Item.expertOnly = true;
 		}
 
         public override bool AltFunctionUse(Player player)

@@ -41,7 +41,7 @@ Titan Axe EX"); */
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = ModContent.ProjectileType<TitanSlayer_Proj>(); 
             Item.shootSpeed = 15f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.UseSound = SoundID.Item1;
             if (ModLoader.TryGetMod("Redemption", out var redemption))
                 redemption.Call("setAxeBonus", Item);

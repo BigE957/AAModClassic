@@ -21,7 +21,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
             Item.height = 50;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void UpdateAccessory(Player p, bool hideVisual)

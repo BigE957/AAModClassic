@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Ac
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 3;
         }
 

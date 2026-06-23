@@ -38,7 +38,7 @@ Terra Blade EX"); */
 			Item.value = Item.sellPrice(0, 20, 0, 0);
 			Item.autoReuse = true;
 			Item.crit = 8;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)

@@ -42,7 +42,7 @@ Conflagrate Staff EX"); */
             Item.shoot = ModContent.ProjectileType<ConflagrateScythe_ConflagrateConstructEX>();
             Item.buffType = ModContent.BuffType<ConflagrateScythe_Buff>();
             Item.rare = ItemRarityID.Yellow;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.UseSound = SoundID.Item44;
 			Item.shootSpeed = 7f;	//The buff added to player after used the item
         }

@@ -29,7 +29,7 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
             Item.width = 30;
             Item.height = 32;
             Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.accessory = true;
             Item.defense = 8;
             Item.rare = ModContent.RarityType<AncientsRarity>();

@@ -1,15 +1,7 @@
 ﻿using Humanizer;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Steamworks;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -19,10 +11,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     {
         public DamageClassMap damageMap = new();
         public List<EquipmentEffectData> effectMap = new();
-        private static readonly Dictionary<Type, EquipmentEffectData> _effectCache = new();
 
         #region the sealing
-        public override sealed void UpdateEquip(Player player)
+        public sealed override void UpdateEquip(Player player)
         {
             base.UpdateEquip(player);
             Clear();
@@ -41,7 +32,19 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             }
         }
 
-        public override sealed void UpdateArmorSet(Player player)
+        public sealed override void UpdateVanity(Player player)
+        {
+            base.UpdateVanity(player);
+            Clear();
+            RegisterAccVanity();
+
+            foreach (EquipmentEffectData effect in effectMap)
+            {
+                effect.DoEffect(player);
+            }
+        }
+
+        public sealed override void UpdateArmorSet(Player player)
         {
             base.UpdateArmorSet(player);
 
@@ -50,6 +53,11 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         #endregion
 
         public virtual void RegisterEquipStats()
+        {
+
+        }
+
+        public virtual void RegisterAccVanity()
         {
 
         }
@@ -123,22 +131,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         public void AddEffect<T>() where T : EquipmentEffectData, new()
         {
-            if (!_effectCache.TryGetValue(typeof(T), out var effect))
-            {
-                effect = new T();
-                _effectCache[typeof(T)] = effect;
-            }
-            effectMap.Add(effect);
+            effectMap.Add(new T());
         }
 
         public void AddEffect(EquipmentEffectData data)
         {
-            if (!_effectCache.TryGetValue(data.GetType(), out var effect))
-            {
-                effect = data;
-                _effectCache[data.GetType()] = effect;
-            }
-            effectMap.Add(effect);
+            effectMap.Add(data);
         }
 
         public void Clear()
@@ -260,7 +258,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public virtual string GetDescription() => Language.GetTextValue(Description);
     }
 
-    public class ManaFlower : EquipmentEffectData 
+    public interface IGlobalEffect { }
+
+    public class ManaFlowerEffect : EquipmentEffectData, IGlobalEffect
     {
         public override void DoEffect(Player player)
         {
@@ -268,7 +268,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class CrimsonArmorRegen : EquipmentEffectData
+    public class CrimsonArmorRegenEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -276,7 +276,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class Endurance(float amount) : EquipmentEffectData
+    public class EnduranceEffect(float amount) : EquipmentEffectData
     {
         private readonly float Amount = amount;
         public override void DoEffect(Player player)
@@ -284,10 +284,10 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.endurance += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith((Amount * 100));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
     }
 
-    public class MaxLife(int amount) : EquipmentEffectData
+    public class MaxLifeEffect(int amount) : EquipmentEffectData
     {
         private readonly int Amount = amount;
         public override void DoEffect(Player player)
@@ -298,15 +298,87 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount);
     }
 
-    public class MovementSpeed(float amount) : EquipmentEffectData
+    public class MovementSpeedEffect(float amount) : EquipmentEffectData
     {
         private readonly float Amount = amount;
         public override void DoEffect(Player player)
         {
-            player.endurance += Amount;
+            player.moveSpeed += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith((Amount * 100));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
+    }
+
+    public class WingTimeMaxEffect(int amount) : EquipmentEffectData
+    {
+        private readonly int Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.wingTimeMax = Amount;
+        }
+    }
+
+    public class FallDamageImmunityEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.noFallDmg = true;
+        }
+    }
+
+    public class JumpStatsEffect(float jumpSpeed = 0, int jumpHeight = 0, bool autoJump = false) : EquipmentEffectData
+    {
+        private readonly float JumpSpeed = jumpSpeed;
+        private readonly int JumpHeight = jumpHeight;
+        private readonly bool AutoJump = autoJump;
+
+        public override void DoEffect(Player player)
+        {
+            player.jumpSpeedBoost += JumpSpeed;
+            Player.jumpHeight = JumpHeight;
+            player.autoJump = AutoJump;
+        }
+
+        public override string GetDescription()
+        {
+            int stuffCount = 0;
+            if (JumpSpeed != 0)
+                stuffCount++;
+            if (JumpHeight != 0)
+                stuffCount++;
+            if (AutoJump == true)
+                stuffCount++;
+
+            string jumpSpeedText = Language.GetTextValue(Description + ".JumpSpeed");
+            string jumpHeightText = Language.GetTextValue(Description + ".JumpHeight");
+            string autoJumpText = Language.GetTextValue(Description + ".AutoJump");
+
+            // idgaf
+            string text = "Increases ";
+            if (JumpSpeed != 0)
+                text += jumpSpeedText;
+            else if (JumpHeight != 0)
+                text += jumpHeightText;
+            else if (AutoJump == true)
+                text += autoJumpText;
+
+            if (stuffCount == 2)
+            {
+                text += " and ";
+                if (JumpHeight != 0)
+                    text += jumpHeightText;
+                else if (AutoJump == true)
+                    text += autoJumpText;
+            }
+            else if (stuffCount > 2)
+                text += $", {jumpHeightText} and {autoJumpText}";
+
+            if (stuffCount == 1 && AutoJump == true)
+                text = autoJumpText;
+
+            text = text.FirstCharToUpper();
+            return text;
+        }
     }
 
     public static class StatModifierUtils

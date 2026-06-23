@@ -19,7 +19,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;  
+            Item.expert = true;  
         }
 
         public override bool CanRightClick()

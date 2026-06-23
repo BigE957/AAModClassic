@@ -40,11 +40,11 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             damageMap.GetArmorPenetration(DamageClass.Magic) += 5;
             damageMap.GetArmorPenetration(DamageClass.Melee) -= 5;
 
-            AddEffect(new Endurance(0.04f));
-            AddEffect(new MovementSpeed(0.75f));
-            AddEffect(new MaxLife(75));
-            AddEffect<ManaFlower>();
-            AddEffect<CrimsonArmorRegen>();
+            AddEffect(new EnduranceEffect(0.04f));
+            AddEffect(new MovementSpeedEffect(0.55f));
+            AddEffect(new MaxLifeEffect(75));
+            AddEffect<ManaFlowerEffect>();
+            AddEffect<CrimsonArmorRegenEffect>();
         }
 
         public override void RegisterArmorSetStats()

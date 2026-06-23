@@ -41,7 +41,7 @@ Reign of Fire EX"); */
             Item.value = Item.sellPrice(3, 0, 0, 0);
 			Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;   
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Cyan;
 			Item.useTurn = true;
             Item.rare = ModContent.RarityType<AncientsRarity>();

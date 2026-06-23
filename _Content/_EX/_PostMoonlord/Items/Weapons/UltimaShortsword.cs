@@ -33,7 +33,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Item.knockBack =20;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<UltimaShortsword_UltimaShot>();

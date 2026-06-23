@@ -35,7 +35,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Materials
             Item.maxStack = Item.CommonMaxStack;
             Item.value = 1000000;
             Item.rare = ItemRarityID.Purple;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             
         }
 

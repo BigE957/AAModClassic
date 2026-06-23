@@ -40,7 +40,7 @@ Vampire Knives EX"); */
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.knockBack = 2.75f;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

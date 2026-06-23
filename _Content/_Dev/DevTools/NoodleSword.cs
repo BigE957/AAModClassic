@@ -33,7 +33,7 @@ namespace AAModClassic._Content._Dev.DevTools
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;   
             Item.useTurn = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.shoot = ModContent.ProjectileType<Noodle>();
 			Item.shootSpeed = 9f;
         }

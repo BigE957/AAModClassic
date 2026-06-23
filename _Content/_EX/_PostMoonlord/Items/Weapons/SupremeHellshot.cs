@@ -42,7 +42,7 @@ Super Skullshot EX"); */
             Item.value = 100000;
             Item.rare = ItemRarityID.Cyan;
             Item.DamageType = DamageClass.Ranged;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

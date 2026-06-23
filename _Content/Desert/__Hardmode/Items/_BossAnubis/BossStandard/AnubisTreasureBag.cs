@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 

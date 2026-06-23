@@ -35,7 +35,7 @@ Chaos Chain EX"); */
             Item.shootSpeed = 18f;
             Item.UseSound = SoundID.Item116;
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;

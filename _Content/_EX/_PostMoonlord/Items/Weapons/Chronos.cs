@@ -27,7 +27,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.useAnimation = 18;
             Item.useTime = 18;
             Item.shoot = ModContent.ProjectileType<Chronos_Holdout>();
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)

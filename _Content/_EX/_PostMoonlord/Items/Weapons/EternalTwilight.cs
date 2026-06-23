@@ -38,7 +38,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.shootSpeed = 16f;
             Item.useAmmo = AmmoID.Arrow;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Cyan;
         }
 

@@ -37,7 +37,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.DamageType = DamageClass.Magic;
             Item.rare = ItemRarityID.Purple;
             Item.noMelee = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

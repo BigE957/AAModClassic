@@ -36,7 +36,7 @@ I thought the sky was purple
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
 			Item.rare = ItemRarityID.Yellow;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.UseSound = SoundID.Item44;
 			Item.shoot = ModContent.ProjectileType<ConflagrateStaff_ConflagrateConstruct>();
 			Item.shootSpeed = 7f;

@@ -36,7 +36,6 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 			Item.shoot = ModContent.ProjectileType<PineBreaker_Pine>();
 			Item.shootSpeed = 9f;
             Item.expert = true; 
-            Item.expertOnly = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)

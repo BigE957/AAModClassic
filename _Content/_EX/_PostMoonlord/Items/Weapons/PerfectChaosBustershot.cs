@@ -39,7 +39,7 @@ Chaos Bustershot EX"); */
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item14;
             Item.shootSpeed = 12f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.autoReuse = true;
         }
 

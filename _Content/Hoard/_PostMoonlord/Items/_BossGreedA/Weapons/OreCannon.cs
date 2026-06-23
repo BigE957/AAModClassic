@@ -38,7 +38,6 @@ Certain ores have special effects when shot"); */
             Item.UseSound = SoundID.Item14;
             Item.shootSpeed = 14f;
             Item.expert = true; 
-			Item.expertOnly = true;
             Item.autoReuse = true;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }

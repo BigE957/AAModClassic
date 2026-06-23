@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.shootSpeed = 15f;
             Item.UseSound = SoundID.Item1;
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noUseGraphic = true;

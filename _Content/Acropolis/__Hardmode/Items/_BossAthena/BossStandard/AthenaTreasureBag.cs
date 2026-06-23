@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStand
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 

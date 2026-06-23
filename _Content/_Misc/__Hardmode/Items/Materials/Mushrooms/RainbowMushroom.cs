@@ -25,7 +25,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms
             Item.height = 16;
             Item.rare = ItemRarityID.Green;
             Item.maxStack = Item.CommonMaxStack;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.value = Item.sellPrice(0, 0, 0, 0);
         }
     }

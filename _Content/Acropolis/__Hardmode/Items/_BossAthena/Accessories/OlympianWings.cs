@@ -1,20 +1,25 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class OlympianWings : BaseAAItem, ILocalizedModType
+	public class OlympianWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Olympian Wings");
-            /* Tooltip.SetDefault(@"Allows flight and slow fall
-Grants a dash while flying"); */
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(170, 8, 2f);
         }
@@ -28,10 +33,10 @@ Grants a dash while flying"); */
 			Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.GetModPlayer<AAPlayer>().AADash = 1;
-            player.wingTimeMax = 170;
+            AddEffect(new WingTimeMaxEffect(170));
+            AddEffect<OlympianWingsEffect>();
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)

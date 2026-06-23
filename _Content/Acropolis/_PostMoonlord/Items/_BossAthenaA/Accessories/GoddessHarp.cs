@@ -1,11 +1,17 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories
 {
-    public class GoddessHarp : BaseAAItem, ILocalizedModType
+    public class GoddessHarp : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
@@ -23,35 +29,24 @@ Athena is boosted by minion damage"); */
             Item.rare = ItemRarityID.Purple;
 	        Item.accessory = true;
             Item.expert = true;
-            Item.expertOnly = true;
 	    }
 
-        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
+        public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (modPlayer.Seraph)
-            {
-                return false;
-            }
-            return true;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return true;
+
+            return incomingItem.type != ModContent.ItemType<SeraphHarp>();
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-			if (player.whoAmI == Main.myPlayer)
-			{
-                if (!hideVisual)
-                {
-                    if (player.FindBuffIndex(ModContent.BuffType<GoddessHarp_Buff>()) == -1)
-                    {
-                        player.AddBuff(ModContent.BuffType<GoddessHarp_Buff>(), 3600, true);
-                    }
-                    if (player.ownedProjectileCounts[ModContent.ProjectileType<GoddessHarp_Athena>()] < 1)
-                    {
-                        Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<GoddessHarp_Athena>(), (int)player.GetDamage(DamageClass.Summon).ApplyTo(100f), 2f, Main.myPlayer, 0f, 0f);
-                    }
-                }
-			}
-		}
-	}
+            AddEffect<GoddessHarpEffect>();
+        }
+
+        public override void RegisterAccVanity()
+        {
+            AddEffect<GoddessHarpEffect>();
+        }
+    }
 }

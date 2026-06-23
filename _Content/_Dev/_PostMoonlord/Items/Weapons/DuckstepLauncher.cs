@@ -32,7 +32,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 			Item.knockBack = 4;
 			Item.value = 1000000;
 			Item.rare = ItemRarityID.Green;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.UseSound = SoundID.Zombie10;
             Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this

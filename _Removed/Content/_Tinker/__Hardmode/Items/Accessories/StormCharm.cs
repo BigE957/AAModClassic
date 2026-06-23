@@ -30,7 +30,7 @@ Grants the ability to dash."); */
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 3;
         }
 

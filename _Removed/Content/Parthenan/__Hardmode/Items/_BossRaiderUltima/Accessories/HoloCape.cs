@@ -27,7 +27,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 5;
         }
 

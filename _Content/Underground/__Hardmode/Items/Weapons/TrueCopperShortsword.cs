@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Weapons
 			Item.knockBack =20;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
             Item.shoot = ModContent.ProjectileType<TrueCopperShortsword_Proj>();

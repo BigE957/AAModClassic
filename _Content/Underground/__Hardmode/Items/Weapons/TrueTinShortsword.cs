@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Weapons
 			Item.knockBack = 2;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.shootSpeed = 20f;

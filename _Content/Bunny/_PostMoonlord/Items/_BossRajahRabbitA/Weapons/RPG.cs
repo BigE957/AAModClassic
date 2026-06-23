@@ -37,7 +37,7 @@ Bunnyzooka EX"); */
             Item.shoot = ModContent.ProjectileType<RPG_RajahRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override Vector2? HoldoutOffset()

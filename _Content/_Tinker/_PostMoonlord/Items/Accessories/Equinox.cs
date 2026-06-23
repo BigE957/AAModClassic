@@ -29,7 +29,7 @@ Gives immensely increased stats
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

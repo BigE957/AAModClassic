@@ -28,7 +28,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
             Item.width = 32;
             Item.height = 36;
             Item.rare = ItemRarityID.Purple;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)

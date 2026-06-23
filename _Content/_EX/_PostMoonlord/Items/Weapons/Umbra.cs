@@ -38,7 +38,7 @@ Blade of Night EX"); */
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<BladeOfNight_NightSlash>();
 			Item.shootSpeed = 18f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

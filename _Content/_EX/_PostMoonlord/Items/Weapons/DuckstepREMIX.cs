@@ -36,7 +36,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 4;
 			Item.value = 3000000;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.UseSound = new Terraria.Audio.SoundStyle("AAModClassic/Sounds/QUAK");
             Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder;

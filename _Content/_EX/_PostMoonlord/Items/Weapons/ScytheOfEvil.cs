@@ -35,7 +35,7 @@ Death Sickle EX"); */
             Item.knockBack = 2f; 
             Item.value = Item.sellPrice(0, 30, 0, 0); 
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.shoot = ModContent.ProjectileType<ScytheOfEvil_Holdout>(); 
             Item.noUseGraphic = true;
             Item.noMelee = true;

@@ -36,7 +36,7 @@ Chaos Javelin EX"); */
             Item.autoReuse = true;
             Item.value = Item.sellPrice(5, 0, 0, 0);
             Item.rare = ItemRarityID.Purple;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void AddRecipes()

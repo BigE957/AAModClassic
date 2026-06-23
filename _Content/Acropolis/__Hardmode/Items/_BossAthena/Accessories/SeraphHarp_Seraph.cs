@@ -1,5 +1,9 @@
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
 using AAModClassic._Content.Acropolis.Projectiles;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -50,9 +54,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
             }
 
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.dead) modPlayer.Seraph = false;
-            if (modPlayer.Seraph) Projectile.timeLeft = 2;
+            bool isVanity = BasePlayer.HasAccessory(player, ModContent.ItemType<SeraphHarp>(), false, true);
+            Projectile.HandleMinionPersistence<SeraphHarp_Buff>(player, isVanity);
 
             dust--;
             if (dust >= 0)
@@ -145,7 +148,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                    if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    if (!isVanity && (Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         num633 = num646;
                         vector46 = nPC2.Center;
@@ -153,6 +156,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
                     }
                 }
             }
+
+
+
             float num647 = num634;
             if (flag25)
             {
@@ -164,9 +170,27 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
                 Projectile.tileCollide = false;
                 Projectile.netUpdate = true;
             }
-            if (flag25 && Projectile.ai[0] == 0f)
+
+            Vector2? athenaPos = null;
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<GoddessHarp_Athena>()] >= 1)
+            {
+                Projectile athena = null;
+                foreach (Projectile proj in Main.projectile)
+                {
+                    if (proj.type == ModContent.ProjectileType<GoddessHarp_Athena>() && proj.owner == Projectile.owner)
+                        athena = proj;
+                }
+                if (athena != null)
+                    athenaPos = athena.Center;
+            }
+            else
+                athenaPos = null;
+
+            if (flag25 && Projectile.ai[0] == 0f && athenaPos == null)
             {
                 Vector2 vector47 = vector46 - Projectile.Center;
+                if (athenaPos != null)
+                    vector47 = (Vector2)athenaPos - Projectile.Center;
                 float num648 = vector47.Length();
                 vector47.Normalize();
                 if (num648 > 200f)
@@ -194,8 +218,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
                 {
                     num650 = 12f; //15
                 }
-                Vector2 center2 = Projectile.Center;
-                Vector2 vector48 = player.Center - center2 + new Vector2(0f, -30f); //-60
+                Vector2 target = athenaPos != null ? (Vector2)athenaPos : player.Center;
+                Vector2 vector48 = target - Projectile.Center + new Vector2(0f, -30f); //-60
                 float num651 = vector48.Length();
                 if (num651 > 200f && num650 < 6.5f) //200 and 8
                 {
@@ -233,7 +257,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
                 Projectile.ai[1] = 0f;
                 Projectile.netUpdate = true;
             }
-            if (Projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f && BasePlayer.HasAccessory(player, ModContent.ItemType<SeraphHarp>(), true, false))
             {
                 float scaleFactor3 = 24f;
                 int num658 = ModContent.ProjectileType<FeatherProjectile>();

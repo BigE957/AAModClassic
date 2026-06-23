@@ -4,52 +4,54 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameInput;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
     public class BrokenCodeTeleportUnofficialEffect : EquipmentEffectData
     {
+        public const int FREEZEDURATION = 150;
+        public const int SECRETINVULDURATION = 30;
+        public const int FREEZECOOLDOWNDURATION = 480;
+
         public override void DoEffect(Player player)
         {
             player.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().effect = true;
         }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetVanillaKeybindGlyph("Grapple"), (float)FREEZECOOLDOWNDURATION / 60, (float)FREEZEDURATION / 60);
     }
 
     public class BrokenCodeTeleportUnofficialPlayer : EquipEffectAbstract
     {
-        public int secretInvulTimer = 0;
-
-        private const int FREEZEDURATION = 150;
-        private const int SECRETINVULDURATION = 30;
-        private const int FREEZECOOLDOWNDURATION = 1200;
-
         public override void UpdateEquips()
         {
             if (effect)
             {
-                if (Player.controlHook && !Player.HasBuff<BrokenCode_FreezeCooldown>() && !Player.HasBuff<BrokenCode_Freeze>() && Main.myPlayer == Player.whoAmI)
+                if (PlayerInput.Triggers.JustPressed.Grapple && !Player.HasBuff<BrokenCode_FreezeCooldown>() && !Player.HasBuff<BrokenCode_Freeze>() && Main.myPlayer == Player.whoAmI)
                 {
-                    Teleport();
-                    Player.AddBuff(ModContent.BuffType<BrokenCode_FreezeCooldown>(), FREEZECOOLDOWNDURATION);
-                    //Player.AddBuff(ModContent.BuffType<BrokenCode_FreezeCooldown>(), 60);
-                    Player.AddBuff(ModContent.BuffType<BrokenCode_Freeze>(), FREEZEDURATION);
-                    //Player.AddBuff(ModContent.BuffType<BrokenCode_Freeze>(), 20);
-                    secretInvulTimer = SECRETINVULDURATION;
-                }
-
-                if (secretInvulTimer > 0)
-                {
+                    Player.immune = true;
                     Player.immuneNoBlink = true;
+                    Player.immuneTime = BrokenCodeTeleportUnofficialEffect.SECRETINVULDURATION;
+
+                    Teleport();
+
+                    Player.AddBuff(ModContent.BuffType<BrokenCode_FreezeCooldown>(), BrokenCodeTeleportUnofficialEffect.FREEZECOOLDOWNDURATION);
+                    //Player.AddBuff(ModContent.BuffType<BrokenCode_FreezeCooldown>(), 60);
+                    Player.AddBuff(ModContent.BuffType<BrokenCode_Freeze>(), BrokenCodeTeleportUnofficialEffect.FREEZEDURATION);
+                    //Player.AddBuff(ModContent.BuffType<BrokenCode_Freeze>(), 20);
                 }
             }
         }
@@ -123,16 +125,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
                 // make sure the glitched buff is still counting down even though the others aren't
                 int index = p.FindBuffIndex(buff);
                 p.buffTime[index]--;
-                p.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().secretInvulTimer--;
 
                 // the teleport
                 // we check if player is pressing grapple a diff way bcuz since player logic is paused we cant know if theyre still pressing
                 // it or not the safe normal human way
-                if (PlayerInput.Triggers.Current.Grapple && p.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().secretInvulTimer <= 0 && Main.myPlayer == p.whoAmI)
+                if (PlayerInput.Triggers.JustPressed.Grapple && Main.myPlayer == p.whoAmI)
                 {
                     p.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().Teleport();
                     p.ClearBuff(ModContent.BuffType<BrokenCode_Freeze>());
-                    p.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().secretInvulTimer = 60;
                 }
 
                 return;
@@ -194,7 +194,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 
         private static Item QuickGrapple_GetItemToUse(On_Player.orig_QuickGrapple_GetItemToUse orig, Player self)
         {
-            if (self.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().effect && self.HasBuff<BrokenCode_FreezeCooldown>() && Main.myPlayer == self.whoAmI)
+            if (self.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().effect && Main.myPlayer == self.whoAmI)
                 return null;
 
             return orig(self);

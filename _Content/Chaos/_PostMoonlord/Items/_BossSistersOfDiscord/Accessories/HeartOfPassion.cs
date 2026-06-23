@@ -24,7 +24,7 @@ Below 1/3 of your maximum life, your magic attacks and minions inflict Daybroken
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 3;
         }
         

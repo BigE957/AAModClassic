@@ -29,7 +29,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Mater
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.expert = true; 
-            Item.expertOnly = true;
             Item.alpha = 25;
         }
 

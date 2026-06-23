@@ -32,7 +32,7 @@ Bane of the Bunny EX"); */
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.shoot = ModContent.ProjectileType<BaneOfTheSlaughterer_Holdout>();
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.useAnimation = 13;
             Item.useTime = 13;
             Item.autoReuse = true;
