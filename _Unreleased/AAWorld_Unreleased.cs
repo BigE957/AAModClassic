@@ -2,6 +2,7 @@
 using AAModClassic._CrossMod;
 using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
+using AAModClassic._Unofficial.Content.SunkenShip.___PreHardmode.Items;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
@@ -274,6 +275,7 @@ namespace AAModClassic._Unreleased
                 9 =>    [   //Medical Ward
                             (ItemID.HealingPotion, 3, 5),
                             (ItemID.ManaPotion, 2, 4),
+                            (ModContent.ItemType<ShatteredMirror>(), 1, 1),
                             (ItemID.RegenerationPotion, 0, 2),
                             (ItemID.IronskinPotion, 0, 2),
                             (ItemID.Silk, 8, 12),

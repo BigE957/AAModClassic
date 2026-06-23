@@ -639,8 +639,10 @@ RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
 RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS,
 
 Conditions: {
-	ReleaseExclusive: In worlds where Unreleased content is disabled
+	Release: In Non-unreleased worlds
 	DownedRajah: After defeating Rajah Rabbit
 	InSunkenShipPreSoC: Near the Sunken Ship after defeating all Ancients
 	IsMaster: In Master Mode
+	Unofficial: In Unoffifical worlds
+	NotUnofficial: In Non-unofficial worlds
 }
