@@ -496,3 +496,9 @@ MusicDisplay: {
 		DisplayName: Infinitum
 	}
 }
+
+CalamityMod.LoreItemTooltip:
+	'''
+	[c/E3AF40:Whispers from on high dance in your ears...]
+	[c/BEBEBE:Hold Shift to listen closer]
+	'''

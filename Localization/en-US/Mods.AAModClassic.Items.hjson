@@ -646,7 +646,17 @@ GlitchFish: {
 	Tooltip: ""
 }
 
-GreedLore: {
-	DisplayName: Greed Lore
-	Tooltip: ""
+Lore: {
+	Calamity: {
+		GreedLore: {
+			DisplayName: Greed
+			Tooltip: ""
+			Lore:
+				'''
+				What is this..? Another worm like...him?
+				Impossible, they were all purged except for the Devourer because he escaped into a--
+				...hmm...what if he wasn't the only one with that ability..?
+				'''
+		}
+	}
 }

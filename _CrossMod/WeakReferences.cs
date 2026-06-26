@@ -169,6 +169,8 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._CrossMod.CalamityMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Removed.Content.Parthenan;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard;
@@ -186,6 +188,7 @@ using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZer
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
@@ -205,10 +208,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AAModClassic._CrossMod
 {
@@ -1071,19 +1076,23 @@ namespace AAModClassic._CrossMod
                 #endregion
 
                 #region Greed
+                var collectibles = new List<int>
+                {
+                    ModContent.ItemType<GreedTrophy>(),
+                    ModContent.ItemType<GreedMask>(),
+                    ModContent.ItemType<GreedBox>(),
+                    ModContent.ItemType<GreedRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    collectibles.Add(ModContent.ItemType<GreedLore>());
+
                 AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Greed.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Greed.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<GreedTrophy>(),
-                        ModContent.ItemType<GreedMask>(),
-                        ModContent.ItemType<GreedBox>(),
-                        ModContent.ItemType<GreedRelic>()
-                    },
+                    ["collectibles"] = collectibles,
                     ["customPortrait"] = GetPortrait("Greed")
                 });
                 #endregion
