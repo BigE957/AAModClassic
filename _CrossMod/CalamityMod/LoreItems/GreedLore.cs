@@ -16,18 +16,14 @@ Impossible, they were all purged except for the Devourer because he escaped into
 
         public override void UpdateInventory(Player player)
         {
-            if (ModLoader.GetMod("CalamityMod") == null)
-            {
+            if (!CalamityMod.IsEnabled)
                 Item.TurnToAir();
-            }
         }
 
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
-            if (ModLoader.GetMod("CalamityMod") == null)
-            {
+            if (!CalamityMod.IsEnabled)
                 Item.active = false;
-            }
         }
 
         public override void SetDefaults()
@@ -38,9 +34,6 @@ Impossible, they were all purged except for the Devourer because he escaped into
             Item.consumable = false;
         }
 
-        public override bool CanUseItem(Player player)
-        {
-            return false;
-        }
+        public override bool CanUseItem(Player player) => false;
     }
 }
