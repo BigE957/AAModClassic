@@ -1083,8 +1083,8 @@ namespace AAModClassic._CrossMod
                     ModContent.ItemType<GreedBox>(),
                     ModContent.ItemType<GreedRelic>()
                 };
-                if (CalamityMod.CalamityMod.IsEnabled)
-                    collectibles.Add(ModContent.ItemType<GreedLore>());
+                //if (CalamityMod.CalamityMod.IsEnabled)
+                //    collectibles.Add(ModContent.ItemType<GreedLore>());
 
                 AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
                 {
