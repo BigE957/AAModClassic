@@ -648,6 +648,70 @@ GlitchFish: {
 
 Lore: {
 	Calamity: {
+		MushroomMonarchLore: {
+			DisplayName: Mushroom Monarch
+			Tooltip: ""
+			Lore:
+				'''
+				Even the simple beings have their kings.
+				For reasons I do not claim to know, the mushrooms of Terraria seek to expand their reach endlessly. 
+				With leaders as weak as this, it is of no surprise that they have not managed that, even with the advantages my crusade might have provided.
+				'''
+		}
+
+		FeudalFungusLore: {
+			DisplayName: Feudal Fungus
+			Tooltip: ""
+			Lore:
+				'''
+				Despite the ghastly control they can exert, it would be dishonest of me to say I do not find their nature fascinating.
+				Were my crusade to have properly ended, and my relationship with the engineer to not have faded, I�d have asked him to engage in the study of the mushroom�s magical properties.
+				'''
+		}
+
+		GripsOfChaosLore: {
+			DisplayName: Grips of Chaos
+			Tooltip: ""
+			Lore:
+				'''
+				These strange hands are a common sight among my scouters.
+				Their nature is unknown to me, but I assume them to be related to the wicked chaos over Terraria.
+				One thing I know for sure; gods are not the only thing desecrating this land.
+				'''
+		}
+
+		TruffleToadLore: {
+			DisplayName: Truffle Toad
+			Tooltip: ""
+			Lore:
+				'''
+				Another display of the fungus' tenacity and unwillingness to let the dead rest.
+				With time, I have learned that parades of power such as these are merely the weak desperately attempting to attain strength.
+				'''
+		}
+
+		BroodmotherLore: {
+			DisplayName: The Broodmother
+			Tooltip: ""
+			Lore:
+				'''
+				What a curious creature, born out of that infernal chaos, a shame to see it slayed.
+				I have met her daughter before, a strange relationship to be aware of, but one I learned to treat with respect.
+				I would tread with care from now on.
+				'''
+		}
+
+		HydraLore: {
+			DisplayName: The Hydra
+			Tooltip: ""
+			Lore:
+				'''
+				The harsh, chaotic mire it calls home was once a settlement of great renown.
+				They were my most avid supporters, and their destruction was a tragedy I could not prevent.
+				God or not, whoever is responsible will one day find my wrath.
+				'''
+		}
+
 		GreedLore: {
 			DisplayName: Greed
 			Tooltip: ""
