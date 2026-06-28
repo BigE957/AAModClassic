@@ -4,6 +4,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
@@ -1183,6 +1184,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahRabbitTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<RajahRabbit>(ModContent.ItemType<RajahRabbitLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

@@ -2,6 +2,7 @@ using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossSta
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
@@ -89,6 +90,9 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
             lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedGrips));
+            lastStandingAlways.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<GripsOfChaosLore>(), 1)));
 
             lastStandingAlways.OnSuccess(ItemDropRule.ByCondition(new MasterRevDropRule(), ModContent.ItemType<GripsOfChaosRelic>()));
 

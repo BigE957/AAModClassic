@@ -3,6 +3,7 @@ using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -610,6 +611,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisATreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<AnubisA>(ModContent.ItemType<ForsakenAnubisLore>());
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AnubisATrophy>(), 10));
 

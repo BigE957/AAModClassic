@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -559,6 +560,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
             int[] lootTable = { ModContent.ItemType<DraconianTerratool>(), ModContent.ItemType<Daystorm>(), ModContent.ItemType<AncientLungStaff>(), ModContent.ItemType<MorningGlory>(), ModContent.ItemType<RadiantDawn>(), ModContent.ItemType<Solar>(), ModContent.ItemType<SunPartisan>(), ModContent.ItemType<ReignOfFire>(), ModContent.ItemType<DaybreakArrow>(), ModContent.ItemType<Daycrusher>(), ModContent.ItemType<Dawnstrike>(), ModContent.ItemType<Sunstorm>(), ModContent.ItemType<SolarStaff>(), ModContent.ItemType<DragonShiv>(), ModContent.ItemType<YearOfTheDragon>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition<AkumaHead>());
+            notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<AkumaLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
         }

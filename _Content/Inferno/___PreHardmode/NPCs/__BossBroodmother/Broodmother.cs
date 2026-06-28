@@ -6,6 +6,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -142,6 +143,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodmotherTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<Broodmother>(ModContent.ItemType<BroodmotherLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

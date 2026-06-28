@@ -5,6 +5,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -790,6 +791,12 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
 
+            LeadingConditionRule lastWorm = new(new LastWorm());
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedEquinox));
+            lastWorm.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<EquinoxWormsLore>(), 1)));
+
+            npcLoot.Add(lastWorm);
+
             LeadingConditionRule masterMode = new(new LastWormInMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EquinoxWormsRelic>()));
@@ -828,6 +835,21 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 
             public bool CanShowItemDropInUI() => Main.masterMode || CalamityMod.IsRevengance;
             public string GetConditionDescription() => CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Condition.RevOrMM") : Language.GetTextValue("Mods.AAModClassic.Common.Conditions.IsMaster");
+        }
+
+        public class LastWorm : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                int type = ModContent.NPCType<NightcrawlerHead>();
+                if (info.npc.type == ModContent.NPCType<NightcrawlerHead>())
+                    type = ModContent.NPCType<DaybringerHead>();
+
+                return !NPC.AnyNPCs(type);
+            }
+
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
         }
 
         public class RadiumStarsGenerated : IItemDropRuleCondition, IProvideItemConditionDescription

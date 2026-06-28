@@ -1,4 +1,5 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityBrain;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
@@ -11,6 +12,7 @@ using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -287,6 +289,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SoulOfCthulhuTreasureBag>()));
 
             expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition<Cthulhu>());
+            expert.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SoulOfCthulhuLore>(), 1)));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuTrophy>(), 10));
 

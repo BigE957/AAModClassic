@@ -4,6 +4,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weap
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe.AshenDragon;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Achievements;
 using AAModClassic.Assets;
@@ -583,7 +584,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBagByCondition(new MissingSister(), ModContent.ItemType<SistersOfDiscordTreasureBag>()));
+            LeadingConditionRule lastStandingAlways = new(new MissingSister());
+
+            npcLoot.Add(ItemDropRule.BossBagByCondition(lastStandingAlways.condition, ModContent.ItemType<SistersOfDiscordTreasureBag>()));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedSisters));
+            lastStandingAlways.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SistersOfDiscordLore>(), 1)));
 
             LeadingConditionRule masterMode = new(new MissingSisterInMaster());
 

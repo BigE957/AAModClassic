@@ -2,7 +2,9 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -50,6 +52,12 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
+
+            LeadingConditionRule lastWorm = new(new LastWorm());
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedEquinox));
+            lastWorm.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<EquinoxWormsLore>(), 1)));
+
+            npcLoot.Add(lastWorm);
 
             LeadingConditionRule masterMode = new(new LastWormInMaster());
 

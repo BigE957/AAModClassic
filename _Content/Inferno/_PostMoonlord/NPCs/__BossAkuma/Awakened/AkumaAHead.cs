@@ -2,6 +2,7 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -635,6 +636,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AkumaTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<AkumaAHead>(ModContent.ItemType<AkumaLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

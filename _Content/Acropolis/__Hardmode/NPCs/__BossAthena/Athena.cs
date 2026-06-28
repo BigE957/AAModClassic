@@ -5,6 +5,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
@@ -624,6 +625,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<Athena>(ModContent.ItemType<AthenaLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

@@ -5,6 +5,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
@@ -270,6 +271,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<AbyssalYari>(), ModContent.ItemType<AbyssalBomb>(), ModContent.ItemType<AbyssalEruption>(), ModContent.ItemType<Darksprayer>(), ModContent.ItemType<FallingTwilight>(), ModContent.ItemType<Sevenshot>(), ModContent.ItemType<ThrowingCrescent>(), ModContent.ItemType<DreadTerratool>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition<YamataBody>());
+            notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<YamataLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
         }

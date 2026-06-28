@@ -2,9 +2,11 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFung
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -226,6 +228,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FeudalFungusTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<FeudalFungus>(ModContent.ItemType<FeudalFungusLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

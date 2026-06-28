@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
@@ -283,6 +284,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             };
 
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<InfinityZeroTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<InfinityZero>(ModContent.ItemType<InfinityZeroLore>());
 
             LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
 

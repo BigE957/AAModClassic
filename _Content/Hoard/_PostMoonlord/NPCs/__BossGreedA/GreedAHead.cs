@@ -6,6 +6,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -590,6 +591,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedATreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<GreedAHead>(ModContent.ItemType<WormKingGreedLore>());
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GravitySphere>()));
 

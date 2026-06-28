@@ -1,9 +1,11 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -568,6 +570,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DesertDjinnTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<DesertDjinn>(ModContent.ItemType<DesertDjinnLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

@@ -5,6 +5,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
@@ -100,6 +101,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HydraTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<HydraBody>(ModContent.ItemType<HydraLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

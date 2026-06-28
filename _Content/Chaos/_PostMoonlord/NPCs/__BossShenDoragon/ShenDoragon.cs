@@ -11,6 +11,7 @@ using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -1050,6 +1051,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             int[] lootTable = { ModContent.ItemType<ChaosSlayer>(), ModContent.ItemType<MeteorStrike>(), ModContent.ItemType<Skyfall>(), ModContent.ItemType<Asteroid>(), ModContent.ItemType<DraconicRipper>(), ModContent.ItemType<FlamingTwilight>(), ModContent.ItemType<DiscordianTerratool>(), ModContent.ItemType<Timesplitter>() };
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition<ShenDoragon>());
+            notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<ShenDoragonLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
         }

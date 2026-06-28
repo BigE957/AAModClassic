@@ -2,6 +2,7 @@ using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -246,6 +247,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<YamataTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<YamataABody>(ModContent.ItemType<YamataLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

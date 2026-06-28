@@ -3,6 +3,8 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Music;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities;
@@ -67,6 +69,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             npcLoot.Add(masterMode);
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingShenA());
+
+            npcLoot.AddLoreItemDrop<ShenDoragonA>(ModContent.ItemType<ShenDoragonLore>());
 
             expert.OnSuccess(firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosRune>())));
 

@@ -776,22 +776,28 @@ namespace AAModClassic._CrossMod
 
                 string path = "Mods.AAModClassic.CrossMod.BossChecklist.";
 
+                List<int> collectibles = [];
+
                 if (!ContentReplacementSystem.NeedToReplaceContent)
                 {
                     #region Mushroom Monarch
+                    collectibles =
+                    [
+                        ModContent.ItemType<MushroomMonarchTrophy>(),
+                        ModContent.ItemType<MushroomMonarchMask>(),
+                        ModContent.ItemType<MonarchBox>(),
+                        ModContent.ItemType<MushroomMonarchRelic>()
+                    ];
+                    if (CalamityMod.CalamityMod.IsEnabled)
+                        collectibles.Add(ModContent.ItemType<MushroomMonarchLore>());
+
                     AddBoss(bossChecklist, mod, "MushroomMonarch", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "MushroomMonarch.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "MushroomMonarch.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingLookingMushroom>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "MushroomMonarch.Despawn"),
                         ["spawnItems"] = ModContent.ItemType<IntimidatingLookingMushroom>(),
-                        ["collectibles"] = new List<int>
-                        {
-                            ModContent.ItemType<MushroomMonarchTrophy>(),
-                            ModContent.ItemType<MushroomMonarchMask>(),
-                            ModContent.ItemType<MonarchBox>(),
-                            ModContent.ItemType<MushroomMonarchRelic>()
-                        },
+                        ["collectibles"] = collectibles,
                         ["customPortrait"] = GetPortrait("Monarch")
                     });
                     #endregion
@@ -1076,15 +1082,15 @@ namespace AAModClassic._CrossMod
                 #endregion
 
                 #region Greed
-                var collectibles = new List<int>
-                {
+                collectibles =
+                [
                     ModContent.ItemType<GreedTrophy>(),
                     ModContent.ItemType<GreedMask>(),
                     ModContent.ItemType<GreedBox>(),
                     ModContent.ItemType<GreedRelic>()
-                };
-                //if (CalamityMod.CalamityMod.IsEnabled)
-                //    collectibles.Add(ModContent.ItemType<GreedLore>());
+                ];
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    collectibles.Add(ModContent.ItemType<GreedLore>());
 
                 AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
                 {

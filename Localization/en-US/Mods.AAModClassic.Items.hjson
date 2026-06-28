@@ -665,7 +665,7 @@ Lore: {
 			Lore:
 				'''
 				Despite the ghastly control they can exert, it would be dishonest of me to say I do not find their nature fascinating.
-				Were my crusade to have properly ended, and my relationship with the engineer to not have faded, I�d have asked him to engage in the study of the mushroom�s magical properties.
+				Were my crusade to have properly ended, and my relationship with the engineer to not have faded, I'd have asked him to engage in the study of the mushroom's magical properties.
 				'''
 		}
 
@@ -712,6 +712,111 @@ Lore: {
 				'''
 		}
 
+		DesertDjinnLore: {
+			DisplayName: Desert Djinn
+			Tooltip: ""
+			Lore:
+				'''
+				Once, in the age of Dragons, the Ilmeran Sea was naught but a sand-swept desert, and home to a forsaken caste.
+				By my Crusade's hand, it has been restored.
+				Now, the spirits of that forgotten civilization stir from their water-choked slumber.
+				A bizzare twist of fate, is it not?
+				'''
+		}
+
+		SubzeroSerpentLore: {
+			DisplayName: Subzero Serpent
+			Tooltip: ""
+			Lore:
+				'''
+				A poor creature.
+				It would seem it has grown weak as godly essence and chaotic forces encroach upon its habitat.
+				Both are scourges that must be expunged if this world is ever to know peace.
+				'''
+		}
+
+		SagittariusLore: {
+			DisplayName: Sagittarius
+			Tooltip: ""
+			Lore:
+				'''
+				Those ominous islands... They have long been a fascination of Draedon's.
+				A great many of my researchers under his command have studied the anomoly they surround.
+				Yet even they have learned little...
+				The construct you faced, its construction is unique from the others we've observed.
+				There are others who seek to understand the nature of this anomoly, perhaps they have a role to play in this.
+				'''
+		}
+
+		SiegeUnitsLore: {
+			DisplayName: The Siege Units
+			Tooltip: ""
+			Lore:
+				'''
+				Such laughable constructs, these are undoubtably the products of the Fulgurians.
+				Collectively, they are the Storm Elemental, however they have long seperated themselves into a larger organization.
+				Their attempts at innovation are laughable, even these faulty machines show their clear inspiration from Draedon's own failings.
+				Their hubris will undoubtedly be their unmaking.
+				'''
+		}
+
+		OrthrusXLore: {
+			DisplayName: Orthrus X
+			Tooltip: ""
+			Lore:
+				'''
+				This crude machination is truly the Fulgurians' last line of defense?
+				How pitiful.
+				I have no doubt my Godseeker Knights could reduce it to little more than scrap with ease.
+				'''
+		}
+
+		RaiderUltimaLore: {
+			DisplayName: Raider Ultima
+			Tooltip: ""
+			Lore:
+				'''
+				I had heard rumors of this Siege Unit.
+				Members of my infantry have indeed been routed by it on a handful of occasions.
+				Seeing you dispatch of it... My soldiers have clearly grown lacking in my absence.
+				'''
+		}
+
+		RetrieverLore: {
+			DisplayName: The Retriever
+			Tooltip: ""
+			Lore:
+				'''
+				Constructing a retrieval unit in the form of a hand... It's almost pitiful.
+				Despite the lacking design, it is indeed capable of entering the anomaly.
+				I have no doubt the fulgurians' meddling with that which they do not understand can only end poorly.
+				'''
+		}
+
+		AnubisLore: {
+			DisplayName: The Legendscribe
+			Tooltip: ""
+			Lore:
+				'''
+				Until recently I had only heard myths murmured among my Knights of the Legendscribe.
+				After the Great Incineration, I was shocked to find him stood before my court in the flesh.
+				He issued a warning, that one would rise to put an end to my reign.
+				It would seem he sees in you the means to destroy me.
+				Time will be the only one to tell how this fable ends...
+				'''
+		}
+
+		AthenaLore: {
+			DisplayName: Athena
+			Tooltip: ""
+			Lore:
+				'''
+				A rather peculiar cohort, the seraphs were known to mingle with the Chrysadians before the Downfall.
+				Now they've grown into reculses. Relying on the protection of their Queen.
+				If this is all that has become of the 'Ancients' then I am sorely disappointed.
+				'''
+		}
+
 		GreedLore: {
 			DisplayName: Greed
 			Tooltip: ""
@@ -720,6 +825,168 @@ Lore: {
 				What is this..? Another worm like...him?
 				Impossible, they were all purged except for the Devourer because he escaped into a--
 				...hmm...what if he wasn't the only one with that ability..?
+				'''
+		}
+
+		RajahRabbitLore: {
+			DisplayName: Rajah Rabbit
+			Tooltip: ""
+			Lore:
+				'''
+				A noble warrior, Rajah is a worthy rival.
+				During my conquest, he challenged me for the same reason he sought you; I honored his invitation, and bested him in a duel.
+				He survived through sheer grit, challenging me once more, and we came to see eye-to-eye.
+				We were not so different, avengers of the unjustly fallen. Our bond grew stronger, and our blades locked many more times.
+				Draedon once claimed he was a spy, studying my movements to one day kill me, but he was wrong. He could never understand the mutual respect of two rivals.
+				Despite having drifted apart, I know him well: this was far from the full breadth of his might. Be thankful he was merciful, and hope he does not wield his full fury against you.
+				'''
+		}
+
+		ForsakenAnubisLore: {
+			DisplayName: Forsaken Judge, Anubis
+			Tooltip: ""
+			Lore:
+				'''
+				So Anubis elected to show you a glimpse of what he's truly capable of.
+				When he chose to stand against me, it was undoubtebly at his strongest.
+				Even then, I felt to no fear. This was nothing compared to the power I witnessed when facing the Traitor Almighty.
+				You'll need to grow even stronger if you hope to be my match.
+				'''
+		}
+
+		OlympianAthenaLore: {
+			DisplayName: Olympian Athena
+			Tooltip: ""
+			Lore:
+				'''
+				I had thought it possible Athena was holding back in your first bout.
+				So that is the true power of a Varian... Time has worn their kind sparse, yet they still have fight left in them.
+				I wonder, had they aided the Dragons in their final fight, could fate have spun a different tale...?
+				'''
+		}
+
+		WormKingGreedLore: {
+			DisplayName: Worm King Greed
+			Tooltip: ""
+			Lore:
+				'''
+				My speculation is proven correct...
+				There can be no doubt, that gilded worm is indeed the Devourer's kin.
+				But if that is true then...
+				For how long has the Distortion's ilk been influencing these lands...?
+				'''
+		}
+
+		EquinoxWormsLore: {
+			DisplayName: The Equinox Worms
+			Tooltip: ""
+			Lore:
+				'''
+				Our world knows many worms of cosmic origin, with these two being no exception.
+				Through their benevolence, our world is gifted with Day and Night.
+				They are the stark opposite of the Gods. They dedicate themselves to our prosperity.
+				Legends even tell of them fighting alongside a hero to banish the forces of Chaos.
+				It is that hero who inspired me to take up my blade, and begin my Crusade.
+				'''
+		}
+
+		SIstersOfDiscordLore: {
+			DisplayName: The Sisters of Discord
+			Tooltip: ""
+			Lore:
+				'''
+				Hmm...
+				Lore...
+				Hrm...
+				'''
+		}
+
+		AkumaLore: {
+			DisplayName: Akuma
+			Tooltip: ""
+			Lore:
+				'''
+				The Draconian Demon...
+				Any attempts by my forces to push into the Inferno were swiftly repelled by his flames.
+				It was he who was responsible for the Infero: birthed from his flames razing the civilization that once called the region their home.
+				Beware, your victory here is only temporary. Akuma's furious spirit endures even now.
+				And I fear their true power still slumbers... Waiting to be awakened.
+				'''
+		}
+
+		YamataLore: {
+			DisplayName: Yamata
+			Tooltip: ""
+			Lore:
+				'''
+				The Dread Nightmare...
+				My forces dared not step into the Mire, his vile toxins snuffed out any who did.
+				It was he who was responsible for the Mire: birthed from his toxins choking out the civilization that once called the region their home.
+				Beware, your victory here is only temporary. Yamata's wrathful soul yet persists.
+				And I fear their true power still slumbers... Waiting to be awakened.
+				'''
+		}
+
+		ZeroLore: {
+			DisplayName: Zero
+			Tooltip: ""
+			Lore:
+				'''
+				The Doomsday Construct...
+				Draedon had long been facinated by this unit. Its shields repelled each of his attempts to break them.
+				It seems only you were capable of activating it.
+				Be wary.
+				That distress signal, if Draedon's research on that anomaly is to be believed...
+				You've invited disaster onto our doorstep.
+				'''
+		}
+
+		ChampionRajahRabbitLore: {
+			DisplayName: The Champion of the Innocent
+			Tooltip: ""
+			Lore:
+				'''
+				I had thought Rajah's time as Champion of the Innocent would far out last me, yet I was mistaken.
+				Now you bear his title, as he retires to the wayside just as I have.
+				To best him at his fullest strength is no small feat; you may just be ready to face even me.
+				Emerge victorious in your coming battles, and that time shall soon be at hand.
+				'''
+		}
+
+		ShenDoragonLore: {
+			DisplayName: Shen Doragon
+			Tooltip: ""
+			Lore:
+				'''
+				To think, Akuma and Yamata were but two halves of a single being...
+				Even still, I can't help but doubt that was all it was capable of.
+				In ancient tales, I've heard the story of a hero who did battle against Discord Incarnate.
+				Yet that tale did not describe a dragon, but a man instead... How curious...
+				'''
+		}
+
+		InfinityZeroLore: {
+			DisplayName: Infinity Zero
+			Tooltip: ""
+			Lore:
+				'''
+				Knowledge of the Infinity Slayer was as far as Draedon's research into the anomaly reached.
+				To think it was that powerful, and it was no more than a shell for an even greater threat.
+				Oblivion... I fear I have heard that name once before; in ancient scripts describing our universe's creation.
+				Four Titans of immeasurable power...
+				Could this be the incarnation of Entropy they spoke of...?
+				'''
+		}
+
+		SoulOfCthulhuLore: {
+			DisplayName: Soul Of Cthulhu
+			Tooltip: ""
+			Lore:
+				'''
+				The downfall of the dragons... Could it be that there was not jsut one aberrant behemoth, but two...?
+				If that eldritch sprirt is to believed, then that must indeed have been the case. But why would this one's tale be kept from me...?
+				In my studies of the Dragons' language, I learned 'Cthulhu' to mean 'Great Beast'.
+				Perhaps it was this twin that such a moniker was inspired from...
 				'''
 		}
 	}

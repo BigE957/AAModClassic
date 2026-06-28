@@ -5,6 +5,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
@@ -670,6 +671,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AthenaATreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<AthenaA>(ModContent.ItemType<OlympianAthenaLore>());
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarChart>()));
 

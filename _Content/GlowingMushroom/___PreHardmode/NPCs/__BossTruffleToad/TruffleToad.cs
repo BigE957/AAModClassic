@@ -2,6 +2,7 @@
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -621,6 +622,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TruffleToadTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<TruffleToad>(ModContent.ItemType<TruffleToadLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

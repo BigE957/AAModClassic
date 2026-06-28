@@ -8,6 +8,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
@@ -284,6 +285,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             //TODO: BRING HIM BACK PLEASEEEEEEE
             //if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
             //    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RealityStone>());
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition<Zero>());
+            notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<ZeroLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
         }

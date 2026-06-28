@@ -4,6 +4,7 @@ using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -520,6 +521,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<GreedTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<GreedHead>(ModContent.ItemType<GreedLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

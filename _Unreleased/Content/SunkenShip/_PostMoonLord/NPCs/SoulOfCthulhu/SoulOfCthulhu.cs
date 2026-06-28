@@ -1,3 +1,4 @@
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
@@ -15,6 +16,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
@@ -272,6 +274,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RealityBar>(), 1, 25, 35));
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition<SoulOfCthulhu>());
+            notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SoulOfCthulhuLore>(), 1)));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuTrophy>(), 10));
 

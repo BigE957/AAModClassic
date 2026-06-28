@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
@@ -148,6 +149,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ZeroTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<ZeroA>(ModContent.ItemType<ZeroLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
