@@ -890,7 +890,7 @@ Lore: {
 				'''
 		}
 
-		SIstersOfDiscordLore: {
+		SistersOfDiscordLore: {
 			DisplayName: The Sisters of Discord
 			Tooltip: ""
 			Lore:

@@ -166,6 +166,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
@@ -213,7 +214,6 @@ using System.Reflection;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AAModClassic._CrossMod
 {
@@ -457,21 +457,21 @@ namespace AAModClassic._CrossMod
                 yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Greed").Type);
 
                 // Rajah
-                    yabhb.Call("hbStart");
-                    yabhb.Call("hbSetTexture",
-                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarHead").Value,
-                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarBody").Value,
-                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarTail").Value,
-                        ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
-                    yabhb.Call("hbSetColours",
-                        Color.Orange,
-                        Color.Orange,
-                        Color.Orange);
-                    yabhb.Call("hbSetMidBarOffset", -30, 10);
-                    yabhb.Call("hbSetBossHeadCentre", 50, 32);
-                    yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                    yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Rajah").Type);
-                
+                yabhb.Call("hbStart");
+                yabhb.Call("hbSetTexture",
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarHead").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarBody").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/RajahBarTail").Value,
+                    ModContent.Request<Texture2D>("AAModClassic/Healthbars/BarFill").Value);
+                yabhb.Call("hbSetColours",
+                    Color.Orange,
+                    Color.Orange,
+                    Color.Orange);
+                yabhb.Call("hbSetMidBarOffset", -30, 10);
+                yabhb.Call("hbSetBossHeadCentre", 50, 32);
+                yabhb.Call("hbSetFillDecoOffsetSmall", 16);
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Rajah").Type);
+
                 //Forsaken Anubis
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
@@ -772,16 +772,15 @@ namespace AAModClassic._CrossMod
                         sb.Draw(texture, centered, color);
                     }
                     return portrait;
-                };
+                }
+                ;
 
                 string path = "Mods.AAModClassic.CrossMod.BossChecklist.";
-
-                List<int> collectibles = [];
 
                 if (!ContentReplacementSystem.NeedToReplaceContent)
                 {
                     #region Mushroom Monarch
-                    collectibles =
+                    List<int> monarchCollectibles =
                     [
                         ModContent.ItemType<MushroomMonarchTrophy>(),
                         ModContent.ItemType<MushroomMonarchMask>(),
@@ -789,7 +788,7 @@ namespace AAModClassic._CrossMod
                         ModContent.ItemType<MushroomMonarchRelic>()
                     ];
                     if (CalamityMod.CalamityMod.IsEnabled)
-                        collectibles.Add(ModContent.ItemType<MushroomMonarchLore>());
+                        monarchCollectibles.Add(ModContent.ItemType<MushroomMonarchLore>());
 
                     AddBoss(bossChecklist, mod, "MushroomMonarch", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
                     {
@@ -797,63 +796,75 @@ namespace AAModClassic._CrossMod
                         ["spawnInfo"] = Language.GetOrRegister(path + "MushroomMonarch.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingLookingMushroom>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "MushroomMonarch.Despawn"),
                         ["spawnItems"] = ModContent.ItemType<IntimidatingLookingMushroom>(),
-                        ["collectibles"] = collectibles,
+                        ["collectibles"] = monarchCollectibles,
                         ["customPortrait"] = GetPortrait("Monarch")
                     });
                     #endregion
 
                     #region Feudal Fungus
+                    List<int> fungusCollectibles = new List<int>
+                    {
+                        ModContent.ItemType<FeudalFungusTrophy>(),
+                        ModContent.ItemType<FeudalFungusMask>(),
+                        ModContent.ItemType<FungusBox>(),
+                        ModContent.ItemType<FeudalFungusRelic>()
+                    };
+                    if (CalamityMod.CalamityMod.IsEnabled)
+                        fungusCollectibles.Add(ModContent.ItemType<FeudalFungusLore>());
+
                     AddBoss(bossChecklist, mod, "FeudalFungus", (() => NPCExtensions.BeenKilled<FeudalFungus>()), ModContent.NPCType<FeudalFungus>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "FeudalFungus.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "FeudalFungus.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingLookingMushroom>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "FeudalFungus.Despawn"),
                         ["spawnItems"] = ModContent.ItemType<ConfusingLookingMushroom>(),
-                        ["collectibles"] = new List<int>
-                        {
-                            ModContent.ItemType<FeudalFungusTrophy>(),
-                            ModContent.ItemType<FeudalFungusMask>(),
-                            ModContent.ItemType<FungusBox>(),
-                            ModContent.ItemType<FeudalFungusRelic>()
-                        },
+                        ["collectibles"] = fungusCollectibles,
                         ["customPortrait"] = GetPortrait("Fungus")
                     });
                     #endregion
 
                     #region Grips
+                    List<int> gripsCollectibles = new List<int>
+                    {
+                        ModContent.ItemType<MireGripTrophy>(),
+                        ModContent.ItemType<InfernoGripTrophy>(),
+                        ModContent.ItemType<MireGripMask>(),
+                        ModContent.ItemType<InfernoGripMask>(),
+                        ModContent.ItemType<GripsBox>(),
+                        ModContent.ItemType<GripsOfChaosRelic>()
+                    };
+                    if (CalamityMod.CalamityMod.IsEnabled)
+                        gripsCollectibles.Add(ModContent.ItemType<GripsOfChaosLore>());
+
                     AddBoss(bossChecklist, mod, "GripsOfChaos", (() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosInferno>(), ModContent.NPCType<GripOfChaosMire>() }, new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "GripsOfChaos.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "GripsOfChaos.Spawn").WithFormatArgs("[i:" + ModContent.ItemType<CuriousLookingClaw>() + "]", "[i:" + ModContent.ItemType<InterestingLookingClaw>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "GripsOfChaos.Despawn"),
                         ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousLookingClaw>(), ModContent.ItemType<InterestingLookingClaw>() },
-                        ["collectibles"] = new List<int>
-                        {
-                            ModContent.ItemType<MireGripTrophy>(),
-                            ModContent.ItemType<InfernoGripTrophy>(),
-                            ModContent.ItemType<MireGripMask>(),
-                            ModContent.ItemType<InfernoGripMask>(),
-                            ModContent.ItemType<GripsBox>(),
-                            ModContent.ItemType<GripsOfChaosRelic>()
-                        },
-                            ["customPortrait"] = GetPortrait("Grips")
-                        });
-                        #endregion
+                        ["collectibles"] = gripsCollectibles,
+                        ["customPortrait"] = GetPortrait("Grips")
+                    });
+                    #endregion
 
                     #region Truffle Toad
+                    List<int> toadCollectibles = new List<int>
+                    {
+                        ModContent.ItemType<TruffleToadTrophy>(),
+                        ModContent.ItemType<TruffleToadMask>(),
+                        ModContent.ItemType<TruffleToadBox>(),
+                        ModContent.ItemType<TruffleToadRelic>()
+                    };
+                    if (CalamityMod.CalamityMod.IsEnabled)
+                        toadCollectibles.Add(ModContent.ItemType<TruffleToadLore>());
+
                     AddBoss(bossChecklist, mod, "TruffleToad", (() => NPCExtensions.BeenKilled<TruffleToad>()), ModContent.NPCType<TruffleToad>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "TruffleToad.Name"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "TruffleToad.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Toadstool>() + "]"),
                         ["despawnMessage"] = Language.GetOrRegister(path + "TruffleToad.Despawn"),
                         ["spawnItems"] = ModContent.ItemType<Toadstool>(),
-                        ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<TruffleToadTrophy>(),
-                        ModContent.ItemType<TruffleToadMask>(),
-                        ModContent.ItemType<TruffleToadBox>(),
-                        ModContent.ItemType<TruffleToadRelic>()
-                    },
+                        ["collectibles"] = toadCollectibles,
                         ["customPortrait"] = GetPortrait("Toad"),
                         //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                     });
@@ -861,115 +872,151 @@ namespace AAModClassic._CrossMod
                 }
 
                 #region Broodmother
+                List<int> broodCollectibles = new List<int>
+                {
+                    ModContent.ItemType<BroodmotherTrophy>(),
+                    ModContent.ItemType<BroodmotherMask>(),
+                    ModContent.ItemType<BroodmotherBox>(),
+                    ModContent.ItemType<BroodmotherRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    broodCollectibles.Add(ModContent.ItemType<BroodmotherLore>());
+
                 AddBoss(bossChecklist, mod, "Broodmother", (() => NPCExtensions.BeenKilled<Broodmother>()), ModContent.NPCType<Broodmother>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Broodmother.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Broodmother.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<AncientBell>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Broodmother.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<AncientBell>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<BroodmotherTrophy>(),
-                        ModContent.ItemType<BroodmotherMask>(),
-                        ModContent.ItemType<BroodmotherBox>(),
-                        ModContent.ItemType<BroodmotherRelic>()
-                    },
+                    ["collectibles"] = broodCollectibles,
                     ["customPortrait"] = GetPortrait("Brood")
                 });
                 #endregion
 
                 #region Hydra
+                List<int> hydraCollectibles = new List<int>
+                {
+                    ModContent.ItemType<HydraTrophy>(),
+                    ModContent.ItemType<HydraMask1>(),
+                    ModContent.ItemType<HydraMask2>(),
+                    ModContent.ItemType<HydraMask3>(),
+                    ModContent.ItemType<HydraBox>(),
+                    ModContent.ItemType<HydraRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    hydraCollectibles.Add(ModContent.ItemType<HydraLore>());
+
                 AddBoss(bossChecklist, mod, "Hydra", (() => NPCExtensions.BeenKilled<HydraBody>()), ModContent.NPCType<HydraBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Hydra.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Hydra.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<HydraChow>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Hydra.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<HydraChow>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<HydraTrophy>(),
-                        ModContent.ItemType<HydraMask1>(),
-                        ModContent.ItemType<HydraMask2>(),
-                        ModContent.ItemType<HydraMask3>(),
-                        ModContent.ItemType<HydraBox>(),
-                        ModContent.ItemType<HydraRelic>()
-                    },
+                    ["collectibles"] = hydraCollectibles,
                     ["customPortrait"] = GetPortrait("Hydra")
                 });
                 #endregion
 
                 #region Serpent
+                List<int> serpentCollectibles = new List<int>
+                {
+                    ModContent.ItemType<SubzeroSerpentTrophy>(),
+                    ModContent.ItemType<SubzeroSerpentMask>(),
+                    ModContent.ItemType<SubzeroBox>(),
+                    ModContent.ItemType<SubzeroSerpentRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    serpentCollectibles.Add(ModContent.ItemType<SubzeroSerpentLore>());
+
                 AddBoss(bossChecklist, mod, "SubzeroSerpent", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), new List<int>() { ModContent.NPCType<SubzeroSerpent_Head>(), ModContent.NPCType<SubzeroSerpent_Body>(), ModContent.NPCType<SubzeroSerpent_Tail>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SubzeroSerpent.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SubzeroSerpent.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<SubzeroCrystal>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "SubzeroSerpent.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<SubzeroCrystal>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<SubzeroSerpentTrophy>(),
-                        ModContent.ItemType<SubzeroSerpentMask>(),
-                        ModContent.ItemType<SubzeroBox>(),
-                        ModContent.ItemType<SubzeroSerpentRelic>()
-                    },
+                    ["collectibles"] = serpentCollectibles,
                     ["customPortrait"] = GetPortrait("Serpent1"),
                     //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
                 #region Djinn
+                List<int> djinnCollectibles = new List<int>
+                {
+                    ModContent.ItemType<DesertDjinnTrophy>(),
+                    ModContent.ItemType<DesertDjinnMask>(),
+                    ModContent.ItemType<DjinnBox>(),
+                    ModContent.ItemType<DesertDjinnRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    djinnCollectibles.Add(ModContent.ItemType<DesertDjinnLore>());
+
                 AddBoss(bossChecklist, mod, "DesertDjinn", (() => NPCExtensions.BeenKilled<DesertDjinn>()), ModContent.NPCType<DesertDjinn>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "DesertDjinn.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "DesertDjinn.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DesertLamp>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "DesertDjinn.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<DesertLamp>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<DesertDjinnTrophy>(),
-                        ModContent.ItemType<DesertDjinnMask>(),
-                        ModContent.ItemType<DjinnBox>(),
-                        ModContent.ItemType<DesertDjinnRelic>()
-                    },
+                    ["collectibles"] = djinnCollectibles,
                     ["customPortrait"] = GetPortrait("Djinn"),
                     //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
                 #region Sagittarius
+                List<int> sagCollectibles = new List<int>
+                {
+                    ModContent.ItemType<SagittariusTrophy>(),
+                    ModContent.ItemType<SagittariusMask>(),
+                    ModContent.ItemType<SagittariusBox>(),
+                    ModContent.ItemType<SagittariusRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    sagCollectibles.Add(ModContent.ItemType<SagittariusLore>());
+
                 AddBoss(bossChecklist, mod, "Sagittarius", (() => NPCExtensions.BeenKilled<Sagittarius>()), ModContent.NPCType<Sagittarius>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Sagittarius.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Sagittarius.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<Lifescanner>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Sagittarius.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<Lifescanner>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<SagittariusTrophy>(),
-                        ModContent.ItemType<SagittariusMask>(),
-                        ModContent.ItemType<SagittariusBox>(),
-                        ModContent.ItemType<SagittariusRelic>()
-                    },
+                    ["collectibles"] = sagCollectibles,
                     ["customPortrait"] = GetPortrait("Sag")
                 });
                 #endregion
 
                 #region Siege Units
+                // TechnoTruffle
+                List<int> technoCollectibles = new List<int>
+                {
+                    ModContent.ItemType<TechnoTruffleTrophy>(),
+                    ModContent.ItemType<TechnoTruffleMask>(),
+                    ModContent.ItemType<SiegeBox>(),
+                    ModContent.ItemType<TechnoTruffleRelic>()
+                };
+                //if (CalamityMod.CalamityMod.IsEnabled)
+                //    technoCollectibles.Add(ModContent.ItemType<TechnoTruffleLore>());
+
                 AddBoss(bossChecklist, mod, "TechnoTruffle", (() => NPCExtensions.BeenKilled<TechnoTruffle>()), ModContent.NPCType<TechnoTruffle>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "TechnoTruffle.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "TechnoTruffle.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticShroom>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "TechnoTruffle.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CyberneticShroom>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<TechnoTruffleTrophy>(),
-                        ModContent.ItemType<TechnoTruffleMask>(),
-                        ModContent.ItemType<SiegeBox>(),
-                        ModContent.ItemType<TechnoTruffleRelic>()
-                    },
+                    ["collectibles"] = technoCollectibles,
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
+
+                // Retriever
+                List<int> retrieverCollectibles = new List<int>
+                {
+                    ModContent.ItemType<RetrieverTrophy>(),
+                    ModContent.ItemType<RetrieverMask>(),
+                    ModContent.ItemType<SiegeBox>(),
+                    ModContent.ItemType<RetrieverRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    retrieverCollectibles.Add(ModContent.ItemType<RetrieverLore>());
 
                 AddBoss(bossChecklist, mod, "Retriever", (() => NPCExtensions.BeenKilled<Retriever>()), ModContent.NPCType<Retriever>(), new Dictionary<string, object>()
                 {
@@ -977,48 +1024,64 @@ namespace AAModClassic._CrossMod
                     ["spawnInfo"] = Language.GetOrRegister(path + "Retriever.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticClaw>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Retriever.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CyberneticClaw>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<RetrieverTrophy>(),
-                        ModContent.ItemType<RetrieverMask>(),
-                        ModContent.ItemType<SiegeBox>(),
-                        ModContent.ItemType<RetrieverRelic>()
-                    },
+                    ["collectibles"] = retrieverCollectibles,
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
+
+                // OrthrusX
+                List<int> orthrusCollectibles = new List<int>
+                {
+                    ModContent.ItemType<OrthrusXTrophy>(),
+                    ModContent.ItemType<OrthrusXMask>(),
+                    ModContent.ItemType<SiegeBox>(),
+                    ModContent.ItemType<OrthrusXRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    orthrusCollectibles.Add(ModContent.ItemType<OrthrusXLore>());
+
                 AddBoss(bossChecklist, mod, "OrthrusX", (() => NPCExtensions.BeenKilled<OrthrusXBody>()), ModContent.NPCType<OrthrusXBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "OrthrusX.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "OrthrusX.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ScrapHeap>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "OrthrusX.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<ScrapHeap>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<OrthrusXTrophy>(),
-                        ModContent.ItemType<OrthrusXMask>(),
-                        ModContent.ItemType<SiegeBox>(),
-                        ModContent.ItemType<OrthrusXRelic>()
-                    },
+                    ["collectibles"] = orthrusCollectibles,
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
+
+                // RaiderUltima
+                List<int> raiderCollectibles = new List<int>
+                {
+                    ModContent.ItemType<RaiderUltimaTrophy>(),
+                    ModContent.ItemType<RaiderUltimaMask>(),
+                    ModContent.ItemType<SiegeBox>(),
+                    ModContent.ItemType<RaiderUltimaRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    raiderCollectibles.Add(ModContent.ItemType<RaiderUltimaLore>());
+
                 AddBoss(bossChecklist, mod, "RaiderUltima", (() => NPCExtensions.BeenKilled<RaiderUltima>()), ModContent.NPCType<RaiderUltima>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RaiderUltima.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RaiderUltima.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticBell>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "RaiderUltima.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CyberneticBell>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<RaiderUltimaTrophy>(),
-                        ModContent.ItemType<RaiderUltimaMask>(),
-                        ModContent.ItemType<SiegeBox>(),
-                        ModContent.ItemType<RaiderUltimaRelic>()
-                    },
+                    ["collectibles"] = raiderCollectibles,
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
                 #endregion
 
                 #region Anubis
+                List<int> anubisCollectibles = new List<int>
+                {
+                    ModContent.ItemType<AnubisTrophy>(),
+                    ModContent.ItemType<AnubisMask>(),
+                    ModContent.ItemType<AnubisBox>(),
+                    ModContent.ItemType<AnubisRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    anubisCollectibles.Add(ModContent.ItemType<AnubisLore>());
+
                 AddBoss(bossChecklist, mod, "Anubis", (() => NPCExtensions.BeenKilled<Anubis>()), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
@@ -1029,13 +1092,7 @@ namespace AAModClassic._CrossMod
                         return Language.GetOrRegister(path + "Anubis.Despawn");
                     }),
                     ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AnubisTrophy>(),
-                        ModContent.ItemType<AnubisMask>(),
-                        ModContent.ItemType<AnubisBox>(),
-                        ModContent.ItemType<AnubisRelic>()
-                    },
+                    ["collectibles"] = anubisCollectibles,
                     ["customPortrait"] = GetPortrait("Anubis")
                 });
                 #endregion
@@ -1064,25 +1121,29 @@ namespace AAModClassic._CrossMod
                 #endregion
 
                 #region Athena
+                List<int> athenaCollectibles = new List<int>
+                {
+                    ModContent.ItemType<AthenaTrophy>(),
+                    ModContent.ItemType<AthenaMask>(),
+                    ModContent.ItemType<AthenaBox>(),
+                    ModContent.ItemType<AthenaRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    athenaCollectibles.Add(ModContent.ItemType<AthenaLore>());
+
                 AddBoss(bossChecklist, mod, "Athena", (() => NPCExtensions.BeenKilled<Athena>()), ModContent.NPCType<Athena>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Athena.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Athena.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<OwlStatue>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Athena.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<OwlStatue>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AthenaTrophy>(),
-                        ModContent.ItemType<AthenaMask>(),
-                        ModContent.ItemType<AthenaBox>(),
-                        ModContent.ItemType<AthenaRelic>()
-                    },
+                    ["collectibles"] = athenaCollectibles,
                     ["customPortrait"] = GetPortrait("Athena")
                 });
                 #endregion
 
                 #region Greed
-                collectibles =
+                List<int> greedCollectibles =
                 [
                     ModContent.ItemType<GreedTrophy>(),
                     ModContent.ItemType<GreedMask>(),
@@ -1090,7 +1151,7 @@ namespace AAModClassic._CrossMod
                     ModContent.ItemType<GreedRelic>()
                 ];
                 if (CalamityMod.CalamityMod.IsEnabled)
-                    collectibles.Add(ModContent.ItemType<GreedLore>());
+                    greedCollectibles.Add(ModContent.ItemType<GreedLore>());
 
                 AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
                 {
@@ -1098,141 +1159,180 @@ namespace AAModClassic._CrossMod
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Greed.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
-                    ["collectibles"] = collectibles,
+                    ["collectibles"] = greedCollectibles,
                     ["customPortrait"] = GetPortrait("Greed")
                 });
                 #endregion
 
                 #region Rajah Rabbit
+                List<int> rajahCollectibles = new List<int>
+                {
+                    ModContent.ItemType<RajahRabbitTrophy>(),
+                    ModContent.ItemType<RajahRabbitMask>(),
+                    ModContent.ItemType<RajahBox>(),
+                    ModContent.ItemType<RajahRabbitRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    rajahCollectibles.Add(ModContent.ItemType<RajahRabbitLore>());
+
                 AddBoss(bossChecklist, mod, "RajahRabbit", (() => NPCExtensions.BeenKilled<RajahRabbit>()), ModContent.NPCType<RajahRabbit>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbit.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbit.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenCarrot>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "RajahRabbit.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<GoldenCarrot>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<RajahRabbitTrophy>(),
-                        ModContent.ItemType<RajahRabbitMask>(),
-                        ModContent.ItemType<RajahBox>(),
-                        ModContent.ItemType<RajahRabbitRelic>()
-                    },
+                    ["collectibles"] = rajahCollectibles,
                     ["customPortrait"] = GetPortrait("Rajah")
                 });
                 #endregion
 
                 #region Forsaken Anubis
+                List<int> forsakenCollectibles = new List<int>
+                {
+                    ModContent.ItemType<AnubisATrophy>(),
+                    ModContent.ItemType<AnubisAMask>(),
+                    ModContent.ItemType<AnubisAwakenedBox>(),
+                    ModContent.ItemType<AnubisARelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    forsakenCollectibles.Add(ModContent.ItemType<ForsakenAnubisLore>());
+
                 AddBoss(bossChecklist, mod, "ForsakenAnubis", (() => NPCExtensions.BeenKilled<AnubisA>()), ModContent.NPCType<AnubisA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ForsakenAnubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "ForsakenAnubis.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "ForsakenAnubis.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AnubisATrophy>(),
-                        ModContent.ItemType<AnubisAMask>(),
-                        ModContent.ItemType<AnubisAwakenedBox>(),
-                        ModContent.ItemType<AnubisARelic>()
-                    },
+                    ["collectibles"] = forsakenCollectibles,
                     ["customPortrait"] = GetPortrait("FAnubis")
                 });
                 #endregion
 
                 #region Olympian Athena
+                List<int> athenaACollectibles = new List<int>
+                {
+                    ModContent.ItemType<AthenaATrophy>(),
+                    ModContent.ItemType<AthenaAMask>(),
+                    ModContent.ItemType<AthenaAwakenedBox>(),
+                    ModContent.ItemType<AthenaARelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    athenaACollectibles.Add(ModContent.ItemType<OlympianAthenaLore>());
+
                 AddBoss(bossChecklist, mod, "AthenaA", (() => NPCExtensions.BeenKilled<AthenaA>()), ModContent.NPCType<AthenaA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AthenaA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "AthenaA.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "AthenaA.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<OwlStatue>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AthenaATrophy>(),
-                        ModContent.ItemType<AthenaAMask>(),
-                        ModContent.ItemType<AthenaAwakenedBox>(),
-                        ModContent.ItemType<AthenaARelic>()
-                    },
+                    ["collectibles"] = athenaACollectibles,
                     ["customPortrait"] = GetPortrait("AthenaA"),
                     ["availability"] = (() => NPCExtensions.BeenKilled<AnubisA>())
                 });
                 #endregion
 
                 #region Worm King Greed
+                List<int> greedACollectibles = new List<int>
+                {
+                    ModContent.ItemType<GreedATrophy>(),
+                    ModContent.ItemType<GreedAMask>(),
+                    ModContent.ItemType<GreedAwakenedBox>(),
+                    ModContent.ItemType<GreedARelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    greedACollectibles.Add(ModContent.ItemType<WormKingGreedLore>());
+
                 AddBoss(bossChecklist, mod, "GreedA", (() => NPCExtensions.BeenKilled<GreedAHead>()), ModContent.NPCType<GreedAHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "GreedA.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "GreedA.Spawn"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "GreedA.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<GreedATrophy>(),
-                        ModContent.ItemType<GreedAMask>(),
-                        ModContent.ItemType<GreedAwakenedBox>(),
-                        ModContent.ItemType<GreedARelic>()
-                    },
+                    ["collectibles"] = greedACollectibles,
                     ["customPortrait"] = GetPortrait("GreedA"),
                     ["availability"] = (() => NPCExtensions.BeenKilled<AnubisA>())
                 });
                 #endregion
 
                 #region Equinox Worms
+                List<int> equinoxCollectibles = new List<int>
+                {
+                    ModContent.ItemType<DaybringerTrophy>(),
+                    ModContent.ItemType<NightcrawlerTrophy>(),
+                    ModContent.ItemType<DaybringerMask>(),
+                    ModContent.ItemType<NightcrawlerMask>(),
+                    ModContent.ItemType<EquinoxBox>(),
+                    ModContent.ItemType<EquinoxWormsRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    equinoxCollectibles.Add(ModContent.ItemType<EquinoxWormsLore>());
+
                 AddBoss(bossChecklist, mod, "EquinoxWorms", (() => AAWorld.downedEquinox), new List<int>() { ModContent.NPCType<DaybringerHead>(), ModContent.NPCType<NightcrawlerHead>(), ModContent.NPCType<DaybringerBody>(), ModContent.NPCType<NightcrawlerBody>(), ModContent.NPCType<DaybringerTail>(), ModContent.NPCType<NightcrawlerTail>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "EquinoxWorms.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "EquinoxWorms.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<EquinoxWorm>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "EquinoxWorms.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<EquinoxWorm>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<DaybringerTrophy>(),
-                        ModContent.ItemType<NightcrawlerTrophy>(),
-                        ModContent.ItemType<DaybringerMask>(),
-                        ModContent.ItemType<NightcrawlerMask>(),
-                        ModContent.ItemType<EquinoxBox>(),
-                        ModContent.ItemType<EquinoxWormsRelic>()
-                    },
+                    ["collectibles"] = equinoxCollectibles,
                     ["customPortrait"] = GetPortrait("Equinox")
                 });
                 #endregion
 
                 #region Ashe & Haruka
+                List<int> sistersCollectibles = new List<int>
+                {
+                    ModContent.ItemType<AsheTrophy>(),
+                    ModContent.ItemType<HarukaTrophy>(),
+                    ModContent.ItemType<AsheMask>(),
+                    ModContent.ItemType<HarukaMask>(),
+                    ModContent.ItemType<SistersBox>(),
+                    ModContent.ItemType<SistersOfDiscordRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    sistersCollectibles.Add(ModContent.ItemType<SistersOfDiscordLore>());
+
                 AddBoss(bossChecklist, mod, "SistersOfDiscord", (() => AAWorld.downedSisters), new List<int>() { ModContent.NPCType<Ashe>(), ModContent.NPCType<Haruka>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SistersOfDiscord.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SistersOfDiscord.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<FlamesOfAnarchy>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "SistersOfDiscord.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<FlamesOfAnarchy>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AsheTrophy>(),
-                        ModContent.ItemType<HarukaTrophy>(),
-                        ModContent.ItemType<AsheMask>(),
-                        ModContent.ItemType<HarukaMask>(),
-                        ModContent.ItemType<SistersBox>(),
-                        ModContent.ItemType<SistersOfDiscordRelic>()
-                    },
+                    ["collectibles"] = sistersCollectibles,
                     ["customPortrait"] = GetPortrait("AH")
                 });
                 #endregion
 
                 #region Akuma
+                List<int> akumaCollectibles = new List<int>
+                {
+                    ModContent.ItemType<AkumaTrophy>(),
+                    ModContent.ItemType<AkumaMask>(),
+                    ModContent.ItemType<AkumaBox>(),
+                    ModContent.ItemType<AkumaRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    akumaCollectibles.Add(ModContent.ItemType<AkumaLore>());
+
                 AddBoss(bossChecklist, mod, "Akuma", () => AAWorld.downedAkuma, new List<int>() { ModContent.NPCType<AkumaHead>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Akuma.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Akuma.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunSigil>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Akuma.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<DraconianSunSigil>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AkumaTrophy>(),
-                        ModContent.ItemType<AkumaMask>(),
-                        ModContent.ItemType<AkumaBox>(),
-                        ModContent.ItemType<AkumaRelic>()
-                    },
+                    ["collectibles"] = akumaCollectibles,
                     ["customPortrait"] = GetPortrait("Akuma")
                 });
+
+                // AkumaA
+                List<int> akumaACollectibles = new List<int>
+                {
+                    ModContent.ItemType<AkumaATrophy>(),
+                    ModContent.ItemType<AkumaAMask>(),
+                    ModContent.ItemType<AkumaAwakenedBox>(),
+                    ModContent.ItemType<AkumaRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    akumaACollectibles.Add(ModContent.ItemType<AkumaLore>());
 
                 AddBoss(bossChecklist, mod, "AkumaA", (() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<AkumaAHead>() }, new Dictionary<string, object>()
                 {
@@ -1240,34 +1340,43 @@ namespace AAModClassic._CrossMod
                     ["spawnInfo"] = Language.GetOrRegister(path + "AkumaA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSunRune>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "AkumaA.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<DraconianSunRune>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<AkumaATrophy>(),
-                        ModContent.ItemType<AkumaAMask>(),
-                        ModContent.ItemType<AkumaAwakenedBox>(),
-                        ModContent.ItemType<AkumaRelic>()
-                    },
+                    ["collectibles"] = akumaACollectibles,
                     ["customPortrait"] = GetPortrait("AkumaA"),
                     ["availability"] = (() => AAWorld.downedAkuma && Main.expertMode)
                 });
                 #endregion
 
                 #region Yamata
+                List<int> yamataCollectibles = new List<int>
+                {
+                    ModContent.ItemType<YamataTrophy>(),
+                    ModContent.ItemType<YamataMask>(),
+                    ModContent.ItemType<YamataBox>(),
+                    ModContent.ItemType<YamataRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    yamataCollectibles.Add(ModContent.ItemType<YamataLore>());
+
                 AddBoss(bossChecklist, mod, "Yamata", (() => AAWorld.downedYamata), ModContent.NPCType<YamataBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Yamata.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Yamata.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadMoonSigil>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Yamata.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<DreadMoonSigil>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<YamataTrophy>(),
-                        ModContent.ItemType<YamataMask>(),
-                        ModContent.ItemType<YamataBox>(),
-                        ModContent.ItemType<YamataRelic>()
-                    },
+                    ["collectibles"] = yamataCollectibles,
                     ["customPortrait"] = GetPortrait("Yamata")
                 });
+
+                // YamataA
+                List<int> yamataACollectibles = new List<int>
+                {
+                    ModContent.ItemType<YamataATrophy>(),
+                    ModContent.ItemType<YamataAMask>(),
+                    ModContent.ItemType<YamataAwakenedBox>(),
+                    ModContent.ItemType<YamataRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    yamataACollectibles.Add(ModContent.ItemType<YamataLore>());
 
                 AddBoss(bossChecklist, mod, "YamataA", (() => AAWorld.downedYamata), ModContent.NPCType<YamataABody>(), new Dictionary<string, object>()
                 {
@@ -1275,119 +1384,139 @@ namespace AAModClassic._CrossMod
                     ["spawnInfo"] = Language.GetOrRegister(path + "YamataA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DreadMoonRune>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "YamataA.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<DreadMoonRune>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<YamataATrophy>(),
-                        ModContent.ItemType<YamataAMask>(),
-                        ModContent.ItemType<YamataAwakenedBox>(),
-                        ModContent.ItemType<YamataRelic>()
-                    },
+                    ["collectibles"] = yamataACollectibles,
                     ["customPortrait"] = GetPortrait("YamataA"),
                     ["availability"] = (() => AAWorld.downedYamata && Main.expertMode)
                 });
                 #endregion
 
                 #region Zero
+                List<int> zeroCollectibles = new List<int>
+                {
+                    ModContent.ItemType<ZeroTrophy>(),
+                    ModContent.ItemType<ZeroMask>(),
+                    ModContent.ItemType<ZeroBox>(),
+                    ModContent.ItemType<ZeroRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    zeroCollectibles.Add(ModContent.ItemType<ZeroLore>());
+
                 AddBoss(bossChecklist, mod, "Zero", (() => AAWorld.downedZero), ModContent.NPCType<Zero>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Zero.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Zero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<DoomsdayTesseract>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Zero.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<DoomsdayTesseract>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<ZeroTrophy>(),
-                        ModContent.ItemType<ZeroMask>(),
-                        ModContent.ItemType<ZeroBox>(),
-                        ModContent.ItemType<ZeroRelic>()
-                    },
+                    ["collectibles"] = zeroCollectibles,
                     ["customPortrait"] = GetPortrait("Zero")
                 });
+
+                // ZeroP (Zero Awakened)
+                List<int> zeroPCollectibles = new List<int>
+                {
+                    ModContent.ItemType<ZeroATrophy>(),
+                    ModContent.ItemType<ZeroAMask>(),
+                    ModContent.ItemType<ZeroAwakenedBox>(),
+                    ModContent.ItemType<ZeroRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    zeroPCollectibles.Add(ModContent.ItemType<ZeroLore>());
 
                 AddBoss(bossChecklist, mod, "ZeroP", (() => AAWorld.downedZero), ModContent.NPCType<ZeroA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ZeroP.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "ZeroP.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ERROR_NULL>() + "]"),                    
+                    ["spawnInfo"] = Language.GetOrRegister(path + "ZeroP.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ERROR_NULL>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "ZeroP.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<ERROR_NULL>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<ZeroATrophy>(),
-                        ModContent.ItemType<ZeroAMask>(),
-                        ModContent.ItemType<ZeroAwakenedBox>(),
-                        ModContent.ItemType<ZeroRelic>()
-                    },
+                    ["collectibles"] = zeroPCollectibles,
                     ["customPortrait"] = GetPortrait("ZeroProtocol"),
                     ["availability"] = (() => AAWorld.downedZero && Main.expertMode)
                 });
                 #endregion
 
                 #region Champion Rajah Rabbit
+                List<int> champRajahCollectibles = new List<int>
+                {
+                    ModContent.ItemType<RajahAwakenedBox>(),
+                    ModContent.ItemType<RajahRabbitARelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    champRajahCollectibles.Add(ModContent.ItemType<ChampionRajahRabbitLore>());
+
                 AddBoss(bossChecklist, mod, "RajahRabbitR", (() => NPCExtensions.BeenKilled<RajahRabbitA>()), ModContent.NPCType<RajahRabbitA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "RajahRabbitR.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "RajahRabbitR.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<TenCaratCarrot>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "RajahRabbitR.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<TenCaratCarrot>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<RajahAwakenedBox>(),
-                        ModContent.ItemType<RajahRabbitARelic>()
-                    },
+                    ["collectibles"] = champRajahCollectibles,
                     ["customPortrait"] = GetPortrait("CRajah"),
                     //["availability"] = (() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
                 #region Shen
+                List<int> shenCollectibles = new List<int>
+                {
+                    ModContent.ItemType<ShenDoragonTrophy>(),
+                    ModContent.ItemType<ShenDoragonMask>(),
+                    ModContent.ItemType<ShenBox>(),
+                    ModContent.ItemType<ShenDoragonRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    shenCollectibles.Add(ModContent.ItemType<ShenDoragonLore>());
+
                 AddBoss(bossChecklist, mod, "Shen", (() => AAWorld.downedShen), ModContent.NPCType<ShenDoragon>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Shen.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Shen.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ChaosSigil>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Shen.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<ChaosSigil>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<ShenDoragonTrophy>(),
-                        ModContent.ItemType<ShenDoragonMask>(),
-                        ModContent.ItemType<ShenBox>(),
-                        ModContent.ItemType<ShenDoragonRelic>()
-                    },
+                    ["collectibles"] = shenCollectibles,
                     ["customPortrait"] = GetPortrait("Shen")
                 });
+
+                // ShenA
+                List<int> shenACollectibles = new List<int>
+                {
+                    ModContent.ItemType<ShenDoragonATrophy>(),
+                    ModContent.ItemType<ShenDoragonAMask>(),
+                    ModContent.ItemType<ShenAwakenedBox>(),
+                    ModContent.ItemType<ShenDoragonRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    shenACollectibles.Add(ModContent.ItemType<ShenDoragonLore>());
 
                 AddBoss(bossChecklist, mod, "ShenA", (() => AAWorld.downedShen), ModContent.NPCType<ShenDoragonA>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "ShenA.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "ShenA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ChaosRune>() + "]"),                    
+                    ["spawnInfo"] = Language.GetOrRegister(path + "ShenA.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ChaosRune>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "ShenA.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<ChaosRune>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<ShenDoragonATrophy>(),
-                        ModContent.ItemType<ShenDoragonAMask>(),
-                        ModContent.ItemType<ShenAwakenedBox>(),
-                        ModContent.ItemType<ShenDoragonRelic>()
-                    },
+                    ["collectibles"] = shenACollectibles,
                     ["customPortrait"] = GetPortrait("ShenA"),
                     ["availability"] = (() => AAWorld.downedShen && Main.expertMode)
                 });
                 #endregion
 
                 #region Infinity Zero
+                List<int> infZeroCollectibles = new List<int>
+                {
+                    ModContent.ItemType<InfinityZeroTrophy>(),
+                    ModContent.ItemType<InfinityZeroMask>(),
+                    ModContent.ItemType<InfinityZeroBox>(),
+                    ModContent.ItemType<InfinityZeroRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    infZeroCollectibles.Add(ModContent.ItemType<InfinityZeroLore>());
+
                 AddBoss(bossChecklist, mod, "InfinityZero", (() => NPCExtensions.BeenKilled<InfinityZero>()), ModContent.NPCType<InfinityZero>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "InfinityZero.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "InfinityZero.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<InfinityBeacon>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "InfinityZero.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<InfinityBeacon>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<InfinityZeroTrophy>(),
-                        ModContent.ItemType<InfinityZeroMask>(),
-                        ModContent.ItemType<InfinityZeroBox>(),
-                        ModContent.ItemType<InfinityZeroRelic>()
-                    },
+                    ["collectibles"] = infZeroCollectibles,
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
                         Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<InfinityZero>().Texture).Value;
                         Rectangle frame = texture.Frame(1, 4, 0, 0);
@@ -1399,19 +1528,23 @@ namespace AAModClassic._CrossMod
                 #endregion
 
                 #region Soul of Cthulhu
+                List<int> socCollectibles = new List<int>
+                {
+                    ModContent.ItemType<SoulOfCthulhuTrophy>(),
+                    ModContent.ItemType<SoulOfCthulhuMask>(),
+                    ModContent.ItemType<SoulOfCthulhuBox>(),
+                    ModContent.ItemType<SoulOfCthulhuRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    socCollectibles.Add(ModContent.ItemType<SoulOfCthulhuLore>());
+
                 AddBoss(bossChecklist, mod, "SoulOfCthulhu", (() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<SoulOfCthulhu>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SoulOfCthulhu.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SoulOfCthulhu.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CursedCompass>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "SoulOfCthulhu.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<SoulOfCthulhuTrophy>(),
-                        ModContent.ItemType<SoulOfCthulhuMask>(),
-                        ModContent.ItemType<SoulOfCthulhuBox>(),
-                        ModContent.ItemType<SoulOfCthulhuRelic>()
-                    },
+                    ["collectibles"] = socCollectibles,
                     ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
                         string path = ModContent.GetInstance<SoulOfCthulhu>().Texture;
                         Texture2D texture2D13 = ModContent.Request<Texture2D>(path).Value;
@@ -1423,19 +1556,24 @@ namespace AAModClassic._CrossMod
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 });
 
+                // Cthulhu (awakened)
+                List<int> cthulhuCollectibles = new List<int>
+                {
+                    ModContent.ItemType<SoulOfCthulhuTrophy>(),
+                    ModContent.ItemType<SoulOfCthulhuAMask>(),
+                    ModContent.ItemType<CthulhuBox>(),
+                    ModContent.ItemType<SoulOfCthulhuRelic>()
+                };
+                if (CalamityMod.CalamityMod.IsEnabled)
+                    cthulhuCollectibles.Add(ModContent.ItemType<SoulOfCthulhuLore>());
+
                 AddBoss(bossChecklist, mod, "Cthulhu", (() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), ModContent.NPCType<Cthulhu>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Cthulhu.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Cthulhu.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CursedCompass>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "Cthulhu.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
-                    ["collectibles"] = new List<int>
-                    {
-                        ModContent.ItemType<SoulOfCthulhuTrophy>(),
-                        ModContent.ItemType<SoulOfCthulhuAMask>(),
-                        ModContent.ItemType<CthulhuBox>(),
-                        ModContent.ItemType<SoulOfCthulhuRelic>()
-                    },
+                    ["collectibles"] = cthulhuCollectibles,
                     //["customPortrait"] = GetPortrait("ZeroProtocol"),
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.expertMode && NPCExtensions.BeenKilled<SoulOfCthulhu>())
                 });
@@ -1474,7 +1612,7 @@ namespace AAModClassic._CrossMod
                 //item internal name, inline method for retrieving downed value, price to sell for in copper
 
                 fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingMushroom", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom",(() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
+                fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom", (() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
                 fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingClaw", (() => AAWorld.downedGrips), 80000);
                 fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
                 fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "DragonBell", (() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
@@ -1663,15 +1801,15 @@ namespace AAModClassic._CrossMod
             Ice,
             Earth,
             Wind,
-        	Thunder,
-        	Holy,
-        	Shadow,
-        	Nature,
-        	Poison,
-        	Blood,
-        	Psychic,
-        	Celestial,
-        	Explosive
+            Thunder,
+            Holy,
+            Shadow,
+            Nature,
+            Poison,
+            Blood,
+            Psychic,
+            Celestial,
+            Explosive
         }
 
         private static void PerformRedemptionSupport()
@@ -2047,7 +2185,7 @@ namespace AAModClassic._CrossMod
                 redemption.Call("addElementItem", (int)ElementalID.Shadow, ModContent.ItemType<EternalTwilight>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Water, ModContent.ItemType<Hurricane>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Wind, ModContent.ItemType<Hurricane>(), true);
-                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType <Lifeline>(), true);
+                redemption.Call("addElementItem", (int)ElementalID.Earth, ModContent.ItemType<Lifeline>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Arcane, ModContent.ItemType<Lifeline>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Fire, ModContent.ItemType<RadiantDawn>(), true);
                 redemption.Call("addElementItem", (int)ElementalID.Celestial, ModContent.ItemType<ShootingStar>(), true);
@@ -2146,12 +2284,12 @@ namespace AAModClassic._CrossMod
                 #endregion
 
                 #region Magic
-                foreach(ModItem item in AAMod.instance.GetContent<ModItem>())
+                foreach (ModItem item in AAMod.instance.GetContent<ModItem>())
                 {
                     if (item.Item.DamageType != DamageClass.Magic)
                         continue;
 
-                    redemption.Call("addElementItem", (int)ElementalID.Arcane, item.Item.type, true);             
+                    redemption.Call("addElementItem", (int)ElementalID.Arcane, item.Item.type, true);
                 }
 
                 //Staffs
@@ -2321,7 +2459,7 @@ namespace AAModClassic._CrossMod
 
                 #region Repellents
                 thorium.Call("AddBatRepellentNPCID", ModContent.NPCType<MadnessBat>());
-                
+
                 //thorium.Call("AddZombieRepellentNPCID", ModContent.NPCType<MushroomZombie>());
 
                 thorium.Call("AddFishRepellentNPCID", ModContent.NPCType<MagmaSwimmer>());
