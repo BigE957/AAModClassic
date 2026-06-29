@@ -1,10 +1,9 @@
-﻿using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic._Content.Hoard.World.Biomes;
+﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
+using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -35,15 +34,21 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<AcropolisBlock_Tile>(),
-                [new Color(128, 128, 128)] = ModContent.TileType<AcropolisBlock2_Tile>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<SkyShard_Tile>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<SkymarbleBrick_Tile>(),
+                [new Color(128, 128, 128)] = ModContent.TileType<SkycrystalBrick_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<SkyCrystal_Tile>(),
                 [new Color(0, 255, 255)] = TileID.Grass,
                 [new Color(0, 255, 0)] = TileID.Dirt,
                 [new Color(0, 0, 255)] = TileID.Cloud,
                 [new Color(255, 255, 255)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
+
+            HashSet<int> protectedTiles = [
+                ModContent.TileType<SkymarbleBrick_Tile>(),
+                ModContent.TileType<SkycrystalBrick_Tile>(),
+                ModContent.TileType<SkyCrystal_Tile>(),
+            ];
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
@@ -55,7 +60,12 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
                 [Color.Black] = -1
             };
 
-            TexGen gen = TexGen.GetTexGenerator(AcropolisTexGenAssets.AcropolisTileData, colorToTile, AcropolisTexGenAssets.AcropolisWallData, colorToWall, null, AcropolisTexGenAssets.AcropolisRoofData);
+            HashSet<int> protectedWalls = [
+                ModContent.WallType<AcropolisBrickWall_Wall>(),
+                ModContent.WallType<AcropolisPillarWall_Wall>(),
+            ];
+
+            TexGen gen = TexGen.GetTexGenerator(AcropolisTexGenAssets.AcropolisTileData, colorToTile, AcropolisTexGenAssets.AcropolisWallData, colorToWall, null, AcropolisTexGenAssets.AcropolisRoofData, unbreakableTiles: protectedTiles, unbreakableWalls: protectedWalls);
 
             gen.Generate(origin.X, origin.Y, true, true);
 

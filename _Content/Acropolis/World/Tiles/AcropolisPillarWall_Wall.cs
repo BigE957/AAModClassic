@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
 		{
 			num = fail ? 1 : 3;
 		}
-
+        /*
         public override void KillWall(int i, int j, ref bool fail)
         {
             fail = true;
@@ -28,5 +28,6 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
         {
             return false;
         }
+        */
     }
 }

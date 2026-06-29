@@ -3,7 +3,9 @@ using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
@@ -659,6 +661,9 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             {
                 int p = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
                 Main.npc[p].Center = NPC.Center;
+
+                TileProtectionSystem.UnprotectTiles(ModContent.TileType<SkymarbleBrick_Tile>(), ModContent.TileType<SkycrystalBrick_Tile>(), ModContent.TileType<SkyCrystal_Tile>());
+                TileProtectionSystem.UnprotectWalls(ModContent.WallType<AcropolisBrickWall_Wall>(), ModContent.WallType<AcropolisPillarWall_Wall>());
             }
             else
             {

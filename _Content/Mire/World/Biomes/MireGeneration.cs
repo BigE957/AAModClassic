@@ -31,10 +31,6 @@ namespace AAModClassic._Content.Mire.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            //ushort tileGrass = (ushort)mod.Find<ModTile>("MireGrass").Type, tileDirt = TileID.Mud, tileStone = (ushort)mod.Find<ModTile>("Depthstone").Type, tileIce = (ushort)mod.Find<ModTile>("IndigoIce").Type,
-            //tileSand = (ushort)mod.Find<ModTile>("Depthsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("DepthsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Depthsandstone").Type,
-            //LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves_Tile>();
-
             int worldSize = GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180; //how deep the biome is (scaled by world size)	
 
@@ -42,32 +38,33 @@ namespace AAModClassic._Content.Mire.World.Biomes
             {
                 [new Color(0, 0, 255)] = ModContent.TileType<Depthstone_Tile>(),
                 [new Color(255, 128, 0)] = ModContent.TileType<Darkmud_Tile>(),
+                [new Color(0, 255, 255)] = ModContent.TileType<DepthMoss_Tile>(),
                 [new Color(0, 255, 0)] = ModContent.TileType<AbyssGrass_Tile>(),
                 [new Color(255, 0, 0)] = ModContent.TileType<AbyssWood_Tile>(),
                 [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
                 [new Color(255, 255, 0)] = ModContent.TileType<AbyssVines_Tile>(),
-                [new Color(0, 255, 255)] = ModContent.TileType<DepthMoss_Tile>(),
                 [new Color(255, 0, 255)] = ModContent.TileType<AbyssLeaves_Tile>(),
                 [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning
             };
 
-            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
+            Dictionary<Color, int> colorToWall = new()
             {
                 [new Color(0, 0, 255)] = ModContent.WallType<DepthstoneWall_Wall>(),
                 [Color.Black] = -1 //don't touch when genning
             };
 
             TexGen gen = TexGen.GetTexGenerator(MireTexGenAssets.LakeTileData, colorToTile, MireTexGenAssets.LakeWallData, colorToWall, MireTexGenAssets.LakeLiquidData);
-            Point newOrigin = new Point(origin.X, origin.Y - 10); //biomeRadius);
+            Point newOrigin = new(origin.X, origin.Y - 10); //biomeRadius);
 
-            WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //convert tiles
-			{
+            //convert tiles
+            WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(
+            [
                 new InWorld(),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius), //this provides the 'blending' on the edges (except the top)
 				new ConvertTile(ModContent.GetInstance<MireConversion>().Type) //actually place the tile
-			}));
+			]));
 
             int genX = origin.X - (gen.width / 2);
             int genY = origin.Y - 30;
@@ -100,15 +97,9 @@ namespace AAModClassic._Content.Mire.World.Biomes
                 int xAxis = origin.X + WorldGen.genRand.Next(0, biomeRadius);
                 int yAxis = origin.Y + WorldGen.genRand.Next(0, biomeRadius);
                 for (int AltarX = xAxis - 45; AltarX < xAxis + 45; AltarX++)
-                {
                     for (int AltarY = yAxis - 45; AltarY < yAxis + 45; AltarY++)
-                    {
                         if (Main.rand.NextBool(15))
-                        {
                             WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<AbyssAltarUnsafe_Tile>());
-                        }
-                    }
-                }
             }
             return true;
         }
