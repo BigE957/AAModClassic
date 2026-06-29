@@ -83,6 +83,7 @@ using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
 using AAModClassic._Unreleased;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
 
 namespace AAModClassic
 {
@@ -1462,7 +1463,7 @@ namespace AAModClassic
             Radium = tileCounts[ModContent.TileType<RadiumOre_Tile>()];
             EquinoxAltar = tileCounts[ModContent.TileType<DaybringerBrick_Tile>()] + tileCounts[ModContent.TileType<NightcrawlerBrick_Tile>()];
             HoardTiles = tileCounts[ModContent.TileType<GreedBrick_Tile>()] + tileCounts[ModContent.TileType<GreedStone_Tile>()];
-            CloudTiles = tileCounts[ModContent.TileType<AcropolisBlock_Tile>()] + tileCounts[ModContent.TileType<AcropolisBlock2_Tile>()];
+            CloudTiles = tileCounts[ModContent.TileType<SkymarbleBrick_Tile>()] + tileCounts[ModContent.TileType<SkycrystalBrick_Tile>()];
         }
 
         private void MireAndInferno(GenerationProgress progress)
