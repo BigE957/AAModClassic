@@ -2,8 +2,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Conversions;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -44,7 +42,6 @@ namespace AAModClassic._Content.Mire.World.Biomes
                 [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
                 [new Color(255, 255, 0)] = ModContent.TileType<AbyssVines_Tile>(),
                 [new Color(255, 0, 255)] = ModContent.TileType<AbyssLeaves_Tile>(),
-                [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning
             };

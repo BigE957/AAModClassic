@@ -7,8 +7,6 @@ namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class AbyssWoodSolid_Tile : ModTile
     {
-
-        public bool glow = true; 
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
