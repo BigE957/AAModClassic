@@ -5,9 +5,11 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
@@ -586,6 +588,11 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt, hit.HitDirection, -1f, 0, default, 1f);
                 }
             }
+        }
+
+        public override void OnKill()
+        {
+            TileProtectionSystem.UnprotectTiles(ModContent.TileType<GreedStone_Tile>(), ModContent.TileType<GreedBrick_Tile>());
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

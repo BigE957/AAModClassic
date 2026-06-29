@@ -125,7 +125,12 @@ namespace AAModClassic._Content.Hoard.World.Biomes
                 [Color.Black] = -1
             };
 
-            gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardTileData, colorToTile, HoardTexGenAssets.HoardWallData, colorToWall);
+            HashSet<int> protectedTiles = [
+                ModContent.TileType<GreedStone_Tile>(),
+                ModContent.TileType<GreedBrick_Tile>(),
+            ];
+
+            gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardTileData, colorToTile, HoardTexGenAssets.HoardWallData, colorToWall, unbreakableTiles: protectedTiles);
             gen.Generate(origin.X, origin.Y, true, true);
 
             WorldUtils.Gen(new Point(origin.X, origin.Y), new Shapes.Rectangle(gen.width, gen.height), Actions.Chain(new GenAction[]
