@@ -628,23 +628,17 @@ namespace AAModClassic
 
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)
         {
-            Tile tile = Main.tile[i, j];
-            if (tile.TileType == ModContent.TileType<AcropolisBlock2_Tile>() || tile.TileType == ModContent.TileType<AcropolisBlock_Tile>() ||
-                tile.TileType == ModContent.TileType<GreedStone_Tile>() || tile.TileType == ModContent.TileType<GreedBrick_Tile>())
-            {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return;
-            }
+
             orig(i, j);
         }
 
         private static bool Actuate(Terraria.On_Wiring.orig_Actuate orig, int i, int j)
         {
-            Tile tile = Main.tile[i, j];
-            if (tile.TileType == ModContent.TileType<AcropolisBlock2_Tile>() || tile.TileType == ModContent.TileType<AcropolisBlock_Tile>() ||
-                tile.TileType == ModContent.TileType<GreedStone_Tile>() || tile.TileType == ModContent.TileType<GreedBrick_Tile>())
-            {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
-            }
+
             return orig(i, j);
         }
 
