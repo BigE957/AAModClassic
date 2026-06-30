@@ -2,16 +2,16 @@ LargeLetter: {
 	DisplayName: Large Letter
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LikeNPC: I like {NPCName}.
-		DislikeNPC: I dislike {NPCName}.
+		Content: You could say things have been going... smoothl-E... 
+		NoHome: Dude you gotta help me man. I lost my life savings. I'm on the streets. You gotta help me man.
+		FarFromHome: Dude where the hell am I? How'd I get here? Where's my house?
+		LoveSpace: Ah, peace and quiet sure is nice...
+		DislikeCrowded: Is it getting packed here or it just me?
+		HateCrowded: Who the hell are all these people man.
+		LikeNPC_Princess: It's part of my housing contract that I legally have to like being around {NPCName}. She's fine I guess.
+		Princess_LovesNPC: {NPCName} is quite the 'character'. They have quite the collection!
+		LikeNPC: {NPCName} is one of my chums. We're a little different from the rest.
+		HateNPC: Dude. Isn't that {NPCName} guy like, super racist? Who even invited him? He said he wanted to 'kill all goblins'. That's messed up, dude!
 	}
 
 	Census.SpawnCondition: In Expert Mode

@@ -51,7 +51,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
 				.SetNPCAffection(ModContent.NPCType<Lovecraftian>(), AffectionLevel.Like)
 				.SetNPCAffection(ModContent.NPCType<Samurai>(), AffectionLevel.Like)
 				.SetNPCAffection(ModContent.NPCType<Mushman>(), AffectionLevel.Like)
-				.SetNPCAffection(ModContent.NPCType<GoblinSlayer>(), AffectionLevel.Dislike);
+				.SetNPCAffection(ModContent.NPCType<GoblinSlayer>(), AffectionLevel.Hate);
         }
 
 		public override void SetDefaults()
