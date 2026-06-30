@@ -72,6 +72,10 @@ base
 -bottled water is now placed before the material in dye recipes
 -the active version of code magnet is now crafted instead of the inactive one
 -ancients awakened items no longner set the unused Item.expertOnly value
+-many accessories now work properly or display all of their info:
+--rajah rabbits cloak now inherits the 40% speed from its predecesessor and lists its max run speed increase 
+--night clothes now properly lists how it gives the effects of master ninja gear, doubles your movement speed when it isnt night, no longer makes melee swords inflict venom/moonraze, and how it gives immunity to hydra toxin and clueless
+--duality now mentions the claws of chaos effect, no longer gives 8 more defense than intended, and actually makes your attacks inflict discordian inferno in unreleased
 -
 
 removed

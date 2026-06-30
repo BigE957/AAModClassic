@@ -82,4 +82,44 @@ Effect: {
 		JumpHeight: jump height
 		AutoJump: allows auto-jump
 	}
+
+	RajahRabbitsSashOfVengeanceEffect:
+		'''
+		Every {0}% of health lost gives you {1}% increased damage to your strongest damage class
+		[c/{2}:Current Damage Boost: +{3}% {4} damage]
+		'''
+	RajahRabbitsCloakOfSupremacyEffect:
+		'''
+		Every {0}% of health lost gives you {1}% increased damage to your strongest damage class and {2}% increased movement speed
+		[c/{3}:Current Damage Boost: +{4}% {5} damage]
+		Current Speed Boost: +{6}% movement speed and max run speed
+		'''
+	MaxRunSpeedEffect: "{0}% increased run speed"
+	BlackBeltEffect: Gives a chance to dodge attacks
+
+	MasterNinjaMobilityEffect: {
+		ShoeSpikes1: Allows the ability to slide down walls
+		ShoeSpikes2: Allows the ability to climb walls
+		Tabi: " and dash"
+	}
+
+	NaitokurosuMireEffect: Grants an extra {0}% ranged damage while in the Mire
+	NaitokurosuNightEffect: Grants an extra {0}% movement speed at night
+	DebuffImmunityEffect: "Grants immunity to "
+	NaitokurosuDebuffEffect:
+		'''
+		Ranged attacks and minions inflict Venom
+		Ranged attacks and minions instead inflict Moonraze at night
+		'''
+	TaiyangBaoleiImmunityEffect: Grants immunity to almost all debuffs
+	SolarArmorSetDashEffect: Allows the player to dash into the enemy and explode
+	TaiyangBaoleiEnduranceEffect: Grants an extra {0}% damage resistance during the day
+	TaiyangBaoleiDebuffEffect:
+		'''
+		Melee and magic attacks inflict fire damage
+		Melee and magic attacks instead inflict Daybroken during the day
+		'''
+	DualityChaosEffect: Grants an extra {0}% damage while in the Inferno or Mire
+	DualityDefenseEffect: Grants an extra {0} defense while in the Inferno
+	AttacksInflictDebuffEffect: "Your attacks inflict "
 }

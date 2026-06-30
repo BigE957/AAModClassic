@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             AddEffect(new MovementSpeedEffect(0.55f));
             AddEffect(new MaxLifeEffect(75));
             AddEffect<ManaFlowerEffect>();
-            AddEffect<CrimsonArmorRegenEffect>();
+            AddEffect<CrimsonArmorSetBonusEffect>();
         }
 
         public override void RegisterArmorSetStats()

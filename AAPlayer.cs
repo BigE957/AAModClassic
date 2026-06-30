@@ -267,8 +267,6 @@ namespace AAModClassic
         public int AbilityCD = 180;
         public bool AshRemover;
         public bool FogRemover;
-        public bool Baolei;
-        public bool Naitokurosu;
         public bool Duality;
         public bool DragonShell;
         public bool ammo20percentdown = false;
@@ -560,9 +558,7 @@ namespace AAModClassic
             HydraPendant = false;
             demonGauntlet = false;
             BrokenCode = false;
-            Baolei = false;
             Duality = false;
-            Naitokurosu = false;
             ammo20percentdown = false;
             AshCurse = !Main.dayTime && !AAWorld.downedAkuma;
             DiscordShredder = false;
@@ -938,18 +934,6 @@ namespace AAModClassic
                 target.AddBuff(BuffID.Chilled, 180);
             }
 
-            if (Baolei)
-            {
-                int buff = Main.dayTime ? BuffID.Daybreak : BuffID.OnFire;
-                target.AddBuff(buff, 1000);
-            }
-
-            if (Naitokurosu)
-            {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<Moonraze_Buff>();
-                target.AddBuff(buff, 1000);
-            }
-
             if (Duality)
             {
                 int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
@@ -964,11 +948,6 @@ namespace AAModClassic
             if (kindledSet)
             {
                 Player.magmaStone = true;
-            }
-
-            if (clawsOfChaos)
-            {
-                Player.ApplyDamageToNPC(target, 5, 0, 0, false);
             }
 
             if (DiscordShredder)
@@ -1207,27 +1186,10 @@ namespace AAModClassic
                 }
             }
 
-            if (Baolei && (proj.CountsAsClass(DamageClass.Melee) || proj.CountsAsClass(DamageClass.Magic)))
-            {
-                int buff = Main.dayTime ? BuffID.Daybreak : BuffID.OnFire;
-                target.AddBuff(buff, 1000);
-            }
-
-            if (Naitokurosu && (proj.CountsAsClass(DamageClass.Ranged) || proj.minion))
-            {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<Moonraze_Buff>();
-                target.AddBuff(buff, 1000);
-            }
-
             if (Duality)
             {
                 int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
-            }
-
-            if (clawsOfChaos)
-            {
-                Player.ApplyDamageToNPC(target, 5, 0, 0, false);
             }
 
             if (DiscordShredder)

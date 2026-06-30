@@ -694,3 +694,13 @@ IceCrate: {
 	DisplayName: Ice Crate
 	Tooltip: ""
 }
+
+GreedBrick: {
+	DisplayName: Greed Brick
+	Tooltip: ""
+}
+
+GreedStone: {
+	DisplayName: Greed Stone
+	Tooltip: ""
+}

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
@@ -8,16 +7,22 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Humanizer;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 {
-    public class Duality : BaseAAItem, ILocalizedModType
+    public class Duality : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
@@ -53,60 +58,24 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             Lighting.AddLight(Item.Center, Color.DarkMagenta.ToVector3() * 0.55f * Main.essScale);
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.buffImmune[20] = true;
-            player.buffImmune[22] = true;
-            player.buffImmune[23] = true;
-            player.buffImmune[30] = true;
-            player.buffImmune[31] = true;
-            player.buffImmune[32] = true;
-            player.buffImmune[33] = true;
-            player.buffImmune[35] = true;
-            player.buffImmune[36] = true;
-            player.buffImmune[38] = true;
-            player.buffImmune[44] = true;
-            player.buffImmune[46] = true;
-            player.buffImmune[47] = true;
-            player.buffImmune[67] = true;
-            player.buffImmune[69] = true;
-            player.buffImmune[70] = true;
-            player.buffImmune[120] = true;
-            player.buffImmune[144] = true;
-            player.buffImmune[153] = true;
-            player.buffImmune[156] = true;
-            player.buffImmune[195] = true;
-            player.buffImmune[196] = true;
-            player.buffImmune[197] = true;
-            player.buffImmune[203] = true;
-            player.buffImmune[ModContent.BuffType<DragonFire_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<BurningAsh_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<HydraToxin_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<Terrablaze_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<DiscordianInferno_Buff>()] = true;
-            player.noKnockback = true;
-            player.blackBelt = true;
-            player.spikedBoots = 2;
-            modPlayer.clawsOfChaos = true;
-            player.moveSpeed += 2f;
-            player.endurance += 0.06f;
-            player.dashType = 3;
-            player.moveSpeed += player.GetModPlayer<AAPlayer>().ZoneMire ? .5f : 0f;
-            Item.defense = player.GetModPlayer<AAPlayer>().ZoneInferno ? 18 : 8;
-
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire)
-            {
-                player.GetDamage(DamageClass.Generic) += .3f;
-            }
-            else
-            {
-                player.GetDamage(DamageClass.Generic) += .15f;
-            }
+            damageMap.GetDamage(DamageClass.Generic) += .15f;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 5;
+            AddEffect<DualityChaosEffect>();
+            AddEffect(new MovementSpeedEffect(2));
+            AddEffect(new NaitokurosuNightEffect(0.5f));
+            AddEffect(new EnduranceEffect(0.06f));
+            AddEffect<DualityDefenseEffect>();
+            AddEffect<TaiyangBaoleiImmunityEffect>();
+            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<BurningAsh_Buff>(), ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Clueless_Buff>(), ModContent.BuffType<Terrablaze_Buff>(), ModContent.BuffType<DiscordianInferno_Buff>()));
+            AddEffect<FallDamageImmunityEffect>();
+            AddEffect<SolarArmorSetDashEffect>();
+            AddEffect(new MasterNinjaMobilityEffect(true, true));
+            AddEffect<BlackBeltEffect>();
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                AddEffect(new AttacksInflictDebuffEffect((ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
         }
-
-        
 
         public override void AddRecipes()
         {
@@ -117,5 +86,31 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
+    }
+
+    public class DualityChaosEffect : EquipmentEffectData
+    {
+        public const float DAMAGEBOOST = 0.15f;
+
+        public override void DoEffect(Player player)
+        {
+            if (player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire)
+                player.GetDamage(DamageClass.Ranged) += DAMAGEBOOST;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Math.Round(DAMAGEBOOST * 100, 0));
+    }
+
+    public class DualityDefenseEffect : EquipmentEffectData
+    {
+        public const int DEFENSEBOOST = 10;
+
+        public override void DoEffect(Player player)
+        {
+            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+                player.statDefense += DEFENSEBOOST;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(DEFENSEBOOST);
     }
 }

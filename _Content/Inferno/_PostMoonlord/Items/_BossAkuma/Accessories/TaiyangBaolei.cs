@@ -1,27 +1,30 @@
-﻿using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class TaiyangBaolei : BaseAAItem, ILocalizedModType
+    public class TaiyangBaolei : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Taiyang Baolei");
-            /* Tooltip.SetDefault(@"Makes you immune to almost all debuffs
-Allows you to do a fiery, explosive dash
-Your melee & magic attacks set enemies ablaze
-During the day, you gain 6% damage resistance and your melee & magic attacks inflict daybroken instead of 'On Fire!'"); */
         }
 
         public override void SetDefaults()
@@ -34,8 +37,6 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
             Item.defense = 8;
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
-
-        
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
@@ -134,42 +135,14 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
             return false;
         }
 
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.GetModPlayer<AAPlayer>().Baolei = true;
-            player.dashType = 3;
-            player.buffImmune[20] = true;
-            player.buffImmune[22] = true;
-            player.buffImmune[23] = true;
-            player.buffImmune[30] = true;
-            player.buffImmune[31] = true;
-            player.buffImmune[32] = true;
-            player.buffImmune[33] = true;
-            player.buffImmune[35] = true;
-            player.buffImmune[36] = true;
-            player.buffImmune[38] = true;
-            player.buffImmune[44] = true;
-            player.buffImmune[46] = true;
-            player.buffImmune[47] = true;
-            player.buffImmune[67] = true;
-            player.buffImmune[69] = true;
-            player.buffImmune[70] = true;
-            player.buffImmune[120] = true;
-            player.buffImmune[144] = true;
-            player.buffImmune[153] = true;
-            player.buffImmune[156] = true;
-            player.buffImmune[195] = true;
-            player.buffImmune[196] = true;
-            player.buffImmune[197] = true;
-            player.buffImmune[203] = true;
-            player.buffImmune[ModContent.BuffType<DragonFire_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<BurningAsh_Buff>()] = true;
-            player.noKnockback = true;
-            if (Main.dayTime)
-            {
-                player.endurance += 0.06f;
-            }
+            AddEffect<TaiyangBaoleiEnduranceEffect>();
+            AddEffect<FallDamageImmunityEffect>();
+            AddEffect<TaiyangBaoleiImmunityEffect>();
+            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<BurningAsh_Buff>()));
+            AddEffect<SolarArmorSetDashEffect>();
+            AddEffect<TaiyangBaoleiDebuffEffect>();
         }
     }
 }

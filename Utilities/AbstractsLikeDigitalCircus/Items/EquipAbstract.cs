@@ -1,7 +1,10 @@
-﻿using Humanizer;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Mire.Buffs;
+using Humanizer;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -113,7 +116,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                         string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, Math.Abs(damageMap.GetArmorPenetration(currentClass)));
                         finalTooltipText = finalTooltipText.FirstCharToUpper();
                         line = new TooltipLine(Mod, "ArmorPenetrationLine", finalTooltipText);
-                        list.Add(line);
+                        int index = list.FindIndex(x => x.Name == "Tooltip0");
+                        if (index != -1)
+                            list.Insert(index, line);
                     }
                     if (damageMap.GetKnockback(currentClass) != StatModifier.Default)
                     {
@@ -125,7 +130,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             foreach (EquipmentEffectData effect in effectMap)
             {
                 line = new TooltipLine(Mod, effect.Name, effect.GetDescription());
-                list.Add(line);
+                int index = list.FindIndex(x => x.Name == "Tooltip0");
+                if (index != -1)
+                    list.Insert(index, line);
             }
         }
 
@@ -268,7 +275,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class CrimsonArmorRegenEffect : EquipmentEffectData
+    public class CrimsonArmorSetBonusEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -309,6 +316,17 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
     }
 
+    public class MaxRunSpeedEffect(float amount) : EquipmentEffectData
+    {
+        private readonly float Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += Amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
+    }
+
     public class WingTimeMaxEffect(int amount) : EquipmentEffectData
     {
         private readonly int Amount = amount;
@@ -323,6 +341,164 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override void DoEffect(Player player)
         {
             player.noFallDmg = true;
+        }
+    }
+
+    public class BlackBeltEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.blackBelt = true;
+        }
+    }
+
+    public class MasterNinjaMobilityEffect(bool doDash, bool doubleSpikedBoots) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            if (doDash)
+                player.dashType = 1;
+
+            if (doubleSpikedBoots)
+                player.spikedBoots = 2;
+            else
+                player.spikedBoots = 1;
+        }
+
+        public override string GetDescription()
+        {
+            string text = doubleSpikedBoots == true ? Description + ".ShoeSpikes2" : Description + ".ShoeSpikes1";
+            text = Language.GetTextValue(text);
+            if (doDash)
+                text += Language.GetTextValue(Description + ".Tabi");
+
+            return text;
+        }
+    }
+
+    public class SolarArmorSetDashEffect() : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.dashType = 3;
+        }
+    }
+
+    public class AttacksInflictDebuffEffect(params (int buffID, int time)[] debuffData) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.GetModPlayer<AttacksInflictDebuffPlayer>().effect = true;
+            foreach (var debuffDestuff in debuffData)
+            {
+                player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray.Add(debuffDestuff.buffID);
+                player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffLengthArray.Add(debuffDestuff.time);
+            }
+        }
+
+        public override string GetDescription()
+        {
+            List<int> debuffList = Main.LocalPlayer.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray;
+
+            // idgaf
+            string text = Language.GetTextValue(Description);
+            for (int i = 0; i < debuffList.Count; i++)
+            {
+                int id = debuffList[i];
+                string buffName = "REPORT THIS";
+
+                if (id < BuffID.Count)
+                    buffName = Lang.GetBuffName(id);
+                else
+                    buffName = ModContent.GetModBuff(id).DisplayName.ToString();
+
+                if (i < BuffLoader.BuffCount)
+                {
+                    if (i != debuffList.Count - 1)
+                    {
+                        text += buffName;
+                        if (i == debuffList.Count - 2)
+                            text += " ";
+                        else
+                            text += ", ";
+                    }
+                    else
+                        text += "and " + buffName;
+                }
+            }
+
+            return text;
+        }
+    }
+
+    public class AttacksInflictDebuffPlayer : EquipEffectAbstract
+    {
+        public List<int> debuffArray;
+        public List<int> debuffLengthArray;
+
+        public override void ResetInfoAccessories()
+        {
+            debuffArray = new List<int>();
+            debuffLengthArray = new List<int>();
+        }
+
+        public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if (effect)
+            {
+                for (int i = 0; i < debuffArray.Count; i++)
+                    target.AddBuff(debuffArray[i], debuffLengthArray[i]);
+            }
+        }
+
+        public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if (effect)
+            {
+                for (int i = 0; i < debuffArray.Count; i++)
+                    target.AddBuff(debuffArray[i], debuffLengthArray[i]);
+            }
+        }
+    }
+
+    public class DebuffImmunityEffect(params int[] buffIDs) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            foreach (int i in buffIDs)
+                player.buffImmune[i] = true;
+        }
+
+        public override string GetDescription()
+        {
+            // idgaf
+            string text = Language.GetTextValue(Description);
+            for (int i = 0; i < buffIDs.Length; i++)
+            {
+                int id = buffIDs[i];
+                string buffName = "REPORT THIS";
+
+                if (id < BuffID.Count)
+                    buffName = Lang.GetBuffName(id);
+                else
+                    buffName = ModContent.GetModBuff(id).DisplayName.ToString();
+     
+                if (i < BuffLoader.BuffCount)
+                {
+                    if (i != buffIDs.Length - 1)
+                    {
+                        text += buffName;
+                        if (i == buffIDs.Length - 2)
+                            text += " ";
+                        else
+                            text += ", ";
+                    }
+                    else
+                        text += "and " + buffName;
+                }
+            }
+
+            return text;
         }
     }
 
@@ -405,25 +581,33 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             {
                 string stuff = GetStatModifierTextString(currentClass, input, StatModifierValueType.Base, inputType, 0);
                 line = new TooltipLine(mod, stuff, stuff);
-                list.Add(line);
+                int index = list.FindIndex(x => x.Name == "Tooltip0");
+                if (index != -1)
+                    list.Insert(index, line);
             }
             if (input.Additive != 1)
             {
                 string stuff = GetStatModifierTextString(currentClass, input, StatModifierValueType.Additive, inputType, 1, doCritSameAsDamageThing);
                 line = new TooltipLine(mod, stuff, stuff);
-                list.Add(line);
+                int index = list.FindIndex(x => x.Name == "Tooltip0");
+                if (index != -1)
+                    list.Insert(index, line);
             }
             if (input.Multiplicative != 1)
             {
                 string stuff = GetStatModifierTextString(currentClass, input, StatModifierValueType.Multiplicative, inputType, 1);
                 line = new TooltipLine(mod, stuff, stuff);
-                list.Add(line);
+                int index = list.FindIndex(x => x.Name == "Tooltip0");
+                if (index != -1)
+                    list.Insert(index, line);
             }
             if (input.Flat != 0)
             {
                 string stuff = GetStatModifierTextString(currentClass, input, StatModifierValueType.Flat, inputType, 0);
                 line = new TooltipLine(mod, stuff, stuff);
-                list.Add(line);
+                int index = list.FindIndex(x => x.Name == "Tooltip0");
+                if (index != -1)
+                    list.Insert(index, line);
             }
         }
 
