@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Accessories;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -12,7 +13,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class WingsOfChaos : BaseAAItem, ILocalizedModType
+	public class WingsOfChaos : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
         public override void Load()
@@ -37,11 +38,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 			Item.accessory = true;
             
         }
-		
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 250;
-		}
+
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(250));
+        }
 
         public override void UpdateVisibleAccessory(Player player, bool hideVisual)
         {
@@ -62,8 +63,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 			maxAscentMultiplier = 4f;
 			constantAscend = 0.135f;
 		}
-
-        
 
         public override void AddRecipes()
         {

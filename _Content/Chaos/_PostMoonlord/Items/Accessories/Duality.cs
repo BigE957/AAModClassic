@@ -28,15 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Duality");
-            /* Tooltip.SetDefault(@"Chaos flares from this ancient talisman
-Combines the effects of the Taiyang Baolei and the Naitokurosu, while granting their strongest effects at all times
-Your attacks inflict Discordian Inferno
-You are immune to Terrablaze, Dragonfire, Hydratoxin, Discordian Inferno
-Attack is multiplied by 15%
-While in the chaos biomes, your attack multiplier is increased to 30%
-While in the Inferno, your defense is increased by 10
-While in the Mire, your speed is increased by 50%
-Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
+            /* Tooltip.SetDefault(@"'Chaos flares from this ancient talisman'"); */
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
         }
 
