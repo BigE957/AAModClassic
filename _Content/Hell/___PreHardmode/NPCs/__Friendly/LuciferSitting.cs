@@ -7,8 +7,10 @@ using Terraria.Utilities;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
 {
-    public class LuciferSitting : ModNPC
+    public class LuciferSitting : ModNPC, ILocalizedModType
     {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
+
         public override void SetDefaults()
         {
             NPC.friendly = true;
@@ -28,8 +30,9 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Lucifer the Pit Lord");
-            Main.npcFrameCount[NPC.type] = 9;
-            NPCID.Sets.TownCritter[NPC.type] = true;
+            Main.npcFrameCount[Type] = 9;
+            NPCID.Sets.TownCritter[Type] = true;
+            NPCID.Sets.NoTownNPCHappiness[Type] = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -78,7 +81,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
 
         public override void ResetEffects()
         {
-            chatNumber = 0;
+            //chatNumber = 0;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
@@ -136,6 +139,8 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
 
         public override string GetChat()
         {
+            chatNumber = 0;
+
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             chat.Add(@"Come back later. I'm setting up shop here.

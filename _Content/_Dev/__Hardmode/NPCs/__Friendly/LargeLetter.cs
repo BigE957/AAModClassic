@@ -3,10 +3,19 @@ using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
+using AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly;
+using AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
+using AAModClassic._Unofficial.Desert;
 using AAModClassic.UI.World;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -15,15 +24,17 @@ using Terraria.Utilities;
 namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class LargeLetter : ModNPC
-	{
-        //public override bool IsLoadingEnabled(Mod mod)
-		//{
-		//	name = "Large Letter";
-		//	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
-		//}
+	public class LargeLetter : ModNPC, ILocalizedModType
+    {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
 
-		public override void SetStaticDefaults()
+        //public override bool IsLoadingEnabled(Mod mod)
+        //{
+        //	name = "Large Letter";
+        //	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
+        //}
+
+        public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 25;
 			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
@@ -33,7 +44,15 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
 			NPCID.Sets.AttackTime[NPC.type] = 40;
 			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
-		}
+
+			NPC.Happiness
+				.SetNPCAffection(ModContent.NPCType<Legendscribe>(), AffectionLevel.Like)
+				.SetNPCAffection(ModContent.NPCType<LegendscribeUnofficial>(), AffectionLevel.Like)
+				.SetNPCAffection(ModContent.NPCType<Lovecraftian>(), AffectionLevel.Like)
+				.SetNPCAffection(ModContent.NPCType<Samurai>(), AffectionLevel.Like)
+				.SetNPCAffection(ModContent.NPCType<Mushman>(), AffectionLevel.Like)
+				.SetNPCAffection(ModContent.NPCType<GoblinSlayer>(), AffectionLevel.Dislike);
+        }
 
 		public override void SetDefaults()
 		{

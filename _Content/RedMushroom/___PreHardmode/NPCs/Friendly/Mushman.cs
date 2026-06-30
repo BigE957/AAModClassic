@@ -10,6 +10,7 @@ using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -18,8 +19,9 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
-    public class Mushman : ModNPC
+    public class Mushman : ModNPC, ILocalizedModType
     {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
         //public override bool IsLoadingEnabled(Mod mod)
         //{
         //    name = "Mushman";
@@ -36,6 +38,11 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             NPCID.Sets.AttackTime[NPC.type] = 40;
             NPCID.Sets.AttackAverageChance[NPC.type] = 20;
             NPCID.Sets.HatOffsetY[NPC.type] = -3;
+            NPC.Happiness
+                .SetBiomeAffection<RedMushroomBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Dislike)
+                .SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Truffle, AffectionLevel.Hate);
         }
 
         public override void SetDefaults()

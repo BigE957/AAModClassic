@@ -1,10 +1,12 @@
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -13,8 +15,10 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class GoblinSlayer : ModNPC
+	public class GoblinSlayer : ModNPC, ILocalizedModType
     {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
+
         public static bool Goblin = false;
         public static bool Blood = false;
         public static bool OOA = false;
@@ -41,6 +45,13 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             NPCID.Sets.AttackTime[NPC.type] = 40;
             NPCID.Sets.AttackAverageChance[NPC.type] = 20;
             NPCID.Sets.HatOffsetY[NPC.type] = 3;
+
+            NPC.Happiness
+                .SetBiomeAffection<ForestBiome>(AffectionLevel.Like)
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Dislike)
+                .SetNPCAffection(NPCID.DD2Bartender, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Stylist, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.GoblinTinkerer, AffectionLevel.Hate);
         }
 
         public override void SetDefaults()

@@ -17,6 +17,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.Personalities;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
@@ -26,8 +27,10 @@ using Terraria.ModLoader.IO;
 namespace AAModClassic._Unofficial.Desert
 {
     [AutoloadHead]
-	public class LegendscribeUnofficial : ModNPC
-	{
+	public class LegendscribeUnofficial : ModNPC, ILocalizedModType
+    {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
+
         private static int ShimmerHeadIndex;
 
         public static Asset<Texture2D> Shimmer;
@@ -104,6 +107,12 @@ namespace AAModClassic._Unofficial.Desert
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
 
             NPCID.Sets.ShimmerTownTransform[Type] = true;
+
+            NPC.Happiness
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Hate)
+                .SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike);
 
             this.HideFromBestiary();
         }
@@ -242,7 +251,7 @@ namespace AAModClassic._Unofficial.Desert
                         {
                             TPDust();
                             // why are you talkingwhen nobody sees you???
-                            CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.CombatTextChat"));
+                            CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.CombatTextChat"));
                             NPC.velocity.X = 0f;
                             NPC.velocity.Y = 0f;
                             NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
@@ -1057,13 +1066,13 @@ namespace AAModClassic._Unofficial.Desert
                 if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<AAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost");
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
                     return;
                 }
 
                 if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
                 {
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.Help");
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.Help");
                     return;
                 }
 
@@ -1078,7 +1087,7 @@ namespace AAModClassic._Unofficial.Desert
                             player.inventory[Item] = new Item();
                         }
 
-                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
                         player.GetModPlayer<AAPlayer>().AnubisBook = true;
                         SoundEngine.PlaySound(SoundID.Chat);
@@ -1109,28 +1118,28 @@ namespace AAModClassic._Unofficial.Desert
                     if (!p.HasSpokenToAnubisPostMoonLord)
                     {
                         p.HasSpokenToAnubisPostMoonLord = true;
-                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
+                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
                     }
                     else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PreFight.Repeat");
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PreFight.Repeat");
                 }
                 else
                 {
                     if (!p.HasSpokenToAnubisAfterDyingToForsakenAnubis)
                     {
                         p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.First");
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.First");
                     }
                     else if(p.HasLostMultipleTimesToForsakenAnubis)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
                     else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostLose.Repreat.FirstDeath" + Main.rand.Next(2));
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repreat.FirstDeath" + Main.rand.Next(2));
                 }
             }
             else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
             {
                 p.HasSpokenToAnubisPostForsakenAnubis = true;
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.UnofficialInterim.PostVictory");
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostVictory");
             }
 
             return Legendscribe.LegendscribeDialogue(NPC);

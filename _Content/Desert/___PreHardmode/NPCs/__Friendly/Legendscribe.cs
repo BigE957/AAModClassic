@@ -33,6 +33,7 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -41,8 +42,10 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class Legendscribe : ModNPC
-	{
+	public class Legendscribe : ModNPC, ILocalizedModType
+    {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
+
         private static int ShimmerHeadIndex;
 
         public static Asset<Texture2D> Glowmask;
@@ -83,6 +86,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             NPCID.Sets.HatOffsetY[Type] = 3;
 
             NPCID.Sets.ShimmerTownTransform[Type] = true;
+
+            NPC.Happiness
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Hate)
+                .SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike);
         }
 
         public override void SetDefaults()
@@ -220,57 +229,57 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
         
         public override void SetChatButtons(ref string button, ref string button2)
         {
-			string SwitchInfoT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons1");
+			string SwitchInfoT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons1");
 
-            string DoNextT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons2");
+            string DoNextT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons2");
 
-            string MushT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons3");
+            string MushT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons3");
 
-            string GlowT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons4");
+            string GlowT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons4");
 
-            string GripT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons5");
+            string GripT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons5");
 
-            string BroodT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons6");
+            string BroodT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons6");
 
-            string HydraT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons7");
+            string HydraT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons7");
 
-            string DjinnT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons8");
+            string DjinnT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons8");
 
-            string SerpentT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+            string SerpentT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons9");
 
-            string RetrieverT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+            string RetrieverT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons9");
 
-            string OrthrusT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+            string OrthrusT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons9");
 
-            string RaiderT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons9");
+            string RaiderT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons9");
 
-            string AnubisT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons14");
+            string AnubisT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons14");
 
-            string AthenaT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons21");
+            string AthenaT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons21");
 
-            string GreedT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons22");
+            string GreedT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons22");
 
-            string RajahT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons23");
+            string RajahT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons23");
 
-            string AnubisFT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons27");
+            string AnubisFT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons27");
 
-            string AthenaAT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons24");
+            string AthenaAT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons24");
 
-            string GreedAT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons25");
+            string GreedAT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons25");
 
-            string EquinoxT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons13");
+            string EquinoxT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons13");
 
-            string SistersT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons15");
+            string SistersT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons15");
 
-            string AkumaT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons16");
+            string AkumaT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons16");
 
-            string YamataT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons17");
+            string YamataT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons17");
 
-            string ZeroT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons18");
+            string ZeroT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons18");
 
-            string ShenT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons19");
+            string ShenT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons19");
 
-            string RajahCT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.SetChatButtons26");
+            string RajahCT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons26");
             
             button = SwitchInfoT;
 
@@ -458,7 +467,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                         player.inventory[Item] = new Item();
                     }
 
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetBookChat");
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
 
                     SoundEngine.PlaySound(SoundID.Chat);
@@ -520,7 +529,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                         if (!Collision.SolidTiles(NPC.homeTileX - 1, NPC.homeTileX + 1, num3 - 3, num3 - 1))
                         {
                             TPDust();
-                            CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.CombatTextChat"));
+                            CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.CombatTextChat"));
                             NPC.velocity.X = 0f;
                             NPC.velocity.Y = 0f;
                             NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
@@ -593,130 +602,130 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             Player player = Main.LocalPlayer;
             if (Mushroom)
             {
-                return NPCExtensions.BeenKilled<MushroomMonarch>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedMonarchY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedMonarchN");
+                return NPCExtensions.BeenKilled<MushroomMonarch>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchN");
             }
             else if (Glowshroom)
             {
-                return NPCExtensions.BeenKilled<FeudalFungus>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFungusY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFungusN");
+                return NPCExtensions.BeenKilled<FeudalFungus>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusN");
             }
             else if (Grips)
             {
-                return AAWorld.downedGrips ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGripsY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGripsN");
+                return AAWorld.downedGrips ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsN");
             }
             else if (Brood)
             {
-                return NPCExtensions.BeenKilled<Broodmother>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedBroodY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedBroodN");
+                return NPCExtensions.BeenKilled<Broodmother>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedBroodY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedBroodN");
             }
             else if (Hydra)
             {
-                return NPCExtensions.BeenKilled<HydraBody>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedHydraY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedHydraN");
+                return NPCExtensions.BeenKilled<HydraBody>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraN");
             }
             else if (Djinn)
             {
-                return NPCExtensions.BeenKilled<DesertDjinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedDjinnY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedDjinnN");
+                return NPCExtensions.BeenKilled<DesertDjinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnN");
             }
             else if (Serpent)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSerpentN");
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentN");
             }
             else if (Retriever)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRetrieverY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRetrieverN");
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverN");
             }
             else if (OrthrusX)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedOrthrusXY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedOrthrusXN");
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXN");
             }
             else if (RaiderUltima)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRaiderUltimaY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRaiderUltimaN");
+                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaN");
             }
             else if (AnubisB)
             {
                 if (!BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisScapterLost"); 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost"); 
                 }
 
-                return NPCExtensions.BeenKilled<Anubis>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAnubisBY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAnubisBN");
+                return NPCExtensions.BeenKilled<Anubis>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisBY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisBN");
             }
             else if (Athena)
             {
-                return NPCExtensions.BeenKilled<Athena>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAthenaY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAthenaN");
+                return NPCExtensions.BeenKilled<Athena>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaN");
             }
             else if (Greed)
             {
-                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<AAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedYBookY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedYBookN") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedN");
+                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<AAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookN") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedN");
             }
             else if (Rajah)
             {
-                return NPCExtensions.BeenKilled<RajahRabbit>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahN");
+                return NPCExtensions.BeenKilled<RajahRabbit>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahN");
             }
             else if (AnubisF)
             {
-                return NPCExtensions.BeenKilled<AnubisA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisY") :
-                    Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedFAnubisN").FormatWith(player.name);
+                return NPCExtensions.BeenKilled<AnubisA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFAnubisY") :
+                    Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFAnubisN").FormatWith(player.name);
             }
             else if (AthenaA)
             {
-                return NPCExtensions.BeenKilled<AthenaA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAthenaAY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAthenaAN");
+                return NPCExtensions.BeenKilled<AthenaA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaAY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaAN");
             }
             else if (GreedA)
             {
-                return NPCExtensions.BeenKilled<GreedAHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedGreedAN");
+                return NPCExtensions.BeenKilled<GreedAHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedAY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedAN");
             }
             else if (Equinox)
             {
-                return AAWorld.downedEquinox ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedEquinoxY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedEquinoxN");
+                return AAWorld.downedEquinox ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxN");
             }
             else if (Sisters)
             {
-                return AAWorld.downedSisters ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSistersY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedSistersN");
+                return AAWorld.downedSisters ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersN");
             }
             else if (Akuma)
             {
-                return AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAkumaY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedAkumaN");
+                return AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaN");
             }
             else if (Yamata)
             {
-                return AAWorld.downedYamata ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedYamataY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedYamataN");
+                return AAWorld.downedYamata ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedYamataY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedYamataN");
             }
             else if (Zero)
             {
-                return AAWorld.downedZero ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedZeroY") : 
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedZeroN");
+                return AAWorld.downedZero ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroY") : 
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroN");
             }
             else if (Shen)
             {
-                return AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedShenY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedShenN");
+                return AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedShenY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedShenN");
             }
             else if (RajahC)
             {
-                return AAWorld.downedShen ?  Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahCY") :
-                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.downedRajahCN");
+                return AAWorld.downedShen ?  Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCY") :
+                    Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCN");
             }
             else
             {
@@ -730,31 +739,31 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
 
             if (!AAWorld.downedYamata)
             {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AkumaGuideChat"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AkumaGuideChat"));
             }
 
             if (!AAWorld.downedAkuma)
             {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.YamataGuideChat"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.YamataGuideChat"));
             }
             if (Main.rand.NextBool(2))
             {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.BroodMotherGuideChat"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.BroodMotherGuideChat"));
             }
             else
             {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.HydraGuideChat"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.HydraGuideChat"));
             }
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.VoidGuideChat"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.VoidGuideChat"));
             if (Main.hardMode)
             {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.HardModeGuideChat1"));
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.HardModeGuideChat2"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.HardModeGuideChat1"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.HardModeGuideChat2"));
             }
 
             if (AAWorld.downedEquinox)
             {
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.EquinoxBossGuideChat"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.EquinoxBossGuideChat"));
             }
             return chat;
         }
@@ -772,28 +781,28 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             AAPlayer mPlayer = player.GetModPlayer<AAPlayer>();
 
             #region general
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat1"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat2"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat3"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat4"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat5"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat6"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat7"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat9"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat10"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat11") + (WorldGen.crimson ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat12") : Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat13")) + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat14"));
-            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat15"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat4"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat5"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat6"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat7"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat9"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat10"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat11") + (WorldGen.crimson ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat12") : Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat13")) + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat14"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat15"));
 
             // line.
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat32"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat32"));
             else
             {
                 int integerLimit = int.MaxValue;
                 if (player.HasItem(ModContent.ItemType<ShinyCharm>()) || player.HasItem(ModContent.ItemType<ShinyCharmFish>()))
                     integerLimit -= 1;
                 if (Main.rand.NextBool(integerLimit))
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat32");
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat32");
             }
             #endregion
 
@@ -803,56 +812,56 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             {
                 femaleNPC = NPC.FindFirstNPC(femaleNPC);
                 if (femaleNPC != NPCID.PartyGirl)
-                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat16") + Main.npc[femaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat17"));
+                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat16") + Main.npc[femaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat17"));
                 else if (femaleNPC == NPCID.PartyGirl)
-                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat18") + Main.npc[femaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat19"));
+                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat18") + Main.npc[femaleNPC].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat19"));
             }
 
             if (player.head == ArmorIDs.Head.AncientBattleArmor && player.body == ArmorIDs.Body.AncientBattleArmor && player.legs == ArmorIDs.Legs.AncientBattleArmor && Main.rand.NextBool(4))
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat20");
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat20");
             else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.head == ArmorIDs.Head.AncientArmor && player.body == ArmorIDs.Body.AncientArmor && player.legs == ArmorIDs.Legs.AncientArmor && Main.rand.NextBool(4))
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat20");
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat20");
 
             if ((player.armor[0].type == ModContent.ItemType<AnubisMask>() || player.armor[10].type == ModContent.ItemType<AnubisMask>()) && Main.rand.NextBool(4))
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatMask");
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChatMask");
 
             if (NPCExtensions.BeenKilled<DesertDjinn>())
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat8"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat8"));
 
             if (BirthdayParty.GenuineParty || BirthdayParty.ManualParty)
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat21"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat21"));
             #endregion
 
             #region crossmod
 
             int HordeZombie = !ModLoader.TryGetMod("GRealm", out Mod GRealm) ? -1 : NPC.FindFirstNPC(GRealm.Find<ModNPC>("HordeZombie").Type);
             if (HordeZombie >= 0)
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat23") + Main.npc[HordeZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat24"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat23") + Main.npc[HordeZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat24"));
 
             int Mutant = !ModLoader.TryGetMod("Fargowiltas", out Mod Fargos) ? -1 : NPC.FindFirstNPC(Fargos.Find<ModNPC>("Mutant").Type);
             if (Mutant >= 0)
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat25") + Main.npc[Mutant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat26"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat25") + Main.npc[Mutant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat26"));
 
             int Newb = !ModLoader.TryGetMod("Redemption", out Mod Redemption) ? -1 : NPC.FindFirstNPC(Redemption.Find<ModNPC>("Newb").Type);
             if (Newb >= 0)
-                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat27") + Main.npc[Newb].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat28"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat27") + Main.npc[Newb].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat28"));
 
             if (ModLoader.TryGetMod("ThoriumMod", out Mod Thorium))
             {
                 int Cobbler = NPC.FindFirstNPC(Thorium.Find<ModNPC>("Cobbler").Type);
                 if (Cobbler >= 0)
-                    chat.Add(Main.npc[Cobbler].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat29"));
+                    chat.Add(Main.npc[Cobbler].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat29"));
 
                 int ConfusedZombie = NPC.FindFirstNPC(Thorium.Find<ModNPC>("ConfusedZombie").Type);
                 if (ConfusedZombie >= 0)
-                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChat31"));
+                    chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat30") + Main.npc[ConfusedZombie].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat31"));
             }
 
             if (CalamityMod.IsEnabled)
             {
                 if (NPCExtensions.BeenKilled<GreedAHead>() && (bool)CalamityMod.Call("GetBossDowned", "devourerofgods"))
                 {
-                    chat.Add("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GreedACalamityMod");
+                    chat.Add("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GreedACalamityMod");
                 }
             }
 
@@ -863,13 +872,13 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 {
                     int textToUse = Main.rand.Next(4);
                     if (textToUse == 0)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatSOTSAnubisMask1");
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChatSOTSAnubisMask1");
                     else if (textToUse == 1)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatSOTSAnubisMask2");
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChatSOTSAnubisMask2");
                     else if (textToUse == 2)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatSOTSAnubisMask3");
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChatSOTSAnubisMask3");
                     else if (textToUse == 3)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.AnubisChatSOTSAnubisMask4");
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChatSOTSAnubisMask4");
                 }
             }
             #endregion
@@ -881,7 +890,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 {
                     mPlayer.GivenAnuSummon = true;
                     player.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat");
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetSummonItemChat");
                 }
             }
 
@@ -891,7 +900,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 {
                     mPlayer.GivenWormIdol = true;
                     player.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<WormIdol>(), 1);
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Anubis.GetSummonItemChat2");
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetSummonItemChat2");
                 }
             }
             #endregion

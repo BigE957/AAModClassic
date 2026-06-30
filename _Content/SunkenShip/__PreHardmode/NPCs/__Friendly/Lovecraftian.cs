@@ -23,6 +23,7 @@ using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -31,8 +32,10 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class Lovecraftian : ModNPC
-	{
+	public class Lovecraftian : ModNPC, ILocalizedModType
+    {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
+
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 26;
@@ -43,6 +46,12 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
             NPCID.Sets.AttackTime[NPC.type] = 40;
             NPCID.Sets.AttackAverageChance[NPC.type] = 20;
             NPCID.Sets.HatOffsetY[NPC.type] = 3;
+
+            NPC.Happiness
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike)
+                .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Merchant, AffectionLevel.Dislike);
         }
 
         public override void SetDefaults()

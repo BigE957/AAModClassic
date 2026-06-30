@@ -11,25 +11,28 @@ using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.Friendly
+namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
-	public class Samurai : ModNPC
-	{
+	public class Samurai : ModNPC, ILocalizedModType
+    {
+        public new string LocalizationCategory => "NPCs.TownNPCs";
+
         //public override string[] AltTextures => new string[] { "AAModClassic/NPCs/TownNPCs/SamuraiParty" };
 
         //public override bool IsLoadingEnabled(Mod mod)
-		//{
-		//	name = "Samurai";
-		//	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
-		//}
+        //{
+        //	name = "Samurai";
+        //	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
+        //}
 
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[NPC.type] = 26;
 			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
@@ -39,7 +42,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.Friendly
 			NPCID.Sets.AttackTime[NPC.type] = 40;
 			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
-		}
+
+            NPC.Happiness
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Like)
+                .SetBiomeAffection<JungleBiome>(AffectionLevel.Dislike)
+                .SetNPCAffection(NPCID.Clothier, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.DD2Bartender, AffectionLevel.Dislike);
+        }
 
 		public override void SetDefaults()
 		{
