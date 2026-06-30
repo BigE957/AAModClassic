@@ -141,7 +141,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessori
             AddEffect<FallDamageImmunityEffect>();
             AddEffect<TaiyangBaoleiImmunityEffect>();
             AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<BurningAsh_Buff>()));
-            AddEffect<SolarArmorSetDashEffect>();
+            AddEffect<SolarArmorSetDashEffect>(); //TODO: replace with moddash... like thats ever gonna happen
             AddEffect<TaiyangBaoleiDebuffEffect>();
         }
     }

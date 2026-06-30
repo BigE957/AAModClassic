@@ -70,7 +70,7 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             AddEffect<TaiyangBaoleiImmunityEffect>();
             AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<BurningAsh_Buff>(), ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Clueless_Buff>(), ModContent.BuffType<Terrablaze_Buff>(), ModContent.BuffType<DiscordianInferno_Buff>()));
             AddEffect<FallDamageImmunityEffect>();
-            AddEffect<SolarArmorSetDashEffect>();
+            AddEffect<SolarArmorSetDashEffect>(); //TODO: replace with moddash... like thats ever gonna happen
             AddEffect(new MasterNinjaMobilityEffect(true, true));
             AddEffect<BlackBeltEffect>();
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
