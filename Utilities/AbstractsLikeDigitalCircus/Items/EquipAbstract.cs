@@ -424,6 +424,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     }
                     else if (debuffList.Count > 1)
                         text += "and " + buffName;
+                    else
+                        text += buffName;
                 }
             }
 
@@ -495,6 +497,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     }
                     else if (buffIDs.Length > 1)
                         text += "and " + buffName;
+                    else
+                        text += buffName;
                 }
             }
 
