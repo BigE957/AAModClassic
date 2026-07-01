@@ -111,7 +111,7 @@ namespace AAModClassic._Unofficial.Desert
             NPC.Happiness
                 .SetBiomeAffection<DesertBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<SnowBiome>(AffectionLevel.Hate)
-                .SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.BestiaryGirl, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike);
 
             this.HideFromBestiary();

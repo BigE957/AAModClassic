@@ -40,7 +40,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             NPCID.Sets.HatOffsetY[NPC.type] = -3;
             NPC.Happiness
                 .SetBiomeAffection<RedMushroomBiome>(AffectionLevel.Love)
-                .SetBiomeAffection<DesertBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<MushroomBiome>(AffectionLevel.Hate)
                 .SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.Truffle, AffectionLevel.Hate);
         }

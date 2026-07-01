@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
@@ -44,9 +45,9 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
 			NPCID.Sets.HatOffsetY[NPC.type] = 3;
 
             NPC.Happiness
-                .SetBiomeAffection<DesertBiome>(AffectionLevel.Like)
+                .SetBiomeAffection<InfernoBiome>(AffectionLevel.Like)
                 .SetBiomeAffection<JungleBiome>(AffectionLevel.Dislike)
-                .SetNPCAffection(NPCID.Clothier, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.DD2Bartender, AffectionLevel.Dislike);
         }
 

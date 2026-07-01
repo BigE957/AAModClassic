@@ -49,7 +49,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
             NPC.Happiness
                 .SetBiomeAffection<OceanBiome>(AffectionLevel.Love)
-                .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Dislike)
                 .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.Merchant, AffectionLevel.Dislike);
         }

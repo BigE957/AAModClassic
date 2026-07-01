@@ -32,18 +32,18 @@ Legendscribe: {
 	DisplayName: Legendscribe
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LoveBiome: I love {BiomeName}.
-		HateBiome: I hate {BiomeName}.
-		LikeNPC: I like {NPCName}.
-		DislikeNPC: I dislike {NPCName}.
+		Content: I'm cool as a cucumber.
+		NoHome: Man, having wandered the desert for so long... A house would be a nice change of pace.
+		FarFromHome: I'm putting up missing dog posters... They're for me...
+		LoveSpace: It's nice to be able to kick back and relax with all this space.
+		DislikeCrowded: It's a bit noisy hear. I just want to read this really good book.
+		HateCrowded: It's so cramped. You'vr basically got me living in a kennel!
+		LikeNPC_Princess: {NPCName}'s heart is certainly lighter than a feather.
+		Princess_LovesNPC: {NPCName} has so many stories to share!
+		LoveBiome: Ah, nothing like the desert sun to help get a nice tan!
+		HateBiome: I'm f-f-freezing! Get me back someplace w-w-warm, please!
+		LikeNPC: {NPCName}'s been helping clean off my fleas.
+		DislikeNPC: This {NPCName} guy keeps golfing in my desert!
 	}
 
 	AnubisName: Legendscribe
@@ -217,21 +217,21 @@ LegendscribeUnofficial: {
 	DisplayName: Legendscribe
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LoveBiome: I love {BiomeName}.
-		HateBiome: I hate {BiomeName}.
-		LikeNPC: I like {NPCName}.
-		DislikeNPC: I dislike {NPCName}.
+		Content: I'm cool as a cucumber.
+		NoHome: Man, having wandered the desert for so long... A house would be a nice change of pace.
+		FarFromHome: I'm putting up missing dog posters... They're for me...
+		LoveSpace: It's nice to be able to kick back and relax with all this space.
+		DislikeCrowded: It's a bit noisy hear. I just want to read this really good book.
+		HateCrowded: It's so cramped. You'vr basically got me living in a kennel!
+		LikeNPC_Princess: {NPCName}'s heart is certainly lighter than a feather.
+		Princess_LovesNPC: {NPCName} has so many stories to share!
+		LoveBiome: Ah, nothing like the desert sun to help get a nice tan!
+		HateBiome: I'm f-f-freezing! Get me back someplace w-w-warm, please!
+		LikeNPC: {NPCName}'s been helping clean off my fleas.
+		DislikeNPC: This {NPCName} guy keeps golfing in my desert!
 	}
 
-	Census.SpawnCondition: Conditions unknown
+	Census.SpawnCondition: Always Available
 }
 
 GoblinSlayer: {
@@ -239,18 +239,18 @@ GoblinSlayer: {
 	Census.SpawnCondition: Goblin Army is defeated
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LikeBiome: I like {BiomeName}.
-		DislikeBiome: I dislike {BiomeName}.
-		LikeNPC: I like {NPCName}.
-		HateNPC: I hate {NPCName}.
+		Content: I sense no goblins nearby. I am at peace.
+		NoHome: Not having a place to story my goblin-slaying weapons is rough. Can you help?
+		FarFromHome: I've been away from home for too long. We could've been raided by goblins!
+		LoveSpace: I perfer to be alone. Makes spotting goblins easier.
+		DislikeCrowded: Some of these people they, they don't mind goblins. This can't stand.
+		HateCrowded: There's goblins hiding amongst this crowd... I know it!!
+		LikeNPC_Princess: {NPCName} isn't a goblin. That's good.
+		Princess_LovesNPC: {NPCName} may be racist, but I love everyone in my kingdom so I guess that's okay.
+		LikeBiome: Not a goblin to be seen in this peaceful forest. Wonderful.
+		DislikeBiome: I've seen goblin scouts lurking about the coastline. We need to kill them.
+		LikeNPC: {NPCName} is also familiar with goblin slaying. Very good.
+		HateNPC: I NEED TO KILL THAT GOBLIN.
 	}
 
 	GoblinSlayerName: Goblin Slayer
@@ -272,18 +272,18 @@ Lovecraftian: {
 	DisplayName: Lovecraftian
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LoveBiome: I love {BiomeName}.
-		DislikeBiome: I dislike {BiomeName}.
-		LikeNPC: I like {NPCName}.
-		DislikeNPC: I dislike {NPCName}.
+		Content: I'm adjusting to life in this dimension.
+		NoHome: I'd like a place I can do my research in.
+		FarFromHome: I miss my research...
+		LoveSpace: I'm glad I have this place to myself. My research can get... dangerous, for your kind.
+		DislikeCrowded: Yeesh, its a bit hard to focus with how crowded it is.
+		HateCrowded: There's way too many people here. Its impeding my research!
+		LikeNPC_Princess: {NPCName} is so welcoming! She's even willing to assist me!
+		Princess_LovesNPC: {NPCName} is just so curious about us! It's endearing
+		LoveBiome: I feel so at home here in the Ocean. It's about as close as your dimension gets being like in mine.
+		DislikeBiome: Yeesh, think I could live somewhere else? I'm drying out in this sun!
+		LikeNPC: {NPCName} has been so helpful in learning about your dimension.
+		DislikeNPC: I'm not fond of {NPCName}. Any time I ask him something, he always tries to charge me for his answer!
 	}
 
 	button1: Shop
@@ -325,18 +325,18 @@ Mushman: {
 	DisplayName: Mushman
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
-		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LoveBiome: I love {BiomeName}.
-		DislikeBiome: I dislike {BiomeName}.
-		LikeNPC: I like {NPCName}.
-		HateNPC: I hate {NPCName}.
+		Content: I'm just a humble shroom in the wind...
+		NoHome: I could use a place to grow more of my special shrooms...
+		FarFromHome: Oh crap, my shrooms! Are they okay without me?!
+		LoveSpace: Ah, my shrooms have so much space to grow!
+		DislikeCrowded: My poor shrooms, there're feeling quite cramped.
+		HateCrowded: SOMEONE has been STEALING my shrooms! With all these people here, I don't know who!
+		LikeNPC_Princess: {NPCName} is as big a fan of red mushrooms as me!
+		Princess_LovesNPC: {NPCName} is also a really fun guy!
+		LoveBiome: Ah, I love the sight of red mushrooms in the morning!
+		HateBiome: Eugh, BLUE mushrooms?! This sucks.
+		LikeNPC: I like {NPCName}. She really knows how to party!
+		HateNPC: {NPCName} is just such a downer.
 	}
 
 	button1: Shop
@@ -363,18 +363,18 @@ Samurai: {
 	DisplayName: Samurai
 
 	TownNPCMood: {
-		Content: I am content.
-		NoHome: I hate not having a home.
+		Content: Happiness is a direction, not a destination.
+		NoHome: I need a place to rest and hone my steel if I'm ever to best that beast...
 		FarFromHome: I am too far from home.
-		LoveSpace: I love having so much space.
-		DislikeCrowded: I dislike how crowded I am.
-		HateCrowded: I hate how crowded I am.
-		LikeNPC_Princess: I like {NPCName}.
-		Princess_LovesNPC: I like {NPCName}.
-		LikeBiome: I like {BiomeName}.
-		DislikeBiome: I dislike {BiomeName}.
-		LikeNPC: I like {NPCName}.
-		DislikeNPC: I dislike {NPCName}.
+		LoveSpace: The quiet helps me focus better on my training.
+		DislikeCrowded: A bit more quiet would really help me focus.
+		HateCrowded: How am I meant to train with so many people around?! I might lop someone's head off!
+		LikeNPC_Princess: If a nation is to rise from the ashes of what came before, I trust {NPCName} to lead it.
+		Princess_LovesNPC: {NPCName} is so skilled with their sword!
+		LikeBiome: Even in its... chaotic state, I love my homeland.
+		DislikeBiome: Eugh, this place is just teeming with insects...
+		LikeNPC: I've talked a lot with {NPCName}. It seems he'd be a valuable ally in my hunt.
+		DislikeNPC: I'm not really a fan of {NPCName}'s ale. I prefer Sake to be entirely honest.
 	}
 
 	SamuraiChat1: "I've known "

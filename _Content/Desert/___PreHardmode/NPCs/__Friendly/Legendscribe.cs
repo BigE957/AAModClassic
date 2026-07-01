@@ -91,7 +91,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 .SetBiomeAffection<DesertBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<SnowBiome>(AffectionLevel.Hate)
                 .SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like)
-                .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike);
+                .SetNPCAffection(NPCID.Golfer, AffectionLevel.Dislike);
         }
 
         public override void SetDefaults()
