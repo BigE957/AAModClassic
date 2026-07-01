@@ -76,6 +76,10 @@ base
 --rajah rabbits cloak now inherits the 40% speed from its predecesessor and lists its max run speed increase 
 --night clothes now properly lists how it gives the effects of master ninja gear, doubles your movement speed when it isnt night, no longer makes melee swords inflict venom/moonraze, and how it gives immunity to hydra toxin and clueless
 --duality now mentions the claws of chaos effect, no longer gives 8 more defense than intended, and actually makes your attacks inflict discordian inferno in unreleased
+--heart of passion now inflicts its debuffs on all summon and mage damage instead of just broadsword-type weapons and mentions how it inflicts dragonfire instead of on fire
+--heart of sorrow now inflicts its debuffs on all melee and ranged dmage instead of just broadsword-type weapons
+--dragonstride boots now gives the effect of tiger climbing gear instead of climbing claws/shoe spikes, actually lets you walk on lava, and lists how it lets you walk on honey
+--
 -
 
 removed
@@ -99,6 +103,7 @@ unreleased
 -finished constructing the pit. no other pit content has been added, as none was ever completed
 -after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
 -fixed one of athenas minions instantly despawning. the olympian dragon has been let loose
+-added the heart of anarchy, a tinker for the hearts of passion and sorrow based on real plans
 -
 
 unofficial
@@ -140,6 +145,7 @@ unofficial
 -added the gravitron centrifuge, a post-plantera tool that passively disables space gravity (thanks diamondwalker!)
 -seraph and goddess harp now provide a nonfunctional minion while in the vanity slot
 -seraph and goddess harp can now be equipped at the same time. wearing both will cause the seraph to follow athena
+-dragonstride boots now inherits the obisidan rose effect 
 -
 
 crossmod

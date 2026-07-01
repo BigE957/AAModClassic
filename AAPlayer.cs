@@ -256,10 +256,6 @@ namespace AAModClassic
         #endregion
 
         #region Accessory bools
-        public bool artifactJudgement;
-		public int artifactJudgementCharge = 0;
-		public bool artifactGuilt;
-		public int artifactGuiltCharge = 0;
         public bool clawsOfChaos;
         public bool HydraPendant;
         public bool demonGauntlet;
@@ -277,8 +273,6 @@ namespace AAModClassic
         public int[] AAHoldDownKeyTimer = new int[4];
         public bool DiscordShredder;
         public bool lantern = false;
-        public bool HeartP = false;
-        public bool HeartS = false;
         public bool HeartA = false;
         public bool DragonsGuard = false;
         public bool ShadowBand = false;
@@ -496,8 +490,6 @@ namespace AAModClassic
 
         private void ResetArmorEffect()
         {
-			artifactJudgement = false;
-			artifactGuilt = false;
             MoonSet = false;
             valkyrieSet = false;
             kindledSet = false;
@@ -565,8 +557,6 @@ namespace AAModClassic
             RStar = false;
             DVoid = false;
             lantern = false;
-            HeartP = false;
-            HeartS = false;
             HeartA = false;
             BlackLotusEmblem = false;
             SagShield = false;
@@ -820,32 +810,11 @@ namespace AAModClassic
 			}
         }
 
-		public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
-		{
-			if (artifactJudgement)
-			{
-				artifactJudgementCharge += hurtInfo.Damage;
-			}
-			if (artifactGuilt)
-			{
-				artifactGuiltCharge += hurtInfo.Damage;
-			}
-		}
-
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
             if (DragonsGuard || ChaosMe)
             {
                 npc.AddBuff(BuffID.OnFire, 120);
-            }
-
-            if (artifactJudgement)
-            {
-                artifactJudgementCharge += hurtInfo.Damage;
-            }
-            if (artifactGuilt)
-            {
-                artifactGuiltCharge += hurtInfo.Damage;
             }
 
             if (fleshrendSet && Main.rand.NextBool(2))
@@ -960,24 +929,6 @@ namespace AAModClassic
             {
                 int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
                 target.AddBuff(buff, 180);
-            }
-
-            if (HeartP && Player.statLife > (Player.statLifeMax / 3))
-            {
-                target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
-            }
-            else if (HeartP && Player.statLife < (Player.statLifeMax / 3))
-            {
-                target.AddBuff(BuffID.Daybreak, 600);
-            }
-
-            if (HeartS && Player.statLife > (Player.statLifeMax / 3))
-            {
-                target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 600);
-            }
-            else if (HeartS && Player.statLife < (Player.statLifeMax / 3))
-            {
-                target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
             }
 
             if (dracoSet)
@@ -1307,16 +1258,7 @@ namespace AAModClassic
                     Player.dash = 0;
                 }
             }
-            if (artifactJudgementCharge >= 250)
-            {
-                Player.AddBuff(ModContent.BuffType<ArtifactOfJudgement_Buff>(), 900);
-                artifactJudgementCharge = 0;
-            }
-            if (artifactGuiltCharge >= 250)
-            {
-                Player.AddBuff(ModContent.BuffType<ArtifactOfGuilt_Buff>(), 900);
-                artifactGuiltCharge = 0;
-            }
+
             if (!Greed1 && !Greed2)
             {
                 GreedyDamage = 0;

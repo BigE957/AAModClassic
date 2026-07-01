@@ -1,5 +1,14 @@
 ﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories;
+using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,13 +16,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class ClawOfChaos : BaseAAItem, ILocalizedModType
+    public class ClawOfChaos : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Claw of Chaos");
-            // Tooltip.SetDefault("For every hit you land on an enemy, 5 true damage (damage unassigned to any class) is dealt");
         }
 
         public override void SetDefaults()
@@ -26,24 +34,16 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Acc
             Item.accessory = true;
         }
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-			player.GetModPlayer<AAPlayer>().clawsOfChaos = true;
+            damageMap.GetDamage(DamageClass.Default).Flat += 5;
         }
 
-        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
+        public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            if (slot < 10)
-            {
-                int maxAccessoryIndex = 5 + player.extraAccessorySlots;
-                for (int i = 3; i < 3 + maxAccessoryIndex; i++)
-                {
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<BulwarkOfChaos>())
-                    {
-                        return false;
-                    }
-                }
-            }
+            if (equippedItem.type == ModContent.ItemType<BulwarkOfChaos>())
+                return false;
+
             return true;
         }
     }

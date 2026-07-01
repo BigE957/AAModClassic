@@ -47,7 +47,7 @@ Misc.Nothing: ""
 
 Effect: {
 	ManaFlowerEffect: Automatically use mana potions when needed
-	CrimsonArmorRegenEffect: Greatly increased life regen
+	CrimsonArmorSetBonusEffect: Greatly increased life regen
 	EnduranceEffect: "{0}% increased damage resistance"
 	MaxLifeEffect: +{0} Max Life
 	MovementSpeedEffect: "{0}% increased movement speed"
@@ -73,6 +73,7 @@ Effect: {
 		Summons the Seraph Queen herself to fight alongside you
 		Athena is boosted by minion damage
 		'''
+	SeraphHarpEffect: Summons a seraph to fight for you that is boosted by minion damage
 	OlympianWingsEffect: Grants a dash while flying
 	WingTimeMaxEffect: Allows flight and slow fall
 	FallDamageImmunityEffect: Negates fall damage
@@ -122,4 +123,63 @@ Effect: {
 	DualityChaosEffect: Grants an extra {0}% damage while in the Inferno or Mire
 	DualityDefenseEffect: Grants an extra {0} defense while in the Inferno
 	AttacksInflictDebuffEffect: "Your attacks inflict "
+	HeartOfPassionDamageBoostEffect: Magic and summon damage increases the less health you have
+	HeartOfPassionManaRegenEffect: Below 2/3rds of your maximum life, your mana regenerates much faster
+	HeartOfPassionDebuffEffect:
+		'''
+		Magic and summon damage inflicts Dragon Fire
+		Below 1/3rd of your maximum life, your magic and summon damage inflicts Daybroken instead
+		'''
+	HeartOfSorrowDamageBoostEffect: Melee and ranged damage increases the less health you have
+	HeartOfSorrowMovementSpeedEffect: Below 2/3rds of your maximum life, your movement speed is increased by 100%
+	HeartOfSorrowDebuffEffect:
+		'''
+		Melee and ranged damage inflicts Hydra Toxin
+		Below 1/3rd of your maximum life, your magic and summon damage inflicts Moonraze instead
+		'''
+	HeartOfAnarchyDamageBoostEffect: Your damage increases the less health you have
+	HeartOfAnarchyBullshitEffect: Below 2/3rds of your maximum life, your movement speed is increased by 100% and your mana regenerates much faster
+	HeartOfAnarchyDebuffEffect:
+		'''
+		Your attacks inflict Dragon Fire and Hydra Toxin
+		Below 1/3rd of your maximum life, you inflict Daybroken and Moonraze instead
+		'''
+	FlipperEffect: Grants the ability to swim
+
+	FrostsparkBootsEffect: {
+		Default: "Allows "
+		Flight: flight
+		Running: super fast running
+		IceSkates: extra mobility on ice
+	}
+
+	LavaWadersWaterWalkingEffect: {
+		Default: "Provides the ability to walk on "
+		Water: water
+		Honey: honey
+		Lava: lava
+	}
+
+	LavaWadersFireImmunityEffect: {
+		Default: "Grants "
+		FireImmune: immunity to fire blocks
+		LavaImmune: "{0} seconds of immunity to lava"
+	}
+
+	ObsidianRoseEffect: Reduces damage from touching lava
+	SandstormMedallionEffect: Increases your damage and critical strike chance by 100% during a Sandstorm
+	ArtifactOfJudgementEffect:
+		'''
+		Taking damage builds a charge in the Artifact
+		Reaching a charge of 250 will summon an Eye of Judgement and reset the charge value
+		Your defense is lowered and speed is raised while the Eye is active
+		[c/FFFF00:Current Charge: {0}]
+		'''
+	ArtifactOfGuiltEffect:
+		'''
+		Taking damage builds a charge in the Artifact
+		Reaching a charge of 250 will summon an Eye of the Forsaken and reset the charge value
+		You will get major damage and speed boost while the Eye is active
+		[c/FFFF00:Current Charge: {0}]
+		'''
 }

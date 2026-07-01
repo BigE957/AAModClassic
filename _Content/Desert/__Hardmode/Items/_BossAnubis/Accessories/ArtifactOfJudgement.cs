@@ -1,23 +1,27 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Humanizer;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories
 {
-    public class ArtifactOfJudgement : BaseAAItem, ILocalizedModType
+    public class ArtifactOfJudgement : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Artifact of Judgement");
-            /* Tooltip.SetDefault(@"Taking damage builds a charge in the Artifact
-Reaching a charge of 250 will summon an ''Eye of Judgement'' and reset the charge value
-Your defense is lowered and speed is raised while the Eye is active"); */
-            
         }
 
         public override void SetDefaults()
@@ -30,20 +34,9 @@ Your defense is lowered and speed is raised while the Eye is active"); */
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.GetModPlayer<AAPlayer>().artifactJudgement = true;
+            AddEffect<ArtifactOfJudgementEffect>();
         }
-		
-		public override void ModifyTooltips(List<TooltipLine> tooltips)
-		{
-			Player player = Main.player[Main.myPlayer];
-			string text1 = Language.GetTextValue("Mods.AAModClassic.Common.ArtifactOfJudgementInfo") + " " + player.GetModPlayer<AAPlayer>().artifactJudgementCharge;
-            TooltipLine line = new TooltipLine(Mod, "text1", text1)
-            {
-                OverrideColor = Color.Yellow
-            };
-            tooltips.Insert(2,line);
-		}
     }
 }

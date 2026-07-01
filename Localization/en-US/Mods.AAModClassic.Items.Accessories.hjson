@@ -357,3 +357,8 @@ MadnessTruffle: {
 	DisplayName: Madness Truffle
 	Tooltip: ""
 }
+
+HeartOfAnarchy: {
+	DisplayName: Heart Of Anarchy
+	Tooltip: ""
+}

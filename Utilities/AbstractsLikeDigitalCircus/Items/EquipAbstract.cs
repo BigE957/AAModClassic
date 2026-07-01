@@ -344,11 +344,99 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class FlipperEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.accFlipper = true;
+        }
+    }
+
+    public class FrostsparkBootsEffect(int flightType = 0, float runSpeed = 3f, bool skates = false) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.vanityRocketBoots = flightType;
+            player.rocketBoots = flightType;
+            player.accRunSpeed = runSpeed;
+            player.iceSkate = skates;
+        }
+
+        public override string GetDescription()
+        {
+            List<string> nameList = new List<string>();
+            if (flightType > 0)
+                nameList.Add(Language.GetTextValue($"{Description}.Flight"));
+            if (runSpeed > 3f)
+                nameList.Add(Language.GetTextValue($"{Description}.Running"));
+            if (skates)
+                nameList.Add(Language.GetTextValue($"{Description}.IceSkates"));
+
+            string text = Language.GetTextValue($"{Description}.Default") + ChatUtils.GetFormattedListOfStrings(nameList);
+
+            return text;
+        }
+    }
+
+    public class LavaWadersWaterWalkingEffect(bool lava = false) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            if (lava)
+                player.waterWalk2 = true;
+            else
+                player.waterWalk = true;
+        }
+
+        public override string GetDescription()
+        {
+            List<string> nameList = new List<string>();
+            nameList.Add(Language.GetTextValue($"{Description}.Water"));
+            nameList.Add(Language.GetTextValue($"{Description}.Honey"));
+            if (lava)
+                nameList.Add(Language.GetTextValue($"{Description}.Lava"));
+
+            string text = Language.GetTextValue($"{Description}.Default") + ChatUtils.GetFormattedListOfStrings(nameList, true);
+
+            return text;
+        }
+    }
+
+    public class LavaWadersFireImmunityEffect(bool fireImmune = false, int lavaImmuneFrames = 0) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.fireWalk = fireImmune;
+            player.lavaMax += lavaImmuneFrames;
+        }
+
+        public override string GetDescription()
+        {
+            List<string> nameList = new List<string>();
+            if (fireImmune)
+                nameList.Add(Language.GetTextValue($"{Description}.FireImmune"));
+            if (lavaImmuneFrames > 0)
+                nameList.Add(Language.GetTextValue($"{Description}.LavaImmune"));
+
+            string text = Language.GetTextValue($"{Description}.Default") + ChatUtils.GetFormattedListOfStrings(nameList, true).FormatWith(lavaImmuneFrames / 60);
+
+            return text;
+        }
+    }
+
     public class BlackBeltEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
             player.blackBelt = true;
+        }
+    }
+
+    public class ObsidianRoseEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.lavaRose = true;
         }
     }
 

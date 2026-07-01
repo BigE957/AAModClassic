@@ -1,10 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
+using Steamworks;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Chat;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AAModClassic.Utilities
 {
@@ -54,6 +57,35 @@ namespace AAModClassic.Utilities
                 return "get a proper input moron";
 
             return PlayerInput.CurrentProfile.InputModes[mode].KeyStatus[input][0];
+        }
+
+        public static string GetFormattedListOfStrings(List<string> nameList, bool useAndSign = false)
+        {
+            string text = "";
+            string and = useAndSign ? "& " : "and ";
+
+            if (nameList.Count == 1)
+                return nameList[0];
+
+            for (int i = 0; i < nameList.Count; i++)
+            {
+                string buffName = nameList[i];
+
+                if (i != nameList.Count - 1)
+                {
+                    text += buffName;
+                    if (i == nameList.Count - 2)
+                        text += " ";
+                    else
+                        text += ", ";
+                }
+                else if (nameList.Count > 1)
+                    text += and + buffName;
+                else
+                    text += buffName;
+            }
+
+            return text;
         }
     }
 }

@@ -1,17 +1,23 @@
 ﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using System;
 using Terraria;
+using Terraria.Graphics.Shaders;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories
 {
-    public class SandstormMedallion : BaseAAItem, ILocalizedModType
+    public class SandstormMedallion : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sandstorm Medallion");
-            // Tooltip.SetDefault(@"Doubles your stats during a Sandstorm");
         }
         public override void SetDefaults()
         {
@@ -22,34 +28,16 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Acc
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player p, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-			if(p.ZoneSandstorm)
-			{
-				p.GetDamage(DamageClass.Melee) += 1f;
-				p.GetDamage(DamageClass.Ranged) += 1f;
-				p.GetDamage(DamageClass.Magic) += 1f;
-				p.GetDamage(DamageClass.Summon) += 1f;
-				p.GetDamage(DamageClass.Throwing) += 1f;
-				p.GetCritChance(DamageClass.Melee) *= 2;
-				p.GetCritChance(DamageClass.Ranged) *= 2;
-				p.GetCritChance(DamageClass.Magic) *= 2;
-				p.GetCritChance(DamageClass.Throwing) *= 2;
-			}
+            AddEffect<SandstormMedallionEffect>();
         }
-        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
+
+        public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            if (slot < 10)
-            {
-                int maxAccessoryIndex = 5 + player.extraAccessorySlots;
-                for (int i = 3; i < 3 + maxAccessoryIndex; i++)
-                {
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<FireFrostMedallion>())
-                    {
-                        return false;
-                    }
-                }
-            }
+            if (equippedItem.type == ModContent.ItemType<FireFrostMedallion>())
+                return false;
+
             return true;
         }
     }

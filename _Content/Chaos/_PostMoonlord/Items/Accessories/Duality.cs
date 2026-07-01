@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
         public override void RegisterEquipStats()
         {
             damageMap.GetDamage(DamageClass.Generic) += .15f;
-            damageMap.GetDamage(DamageClass.Generic).Flat += 5;
+            damageMap.GetDamage(DamageClass.Default).Flat += 5;
             AddEffect<DualityChaosEffect>();
             AddEffect(new MovementSpeedEffect(2));
             AddEffect(new NaitokurosuNightEffect(0.5f));
