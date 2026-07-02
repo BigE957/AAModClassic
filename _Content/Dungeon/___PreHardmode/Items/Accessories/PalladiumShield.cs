@@ -1,4 +1,6 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class PalladiumShield : BaseAAItem, ILocalizedModType
+    public class PalladiumShield : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
@@ -19,15 +21,14 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Accessories
             Item.defense = 1;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.noKnockback = true;
+            AddEffect<KnockbackImmunityEffect>();
         }
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Palladium Shield");
-            // Tooltip.SetDefault("Grants knockback immunity");
         }
 
         public override void AddRecipes()

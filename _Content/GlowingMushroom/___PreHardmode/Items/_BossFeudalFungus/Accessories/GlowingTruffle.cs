@@ -1,20 +1,20 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.Accessories
 {
-    public class GlowingTruffle : BaseAAItem, ILocalizedModType
+    public class GlowingTruffle : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Glowing Truffle");
-            /* Tooltip.SetDefault(
-@"+30 Mana
-Don't lick it."); */
+            /* Tooltip.SetDefault(@"'Don't lick it.'"); */
         }
 
 
@@ -28,10 +28,9 @@ Don't lick it."); */
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.statManaMax2 += 30;
+            AddEffect(new MaxManaEffect(30));
         }
-
     }
 }

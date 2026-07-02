@@ -432,11 +432,53 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class KnockbackImmunityEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.noKnockback = true;
+        }
+    }
+
+    public class MaxManaEffect(int mana) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.statManaMax2 += mana;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(mana > 0 ? Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increases") : Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decreases"), mana).FirstCharToUpper();
+    }
+
     public class ObsidianRoseEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
             player.lavaRose = true;
+        }
+    }
+
+    public class DiscountCardEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.discountAvailable = true;
+        }
+    }
+
+    public class GoldRingEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.goldRing = true;
+        }
+    }
+
+    public class LuckyCoinEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.hasLuckyCoin = true;
         }
     }
 

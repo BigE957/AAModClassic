@@ -2,15 +2,15 @@ LargeLetter: {
 	DisplayName: Large Letter
 
 	TownNPCMood: {
-		Content: You could say things have been going... smoothl-E... 
+		Content: You could say things have been going... smoothl-E...
 		NoHome: Dude you gotta help me man. I lost my life savings. I'm on the streets. You gotta help me man.
 		FarFromHome: Dude where the hell am I? How'd I get here? Where's my house?
 		LoveSpace: Ah, peace and quiet sure is nice...
 		DislikeCrowded: Is it getting packed here or it just me?
 		HateCrowded: Who the hell are all these people man.
 		LikeNPC_Princess: It's part of my housing contract that I legally have to like being around {NPCName}. She's fine I guess.
-		Princess_LovesNPC: {NPCName} is quite the 'character'. They have quite the collection!
-		LikeNPC: {NPCName} is one of my chums. We're a little different from the rest.
+		Princess_LovesNPC: "{NPCName} is quite the 'character'. They have quite the collection!"
+		LikeNPC: "{NPCName} is one of my chums. We're a little different from the rest."
 		HateNPC: Dude. Isn't that {NPCName} guy like, super racist? Who even invited him? He said he wanted to 'kill all goblins'. That's messed up, dude!
 	}
 
@@ -38,11 +38,11 @@ Legendscribe: {
 		LoveSpace: It's nice to be able to kick back and relax with all this space.
 		DislikeCrowded: It's a bit noisy hear. I just want to read this really good book.
 		HateCrowded: It's so cramped. You'vr basically got me living in a kennel!
-		LikeNPC_Princess: {NPCName}'s heart is certainly lighter than a feather.
-		Princess_LovesNPC: {NPCName} has so many stories to share!
+		LikeNPC_Princess: "{NPCName}'s heart is certainly lighter than a feather."
+		Princess_LovesNPC: "{NPCName} has so many stories to share!"
 		LoveBiome: Ah, nothing like the desert sun to help get a nice tan!
 		HateBiome: I'm f-f-freezing! Get me back someplace w-w-warm, please!
-		LikeNPC: {NPCName}'s been helping clean off my fleas.
+		LikeNPC: "{NPCName}'s been helping clean off my fleas."
 		DislikeNPC: This {NPCName} guy keeps golfing in my desert!
 	}
 
@@ -223,11 +223,11 @@ LegendscribeUnofficial: {
 		LoveSpace: It's nice to be able to kick back and relax with all this space.
 		DislikeCrowded: It's a bit noisy hear. I just want to read this really good book.
 		HateCrowded: It's so cramped. You'vr basically got me living in a kennel!
-		LikeNPC_Princess: {NPCName}'s heart is certainly lighter than a feather.
-		Princess_LovesNPC: {NPCName} has so many stories to share!
+		LikeNPC_Princess: "{NPCName}'s heart is certainly lighter than a feather."
+		Princess_LovesNPC: "{NPCName} has so many stories to share!"
 		LoveBiome: Ah, nothing like the desert sun to help get a nice tan!
 		HateBiome: I'm f-f-freezing! Get me back someplace w-w-warm, please!
-		LikeNPC: {NPCName}'s been helping clean off my fleas.
+		LikeNPC: "{NPCName}'s been helping clean off my fleas."
 		DislikeNPC: This {NPCName} guy keeps golfing in my desert!
 	}
 
@@ -243,13 +243,13 @@ GoblinSlayer: {
 		NoHome: Not having a place to story my goblin-slaying weapons is rough. Can you help?
 		FarFromHome: I've been away from home for too long. We could've been raided by goblins!
 		LoveSpace: I perfer to be alone. Makes spotting goblins easier.
-		DislikeCrowded: Some of these people they, they don't mind goblins. This can't stand.
+		DislikeCrowded: Some of these people.. They, they don't mind goblins. This can't stand.
 		HateCrowded: There's goblins hiding amongst this crowd... I know it!!
-		LikeNPC_Princess: {NPCName} isn't a goblin. That's good.
-		Princess_LovesNPC: {NPCName} may be racist, but I love everyone in my kingdom so I guess that's okay.
+		LikeNPC_Princess: "{NPCName} isn't a goblin. I respect that."
+		Princess_LovesNPC: "{NPCName} may be racist, but I love everyone in my kingdom, so I guess that's okay."
 		LikeBiome: Not a goblin to be seen in this peaceful forest. Wonderful.
 		DislikeBiome: I've seen goblin scouts lurking about the coastline. We need to kill them.
-		LikeNPC: {NPCName} is also familiar with goblin slaying. Very good.
+		LikeNPC: "{NPCName} is also familiar with goblin slaying. Very good."
 		HateNPC: I NEED TO KILL THAT GOBLIN.
 	}
 
@@ -276,13 +276,13 @@ Lovecraftian: {
 		NoHome: I'd like a place I can do my research in.
 		FarFromHome: I miss my research...
 		LoveSpace: I'm glad I have this place to myself. My research can get... dangerous, for your kind.
-		DislikeCrowded: Yeesh, its a bit hard to focus with how crowded it is.
+		DislikeCrowded: Yeesh, it's a bit hard to focus with how crowded it is.
 		HateCrowded: There's way too many people here. Its impeding my research!
-		LikeNPC_Princess: {NPCName} is so welcoming! She's even willing to assist me!
-		Princess_LovesNPC: {NPCName} is just so curious about us! It's endearing
+		LikeNPC_Princess: "{NPCName} is so welcoming! She's even willing to assist me!"
+		Princess_LovesNPC: "{NPCName} is just so curious about us! It's endearing"
 		LoveBiome: I feel so at home here in the Ocean. It's about as close as your dimension gets being like in mine.
 		DislikeBiome: Yeesh, think I could live somewhere else? I'm drying out in this sun!
-		LikeNPC: {NPCName} has been so helpful in learning about your dimension.
+		LikeNPC: "{NPCName} has been so helpful in learning about your dimension."
 		DislikeNPC: I'm not fond of {NPCName}. Any time I ask him something, he always tries to charge me for his answer!
 	}
 
@@ -331,12 +331,12 @@ Mushman: {
 		LoveSpace: Ah, my shrooms have so much space to grow!
 		DislikeCrowded: My poor shrooms, there're feeling quite cramped.
 		HateCrowded: SOMEONE has been STEALING my shrooms! With all these people here, I don't know who!
-		LikeNPC_Princess: {NPCName} is as big a fan of red mushrooms as me!
-		Princess_LovesNPC: {NPCName} is also a really fun guy!
+		LikeNPC_Princess: "{NPCName} is as big a fan of red mushrooms as me!"
+		Princess_LovesNPC: "{NPCName} is also a really fun guy!"
 		LoveBiome: Ah, I love the sight of red mushrooms in the morning!
 		HateBiome: Eugh, BLUE mushrooms?! This sucks.
 		LikeNPC: I like {NPCName}. She really knows how to party!
-		HateNPC: {NPCName} is just such a downer.
+		HateNPC: "{NPCName} is just such a downer."
 	}
 
 	button1: Shop
@@ -370,7 +370,7 @@ Samurai: {
 		DislikeCrowded: A bit more quiet would really help me focus.
 		HateCrowded: How am I meant to train with so many people around?! I might lop someone's head off!
 		LikeNPC_Princess: If a nation is to rise from the ashes of what came before, I trust {NPCName} to lead it.
-		Princess_LovesNPC: {NPCName} is so skilled with their sword!
+		Princess_LovesNPC: "{NPCName} is so skilled with their sword!"
 		LikeBiome: Even in its... chaotic state, I love my homeland.
 		DislikeBiome: Eugh, this place is just teeming with insects...
 		LikeNPC: I've talked a lot with {NPCName}. It seems he'd be a valuable ally in my hunt.
@@ -381,7 +381,7 @@ Samurai: {
 	SamuraiChat2: " for a while. He's quite the man of culture."
 	SamuraiChat3: "I'm not really a fan of "
 	SamuraiChat4: "'s ale. It's a bit strong for my taste. I prefer Sake to be entirely honest."
-	SamuraiChat5: The chaos biomes weren't always so.... err.... chaotic.
+	SamuraiChat5: The Chaos biomes weren't always so.... err.... chaotic.
 	SamuraiChat6: Have you seen my sword? I can't seem to find it anywhere.
 	SamuraiChat7: We used to be the most powerful nation in all of terraria... then... HE came...
 	SamuraiChat8: I remember my old master giving me wise words such as: 'YOU ARE TRYING TO VIEW FLASH CONTENT BUT YOU DO NOT HAVE A FLASH PLAYER INSTALLED'... I’m still trying to figure that one out.
@@ -400,9 +400,7 @@ Samurai: {
 	SamuraiChat21: Your shoes will make you happy today.
 }
 
-LuciferSitting: {
-	DisplayName: Lucifer the Pit Lord
-}
+LuciferSitting.DisplayName: Lucifer the Pit Lord
 
 QuestFish: {
 	Fishmother: Okay so, I was walking through the Inferno looking for something hot for one of my epic pranks, when I saw this fat fish underwater, boiling the water around it. I thought 'PERFECT!' but I couldn't catch it because I didn't have my rod on me. Go get it, slave.

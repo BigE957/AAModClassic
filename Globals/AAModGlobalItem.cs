@@ -262,31 +262,6 @@ namespace AAModClassic.Globals
             }
         }
 
-        public override bool OnPickup(Item item, Player player)
-        {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (item.ammo == AmmoID.Coin)
-            {
-                if (modPlayer.GreedCharm)
-                {
-                    player.AddBuff(ModContent.BuffType<CharmOfDesire_Desire>(), 240);
-                    if (modPlayer.GreedyDamage < 20)
-                    {
-                        modPlayer.GreedyDamage += 1;
-                    }
-                }
-                else if (modPlayer.GreedTalisman)
-                {
-                    player.AddBuff(ModContent.BuffType<TalismanOfDesire_RuthlessDesire>(), 240);
-                    if (modPlayer.GreedyDamage < 40)
-                    {
-                        modPlayer.GreedyDamage += 1;
-                    }
-                }
-            }
-            return base.OnPickup(item, player);
-        }
-
         public override bool CanUseItem(Item item, Player player)
         {
             if (player.GetModPlayer<AAPlayer>().ShieldUp && item.damage > 0)

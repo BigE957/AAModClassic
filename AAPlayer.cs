@@ -276,7 +276,6 @@ namespace AAModClassic
         public bool HeartA = false;
         public bool DragonsGuard = false;
         public bool ShadowBand = false;
-        public bool RajahCape = false;
         public bool olympianWings = false;
         public bool BlackLotusEmblem = false;
 
@@ -284,8 +283,6 @@ namespace AAModClassic
         public bool ShieldUp = false;
         public int SagCooldown = 0;
 
-        public bool GreedCharm;
-        public bool GreedTalisman;
         public bool SpellBookofRagnarok;
         public bool CursedEyeofSoulBinder;
         #endregion
@@ -322,9 +319,6 @@ namespace AAModClassic
 
         public bool Ronin = false;
         public bool Glitched = false;
-        public bool Greed1 = false;
-        public bool Greed2 = false;
-        public float GreedyDamage = 0;
 
         public bool luckycalm = false;
         public bool luckythorns = false;
@@ -563,11 +557,6 @@ namespace AAModClassic
             ShieldUp = false;
             DragonsGuard = false;
             ShadowBand = false;
-            RajahCape = false;
-            GreedCharm = false;
-            GreedTalisman = false;
-            Greed1 = false;
-            Greed2 = false;
             olympianWings = false;
             SpellBookofRagnarok = false;
             CursedEyeofSoulBinder = false;
@@ -602,8 +591,6 @@ namespace AAModClassic
             IB = false;
             Spear = false;
             AkumaPain = false;
-            Greed1 = false;
-            Greed2 = false;
             FFlames = false;
         }
 
@@ -1259,10 +1246,6 @@ namespace AAModClassic
                 }
             }
 
-            if (!Greed1 && !Greed2)
-            {
-                GreedyDamage = 0;
-            }
             DarkmatterSet = darkmatterSetMe || darkmatterSetRa || darkmatterSetMa || darkmatterSetSu || darkmatterSetTh;
 
             bool anyAkumaTransition = false;

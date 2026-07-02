@@ -182,4 +182,16 @@ Effect: {
 		You will get major damage and speed boost while the Eye is active
 		[c/FFFF00:Current Charge: {0}]
 		'''
+	KnockbackImmunityEffect: Grants immunity to knockback
+	MaxManaEffect: "{0}s maximum mana by {1}"
+	DiscountCardEffect: Lowers shop prices by 20%
+	LuckyCoinEffect: Hitting enemies will sometimes drop extra coins
+	GoldRingEffect: Increases coin pickup range
+	CharmOfDesireEffect:
+		'''
+		Grabbing coins boosts your damage by 1% for 4 seconds
+		Grabbing another coin increases the damage by 1% and resets the countdown
+		Caps out at {0}% damage
+		Current Damage Boost: {1}%
+		'''
 }
