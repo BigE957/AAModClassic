@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
-    public class TerraHelmetSummonerPlayer : EquipEffectAbstract
+    public class TerraHelmetSummonerPlayer : EquipmentEffectPlayer
     {
         public int CrystalMode = 0;
 

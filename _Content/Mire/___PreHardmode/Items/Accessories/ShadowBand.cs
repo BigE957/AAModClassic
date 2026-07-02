@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,9 +7,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class ShadowBand : BaseAAItem, ILocalizedModType
+    public class ShadowBand : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Shadow Band");
+        }
+
         public override void SetDefaults()
         {
             Item.width = 32;
@@ -18,15 +25,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.moveSpeed += .15f;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Shadow Band");
-            // Tooltip.SetDefault(@"15% increased movement speed");
+            AddEffect(new MovementSpeedEffect(0.15f));
         }
     }
 }

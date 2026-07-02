@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         }
     }
 
-    public class BrokenCodeWhateverThisShitIsPlayer : EquipEffectAbstract
+    public class BrokenCodeWhateverThisShitIsPlayer : EquipmentEffectPlayer
     {
         public override void OnHitByAnything(Player.HurtInfo hurtInfo, NPC npc = null, Projectile proj = null)
         {

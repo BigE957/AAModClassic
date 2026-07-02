@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
-    public class TerraHelmetMeleePlayer : EquipEffectAbstract
+    public class TerraHelmetMeleePlayer : EquipmentEffectPlayer
     {
         public int AARegenCount = 0;
 

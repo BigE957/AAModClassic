@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,13 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DarkmatterJetpack : BaseAAItem, ILocalizedModType
+	public class DarkmatterJetpack : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Darkmatter Booster");
-            // Tooltip.SetDefault("Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 10, 3f);
         }
@@ -31,9 +31,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Accessories
             Item.accessory = true;
             
         }
-        public override void UpdateAccessory(Player player, bool hideVisual)
+
+        public override void RegisterEquipStats()
         {
-            player.wingTimeMax = 200;
+            AddEffect(new WingTimeMaxEffect(200));
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)

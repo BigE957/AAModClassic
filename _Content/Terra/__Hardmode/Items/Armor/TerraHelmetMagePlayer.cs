@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
-    public class TerraHelmetMagePlayer : EquipEffectAbstract
+    public class TerraHelmetMagePlayer : EquipmentEffectPlayer
     {
         public override void PostUpdate()
         {

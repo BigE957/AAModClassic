@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Chat;
+using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AAModClassic.Utilities
@@ -86,6 +88,53 @@ namespace AAModClassic.Utilities
             }
 
             return text;
+        }
+
+        public enum IncreaseDecreaseTextType
+        {
+            IncreasesDecreases = 0,
+            IncreasedDecreased = 1,
+            IncreaseDecrease = 2
+        }
+
+        public static string IncreaseOrDecreaseText(int number, IncreaseDecreaseTextType textType = IncreaseDecreaseTextType.IncreasedDecreased, bool reduced = false)
+        {
+            if (number >= 0)
+            {
+                if (textType == IncreaseDecreaseTextType.IncreasesDecreases)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increases");
+                else if (textType == IncreaseDecreaseTextType.IncreasedDecreased)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increased");
+                else if (textType == IncreaseDecreaseTextType.IncreaseDecrease)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increase");
+            }
+            else
+            {
+                if (reduced)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Reduced");
+
+                if (textType == IncreaseDecreaseTextType.IncreasesDecreases)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decreases");
+                else if (textType == IncreaseDecreaseTextType.IncreasedDecreased)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decreased");
+                else if (textType == IncreaseDecreaseTextType.IncreaseDecrease)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decrease");
+            }
+
+            return "big mistake occurred in getting increase or decrease text type";
+        }
+        public static string IncreaseOrDecreaseText(float number, IncreaseDecreaseTextType textType = IncreaseDecreaseTextType.IncreasedDecreased, bool reduced = false)
+        {
+            return IncreaseOrDecreaseText((int)number, textType, reduced);
+        }
+        public static string IncreaseOrDecreaseText(double number, IncreaseDecreaseTextType textType = IncreaseDecreaseTextType.IncreasedDecreased, bool reduced = false)
+        {
+            return IncreaseOrDecreaseText((int)number, textType, reduced);
+        }
+
+        public static string GetDamageTypeName(DamageClass damageType)
+        {
+            return Language.GetTextValue($"Mods.AAModClassic.EquipStats.ClassGlobalStats.{damageType.Name}");
         }
     }
 }

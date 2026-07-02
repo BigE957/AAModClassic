@@ -3,6 +3,7 @@ using AAModClassic._Content.Mire.Buffs;
 using Humanizer;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -32,6 +33,17 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             foreach (EquipmentEffectData effect in effectMap)
             {
                 effect.DoEffect(player);
+            }
+        }
+
+        public override void UpdateAccessory(Player player, bool hideVisual)
+        {
+            base.UpdateAccessory(player, hideVisual);
+            Clear();
+
+            foreach (EquipmentEffectData effect in effectMap)
+            {
+                effect.DoEffectReliantOnVanityToggle(player, hideVisual);
             }
         }
 
@@ -262,12 +274,16 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         }
 
+        public virtual void DoEffectReliantOnVanityToggle(Player player, bool hideVisual)
+        {
+
+        }
+
         public virtual string GetDescription() => Language.GetTextValue(Description);
     }
 
-    public interface IGlobalEffect { }
 
-    public class ManaFlowerEffect : EquipmentEffectData, IGlobalEffect
+    public class ManaFlowerEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -440,14 +456,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class MaxManaEffect(int mana) : EquipmentEffectData
+    public class MaxManaEffect(int amount) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
-            player.statManaMax2 += mana;
+            player.statManaMax2 += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(mana > 0 ? Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increases") : Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decreases"), mana).FirstCharToUpper();
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount), Math.Abs(amount)).FirstCharToUpper();
     }
 
     public class ObsidianRoseEffect : EquipmentEffectData
@@ -479,6 +495,42 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override void DoEffect(Player player)
         {
             player.hasLuckyCoin = true;
+        }
+    }
+
+    public class ManaCostEffect(float amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.manaCost += amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Math.Abs(amount * 100), ChatUtils.IncreaseOrDecreaseText(amount, reduced: true));
+    }
+
+    public class SentrySlotEffect(int amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.maxTurrets += amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
+    }
+
+    public class CelestialMagnetEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.manaMagnet = true;
+        }
+    }
+
+    public class NightOwlEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.nightVision = true;
         }
     }
 
@@ -514,11 +566,48 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class AttacksInflictDebuffEffect(params (int buffID, int time)[] debuffData) : EquipmentEffectData
+    public class EmitLightFromPlayerEffect(float r, float g, float b) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            Lighting.AddLight((int)(player.position.X + player.width / 2) / 16, (int)(player.position.Y + player.height / 2) / 16, r, g, b);
+        }
+    }
+
+    public class MoonCharmEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.wolfAcc = true;
+        }
+
+        public override void DoEffectReliantOnVanityToggle(Player player, bool hideVisual)
+        {
+            if (hideVisual)
+                player.hideWolf = true;
+        }
+    }
+
+    public class NeptunesShellEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.accMerman = true;
+        }
+
+        public override void DoEffectReliantOnVanityToggle(Player player, bool hideVisual)
+        {
+            if (hideVisual)
+                player.hideMerman = true;
+        }
+    }
+
+    public class AttacksInflictDebuffEffect(DamageClass damageClass = null, params (int buffID, int time)[] debuffData) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
             player.GetModPlayer<AttacksInflictDebuffPlayer>().effect = true;
+            player.GetModPlayer<AttacksInflictDebuffPlayer>().damageToDoEffectOn = damageClass;
             foreach (var debuffDestuff in debuffData)
             {
                 player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray.Add(debuffDestuff.buffID);
@@ -528,10 +617,15 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         public override string GetDescription()
         {
-            List<int> debuffList = Main.LocalPlayer.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray;
+            List<int> debuffList = new List<int>();
+            foreach (var debuffDestuff in debuffData)
+                debuffList.Add(debuffDestuff.buffID);
+
+            string text = Language.GetTextValue(Description).FormatWith("", "");
+            if (damageClass != null)
+                text = Language.GetTextValue(Description).FormatWith(ChatUtils.GetDamageTypeName(damageClass), " ");
 
             // idgaf
-            string text = Language.GetTextValue(Description);
             for (int i = 0; i < debuffList.Count; i++)
             {
                 int id = debuffList[i];
@@ -563,20 +657,22 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class AttacksInflictDebuffPlayer : EquipEffectAbstract
+    public class AttacksInflictDebuffPlayer : EquipmentEffectPlayer
     {
         public List<int> debuffArray;
         public List<int> debuffLengthArray;
+        public DamageClass damageToDoEffectOn;
 
         public override void ResetInfoAccessories()
         {
             debuffArray = new List<int>();
             debuffLengthArray = new List<int>();
+            damageToDoEffectOn = null;
         }
 
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (effect)
+            if (effect && (damageToDoEffectOn == null || damageToDoEffectOn == hit.DamageType))
             {
                 for (int i = 0; i < debuffArray.Count; i++)
                     target.AddBuff(debuffArray[i], debuffLengthArray[i]);

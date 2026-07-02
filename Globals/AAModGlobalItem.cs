@@ -261,15 +261,6 @@ namespace AAModClassic.Globals
                     break;
             }
         }
-
-        public override bool CanUseItem(Item item, Player player)
-        {
-            if (player.GetModPlayer<AAPlayer>().ShieldUp && item.damage > 0)
-            {
-                return false;
-            }
-            return true;
-        }
     }
 
     public class ExtractinatorItem : GlobalItem

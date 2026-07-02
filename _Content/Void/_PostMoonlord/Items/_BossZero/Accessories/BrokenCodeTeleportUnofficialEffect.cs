@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetVanillaKeybindGlyph("Grapple"), (float)FREEZECOOLDOWNDURATION / 60, (float)FREEZEDURATION / 60);
     }
 
-    public class BrokenCodeTeleportUnofficialPlayer : EquipEffectAbstract
+    public class BrokenCodeTeleportUnofficialPlayer : EquipmentEffectPlayer
     {
         public override void UpdateEquips()
         {

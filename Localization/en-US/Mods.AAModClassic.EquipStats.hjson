@@ -34,13 +34,13 @@ ClassGlobalStats: {
 		Decreases: decreases
 		Increased: increased
 		Decreased: decreased
+		Increase: increase
+		Decrease: decrease
+		Reduced: reduced
 		Damage: damage
 		Knockback: knockback
 		CritSameAsDamageAdditive: " & critical strike chance"
 	}
-}
-
-SpecificStats: {
 }
 
 Misc.Nothing: ""
@@ -122,7 +122,7 @@ Effect: {
 		'''
 	DualityChaosEffect: Grants an extra {0}% damage while in the Inferno or Mire
 	DualityDefenseEffect: Grants an extra {0} defense while in the Inferno
-	AttacksInflictDebuffEffect: "Your attacks inflict "
+	AttacksInflictDebuffEffect: "Your {0}{1}attacks inflict "
 	HeartOfPassionDamageBoostEffect: Magic and summon damage increases the less health you have
 	HeartOfPassionManaRegenEffect: Below 2/3rds of your maximum life, your mana regenerates much faster
 	HeartOfPassionDebuffEffect:
@@ -193,5 +193,46 @@ Effect: {
 		Grabbing another coin increases the damage by 1% and resets the countdown
 		Caps out at {0}% damage
 		Current Damage Boost: {1}%
+		'''
+	DragonsGuardEffect: Enemies that strike you are set ablaze
+	LanternEffect: Allows you to see through the Mire's fog during the day
+	ManaCostEffect: "{0}% {1} mana cost"
+	CelestialMagnetEffect: Increases pickup range for mana stars
+	BlackLotusEmblemEffect: 
+		'''
+		Automatically use mana potions when needed
+		Greatly reduces the length of Mana Sickness
+		'''
+	AshProofVestEffect: Allows you to survive the Inferno's firestorm during the night
+	SentrySlotEffect: "{0} your max number of sentries by {1}"
+	OldOneCharmEffect: While the Old One's Army is ongoing, increases your summon damage by {0}%
+	ArcticMedallionEffect: Increases your damage and critical strike chance by 100% during a Blizzard
+	NightOwlEffect: Increases night vision
+	EquinoxDayNightStatBoostsEffect: {
+		Default: 
+			'''
+			During {0}, grants a great but not particularly exceptional increase to damage,
+			melee speed, critical strike chance, life regeneration,
+			defense, mining speed, and minion knockback
+			'''
+		Day: daytime
+		Night: nighttime
+		}
+	EquinoxEffect: 
+			'''
+			Major increase to damage, melee speed, 
+			critical strike chance, life regeneration,
+			defense, mining speed, and minion knockback
+			'''
+	EmitLightFromPlayerEffect: Provides light when worn
+	MoonCharmEffect: Turns the holder into a werewolf at night
+	NeptunesShellEffect: Turns the holder into a merfolk when entering water
+	SagittariusShieldEffect: 
+		'''
+		Pressing the accessory ability hotkey puts up a barrier around you to protect you from damage
+		While shielded, you cannot use items
+		While shielded, your health regeneration is increased dramatically
+		Shield lasts for 5 seconds
+		Shield has a 5 minute cooldown
 		'''
 }

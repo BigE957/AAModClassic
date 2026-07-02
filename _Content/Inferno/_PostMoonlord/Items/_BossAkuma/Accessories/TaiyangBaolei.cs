@@ -1,5 +1,7 @@
 ﻿using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
@@ -140,7 +142,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessori
             AddEffect<TaiyangBaoleiEnduranceEffect>();
             AddEffect<FallDamageImmunityEffect>();
             AddEffect<TaiyangBaoleiImmunityEffect>();
-            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<BurningAsh_Buff>()));
+            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>()));
+            AddEffect<AshProofVestEffect>();
             AddEffect<SolarArmorSetDashEffect>(); //TODO: replace with moddash... like thats ever gonna happen
             AddEffect<TaiyangBaoleiDebuffEffect>();
         }

@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.Chaos._PostMoonlord.Items.Accessories
         }
     }
 
-    public class HeartOfAnarchyDebuffPlayer : EquipEffectAbstract
+    public class HeartOfAnarchyDebuffPlayer : EquipmentEffectPlayer
     {
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {

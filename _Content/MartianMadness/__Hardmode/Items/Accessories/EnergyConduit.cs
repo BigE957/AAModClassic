@@ -1,16 +1,23 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories
 {
-    public class EnergyConduit : BaseAAItem, ILocalizedModType
+    public class EnergyConduit : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetDefaults()
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Energy Conduit");
+        }
+
+        public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 24;
@@ -20,17 +27,10 @@ namespace AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories
             
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-            player.moveSpeed += 0.5f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.5f;
-		}
-		
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Energy Conduit");
-			// Tooltip.SetDefault("50% increased movement speed");
-			
-		}
-	}
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new MovementSpeedEffect(0.5f));
+            AddEffect(new MaxRunSpeedEffect(0.5f));
+        }
+    }
 }

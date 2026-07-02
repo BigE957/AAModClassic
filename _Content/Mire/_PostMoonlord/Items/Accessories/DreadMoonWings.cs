@@ -2,6 +2,7 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -11,13 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DreadWings : BaseAAItem, ILocalizedModType
+	public class DreadMoonWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dread Moon Wings");
-            // Tooltip.SetDefault("Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(220, 14, 3.5f);
         }
@@ -30,13 +30,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Accessories
             Item.rare = ItemRarityID.Red;
             Item.accessory = true;
 		}
-		
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 220;
-		}
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(220));
+        }
+
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
             ascentWhenFalling = 0.95f;
             ascentWhenRising = 0.15f;
@@ -44,8 +44,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Accessories
             maxAscentMultiplier = 4f;
             constantAscend = 0.135f;
         }
-
-        
 
         public override void AddRecipes()
         {

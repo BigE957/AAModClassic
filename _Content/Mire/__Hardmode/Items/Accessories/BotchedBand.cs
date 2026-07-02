@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,14 +7,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class BotchedBand : BaseAAItem, ILocalizedModType
+    public class BotchedBand : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Botched Band");
-            /* Tooltip.SetDefault(
-@"10% Increased movement speed and damage"); */
         }
 
         public override void SetDefaults()
@@ -25,10 +24,10 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.moveSpeed += .1f;
-            player.GetDamage(DamageClass.Generic) += .1f;
+            damageMap.GetDamage(DamageClass.Generic) += 0.10f;
+            AddEffect(new MovementSpeedEffect(0.10f));
         }
     }
 }

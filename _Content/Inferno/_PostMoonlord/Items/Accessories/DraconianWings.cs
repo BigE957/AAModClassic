@@ -2,6 +2,7 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -11,13 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DraconianWings : BaseAAItem, ILocalizedModType
+	public class DraconianWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Draconian Sun Wings");
-            // Tooltip.SetDefault("Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(220, 14, 3.5f);
         }
@@ -31,13 +31,11 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories
             Item.accessory = true;
             
 		}
-		
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 220;
-		}
 
-        
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(220));
+        }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{

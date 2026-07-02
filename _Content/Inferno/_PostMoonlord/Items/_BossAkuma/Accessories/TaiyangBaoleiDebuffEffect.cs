@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessori
         }
     }
 
-    public class TaiyangBaoleiDebuffPlayer : EquipEffectAbstract
+    public class TaiyangBaoleiDebuffPlayer : EquipmentEffectPlayer
     {
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
         {

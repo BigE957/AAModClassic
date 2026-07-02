@@ -279,10 +279,6 @@ namespace AAModClassic
         public bool olympianWings = false;
         public bool BlackLotusEmblem = false;
 
-        public bool SagShield = false;
-        public bool ShieldUp = false;
-        public int SagCooldown = 0;
-
         public bool SpellBookofRagnarok;
         public bool CursedEyeofSoulBinder;
         #endregion
@@ -553,8 +549,6 @@ namespace AAModClassic
             lantern = false;
             HeartA = false;
             BlackLotusEmblem = false;
-            SagShield = false;
-            ShieldUp = false;
             DragonsGuard = false;
             ShadowBand = false;
             olympianWings = false;
@@ -799,7 +793,7 @@ namespace AAModClassic
 
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
-            if (DragonsGuard || ChaosMe)
+            if (DragonsGuard || ChaosMe) // THERES AN EFFECT FOR THIS SO USE THAT
             {
                 npc.AddBuff(BuffID.OnFire, 120);
             }
@@ -1072,11 +1066,6 @@ namespace AAModClassic
                     string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
                     target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
                 }
-
-                if (BlackLotusEmblem)
-                {
-                    target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 180);
-                }
             }
 
             if (proj.minion)
@@ -1299,47 +1288,6 @@ namespace AAModClassic
                 EmitDust();
             }
 
-            #region SagShieldDrawMethod
-
-            if (SagCooldown > 0)
-            {
-                SagCooldown--;
-            }
-            else
-            {
-                SagCooldown = 0;
-            }
-
-            if (ShieldUp)
-            {
-                RingRotation += .05f;
-                ShieldScale += .02f;
-                if (ShieldScale >= 1f)
-                {
-                    ShieldScale = 1f;
-                }
-            }
-            else
-            {
-                ShieldScale -= .02f;
-                if (ShieldScale <= 0f)
-                {
-                    ShieldScale = 0f;
-                }
-            }
-
-            if (ShieldScale > 0f || TimeScale > 0f)
-            {
-                RingRotation += .05f;
-            }
-
-            if (ShieldScale > 0)
-            {
-                RingRotation += .05f;
-            }
-
-            #endregion
-
             #region AsheFlameDrawMethod
 
             if (AsheCooldown > 0)
@@ -1520,12 +1468,7 @@ namespace AAModClassic
                 }
             }
 
-            if (RStar)
-            {
-                Lighting.AddLight((int)(Player.position.X + Player.width / 2) / 16, (int)(Player.position.Y + Player.height / 2) / 16, 1f, 0.95f, 0.8f);
-            }
-
-            if (kindledSet || lantern)
+            if (kindledSet)
             {
                 Lighting.AddLight((int)(Player.position.X + Player.width / 2) / 16, (int)(Player.position.Y + Player.height / 2) / 16, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f);
             }
@@ -1612,11 +1555,6 @@ namespace AAModClassic
                         i++;
                     }
                 }
-            }
-
-            if (BlackLotusEmblem && Player.inventory[Player.selectedItem].mana > 0 && Player.statMana < (int)(Player.inventory[Player.selectedItem].mana * Player.manaCost))
-            {
-                BlackLotusQuickMana();
             }
 
             if (Player.controlQuickHeal)
@@ -1827,71 +1765,6 @@ namespace AAModClassic
 			}
 			Recipe.FindRecipes();
         }
-
-        public void BlackLotusQuickMana()
-		{
-			if (Player.noItems)
-			{
-				return;
-			}
-			if (Player.statMana == Player.statManaMax2)
-			{
-				return;
-			}
-			for (int i = 0; i < 58; i++)
-			{
-				if (Player.inventory[i].stack > 0 && Player.inventory[i].type > ItemID.None && Player.inventory[i].healMana > 0 && (Player.potionDelay == 0 || !Player.inventory[i].potion) && ItemLoader.CanUseItem(Player.inventory[i], Player))
-				{
-					SoundEngine.PlaySound(Player.inventory[i].UseSound, Player.position);
-					if (Player.inventory[i].potion)
-					{
-						if (Player.inventory[i].type == ItemID.RestorationPotion)
-						{
-							Player.potionDelay = Player.restorationDelayTime;
-							Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
-						}
-						else
-						{
-							Player.potionDelay = Player.potionDelayTime;
-							Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
-						}
-					}
-					ItemLoader.UseItem(Player.inventory[i], Player);
-					Player.statLife += Player.inventory[i].healLife;
-					Player.statMana += Player.inventory[i].healMana;
-					if (Player.statLife > Player.statLifeMax2)
-					{
-						Player.statLife = Player.statLifeMax2;
-					}
-					if (Player.statMana > Player.statManaMax2)
-					{
-						Player.statMana = Player.statManaMax2;
-					}
-					if (Player.inventory[i].healLife > 0 && Main.myPlayer == Player.whoAmI)
-					{
-						Player.HealEffect(Player.inventory[i].healLife, true);
-					}
-					if (Player.inventory[i].healMana > 0)
-					{
-						Player.AddBuff(BuffID.ManaSickness, 60, true);
-						if (Main.myPlayer == Player.whoAmI)
-						{
-							Player.ManaEffect(Player.inventory[i].healMana);
-						}
-					}
-					if (ItemLoader.ConsumeItem(Player.inventory[i], Player))
-					{
-						Player.inventory[i].stack--;
-					}
-					if (Player.inventory[i].stack <= 0)
-					{
-						Player.inventory[i].TurnToAir();
-					}
-					Recipe.FindRecipes();
-					return;
-				}
-			}
-		}
 
         public override void PostUpdateRunSpeeds()
         {
@@ -2718,15 +2591,6 @@ namespace AAModClassic
                 }
             }
 
-            if (SagShield)
-            {
-                if (AAMod.AccessoryAbilityKey.JustPressed && SagCooldown == 0)
-                {
-                    Player.AddBuff(ModContent.BuffType<SagittariusShield_ShieldsUp>(), 300);
-                    SagCooldown = 5400;
-                }
-            }
-
             if (Witch)
             {
                 if (AAMod.ArmorAbilityKey.JustPressed && AsheCooldown == 0)
@@ -2825,20 +2689,6 @@ namespace AAModClassic
         public int EscapeLine = 180;
         public int RiftTimer;
         public int RiftDamage = 10;
-
-        public override void UpdateLifeRegen()
-        {
-            if (SagShield)
-            {
-                if (Player.lifeRegen < 0)
-                {
-                    Player.lifeRegen = 0;
-                }
-
-                Player.lifeRegenTime = 0;
-                Player.lifeRegen += 2;
-            }
-        }
 
         public override void UpdateBadLifeRegen()
         {
@@ -3019,11 +2869,6 @@ namespace AAModClassic
             {
                 nohitplayer = false;
             }
-            if (ShieldUp)
-			{
-                modifiers.Cancel();
-                return;
-			}
             if (Ronin)
             {
                 modifiers.Cancel();

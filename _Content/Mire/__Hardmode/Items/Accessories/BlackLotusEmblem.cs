@@ -1,28 +1,24 @@
-﻿using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {
-    public class BlackLotusEmblem : BaseAAItem, ILocalizedModType
+    public class BlackLotusEmblem : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Black Lotus Emblem");
-            /* Tooltip.SetDefault(
-@"Increases pickup range for mana stars
-Automatically use mana potions when needed
-Greatly reduce manasick time
-Your magic attacks inflicts moonraze
-15% increased movement speed
-12% reduced mana usage
-18% increased magic damage"); */
         }
         public override void SetDefaults()
         {
@@ -33,14 +29,15 @@ Your magic attacks inflicts moonraze
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.GetModPlayer<AAPlayer>().BlackLotusEmblem = true;
-            player.manaMagnet = true;
-			player.manaCost -= 0.12f;
-			player.GetDamage(DamageClass.Magic) += 0.18f;
-            player.moveSpeed += 0.15f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.15f;
+            damageMap.GetDamage(DamageClass.Magic) += 0.18f;
+            AddEffect(new MovementSpeedEffect(0.15f));
+            AddEffect(new MaxRunSpeedEffect(0.15f));
+            AddEffect(new ManaCostEffect(-0.12f));
+            AddEffect<BlackLotusEmblemEffect>();
+            AddEffect<CelestialMagnetEffect>();
+            AddEffect(new AttacksInflictDebuffEffect(DamageClass.Magic, (ModContent.BuffType<Moonraze_Buff>(), 100)));
         }
 
         public override void AddRecipes()

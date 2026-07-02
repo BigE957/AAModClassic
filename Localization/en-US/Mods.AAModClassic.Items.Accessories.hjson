@@ -362,3 +362,8 @@ HeartOfAnarchy: {
 	DisplayName: Heart Of Anarchy
 	Tooltip: ""
 }
+
+DreadMoonWings: {
+	DisplayName: Dread Moon Wings
+	Tooltip: ""
+}

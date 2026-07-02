@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
-    public abstract class EquipEffectAbstract : ModPlayer
+    public abstract class EquipmentEffectPlayer : ModPlayer
     {
         public bool effect = false;
         public override void ResetEffects()

@@ -1,7 +1,9 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -12,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
 {
-    public class Lantern : BaseAAItem, ILocalizedModType
+    public class Lantern : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public static Asset<Texture2D> Glowmask;
@@ -20,7 +22,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Lantern");
-            // Tooltip.SetDefault(@"Permanent accessory to partially remove The Fog");
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
@@ -34,14 +35,13 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            if (Item.accessory)
-            {
-                player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
-            }
+            AddEffect<LanternEffect>();
+            AddEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
         }
 
+        //TODO: cant this be removed
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
             Texture2D texture = Glowmask.Value;

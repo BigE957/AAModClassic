@@ -13,7 +13,6 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Acces
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.GetModPlayer<AAPlayer>().ShieldUp = true;
             player.lifeRegen += 14;
             player.noItems = true;
         }

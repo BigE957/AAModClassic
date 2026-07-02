@@ -38,48 +38,4 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories
             AddEffect(new CharmOfDesireEffect(20));
         }
     }
-
-    public class CharmOfDesireEffect(int bonusDamageCap = 20) : EquipmentEffectData
-    {
-        public override void DoEffect(Player player)
-        {
-            player.GetModPlayer<CharmOfDesirePlayer>().effect = true;
-            player.GetModPlayer<CharmOfDesirePlayer>().BonusDamageCap = bonusDamageCap;
-        }
-
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(bonusDamageCap, Main.LocalPlayer.GetModPlayer<CharmOfDesirePlayer>().BonusDamage);
-    }
-
-    public class CharmOfDesirePlayer : EquipEffectAbstract
-    {
-        public int BonusDamageCap;
-        public float BonusDamage;
-
-        public override void PostUpdate()
-        {
-            if (!Main.LocalPlayer.HasBuff<CharmOfDesire_Desire>())
-                BonusDamage = 0;
-        }
-    }
-
-    public class CharmOfDesireItem : GlobalItem
-    {
-        public override bool OnPickup(Item item, Player player)
-        {
-            CharmOfDesirePlayer modPlayer = player.GetModPlayer<CharmOfDesirePlayer>();
-            if (item.ammo == AmmoID.Coin)
-            {
-                if (modPlayer.effect)
-                {
-                    player.AddBuff(ModContent.BuffType<CharmOfDesire_Desire>(), 240);
-                    if (modPlayer.BonusDamage < modPlayer.BonusDamageCap)
-                    {
-                        modPlayer.BonusDamage += 1;
-                    }
-                }
-            }
-
-            return base.OnPickup(item, player);
-        }
-    }
 }

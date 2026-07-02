@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         }
     }
 
-    public class HeartOfSorrowDebuffPlayer : EquipEffectAbstract
+    public class HeartOfSorrowDebuffPlayer : EquipmentEffectPlayer
     {
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {

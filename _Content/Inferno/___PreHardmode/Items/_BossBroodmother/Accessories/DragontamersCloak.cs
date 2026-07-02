@@ -1,22 +1,21 @@
-﻿using Terraria;
+﻿using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using Terraria;
 using Terraria.ID;
-using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories
 {
     [AutoloadEquip(EquipType.Back, EquipType.Front)]
-    public class DragontamersCloak : BaseAAItem, ILocalizedModType
+    public class DragontamersCloak : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragontamer's Cloak");
-            /* Tooltip.SetDefault(
-@"3% Increased Damage Resistance"); */
         }
         public override void SetDefaults()
         {
@@ -29,11 +28,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Ac
             Item.defense = 3;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.endurance += .03f;
+            AddEffect(new EnduranceEffect(0.03f));
         }
 
+        //TODO: can this be centralized?
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)

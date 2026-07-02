@@ -1,20 +1,18 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
+using Terraria.GameInput;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Accessories
 {
-    public class SagittariusShield : BaseAAItem, ILocalizedModType
+    public class SagittariusShield : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sagittarius Shield");
-            /* Tooltip.SetDefault(@"Pressing the accessory ability hotkey puts up a barrier around you to protect you from damage
-While shielded, you cannot use items
-While shielded, your health regeneration is increased dramatically
-Shield lasts for 5 seconds
-Shield has a 5 minute cooldown"); */
         }
 
         public override void SetDefaults()
@@ -26,9 +24,9 @@ Shield has a 5 minute cooldown"); */
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player p, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            p.GetModPlayer<AAPlayer>().SagShield = true;
+            AddEffect<SagittariusShieldEffect>();
         }
     }
 }

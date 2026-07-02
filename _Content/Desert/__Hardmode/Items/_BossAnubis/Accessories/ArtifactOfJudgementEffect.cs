@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Main.LocalPlayer.GetModPlayer<ArtifactOfJudgementPlayer>().charge);
     }
 
-    public class ArtifactOfJudgementPlayer : EquipEffectAbstract
+    public class ArtifactOfJudgementPlayer : EquipmentEffectPlayer
     {
         public int charge = 0;
 

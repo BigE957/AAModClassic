@@ -1,16 +1,24 @@
-﻿using Terraria.ModLoader;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class OldOneCharm : BaseAAItem, ILocalizedModType
+    public class OldOneCharm : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetDefaults()
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Old One Charm");
+        }
+
+        public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 24;
@@ -19,20 +27,11 @@ namespace AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories
 			Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-            player.GetDamage(DamageClass.Summon) += .12f;
-            player.maxTurrets ++;
-            if(DD2Event.Ongoing) player.GetDamage(DamageClass.Summon) += .1f;
-		}
-		
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Old One Charm");
-			/* Tooltip.SetDefault(@"Increase 12% minion damage
-Increases your max number of sentries
-While Old One's Army is on, increase 22% minion damage."); */
-			
-		}
+        public override void RegisterEquipStats()
+        {
+			damageMap.GetDamage(DamageClass.Summon) += 0.12f;
+			AddEffect(new SentrySlotEffect(1));
+            AddEffect(new OldOneCharmEffect(0.22f));
+        }
 	}
 }

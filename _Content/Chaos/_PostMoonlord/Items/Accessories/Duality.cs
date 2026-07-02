@@ -1,8 +1,10 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Terrarium.Buffs;
@@ -60,13 +62,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
             AddEffect(new EnduranceEffect(0.06f));
             AddEffect<DualityDefenseEffect>();
             AddEffect<TaiyangBaoleiImmunityEffect>();
-            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<BurningAsh_Buff>(), ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Clueless_Buff>(), ModContent.BuffType<Terrablaze_Buff>(), ModContent.BuffType<DiscordianInferno_Buff>()));
+            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Terrablaze_Buff>(), ModContent.BuffType<DiscordianInferno_Buff>()));
+            AddEffect<LanternEffect>();
+            AddEffect<AshProofVestEffect>();
             AddEffect<FallDamageImmunityEffect>();
             AddEffect<SolarArmorSetDashEffect>(); //TODO: replace with moddash... like thats ever gonna happen
             AddEffect(new MasterNinjaMobilityEffect(false, true));
             AddEffect<BlackBeltEffect>();
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                AddEffect(new AttacksInflictDebuffEffect((ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+                AddEffect(new AttacksInflictDebuffEffect(null, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
         }
 
         public override void AddRecipes()

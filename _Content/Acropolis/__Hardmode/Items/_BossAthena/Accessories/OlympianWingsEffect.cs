@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
         }
     }
 
-    public class OlympianWingsPlayer : EquipEffectAbstract
+    public class OlympianWingsPlayer : EquipmentEffectPlayer
     {
         public int DashTimer;
 

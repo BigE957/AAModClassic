@@ -28,10 +28,6 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessorie
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-        }
         public override void RegisterEquipStats()
         {
             AddEffect(new CharmOfDesireEffect(40));

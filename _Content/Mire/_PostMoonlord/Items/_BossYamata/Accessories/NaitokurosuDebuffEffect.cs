@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
         }
     }
 
-    public class NaitokurosuDebuffPlayer : EquipEffectAbstract
+    public class NaitokurosuDebuffPlayer : EquipmentEffectPlayer
     {
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
         {

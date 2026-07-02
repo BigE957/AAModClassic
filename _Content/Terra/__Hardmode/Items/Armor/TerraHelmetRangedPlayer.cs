@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
-    public class TerraHelmetRangedPlayer : EquipEffectAbstract
+    public class TerraHelmetRangedPlayer : EquipmentEffectPlayer
     {
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         }
     }
 
-    public class BrokenCodeTeleportPlayer : EquipEffectAbstract
+    public class BrokenCodeTeleportPlayer : EquipmentEffectPlayer
     {
         public int CodeCD = 0;
         public bool on = true;

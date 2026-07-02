@@ -80,6 +80,10 @@ base
 --heart of sorrow now inflicts its debuffs on all melee and ranged dmage instead of just broadsword-type weapons
 --dragonstride boots now gives the effect of tiger climbing gear instead of climbing claws/shoe spikes, actually lets you walk on lava, and lists how it lets you walk on honey
 --talisman of desire now properly notes how its bonus damage cap is 40%, removed its custom buff due to an internal rework to how it and its predecessor work
+--old one charm now properly boosts summon damage by 22% during the ooa, instead of by 10%
+--dark void now lists how it gives the effect of night owl potion and follows the same description style as moon stone
+--dark void now lists a formerly hidden and unmentioned effect and follows the same description style as sun stone
+--equinox lists the two hidden effects from its componenets and follows the same description style as celestial stone
 --
 -
 

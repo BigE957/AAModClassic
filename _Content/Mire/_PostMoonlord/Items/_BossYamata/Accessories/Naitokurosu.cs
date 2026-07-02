@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Mire.Buffs;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities;
@@ -135,7 +136,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
             AddEffect<NaitokurosuMireEffect>();
             AddEffect(new MovementSpeedEffect(2));
             AddEffect(new NaitokurosuNightEffect(1));
-            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Clueless_Buff>()));
+            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<HydraToxin_Buff>()));
+            AddEffect<LanternEffect>();
             AddEffect(new MasterNinjaMobilityEffect(true, true));
             AddEffect<BlackBeltEffect>();
             AddEffect<NaitokurosuDebuffEffect>();
