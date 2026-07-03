@@ -84,7 +84,10 @@ base
 --dark void now lists how it gives the effect of night owl potion and follows the same description style as moon stone
 --dark void now lists a formerly hidden and unmentioned effect and follows the same description style as sun stone
 --equinox lists the two hidden effects from its componenets and follows the same description style as celestial stone
---
+--page of the rune book and book of runes no longer disable their effect if visibility is set to off because why would you want that
+--cursed eye of the soul binder now properly gives 31% damage during ooa
+-disabled aleister book and the book of law
+--this item was very broken in the original mod, and fixing it will take a while. aleister book WILL return...
 -
 
 removed
@@ -95,6 +98,8 @@ removed
 -re-added the dragon serpent necklace
 -re-added fulgurite ore, and all of its items
 -dragon serpent necklance and storm charm are now crafted at a tinkers workshop
+-holo cape now properly gives 15% damage resistance instead of 115% damage resistance
+-storm charm now gives the shield of cthulhu dash instead of the tabi dash
 -
 
 unreleased
@@ -109,6 +114,7 @@ unreleased
 -after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
 -fixed one of athenas minions instantly despawning. the olympian dragon has been let loose
 -added the heart of anarchy, a tinker for the hearts of passion and sorrow based on real plans
+-madness truffle no longer gives you infinite flight
 -
 
 unofficial

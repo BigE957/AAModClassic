@@ -14,7 +14,6 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
 {
     public class SeraphHarp_Seraph : ModProjectile
     {
-
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 4;

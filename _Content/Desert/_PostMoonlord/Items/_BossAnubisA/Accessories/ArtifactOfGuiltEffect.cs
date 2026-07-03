@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -14,7 +13,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories
+namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories
 {
     public class ArtifactOfGuiltEffect : EquipmentEffectData
     {

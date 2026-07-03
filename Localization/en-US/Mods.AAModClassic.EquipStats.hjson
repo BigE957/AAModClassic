@@ -37,6 +37,8 @@ ClassGlobalStats: {
 		Increase: increase
 		Decrease: decrease
 		Reduced: reduced
+		More: more
+		Less: less
 		Damage: damage
 		Knockback: knockback
 		CritSameAsDamageAdditive: " & critical strike chance"
@@ -49,7 +51,7 @@ Effect: {
 	ManaFlowerEffect: Automatically use mana potions when needed
 	CrimsonArmorSetBonusEffect: Greatly increased life regen
 	EnduranceEffect: "{0}% increased damage resistance"
-	MaxLifeEffect: +{0} Max Life
+	MaxLifeEffect: "{0} maximum life by {1}"
 	MovementSpeedEffect: "{0}% increased movement speed"
 	BrokenCodeTeleportEffect:
 		'''
@@ -183,7 +185,7 @@ Effect: {
 		[c/FFFF00:Current Charge: {0}]
 		'''
 	KnockbackImmunityEffect: Grants immunity to knockback
-	MaxManaEffect: "{0}s maximum mana by {1}"
+	MaxManaEffect: "{0} maximum mana by {1}"
 	DiscountCardEffect: Lowers shop prices by 20%
 	LuckyCoinEffect: Hitting enemies will sometimes drop extra coins
 	GoldRingEffect: Increases coin pickup range
@@ -198,7 +200,7 @@ Effect: {
 	LanternEffect: Allows you to see through the Mire's fog during the day
 	ManaCostEffect: "{0}% {1} mana cost"
 	CelestialMagnetEffect: Increases pickup range for mana stars
-	BlackLotusEmblemEffect: 
+	BlackLotusEmblemEffect:
 		'''
 		Automatically use mana potions when needed
 		Greatly reduces the length of Mana Sickness
@@ -208,8 +210,9 @@ Effect: {
 	OldOneCharmEffect: While the Old One's Army is ongoing, increases your summon damage by {0}%
 	ArcticMedallionEffect: Increases your damage and critical strike chance by 100% during a Blizzard
 	NightOwlEffect: Increases night vision
+
 	EquinoxDayNightStatBoostsEffect: {
-		Default: 
+		Default:
 			'''
 			During {0}, grants a great but not particularly exceptional increase to damage,
 			melee speed, critical strike chance, life regeneration,
@@ -217,17 +220,18 @@ Effect: {
 			'''
 		Day: daytime
 		Night: nighttime
-		}
-	EquinoxEffect: 
-			'''
-			Major increase to damage, melee speed, 
-			critical strike chance, life regeneration,
-			defense, mining speed, and minion knockback
-			'''
+	}
+
+	EquinoxEffect:
+		'''
+		Major increase to damage, melee speed, 
+		critical strike chance, life regeneration,
+		defense, mining speed, and minion knockback
+		'''
 	EmitLightFromPlayerEffect: Provides light when worn
 	MoonCharmEffect: Turns the holder into a werewolf at night
 	NeptunesShellEffect: Turns the holder into a merfolk when entering water
-	SagittariusShieldEffect: 
+	SagittariusShieldEffect:
 		'''
 		Pressing the accessory ability hotkey puts up a barrier around you to protect you from damage
 		While shielded, you cannot use items
@@ -235,4 +239,23 @@ Effect: {
 		Shield lasts for 5 seconds
 		Shield has a 5 minute cooldown
 		'''
+	APageOfTheRuneBookEffect:
+		'''
+		Summons runes for each unused minion slot
+		Having 1 minion slot open summons a Bunny Rune
+		Having 2 minion slots open summons an additional Discord Rune
+		Having 3 minion slots open summons an additional Energy Rune
+		'''
+	TheBookOfRunesEffect:
+		'''
+		Summons runes for each unused minion slot
+		Having 1 minion slot open summons a Terra Rune
+		Having 2 minion slots open summons an additional Chaos Rune
+		Having 3 minion slots open summons an additional Void Rune
+		'''
+	MinionSlotEffect: "{0} your max number of minions by {1}"
+	ShieldOfCthulhuDashEffect: Allows you to dash into enemies, damaging them
+	DemonGauntletEffect: ""
+	AggroEffect: Enemies are {0} likely to target you
+	StormClawEffect: Your non-autoswinging weapons are lightning fast
 }

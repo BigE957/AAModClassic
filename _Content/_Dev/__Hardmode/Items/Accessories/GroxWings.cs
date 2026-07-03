@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -10,14 +11,13 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class GroxWings : BaseAAItem, ILocalizedModType
+    public class GroxWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Vanity.Grox";
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Angry Pirate's Skysails");
-            /* Tooltip.SetDefault(@"Allows flight and slow fall
-'Great for impersonating Ancients Awakened Devs!'"); */
+            /* Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'"); */
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 2.5f);
         }
@@ -43,12 +43,12 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
         }
 
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 300;
-		}
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(300));
+        }
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
 			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
 			ascentWhenFalling = 0.85f;

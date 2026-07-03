@@ -11,6 +11,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
     [AutoloadEquip(EquipType.HandsOff)]
 	public class AleisterBook : BaseAAItem, ILocalizedModType
 	{
+        //TODO: make this thing work and port it to new acc system
+        public override bool IsLoadingEnabled(Mod mod) => false;
+
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {

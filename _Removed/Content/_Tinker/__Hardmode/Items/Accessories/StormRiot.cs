@@ -3,6 +3,7 @@ using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accesso
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,7 +13,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class StormRiot : BaseAAItem, ILocalizedModType
+    public class StormRiot : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
@@ -29,17 +30,13 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Riot Shield");
-            /* Tooltip.SetDefault(
-@"For every hit you land on an enemy, 45 true damage (damage unassigned to any class) is dealt
-Allows you to dash into enemies, damaging them
-Non-autoswing weapons can be swung faster"); */
         }
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-			player.GetModPlayer<AAPlayer>().clawsOfChaos = true;
-            player.GetModPlayer<StormClawPlayer>().StormClaw = true;
-            player.dash = 2;
+            damageMap.GetDamage(DamageClass.Default).Flat += 20;
+            AddEffect<StormClawEffect>();
+            AddEffect<ShieldOfCthulhuDashEffect>();
         }
 
         public override void AddRecipes()

@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,9 +8,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class BulwarkOfChaos : BaseAAItem, ILocalizedModType
+    public class BulwarkOfChaos : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Bulwark Of Chaos");
+        }
+
         public override void SetDefaults()
         {
             Item.width = 30;
@@ -20,17 +27,13 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
             Item.accessory = true;
             Item.defense = 3;
         }
-        public override void SetStaticDefaults()
-        {            // DisplayName.SetDefault("Bulwark Of Chaos");
-            /* Tooltip.SetDefault(
-@"For every hit you land on an enemy, 5 true damage (damage unassigned to any class) is dealt
-Allows you to dash into enemies, damaging them"); */
-        }
-		public override void UpdateAccessory(Player player, bool hideVisual)
+
+        public override void RegisterEquipStats()
         {
-			player.GetModPlayer<AAPlayer>().clawsOfChaos = true;
-            player.dashType = 2;
+            damageMap.GetDamage(DamageClass.Default).Flat += 5;
+            AddEffect<ShieldOfCthulhuDashEffect>();
         }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

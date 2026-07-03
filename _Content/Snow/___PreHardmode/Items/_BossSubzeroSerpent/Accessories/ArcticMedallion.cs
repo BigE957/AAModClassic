@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;

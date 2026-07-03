@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories
+namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Head)]
 	public class OrthrusXMask : BaseAAItem, ILocalizedModType

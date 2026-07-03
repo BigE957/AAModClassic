@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +10,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Acce
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class EmperorFishronWings : BaseAAItem, ILocalizedModType
+    public class EmperorFishronWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
@@ -26,13 +27,13 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Acce
 			Item.rare = ItemRarityID.LightPurple;
 			Item.accessory = true;
 		}
-        
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 270;
-		}
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(270));
+        }
+
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
 			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
 			ascentWhenFalling = 0.85f;

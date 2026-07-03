@@ -10,7 +10,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories
+namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Accessories
 {
     public class ArcticMedallionEffect : EquipmentEffectData
     {

@@ -94,7 +94,8 @@ namespace AAModClassic.Utilities
         {
             IncreasesDecreases = 0,
             IncreasedDecreased = 1,
-            IncreaseDecrease = 2
+            IncreaseDecrease = 2,
+            MoreLess = 3
         }
 
         public static string IncreaseOrDecreaseText(int number, IncreaseDecreaseTextType textType = IncreaseDecreaseTextType.IncreasedDecreased, bool reduced = false)
@@ -107,6 +108,8 @@ namespace AAModClassic.Utilities
                     return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increased");
                 else if (textType == IncreaseDecreaseTextType.IncreaseDecrease)
                     return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Increase");
+                else if (textType == IncreaseDecreaseTextType.MoreLess)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.More");
             }
             else
             {
@@ -119,6 +122,8 @@ namespace AAModClassic.Utilities
                     return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decreased");
                 else if (textType == IncreaseDecreaseTextType.IncreaseDecrease)
                     return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Decrease");
+                else if (textType == IncreaseDecreaseTextType.MoreLess)
+                    return Language.GetTextValue("Mods.AAModClassic.EquipStats.ClassGlobalStats.StatModifier.Less");
             }
 
             return "big mistake occurred in getting increase or decrease text type";

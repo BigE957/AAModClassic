@@ -367,3 +367,8 @@ DreadMoonWings: {
 	DisplayName: Dread Moon Wings
 	Tooltip: ""
 }
+
+CursedEyeOfTheSoulBinder: {
+	DisplayName: Cursed Eye Of The Soul Binder
+	Tooltip: ""
+}

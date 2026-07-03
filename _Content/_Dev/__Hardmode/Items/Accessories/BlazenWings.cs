@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -12,14 +13,13 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class BlazenWings : BaseAAItem, ILocalizedModType
+    public class BlazenWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Vanity.Blazen";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Tactical Assault Booster");
-            /* Tooltip.SetDefault(@"Allows flight and slow fall
-Hold up to rocket faster
+            /* Tooltip.SetDefault(@"Hold up to rocket faster
 'Great for impersonating Ancients Awakened Developers!'"); */
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 6.25f, true, 15, 10);
@@ -46,12 +46,12 @@ Hold up to rocket faster
         }
 
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 300;
-		}
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(300));
+        }
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
 			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
 			ascentWhenFalling = 0.85f;

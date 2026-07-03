@@ -1,23 +1,21 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
-    public class APageOfTheRuneBook : BaseAAItem, ILocalizedModType
+    public class APageOfTheRuneBook : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("A Page of the Rune Book");
-            /* Tooltip.SetDefault(@"Summons runes according to your minion slots
-When player has 1 minion slot, it summons bunny rune.
-When player has 2 minion slots, it summons bunny and discord rune.
-When player has 3 minion slots, it summons bunny, discord and energy rune."); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -44,11 +42,23 @@ When player has 3 minion slots, it summons bunny, discord and energy rune."); */
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             modPlayer.CCBook = true;
-            if(hideVisual)
-            {
-                modPlayer.CCBook = false;
-                player.ClearBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>());
-            }
         }
+        public override void RegisterEquipStats()
+        {
+            AddEffect<APageOfTheRuneBookEffect>();
+        }
+    }
+
+    public class APageOfTheRuneBookEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.GetModPlayer<APageOfTheRuneBookPlayer>().effect = true;
+        }
+    }
+
+    public class APageOfTheRuneBookPlayer : EquipmentEffectPlayer
+    {
+
     }
 }

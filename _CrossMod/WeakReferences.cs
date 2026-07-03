@@ -188,7 +188,7 @@ using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulO
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories;
+using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Armor.Vanity;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;

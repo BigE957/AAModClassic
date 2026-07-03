@@ -18,16 +18,11 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			bool flag = player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>()] > 0;
-			bool flag2 = player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_TerraRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_ChaosRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_VoidRune>()] > 0;
 			if (flag)
 			{
 				modPlayer.WeakCCRune = true;
 			}
-			if (flag2)
-			{
-				modPlayer.CCRune = true;
-			}
-			if (!modPlayer.WeakCCRune && !modPlayer.CCRune && !modPlayer.CCBook && !modPlayer.CCBookEX)
+			if (!modPlayer.WeakCCRune && !modPlayer.CCBook)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

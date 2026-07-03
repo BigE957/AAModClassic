@@ -1,21 +1,20 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories
 {
-    public class DragonSerpentNecklace : BaseAAItem, ILocalizedModType
+    public class DragonSerpentNecklace : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon Serpent Necklace");
-            /* Tooltip.SetDefault(@"7% increased damage and 3% increased damage resistance
-Ignores 5 Enemy defense"); */
         }
         public override void SetDefaults()
         {
@@ -37,11 +36,11 @@ Ignores 5 Enemy defense"); */
             recipe.Register();
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.endurance += .03f;
-            player.GetDamage(DamageClass.Generic) += .07f;
-            player.GetModPlayer<AAPlayer>().clawsOfChaos = true;
+            damageMap.GetDamage(DamageClass.Generic) += .07f;
+            damageMap.GetArmorPenetration(DamageClass.Generic) += 5;
+            AddEffect(new EnduranceEffect(0.03f));
         }
 
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */

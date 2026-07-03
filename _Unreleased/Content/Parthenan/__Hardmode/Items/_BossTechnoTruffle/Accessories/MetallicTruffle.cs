@@ -12,7 +12,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Metallic Truffle");
-            // Tooltip.SetDefault(@"Don't bite it.");
+            // Tooltip.SetDefault(@"'Don't bite it.'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
         }
 

@@ -318,7 +318,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.statLifeMax2 += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount);
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount)).FirstCharToUpper();
     }
 
     public class MovementSpeedEffect(float amount) : EquipmentEffectData
@@ -463,7 +463,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.statManaMax2 += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount), Math.Abs(amount)).FirstCharToUpper();
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount)).FirstCharToUpper();
     }
 
     public class ObsidianRoseEffect : EquipmentEffectData
@@ -516,6 +516,34 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
+    }
+
+    public class MinionSlotEffect(int amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.maxMinions += amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
+    }
+
+    public class ShieldOfCthulhuDashEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.dashType = 2;
+        }
+    }
+
+    public class AggroEffect(int amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.aggro = amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.MoreLess));
     }
 
     public class CelestialMagnetEffect : EquipmentEffectData

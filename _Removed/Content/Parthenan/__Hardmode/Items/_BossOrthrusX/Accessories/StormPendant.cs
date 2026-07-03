@@ -2,20 +2,19 @@
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class StormPendant : BaseAAItem, ILocalizedModType
+    public class StormPendant : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Pendant");
-            /* Tooltip.SetDefault(@"18% Increased damage
-10% Increased melee speed"); */
         }
         public override void SetDefaults()
         {
@@ -25,14 +24,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
             Item.accessory = true;
             Item.expert = true;
         }
-        public override void UpdateEquip(Player player)
+
+        public override void RegisterEquipStats()
         {
-            player.GetAttackSpeed(DamageClass.Melee) += .1f;
-            player.GetDamage(DamageClass.Melee) += .18f;
-            player.GetDamage(DamageClass.Ranged) += .18f;
-            player.GetDamage(DamageClass.Magic) += .18f;
-            player.GetDamage(DamageClass.Summon) += .18f;
-            player.GetDamage(DamageClass.Throwing) += .18f;
+            damageMap.GetDamage(DamageClass.Generic) += .10f;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += .10f;
         }
 
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */

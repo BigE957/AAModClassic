@@ -1,18 +1,18 @@
 ﻿using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class HydraPendant : BaseAAItem, ILocalizedModType
+    public class HydraPendant : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hydra Pendant");
-            // Tooltip.SetDefault(@"7% Increased damage");
         }
 
         public override void SetDefaults()
@@ -24,9 +24,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories
             Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Generic) += .07f;
+            damageMap.GetDamage(DamageClass.Generic) += .07f;
         }
 
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */

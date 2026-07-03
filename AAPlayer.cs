@@ -906,12 +906,6 @@ namespace AAModClassic
                 target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
             }
 
-            if (demonGauntlet)
-            {
-                int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
-                target.AddBuff(buff, 180);
-            }
-
             if (dracoSet)
             {
                 target.AddBuff(BuffID.Daybreak, 600);
@@ -981,12 +975,6 @@ namespace AAModClassic
                 {
                     string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
                     target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
-                }
-
-                if (demonGauntlet)
-                {
-                    int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
-                    target.AddBuff(buff, 180);
                 }
 
                 if (Player.HasBuff(ModContent.BuffType<FlaskOfDragonfire_Buff>()))
@@ -2523,14 +2511,6 @@ namespace AAModClassic
 
         public override void ModifyWeaponKnockback(Item item, ref StatModifier knockback)
         {
-            if (demonGauntlet)
-            {
-                if (item.CountsAsClass(DamageClass.Melee))
-                {
-                    knockback += 2f;
-                }
-            }
-
             if (IsGoblin)
             {
                 knockback += 5f;
@@ -2946,24 +2926,6 @@ namespace AAModClassic
             Spear = false;
             MaxMovespeedboost = 0;
             spellbookDamage = 1f;
-        }
-
-        public override void MeleeEffects(Item item, Rectangle hitbox)
-        {
-            if (demonGauntlet)
-            {
-                if (Main.rand.NextFloat() < 1f)
-                {
-                    int ThisDust = 170;
-                    if (!WorldGen.crimson)
-                    {
-                        ThisDust = 75;
-                    }
-
-                    Dust dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ThisDust, 0f, 0f, 46)];
-                    dust.noGravity = true;
-                }
-            }
         }
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)

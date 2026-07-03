@@ -1793,3 +1793,8 @@ BrokenCode_Glitched: {
 	DisplayName: Broken Code_ Glitched
 	Description: Mods.AAModClassic.Buffs.BrokenCode_Glitched.Description
 }
+
+TheBookOfRunes_Buff: {
+	DisplayName: The Book Of Runes_ Buff
+	Description: Mods.AAModClassic.Buffs.TheBookOfRunes_Buff.Description
+}

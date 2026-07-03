@@ -1,18 +1,34 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.GameContent.Events;
-using Terraria.ModLoader;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.GameContent.Events;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Face)]
-    public class CursedEyeofSoulBinder : BaseAAItem, ILocalizedModType
+    public class CursedEyeOfTheSoulBinder : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Cursed Eye of the Soul Binder");
+            /* Tooltip.SetDefault(@"Increase 21% minion damage
+Increase your max number of minions
+Increase your max number of sentries
++50 Max Life
+Your minions can strike the enemy's soul
+While Old One's Army is on, increase 31% minion damage."); */
+        }
+
         public override void SetDefaults()
         {
             Item.width = 48;
@@ -24,23 +40,18 @@ namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetDamage(DamageClass.Summon) += .21f;
-            player.maxMinions += 1;
-            player.maxTurrets ++;
-            player.statLifeMax2 += 50;
+
             if(DD2Event.Ongoing) player.GetDamage(DamageClass.Summon) += .1f;
             player.GetModPlayer<AAPlayer>().CursedEyeofSoulBinder = true;
         }
-
-        public override void SetStaticDefaults()
+        public override void RegisterEquipStats()
         {
-            // DisplayName.SetDefault("Cursed Eye of the Soul Binder");
-            /* Tooltip.SetDefault(@"Increase 21% minion damage
-Increase your max number of minions
-Increase your max number of sentries
-+50 Max Life
-Your minions can strike the enemy's soul
-While Old One's Army is on, increase 31% minion damage."); */
+            damageMap.GetDamage(DamageClass.Summon) += .21f;
+            AddEffect(new MinionSlotEffect(1));
+            AddEffect(new SentrySlotEffect(1));
+            AddEffect(new MaxLifeEffect(50));
+            AddEffect(new OldOneCharmEffect(0.31f));
+
         }
 
         public override void AddRecipes()

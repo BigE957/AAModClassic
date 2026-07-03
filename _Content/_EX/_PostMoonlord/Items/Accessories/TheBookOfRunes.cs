@@ -1,27 +1,24 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
-    public class TheBookOfRunes : BaseAAItem, ILocalizedModType
+    public class TheBookOfRunes : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("The Book of Runes");
-            /* Tooltip.SetDefault(@"Summons runes according to how many minion slots you have left
-When player has 1 minion slot it summons terra rune.
-When player has 2 minion slots it summons terra and chaos rune.
-When player has 3 minion slots it summons terra, chaos and void rune."); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -48,11 +45,10 @@ When player has 3 minion slots it summons terra, chaos and void rune."); */
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             modPlayer.CCBookEX = true;
-            if(hideVisual)
-            {
-                modPlayer.CCBookEX = false;
-                player.ClearBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>());
-            }
+        }
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(180));
         }
 
         public override void AddRecipes()

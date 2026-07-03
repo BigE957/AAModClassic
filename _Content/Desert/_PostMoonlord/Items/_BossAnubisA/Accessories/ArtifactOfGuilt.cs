@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
