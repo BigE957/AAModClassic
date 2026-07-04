@@ -1798,3 +1798,13 @@ TheBookOfRunes_Buff: {
 	DisplayName: The Book Of Runes_ Buff
 	Description: Mods.AAModClassic.Buffs.TheBookOfRunes_Buff.Description
 }
+
+ChaosHelmetMageSetEffect_ChaoticFury: {
+	DisplayName: Chaos Helmet Mage Set Effect_ Chaotic Fury
+	Description: Mods.AAModClassic.Buffs.ChaosHelmetMageSetEffect_ChaoticFury.Description
+}
+
+ChaosHelmetSummonerSetEffect_Buff: {
+	DisplayName: Chaos Helmet Summoner Set Effect_ Buff
+	Description: Mods.AAModClassic.Buffs.ChaosHelmetSummonerSetEffect_Buff.Description
+}

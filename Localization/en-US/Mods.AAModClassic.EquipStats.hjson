@@ -50,7 +50,7 @@ Misc.Nothing: ""
 Effect: {
 	ManaFlowerEffect: Automatically use mana potions when needed
 	CrimsonArmorSetBonusEffect: Greatly increased life regen
-	EnduranceEffect: "{0}% increased damage resistance"
+	EnduranceEffect: Reduces damage taken by {0}%
 	MaxLifeEffect: "{0} maximum life by {1}"
 	MovementSpeedEffect: "{0}% increased movement speed"
 	BrokenCodeTeleportEffect:
@@ -137,7 +137,7 @@ Effect: {
 	HeartOfSorrowDebuffEffect:
 		'''
 		Melee and ranged damage inflicts Hydra Toxin
-		Below 1/3rd of your maximum life, your magic and summon damage inflicts Moonraze instead
+		Below 1/3rd of your maximum life, your melee and ranged damage inflicts Moonraze instead
 		'''
 	HeartOfAnarchyDamageBoostEffect: Your damage increases the less health you have
 	HeartOfAnarchyBullshitEffect: Below 2/3rds of your maximum life, your movement speed is increased by 100% and your mana regenerates much faster
@@ -258,4 +258,10 @@ Effect: {
 	DemonGauntletEffect: ""
 	AggroEffect: Enemies are {0} likely to target you
 	StormClawEffect: Your non-autoswinging weapons are lightning fast
+	IgnoreWaterEffect: Liquid does not affect your movement
+	GillsEffect: Allows you to breathe in liquids
+	ChaosHelmetMageSetEffect: While submerged in liquids, your magic abilities are increased drastically
+	AmmoCost75Effect: 25% chance to save ammo
+	HunterEffect: Shows the location of enemies
+	ChaosHelmetSummonerSetEffect: A dragon soul ravages foes for you
 }

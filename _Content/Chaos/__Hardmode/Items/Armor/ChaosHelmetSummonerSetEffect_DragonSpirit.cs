@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
-    public class ChaosHelmetSummoner_DragonSpirit : ModProjectile
+    public class ChaosHelmetSummonerSetEffect_DragonSpirit : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -44,15 +44,9 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             }
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<ChaosHelmetSummoner_Buff>(), 3600);
-            if (player.dead || !modPlayer.ChaosSu)
-            {
-                modPlayer.DragonSpirit = false;
-            }
-            if (modPlayer.DragonSpirit)
-            {
+            player.AddBuff(ModContent.BuffType<ChaosHelmetSummonerSetEffect_Buff>(), 3600);
+            if (!player.dead && player.GetModPlayer<ChaosHelmetSummonerSetPlayer>().effect)
                 Projectile.timeLeft = 2;
-            }
 
             float num633 = 700f;
             float num634 = 800f;

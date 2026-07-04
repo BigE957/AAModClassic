@@ -38,21 +38,22 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
 
             damageMap.GetDamage(DamageClass.Magic) += 0.20f;
             damageMap.GetArmorPenetration(DamageClass.Magic) += 5;
-            damageMap.GetArmorPenetration(DamageClass.Melee) -= 5;
 
-            AddEffect(new EnduranceEffect(0.04f));
-            AddEffect(new MovementSpeedEffect(0.55f));
-            AddEffect(new MaxLifeEffect(75));
-            AddEffect<ManaFlowerEffect>();
-            AddEffect<CrimsonArmorSetBonusEffect>();
+            setDamageMap.GetDamage(DamageClass.Magic) += 0.20f;
+            AddSetEffect<ManaFlowerEffect>();
+
+            /*
+AddEffect(new EnduranceEffect(0.04f));
+AddEffect(new MovementSpeedEffect(0.55f));
+AddEffect(new MaxLifeEffect(75));
+AddEffect<ManaFlowerEffect>();
+AddEffect<CrimsonArmorSetBonusEffect>();
+*/
         }
 
-        public override void RegisterArmorSetStats()
+        public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            base.RegisterArmorSetStats();
-
-            //GetDamage(DamageClass.Magic) += 0.60f;
-            //player.manaFlower = true;
+            return body.type == ModContent.ItemType<TerraChestplate>() && legs.type == ModContent.ItemType<TerraLeggings>();
         }
 
         /*
@@ -67,11 +68,6 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             ManaCost = -0.3f; // Reduces mana cost by 30%
             Damage(DamageClass.Magic) = 0.17f; // Increases magic damage by 17%
             Crit(DamageClass.Magic) = 0.15f; // Increases magic crit chance by 15%
-        }
-
-        public override bool IsArmorSet(Item head, Item body, Item legs)
-        {
-            return body.type == ModContent.ItemType<TerraChestplate>() && legs.type == ModContent.ItemType<TerraLeggings>();
         }
 
         public override void UpdateArmorSet(Player player)

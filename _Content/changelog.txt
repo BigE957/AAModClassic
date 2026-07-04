@@ -88,6 +88,10 @@ base
 --cursed eye of the soul binder now properly gives 31% damage during ooa
 -disabled aleister book and the book of law
 --this item was very broken in the original mod, and fixing it will take a while. aleister book WILL return...
+-many armor sets and armor pieces now list the correct effects
+--chaos helmet melee set bonus no longer specifies *swung* weapons inflict a debuff since it made all melee attacks deal debuff, no longer gives effect of magma stone, now always inflicts both debuffs on melee proj hit
+--chaos helmet ranged set bonus now always inflicts both debuffs instead of either or, like its sister effect
+--
 -
 
 removed

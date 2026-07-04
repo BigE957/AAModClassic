@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
-    public class Chaos_Buff : ModBuff
+    public class ChaosHelmetMageSetEffect_ChaoticFury : ModBuff
     {
         public override void SetStaticDefaults()
         {

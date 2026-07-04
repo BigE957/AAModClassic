@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Terra.___PreHardmode.Items.Weapons
 			recipe.AddIngredient(ItemID.Bone, 10);
 			recipe.AddIngredient(ItemID.Stinger, 8);
 			recipe.AddIngredient(ItemID.JungleSpores, 6);
-			recipe.AddIngredient(ItemID.CrimtaneBar, 10);
+			recipe.AddRecipeGroup("AAModClassic:EvilBar", 10);
 			recipe.AddIngredient(ItemID.HellstoneBar, 10);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();

@@ -793,11 +793,6 @@ namespace AAModClassic
 
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
-            if (DragonsGuard || ChaosMe) // THERES AN EFFECT FOR THIS SO USE THAT
-            {
-                npc.AddBuff(BuffID.OnFire, 120);
-            }
-
             if (fleshrendSet && Main.rand.NextBool(2))
             {
                 if (Player.whoAmI == Main.myPlayer)
@@ -820,13 +815,6 @@ namespace AAModClassic
                     }
                 }
             }
-
-            if (ChaosMe)
-            {
-                npc.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 180);
-                npc.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
-            }
-
 
             if (npc.type == NPCID.GoblinArcher
                 || npc.type == NPCID.GoblinPeon
@@ -971,12 +959,6 @@ namespace AAModClassic
                     target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
 
-                if (ChaosMe || ChaosMe1)
-                {
-                    string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
-                    target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
-                }
-
                 if (Player.HasBuff(ModContent.BuffType<FlaskOfDragonfire_Buff>()))
                 {
                     target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 900);
@@ -1013,12 +995,6 @@ namespace AAModClassic
                 if (darkmatterSetRa)
                 {
                     target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
-                }
-
-                if (ChaosRa || ChaosRa2)
-                {
-                    string buffName = Main.rand.NextBool(2) ? "DragonFire" : "HydraToxin";
-                    target.AddBuff(Mod.Find<ModBuff>(buffName).Type, 180);
                 }
 
                 if (infinitySet && Main.rand.NextBool(2))
@@ -2622,7 +2598,7 @@ namespace AAModClassic
                     vector2.X = Main.mouseX + Main.screenPosition.X;
                     vector2.Y = Main.mouseY + Main.screenPosition.Y;
 
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<ChaosHelmetSummoner_DragonShot>(), damage, knockback, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<ChaosHelmetSummonerSetEffect_DragonShot>(), damage, knockback, Main.myPlayer, 0f, 0f);
                 }
             }
 

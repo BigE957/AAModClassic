@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
+﻿using AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using Humanizer;
 using System;
@@ -14,7 +15,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     public abstract class EquipAbstract : BaseAAItem
     {
         public DamageClassMap damageMap = new();
+        public DamageClassMap setDamageMap = new();
         public List<EquipmentEffectData> effectMap = new();
+        public List<EquipmentEffectData> setEffectMap = new();
 
         #region the sealing
         public sealed override void UpdateEquip(Player player)
@@ -62,8 +65,22 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public sealed override void UpdateArmorSet(Player player)
         {
             base.UpdateArmorSet(player);
+            Clear();
+            RegisterEquipStats();
 
+            for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
+            {
+                DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
+                player.GetDamage(currentClass) = player.GetDamage(currentClass).CombineWith(setDamageMap.GetDamage(currentClass));
+                player.GetCritChance(currentClass) += setDamageMap.GetCritChance(currentClass);
+            }
 
+            foreach (EquipmentEffectData effect in setEffectMap)
+            {
+                effect.DoEffect(player);
+            }
+
+            StatModifierUtils.HandleSetBonusEffectsInItemDesc(Mod, ref player.setBonus, ref setDamageMap, ref setEffectMap);
         }
         #endregion
 
@@ -77,11 +94,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         }
 
-        public virtual void RegisterArmorSetStats()
-        {
-
-        }
-
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             base.ModifyTooltips(list);
@@ -91,61 +103,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             const string rootPath = "Mods.AAModClassic.EquipStats";
             const string statModifierPath = "ClassGlobalStats.StatModifier";
 
-            var line = new TooltipLine(Mod, "Dummy", "Don't add this!");
-            for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
-            {
-                DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
-                if (damageMap != new DamageClassMap())
-                {
-                    bool critAndDamageAdditiveAreSame = Math.Round(damageMap.GetDamage(currentClass).Additive - 1, 2) == Math.Round(damageMap.GetCritChance(currentClass), 2);
-
-                    if (damageMap.GetDamage(currentClass) != StatModifier.Default)
-                    {
-                        StatModifierUtils.HandleStatModifierTooltips(Mod, list, currentClass, damageMap.GetDamage(currentClass), StatModifierUtils.StatModifierInputType.Damage, critAndDamageAdditiveAreSame);
-                    }
-                    if (damageMap.GetCritChance(currentClass) != 0 && !critAndDamageAdditiveAreSame)
-                    {
-
-                    }
-                    if (damageMap.GetAttackSpeed(currentClass) != 1)
-                    {
-
-                    }
-                    if (damageMap.GetArmorPenetration(currentClass) != 0)
-                    {
-                        string increaseOrDecrease = "Increased";
-                        if (damageMap.GetArmorPenetration(currentClass) < 0)
-                            increaseOrDecrease = "Decreased";
-
-                        string extraSpaceForGeneric = " ";
-                        if (currentClass == DamageClass.Generic)
-                            extraSpaceForGeneric = "";
-
-                        string adlibPath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.ArmorPenetration");
-                        string increaseOrDecreasePath = Language.GetTextValue($"{rootPath}.{statModifierPath}.{increaseOrDecrease}");
-                        string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
-
-                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, Math.Abs(damageMap.GetArmorPenetration(currentClass)));
-                        finalTooltipText = finalTooltipText.FirstCharToUpper();
-                        line = new TooltipLine(Mod, "ArmorPenetrationLine", finalTooltipText);
-                        int index = list.FindIndex(x => x.Name == "Tooltip0");
-                        if (index != -1)
-                            list.Insert(index, line);
-                    }
-                    if (damageMap.GetKnockback(currentClass) != StatModifier.Default)
-                    {
-                        StatModifierUtils.HandleStatModifierTooltips(Mod, list, currentClass, damageMap.GetDamage(currentClass), StatModifierUtils.StatModifierInputType.Knockback, critAndDamageAdditiveAreSame);
-                    }
-                }
-            }
-
-            foreach (EquipmentEffectData effect in effectMap)
-            {
-                line = new TooltipLine(Mod, effect.Name, effect.GetDescription());
-                int index = list.FindIndex(x => x.Name == "Tooltip0");
-                if (index != -1)
-                    list.Insert(index, line);
-            }
+            StatModifierUtils.HandleDamageClassStatsInItemDesc(Mod, ref list, ref damageMap);
+            StatModifierUtils.HandleEffectsInItemDesc(Mod, ref list, ref effectMap);
         }
 
         public void AddEffect<T>() where T : EquipmentEffectData, new()
@@ -158,10 +117,22 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             effectMap.Add(data);
         }
 
+        public void AddSetEffect<T>() where T : EquipmentEffectData, new()
+        {
+            setEffectMap.Add(new T());
+        }
+
+        public void AddSetEffect(EquipmentEffectData data)
+        {
+            setEffectMap.Add(data);
+        }
+
         public void Clear()
         {
             damageMap.Clear();
+            setDamageMap.Clear();
             effectMap.Clear();
+            setEffectMap.Clear();
         }
     }
 
@@ -546,6 +517,22 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.MoreLess));
     }
 
+    public class AmmoCost75Effect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.ammoCost75 = true;
+        }
+    }
+
+    public class HunterEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.detectCreature = true;
+        }
+    }
+
     public class CelestialMagnetEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
@@ -586,11 +573,27 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class SolarArmorSetDashEffect() : EquipmentEffectData
+    public class SolarArmorSetDashEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
             player.dashType = 3;
+        }
+    }
+
+    public class IgnoreWaterEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.ignoreWater = true;
+        }
+    }
+
+    public class GillsEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.gills = true;
         }
     }
 
@@ -636,10 +639,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             player.GetModPlayer<AttacksInflictDebuffPlayer>().effect = true;
             player.GetModPlayer<AttacksInflictDebuffPlayer>().damageToDoEffectOn = damageClass;
-            foreach (var debuffDestuff in debuffData)
+
+            if (player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray != null)
             {
-                player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray.Add(debuffDestuff.buffID);
-                player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffLengthArray.Add(debuffDestuff.time);
+                foreach (var debuffDestuff in debuffData)
+                {
+                    player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray.Add(debuffDestuff.buffID);
+                    player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffLengthArray.Add(debuffDestuff.time);
+                }
             }
         }
 
@@ -829,6 +836,97 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             Damage = 0,
             Knockback = 1
+        }
+
+        public static void HandleDamageClassStatsInItemDesc(Mod mod, ref List<TooltipLine> list, ref DamageClassMap damageMap)
+        {
+            const string rootPath = "Mods.AAModClassic.EquipStats";
+            const string statModifierPath = "ClassGlobalStats.StatModifier";
+
+            var line = new TooltipLine(mod, "Dummy", "Don't add this!");
+
+            for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
+            {
+                DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
+                if (damageMap != new DamageClassMap())
+                {
+                    bool critAndDamageAdditiveAreSame = Math.Round(damageMap.GetDamage(currentClass).Additive - 1, 2) == Math.Round(damageMap.GetCritChance(currentClass), 2);
+
+                    if (damageMap.GetDamage(currentClass) != StatModifier.Default)
+                    {
+                        HandleStatModifierTooltips(mod, list, currentClass, damageMap.GetDamage(currentClass), StatModifierInputType.Damage, critAndDamageAdditiveAreSame);
+                    }
+                    if (damageMap.GetCritChance(currentClass) != 0 && !critAndDamageAdditiveAreSame)
+                    {
+
+                    }
+                    if (damageMap.GetAttackSpeed(currentClass) != 1)
+                    {
+
+                    }
+                    if (damageMap.GetArmorPenetration(currentClass) != 0)
+                    {
+                        string increaseOrDecrease = "Increased";
+                        if (damageMap.GetArmorPenetration(currentClass) < 0)
+                            increaseOrDecrease = "Decreased";
+
+                        string extraSpaceForGeneric = " ";
+                        if (currentClass == DamageClass.Generic)
+                            extraSpaceForGeneric = "";
+
+                        string adlibPath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.ArmorPenetration");
+                        string increaseOrDecreasePath = Language.GetTextValue($"{rootPath}.{statModifierPath}.{increaseOrDecrease}");
+                        string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
+
+                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric, Math.Abs(damageMap.GetArmorPenetration(currentClass)));
+                        finalTooltipText = finalTooltipText.FirstCharToUpper();
+                        line = new TooltipLine(mod, "ArmorPenetrationLine", finalTooltipText);
+                        int index = list.FindIndex(x => x.Name == "Tooltip0");
+                        if (index != -1)
+                            list.Insert(index, line);
+                    }
+                    if (damageMap.GetKnockback(currentClass) != StatModifier.Default)
+                    {
+                        HandleStatModifierTooltips(mod, list, currentClass, damageMap.GetDamage(currentClass), StatModifierInputType.Knockback, critAndDamageAdditiveAreSame);
+                    }
+                }
+            }
+        }
+
+        public static void HandleEffectsInItemDesc(Mod mod, ref List<TooltipLine> list, ref List<EquipmentEffectData> effectMap)
+        {
+            var line = new TooltipLine(mod, "Dummy", "Don't add this!");
+
+            foreach (EquipmentEffectData effect in effectMap)
+            {
+                line = new TooltipLine(mod, effect.Name, effect.GetDescription());
+                int index = list.FindIndex(x => x.Name == "Tooltip0");
+                if (index != -1)
+                    list.Insert(index, line);
+            }
+        }
+
+        public static void HandleSetBonusEffectsInItemDesc(Mod mod, ref string setBonus, ref DamageClassMap setDamageMap, ref List<EquipmentEffectData> setEffectMap)
+        {
+            List<TooltipLine> list = new List<TooltipLine>();
+            list.Add(new TooltipLine(mod, "Tooltip0", "remove this"));
+
+            HandleDamageClassStatsInItemDesc(mod, ref list, ref setDamageMap);
+            HandleEffectsInItemDesc(mod, ref list, ref setEffectMap);
+
+            string listHack = "";
+            for (int i = 0; i < list.Count; i++)
+            {
+                TooltipLine line = list[i];
+                if (line.Name != "Tooltip0")
+                {
+                    listHack += line.Text;
+                    if (i < list.Count - 2)
+                        listHack += "\n";
+                }
+            }
+
+            setBonus = listHack;
         }
 
         public static void HandleStatModifierTooltips(Mod mod, List<TooltipLine> list, DamageClass currentClass, StatModifier input, StatModifierInputType inputType, bool doCritSameAsDamageThing = false)

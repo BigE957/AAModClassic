@@ -112,31 +112,6 @@ Equipset: {
 		'''
 }
 
-ChaosFukumenBonus:
-	'''
-	Your ranged attacks are imbued with the chaos of Dragonfire and Bogtoxin
-	25% increased ranged damage
-	Enemies are less likely to target you
-	Night Vision and hunter effects
-	25% reduced ammo consumption
-	'''
-ChaosKabutoBonus:
-	'''
-	10% increased melee speed
-	Enemies are more likely to target you
-	Enemies that strike you are set ablaze
-	Your Swung weapons inflicts them with Bogtoxin and Dragonflame
-	'''
-ChaosMaskBonus:
-	'''
-	While submerged in liquids, your magic abilities are increased drastically
-	You can swim and liquid does not affect your movement
-	'''
-ChaosVisorBonus:
-	'''
-	+4 Minion slots
-	A dragon soul ravages foes for you
-	'''
 DarkmatterHeaddressBonus: Minions will occasionally attempt to disrupt enemy projectiles
 DarkmatterHelmetBonus:
 	'''

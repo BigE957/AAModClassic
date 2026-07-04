@@ -1,25 +1,22 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Armor;
-using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ChaosHelmetMage : BaseAAItem, ILocalizedModType
+	public class ChaosHelmetMage : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Chaos";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Chaos Mask");
-            /* Tooltip.SetDefault(@"Increases maximum mana by 80
-Increases magic damage by 20%
-Increases magic crit by 20%
-Allows you to breath underwater"); */
         }
 
 		public override void SetDefaults()
@@ -30,30 +27,23 @@ Allows you to breath underwater"); */
             Item.rare = ItemRarityID.Lime;
             Item.defense = 18;
         }
-		
-		public override void UpdateEquip(Player player)
-		{
-			player.manaCost -= 0.3f;
-            player.GetDamage(DamageClass.Magic) += 0.20f;
-            player.gills = true;
-            player.GetCritChance(DamageClass.Magic) += 20;
-			player.statManaMax2 += 80;
-		}
+
+        public override void RegisterEquipStats()
+        {
+			damageMap.GetDamage(DamageClass.Magic) += 0.20f;
+			damageMap.GetCritChance(DamageClass.Magic) += 20;
+            AddEffect(new ManaCostEffect(-0.3f));
+			AddEffect(new MaxManaEffect(80));
+			AddEffect<GillsEffect>();
+
+            AddSetEffect<ChaosHelmetMageSetEffect>();
+            AddSetEffect<FlipperEffect>();
+            AddSetEffect<IgnoreWaterEffect>();
+        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<ChaosChestplate>() && legs.type == ModContent.ItemType<ChaosLeggings>();
-        }
-
-        public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosMaskBonus");
-			if (player.wet)
-			{
-				player.AddBuff(ModContent.BuffType<Chaos_Buff>(), 2);
-            }
-            player.accFlipper = true;
-            player.ignoreWater = true;
         }
 		
 		public override void AddRecipes()

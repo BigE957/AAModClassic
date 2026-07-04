@@ -21,6 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
 
     public class StormClawPlayer : EquipmentEffectPlayer
     {
+        //TODO: what was he trying to do here
         public virtual float UseTimeMultiplier(Item item, Player player)
         {
             float multiplier = 1f;
@@ -35,7 +36,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
                     multiplier *= 2f;
                 }
             }
-
+            
             while (useTime / multiplier < 1)
             {
                 multiplier -= .1f;

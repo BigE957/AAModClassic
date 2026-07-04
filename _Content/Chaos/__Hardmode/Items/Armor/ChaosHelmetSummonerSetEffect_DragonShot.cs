@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
-    public class ChaosHelmetSummoner_DragonShot : ModProjectile
+    public class ChaosHelmetSummonerSetEffect_DragonShot : ModProjectile
     {
         public override void SetStaticDefaults()
         {

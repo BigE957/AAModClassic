@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
-    public class ChaosHelmetSummoner_Buff : ModBuff
+    public class ChaosHelmetSummonerSetEffect_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -15,12 +15,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<ChaosHelmetSummoner_DragonSpirit>()] > 0)
-            {
-                modPlayer.DragonSpirit = true;
-            }
-            if (!modPlayer.ChaosSu)
+            if (!player.GetModPlayer<ChaosHelmetSummonerSetPlayer>().effect)
             {
                 player.DelBuff(buffIndex);
                 buffIndex--;
