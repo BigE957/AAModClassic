@@ -24,14 +24,5 @@ namespace AAModClassic.Utilities
         {
             return input.Remove(0, 13);
         }
-        /// <summary>
-        /// loc path for set bonuses
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static string SetBonusPath<T>()
-        {
-            return Language.GetTextValue("Mods.AAModClassic.SetBonuses." + typeof(T).Name);
-        }
     }
 }

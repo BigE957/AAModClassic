@@ -273,11 +273,13 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                             if (AttackNext == (int)AnubisAttacks.ThrowAxe)
                                 AttackNext = (int)AnubisAttacks.ThrowAxe2;
                         }
+                        /*
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && IsBelow33Percent)
                         {
                             if (AttackNext == (int)AnubisAttacks.ThrowAxe2)
                                 AttackNext = (int)AnubisAttacks.ThrowAxe3;
                         }
+                        */
 
                         if (AttackNext == (int)AnubisAttacks.SwipeBuildup)
                         {

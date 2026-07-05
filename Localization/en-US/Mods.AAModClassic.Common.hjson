@@ -50,27 +50,12 @@ RajahSPDamageResistance: Current Damage Resistance: +
 #ArmorBonus
 
 AncientGoldSetBonus: If you have enough money, you can resist an attack by losting all your money.
+
 DemonHoodBonus:
 	'''
 	Your minions set enemies ablaze
 	You Always have a small Imp servant by your side
 	Imp isn't counted in your max minion count
-	'''
-DoomsdayMaskBonus:
-	'''
-	Life termination systems activated
-	You detect all hostile life around you
-	You can see in the dark much more easily
-	Your minion's attacks are strong enough to weaken your enemies defense for a time
-	+5 Minion slots
-	'''
-DoomsdayHelmetBonus:
-	'''
-	Life termination systems activated
-	You detect all hostile life around you
-	You can see in the dark much more easily
-	Your magic attacks are strong enough to weaken your enemies defense for a time
-	Mana usage reduced by 30%
 	'''
 StripeManSetBonus1:
 	'''
@@ -86,6 +71,7 @@ StripeManSetBonus2:
 	And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever
 	'''
 ImpHoodBonus: Your minions set enemies ablaze
+
 #CurrencyItems
 
 PlayerBuyPrice: Buy price:
