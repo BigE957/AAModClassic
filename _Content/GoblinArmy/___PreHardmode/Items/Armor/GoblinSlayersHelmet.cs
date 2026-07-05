@@ -1,22 +1,25 @@
-﻿using Terraria.Graphics.Shaders;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using System;
-using Terraria.ID;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GoblinSlayersHelmet : BaseAAItem, ILocalizedModType
+	public class GoblinSlayersHelmet : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.GoblinSlayers";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Goblin Slayer's Helm");
-			// Tooltip.SetDefault(@"An immense hatred of Goblinkind haunts this helm");
+			// Tooltip.SetDefault(@"'An immense hatred of Goblinkind haunts this helm'");
 
 		}
 
@@ -34,10 +37,21 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<GoblinSlayersChestplate>() && legs.type == ModContent.ItemType<GoblinSlayersLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerHelmBonus");
-            player.GetModPlayer<AAPlayer>().goblinSlayer = true;
+        public override void RegisterEquipStats()
+        {
+            AddSetEffect<GoblinSlayersHelmetSetDamageEffect>();
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect<GoblinSlayersHelmetSetEnduranceEffect>();
+            AddSetEffect<GoblinSlayersHelmetSetDescEffect>();
+        }
+    }
+
+    public class GoblinSlayersHelmetSetDescEffect : EquipmentEffectData
+    {
+        // shhhhh dont tell anyone this has an effect, i just really didnt wanna make an effect purely for lazures eye
+        // -calig
+        public override void DoEffect(Player player)
+        {
             int num = 0;
             num += player.bodyFrame.Y / 56;
             if (num >= Main.OffsetsPlayerHeadgear.Length)
@@ -108,5 +122,5 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
                 dust.shader = GameShaders.Armor.GetSecondaryShader(player.cYorai, player);
             }
         }
-	}
+    }
 }

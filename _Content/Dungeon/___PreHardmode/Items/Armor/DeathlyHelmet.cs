@@ -1,21 +1,21 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DeathlyHelmet : BaseAAItem, ILocalizedModType
+    public class DeathlyHelmet : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Deathly";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deathly Skull");
-            // Tooltip.SetDefault("9% Increased ranged damage");
         }
 
         public override void SetDefaults()
@@ -27,23 +27,17 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += 0.09f;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<DeathlyChestplate>() && legs.type == ModContent.ItemType<DeathlyLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetDamage(DamageClass.Ranged) += 0.09f;
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DeathlySkullBonus");
-
-            player.aggro -= 5;
-            player.ammoCost80 = true;
+            AddSetEffect(new AggroEffect(-5));
+            AddSetEffect<AmmoCost80Effect>();
         }
 
         public override void AddRecipes()

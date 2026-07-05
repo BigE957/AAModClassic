@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,16 +10,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class BlazingChestplate : BaseAAItem, ILocalizedModType
+	public class BlazingChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Blazing";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Blazing Dao");
-			/* Tooltip.SetDefault(@"2% increased Damage Resistance
-2% increased Melee Damage
-Forged in the flames of the blazing sun"); */
+			/* Tooltip.SetDefault(@"'Forged in the flames of the blazing sun'"); */
 		}
 
 		public override void SetDefaults()
@@ -29,12 +28,13 @@ Forged in the flames of the blazing sun"); */
 			Item.defense = 8;
 		}
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.endurance += 0.02f;
-            player.GetDamage(DamageClass.Melee) += 0.02f;
+            damageMap.GetDamage(DamageClass.Melee) += 0.02f;
+            AddEffect(new EnduranceEffect(0.02f));
         }
-		public override void AddRecipes()
+
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<KindledChestplate>());

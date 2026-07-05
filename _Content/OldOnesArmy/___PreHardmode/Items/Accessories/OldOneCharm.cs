@@ -30,7 +30,7 @@ namespace AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories
         public override void RegisterEquipStats()
         {
 			damageMap.GetDamage(DamageClass.Summon) += 0.12f;
-			AddEffect(new SentrySlotEffect(1));
+			AddEffect(new MaxSentrySlotEffect(1));
             AddEffect(new OldOneCharmEffect(0.22f));
         }
 	}

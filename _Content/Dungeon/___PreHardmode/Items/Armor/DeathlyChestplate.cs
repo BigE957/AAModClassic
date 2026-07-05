@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,13 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DeathlyChestplate : BaseAAItem, ILocalizedModType
+    public class DeathlyChestplate : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Deathly";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deathly Ribguard");
-            // Tooltip.SetDefault("9% Increased ranged damage");
         }
 
         public override void SetDefaults()
@@ -26,9 +26,9 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
             Item.defense = 8;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Ranged) += 0.09f;
+            damageMap.GetDamage(DamageClass.Ranged) += 0.09f;
         }
 
         public override void AddRecipes()

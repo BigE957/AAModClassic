@@ -4,6 +4,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,15 +12,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class AtlanteanChestplate : BaseAAItem, ILocalizedModType
+	public class AtlanteanChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Atlantean";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Atlantean Chestplate");
-			/* Tooltip.SetDefault(@"Increases magic damage by 15%
-It vibrates with the powers of Atlantis"); */
-
+			/* Tooltip.SetDefault(@"'It vibrates with the powers of Atlantis'"); */
 		}
 
 		public override void SetDefaults()
@@ -31,12 +30,12 @@ It vibrates with the powers of Atlantis"); */
 			Item.defense = 8;
 		}
 		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Magic) += 0.15f;
-		}
-		
-		public override void AddRecipes()
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Magic) += 0.15f;
+        }
+
+        public override void AddRecipes()
 		{
             Recipe recipe;
             recipe = CreateRecipe();

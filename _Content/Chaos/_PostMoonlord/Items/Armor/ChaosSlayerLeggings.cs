@@ -1,20 +1,21 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Utilities.Attributes;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class ChaosSlayerLeggings : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class ChaosSlayerLeggings : EquipAbstract, ILocalizedModType, ICustomEquipGlow
 	{
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
@@ -41,9 +42,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Slayer Greaves");
-            /* Tooltip.SetDefault(@"45% increased movement speed
-2% increased damage resistance
-The power of discordian rage radiates from this armor"); */
+            /* Tooltip.SetDefault(@"'The power of discordian rage radiates from this armor'"); */
         }
 
 		public override void SetDefaults()
@@ -55,10 +54,10 @@ The power of discordian rage radiates from this armor"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.endurance += .02f;
-            player.moveSpeed += .45f;
+            AddEffect(new EnduranceEffect(0.02f));
+            AddEffect(new MovementSpeedEffect(0.45f));
         }
 
         public override void AddRecipes()

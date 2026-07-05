@@ -38,17 +38,11 @@ While Old One's Army is on, increase 31% minion damage."); */
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-
-            if(DD2Event.Ongoing) player.GetDamage(DamageClass.Summon) += .1f;
-            player.GetModPlayer<AAPlayer>().CursedEyeofSoulBinder = true;
-        }
         public override void RegisterEquipStats()
         {
             damageMap.GetDamage(DamageClass.Summon) += .21f;
-            AddEffect(new MinionSlotEffect(1));
-            AddEffect(new SentrySlotEffect(1));
+            AddEffect(new MaxMinionSlotEffect(1));
+            AddEffect(new MaxSentrySlotEffect(1));
             AddEffect(new MaxLifeEffect(50));
             AddEffect(new OldOneCharmEffect(0.31f));
 

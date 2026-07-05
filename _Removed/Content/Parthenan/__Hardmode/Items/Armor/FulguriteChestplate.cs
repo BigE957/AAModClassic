@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,13 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class FulguriteChestplate : BaseAAItem, ILocalizedModType
+	public class FulguriteChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Fulgurite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fulgurite Breastplate");
-            // Tooltip.SetDefault("7% Increased Damage");
         }
 
 		public override void SetDefaults()
@@ -26,16 +26,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 			Item.defense = 17;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Throwing) *= 1.07f;
-            player.GetDamage(DamageClass.Melee) *= 1.07f;
-            player.GetDamage(DamageClass.Ranged) *= 1.07f;
-            player.GetDamage(DamageClass.Magic) *= 1.07f;
-            player.GetDamage(DamageClass.Summon) *= 1.07f;
+        public override void RegisterEquipStats()
+        {
+			damageMap.GetDamage(DamageClass.Generic) += 0.07f;
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 24);

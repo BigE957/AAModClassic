@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -13,17 +14,16 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class DoomiteChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class DoomiteChestplate : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Doomite";
         public Color Color => AAColor.ZeroShield;
 
-        public bool Condition(Player p) => p.GetModPlayer<AAPlayer>().doomite;
+        public bool Condition(Player p) => p.GetModPlayer<DoomiteHelmetSetPlayer>().effect;
 
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Doomite Plate");
-            // Tooltip.SetDefault(@"+1 Minion slot");
 		}
 
 		public override void SetDefaults()
@@ -35,9 +35,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             Item.value = 9000;
 		}
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.maxMinions += 1;
+            AddEffect(new MaxMinionSlotEffect(1));
         }
 
         public override void AddRecipes()

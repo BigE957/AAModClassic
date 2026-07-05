@@ -5,6 +5,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -15,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class ChaosSlayerChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class ChaosSlayerChestplate : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
@@ -42,9 +43,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Slayer Plate");
-            /* Tooltip.SetDefault(@"4% increased damage resistance
-+75 Max Life
-The power of discordian rage radiates from this armor"); */
+            /* Tooltip.SetDefault(@"'The power of discordian rage radiates from this armor'"); */
 
             int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
             int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Body_Alt", EquipType.Body);
@@ -62,11 +61,11 @@ The power of discordian rage radiates from this armor"); */
             Item.defense = 60;
         }
 
-        public override void UpdateEquip(Player player)
-		{
-            player.endurance += .04f;
-            player.GetAttackSpeed(DamageClass.Melee) += .15f;
-            player.statLifeMax2 += 75;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetAttackSpeed(DamageClass.Melee) += .15f;
+            AddEffect(new EnduranceEffect(0.04f));
+            AddEffect(new MaxLifeEffect(75));
         }
 
         public override void AddRecipes()

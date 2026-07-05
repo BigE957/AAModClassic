@@ -1,18 +1,20 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ChampionHelmetMelee : BaseAAItem, ILocalizedModType
+    public class ChampionHelmetMelee : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Champion";
         public override void SetStaticDefaults()
@@ -21,7 +23,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             /* Tooltip.SetDefault(@"35% increased Melee damage & critical strike chance
 10% increased non-melee damage
 18% increased melee speed
-The armor of a champion feared across the land"); */
+'The armor of a champion feared across the land'"); */
         }
 
         public override void SetDefaults()
@@ -33,26 +35,20 @@ The armor of a champion feared across the land"); */
             Item.defense = 39;
 		}
 
-        
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.ChampionHelmetBonus");
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            modPlayer.ChampionMe = true;
-        }
+            damageMap.GetDamage(DamageClass.Generic) += .1f;
+            damageMap.GetDamage(DamageClass.Melee) += .25f;
+            damageMap.GetCritChance(DamageClass.Melee) += 35;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += .15f;
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Melee) += .25f;
-            player.GetCritChance(DamageClass.Melee) += 35;
-            player.GetDamage(DamageClass.Generic) += .1f;
-            player.GetAttackSpeed(DamageClass.Melee) += .15f;
+            AddSetEffect<ChampionHelmetMeleeSetEffect>();
+            AddSetEffect<ChampionHelmetMeleeSetDescEffect>();
         }
 
         public override void AddRecipes()
@@ -63,5 +59,10 @@ The armor of a champion feared across the land"); */
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
+    }
+
+    public class ChampionHelmetMeleeSetDescEffect : EquipmentEffectData
+    {
+
     }
 }

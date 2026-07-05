@@ -1,8 +1,10 @@
-﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,7 +18,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DarkmatterHelmetSummoner : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class DarkmatterHelmetSummoner : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
@@ -27,8 +29,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         {
             
             // DisplayName.SetDefault("Darkmatter Headress");
-			/* Tooltip.SetDefault(@"25% increased minion damage
-Dark, yet still barely visible"); */
+			/* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
 
 		}
 
@@ -64,26 +65,20 @@ Dark, yet still barely visible"); */
             );
         }
 
-        public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Summon) += 0.25f;
-        }
-
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Summon) += 0.25f;
 
-
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterHeaddressBonus");
-            player.GetModPlayer<DarkmatterHelmetSummonerPlayer>().setBonus = true;
-            player.armorEffectDrawShadowLokis = true;
+            AddSetEffect<DarkmatterHelmetSummonerSetEffect>();
+            AddSetEffect<DrawShadowLokisEffect>();
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 25);

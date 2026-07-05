@@ -1,9 +1,11 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -14,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class ChaosSlayerHelmetSummoner : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class ChaosSlayerHelmetSummoner : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
@@ -62,19 +64,16 @@ The power of discordian rage radiates from this hood"); */
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosMaskBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosSu = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
-        }
+            damageMap.GetDamage(DamageClass.Summon) += 0.70f;
+            AddEffect(new EnduranceEffect(0.01f));
+            AddEffect(new MaxMinionSlotEffect(6));
+            AddEffect(new MaxSentrySlotEffect(2));
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += .7f;
-            player.endurance += .01f;
-            player.maxMinions += 6;
-            player.maxTurrets += 2;
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Summon, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+            AddSetEffect<ChaosSlayerHelmetSummonerSetStatScalingEffect>();
+            AddSetEffect<ChaosSlayerHelmetSetDescEffect>();
         }
 
         public override void AddRecipes()

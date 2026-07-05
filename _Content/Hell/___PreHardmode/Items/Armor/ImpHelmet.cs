@@ -1,21 +1,21 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ImpHelmet : BaseAAItem, ILocalizedModType
+    public class ImpHelmet : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Imp";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Imp Hood");
-            // Tooltip.SetDefault("7% Increased Minion damage \n" + "+1 Minion slot");
         }
 
         public override void SetDefaults()
@@ -27,23 +27,17 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Item.defense = 4;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.07f;
-            player.maxMinions += 1;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<ImpChestplate>() && legs.type == ModContent.ItemType<ImpLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetDamage(DamageClass.Summon) += 0.07f;
+            AddEffect(new MaxMinionSlotEffect(1));
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ImpHoodBonus");
-
-            player.GetModPlayer<AAPlayer>().impSet = true;
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Summon, (BuffID.OnFire, 180)));
         }
 
         public override void AddRecipes()

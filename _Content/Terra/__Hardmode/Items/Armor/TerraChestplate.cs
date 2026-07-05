@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,14 +8,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class TerraChestplate : BaseAAItem, ILocalizedModType
+	public class TerraChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Terra Chestplate");
-            // Tooltip.SetDefault(@"5% increased damage");
         }
 
 
@@ -27,9 +27,9 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             Item.defense = 22;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Generic) += .05f;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Generic) += .05f;
         }
 
         public override void AddRecipes()

@@ -1,22 +1,22 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DarkDoomiteHelmet : BaseAAItem, ILocalizedModType
+	public class DarkDoomiteHelmet : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.DarkDoomite";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Dark Doomite Helmet");
-            // Tooltip.SetDefault(@"Increases minion damage by 5%");
         }
 
 		public override void SetDefaults()
@@ -33,19 +33,15 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<DarkDoomiteChestplate>() && legs.type == ModContent.ItemType<DarkDoomiteLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-		    player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomiteUHelmBonus");
-            player.maxMinions += 2;
-			player.GetKnockback(DamageClass.Summon).Base += 1f;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Summon) += 0.05f;
+
+			AddSetEffect(new MaxMinionSlotEffect(2));
+			setDamageMap.GetKnockback(DamageClass.Summon).Base += 1f;
         }
-		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Summon) += 0.05f;
-		}
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 6);

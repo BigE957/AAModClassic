@@ -1,20 +1,20 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Humanizer;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class MythrilHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class MythrilHelmetSummoner : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Mythril";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mythril Face Paint");
-            /* Tooltip.SetDefault(@"26% increased minion damage
-+60 mana"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -27,21 +27,17 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             Item.defense = 2;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.26f;
-            player.statManaMax2 += 60;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ItemID.MythrilChainmail && legs.type == ItemID.MythrilGreaves;
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.MythrilPaintBonus");
-            player.maxMinions += 3;
+            damageMap.GetDamage(DamageClass.Summon) += 0.26f;
+            AddEffect(new MaxManaEffect(60));
+
+            AddSetEffect(new MaxMinionSlotEffect(3));
         }
 
         public override void AddRecipes()

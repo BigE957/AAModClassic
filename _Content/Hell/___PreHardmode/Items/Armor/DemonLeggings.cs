@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,13 +8,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DemonLeggings : BaseAAItem, ILocalizedModType
+	public class DemonLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Demon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Hoofs");
-            // Tooltip.SetDefault("9% Increased Minion damage");
         }
 
         public override void SetDefaults()
@@ -25,9 +25,9 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Summon) += 0.09f;
+            damageMap.GetDamage(DamageClass.Summon) += 0.09f;
         }
 
         public override void AddRecipes()

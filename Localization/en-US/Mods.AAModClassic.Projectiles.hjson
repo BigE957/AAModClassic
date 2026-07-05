@@ -914,3 +914,20 @@ DragonsMaw_DragonLaser.DisplayName: Dragons Maw_ Dragon Laser
 GravityAffectedOreChunk.DisplayName: Ore Chunk
 ChaosHelmetSummonerSetEffect_DragonShot.DisplayName: Chaos Helmet Summoner Set Effect_ Dragon Shot
 ChaosHelmetSummonerSetEffect_DragonSpirit.DisplayName: Chaos Helmet Summoner Set Effect_ Dragon Spirit
+ChampionHelmetRangedSetEffect_Carrot.DisplayName: Champion Helmet Ranged Set Effect_ Carrot
+ChampionHelmetRangedSetEffect_Explosion.DisplayName: Champion Helmet Ranged Set Effect_ Explosion
+ChampionHelmetRangedSetEffect_RABITDrone.DisplayName: Champion Helmet Ranged Set Effect_ R A B I T Drone
+ChampionHelmetSummonerSetEffect_BaronBunny.DisplayName: Champion Helmet Summoner Set Effect_ Baron Bunny
+ChampionHelmetSummonerSetEffect_BaronsSpear.DisplayName: Champion Helmet Summoner Set Effect_ Barons Spear
+ChampionHelmetSummonerSetEffect_Carrot.DisplayName: Champion Helmet Summoner Set Effect_ Carrot
+FuryWitchsHelmetSetMinionEffect_FlameSoul.DisplayName: Fury Witchs Helmet Set Minion Effect_ Flame Soul
+FuryWitchsHelmetSetMinionEffect_FlameSoulShot.DisplayName: Fury Witchs Helmet Set Minion Effect_ Flame Soul Shot
+MidnightAssassinHelmetSetEffect_AssassinArrow.DisplayName: Midnight Assassin Helmet Set Effect_ Assassin Arrow
+MidnightAssassinHelmetSetEffect_AssassinDagger.DisplayName: Midnight Assassin Helmet Set Effect_ Assassin Dagger
+DemonHelmetSetEffect_ImpServant.DisplayName: Demon Helmet Set Effect_ Imp Servant
+RadiumHelmetSummonerSetEffect_RadiumBlast.DisplayName: Radium Helmet Summoner Set Effect_ Radium Blast
+TerraHelmetMageSetEffect_TerraRose.DisplayName: Terra Helmet Mage Set Effect_ Terra Rose
+TerraHelmetRangedSetEffect_TerraBullet.DisplayName: Terra Helmet Ranged Set Effect_ Terra Bullet
+TerraHelmetSummonerSetEffect_TerraCrystal.DisplayName: Terra Helmet Summoner Set Effect_ Terra Crystal
+DoomiteHelmetSetEffect_Searcher.DisplayName: Doomite Helmet Set Effect_ Searcher
+FulguriteHelmetSetPlayer_FulguriteRing.DisplayName: Fulgurite Helmet Set Player_ Fulgurite Ring

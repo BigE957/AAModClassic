@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,7 +19,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DarkmatterHelmetMelee : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class DarkmatterHelmetMelee : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
@@ -66,36 +67,20 @@ Dark, yet still barely visible"); */
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Melee) += 0.10f;
-        }
-
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Melee) += 0.10f;
 
-            const float effectRange = 500;
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterHelmetBonus");
-            if(!Main.dayTime && player.GetModPlayer<StarHelmetMeleePlayer>().ShieldCoolDown > 0) player.lifeRegen += 2;
-            for(int p =0; p < Main.player.Length; p++)
-            {
-                if(Main.player[p].active && (Main.player[p].Center - player.Center).Length() < effectRange && player.team == Main.player[p].team && Main.player[p].GetModPlayer<StarHelmetMeleePlayer>().ShieldCoolDown <= 0)
-                {
-                    Main.player[p].GetModPlayer<StarHelmetMeleePlayer>().ShieldTime = 2;
-                    Main.player[p].GetModPlayer<StarHelmetMeleePlayer>().badShield = false;
-                }
-            }
-            player.armorEffectDrawShadowLokis = true;
+            AddSetEffect<DarkmatterHelmetMeleeSetEffect>();
+            AddSetEffect<DrawShadowLokisEffect>();
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 25);

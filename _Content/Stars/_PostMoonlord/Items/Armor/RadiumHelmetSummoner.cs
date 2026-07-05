@@ -1,8 +1,10 @@
-﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -13,7 +15,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class RadiumHelmetSummoner : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class RadiumHelmetSummoner : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Radium";
         public Color Color => AAColor.Glow;
@@ -23,8 +25,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Radium Hat");
-			/* Tooltip.SetDefault(@"35% increased minion damage
-Shines with the light of a starry night sky"); */
+			/* Tooltip.SetDefault(@"'Shines with the light of a starry night sky'"); */
 		}
 
 		public override void SetDefaults()
@@ -36,25 +37,19 @@ Shines with the light of a starry night sky"); */
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Summon) += 0.35f;
-        }
-
 		public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<RadiumChestplate>() && legs.type == ModContent.ItemType<RadiumLeggings>();
         }
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RadiumHatBonus1") + (int)player.GetDamage(DamageClass.Summon).ApplyTo(RadiumHelmetSummonerPlayer_RadMinions.baseBlastDamage) + " " + Language.GetTextValue("Mods.AAModClassic.Common.RadiumHatBonus2");
-            player.GetModPlayer<RadiumHelmetSummonerPlayer>().setBonus = true;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Summon) += 0.35f;
+
+            AddSetEffect<RadiumHelmetSummonerSetEffect>();
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 25);

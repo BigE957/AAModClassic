@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Kindled Suneate");
-            // Tooltip.SetDefault("Forged in the flames of the blazing sun");
+            // Tooltip.SetDefault("'Forged in the flames of the blazing sun'");
 		}
 
 		public override void SetDefaults()

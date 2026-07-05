@@ -136,7 +136,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
             AddEffect<NaitokurosuMireEffect>();
             AddEffect(new MovementSpeedEffect(2));
             AddEffect(new NaitokurosuNightEffect(1));
-            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<HydraToxin_Buff>()));
+            AddEffect(new BuffImmunityEffect(ModContent.BuffType<HydraToxin_Buff>()));
             AddEffect<LanternEffect>();
             AddEffect(new MasterNinjaMobilityEffect(true, true));
             AddEffect<BlackBeltEffect>();

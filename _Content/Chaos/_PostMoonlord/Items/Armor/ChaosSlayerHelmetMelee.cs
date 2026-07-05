@@ -1,9 +1,11 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -14,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class ChaosSlayerHelmetMelee : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class ChaosSlayerHelmetMelee : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
@@ -61,20 +63,18 @@ The power of discordian rage radiates from this armor"); */
 		{
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
-        public override void UpdateArmorSet(Player player)
-        {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosKabutoBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosMe = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
-        }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Melee) += .3f;
-            player.GetCritChance(DamageClass.Melee) += 30;
-            player.endurance += .05f;
-            player.GetAttackSpeed(DamageClass.Melee) += .15f;
-            player.statLifeMax2 += 25;
+            damageMap.GetDamage(DamageClass.Melee) += .3f;
+            damageMap.GetCritChance(DamageClass.Melee) += 30;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += .15f;
+            AddEffect(new EnduranceEffect(0.05f));
+            AddEffect(new MaxLifeEffect(25));
+
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+            AddSetEffect<ChaosSlayerHelmetMeleeSetStatScalingEffect>();
+            AddSetEffect<ChaosSlayerHelmetSetDescEffect>();
         }
 
         public override void AddRecipes()

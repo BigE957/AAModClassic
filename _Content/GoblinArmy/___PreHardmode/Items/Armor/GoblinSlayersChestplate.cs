@@ -14,7 +14,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Goblin Slayer's Chestplate");
-            // Tooltip.SetDefault(@"An immense hatred of Goblinkind haunts this chestplate");
+            // Tooltip.SetDefault(@"'An immense hatred of Goblinkind haunts this chestplate'");
         }
 
 		public override void SetDefaults()

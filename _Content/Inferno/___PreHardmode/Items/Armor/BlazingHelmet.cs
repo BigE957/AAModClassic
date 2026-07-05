@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -10,15 +12,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BlazingHelmet : BaseAAItem, ILocalizedModType
+	public class BlazingHelmet : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Blazing";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Blazing Kabuto");
-			/* Tooltip.SetDefault(@"1% increased Damage Resistance
-3% increased Melee Damage
-Forged in the flames of the blazing sun"); */
+			/* Tooltip.SetDefault(@"'Forged in the flames of the blazing sun'"); */
         }
 
 		public override void SetDefaults()
@@ -29,22 +29,19 @@ Forged in the flames of the blazing sun"); */
 			Item.defense = 8;
 		}
 
-        public override void UpdateEquip(Player player)
-        {
-            player.endurance += .01f;
-            player.GetDamage(DamageClass.Melee) += 0.03f;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
             return body.type == ModContent.ItemType<BlazingChestplate>() && legs.type == ModContent.ItemType<BlazingLeggings>();
         }
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.BlazingBonus");
-            player.aggro += 4;
-            player.GetModPlayer<AAPlayer>().kindledSet = true;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Melee) += 0.03f;
+            AddEffect(new EnduranceEffect(0.01f));
+            
+            AddSetEffect(new AggroEffect(4));
+            AddSetEffect<MagmaStoneEffect>();
+            AddSetEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
         }
 
         public override void AddRecipes()

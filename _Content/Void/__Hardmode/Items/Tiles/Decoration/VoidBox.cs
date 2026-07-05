@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles.Decoration
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MusicBox);
-            recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 20);
+            recipe.AddIngredient(ModContent.ItemType<OuroborosWood>(), 20);
             recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 5);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();

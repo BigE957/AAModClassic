@@ -31,7 +31,6 @@ using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic._Content.Terrarium.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OroborosWoodFurniture;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
@@ -84,6 +83,7 @@ using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
 using AAModClassic._Unreleased;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
+using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture;
 
 namespace AAModClassic
 {
@@ -979,7 +979,7 @@ namespace AAModClassic
                     WorldGen.PlaceTile(position.X + i, position.Y + j, ModContent.TileType<Doomstone_Tile>());
                 }
                 int y = Raycast(position.X + i, position.Y - 5);
-                WorldGen.PlaceObject(position.X + i, y, ModContent.TileType<OroborosSapling_Tile>());
+                WorldGen.PlaceObject(position.X + i, y, ModContent.TileType<OuroborosSapling_Tile>());
                 WorldGen.GrowTree(position.X + i, y);
             }
         }
@@ -1081,7 +1081,7 @@ namespace AAModClassic
             }
             WorldGen.PlaceTile(X + sizeX - 2, Y + sizeY - 1, (ushort)ModContent.TileType<DoomiteScrap_Tile>());
 
-            int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)ModContent.TileType<OroborosWoodChest_Tile>(), true);
+            int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)ModContent.TileType<OuroborosWoodChest_Tile>(), true);
             if (PlacementSuccess >= 0)
             {
                 Chest chest = Main.chest[PlacementSuccess];

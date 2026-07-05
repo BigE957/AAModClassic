@@ -4,6 +4,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,17 +13,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class DreadMoonChestplate : BaseAAItem, ILocalizedModType
+	public class DreadMoonChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.DreadMoon";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Dread Moon Gi");
-			/* Tooltip.SetDefault(@"35% increased ranged damage
-20% increased movement speed
-+50 Max Life
-The abyssal wrath of the Mire rests in this armor"); */
+			/* Tooltip.SetDefault(@"'The abyssal wrath of the Mire rests in this armor'"); */
 		}
 
 		public override void SetDefaults()
@@ -34,14 +32,12 @@ The abyssal wrath of the Mire rests in this armor"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Ranged) += .35f;
-            player.moveSpeed += .2f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .2f;
-            player.statLifeMax2 += 50;
+            damageMap.GetDamage(DamageClass.Ranged) += .35f;
+            AddEffect(new MovementSpeedEffect(0.20f));
+            AddEffect(new MaxRunSpeedEffect(0.20f));
+            AddEffect(new MaxLifeEffect(50));
         }
 
         public override void AddRecipes()

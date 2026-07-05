@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ModLoader;
@@ -10,15 +11,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class DoomsdayLeggings : BaseAAItem, ILocalizedModType
+    public class DoomsdayLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Doomsday";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Doomsday Assault Greaves");
-			/* Tooltip.SetDefault(@"18% increased movement speed
-120 increased mana
-The power to destroy entire planets rests in this armor"); */
+			/* Tooltip.SetDefault(@"'The power to destroy entire planets rests in this armor'"); */
 
 		}
 
@@ -30,14 +29,12 @@ The power to destroy entire planets rests in this armor"); */
 			Item.defense = 28;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.moveSpeed += 0.18f;
-            player.statManaMax2 += 120;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .18f;
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new MovementSpeedEffect(0.18f));
+            AddEffect(new MaxRunSpeedEffect(0.18f));
+            AddEffect(new MaxManaEffect(120));
         }
-
-        
 
         public override void AddRecipes()
         {

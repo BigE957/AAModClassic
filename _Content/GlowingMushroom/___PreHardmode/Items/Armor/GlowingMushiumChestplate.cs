@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -12,7 +13,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class GlowingMushiumChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class GlowingMushiumChestplate : EquipAbstract, ILocalizedModType, ICustomEquipGlow
 	{
         public new string LocalizationCategory => "Items.Armor.GlowingMushium";
         public Color Color => AAColor.Glow;
@@ -20,7 +21,6 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Glowing Mushium Shirt");
-            // Tooltip.SetDefault("2% increased mana regeneration");
         }
 
 		public override void SetDefaults()
@@ -33,12 +33,12 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
             Item.value = Item.sellPrice(0, 0, 25, 0);
 		}
 
-		public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.manaRegenBonus += 2;
+            AddEffect(new ManaRegenEffect(2));
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<GlowingMushiumBar>(), 5);

@@ -3,8 +3,10 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
+using System.Linq.Expressions;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -12,7 +14,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class RadiumChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class RadiumChestplate : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Radium";
         public Color Color => AAColor.Glow;
@@ -23,7 +25,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Radium Platemail");
-			// Tooltip.SetDefault("25% increased damage \n" + "Shines with the light of a starry night sky");
+			// Tooltip.SetDefault("'Shines with the light of a starry night sky'");
 		}
 
 		public override void SetDefaults()
@@ -35,15 +37,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
 		}
 
-		
-
-		public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Generic) += .25f;
-            Lighting.AddLight(player.Center, 1.0f, 1.0f, 1.0f);
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Generic) += .25f;
+			AddEffect(new EmitLightFromPlayerEffect(1.0f, 1.0f, 1.0f));
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 30);

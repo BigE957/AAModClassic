@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,7 +19,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DarkmatterHelmetRanged : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class DarkmatterHelmetRanged : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
@@ -29,9 +30,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         {
 
             // DisplayName.SetDefault("Darkmatter Visor");
-            /* Tooltip.SetDefault(@"15% increased Ranged damage
-20% decreased ammo consumption 
-Dark, yet still barely visible"); */
+            /* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -44,26 +43,18 @@ Dark, yet still barely visible"); */
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += 0.15f;
-            player.ammoCost80 = true;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetDamage(DamageClass.Ranged) += 0.15f;
+            AddEffect<AmmoCost80Effect>();
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterVisorBonus");
-            player.GetModPlayer<StarHelmetRangedPlayer>().setBonus = true;
-            player.GetModPlayer<StarHelmetRangedPlayer>().sunPortal = false;
-            player.armorEffectDrawShadowLokis = true;
+            AddSetEffect<DarkmatterHelmetRangedSetEffect>();
+            AddSetEffect<DrawShadowLokisEffect>();
         }
 
         public override void AddRecipes()

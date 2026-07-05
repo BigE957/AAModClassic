@@ -1,15 +1,16 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class RazewoodHelmet : BaseAAItem, ILocalizedModType
+    public class RazewoodHelmet : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Razewood";
         public override void SetStaticDefaults()
@@ -25,17 +26,15 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
             Item.rare = ItemRarityID.White;
             Item.defense = 1;
         }
-        
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<RazewoodChestplate>() && legs.type == ModContent.ItemType<RazewoodLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.RazewoodHelmet");
-            player.statDefense += 1;
+            AddSetEffect(new DefenseEffect(1));
         }
 
         public override void AddRecipes()

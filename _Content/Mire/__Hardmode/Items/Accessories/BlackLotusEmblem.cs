@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
             AddEffect(new ManaCostEffect(-0.12f));
             AddEffect<BlackLotusEmblemEffect>();
             AddEffect<CelestialMagnetEffect>();
-            AddEffect(new AttacksInflictDebuffEffect(DamageClass.Magic, (ModContent.BuffType<Moonraze_Buff>(), 100)));
+            AddEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (ModContent.BuffType<Moonraze_Buff>(), 100)));
         }
 
         public override void AddRecipes()

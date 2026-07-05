@@ -1,9 +1,11 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -14,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class ChaosSlayerHelmetRanged : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class ChaosSlayerHelmetRanged : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
@@ -63,20 +65,17 @@ The power of discordian rage radiates from this hood"); */
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosVisorBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosRa = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
-        }
+            damageMap.GetDamage(DamageClass.Ranged) += .45f;
+            damageMap.GetCritChance(DamageClass.Ranged) += 38;
+            AddEffect(new EnduranceEffect(0.0f));
+            AddEffect<AmmoCost75Effect>();
+            AddEffect(new MaxLifeEffect(15));
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += .45f;
-            player.GetCritChance(DamageClass.Ranged) += 38;
-            player.endurance += .03f;
-            player.ammoCost75 = true;
-            player.statLifeMax2 += 15;
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+            AddSetEffect<ChaosSlayerHelmetRangedSetStatScalingEffect>();
+            AddSetEffect<ChaosSlayerHelmetSetDescEffect>();
         }
 
         public override void AddRecipes()

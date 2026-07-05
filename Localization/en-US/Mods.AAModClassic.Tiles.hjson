@@ -610,3 +610,14 @@ MoonBeeInAJar_Tile.MapEntry: Moon Bee In A Jar_ Tile
 AleisterBook_Tile.MapEntry: Aleister Book_ Tile
 CthulhuBox_Tile.MapEntry: Cthulhu Box_ Tile
 AnyAncientCraftingStation_Tile.MapEntry: Any Ancient Crafting Station_ Tile
+OuroborosWoodBathtub_Tile.MapEntry: Ouroboros Wood Bathtub_ Tile
+OuroborosWoodBed_Tile.MapEntry: Ouroboros Wood Bed_ Tile
+OuroborosWoodBookcase_Tile.MapEntry: Ouroboros Wood Bookcase_ Tile
+OuroborosWoodChair_Tile.MapEntry: Ouroboros Wood Chair_ Tile
+OuroborosWoodChest_Tile.MapEntry: Ouroboros Wood Chest_ Tile
+OuroborosWoodClock_Tile.MapEntry: Ouroboros Wood Clock_ Tile
+OuroborosWoodDoorClosed_Tile.MapEntry: Ouroboros Wood Door Closed_ Tile
+OuroborosWoodDoorOpen_Tile.MapEntry: Ouroboros Wood Door Open_ Tile
+OuroborosWoodLantern_Tile.MapEntry: Ouroboros Wood Lantern_ Tile
+OuroborosWoodWorkbench_Tile.MapEntry: Ouroboros Wood Workbench_ Tile
+OuroborosSapling_Tile.MapEntry: Ouroboros Sapling_ Tile

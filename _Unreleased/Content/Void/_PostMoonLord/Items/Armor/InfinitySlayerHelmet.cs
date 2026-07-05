@@ -1,9 +1,12 @@
 ﻿using AAModClassic;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
+using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,16 +20,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-	public class InfinitySlayerHelmet : ModItem, ILocalizedModType
+	public class InfinitySlayerHelmet : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Slayer Visor");
-			/* Tooltip.SetDefault(@"35% increased ranged damage and critical strike chance
-12% increased damage resistance
-25% decreased ammo consumption
-Infinite power and malice flows through this armor"); */
+			/* Tooltip.SetDefault(@" power and malice flows through this armor'"); */
 
 		}
 
@@ -37,13 +37,6 @@ Infinite power and malice flows through this armor"); */
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.defense = 40;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
-        }
-		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Ranged) *= 1.35f;
-            player.endurance *= 1.12f;
-            player.ammoCost75 = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -62,17 +55,19 @@ Infinite power and malice flows through this armor"); */
 			return body.type == ModContent.ItemType<InfinitySlayerChestplate>() && legs.type == ModContent.ItemType<InfinitySlayerLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.SetBonuses.InfinitySlayer");
-            
-            player.AddBuff(BuffID.Hunter, 2);
-            player.AddBuff(BuffID.Dangersense, 2);
-            player.GetModPlayer<AAPlayer>().infinitySet = true;
-		}
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Ranged) += 0.35f;
+            AddEffect(new EnduranceEffect(0.12f));
+            AddEffect<AmmoCost75Effect>();
 
-		public override void AddRecipes()
+            AddSetEffect<HunterEffect>();
+            AddSetEffect<DangersenseEffect>();
+            AddSetEffect(new AttacksInflictBuffEffect(null, (ModContent.BuffType<InfinityScorch_Buff>(), 300)));
+            AddSetEffect<InfinitySlayerHelmetSetDescEffect>();
+        }
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetMage>(), 1);
@@ -107,5 +102,10 @@ Infinite power and malice flows through this armor"); */
                 0f
             );
         }
+    }
+
+    public class InfinitySlayerHelmetSetDescEffect : EquipmentEffectData
+    {
+
     }
 }

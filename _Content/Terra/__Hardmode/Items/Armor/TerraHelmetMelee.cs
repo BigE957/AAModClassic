@@ -1,25 +1,24 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
+﻿using AAModClassic._Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Crimson.___PreHardmode.Items.Armor;
-using AAModClassic._Content.Corruption.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
 	[AutoloadEquip(EquipType.Head)]
-	public class TerraHelmetMelee : BaseAAItem, ILocalizedModType
+	public class TerraHelmetMelee : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Terra";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Helm");
-			/* Tooltip.SetDefault(@"22% increased melee damage
-9% increased melee speed"); */
 		}
 
 		public override void SetDefaults()
@@ -31,26 +30,21 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 			Item.defense = 30;
 		}
 		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Melee) += .22f;
-			player.GetAttackSpeed(DamageClass.Melee) += 0.09f;
-		}
-
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<TerraChestplate>() && legs.type == ModContent.ItemType<TerraLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = FilePathUtils.SetBonusPath<TerraHelmetMelee>();
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Melee) += .22f;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.09f;
 
-			player.GetAttackSpeed(DamageClass.Melee) += 0.28f;
-			player.GetModPlayer<TerraHelmetMeleePlayer>().effect = true;
-		}
+            setDamageMap.GetAttackSpeed(DamageClass.Melee) += 0.28f;
+			AddSetEffect<TerraHelmetMeleeSetEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe;
 			recipe = CreateRecipe();

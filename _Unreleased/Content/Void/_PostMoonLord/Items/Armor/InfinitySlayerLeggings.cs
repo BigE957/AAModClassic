@@ -3,6 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,17 +16,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class InfinitySlayerLeggings : ModItem, ILocalizedModType
+    public class InfinitySlayerLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Slayer Greaves");
-			/* Tooltip.SetDefault(@"35% increased ranged damage & critical strike chance
-12% increased damage resistance
-25% decreased ammo consumption
-50% increased movement speed
-Infinite power and malice flows through this armor"); */
+			/* Tooltip.SetDefault(@"'Infinite power and malice flows through this armor'"); */
 		}
 
 		public override void SetDefaults()
@@ -37,13 +34,13 @@ Infinite power and malice flows through this armor"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Ranged) *= 1.35f;
-            player.moveSpeed *= 1.6f;
-			player.ammoCost75 = true;
-			player.endurance *= 1.12f;
-		}
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Ranged) += 0.35f;
+            AddEffect(new MovementSpeedEffect(0.60f));
+            AddEffect(new EnduranceEffect(0.12f));
+            AddEffect<AmmoCost75Effect>();
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

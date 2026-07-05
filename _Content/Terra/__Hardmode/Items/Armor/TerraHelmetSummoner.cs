@@ -4,6 +4,8 @@ using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -12,13 +14,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TerraHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class TerraHelmetSummoner : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Mask");
-            // Tooltip.SetDefault(@"Increases summon damage by 9%");
         }
 
         public override void SetDefaults()
@@ -30,33 +31,16 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             Item.defense = 18;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.09f;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<TerraChestplate>() && legs.type == ModContent.ItemType<TerraLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = FilePathUtils.SetBonusPath<TerraHelmetSummoner>();
+            damageMap.GetDamage(DamageClass.Summon) += 0.09f;
 
-            TerraHelmetSummonerPlayer modPlayer = player.GetModPlayer<TerraHelmetSummonerPlayer>();
-            modPlayer.effect = true;
-            if (player.whoAmI == Main.myPlayer)
-            {
-                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.FindBuffIndex(ModContent.BuffType<ChampionHelmetSummoner_Buff>()) == -1)
-                {
-                    player.AddBuff(ModContent.BuffType<TerraHelmetSummonerPlayer_Buff>(), 3600, true);
-                }
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<TerraHelmetSummonerPlayer_TerraCrystal>()] < 1)
-                {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<TerraHelmetSummonerPlayer_TerraCrystal>(), (int)player.GetDamage(DamageClass.Summon).ApplyTo(60), 0f, Main.myPlayer, 0f, 0f);
-                }
-            }
+            AddSetEffect<TerraHelmetSummonerSetEffect>();
         }
 
         public override void AddRecipes()

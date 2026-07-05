@@ -1,32 +1,31 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
-using AAModClassic.Utilities.Attributes;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DraconianSunHelmet : BaseAAItem, ILocalizedModType
+    public class DraconianSunHelmet : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.DraconianSun";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Draconian Sun Kabuto");
-			/* Tooltip.SetDefault(@"20% increased melee critical chance
-3% increased damage resistance
-+25 Max Life
-The blazing fury of the Inferno rests in this armor"); */
+			/* Tooltip.SetDefault(@"'The blazing fury of the Inferno rests in this armor'"); */
 
 		}
 
@@ -39,31 +38,24 @@ The blazing fury of the Inferno rests in this armor"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-			player.GetCritChance(DamageClass.Melee) += 20;
-            player.endurance += .03f;
-            player.statLifeMax2 += 25;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<DraconianSunChestplate>() && legs.type == ModContent.ItemType<DraconianSunLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DracoHelmBonus");
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetCritChance(DamageClass.Melee) += 20;
+			AddEffect(new EnduranceEffect(0.03f));
+			AddEffect(new MaxLifeEffect(25));
 
-            player.buffImmune[46] = true;
-            player.buffImmune[47] = true;
-            player.AddBuff(BuffID.Shine, 2);
-            player.GetModPlayer<AAPlayer>().dracoSet = true;
-		}
+			AddSetEffect(new BuffImmunityEffect(BuffID.Chilled, BuffID.Frozen));
+			AddSetEffect(new EmitLightFromPlayerEffect(0.8f, 0.95f, 1f)); // shine potion
+			AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (BuffID.Daybreak, 600)));
+			AddSetEffect<DraconianSunHelmetSetDescEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
@@ -73,4 +65,9 @@ The blazing fury of the Inferno rests in this armor"); */
 			recipe.Register();
 		}
 	}
+
+    public class DraconianSunHelmetSetDescEffect : EquipmentEffectData
+    {
+        
+    }
 }

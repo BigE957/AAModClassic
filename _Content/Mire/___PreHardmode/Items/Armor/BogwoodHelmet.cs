@@ -1,14 +1,15 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class BogwoodHelmet : BaseAAItem, ILocalizedModType
+    public class BogwoodHelmet : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Bogwood";
         public override void SetStaticDefaults()
@@ -24,17 +25,15 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
             Item.rare = ItemRarityID.White;
             Item.defense = 1;
         }
-        
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<BogwoodChestplate>() && legs.type == ModContent.ItemType<BogwoodLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.BogwoodHelmet");
-            player.statDefense += 1;
+            AddEffect(new DefenseEffect(1));
         }
 
         public override void AddRecipes()

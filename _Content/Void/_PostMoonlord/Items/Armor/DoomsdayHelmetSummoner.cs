@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
@@ -13,14 +14,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DoomsdayHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class DoomsdayHelmetSummoner : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Doomsday";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Tactical Visor");
-            /* Tooltip.SetDefault(@"50% increased minion damage
-The power to destroy entire planets rests in this armor"); */
+            /* Tooltip.SetDefault(@"'The power to destroy entire planets rests in this armor'"); */
         }
 
         public override void SetDefaults()
@@ -32,30 +32,23 @@ The power to destroy entire planets rests in this armor"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += .5f;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<DoomsdayChestplate>() && legs.type == ModContent.ItemType<DoomsdayLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomsdayMaskBonus");
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Magic) += .50f;
 
-            player.maxMinions += 5;
-            player.AddBuff(BuffID.Hunter, 2);
-            player.AddBuff(BuffID.NightOwl, 2);
-            player.GetModPlayer<AAPlayer>().zeroSet1 = true;
-		}
+            AddSetEffect(new MaxMinionSlotEffect(5));
+            AddSetEffect<HunterEffect>();
+            AddSetEffect<NightOwlEffect>();
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Summon, (BuffID.BrokenArmor, 1000)));
+            AddSetEffect<DoomsdayHelmetSetDescEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);

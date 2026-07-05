@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
             AddEffect(new EnduranceEffect(0.06f));
             AddEffect<DualityDefenseEffect>();
             AddEffect<TaiyangBaoleiImmunityEffect>();
-            AddEffect(new DebuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Terrablaze_Buff>(), ModContent.BuffType<DiscordianInferno_Buff>()));
+            AddEffect(new BuffImmunityEffect(ModContent.BuffType<DragonFire_Buff>(), ModContent.BuffType<HydraToxin_Buff>(), ModContent.BuffType<Terrablaze_Buff>(), ModContent.BuffType<DiscordianInferno_Buff>()));
             AddEffect<LanternEffect>();
             AddEffect<AshProofVestEffect>();
             AddEffect<FallDamageImmunityEffect>();
@@ -70,7 +70,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
             AddEffect(new MasterNinjaMobilityEffect(false, true));
             AddEffect<BlackBeltEffect>();
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                AddEffect(new AttacksInflictDebuffEffect(null, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+                AddEffect(new AttacksInflictBuffEffect(null, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
         }
 
         public override void AddRecipes()

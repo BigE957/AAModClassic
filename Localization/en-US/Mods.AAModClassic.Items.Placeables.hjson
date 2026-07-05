@@ -704,3 +704,13 @@ GreedStone: {
 	DisplayName: Greed Stone
 	Tooltip: ""
 }
+
+OuroborosWood: {
+	DisplayName: Ouroboros Wood
+	Tooltip: ""
+}
+
+OuroborosWoodWall: {
+	DisplayName: Ouroboros Wood Wall
+	Tooltip: ""
+}

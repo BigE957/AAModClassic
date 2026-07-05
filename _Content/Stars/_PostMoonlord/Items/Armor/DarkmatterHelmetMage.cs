@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,7 +18,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DarkmatterHelmetMage : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class DarkmatterHelmetMage : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
@@ -28,9 +29,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         {
             
             // DisplayName.SetDefault("Darkmatter Mask");
-			/* Tooltip.SetDefault(@"10% increased magic damage
-15% decreased mana usage
-Dark, yet still barely visible"); */
+			/* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
 
 		}
 
@@ -64,39 +63,21 @@ Dark, yet still barely visible"); */
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Magic) += 0.10f;
-            player.manaCost *= .85f;
-        }
-
-		public override bool IsArmorSet(Item head, Item body, Item legs)
+        public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus1") + (int)player.GetDamage(DamageClass.Magic).ApplyTo(100) + " " + Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus2") + player.GetCritChance(DamageClass.Magic) + Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus3");
-            player.GetModPlayer<StarHelmetMagePlayer>().setBonus = true;
-            player.GetModPlayer<StarHelmetMagePlayer>().sunSiphon = false;
-            player.armorEffectDrawShadowLokis = true;
-            
-            for (int i = 0; i < 15; i++)
-            {
-                Vector2 offset = new Vector2();
-                double angle = Main.rand.NextDouble() * 2d * Math.PI;
-                offset.X += (float)(Math.Sin(angle) * 300);
-                offset.Y += (float)(Math.Cos(angle) * 300);
-                Dust dust = Main.dust[Dust.NewDust(player.Center + offset - new Vector2(4, 4), 0, 0,  ModContent.DustType<Dusts.DarkmatterDust>(), 0, 0, 100, default, 1f)];
-                dust.velocity = player.velocity;
-                dust.noGravity = true;
-            }
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Magic) += 0.10f;
+            AddEffect(new ManaCostMultiplierEffect(0.85f));
+
+            AddSetEffect<DarkmatterHelmetMageSetEffect>();
+            AddSetEffect<DrawShadowLokisEffect>();
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 25);

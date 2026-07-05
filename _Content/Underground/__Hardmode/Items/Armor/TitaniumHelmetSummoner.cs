@@ -1,20 +1,19 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TitaniumHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class TitaniumHelmetSummoner : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Titanium";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Titanium Face Paint");
-            /* Tooltip.SetDefault(@"27% increased minion damage
-+100 mana"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -27,23 +26,18 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             Item.defense = 4;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.27f;
-            player.statManaMax2 += 100;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ItemID.TitaniumBreastplate && legs.type == ItemID.TitaniumLeggings;
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetDamage(DamageClass.Summon) += 0.27f;
+            AddEffect(new MaxManaEffect(100));
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.TitaniumPaintBonus");
-            player.onHitDodge = true;
-            player.maxMinions += 4;
+            AddSetEffect(new MaxMinionSlotEffect(4));
+            AddSetEffect<TitaniumHelmetSetEffect>();
         }
 
         public override void AddRecipes()

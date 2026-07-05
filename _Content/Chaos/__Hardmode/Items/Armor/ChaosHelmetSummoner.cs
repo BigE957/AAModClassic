@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.3f;
 
-            AddSetEffect(new MinionSlotEffect(4));
+            AddSetEffect(new MaxMinionSlotEffect(4));
             AddSetEffect<ChaosHelmetSummonerSetEffect>();
         }
 

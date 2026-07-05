@@ -262,11 +262,48 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class CrimsonArmorSetBonusEffect : EquipmentEffectData
+    public class CrimsonHelmetSetEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
             player.crimsonRegen = true;
+        }
+    }
+
+    public class ChlorophyteHelmetSetEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.AddBuff(BuffID.LeafCrystal, 2);
+        }
+    }
+
+    public class ManaRegenEffect(int amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.manaRegenBonus += amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases).FirstCharToUpper(), Math.Abs(amount));
+    }
+
+    public class LifeRegenEffect(int amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.lifeRegen += amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases).FirstCharToUpper(), Math.Abs(amount));
+    }
+
+    public class OutlinesAndShadowEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.armorEffectDrawOutlines = true;
+            player.armorEffectDrawShadow = true;
         }
     }
 
@@ -389,6 +426,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class UnlimitedBreathingUnderWaterForeverAndEverEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.breath = player.breathMax - 1;
+        }
+    }
+
     public class LavaWadersFireImmunityEffect(bool fireImmune = false, int lavaImmuneFrames = 0) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
@@ -427,6 +472,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class DrawShadowLokisEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.armorEffectDrawShadowLokis = true;
+        }
+    }
+
     public class MaxManaEffect(int amount) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
@@ -435,6 +488,16 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount)).FirstCharToUpper();
+    }
+
+    public class DefenseEffect(int amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.statDefense += amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(amount);
     }
 
     public class ObsidianRoseEffect : EquipmentEffectData
@@ -479,7 +542,17 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Math.Abs(amount * 100), ChatUtils.IncreaseOrDecreaseText(amount, reduced: true));
     }
 
-    public class SentrySlotEffect(int amount) : EquipmentEffectData
+    public class ManaCostMultiplierEffect(float amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.manaCost *= amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(amount);
+    }
+
+    public class MaxSentrySlotEffect(int amount) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -489,7 +562,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
     }
 
-    public class MinionSlotEffect(int amount) : EquipmentEffectData
+    public class MaxMinionSlotEffect(int amount) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -511,10 +584,20 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     {
         public override void DoEffect(Player player)
         {
-            player.aggro = amount;
+            player.aggro += amount;
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.MoreLess));
+    }
+
+    public class MiningSpeedEffect(float amount) : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.pickSpeed -= amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount * -1, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount * 100));
     }
 
     public class AmmoCost75Effect : EquipmentEffectData
@@ -525,11 +608,35 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class AmmoCost80Effect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.ammoCost80 = true;
+        }
+    }
+
+    public class PanicNecklaceEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.panic = true;
+        }
+    }
+
     public class HunterEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
             player.detectCreature = true;
+        }
+    }
+
+    public class DangersenseEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.dangerSense = true;
         }
     }
 
@@ -589,6 +696,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class PhilosophersStoneEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.pStone = true;
+        }
+    }
+
     public class GillsEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
@@ -597,11 +712,59 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class MagmaStoneEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.magmaStone = true;
+        }
+    }
+
+    public class SpelunkerEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.findTreasure = true;
+        }
+    }
+
+    public class OrichalcumHelmetSetEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.onHitPetal = true;
+        }
+    }
+
+    public class TitaniumHelmetSetEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.onHitTitaniumStorm = true;
+        }
+    }
+
+    public class PalladiumHelmetSetEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.palladiumRegen = true;
+        }
+    }
+
+    public class HallowedHelmetSetEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.onHitDodge = true;
+        }
+    }
+
     public class EmitLightFromPlayerEffect(float r, float g, float b) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
-            Lighting.AddLight((int)(player.position.X + player.width / 2) / 16, (int)(player.position.Y + player.height / 2) / 16, r, g, b);
+            Lighting.AddLight((int)player.Center.X, (int)player.Center.Y, r, g, b);
         }
     }
 
@@ -633,19 +796,19 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class AttacksInflictDebuffEffect(DamageClass damageClass = null, params (int buffID, int time)[] debuffData) : EquipmentEffectData
+    public class AttacksInflictBuffEffect(DamageClass damageClass = null, params (int buffID, int time)[] debuffData) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
-            player.GetModPlayer<AttacksInflictDebuffPlayer>().effect = true;
-            player.GetModPlayer<AttacksInflictDebuffPlayer>().damageToDoEffectOn = damageClass;
+            player.GetModPlayer<AttacksInflictBuffPlayer>().effect = true;
+            player.GetModPlayer<AttacksInflictBuffPlayer>().damageToDoEffectOn = damageClass;
 
-            if (player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray != null)
+            if (player.GetModPlayer<AttacksInflictBuffPlayer>().debuffArray != null)
             {
                 foreach (var debuffDestuff in debuffData)
                 {
-                    player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffArray.Add(debuffDestuff.buffID);
-                    player.GetModPlayer<AttacksInflictDebuffPlayer>().debuffLengthArray.Add(debuffDestuff.time);
+                    player.GetModPlayer<AttacksInflictBuffPlayer>().debuffArray.Add(debuffDestuff.buffID);
+                    player.GetModPlayer<AttacksInflictBuffPlayer>().debuffLengthArray.Add(debuffDestuff.time);
                 }
             }
         }
@@ -692,7 +855,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class AttacksInflictDebuffPlayer : EquipmentEffectPlayer
+    public class AttacksInflictBuffPlayer : EquipmentEffectPlayer
     {
         public List<int> debuffArray;
         public List<int> debuffLengthArray;
@@ -724,7 +887,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
-    public class DebuffImmunityEffect(params int[] buffIDs) : EquipmentEffectData
+    public class BuffImmunityEffect(params int[] buffIDs) : EquipmentEffectData
     {
         public override void DoEffect(Player player)
         {
@@ -901,7 +1064,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             {
                 line = new TooltipLine(mod, effect.Name, effect.GetDescription());
                 int index = list.FindIndex(x => x.Name == "Tooltip0");
-                if (index != -1)
+                if (index != -1 && effect.GetDescription() != "")
                     list.Insert(index, line);
             }
         }
@@ -926,7 +1089,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                 }
             }
 
-            setBonus = listHack;
+            setBonus = string.Join("\n", listHack);
         }
 
         public static void HandleStatModifierTooltips(Mod mod, List<TooltipLine> list, DamageClass currentClass, StatModifier input, StatModifierInputType inputType, bool doCritSameAsDamageThing = false)

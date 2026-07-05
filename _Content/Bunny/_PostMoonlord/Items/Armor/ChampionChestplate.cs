@@ -4,6 +4,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,7 +12,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class ChampionChestplate : BaseAAItem, ILocalizedModType
+	public class ChampionChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Champion";
         public override void SetStaticDefaults()
@@ -19,7 +20,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Champion Chestplate");
             /* Tooltip.SetDefault(@"15% increased damage
-The armor of a champion feared across the land"); */
+'The armor of a champion feared across the land'"); */
         }
 
 
@@ -32,14 +33,12 @@ The armor of a champion feared across the land"); */
             Item.defense = 55;
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Generic) += .15f;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Generic) += .15f;
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<HoppingHoodlumChestplate>(), 1);

@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ModLoader;
@@ -11,16 +12,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class DoomsdayChestplate : BaseAAItem, ILocalizedModType
+    public class DoomsdayChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Doomsday";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Doomsday Assault Armor");
-			/* Tooltip.SetDefault(@"22% decreased mana usage
-+50 Max Life
-The power to destroy entire planets rests in this armor"); */
+			/* Tooltip.SetDefault(@"'The power to destroy entire planets rests in this armor'"); */
 		}
 
 		public override void SetDefaults()
@@ -32,15 +31,13 @@ The power to destroy entire planets rests in this armor"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-			player.manaCost *= .78f;
-            player.statLifeMax2 += 50;
+        public override void RegisterEquipStats()
+        {
+			AddEffect(new ManaCostMultiplierEffect(0.75f));
+			AddEffect(new MaxManaEffect(50));
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 20);

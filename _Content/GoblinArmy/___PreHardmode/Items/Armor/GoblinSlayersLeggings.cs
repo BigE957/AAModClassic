@@ -13,7 +13,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Goblin Slayer's Greaves");
-            // Tooltip.SetDefault(@"An immense hatred of Goblinkind haunts these greaves");
+            // Tooltip.SetDefault(@"'An immense hatred of Goblinkind haunts these greaves'");
 
         }
 

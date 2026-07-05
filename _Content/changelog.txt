@@ -91,7 +91,15 @@ base
 -many armor sets and armor pieces now list the correct effects
 --chaos helmet melee set bonus no longer specifies *swung* weapons inflict a debuff since it made all melee attacks deal debuff, no longer gives effect of magma stone, now always inflicts both debuffs on melee proj hit
 --chaos helmet ranged set bonus now always inflicts both debuffs instead of either or, like its sister effect
+--hopping hoodlum leggings now actually gives you 9% melee crit chance and 10% movement speed instead of the listed 8% and 8% respectively
+--goblin slayers set no longer states it decreases goblin damage when it does not in fact do that
+--terra helmet ranged no longer provides an extra 24% ranged damage and now actually provides hunter potion effect
 --
+--theres a bunch more but i either didnt notice them or didnt add them cuz i gotta hurry up fuuuuck
+-everything that reduces mana cost now works properly 
+-titanium face paint gives the 1.4 armor set effect instead of shadow dodge
+-hallowed face paint gives the 1.4 armor set effect instead of just minion slots
+-oroboros items are now properly named ouroboros
 -
 
 removed
@@ -161,6 +169,12 @@ unofficial
 -seraph and goddess harp now provide a nonfunctional minion while in the vanity slot
 -seraph and goddess harp can now be equipped at the same time. wearing both will cause the seraph to follow athena
 -dragonstride boots now inherits the obisidan rose effect 
+-champion armor summoner set bonus has a tooltip like the others
+-baron bunny now fires his intended projectiles
+-baron bunnys unused javelin no longer deals damage to the enemy every frame when impaled
+-baron bunnys visuals now work as intended 
+-baron bunny attack speed now properly scales with missing player hp
+-goblin slayers set now actually reduces goblin damage by 80%
 -
 
 crossmod

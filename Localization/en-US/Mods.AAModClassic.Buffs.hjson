@@ -1808,3 +1808,83 @@ ChaosHelmetSummonerSetEffect_Buff: {
 	DisplayName: Chaos Helmet Summoner Set Effect_ Buff
 	Description: Mods.AAModClassic.Buffs.ChaosHelmetSummonerSetEffect_Buff.Description
 }
+
+ChampionHelmetMageSetEffect_ChampionBoost1: {
+	DisplayName: Champion Helmet Mage Set Effect_ Champion Boost1
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMageSetEffect_ChampionBoost1.Description
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost2: {
+	DisplayName: Champion Helmet Mage Set Effect_ Champion Boost2
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMageSetEffect_ChampionBoost2.Description
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost3: {
+	DisplayName: Champion Helmet Mage Set Effect_ Champion Boost3
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMageSetEffect_ChampionBoost3.Description
+}
+
+ChampionHelmetMeleeSetEffect_DefendersRage: {
+	DisplayName: Champion Helmet Melee Set Effect_ Defenders Rage
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMeleeSetEffect_DefendersRage.Description
+}
+
+ChampionHelmetMeleeSetEffect_RajahsRage: {
+	DisplayName: Champion Helmet Melee Set Effect_ Rajahs Rage
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetMeleeSetEffect_RajahsRage.Description
+}
+
+ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol: {
+	DisplayName: Champion Helmet Ranged Set Effect_ R A B I T Unit Reload Protocol
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol.Description
+}
+
+ChampionHelmetSummonerSetEffect_Buff: {
+	DisplayName: Champion Helmet Summoner Set Effect_ Buff
+	Description: Mods.AAModClassic.Buffs.ChampionHelmetSummonerSetEffect_Buff.Description
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlame: {
+	DisplayName: Fury Witchs Helmet Set Hotkey Effect_ Ashe Flame
+	Description: Mods.AAModClassic.Buffs.FuryWitchsHelmetSetHotkeyEffect_AsheFlame.Description
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlameCooldown: {
+	DisplayName: Fury Witchs Helmet Set Hotkey Effect_ Ashe Flame Cooldown
+	Description: Mods.AAModClassic.Buffs.FuryWitchsHelmetSetHotkeyEffect_AsheFlameCooldown.Description
+}
+
+FuryWitchsHelmetSetMinionEffect_Buff: {
+	DisplayName: Fury Witchs Helmet Set Minion Effect_ Buff
+	Description: Mods.AAModClassic.Buffs.FuryWitchsHelmetSetMinionEffect_Buff.Description
+}
+
+MidnightAssassinHelmetSetEffect_AssassinHurt: {
+	DisplayName: Midnight Assassin Helmet Set Effect_ Assassin Hurt
+	Description: Mods.AAModClassic.Buffs.MidnightAssassinHelmetSetEffect_AssassinHurt.Description
+}
+
+DemonHelmetSetEffect_Buff: {
+	DisplayName: Demon Helmet Set Effect_ Buff
+	Description: Mods.AAModClassic.Buffs.DemonHelmetSetEffect_Buff.Description
+}
+
+AquaintedWithWater_Buff: {
+	DisplayName: Aquainted With Water_ Buff
+	Description: Mods.AAModClassic.Buffs.AquaintedWithWater_Buff.Description
+}
+
+TerraHelmetMageSetEffect_TerraRoseCooldown: {
+	DisplayName: Terra Helmet Mage Set Effect_ Terra Rose Cooldown
+	Description: Mods.AAModClassic.Buffs.TerraHelmetMageSetEffect_TerraRoseCooldown.Description
+}
+
+TerraHelmetSummonerSetEffect_Buff: {
+	DisplayName: Terra Helmet Summoner Set Effect_ Buff
+	Description: Mods.AAModClassic.Buffs.TerraHelmetSummonerSetEffect_Buff.Description
+}
+
+DoomiteHelmetSetEffect_Buff: {
+	DisplayName: Doomite Helmet Set Effect_ Buff
+	Description: Mods.AAModClassic.Buffs.DoomiteHelmetSetEffect_Buff.Description
+}

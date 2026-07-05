@@ -90,7 +90,7 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
             damageMap.GetKnockback(DamageClass.Melee) += 2f;
             AddEffect(new AggroEffect(5));
             int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
-            AddEffect(new AttacksInflictDebuffEffect(DamageClass.Melee, (buff, 100)));
+            AddEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (buff, 100)));
             AddEffect<DemonGauntletEffect>();
 
         }

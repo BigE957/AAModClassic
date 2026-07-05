@@ -278,15 +278,6 @@ namespace AAModClassic.Globals
             }
         }
 
-        public override bool PreAI(NPC npc)
-        {
-            if (npc.type != NPCID.MartianSaucerCore && (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail))
-            {
-                Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().bossactive = true;
-            }
-            return base.PreAI(npc);
-        }
-
         public override void PostAI(NPC npc)
         {
             if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<RajahRabbitA>() && IsBunny(npc))

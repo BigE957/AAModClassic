@@ -25,6 +25,21 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
     {
         public int DashTimer;
 
+        public override void PostUpdate()
+        {
+            if (effect)
+            {
+                if (Player.velocity.Y != 0)
+                {
+                    Player.dash = 2;
+                }
+                else
+                {
+                    Player.dash = 0;
+                }
+            }
+        }
+
         public override void PostUpdateBuffs()
         {
             if (Player.mount.Active || Player.mount.Cart)

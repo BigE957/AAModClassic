@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BiomiteHelmet : BaseAAItem, ILocalizedModType
+	public class BiomiteHelmet : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Biomite";
 		public override void SetStaticDefaults()
@@ -31,12 +32,12 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<BiomiteChestplate>() && legs.type == ModContent.ItemType<BiomiteLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor1") + SetBonus(player);
-		}
+        public override void RegisterEquipStats()
+        {
+			AddSetEffect<BiomiteHelmetSetEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 15);

@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             setDamageMap.GetAttackSpeed(DamageClass.Melee) += .10f;
             AddSetEffect(new AggroEffect(5));
             AddSetEffect<DragonsGuardEffect>();
-            AddSetEffect(new AttacksInflictDebuffEffect(DamageClass.Melee, (ModContent.BuffType<DragonFire_Buff>(), 180), (ModContent.BuffType<HydraToxin_Buff>(), 180)));
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (ModContent.BuffType<DragonFire_Buff>(), 180), (ModContent.BuffType<HydraToxin_Buff>(), 180)));
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

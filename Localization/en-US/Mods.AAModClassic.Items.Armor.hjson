@@ -423,6 +423,11 @@ Hallowed: {
 		DisplayName: Hallowed Paint
 		Tooltip: ""
 	}
+
+	HallowedHelmetSummoner: {
+		DisplayName: Hallowed Helmet Summoner
+		Tooltip: ""
+	}
 }
 
 Demon: {
@@ -849,6 +854,21 @@ Oroboros: {
 		DisplayName: Oroboros Leggings
 		Tooltip: ""
 	}
+
+	OuroborosChestplate: {
+		DisplayName: Ouroboros Chestplate
+		Tooltip: ""
+	}
+
+	OuroborosHelmet: {
+		DisplayName: Ouroboros Helmet
+		Tooltip: ""
+	}
+
+	OuroborosLeggings: {
+		DisplayName: Ouroboros Leggings
+		Tooltip: ""
+	}
 }
 
 Fulgurite: {
@@ -874,6 +894,23 @@ Fulgurite: {
 
 	FulguriteLeggings: {
 		DisplayName: Fulgurite Leggings
+		Tooltip: ""
+	}
+}
+
+Ouroboros: {
+	OuroborosChestplate: {
+		DisplayName: Ouroboros Chestplate
+		Tooltip: ""
+	}
+
+	OuroborosHelmet: {
+		DisplayName: Ouroboros Helmet
+		Tooltip: ""
+	}
+
+	OuroborosLeggings: {
+		DisplayName: Ouroboros Leggings
 		Tooltip: ""
 	}
 }

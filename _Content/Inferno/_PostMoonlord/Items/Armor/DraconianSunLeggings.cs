@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,17 +16,13 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
-    public class DraconianSunLeggings : BaseAAItem, ILocalizedModType
+    public class DraconianSunLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.DraconianSun";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Draconian Sun Greaves");
-			/* Tooltip.SetDefault(@"16% increased movement speed
-15% increased melee speed
-3% increased damage resistance
-+25 Max Life
-The blazing fury of the Inferno rests in this armor"); */
+			/* Tooltip.SetDefault(@"'The blazing fury of the Inferno rests in this armor'"); */
 
 		}
 
@@ -38,15 +35,13 @@ The blazing fury of the Inferno rests in this armor"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-			player.moveSpeed += 0.16f;
-			player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
-			player.endurance += .03f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .16f;
-            player.statLifeMax2 += 25;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.15f;
+            AddEffect(new MovementSpeedEffect(0.16f));
+            AddEffect(new MaxRunSpeedEffect(0.16f));
+            AddEffect(new EnduranceEffect(0.03f));
+            AddEffect(new MaxLifeEffect(25));
         }
 
         public override void AddRecipes()

@@ -3,6 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,16 +16,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class InfinitySlayerChestplate : ModItem, ILocalizedModType
+    public class InfinitySlayerChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Slayer Chestplate");
-            /* Tooltip.SetDefault(@"35% increased ranged damage and critical strike chance
-12% increased damage resistance
-25% decreased ammo consumption
-Infinite power and malice flows through this armor"); */
+            /* Tooltip.SetDefault(@"'Infinite power and malice flows through this armor'"); */
 		}
 
 		public override void SetDefaults()
@@ -36,11 +34,11 @@ Infinite power and malice flows through this armor"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Ranged) *= 1.35f;
-            player.endurance *= 1.12f;
-            player.ammoCost75 = true;
+            damageMap.GetDamage(DamageClass.Ranged) += 0.35f;
+            AddEffect(new EnduranceEffect(0.12f));
+            AddEffect<AmmoCost75Effect>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

@@ -539,3 +539,65 @@ Terra: {
 		Tooltip: ""
 	}
 }
+
+OuroborosWood: {
+	OuroborosWoodBathtub: {
+		DisplayName: Ouroboros Wood Bathtub
+		Tooltip: ""
+	}
+
+	OuroborosWoodBed: {
+		DisplayName: Ouroboros Wood Bed
+		Tooltip: ""
+	}
+
+	OuroborosWoodBookcase: {
+		DisplayName: Ouroboros Wood Bookcase
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandle: {
+		DisplayName: Ouroboros Wood Candle
+		Tooltip: ""
+	}
+
+	OuroborosWoodChair: {
+		DisplayName: Ouroboros Wood Chair
+		Tooltip: ""
+	}
+
+	OuroborosWoodChest: {
+		DisplayName: Ouroboros Wood Chest
+		Tooltip: ""
+	}
+
+	OuroborosWoodClock: {
+		DisplayName: Ouroboros Wood Clock
+		Tooltip: ""
+	}
+
+	OuroborosWoodDoor: {
+		DisplayName: Ouroboros Wood Door
+		Tooltip: ""
+	}
+
+	OuroborosWoodLamp: {
+		DisplayName: Ouroboros Wood Lamp
+		Tooltip: ""
+	}
+
+	OuroborosWoodLantern: {
+		DisplayName: Ouroboros Wood Lantern
+		Tooltip: ""
+	}
+
+	OuroborosWoodPlatform: {
+		DisplayName: Ouroboros Wood Platform
+		Tooltip: ""
+	}
+
+	OuroborosWoodWorkbench: {
+		DisplayName: Ouroboros Wood Workbench
+		Tooltip: ""
+	}
+}

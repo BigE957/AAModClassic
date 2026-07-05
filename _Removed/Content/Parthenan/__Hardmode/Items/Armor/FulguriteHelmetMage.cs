@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,15 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class FulguriteHelmetMage : BaseAAItem, ILocalizedModType
+	public class FulguriteHelmetMage : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Fulgurite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fulgurite Helm");
-			/* Tooltip.SetDefault(@"14% increased magic damage & critical strike chance
-+120 maximum Mana"); */
-
 		}
 
 		public override void SetDefaults()
@@ -27,30 +25,23 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 			Item.rare = ItemRarityID.Pink;
 			Item.defense = 4;
 		}
-		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Magic) *= 1.14f;
-            player.GetCritChance(DamageClass.Magic) += 14;
-            player.statManaMax2 += 120;
-		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
             return body.type == ModContent.ItemType<FulguriteChestplate>() && legs.type == ModContent.ItemType<FulguriteLeggings>();
         }
 
-		public override void UpdateArmorSet(Player player)
-		{
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Magic) += 0.14f;
+            damageMap.GetCritChance(DamageClass.Magic) += 14;
+			AddEffect(new MaxManaEffect(120));
 
-            player.setBonus = @"Being struck causes a burst of lightning to erupt from your body, knocking back enemies
--20% Mana Usage";
+			AddSetEffect(new ManaCostMultiplierEffect(0.80f));
+			AddSetEffect<FulguriteHelmetSetEffect>();
+        }
 
-            player.GetModPlayer<FulguriteArmorPlayer>().FulguriteArmorSetBonus = true;
-            player.manaCost *= .8f;
-		}
-
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 12);

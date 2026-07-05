@@ -22,7 +22,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
     public class StormClawPlayer : EquipmentEffectPlayer
     {
         //TODO: what was he trying to do here
-        public virtual float UseTimeMultiplier(Item item, Player player)
+        public override float UseTimeMultiplier(Item item)
         {
             float multiplier = 1f;
 

@@ -1,9 +1,11 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -14,7 +16,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class ChaosSlayerHelmetMage : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class ChaosSlayerHelmetMage : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
@@ -63,20 +65,17 @@ The power of discordian rage radiates from this hood"); */
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosHoodBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosMa = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
-        }
+            damageMap.GetDamage(DamageClass.Magic) += .32f;
+            damageMap.GetCritChance(DamageClass.Magic) += 20;
+            AddEffect(new EnduranceEffect(0.02f));
+            AddEffect(new ManaCostMultiplierEffect(0.70f));
+            AddEffect(new MaxManaEffect(150));
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Magic) += .32f;
-            player.GetCritChance(DamageClass.Magic) += 20;
-            player.endurance += .02f;
-            player.manaCost *= .7f;
-            player.statManaMax2 += 150;
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+            AddSetEffect<ChaosSlayerHelmetMageSetStatScalingEffect>();
+            AddSetEffect<ChaosSlayerHelmetSetDescEffect>();
         }
 
         public override void AddRecipes()

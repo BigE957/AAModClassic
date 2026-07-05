@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -8,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TribalHelmet : BaseAAItem, ILocalizedModType
+    public class TribalHelmet : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Tribal";
         public override void SetStaticDefaults()
@@ -27,24 +28,18 @@ Increases maximum mana by 20"); */
             Item.defense = 7;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.statManaMax2 += 20;
-            player.GetCritChance(DamageClass.Magic) += 8;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<TribalChestplate>() && legs.type == ModContent.ItemType<TribalLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetCritChance(DamageClass.Magic) += 8;
+            AddEffect(new MaxManaEffect(20));
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.TribalHatBonus");
-
-            player.manaCost *= 0.7f;
-            player.manaFlower = true;
+            AddSetEffect(new ManaCostMultiplierEffect(0.7f));
+            AddSetEffect<ManaFlowerEffect>();
         }
 
         public override void AddRecipes()

@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,15 +10,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BlazingLeggings : BaseAAItem, ILocalizedModType
+	public class BlazingLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Blazing";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Blazing Suneate");
-            /* Tooltip.SetDefault(@"1% increased Damage Resistance
-2% increased Melee Damage
-Forged in the flames of the blazing sun"); */
+            /* Tooltip.SetDefault(@"'Forged in the flames of the blazing sun'"); */
 		}
 
 		public override void SetDefaults()
@@ -27,11 +26,11 @@ Forged in the flames of the blazing sun"); */
 			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 8;
 		}
-		
-		public override void UpdateEquip(Player player)
+
+        public override void RegisterEquipStats()
         {
-            player.endurance += 0.01f;
-            player.GetDamage(DamageClass.Melee) += 0.02f;
+            damageMap.GetDamage(DamageClass.Melee) += 0.02f;
+            AddEffect(new EnduranceEffect(0.01f));
         }
 
         public override void AddRecipes()

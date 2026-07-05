@@ -1,7 +1,9 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
@@ -12,15 +14,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-    public class DoomsdayHelmetMage : BaseAAItem, ILocalizedModType
+    public class DoomsdayHelmetMage : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Doomsday";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Doomsday Assault Visor");
-			/* Tooltip.SetDefault(@"25% increased magic damage
-18% increased magic critical strike chance
-The power to destroy entire planets rests in this armor"); */
+			/* Tooltip.SetDefault(@"'The power to destroy entire planets rests in this armor'"); */
 		}
 
         public override void SetDefaults()
@@ -32,31 +32,24 @@ The power to destroy entire planets rests in this armor"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Magic) += .25f;
-            player.GetCritChance(DamageClass.Magic) += 18;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<DoomsdayChestplate>() && legs.type == ModContent.ItemType<DoomsdayLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomsdayHelmetBonus");
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Magic) += .25f;
+            damageMap.GetCritChance(DamageClass.Magic) += 18;
 
-            player.manaCost *= .7f;
-            player.AddBuff(BuffID.Hunter, 2);
-            player.AddBuff(BuffID.NightOwl, 2);
-            player.GetModPlayer<AAPlayer>().zeroSet = true;
-		}
+			AddSetEffect(new ManaCostMultiplierEffect(0.7f));
+			AddSetEffect<HunterEffect>();
+			AddSetEffect<NightOwlEffect>();
+			AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (BuffID.BrokenArmor, 1000)));
+            AddSetEffect<DoomsdayHelmetSetDescEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
@@ -65,4 +58,9 @@ The power to destroy entire planets rests in this armor"); */
 			recipe.Register();
 		}
 	}
+
+    public class DoomsdayHelmetSetDescEffect : EquipmentEffectData
+    {
+        
+    }
 }

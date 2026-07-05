@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,17 +9,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	class FuryWitchsChestplate : BaseAAItem, ILocalizedModType
+	class FuryWitchsChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.FuryWitchs";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fury Witch's Robe");
-            /* Tooltip.SetDefault(@"10% increased magic/minion damage 
-10% increased critical strike chance
-+2 Max Minions
-+30 Max Life
-A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
+            /* Tooltip.SetDefault(@"'A robe enchanted with the firey spirit of a supreme dragon acolyte'"); */
             ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
@@ -31,16 +28,13 @@ A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
             Item.defense = 26;
         }
 
-        
-
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetCritChance(DamageClass.Magic) += 10;
-            player.GetDamage(DamageClass.Magic) += .1f;
-            player.GetDamage(DamageClass.Summon) += .1f;
-            player.maxMinions += 2;
-            player.statLifeMax2 += 30;
-
+            damageMap.GetCritChance(DamageClass.Magic) += 10;
+            damageMap.GetDamage(DamageClass.Magic) += .1f;
+            damageMap.GetDamage(DamageClass.Summon) += .1f;
+            AddEffect(new MaxMinionSlotEffect(2));
+            AddEffect(new MaxLifeEffect(30));
         }
-	}
+    }
 }

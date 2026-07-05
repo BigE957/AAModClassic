@@ -1,21 +1,20 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Jungle.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ChlorophyteHelmetSummoner : BaseAAItem, ILocalizedModType
+	public class ChlorophyteHelmetSummoner : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Chlorophyte";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chlorophyte Face Paint");
-			/* Tooltip.SetDefault(@"38% increased minion damage
-+80 mana"); */
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
 
         }
@@ -28,26 +27,22 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items.Armor
 			Item.rare = ItemRarityID.Lime;
 			Item.defense = 5;
 		}
-		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Summon) += .38f;
-            player.statManaMax2 += 80;
-		}
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ItemID.ChlorophytePlateMail && legs.type == ItemID.ChlorophyteGreaves;
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChlorophytePaintBonus");
-            player.AddBuff(BuffID.LeafCrystal, 2);
-            player.maxMinions += 6;
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Summon) += .38f;
+			AddEffect(new MaxManaEffect(80));
+
+			AddSetEffect(new MaxMinionSlotEffect(6));
+			AddSetEffect<ChlorophyteHelmetSetEffect>();
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ChlorophyteBar, 6);

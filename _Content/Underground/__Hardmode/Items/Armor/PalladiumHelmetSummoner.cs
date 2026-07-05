@@ -1,20 +1,19 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class PalladiumHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class PalladiumHelmetSummoner : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Palladium";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Palladium Face Paint");
-            /* Tooltip.SetDefault(@"15% increased minion damage
-+40 Mana"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -27,23 +26,20 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             Item.defense = 2;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.15f;
-            player.statManaMax2 += 40;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ItemID.PalladiumBreastplate && legs.type == ItemID.PalladiumLeggings;
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PalladiumPaintBonus");
-            player.maxMinions += 1;
-            player.GetModPlayer<AAPlayer>().Palladium = true;
+            damageMap.GetDamage(DamageClass.Summon) += 0.15f;
+            AddEffect(new MaxManaEffect(40));
+
+            AddSetEffect(new MaxMinionSlotEffect(1));
+            AddSetEffect<PalladiumHelmetSetEffect>();
         }
+
 
         public override void AddRecipes()
         {

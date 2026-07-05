@@ -1192,7 +1192,7 @@ namespace AAModClassic
                 int index = RecipeGroup.recipeGroupIDs["Wood"];
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Razewood>());
                 RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<Bogwood>());
-                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<OroborosWood>());
+                RecipeGroup.recipeGroups[index].ValidItems.Add(ModContent.ItemType<OuroborosWood>());
             }
             #endregion
         }

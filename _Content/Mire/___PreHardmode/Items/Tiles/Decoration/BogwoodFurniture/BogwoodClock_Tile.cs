@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
 			};
 			TileObjectData.addTile(Type);
 			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Oroboros Clock"); // Automatic from .lang files
+			// name.SetDefault("Ouroboros Clock"); // Automatic from .lang files
 			AddMapEntry(new Color(70, 0, 10), name);
 			DustType = ModContent.DustType<Dusts.BogwoodDust>();
 			AdjTiles = new int[] { TileID.GrandfatherClocks };

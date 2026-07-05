@@ -1,23 +1,21 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class HoppingHoodlumChestplate : BaseAAItem, ILocalizedModType
+	public class HoppingHoodlumChestplate : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.HoppingHoodlum";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Hopping Hoodlum Shirt");
-            /* Tooltip.SetDefault(@"10% increased melee speed
-+1 max minion
-Enemies are more likely to target you
-Hopping Mad."); */
+            /* Tooltip.SetDefault(@"'Hopping Mad'"); */
         }
 
 
@@ -30,14 +28,15 @@ Hopping Mad."); */
             Item.defense = 28;
 		}
 
-        public override void UpdateEquip(Player player)
-		{
-            player.GetAttackSpeed(DamageClass.Melee) += .1f;
-            player.maxMinions += 1;
-            player.aggro += 2;
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new WingTimeMaxEffect(180));
+            damageMap.GetAttackSpeed(DamageClass.Melee) += .1f;
+            AddEffect(new MaxMinionSlotEffect(1));
+            AddEffect(new AggroEffect(2));
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RajahPelt>(), 10);

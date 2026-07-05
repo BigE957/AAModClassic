@@ -1,18 +1,21 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ChampionHelmetMage : BaseAAItem, ILocalizedModType
+    public class ChampionHelmetMage : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Champion";
         public override void SetStaticDefaults()
@@ -42,22 +45,16 @@ The armor of a champion feared across the land"); */
 			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.ChampionHoodBonus");
+            damageMap.GetDamage(DamageClass.Magic) += .22f;
+            damageMap.GetDamage(DamageClass.Generic) += .1f;
+            damageMap.GetCritChance(DamageClass.Magic) += 25;
+            AddEffect(new MaxManaEffect(150));
+            AddEffect(new ManaCostMultiplierEffect(0.75f));
 
-            AAPlayer mplayer = player.GetModPlayer<AAPlayer>();
-
-            mplayer.ChampionMa = true;
-        }
-
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Magic) += .22f;
-            player.GetDamage(DamageClass.Generic) += .1f;
-            player.GetCritChance(DamageClass.Magic) += 25;
-            player.manaCost *= .75f;
-            player.statManaMax2 += 150;
+            AddSetEffect<ChampionHelmetMageSetEffect>();
+            AddSetEffect<ChampionHelmetMageSetDescEffect>();
         }
 
         public override void AddRecipes()
@@ -68,5 +65,10 @@ The armor of a champion feared across the land"); */
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
+    }
+
+    public class ChampionHelmetMageSetDescEffect : EquipmentEffectData
+    {
+
     }
 }

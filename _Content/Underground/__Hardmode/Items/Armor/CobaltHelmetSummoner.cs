@@ -1,20 +1,19 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class CobaltHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class CobaltHelmetSummoner : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Cobalt";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cobalt Face Paint");
-            /* Tooltip.SetDefault(@"18% increased minion damage
-+40 Mana"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -27,23 +26,18 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             Item.defense = 2;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.18f;
-            player.statManaMax2 += 40;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ItemID.CobaltBreastplate && legs.type == ItemID.CobaltLeggings;
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.CobaltPaintBonus");
-            player.armorEffectDrawOutlines = true;
-            player.armorEffectDrawShadow = true;
-            player.maxMinions += 2;
+            damageMap.GetDamage(DamageClass.Summon) += 0.18f;
+            AddEffect(new MaxManaEffect(40));
+
+            AddSetEffect<OutlinesAndShadowEffect>();
+            AddSetEffect(new MaxMinionSlotEffect(2));
         }
 
         public override void AddRecipes()

@@ -63,7 +63,7 @@ Non-consumable");*/
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 15);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 20);
             recipe.AddIngredient(ModContent.ItemType<FulguriteBar>(), 20);
-            recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<OuroborosWood>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DoomsdayTesseract>(), 1);
             //recipe.AddTile(ModContent.TileType<AncientForge>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());

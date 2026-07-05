@@ -4,6 +4,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,15 +12,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ChampionLeggings : BaseAAItem, ILocalizedModType
+	public class ChampionLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Champion";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Champion' Greaves");
-            /* Tooltip.SetDefault(@"50% increased movement speed
-15% increased damage
-The armor of a champion feared across the land"); */
+            /* Tooltip.SetDefault(@"'The armor of a champion feared across the land'"); */
         }
 
 		public override void SetDefaults()
@@ -31,13 +30,11 @@ The armor of a champion feared across the land"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
-
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Generic) += .15f;
-            player.moveSpeed += .5f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .5f;
+            damageMap.GetDamage(DamageClass.Generic) += .15f;
+            AddEffect(new MovementSpeedEffect(0.50f));
+            AddEffect(new MaxRunSpeedEffect(0.50f));
         }
 
         public override void AddRecipes()

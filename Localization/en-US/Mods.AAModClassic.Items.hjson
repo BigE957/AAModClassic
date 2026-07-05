@@ -992,3 +992,8 @@ Lore: {
 		}
 	}
 }
+
+ChampionHelmetMageSetEffect_CarrotBooster: {
+	DisplayName: Champion Helmet Mage Set Effect_ Carrot Booster
+	Tooltip: ""
+}

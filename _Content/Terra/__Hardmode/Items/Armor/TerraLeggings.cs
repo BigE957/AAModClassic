@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,14 +8,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class TerraLeggings : BaseAAItem, ILocalizedModType
+	public class TerraLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.Terra";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Greaves");
-            /* Tooltip.SetDefault(@"10% increased movement speed
-5% increased damage"); */
         }
 
 		public override void SetDefaults()
@@ -25,10 +24,10 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             Item.rare = ItemRarityID.Lime;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Generic) += .05f;
-            player.moveSpeed += .1f;
+            damageMap.GetDamage(DamageClass.Generic) += .05f;
+            AddEffect(new MovementSpeedEffect(0.10f));
         }
 
         public override void AddRecipes()

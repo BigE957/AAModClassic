@@ -2,6 +2,7 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -11,15 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class TerraHelmetRanged : BaseAAItem, ILocalizedModType
+    public class TerraHelmetRanged : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Terra";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Visor");
-            /* Tooltip.SetDefault(@"24% Increased ranged damage
-25% Reduced Ammo Consumption
-Grants hunter & night vision"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -32,27 +30,21 @@ Grants hunter & night vision"); */
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += 0.24f;
-            player.GetDamage(DamageClass.Ranged) += 0.24f;
-            player.ammoCost75 = true;
-            player.nightVision = true;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<TerraChestplate>() && legs.type == ModContent.ItemType<TerraLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetDamage(DamageClass.Ranged) += 0.24f;
+            AddEffect<AmmoCost75Effect>();
+            AddEffect<HunterEffect>();
+            AddEffect<NightOwlEffect>();
 
-            player.setBonus = FilePathUtils.SetBonusPath<TerraHelmetRanged>();
-
-            player.aggro -= 5;
-            player.GetCritChance(DamageClass.Ranged) += 20;
-            player.GetModPlayer<TerraHelmetRangedPlayer>().effect = true;
+            setDamageMap.GetCritChance(DamageClass.Ranged) += 20;
+            AddSetEffect(new AggroEffect(-5));
+            AddSetEffect<TerraHelmetRangedSetEffect>();
         }
 
         public override void AddRecipes()

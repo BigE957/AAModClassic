@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,14 +8,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DemonChestplate : BaseAAItem, ILocalizedModType
+    public class DemonChestplate : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Demon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Garb");
-            /* Tooltip.SetDefault(@"9% Increased Minion damage
-+2 minion slots"); */
         }
 
         public override void SetDefaults()
@@ -26,11 +25,10 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipStats()
         {
-            player.GetDamage(DamageClass.Summon) += 0.09f;
-            player.maxMinions += 2;
-
+            damageMap.GetDamage(DamageClass.Summon) += 0.09f;
+            AddEffect(new MaxMinionSlotEffect(2));
         }
 
         public override void AddRecipes()

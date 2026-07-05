@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +15,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
-    public class DarkmatterChestplate : BaseAAItem, ILocalizedModType, ICustomEquipGlow
+    public class DarkmatterChestplate : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
@@ -25,8 +26,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         {
             
 			// DisplayName.SetDefault("Darkmatter Breastplate");
-			/* Tooltip.SetDefault(@"20% increased damage
-Dark, yet still barely visible"); */
+			/* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
@@ -59,14 +59,12 @@ Dark, yet still barely visible"); */
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+        public override void RegisterEquipStats()
+        {
+            damageMap.GetDamage(DamageClass.Generic) += .20f;
+        }
 
-        public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Generic) += .20f;
-		}
-
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 30);

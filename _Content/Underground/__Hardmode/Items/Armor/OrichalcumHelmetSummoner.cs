@@ -1,20 +1,19 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class OrichalcumHelmetSummoner : BaseAAItem, ILocalizedModType
+    public class OrichalcumHelmetSummoner : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Armor.Orichalcum";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oricalcum Face Paint");
-            /* Tooltip.SetDefault(@"22% increased minion damage
-+80 mana"); */
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
@@ -27,23 +26,18 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             Item.defense = 2;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Summon) += 0.22f;
-            player.statManaMax2 += 80;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ItemID.OrichalcumBreastplate && legs.type == ItemID.OrichalcumLeggings;
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipStats()
         {
+            damageMap.GetDamage(DamageClass.Summon) += 0.22f;
+            AddEffect(new MaxManaEffect(80));
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.OrichalcumPaintBonus");
-            player.maxMinions += 2;
-            player.onHitPetal = true;
+            AddSetEffect(new MaxMinionSlotEffect(2));
+            AddSetEffect<OrichalcumHelmetSetEffect>();
         }
 
         public override void AddRecipes()

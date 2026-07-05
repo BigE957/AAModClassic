@@ -97,7 +97,6 @@ namespace AAModClassic
         public bool ImpServant = false;
         public bool ImpSlave = false;
         public bool MoonBee = false;
-        public bool Searcher = false;
         public bool enderMinion = false;
         public bool enderMinionEX = false;
         public bool LungMinion = false;
@@ -121,7 +120,6 @@ namespace AAModClassic
         public bool KrakenMinion = false;
         public bool Fishnado = false;
         public bool MadnessElemental = false;
-        public bool FlameSoul = false;
         public bool Orbiters = false;
         public bool Protocol = false;
         public bool ScoutMinion = false;
@@ -137,8 +135,6 @@ namespace AAModClassic
         public bool MiniZero = false;
         public bool TerraSummon = false;
         public bool DragonSpirit = false;
-        public bool Seraph = false;
-        public bool Baron = false;
         public bool Xiao = false;
         public bool ChaosConstruct = false;
         public bool CCBook = false;
@@ -169,10 +165,6 @@ namespace AAModClassic
         public int VoidGrav = 0;
         public static int Ashes = 0;
         public int CthulhuCountdown = 10800;
-        public bool Leave = false;
-
-        public bool RadiumStars = false;
-        public bool Darkmatter = false;
         #endregion
 
         #region Armor bools.
@@ -184,66 +176,19 @@ namespace AAModClassic
         public bool StripeManSpawn = false;
         public bool StripeManSet = false;
         public bool MoonSet;
-        public bool goblinSlayer;
-        public bool IsGoblin;
-        public bool leatherSet;
-        public bool mushiumSet;
-        public bool kindledSet;
-        public bool depthSet;
-        public bool impSet;
-        public bool DynaskullSet;
-        public bool fleshrendSet;
-        public bool nightsSet;
-        public bool deathlySet;
-        public bool tribalSet;
-        public bool demonSet;
-        public bool demonBonus;
-        public bool terraSet;
-        public bool chaosSet;
+        public bool leatherSet; // TODO: WE NEED TO FIND THIS
         public bool darkmatterSetMe;
         public bool darkmatterSetRa;
         public bool darkmatterSetMa;
         public bool darkmatterSetSu;
         public bool darkmatterSetTh;
-        public bool radiumMe;
-        public bool radiumRa;
-        public bool radiumMa;
-        public bool radiumSu;
         public bool DarkmatterSet;
-        public bool dracoSet;
-        public bool dreadSet;
-        public bool zeroSet1;
-        public bool zeroSet;
         public bool valkyrieSet;
-        public bool infinitySet;
         public bool Alpha;
-        public bool Palladium;
-        public bool doomite;
         public bool Radium;
-        public bool perfectChaos;
-        public bool perfectChaosMe;
-        public bool perfectChaosRa;
-        public bool perfectChaosMa;
-        public bool perfectChaosSu;
-        public bool Assassin;
-        public bool AbyssalStealth;
-        public bool Witch;
 
-        public bool ChaosMe = false;
-        public bool ChaosRa = false;
-        public bool ChaosMe1 = false;
         public bool ChaosRa2 = false;
         public bool ChaosMa = false;
-        public bool ChaosSu = false;
-
-        public bool Olympian = false;
-        public bool StoneSoldier = false;
-
-        public bool ChampionMe = false;
-        public bool ChampionRa = false;
-        public bool ChampionMa = false;
-        public int CarrotBuff = 0;
-        public bool ChampionSu = false;
 
         public bool onoPrevious;
         public bool ono;
@@ -252,35 +197,18 @@ namespace AAModClassic
 
         public bool AsheFlame;
         public float AsheFlameScale = 0f;
-        public int AsheCooldown = 0;
         #endregion
 
         #region Accessory bools
-        public bool clawsOfChaos;
         public bool HydraPendant;
-        public bool demonGauntlet;
-        public bool BrokenCode;
         public int AbilityCD = 180;
-        public bool AshRemover;
-        public bool FogRemover;
-        public bool Duality;
         public bool DragonShell;
-        public bool ammo20percentdown = false;
-        public int dashDelayAA;
         public bool RStar;
         public bool DVoid;
-        public int[] AADoubleTapKeyTimer = new int[4];
-        public int[] AAHoldDownKeyTimer = new int[4];
         public bool DiscordShredder;
-        public bool lantern = false;
         public bool HeartA = false;
-        public bool DragonsGuard = false;
-        public bool ShadowBand = false;
-        public bool olympianWings = false;
-        public bool BlackLotusEmblem = false;
 
         public bool SpellBookofRagnarok;
-        public bool CursedEyeofSoulBinder;
         #endregion
 
         #region debuffs
@@ -290,22 +218,15 @@ namespace AAModClassic
         public bool dragonFire = false;
         public bool hydraToxin = false;
         public bool terraBlaze = false;
-        public bool Snagged = false;
-        public bool Snagged1 = false;
-        public bool YamataCount = false;
-        public bool YamataACount = false;
         public bool Clueless = false;
-        public bool Yanked = false;
         public bool InfinityScorch = false;
         public bool LockedOn = false;
         public bool shroomed = false;
         public bool riftbent = false;
         public bool DestinedToDie = false;
-        public int TeleportTimer = 0;
         public bool YamataGravity = false;
         public bool YamataAGravity = false;
         public bool Hunted = false;
-        public bool IB = false;
         public bool Spear = false;
         public bool AkumaPain = false;
         public bool FFlames = false;
@@ -314,7 +235,6 @@ namespace AAModClassic
         #region buffs
 
         public bool Ronin = false;
-        public bool Glitched = false;
 
         public bool luckycalm = false;
         public bool luckythorns = false;
@@ -339,9 +259,6 @@ namespace AAModClassic
         public bool ZeroBab = false;
         #endregion
 
-        //NPCcount
-        public static int yamata = -1;
-
         #region Colors
         public static Color IncineriteColor = new Color((int)(242 * 0.7f), (int)(107 * 0.7f), 0);
         public static Color ZeroColor = new Color((int)(233 * 0.7f), (int)(53 * 0.7f), (int)(53 * 0.7f));
@@ -349,14 +266,10 @@ namespace AAModClassic
         public static bool[] groviteGlow = new bool[255];
 
         public static int IZKills = 0;
-
-        public int ManaLantern = 0;
         #endregion
 
         #region Misc
-        public bool Compass = false;
         public Vector2 RiftPos = new Vector2(0, 0);
-        public int PrismCooldown = 0;
         public bool WorldgenReminder = false;
         public bool NewAAReminder = false;
         public bool DemonSun = false;
@@ -364,10 +277,7 @@ namespace AAModClassic
         public bool GivenAnuSummon = false;
         public bool GivenWormIdol = false;
 
-        public float spellbookDamage = 1f;
         public float MaxMovespeedboost = 0;
-        public bool bossactive = false;
-        public bool nohitplayer = true;
         #endregion
 
         #endregion
@@ -405,18 +315,14 @@ namespace AAModClassic
             ResetDebuffEffect();
             ResetPetsEffect();
 
-            spellbookDamage = 1f;
             MaxMovespeedboost = 0;
-            bossactive = false;
 
             //EnemyChecks
-            IsGoblin = false;
             ResetMiscEffect();
         }
 
         private void ResetMiscEffect()
         {
-            Compass = false;
             DemonSun = false;
             onoPrevious = ono;
             ono = onoHideVanity = onoForceVanity = false;
@@ -428,7 +334,7 @@ namespace AAModClassic
             ImpServant = false;
             ImpSlave = false;
             MoonBee = false;
-            Searcher = false;
+        
             enderMinion = false;
             enderMinionEX = false;
             BabyPhoenix = false;
@@ -452,7 +358,6 @@ namespace AAModClassic
             KrakenMinion = false;
             Fishnado = false;
             MadnessElemental = false;
-            FlameSoul = false;
             Orbiters = false;
             Protocol = false;
             ScoutMinion = false;
@@ -468,8 +373,6 @@ namespace AAModClassic
             MiniZero = false;
             TerraSummon = false;
             DragonSpirit = false;
-            Seraph = false;
-            Baron = false;
             Xiao = false;
             ChaosConstruct = false;
             CCBook = false;
@@ -482,42 +385,16 @@ namespace AAModClassic
         {
             MoonSet = false;
             valkyrieSet = false;
-            kindledSet = false;
-            depthSet = false;
-            demonSet = false;
-            demonBonus = false;
-            fleshrendSet = false;
-            goblinSlayer = false;
-            tribalSet = false;
-            impSet = false;
-            terraSet = false;
-            chaosSet = false;
-            DynaskullSet = false;
-            zeroSet = false;
-            dracoSet = false;
-            dreadSet = false;
             darkmatterSetMe = false;
             darkmatterSetRa = false;
             darkmatterSetMa = false;
             darkmatterSetSu = false;
             darkmatterSetTh = false;
-            infinitySet = false;
             Alpha = false;
-            Palladium = false;
-            doomite = false;
             DarkmatterSet = false;
-            perfectChaos = false;
-            Assassin = false;
-            AbyssalStealth = false;
             AsheFlame = false;
-            Witch = false;
-            ChaosMe = false;
-            ChaosMe1 = false;
-            ChaosRa = false;
             ChaosRa2 = false;
             ChaosMa = false;
-            ChaosSu = false;
-            Olympian = false;
             AncientGoldBody = false;
             AncientGoldLeg = false;
             AncientGoldSet = false;
@@ -525,35 +402,17 @@ namespace AAModClassic
             StripeManOre = false;
             StripeManSpawn = false;
             StripeManSet = false;
-            ChampionMe = false;
-            ChampionRa = false;
-            ChampionMa = false;
-            ChampionSu = false;
-            StoneSoldier = false;
         }
 
         private void ResetAccessoryEffect()
         {
-            AshRemover = false;
-            FogRemover = false;
-            clawsOfChaos = false;
             HydraPendant = false;
-            demonGauntlet = false;
-            BrokenCode = false;
-            Duality = false;
-            ammo20percentdown = false;
             AshCurse = !Main.dayTime && !AAWorld.downedAkuma;
             DiscordShredder = false;
             RStar = false;
             DVoid = false;
-            lantern = false;
             HeartA = false;
-            BlackLotusEmblem = false;
-            DragonsGuard = false;
-            ShadowBand = false;
-            olympianWings = false;
             SpellBookofRagnarok = false;
-            CursedEyeofSoulBinder = false;
         }
 
         private void ResetBuffEffect()
@@ -573,7 +432,6 @@ namespace AAModClassic
             hydraToxin = false;
             terraBlaze = false;
             Clueless = false;
-            Yanked = false;
             InfinityScorch = false;
             LockedOn = false;
             shroomed = false;
@@ -582,7 +440,6 @@ namespace AAModClassic
             YamataGravity = false;
             YamataAGravity = false;
             Hunted = false;
-            IB = false;
             Spear = false;
             AkumaPain = false;
             FFlames = false;
@@ -609,7 +466,6 @@ namespace AAModClassic
         public override void Initialize()
         {
             AbilityCD = 0;
-            ManaLantern = 0;
             ZoneInferno = false;
             ZoneMire = false;
             ZoneMush = false;
@@ -727,38 +583,8 @@ namespace AAModClassic
             }
 		}
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            if (Palladium)
-            {
-                Player.AddBuff(BuffID.RapidHealing, 300);
-            }
-
-            if (StoneSoldier)
-            {
-                if (target.life <= 0 && Main.rand.NextBool(80))
-                {
-                    Projectile.NewProjectile(target.GetSource_GiftOrReward(), target.Center, Vector2.Zero, ProjectileID.CoinPortal, 0, 0, Main.myPlayer);
-                }
-            }
-        }
-
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)/* tModPorter If you don't need the Projectile, consider using OnHitNPC instead */
         {
-            if (Palladium)
-            {
-                Player.AddBuff(BuffID.RapidHealing, 300);
-            }
-
-            if (StoneSoldier)
-            {
-                target.AddBuff(BuffID.Midas, 600);
-                if (target.life <= 0 && Main.rand.NextBool(80))
-                {
-                    Projectile.NewProjectile(target.GetSource_OnHurt(Player), target.Center, Vector2.Zero, ProjectileID.CoinPortal, 0, 0, Main.myPlayer);
-                }
-            }
-
             if (target.HasBuff(ModContent.BuffType<Lifeline_Forsaken>()) && proj.type == ModContent.ProjectileType<Lifeline_EnchancedMummyArrow>())
             {
 				float num1 = 9f;
@@ -793,29 +619,6 @@ namespace AAModClassic
 
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
-            if (fleshrendSet && Main.rand.NextBool(2))
-            {
-                if (Player.whoAmI == Main.myPlayer)
-                {
-                    for (int i = 0; i < 40; i++)
-                    {
-                        Vector2 position = new Vector2(Player.Center.X - 40, Player.Center.Y - 40);
-                        Dust.NewDust(position, 80, 80, DustID.RainCloud, 0f, 0f, 124, new Color(255, 50, 0), 1f);
-                    }
-
-                    for (int i = 0; i < Main.maxNPCs; i++)
-                    {
-                        NPC target = Main.npc[i];
-                        float dist = npc.Distance(Player.Center);
-
-                        if (target.active && !target.dontTakeDamage && !target.friendly && target.immune[Player.whoAmI] == 0 && dist < 100f)
-                        {
-                            Player.ApplyDamageToNPC(target, 30, 0, 0, false); // target , damage, knockback, direction, crit
-                        }
-                    }
-                }
-            }
-
             if (npc.type == NPCID.GoblinArcher
                 || npc.type == NPCID.GoblinPeon
                 || npc.type == NPCID.GoblinScout
@@ -838,44 +641,10 @@ namespace AAModClassic
 
         public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */
         {
-            if (goblinSlayer)
-            {
-                if (target.type == NPCID.GoblinArcher
-                    || target.type == NPCID.GoblinPeon
-                    || target.type == NPCID.GoblinScout
-                    || target.type == NPCID.GoblinSorcerer
-                    || target.type == NPCID.GoblinSummoner
-                    || target.type == NPCID.GoblinThief
-                    || target.type == NPCID.GoblinWarrior
-                    || target.type == NPCID.DD2GoblinBomberT1
-                    || target.type == NPCID.DD2GoblinBomberT2
-                    || target.type == NPCID.DD2GoblinBomberT3
-                    || target.type == NPCID.DD2GoblinT1
-                    || target.type == NPCID.DD2GoblinT2
-                    || target.type == NPCID.DD2GoblinBomberT3
-                    || target.type == NPCID.BoundGoblin
-                    || target.type == NPCID.GoblinTinkerer)
-                {
-                    modifiers.FinalDamage.Flat *= 5;
-                    IsGoblin = true;
-                }
-            }
-
-            if (perfectChaosMe)
-            {
-                target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
-            }
-
             if (valkyrieSet)
             {
                 target.AddBuff(BuffID.Frostburn, 180);
                 target.AddBuff(BuffID.Chilled, 180);
-            }
-
-            if (Duality)
-            {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
-                target.AddBuff(buff, 1000);
             }
 
             if (darkmatterSetMe)
@@ -883,20 +652,10 @@ namespace AAModClassic
                 target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
             }
 
-            if (kindledSet)
-            {
-                Player.magmaStone = true;
-            }
-
             if (DiscordShredder)
             {
                 Player.ApplyDamageToNPC(target, 30, 0, 0, false);
                 target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
-            }
-
-            if (dracoSet)
-            {
-                target.AddBuff(BuffID.Daybreak, 600);
             }
 
             if (Alpha && !target.boss)
@@ -913,24 +672,6 @@ namespace AAModClassic
             {
                 target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 900);
             }
-            if (StoneSoldier)
-            {
-                target.AddBuff(BuffID.Midas, 600);
-            }
-
-            if (ChampionMa)
-            {
-                if (Main.rand.NextBool(30))
-                {
-                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<ChampionHelmetMage_CarrotBooster>(), 1, false, 0, true);
-                    Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
-                }
-            }
-
-            if (infinitySet && Main.rand.NextBool(2))
-            {
-                target.AddBuff(ModContent.BuffType<InfinityScorch_Buff>(), 300);
-            }
         }
 
 
@@ -938,16 +679,6 @@ namespace AAModClassic
         {
             if (proj.CountsAsClass(DamageClass.Melee))
             {
-                if (perfectChaosMe)
-                {
-                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
-                }
-
-                if (dracoSet)
-                {
-                    target.AddBuff(BuffID.Daybreak, 600);
-                }
-
                 if (valkyrieSet)
                 {
                     target.AddBuff(BuffID.Frostburn, 180);
@@ -972,34 +703,9 @@ namespace AAModClassic
 
             if (proj.CountsAsClass(DamageClass.Ranged))
             {
-                if (perfectChaosRa)
-                {
-                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
-                }
-
-                if (dreadSet)
-                {
-                    target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
-                }
-
-                if (DynaskullSet && Main.rand.NextBool(4))
-                {
-                    target.AddBuff(BuffID.Confused, 180);
-                }
-
-                if (depthSet)
-                {
-                    target.AddBuff(BuffID.Poisoned, 180);
-                }
-
                 if (darkmatterSetRa)
                 {
                     target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
-                }
-
-                if (infinitySet && Main.rand.NextBool(2))
-                {
-                    target.AddBuff(ModContent.BuffType<InfinityScorch_Buff>(), 300);
                 }
             }
 
@@ -1008,16 +714,6 @@ namespace AAModClassic
                 if (MoonSet)
                 {
                     target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 300);
-                }
-
-                if (zeroSet)
-                {
-                    target.AddBuff(ModContent.BuffType<BrokenArmor_Buff>(), 1000);
-                }
-
-                if (perfectChaosMa)
-                {
-                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
                 }
 
                 if (darkmatterSetMa)
@@ -1034,21 +730,6 @@ namespace AAModClassic
 
             if (proj.minion)
             {
-                if (zeroSet1)
-                {
-                    target.AddBuff(ModContent.BuffType<BrokenArmor_Buff>(), 1000);
-                }
-
-                if (perfectChaosSu)
-                {
-                    target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
-                }
-
-                if (impSet)
-                {
-                    target.AddBuff(BuffID.OnFire, 180);
-                }
-
                 if (darkmatterSetSu)
                 {
                     target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
@@ -1068,30 +749,10 @@ namespace AAModClassic
                 }
             }
 
-            if (ChampionMa)
-            {
-                if (Main.rand.NextBool(30))
-                {
-                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<ChampionHelmetMage_CarrotBooster>(), 1, false, 0, true);
-                    Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
-                }
-            }
-
-            if (Duality)
-            {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
-                target.AddBuff(buff, 1000);
-            }
-
             if (DiscordShredder)
             {
                 Player.ApplyDamageToNPC(target, 30, 0, 0, false);
                 target.AddBuff(ModContent.BuffType<DiscordianInferno_Buff>(), 300);
-            }
-
-            if (StoneSoldier)
-            {
-                target.AddBuff(BuffID.Midas, 600);
             }
         }
 
@@ -1178,25 +839,10 @@ namespace AAModClassic
 
         public override void PostUpdate()
         {
-            if (!bossactive)
-            {
-                nohitplayer = true;
-            }
             if (Ronin)
             {
                 Player.immune = true;
                 Player.immuneTime = 60;
-            }
-            if (olympianWings && Player.dash < 1)
-            {
-                if (Player.velocity.Y != 0)
-                {
-                    Player.dash = 2;
-                }
-                else
-                {
-                    Player.dash = 0;
-                }
             }
 
             DarkmatterSet = darkmatterSetMe || darkmatterSetRa || darkmatterSetMa || darkmatterSetSu || darkmatterSetTh;
@@ -1253,16 +899,6 @@ namespace AAModClassic
             }
 
             #region AsheFlameDrawMethod
-
-            if (AsheCooldown > 0)
-            {
-                AsheCooldown--;
-            }
-            else
-            {
-                AsheCooldown = 0;
-            }
-
             if (AsheFlame)
             {
                 RingRotation += .05f;
@@ -1432,19 +1068,11 @@ namespace AAModClassic
                 }
             }
 
-            if (kindledSet)
-            {
-                Lighting.AddLight((int)(Player.position.X + Player.width / 2) / 16, (int)(Player.position.Y + Player.height / 2) / 16, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f);
-            }
-
             if (Player.GetModPlayer<AAPlayer>().ZoneMire || Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
             {
                 if (Main.dayTime && !AAWorld.downedYamata)
                 {
-                    if (!Player.GetModPlayer<AAPlayer>().FogRemover)
-                    {
-                        Player.AddBuff(ModContent.BuffType<Clueless_Buff>(), 5);
-                    }
+                    Player.AddBuff(ModContent.BuffType<Clueless_Buff>(), 5);
                 }
             }
 
@@ -1480,46 +1108,7 @@ namespace AAModClassic
                 }
             }
 
-            if(Player.GetModPlayer<AAPlayer>().Assassin)
-            {
-                float RandomX = 50f;
-                float RandomY = 25f;
-                bool flag = Player.itemAnimation > 0;
-                if (flag && Player.inventory[Player.selectedItem].CountsAsClass(DamageClass.Melee) && Main.rand.NextBool(200) && Player.whoAmI == Main.myPlayer)
-                {
-                    Vector2 SpeedVector = Main.MouseWorld - Player.RotatedRelativePoint(Player.MountedCenter, true);
-                    SpeedVector.Normalize();
-                    if (SpeedVector.HasNaNs())
-                    {
-                        SpeedVector = Vector2.UnitX * Player.direction;
-                    }
-                    SpeedVector *= 15f;
-                    Vector2[] Spwanposition = new Vector2[3];
-                    Spwanposition[0] = new Vector2(Player.Center.X + Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY, RandomY));
-                    Spwanposition[1] = new Vector2(Player.Center.X - Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY, RandomY));
-                    Spwanposition[2] = new Vector2(Player.Center.X - Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY, RandomY));
-                    int i = 0;
-                    while (i < 3)
-                    {
-                        if(Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, ModContent.ProjectileType<MidnightAssassinHelmet_AssassinDagger>(), (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
-                        float round = 16f;
-                        int k = 0;
-                        while (k < round)
-                        {
-                            Vector2 vector12 = Vector2.UnitX * 0f;
-                            vector12 += -Vector2.UnitY.RotatedBy(k * (6.28318548f / round), default) * new Vector2(1f, 4f);
-                            vector12 = vector12.RotatedBy(SpeedVector.ToRotation(), default);
-                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1f);
-                            Main.dust[Dusti].scale = 1.5f;
-                            Main.dust[Dusti].noGravity = true;
-                            Main.dust[Dusti].position = Spwanposition[i] + vector12;
-                            Main.dust[Dusti].velocity = vector12.SafeNormalize(Vector2.UnitY) * 1f;
-                            k++;
-                        }
-                        i++;
-                    }
-                }
-            }
+
 
             if (Player.controlQuickHeal)
             {
@@ -1602,61 +1191,6 @@ namespace AAModClassic
                     }
                 }
             }
-
-            if (ChampionMe && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<ChampionHelmetMelee_RajahsRage>()))
-            {
-                int BuffLength = 240;
-                if (Player.statLife < (int)(Player.statLifeMax2 * .75f))
-                {
-                    BuffLength = 360;
-                }
-                if (Player.statLife < (int)(Player.statLifeMax2 * .5f))
-                {
-                    BuffLength = 480;
-                }
-                if (Player.statLife < (int)(Player.statLifeMax2 * .25f))
-                {
-                    BuffLength = 600;
-                }
-                Player.AddBuff(ModContent.BuffType<ChampionHelmetMelee_DefendersRage>(), BuffLength);
-                int RageCooldown = BuffLength * 4;
-                Player.AddBuff(ModContent.BuffType<ChampionHelmetMelee_RajahsRage>(), RageCooldown);
-            }
-
-            if (Player.HasBuff(ModContent.BuffType<ChampionHelmetMelee_DefendersRage>()))
-            {
-                Player.armorEffectDrawShadowLokis = true;
-            }
-
-            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<ChampionHelmetRanged_RABITUnitReloadProtocol>()) && 
-                !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ChampionHelmetRanged_RABITDrone>()))
-            {
-                Vector2 vector2;
-                vector2.X = Main.mouseX + Main.screenPosition.X;
-                vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<ChampionHelmetRanged_RABITDrone>(), (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
-            }
-
-
-        }
-
-        public void CarrotLevelup()
-        {
-            if (Player.whoAmI == Main.myPlayer)
-            {
-                for (int i = 0; i < 22; i++)
-                {
-                    if (Player.buffType[i] == ModContent.BuffType<ChampionHelmetMage_ChampionBoost1>() || 
-                        Player.buffType[i] == ModContent.BuffType<ChampionHelmetMage_ChampionBoost2>() ||
-                        Player.buffType[i] == ModContent.BuffType<ChampionHelmetMage_ChampionBoost3>())
-                    {
-                        Player.DelBuff(i);
-                    }
-                }
-                CarrotBuff = (int)MathHelper.Clamp(CarrotBuff + 1, 0f, 3f);
-                Player.AddBuff(Mod.Find<ModBuff>("CBoost" + CarrotBuff).Type, 480, true);
-                return;
-            }
         }
 
         public void SpecialQuickHeal()
@@ -1736,42 +1270,6 @@ namespace AAModClassic
 
             Player.maxRunSpeed *= movespeedmax;
         }
-        
-        public override bool Shoot(Item item, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-            if(item.CountsAsClass(DamageClass.Ranged) && Assassin)
-            {
-                velocity *= 1.3f;
-                if(Main.rand.NextBool(10) && Player.whoAmI == Main.myPlayer)
-                {
-                    float RandomX = 50f;
-                    float RandomY = 25f;
-                    Vector2[] Spwanposition = new Vector2[3];
-                    Spwanposition[0] = new Vector2(Player.Center.X + Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY,RandomY));
-                    Spwanposition[1] = new Vector2(Player.Center.X - Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY,RandomY));
-                    Spwanposition[2] = new Vector2(Player.Center.X - Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY,RandomY));
-                    for (int i = 0; i < 3; i++)
-                    {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Spwanposition[i].X, Spwanposition[i].Y, velocity.X, velocity.Y, ModContent.ProjectileType<MidnightAssassinHelmet_AssassinArrow>(), (int)(item.damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
-                        float round = 16f;
-                        int k = 0;
-                        while (k < round)
-                        {
-                            Vector2 vector12 = Vector2.UnitX * 0f;
-                            vector12 += -Vector2.UnitY.RotatedBy(k * (6.28318548f / round), default) * new Vector2(1f, 4f);
-                            vector12 = vector12.RotatedBy(velocity.ToRotation(), default);
-                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1f);
-                            Main.dust[Dusti].scale = 1.5f;
-                            Main.dust[Dusti].noGravity = true;
-                            Main.dust[Dusti].position = Spwanposition[i] + vector12;
-                            Main.dust[Dusti].velocity = vector12.SafeNormalize(Vector2.UnitY) * 1f;
-                            k++;
-                        }
-                    }
-                }
-            }
-			return true;
-		}
 
         #region Dust Effects
 
@@ -1917,7 +1415,7 @@ namespace AAModClassic
 
             if ((player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda) && player.GetModPlayer<AAPlayer>().AshCurse)
             {
-                if (!player.GetModPlayer<AAPlayer>().AshRemover || !(player.ZoneSkyHeight || player.ZoneOverworldHeight))
+                if (!(player.ZoneSkyHeight || player.ZoneOverworldHeight))
                 {
                     player.AddBuff(ModContent.BuffType<BurningAsh_Buff>(), 5);
                 }
@@ -2485,14 +1983,6 @@ namespace AAModClassic
             }
         }
 
-        public override void ModifyWeaponKnockback(Item item, ref StatModifier knockback)
-        {
-            if (IsGoblin)
-            {
-                knockback += 5f;
-            }
-        }
- 
         public override float UseTimeMultiplier(Item item)
         {
             float multiplier = 1f;
@@ -2544,28 +2034,6 @@ namespace AAModClassic
                         Player.velocity = Vector2.Zero;
                         Player.position = RiftPos;
                     }
-                }
-            }
-
-            if (Witch)
-            {
-                if (AAMod.ArmorAbilityKey.JustPressed && AsheCooldown == 0)
-                {
-                    SoundEngine.PlaySound(SoundID.Zombie104, Player.position);
-                    if(Player.inventory[Player.selectedItem].CountsAsClass(DamageClass.Magic) || Player.inventory[Player.selectedItem].CountsAsClass(DamageClass.Summon))
-                    {
-                        for(int i = 0; i < 8; i++)
-                        {
-                            Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
-                            shoot *= 8f;
-                            int id = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<Ashe_FireBomb>(), Player.inventory[Player.selectedItem].damage, 5, Main.myPlayer, 0f, 1f);
-                            Main.projectile[id].DamageType = DamageClass.Magic;
-                            Main.projectile[id].hostile = false;
-                            Main.projectile[id].friendly = true;
-                        }
-                    }
-                    Player.AddBuff(ModContent.BuffType<FuryWitchs_AsheFlame>(), 900);
-                    AsheCooldown = 5400;
                 }
             }
 
@@ -2821,10 +2289,6 @@ namespace AAModClassic
 
         public override void ModifyHurt(ref Player.HurtModifiers modifiers)
 		{
-            if (bossactive)
-            {
-                nohitplayer = false;
-            }
             if (Ronin)
             {
                 modifiers.Cancel();
@@ -2890,7 +2354,6 @@ namespace AAModClassic
             dragonFire = false;
             hydraToxin = false;
             terraBlaze = false;
-            Yanked = false;
             InfinityScorch = false;
             LockedOn = false;
             shroomed = false;
@@ -2901,7 +2364,6 @@ namespace AAModClassic
             Hunted = false;
             Spear = false;
             MaxMovespeedboost = 0;
-            spellbookDamage = 1f;
         }
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
@@ -3096,60 +2558,6 @@ namespace AAModClassic
                 Lighting.AddLight((int)(Player.Center.X / 16f), (int)(Player.Center.Y / 16f), 0f, 0f, 0.45f);
             }
         }
-
-        public override bool CanConsumeAmmo(Item weapon, Item ammo)
-        {
-            if (ammo20percentdown && Main.rand.NextBool(5))
-            {
-                return false;
-            }
-
-            return base.CanConsumeAmmo(weapon, ammo);
-        }
-
-        #region Highest Damage check
-
-        public static bool MeleeHighest(Player player)
-        {
-            return player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Ranged).Additive &&
-                player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Magic).Additive &&
-                player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Summon).Additive &&
-                player.GetDamage(DamageClass.Melee).Additive > player.GetDamage(DamageClass.Throwing).Additive;
-        }
-
-        public static bool RangedHighest(Player player)
-        {
-            return player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Melee).Flat &&
-                player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Magic).Flat &&
-                player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Summon).Flat &&
-                player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Throwing).Flat;
-        }
-
-        public static bool MagicHighest(Player player)
-        {
-            return player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
-                player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Melee).Flat &&
-                player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Summon).Flat &&
-                player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Throwing).Flat;
-        }
-
-        public static bool SummonHighest(Player player)
-        {
-            return player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
-                player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Magic).Flat &&
-                player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Melee).Flat &&
-                player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Throwing).Flat;
-        }
-
-        public static bool ThrownHighest(Player player)
-        {
-            return player.GetDamage(DamageClass.Throwing).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
-                player.GetDamage(DamageClass.Throwing).Flat > player.GetDamage(DamageClass.Magic).Flat &&
-                player.GetDamage(DamageClass.Throwing).Flat > player.GetDamage(DamageClass.Summon).Flat &&
-                player.GetDamage(DamageClass.Throwing).Flat > player.GetDamage(DamageClass.Melee).Flat;
-        }
-
-        #endregion
 
         public delegate void PlayerActionDelegate(Player player);
         public static event PlayerActionDelegate ModifyDrawInfoEvent;
@@ -3829,18 +3237,18 @@ namespace AAModClassic
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, red, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
                 }
 
-                int cbuff = drawPlayer.GetModPlayer<AAPlayer>().CarrotBuff;
+                int cbuff = drawPlayer.GetModPlayer<ChampionHelmetMageSetPlayer>().CarrotBuff;
 
                 if (cbuff > 0)
                 {
-                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMage_ChampionBoost1_Aura").Value;
-                    if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost2>()))
+                    Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMageSetEffect_ChampionBoost1_Aura").Value;
+                    if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMageSetEffect_ChampionBoost2>()))
                     {
-                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMage_ChampionBoost2_Aura").Value;
+                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMageSetEffect_ChampionBoost2_Aura").Value;
                     }
-                    if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMage_ChampionBoost3>()))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<ChampionHelmetMageSetEffect_ChampionBoost3>()))
                     {
-                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMage_ChampionBoost3_Aura").Value;
+                        Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMageSetEffect_ChampionBoost3_Aura").Value;
                     }
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), Main.DiscoColor, true);
                 }
