@@ -7,9 +7,10 @@ using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    public class ExtravagantLongswordS : ExtravagantLongsword
-	{
-		public override void SetStaticDefaults()
+    public class ExtravagantLongswordS : ExtravagantLongsword, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Extravagant Longsword");
             /* Tooltip.SetDefault(@"An Excellent choice.
