@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DarkmatterJetpack : EquipAbstract, ILocalizedModType
+	public class DarkmatterWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()

@@ -436,7 +436,7 @@ Effect: {
 		'''
 		You have a higher chance to encounter rare enemies
 		Rare objects appear more frequently
-		Pots may appear in places you would never expect them to be
+		Pots may appear in places you would never expect them to be in
 		You have a chance to get better things from pots
 		'''
 	StripemansLuckyHelmetEffect:
@@ -449,8 +449,8 @@ Effect: {
 		You change the rule of Nature's randomicity
 		You will be a lucky guy? Or an unfortunate man.
 		Press the Armor Ability Key to change the world's random system: {0}
-		'Behold, the man is become as one of us, to know good and evil.'
-		'And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever'
+		'Behold, the man is become as one of us, to know good and evil.
+		And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever'
 		'''
 	FishingPowerEffect: "{0} fishing power by {1}"
 	HighTestFishingLineEffect: Fishing line will never break

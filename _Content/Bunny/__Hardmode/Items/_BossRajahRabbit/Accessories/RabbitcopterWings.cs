@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class RabbitcopterEars : EquipAbstract, ILocalizedModType
+	public class RabbitcopterWings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
