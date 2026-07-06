@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
-    public class TheBookOfRunes_TerraRune : ModProjectile
+    public class TheBookOfRunesEffect_TerraRune : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -38,17 +38,13 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>(), 3600);
-            if (!modPlayer.CCBookEX)
+
+            if (player.dead || !player.GetModPlayer<TheBookOfRunesPlayer>().effect || player.maxMinions - player.slotsMinions < 2f)
             {
                 Projectile.active = false;
                 return;
             }
-            if (player.dead)
-            {
-                modPlayer.CCRune = false;
-            }
-            if (player.HasBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>()))
+            else
             {
                 Projectile.timeLeft = 2;
             }
@@ -57,7 +53,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<TheBookOfRunes_TerraRune>();
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)

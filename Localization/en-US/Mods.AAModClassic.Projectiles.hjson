@@ -1,6 +1,6 @@
-﻿APageOfTheRuneBook_BunnyRune.DisplayName: Bunny Rune
-APageOfTheRuneBook_DiscordRune.DisplayName: Discord Rune
-APageOfTheRuneBook_EnergyRune.DisplayName: Energy Rune
+﻿APageOfTheRuneBookEffect_BunnyRune.DisplayName: Bunny Rune
+APageOfTheRuneBookEffect_DiscordRune.DisplayName: Discord Rune
+APageOfTheRuneBookEffect_EnergyRune.DisplayName: Energy Rune
 CerberusWhistle_Cerberus.DisplayName: Cerberus Whistle_ Cerberus
 K9Collar_K9Unit.DisplayName: K9 Unit
 MoonBeeInAJar_Lunamini.DisplayName: Lunamini
@@ -62,10 +62,10 @@ FurySpark.DisplayName: Fury Spark
 EmperorFlairon_Holdout.DisplayName: Emperor Flairon
 FishnadoStaff_Fishnado.DisplayName: Fishnado
 Hurricane_OceanicArrow.DisplayName: Oceanic Arrow
-TheBookOfRunes_ChaosRune.DisplayName: Chaos Rune
-TheBookOfRunes_NovaRay.DisplayName: Nova Ray
-TheBookOfRunes_TerraRune.DisplayName: Terra Rune
-TheBookOfRunes_VoidRune.DisplayName: Void Rune
+TheBookOfRunesEffect_ChaosRune.DisplayName: Chaos Rune
+TheBookOfRunesEffect_NovaRay.DisplayName: Nova Ray
+TheBookOfRunesEffect_TerraRune.DisplayName: Terra Rune
+TheBookOfRunesEffect_VoidRune.DisplayName: Void Rune
 TheBookOfTheLaw_ClawSlash.DisplayName: Claw Slash
 Aerodrake_AeroSlash.DisplayName: Aerodrake_ Aero Slash
 Aerodrake_AeroslashSplit.DisplayName: Aerodrake_ Aeroslash Split

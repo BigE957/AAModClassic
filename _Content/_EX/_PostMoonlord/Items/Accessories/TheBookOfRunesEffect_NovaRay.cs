@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
-    public class TheBookOfRunes_NovaRay : ModProjectile
+    public class TheBookOfRunesEffect_NovaRay : ModProjectile
     {
         public override string Texture => ModContent.GetInstance<ZeroNovaFocus_NovaRay>().Texture;
         private const float MoveDistance = 70f;

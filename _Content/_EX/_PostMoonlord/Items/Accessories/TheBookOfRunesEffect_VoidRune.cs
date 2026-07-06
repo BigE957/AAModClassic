@@ -1,16 +1,16 @@
-using AAModClassic._Content.Void.Projectiles;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
-    public class APageOfTheRuneBook_EnergyRune : ModProjectile
+    public class TheBookOfRunesEffect_VoidRune : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Energy Rune");
+            // DisplayName.SetDefault("Void Rune");
         }
         public override void SetDefaults()
         {
@@ -33,27 +33,20 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
         public override void AI()
         {
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
-            bool flag64 = Projectile.type == ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>();
+            bool flag64 = Projectile.type == ModContent.ProjectileType<TheBookOfRunesEffect_VoidRune>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>(), 3600);
-            if (!modPlayer.CCBook)
+
+            if (player.dead || !player.GetModPlayer<TheBookOfRunesPlayer>().effect || player.maxMinions - player.slotsMinions < 4f)
             {
                 Projectile.active = false;
                 return;
             }
-            if (flag64)
+            else
             {
-                if (player.dead)
-                {
-                    modPlayer.WeakCCRune = false;
-                }
-                if (modPlayer.WeakCCRune || modPlayer.CCBook)
-                {
-                    Projectile.timeLeft = 2;
-                }
+                Projectile.timeLeft = 2;
             }
-            
+
             float num633 = 700f;
             float num634 = 800f;
             float num635 = 1200f;
@@ -61,7 +54,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             float num637 = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>();
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<TheBookOfRunesEffect_VoidRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)
@@ -216,9 +209,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             
             if (Projectile.ai[1] > 0f)
             {
-                Projectile.ai[1] += Main.rand.Next(1, 4);
+                Projectile.ai[1] += 1;
             }
-            if (Projectile.ai[1] > 40f)
+            if (Projectile.ai[1] > 300f)
             {
                 Projectile.ai[1] = 0f;
                 Projectile.netUpdate = true;
@@ -226,8 +219,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             if (Projectile.ai[0] == 0f)
             {
                 float scaleFactor3 = 8f;
-				int num658 = ModContent.ProjectileType<DeathBeam>();
-				if (flag25 && Projectile.ai[1] == 0f)
+				int num658 = ModContent.ProjectileType<TheBookOfRunesEffect_NovaRay>();
+				if (flag25 && Projectile.ai[1] == 0)
 				{
 					Projectile.ai[1] += 1f;
 					if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
@@ -235,9 +228,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 						Vector2 value19 = vector46 - Projectile.Center;
 						value19.Normalize();
 						value19 *= scaleFactor3;
-						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
-                        Main.projectile[num659].minion = true;
-                        Main.projectile[num659].timeLeft = 300;
+						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, Projectile.whoAmI, target);
 						Projectile.netUpdate = true;
 					}
 				}

@@ -1,25 +1,21 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
-using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Void.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
-    public class TheBookOfRunes_ChaosRune : ModProjectile
+    public class APageOfTheRuneBookEffect_EnergyRune : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Chaos Rune");
+            // DisplayName.SetDefault("Energy Rune");
         }
         public override void SetDefaults()
         {
-            Projectile.width = 14;
-            Projectile.height = 14;
+            Projectile.width = 24;
+            Projectile.height = 20;
             Projectile.timeLeft = 18000;
             Projectile.timeLeft *= 5;
             Projectile.minionSlots = 0f;
@@ -30,33 +26,27 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             Projectile.netImportant = true;
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
-            Projectile.damage = 400;
+            Projectile.damage = 100;
         }
-        public int Counter = 0;
+        int maxlife = 0;
+        int target = -1;
         public override void AI()
         {
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
-            bool flag64 = Projectile.type == ModContent.ProjectileType<TheBookOfRunes_ChaosRune>();
+            bool flag64 = Projectile.type == ModContent.ProjectileType<APageOfTheRuneBookEffect_EnergyRune>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>(), 3600);
-            if (!modPlayer.CCBookEX)
+
+            if (player.dead || !player.GetModPlayer<APageOfTheRuneBookPlayer>().effect || player.maxMinions - player.slotsMinions < 4f)
             {
                 Projectile.active = false;
                 return;
             }
-            if (flag64)
+            else
             {
-                if (player.dead)
-                {
-                    modPlayer.CCRune = false;
-                }
-                if (modPlayer.CCRune || modPlayer.CCBookEX)
-                {
-                    Projectile.timeLeft = 2;
-                }
+                Projectile.timeLeft = 2;
             }
-            
+
             float num633 = 700f;
             float num634 = 800f;
             float num635 = 1200f;
@@ -64,7 +54,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             float num637 = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<TheBookOfRunes_ChaosRune>();
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<APageOfTheRuneBookEffect_EnergyRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)
@@ -109,8 +99,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             {
                 return;
             }
-            Vector2 vector46 = Projectile.position;
             bool flag25 = false;
+            Vector2 vector46 = Projectile.position;
             if (Projectile.ai[0] != 1f)
             {
                 Projectile.tileCollide = false;
@@ -119,36 +109,23 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             {
                 Projectile.tileCollide = false;
             }
-            if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            for (int num645 = 0; num645 < 200; num645++)
+            {
+                NPC nPC2 = Main.npc[num645];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                    if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    if (num646 < num633 && Main.npc[num645].life > maxlife && nPC2.active && nPC2.life > 0 && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
-                        num633 = num646;
-                        vector46 = nPC2.Center;
-                        flag25 = true;
+                        maxlife = Main.npc[num645].life;
+                        target = num645;
                     }
                 }
-			}
-			else
-			{
-                for (int num645 = 0; num645 < 200; num645++)
-                {
-                    NPC nPC2 = Main.npc[num645];
-                    if (nPC2.CanBeChasedBy(Projectile, false))
-                    {
-                        float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-                        if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
-                        {
-                            num633 = num646;
-                            vector46 = nPC2.Center;
-                            flag25 = true;
-                        }
-                    }
-                }
+            }
+            if(target > -1)
+            {
+                vector46 = Main.npc[target].Center;
+                flag25 = true;
             }
             float num647 = num634;
             if (flag25)
@@ -163,20 +140,28 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             }
             if (flag25 && Projectile.ai[0] == 0f)
             {
-                Vector2 vector47 = vector46 - Projectile.Center;
-                float num648 = vector47.Length();
-                vector47.Normalize();
-                if (num648 > 200f)
+                Vector2 vector = vector46 - Projectile.Center - new Vector2(0, 50f + Main.npc[target].height/2);
+                float num639 = 7f;
+                if (vector.Length() > 200f && num639 < 10f)
                 {
-                    float scaleFactor2 = 8f;
-                    vector47 *= scaleFactor2;
-                    Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
+                    num639 = 10f;
                 }
-                else
+                if (vector.Length() > 200f)
                 {
-                    float num649 = 4f;
-                    vector47 *= -num649;
-                    Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
+                    vector.Normalize();
+                    vector *= num639;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
+                }
+                else if(vector.Length() < 40f && (Projectile.velocity.X != 0f || Projectile.velocity.Y != 0f))
+                {
+                    vector.Normalize();
+                    vector *= num639;
+                    Projectile.velocity = (Projectile.velocity + vector * 40f) / 41f;
+                }
+                if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
+                {
+                    Projectile.velocity.X = -0.02f;
+                    Projectile.velocity.Y = -0.01f;
                 }
             }
             else
@@ -233,42 +218,22 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             }
             if (Projectile.ai[0] == 0f)
             {
-                if (Projectile.ai[1] == 0f && flag25 && num633 < 500f)
-                {
-                    Projectile.ai[1] += 1f;
-                    if (Main.myPlayer == Projectile.owner)
-                    {
-                        Projectile.ai[0] = 2f;
-                        Vector2 value20 = vector46 - Projectile.Center;
-                        value20.Normalize();
-                        Projectile.velocity = value20 * 8f;
-                        Projectile.netUpdate = true;
-                        return;
-                    }
-                }
-            }
-            if(Counter++ > 30)
-            {
-                Counter = 0;
-            }
-            if (!Main.dayTime && flag25 && Counter == 0 && Projectile.owner == Main.myPlayer)
-            {
-                Vector2 vector55 = (vector46 - Projectile.Center) * -1f;
-                vector55.Normalize();
-                vector55 *= Main.rand.Next(45, 65) * 0.1f;
-                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ModContent.ProjectileType<Flairdra_Cyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
-                Main.projectile[id].minion = true;
-            }
-        }
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
-            target.AddBuff(buff, 1200);
-            if(Main.dayTime)
-            {
-                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Main.projectile[id].minion = true;
+                float scaleFactor3 = 8f;
+				int num658 = ModContent.ProjectileType<DeathBeam>();
+				if (flag25 && Projectile.ai[1] == 0f)
+				{
+					Projectile.ai[1] += 1f;
+					if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
+					{
+						Vector2 value19 = vector46 - Projectile.Center;
+						value19.Normalize();
+						value19 *= scaleFactor3;
+						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                        Main.projectile[num659].minion = true;
+                        Main.projectile[num659].timeLeft = 300;
+						Projectile.netUpdate = true;
+					}
+				}
             }
         }
     }

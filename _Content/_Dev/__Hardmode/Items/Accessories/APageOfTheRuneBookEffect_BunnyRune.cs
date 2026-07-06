@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
-    public class APageOfTheRuneBook_BunnyRune : ModProjectile
+    public class APageOfTheRuneBookEffect_BunnyRune : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -35,18 +35,13 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
         {
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>(), 3600);
-            if (!modPlayer.CCBook)
+
+            if (player.dead || !player.GetModPlayer<APageOfTheRuneBookPlayer>().effect || player.maxMinions - player.slotsMinions < 2f)
             {
                 Projectile.active = false;
                 return;
             }
-            if (player.dead)
-            {
-                modPlayer.WeakCCRune = false;
-            }
-            if (player.HasBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>()))
+            else
             {
                 Projectile.timeLeft = 2;
             }
@@ -55,7 +50,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>();
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<APageOfTheRuneBookEffect_BunnyRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)

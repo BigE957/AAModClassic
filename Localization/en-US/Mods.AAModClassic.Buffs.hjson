@@ -1,4 +1,4 @@
-﻿APageOfTheRuneBook_Buff: {
+﻿APageOfTheRuneBookEffect_Buff: {
 	DisplayName: Rune
 	Description: Mods.AAModClassic.Buffs.APageOfTheRuneBook_Buff.Description
 }
@@ -83,7 +83,7 @@ FishnadoStaff_Buff: {
 	Description: Mods.AAModClassic.Buffs.FishnadoStaff_Buff.Description
 }
 
-TheBookOfRunes_Buff: {
+TheBookOfRunesEffect_Buff: {
 	DisplayName: Rune
 	Description: Mods.AAModClassic.Buffs.TheBookOfRunes_Buff.Description
 }
