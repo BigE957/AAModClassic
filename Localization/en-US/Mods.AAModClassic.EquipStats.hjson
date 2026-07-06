@@ -425,14 +425,14 @@ Effect: {
 	AncientGoldChestplateEffect: You have a chance to find gold coins while mining through stone
 	AncientGoldChestplateSetEffect: If you have more gold coins than the value of damage taken, you will dodge the attack in exchange for your money
 	AncientGoldLeggingsEffect: Increased chance to find golden critters
-	StripemansLuckyLeggingsEffect: 
+	StripemansLuckyLeggingsEffect:
 		'''
 		Doubles caught fish
 		Chance to catch a crate alongside doubled fish
 		You have a chance to steal loot from enemies by snagging them with a fishing rod
 		You can pick up items from the ground with a fishing rod
 		'''
-	StripemansLuckyChestplateEffect: 
+	StripemansLuckyChestplateEffect:
 		'''
 		You have a higher chance to encounter rare enemies
 		Rare objects appear more frequently
@@ -444,7 +444,7 @@ Effect: {
 		You may find ores when mining stone
 		You can extract any kind of sand in an extractinator for related materials
 		'''
-	StripemansLuckyHelmetSetEffect: 
+	StripemansLuckyHelmetSetEffect:
 		'''
 		You change the rule of Nature's randomicity
 		You will be a lucky guy? Or an unfortunate man.
@@ -457,13 +457,13 @@ Effect: {
 	TackleBoxEffect: Decreases chance of bait consumption
 	SonarEffect: Detects hooked fish
 	PDAEffect: Displays everything
-	ArcticDivingGearEffect: 
+	ArcticDivingGearEffect:
 		'''
 		Grants the ability to swim and greatly extends underwater breathing
 		Provides extra mobility on ice
 		Generates a very subtle glow which becomes more vibrant underwater
 		'''
-	ArchitectGizmoPackEffect: 
+	ArchitectGizmoPackEffect:
 		'''
 		Increases block & wall placement speed
 		Increases block placement & tool range by 3

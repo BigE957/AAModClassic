@@ -1161,12 +1161,15 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             var line = new TooltipLine(mod, "Dummy", "Don't add this!");
 
-            foreach (EquipmentEffectData effect in effectMap)
+            if (!Main.gameMenu)
             {
-                line = new TooltipLine(mod, effect.Name, effect.GetDescription());
-                int index = list.FindIndex(x => x.Name == "Tooltip0");
-                if (index != -1 && effect.GetDescription() != "")
-                    list.Insert(index, line);
+                foreach (EquipmentEffectData effect in effectMap)
+                {
+                    line = new TooltipLine(mod, effect.Name, effect.GetDescription());
+                    int index = list.FindIndex(x => x.Name == "Tooltip0");
+                    if (index != -1 && effect.GetDescription() != "")
+                        list.Insert(index, line);
+                }
             }
         }
 

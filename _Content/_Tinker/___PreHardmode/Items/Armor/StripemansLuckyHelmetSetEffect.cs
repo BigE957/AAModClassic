@@ -35,12 +35,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 
     public class StripemansLuckyHelmetSetPlayer : EquipmentEffectPlayer
     {
-        public bool doEffectForReal;
-
-        public override void ResetEffects()
-        {
-            doEffectForReal = false;
-        }
+        public bool doEffectForReal = false;
 
         public override void PostUpdate()
         {

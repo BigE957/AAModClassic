@@ -372,3 +372,13 @@ CursedEyeOfTheSoulBinder: {
 	DisplayName: Cursed Eye Of The Soul Binder
 	Tooltip: ""
 }
+
+DarkmatterWings: {
+	DisplayName: Darkmatter Wings
+	Tooltip: ""
+}
+
+RabbitcopterWings: {
+	DisplayName: Rabbitcopter Wings
+	Tooltip: ""
+}

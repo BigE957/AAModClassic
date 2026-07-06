@@ -1103,7 +1103,7 @@ namespace AAModClassic
                 SpecialQuickHeal();
             }
 
-            if (StripeCrasyLucky || CrasyLucky)
+            if (CrasyLucky)
             {
                 Main.rand = new AAFakeRand();
                 if(Main.raining)
@@ -1114,7 +1114,6 @@ namespace AAModClassic
             }
             else
             {
-                StripeCrasyLucky = false;
                 Main.rand = new UnifiedRandom();
             }
 
