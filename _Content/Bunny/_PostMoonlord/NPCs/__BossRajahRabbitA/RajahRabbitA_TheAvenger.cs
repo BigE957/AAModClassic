@@ -14,8 +14,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
-    public class RajahRabbitA_TheAvenger : RajahRabbit_ThePunisher
+    public class RajahRabbitA_TheAvenger : RajahRabbit_ThePunisher, ILocalizedModType
     {
+        public new string LocalizationCategory => "Projectiles";
         public override string Texture => ModContent.GetInstance<TheAvenger_Holdout>().Texture;
 
         public override void SetStaticDefaults()

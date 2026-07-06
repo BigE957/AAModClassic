@@ -1,8 +1,11 @@
-﻿namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
+﻿using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
 {
-    public class ChaosSlayer_BladeOfWrath : ChaosSlayer_BladeOfChaos
+    public class ChaosSlayer_BladeOfWrath : ChaosSlayer_BladeOfChaos, ILocalizedModType
     {
-    	public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Projectiles";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Blade of Wrath");
 		}

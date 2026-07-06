@@ -1,8 +1,11 @@
-﻿namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
+﻿using Terraria.ModLoader;
+
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class Ikari_BladeOfBlazingFury : Ikari_BladeOfUnyieldingChaos
+    public class Ikari_BladeOfBlazingFury : Ikari_BladeOfUnyieldingChaos, ILocalizedModType
     {
-    	public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Projectiles";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Blade of Blazing Fury");
 		}
