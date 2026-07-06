@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Yamata)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

@@ -13,7 +13,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Mushroom Monarch)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

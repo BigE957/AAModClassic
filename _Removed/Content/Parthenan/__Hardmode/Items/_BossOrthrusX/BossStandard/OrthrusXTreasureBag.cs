@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Orthrus X)");
 			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 

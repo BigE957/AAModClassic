@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Olympian Athena)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

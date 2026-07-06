@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Akuma)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");

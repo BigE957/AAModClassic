@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Cache");
+            // DisplayName.SetDefault("Treasure Cache (Champion of the Innocent)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 

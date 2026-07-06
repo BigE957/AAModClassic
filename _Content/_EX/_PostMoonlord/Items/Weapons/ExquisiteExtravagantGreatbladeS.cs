@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class ExquisiteExtravagantGreatbladeS : ExquisiteExtravagantGreatblade
+    public class ExquisiteExtravagantGreatbladeS : ExquisiteExtravagantGreatblade, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Exquisite, Extravagant Greatblade");

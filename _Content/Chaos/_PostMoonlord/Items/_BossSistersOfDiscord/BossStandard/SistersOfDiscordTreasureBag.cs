@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Sisters of Discord)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;

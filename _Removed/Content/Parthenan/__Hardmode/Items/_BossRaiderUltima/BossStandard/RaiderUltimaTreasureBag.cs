@@ -23,7 +23,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
         public override void SetStaticDefaults()
         {
             
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Raider Ultima)");
 			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 

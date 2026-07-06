@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStand
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Athena)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

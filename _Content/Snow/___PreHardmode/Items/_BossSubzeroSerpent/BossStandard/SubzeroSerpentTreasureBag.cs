@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Bo
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Subzero Serpent)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

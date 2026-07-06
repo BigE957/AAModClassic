@@ -13,7 +13,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Feudal Fungus)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

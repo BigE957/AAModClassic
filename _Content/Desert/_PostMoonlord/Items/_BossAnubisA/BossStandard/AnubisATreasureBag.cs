@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStan
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Forsaken Judge, Anubis)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

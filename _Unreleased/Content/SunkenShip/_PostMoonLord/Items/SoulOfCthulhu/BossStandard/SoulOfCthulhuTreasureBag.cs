@@ -16,7 +16,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override void SetStaticDefaults()
         {
 
-            // DisplayName.SetDefault("Treasure Cache");
+            // DisplayName.SetDefault("Treasure Cache (Soul of Cthulhu)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

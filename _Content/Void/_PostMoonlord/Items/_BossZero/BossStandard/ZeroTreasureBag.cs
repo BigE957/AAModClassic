@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Zero)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");

@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Boss
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Equinox Worms)");
             /* Tooltip.SetDefault(@"{$CommonItemTooltip.RightClickToOpen}
 Contained loot depends on the time of day"); */
 

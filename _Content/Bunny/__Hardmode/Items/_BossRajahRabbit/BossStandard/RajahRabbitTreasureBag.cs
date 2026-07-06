@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStan
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Rajah Rabbit)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

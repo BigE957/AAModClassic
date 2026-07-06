@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Desert Djinn)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;

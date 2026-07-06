@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
 		public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Grips of Chaos)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
