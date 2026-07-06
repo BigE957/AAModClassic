@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             NPC.dontCountMe = true;
 
             NPC.alpha = 255;
-            Banner = ModContent.NPCType<WyrmHead>();
+            //Banner = ModContent.NPCType<WyrmHead>();
             //BannerItem = ModContent.ItemType<WyrmBanner>();
         }
 

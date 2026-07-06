@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             NPC.lavaImmune = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<WyrmlingBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }

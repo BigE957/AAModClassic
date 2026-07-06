@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
             NPC.npcSlots = 0f;
             NPC.lavaImmune = true;
             NPC.netAlways = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
         }
 
