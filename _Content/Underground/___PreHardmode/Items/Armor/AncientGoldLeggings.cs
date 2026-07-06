@@ -1,4 +1,6 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,13 +8,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AncientGoldLeggings : BaseAAItem, ILocalizedModType
+	public class AncientGoldLeggings : EquipAbstract, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Armor.AncientGold";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Ancient Gold Greaves");
-			// Tooltip.SetDefault(@"You have more chance to meet with vanilla gold critters.");
 		}
 
 		public override void SetDefaults()
@@ -24,9 +25,9 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 			Item.expert = true;
         }
 
-        public override void UpdateEquip(Player player)
-		{
-            player.GetModPlayer<AAPlayer>().AncientGoldLeg = true;
-		}
+        public override void RegisterEquipStats()
+        {
+            AddEffect(new AncientGoldLeggingsEffect(false));
+        }
     }
 }

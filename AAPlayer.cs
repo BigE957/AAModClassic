@@ -2294,57 +2294,6 @@ namespace AAModClassic
                 modifiers.Cancel();
                 return;
             }
-            if (AncientGoldSet)
-            {
-                long num = 0;
-                for (int i = 0; i < 54; i++)
-                {
-                    if (Player.inventory[i].type == ItemID.CopperCoin)
-                    {
-                        num += Player.inventory[i].stack;
-                    }
-                    if (Player.inventory[i].type == ItemID.SilverCoin)
-                    {
-                        num += Player.inventory[i].stack * 100;
-                    }
-                    if (Player.inventory[i].type == ItemID.GoldCoin)
-                    {
-                        num += Player.inventory[i].stack * 10000;
-                    }
-                    if (Player.inventory[i].type == ItemID.PlatinumCoin)
-                    {
-                        num += Player.inventory[i].stack * 1000000;
-                    }
-                }
-                if(num >= modifiers.FinalDamage.Flat * 10000)
-                {
-                    for (int i = 0; i < 54; i++)
-                    {
-                        if (Player.inventory[i].type == ItemID.CopperCoin)
-                        {
-                            Player.inventory[i].stack = 0;
-                            Player.inventory[i].TurnToAir();
-                        }
-                        if (Player.inventory[i].type == ItemID.SilverCoin)
-                        {
-                            Player.inventory[i].stack = 0;
-                            Player.inventory[i].TurnToAir();
-                        }
-                        if (Player.inventory[i].type == ItemID.GoldCoin)
-                        {
-                            Player.inventory[i].stack = 0;
-                            Player.inventory[i].TurnToAir();
-                        }
-                        if (Player.inventory[i].type == ItemID.PlatinumCoin)
-                        {
-                            Player.inventory[i].stack = 0;
-                            Player.inventory[i].TurnToAir();
-                        }
-                    }
-                    modifiers.Cancel();
-                    return;
-                }
-            }
         }
 
         public override void UpdateDead()

@@ -324,7 +324,8 @@ Effect: {
 	PanicNecklaceEffect: Increases movement speed after taking damage
 	FleshrendHelmetSetEffect: Being hit by enemies may trigger a bloodsplosion that damages all enemies around you
 	DynaskullHelmetSetEffect: Your ranged projectiles have so much power behind them, they confuse the target due to concussive force
-	ManaRegenEffect: "{0} life regeneration rate by {1}"
+	ManaRegenEffect: "{0} mana regeneration rate by {1}"
+	LifeRegenEffect: "{0} life regeneration rate by {1}"
 	GoblinSlayersHelmetSetDamageEffect: Your swung weapons deal 5x damage and increaed knockback against goblins
 	GoblinSlayersHelmetSetEnduranceEffect: Goblins deal 80% less damage to you
 	GoblinSlayersHelmetSetDescEffect: "'I hunt goblins or nothing.'"
@@ -421,4 +422,7 @@ Effect: {
 	DoomsdayHelmetSetDescEffect: "'Life termination systems activated.'"
 	FulguriteHelmetSetEffect: Being struck causes a burst of lightning to erupt from your body, knocking back enemies
 	InfinitySlayerHelmetSetDescEffect: Infinite power enrages you
+	AncientGoldChestplateEffect: You have a chance to find gold coins while mining through stone
+	AncientGoldChestplateSetEffect: If you have more gold coins than the value of damage taken, you will dodge the attack in exchange for your money
+	AncientGoldLeggingsEffect: Increased chance to find golden critters
 }

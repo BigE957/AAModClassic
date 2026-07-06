@@ -52,8 +52,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
             }
         }
 
-
-
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

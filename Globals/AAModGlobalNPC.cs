@@ -1197,29 +1197,6 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<RiftShark>(), .7f);
                 }
             }
-
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().StripeManSpawn)
-            {
-                if(NPC.goldCritterChance >= 30)
-                    NPC.goldCritterChance = 30;
-                if (!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<AAPlayer>().luckycalm)
-                {
-                    foreach (int npctype in AALuckyConfig.ListRareNpc)
-                        if (pool.TryGetValue(npctype, out float value) && value <= 0.05f)
-                            pool[npctype] = 0.05f;
-                }
-            }
-
-            else if(spawnInfo.Player.GetModPlayer<AAPlayer>().AncientGoldLeg)
-            {
-                if(NPC.goldCritterChance >= 40)
-                    NPC.goldCritterChance = 40;
-            }
-
-            else
-            {
-                NPC.goldCritterChance = 150;
-            }
         }
 
         public static void VanillaNPCSpawn(Player player)

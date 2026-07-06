@@ -10,7 +10,15 @@ RabbitcopterSoldier: Some rabbits can fly. They've just got to spin their ears a
 RabidRabbit: Many of the worlds rabbits look up to the Pouncing Punisher. Some dedicated few take it upon themselves to join his quest for justice.
 RajahRabbit: A fabled warrior who many simply refer to as the 'Pouncing Punisher'. He keeps the law of fairness stable by protecting those who are too weak to protect themselves. Few have seen him and survived to tell the tale...
 RoyalRabbit: An ordinary rabbit under royal protection. Those who slaughter the innocent shall be punished...
-ChampionRajahRabbit: ...
+
+ChampionRajahRabbit: {
+	1: Champion of the Innocent, The Pouncing Punisher, Earth’s Greatest Defender. These are some of the many titles attributed to Rajah Rabbit in his time of servitude to rabbitkind. Even if extremely subjective, the placement of this world’s inhabitants in a hierarchy of power is something many have spent long slaving over. Among the cream of the crop, Rajah stands proud, with only a few being able to compare to the totality of his strength.
+	2: With the advent of modern historical and archeological studies, the cataloguing of extinct fauna is at the forefront of many a scholar’s workload. Due to the ever-evolving nature of Terraria’s ecosystems, be it natural long spanning shifts in biodiversity or abrupt cataclysmic events such as the appearance of the various infections plaguing the landscape, species of all shapes and sizes have come and gone. Among these, the Titanus Lepus is especially notable for its sheer size and strength.
+	3: While commonly believed to be fully extinct, only one member of their kind has been spotted, with all of these reports being extremely sporadic in frequency and location. The creature seems to hold its closest relative, the common rabbit, in extremely high regard, with all accounts being directly tied to interaction with these woodland critters. Seeming to desire nothing more but the protection of leporidae, Rajah Rabbit, the moniker it seems to have imposed upon itself, has been reported utilizing an arsenal of weaponry demanding extreme mastery over various fighting styles, all presumably forged by it. Along with its reported extraordinary strength, agility and stealth, Titanis Lepus has earned itself nigh mythological status, with most considering reports of its existence to be nothing more than simple tall tales, or fables.
+	4: It was not until the arrival of the Fulgarians that stories of Titanis Lepus were taken seriously. A race of scientists and scholars, this civilization set their eyes on the stars, with their studies ending up with the lands of Terraria as their main point of interest. Their thirst for knowledge was one that could not be quenched, however, merely snuffing out those who got too curious. Such is the case of the creation of the Pantheon, a process not as seamless as one might assume. The byproduct created by each failed attempt would lead to the creation of something beyond what they could’ve planned for, far beyond the capabilities of their equipment. With this Amalgamation roaming the lands, consuming all in its path, the Fulgurians could do nothing to stop it. Were it not for the princess’ compassion to the beast’s most defenseless victims, it’s most likely she would’ve not survived to tell the tales of Rajah’s heroism. This would be the first time he’d be her saviour, but it would not be the last. In the most dire of situations, the Pouncing Punisher’s might was the one thing that could have saved her from Umbra’s grasp. Through a fight clearly tipped in his favour, he’d push the Corruption’s ancient back to the shadows where she belonged, accomplishing his life’s work once more; protecting the innocent.
+	5: Protecting the innocent. This is what this has all been for. By defeating him in a spar and not taking his life, you’ve proven there’s somebody deserving of his title. Somebody stronger than him, who can accomplish his goals. Life is a gift many are quick to not appreciate fully. A gift many are willing to squander and intently destroy. Heroes that have dedicated centuries or millenia defending what is right. Humble townsfolk, providing their community with what they’re able to scrounge up. Critters of all shapes and sizes, all the way down to the humble rabbit. Their safety is in your hands now. He knows you won’t disappoint.
+}
+
 SupremeRabbitcopterSoldier: ...
 SupremeRabidRabbit: ...
 SupremeBunnyBrawler: ...
@@ -168,17 +176,21 @@ RiftVision: Living curses wrought forth by a powerful deity, they offer only doo
 SoulOfCthulhu: After being defeated centuries ago, Cthulhu's soul fled to the seas, causing a great typhoon which swallowed up a nearby ship. Its soul became bound to the vessel's wheel where it began its slumber.
 TrenchSquid: The rift at the Sunken Ship's heart has polluted the nearby seas; causing the marine life to take on new, eldritch forms.
 LovecraftianShadow: Be careful when treading into uncharted waters. In this long abandoned wreckage, you may encounter something far worse than even death itself.
-InfinityZero_1: Creation implies destruction. Change implies stillness. On itself it all turns and ebbs, twisting its own knife ever further through its own chest. A machine made to cultivate is a machine made to consume, for even in an infinity of infinities, none of it could ever matter.
-InfinityZero_2:
-	'''
-	Sheep-ridden country
-	They pretend that's it's so free
-	Falling, they're bleeding
-	Never really question why they die
-	Swim in the lake of death
-	Eaten by crocodiles
-	So
-	No-one saw, no-one cares
-	'''
+
+InfinityZero: {
+	1: Creation implies destruction. Change implies stillness. On itself it all turns and ebbs, twisting its own knife ever further through its own chest. A machine made to cultivate is a machine made to consume, for even in an infinity of infinities, none of it could ever matter.
+	2:
+		'''
+		Sheep-ridden country
+		They pretend that's it's so free
+		Falling, they're bleeding
+		Never really question why they die
+		Swim in the lake of death
+		Eaten by crocodiles
+		So
+		No-one saw, no-one cares
+		'''
+}
+
 InfinityZeroChainedZero: You thought there was just one of them?
 Oblivion: As if I’d tell you anything about myself.

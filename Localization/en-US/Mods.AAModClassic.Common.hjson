@@ -49,8 +49,6 @@ RajahSPSpeedBoost: Current Speed Boost: +
 RajahSPDamageResistance: Current Damage Resistance: +
 #ArmorBonus
 
-AncientGoldSetBonus: If you have enough money, you can resist an attack by losting all your money.
-
 DemonHoodBonus:
 	'''
 	Your minions set enemies ablaze
@@ -71,7 +69,6 @@ StripeManSetBonus2:
 	And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever
 	'''
 ImpHoodBonus: Your minions set enemies ablaze
-
 #CurrencyItems
 
 PlayerBuyPrice: Buy price:

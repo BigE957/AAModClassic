@@ -82,12 +82,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.scale *= 1.4f;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
+
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(
             [
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero_1", AAColor.OblivionDialogue),
-                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero_2", AAColor.OblivionDialogue)
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero.1", AAColor.OblivionDialogue),
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero.2", AAColor.OblivionDialogue)
             ]);
         }
 

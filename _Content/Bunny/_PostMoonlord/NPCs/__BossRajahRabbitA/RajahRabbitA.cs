@@ -50,7 +50,11 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
             bestiaryEntry.Info.AddRange(
             [
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit")
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit.1"),
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit.2"),
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit.3"),
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit.4"),
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.ChampionRajahRabbit.5"),
             ]);
         }
 

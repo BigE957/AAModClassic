@@ -134,7 +134,7 @@ namespace AAModClassic.Globals
                 return;
             }
 
-            if (type == 28)
+            if (type == TileID.Pots)
             {
                 if(Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManSpawn)
                 {
@@ -151,13 +151,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().AncientGoldBody)
-            {
-                if(TileID.Sets.Conversion.Stone[type] && Main.rand.NextBool(50))
-                {
-                    Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.GoldCoin, 1, false, 0, false, false);
-                }
-            }
+
         }
 
         public static Color GetTimedrawColor(Color tColor, Color color, float min, float max, bool clamp)
