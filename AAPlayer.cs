@@ -168,12 +168,6 @@ namespace AAModClassic
         #endregion
 
         #region Armor bools.
-        public bool AncientGoldBody = false;
-        public bool AncientGoldLeg = false;
-        public bool AncientGoldSet = false;
-        public bool StripeManFish = false;
-        public bool StripeManOre = false;
-        public bool StripeManSpawn = false;
         public bool StripeManSet = false;
         public bool MoonSet;
         public bool leatherSet; // TODO: WE NEED TO FIND THIS
@@ -395,12 +389,6 @@ namespace AAModClassic
             AsheFlame = false;
             ChaosRa2 = false;
             ChaosMa = false;
-            AncientGoldBody = false;
-            AncientGoldLeg = false;
-            AncientGoldSet = false;
-            StripeManFish = false;
-            StripeManOre = false;
-            StripeManSpawn = false;
             StripeManSet = false;
         }
 
@@ -1113,15 +1101,6 @@ namespace AAModClassic
             if (Player.controlQuickHeal)
             {
                 SpecialQuickHeal();
-            }
-
-            if (StripeManSet)
-            {
-                LuckyArmorEquipped.Condition.Complete();
-                if (AAMod.ArmorAbilityKey.JustPressed)
-                {
-                    StripeCrasyLucky = !StripeCrasyLucky;
-                }
             }
 
             if (StripeCrasyLucky || CrasyLucky)

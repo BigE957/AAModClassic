@@ -773,6 +773,22 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class ArchitectGizmoPackEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.autoPaint = true;
+            player.pickSpeed -= 1f;
+            player.tileSpeed += 3f;
+            player.wallSpeed += 3f;
+            if (player.whoAmI == Main.myPlayer)
+            {
+                Player.tileRangeX += 6;
+                Player.tileRangeY += 4;
+            }
+        }
+    }
+
     public class IgnoreWaterEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)

@@ -17,12 +17,6 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stripeman's Lucky Shirt");
-            /* Tooltip.SetDefault(@"Displays everything
-You have chance to get gold coins in stoneblocks
-You have more chance to meet with rare creatures.
-You have more chance to get better things in pots
-If you have enough money, you can resist an attack by losting all your money.
-Have the effect of Arctic Diving Gear"); */
         }
 
 		public override void SetDefaults()
@@ -47,6 +41,7 @@ Have the effect of Arctic Diving Gear"); */
             AddEffect(new AncientGoldLeggingsEffect(true));
             AddEffect<AncientGoldChestplateEffect>();
             AddEffect<AncientGoldChestplateSetEffect>();
+            AddEffect<StripemansLuckyChestplateEffect>();
         }
 
         public override void RegisterVanityEffects()

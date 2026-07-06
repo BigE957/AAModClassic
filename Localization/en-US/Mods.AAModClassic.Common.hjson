@@ -47,28 +47,7 @@ RajahSPDamageInfo: Damage
 RajahSPDamageBoost: Current Damage Boost: +
 RajahSPSpeedBoost: Current Speed Boost: +
 RajahSPDamageResistance: Current Damage Resistance: +
-#ArmorBonus
 
-DemonHoodBonus:
-	'''
-	Your minions set enemies ablaze
-	You Always have a small Imp servant by your side
-	Imp isn't counted in your max minion count
-	'''
-StripeManSetBonus1:
-	'''
-	You change the rule of Nature's randomicity
-	You will be a lucky guy? Or an unfortunate man.
-	Press the Armor Ability Key to change the world's random system: 
-	'''
-StripeManSetBonusactive: ACTIVATED
-StripeManSetBonusunactive: UNACTIVATED
-StripeManSetBonus2:
-	'''
-	Behold, the man is become as one of us, to know good and evil.
-	And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever
-	'''
-ImpHoodBonus: Your minions set enemies ablaze
 #CurrencyItems
 
 PlayerBuyPrice: Buy price:
