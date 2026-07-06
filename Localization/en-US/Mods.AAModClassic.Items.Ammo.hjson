@@ -5,37 +5,59 @@ EnergyCell: {
 
 ReaperArrow: {
 	DisplayName: Reaper Arrow
-	Tooltip: ""
+	Tooltip: This arrow can shoot through walls
 }
 
 DragonArrow: {
 	DisplayName: Dragon Arrow
-	Tooltip: ""
+	Tooltip: Has stronger knockback than most arrows
 }
 
 DaybreakArrow: {
 	DisplayName: Daybreak Arrow
-	Tooltip: ""
+	Tooltip:
+		'''
+		Scorches its target with the heat of the blazing sun
+		Inflicts Daybroken
+		Non-consumable
+		'''
 }
 
 EventideArrow: {
 	DisplayName: Eventide Arrow
-	Tooltip: ""
+	Tooltip:
+		'''
+		Blinds its target with the darkness of the moonless night
+		Inflicts Moonraze
+		Non-consumable
+		'''
 }
 
 TerraArrow: {
 	DisplayName: Terra Arrow
-	Tooltip: ""
+	Tooltip:
+		'''
+		Homes in on enemies
+		Not Consumable
+		'''
 }
 
 SingularityArrow: {
 	DisplayName: Singularity Arrow
-	Tooltip: ""
+	Tooltip:
+		'''
+		The only thing faster than light is the void that devours it
+		Non-consumable
+		'''
 }
 
 UnstablePowerCell: {
 	DisplayName: Unstable Power Cell
-	Tooltip: ""
+	Tooltip:
+		'''
+		Acts as a bullet
+		Non-consumable
+		'''
 }
 
 M79Round: {
@@ -45,12 +67,12 @@ M79Round: {
 
 ChaosArrow: {
 	DisplayName: Chaos Arrow
-	Tooltip: ""
+	Tooltip: Inflicts randomly selected debuff on hit
 }
 
 DragonfireArrow: {
 	DisplayName: Dragonfire Arrow
-	Tooltip: ""
+	Tooltip: Inflicts Dragonfire debuff on hit
 }
 
 DragonfireBullet: {
@@ -70,7 +92,7 @@ DaybreakBullet: {
 
 HydratoxinArrow: {
 	DisplayName: Hydratoxin Arrow
-	Tooltip: ""
+	Tooltip: Inflicts Hydratoxin debuff on hit
 }
 
 HydratoxinBullet: {

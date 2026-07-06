@@ -11,8 +11,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
         public new string LocalizationCategory => "Items.GrabBags.Vanity";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Mud Fish's Bag");
-            // Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Fish King!'");
+            // DisplayName.SetDefault("Large Letter's Bag");
+            // Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating a Large Letter!'");
         }
 
         public override void SetDefaults()

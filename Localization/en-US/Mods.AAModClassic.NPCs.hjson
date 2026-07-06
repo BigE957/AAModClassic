@@ -20,118 +20,148 @@ EnemyChat: {
 	AthenaChat2: I dont have time for this..!
 }
 
+Athena.DisplayName: Athena
+AthenaDefeat.DisplayName: Athena Defeat
+AthenaFlee.DisplayName: Athena
+OwlRune.DisplayName: Owl Rune
+SeraphA.DisplayName: Seraph Guard
+Seraph.DisplayName: Seraph
+SeraphHurt.DisplayName: Seraph Hurt
+AthenaA.DisplayName: Olympian Athena
+AthenaCloneDark.DisplayName: Athena Clone
+AthenaCloneLight.DisplayName: Athena Clone
+ChargedOwlRune.DisplayName: Charged Owl Rune
+SeraphHerald.DisplayName: Seraph Herald
+BunnyBrawler.DisplayName: Bunny Brawler
+RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
+RabidRabbit.DisplayName: Rabid Rabbit
+RajahRabbit.DisplayName: Rajah Rabbit
+RoyalRabbit_NPC.DisplayName: Royal Rabbit
+RajahRabbitA.DisplayName: Rajah Rabbit; Champion of the Innocent
+RajahRabbitADefeat.DisplayName: Rajah Rabbit
+SupremeBunnyBrawler.DisplayName: Supreme Bunny Brawler
+SupremeRabbitcopterSoldier.DisplayName: Supreme Rabbitcopter Soldier
+SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
+GripOfChaosInferno.DisplayName: Grip Of Chaos Inferno
+GripOfChaosMire.DisplayName: Grip Of Chaos Mire
+ChaosDragon.DisplayName: Chaos Dragon
+ShenDoragonA.DisplayName: Shen Doragon Awakened
+ShenDoragon.DisplayName: Shen Doragon; Discordian Doomsayer
+AbyssGrip.DisplayName: Grip of Abyssal Wrath
+BlazeGrip.DisplayName: Grip of Blazing Fury
+ShenDoragon_Hitbox.DisplayName: Shen Doragon; Discordian Doomsayer
+ShenDoragonDeath.DisplayName: Discord's Death
+ShenDoragonDefeat.DisplayName: Discord's Defeat
+ShenDoragonSpawn.DisplayName: Discord
+ShenDoragonTransition.DisplayName: Discordian Awakening
+FuryAshe.DisplayName: Fury Ashe
+FuryAsheVanish.DisplayName: Ashe Akuma
+FuryFlameVortex.DisplayName: Flame Vortex
+ShenlingBody1.DisplayName: Discordian Serpent
+ShenlingBody2.DisplayName: Discordian Serpent
+ShenlingHead.DisplayName: Discordian Serpent
+ShenlingTail.DisplayName: Discordian Serpent
+WrathHaruka.DisplayName: Wrath Haruka
+WrathHarukaClone.DisplayName: Wrath Haruka
+WrathHarukaVanish.DisplayName: Wrath Haruka
 AHDeath.DisplayName: Sisters Defeat
 AHSpawn.DisplayName: Sisters of Discord
-
-Ashe: {
-	DisplayName: Ashe Akuma
-	BossChecklistIntegration.EntryName: Sisters of Discord
-}
-
-AshenDragonHead.DisplayName: Ashen Dragon
+Ashe.DisplayName: Ashe Akuma
 AshenDragonArms.DisplayName: Ashen Dragon
 AshenDragonBody1.DisplayName: Ashen Dragon
 AshenDragonBody2.DisplayName: Ashen Dragon
 AshenDragonBody3.DisplayName: Ashen Dragon
+AshenDragonHead.DisplayName: Ashen Dragon
 AshenDragonTail.DisplayName: Ashen Dragon
-FlameVortex.DisplayName: Flame Vortex
-FuryFlameVortex.DisplayName: Flame Vortex
+AsheRune.DisplayName: Ashe Rune
 AsheSpawn.DisplayName: Ashe Akuma
 AsheVanish.DisplayName: Ashe Akuma
+FlameVortex.DisplayName: Flame Vortex
 Haruka.DisplayName: Haruka Yamata
 HarukaClone.DisplayName: Haruka Yamata
 HarukaFall.DisplayName: Haruka Yamata
 HarukaSpawn.DisplayName: Haruka Yamata
 HarukaVanish.DisplayName: Haruka Yamata
-
-AkumaHead: {
-	DisplayName: Akuma; Draconian Demon
-	BossChecklistIntegration.EntryName: Akuma
-}
-
-AkumaBody.DisplayName: Akuma, Draconian Demon
-AkumaTransition.DisplayName: Soul Of Fury
-
-AkumaAHead: {
-	DisplayName: Oni Akuma
-	BossChecklistIntegration.EntryName: Oni Akuma
-}
-
-AkumaABody.DisplayName: Oni Akuma
-AwakenedLungHead.DisplayName: Awakened Lung
-AwakenedLungBody.DisplayName: Awakened Lung
-AwakenedLungTail.DisplayName: Awakened Lung
-SunA.DisplayName: Oni Sun
+DesertDjinn.DisplayName: Desert Djinn
+Djinn.DisplayName: Djinn
 Anubis.DisplayName: Anubis Legendscribe
-CursedLocust.DisplayName: Cursed Locust
-CursedScarab.DisplayName: Cursed Scarab
-AnubisForsakenTransition.DisplayName: Anubis Legendscribe
-AnubisA.DisplayName: Anubis; Forsaken Judge
-ForsakenSun.DisplayName: Forsaken Sun
+EyeSentry.DisplayName: Eye Sentry
 HorusHawk.DisplayName: Horus Hawk
-UraeusBody.DisplayName: Uraeus
-UraeusTail.DisplayName: Uraeus
-UraeusHead.DisplayName: Uraeus
+Locust.DisplayName: Locust
 MinionRitual.DisplayName: Minion Ritual
+Scarab.DisplayName: Scarab
+UraeusBody.DisplayName: Uraeus
+UraeusHead.DisplayName: Uraeus Head
+UraeusTail.DisplayName: Uraeus
+AnubisA.DisplayName: Anubis; Forsaken Judge
+AnubisForsakenTransition.DisplayName: Anubis Legendscribe
+CursedLocust.DisplayName: Cursed Locust
 CursedMinionCircle.DisplayName: Cursed Minion Circle
-AthenaFlee.DisplayName: Athena
-AthenaA.DisplayName: Olympian Athena
-AthenaCloneDark.DisplayName: Angel Clone
-AthenaCloneLight.DisplayName: Angel Clone
-Athena.DisplayName: Athena
-ChargedOwlRune.DisplayName: Charged Owl Rune
-OwlRune.DisplayName: Owl Rune
-OlympianDragon.DisplayName: Olympian Dragon
-SeraphA.DisplayName: Seraph Guard
-BroodEgg.DisplayName: Dragon Egg
-Broodmini.DisplayName: Broodmini
-Broodmother.DisplayName: The Broodmother
-Djinn.DisplayName: Desert Djinn
-DaybringerBody.DisplayName: Daybringer
-
-DaybringerHead: {
-	DisplayName: Daybringer
-	BossChecklistIntegration.EntryName: Equinox Worms
-}
-
-DaybringerTail.DisplayName: Daybringer
-Equiprobe.DisplayName: Equiprobe
-NCCloud.DisplayName: Nightclawer Cloud
-NightcrawlerBody.DisplayName: Nightcrawler
-NightcrawlerHead.DisplayName: Nightcrawler
-NightcrawlerTail.DisplayName: Nightcrawler
+CursedScarab.DisplayName: Cursed Scarab
+ForsakenSun.DisplayName: Forsaken Sun
+HorusSentry.DisplayName: Horus Sentry
+Naddaha.DisplayName: Naddaha
 FeudalFungus.DisplayName: Feudal Fungus
-FungusFlier.DisplayName: Fungus Flier
-FungusSlep.DisplayName: Very Large Glowing Mushroom
-FungusSpore.DisplayName: Fungal Spore
-FungusWake.DisplayName: Very Large Glowing Mushroom...?
-Mushling.DisplayName: Mushling
-
-GreedHead: {
-	DisplayName: Greed
-	BossChecklistIntegration.EntryName: Greed
-}
-
-GreedAHead.DisplayName: Worm King Greed
-GreedABody.DisplayName: Worm King Greed
+FeudalFungus_FungalSpore.DisplayName: Fungal Spore
+FeudalFungus_FungusFlier.DisplayName: Fungus Flier
+FeudalFungusAsleep.DisplayName: Very Large Glowing Mushroom
+FeudalFungusWakeUp.DisplayName: Very Large Glowing Mushroom...?
+GlowingMushling.DisplayName: Glowing Mushling
+GregariousGlowshrooms.DisplayName: Gregarious Glowshrooms
+LuminousAccordyceps.DisplayName: Luminous Accordyceps
+TruffleToad.DisplayName: Truffle Toad
+TinyToad.DisplayName: Tiny Toad
+FatPixie.DisplayName: Fat Pixie
 GreedBody.DisplayName: Greed
+GreedHead.DisplayName: Greed
+GreedTransition.DisplayName: Spark of Greed
 OreConstruct.DisplayName: Ore Construct
 SparkOfDesire.DisplayName: Spark of Desire
-GreedTransition.DisplayName: Spark of Greed
+ScavengerBody.DisplayName: Scavenger
+ScavengerHead.DisplayName: Scavenger
+ScavengerTail.DisplayName: Scavenger
+GreedABody.DisplayName: Worm King Greed
+GreedAHead.DisplayName: Worm King Greed
 SingularityOfDesire.DisplayName: Singularity of Desire
-DragonClawM.DisplayName: Dragon Claw
-DragonClaw.DisplayName: Dragon Claw
-GripOfChaosMire.DisplayName: Grip of Chaos
-
-GripOfChaosInferno: {
-	DisplayName: Grip of Chaos
-	BossChecklistIntegration.EntryName: Grips Of Chaos
-}
-
-HydraClawM.DisplayName: Hydra Claw
-HydraClaw.DisplayName: Hydra Claw
-Hydra.DisplayName: Hydra
-HarukaShade.DisplayName: ...
+Broodmini.DisplayName: Broodmini
+Broodmother.DisplayName: The Broodmother
+DragonEgg.DisplayName: Dragon Egg
+InfernalSlime.DisplayName: Infernal Slime
+DragonClaw_NPC.DisplayName: Dragon Claw
+FlameBrute.DisplayName: Flame Brute
+Singemander.DisplayName: Singemander
+WyrmlingBody.DisplayName: Wyrmling
+WyrmlingHead.DisplayName: Wyrmling
+WyrmlingTail1.DisplayName: Wyrmling
+WyrmlingTail2.DisplayName: Wyrmling
+BlazePhoenix.DisplayName: Blaze Phoenix
+InfernalGhoul.DisplayName: Infernal Ghoul
+PigronInferno.DisplayName: Pigron
+ChaoticDawn.DisplayName: Chaotic Dawn
+InfernoMimic.DisplayName: Inferno Mimic
+WyrmBody1.DisplayName: Wyrm
+WyrmBody2.DisplayName: Wyrm
+WyrmBody3.DisplayName: Wyrm
+WyrmBody4.DisplayName: Wyrm
+WyrmHead.DisplayName: Wyrm
+MagmaSwimmer.DisplayName: Magma Swimmer
+AkumaBody.DisplayName: Akuma, Draconian Demon
+AkumaHead.DisplayName: Akuma; Draconian Demon
+AkumaTransition.DisplayName: Soul Of Fury
+AkumaABody.DisplayName: Oni Akuma
+AkumaAHead.DisplayName: Oni Akuma
+AwakenedLungBody.DisplayName: Awakened Lung
+AwakenedLungHead.DisplayName: Awakened Lung
+AwakenedLungTail.DisplayName: Awakened Lung
+BlazeClaw.DisplayName: Blaze Claw
+AncientLungBody.DisplayName: Ancient Lung
+AncientLungHead.DisplayName: Ancient Lung
+AncientLungTail.DisplayName: Ancient Lung
+MadnessBat.DisplayName: Madness Flier
+MadnessSlime.DisplayName: Madness Slime
+HarukaShadowPostHydra.DisplayName: ...
+HarukaShadow.DisplayName: ...
+HydraBody.DisplayName: Hydra
 HydraHead1.DisplayName: Hydra
 HydraHead2.DisplayName: Hydra
 HydraHead3.DisplayName: Hydra
@@ -141,186 +171,125 @@ HydraHead6.DisplayName: Hydra
 HydraHead7.DisplayName: Hydra
 HydraHead8.DisplayName: Hydra
 HydraHead9.DisplayName: Hydra
+MurkySlime.DisplayName: Murky Slime
+HydraClaw_NPC.DisplayName: Hydra Claw
+Mosster.DisplayName: Mosster
+Newt.DisplayName: Newt
+Skulker.DisplayName: Skulker
+Kappa.DisplayName: Kappa
+Toxitoad.DisplayName: Toxitoad
+ShadowGhoul.DisplayName: Shadow Ghoul
+PigronMire.DisplayName: Pigron
+ChaoticTwilight.DisplayName: Chaotic Twilight
+MireMimic.DisplayName: Mire Mimic
+Miresquito.DisplayName: Miresquito
+FogAngler.DisplayName: Fog Angler
+MireSoul.DisplayName: Mire Soul
+YamataABody.DisplayName: Yamata A Body
+YamataAHead.DisplayName: Yamata no Orochi
+YamataAHeadFake.DisplayName: Yamata no Orochi
+YamataBody.DisplayName: Yamata
+YamataHead.DisplayName: Yamata
+YamataHeadFake1.DisplayName: Yamata
+YamataHeadFake2.DisplayName: Yamata
+YamataTransition.DisplayName: Spirit of Wrath
+AbyssClaw.DisplayName: Abyss Claw
+Soulsucker.DisplayName: Soulsucker
+Mushling.DisplayName: Mushling
+MushroomMonarch.DisplayName: Mushroom Monarch
 MushroomMonarchAsleep.DisplayName: Very Large Mushroom
 MushroomMonarchWakeUp.DisplayName: Very Large Mushroom...?
-MushroomMonarch.DisplayName: Mushroom Monarch
-RedMushling.DisplayName: Mushling
-SupremeBunnyBattler.DisplayName: Supreme Bunny Battler
-SupremeBunnyBrawler.DisplayName: Supreme Bunny Brawler
-SupremeRabbitcopterSoldier.DisplayName: Supreme Rabbitcopter Soldier
-RabidRabbit.DisplayName: Rabid Rabbit
-SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
-BunnyBrawler.DisplayName: Bunny Brawler
-RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
-RabbitcopterSoldier2.DisplayName: Rabbitcopter Soldier
-RajahRabbit.DisplayName: Rajah Rabbit
-RajahRabbitADefeat.DisplayName: Rajah Rabbit
-RajahRabbitA.DisplayName: Rajah Rabbit; Champion of the Innocent
-Sag.DisplayName: Sagittarius
+FungusFrog.DisplayName: Fungus Frog
+Mushbug.DisplayName: Mushbug
+MushroomCrab.DisplayName: Mushroom Crab
+MushroomJelly.DisplayName: Mushroom Jelly
+MushroomZombie.DisplayName: Mushroom Zombie
+MushroomZombie2.DisplayName: Mushroom Zombie
+ElderDragon.DisplayName: Elder Dragon
 IceCrystal.DisplayName: Ice Crystal
 SubzeroSerpent_Body.DisplayName: Subzero Serpent
 SubzeroSerpent_Head.DisplayName: Subzero Serpent
 SubzeroSerpent_Tail.DisplayName: Subzero Serpent
-FuryAshe.DisplayName: Fury Ashe
-FuryAsheVanish.DisplayName: Ashe Akuma
-WrathHaruka.DisplayName: Wrath Haruka
-WrathHarukaClone.DisplayName: Wrath Haruka
-WrathHarukaVanish.DisplayName: Wrath Haruka
-AbyssGrip.DisplayName: Grip of Abyssal Wrath
-BlazeGrip.DisplayName: Grip of Blazing Fury
-ShenDoragon.DisplayName: Shen Doragon; Discordian Doomsayer
-ShenDoragonA.DisplayName: Shen Doragon Awakened
-ShenDoragonAHitbox.DisplayName: Shen Doragon Awakened
-ShenDoragonDeath.DisplayName: Discord's Death
-ShenDoragonDefeat.DisplayName: Discord's Defeat
-ShenDoragon_Hitbox.DisplayName: Shen Doragon; Discordian Doomsayer
-ShenlingHead.DisplayName: Discordian Serpent
-ShenlingBody1.DisplayName: Discordian Serpent
-ShenlingBody2.DisplayName: Discordian Serpent
-ShenlingTail.DisplayName: Discordian Serpent
-ShenDoragonSpawn.DisplayName: Discord
-ShenDoragonTransition.DisplayName: Discordian Awakening
-GlowshroomGrow.DisplayName: Glowing Mushroom
-ShroomGlow.DisplayName: Glowing Mushroom
-TinyToad.DisplayName: Tiny Toad
-TruffleToad.DisplayName: Truffle Toad
-YamataA.DisplayName: Yamata no Orochi
-YamataAHead.DisplayName: Yamata no Orochi
-YamataAHeadF.DisplayName: Yamata no Orochi
-YamataSoul.DisplayName: Mire Soul
-Yamata.DisplayName: Yamata
-YamataHead.DisplayName: Yamata
-YamataHeadF1.DisplayName: Yamata
-YamataHeadF2.DisplayName: Yamata
-YamataTransition.DisplayName: Spirit of Wrath
-ZeroGenocideCannon.DisplayName: Genocide Cannon
-ZeroNeutralizer.DisplayName: Neutralizer
-ZeroNovaFocus.DisplayName: Nova Focus
-ZeroOmegaVolley.DisplayName: Omega Volley
-NullZP.DisplayName: Null
-Null.DisplayName: Null
-ZeroEcho.DisplayName: 3CH0
-ZeroMini.DisplayName: ZER0 SELF 0RGANIZATI0N
-ZeroA.DisplayName: ZER0 PR0T0C0L
-ZeroTransition.DisplayName: Broken Rift
-Zero.DisplayName: Zero
-ZeroRealityCannon.DisplayName: Reality Cannon
-ZeroRiftShredder.DisplayName: Rift Shredder
-SearcherZero.DisplayName: Searcher
-Searcher.DisplayName: Searcher
-ZeroGigataser.DisplayName: Gigataser
-ZeroBrokenWeapon.DisplayName: Broken Weapon
-ZeroVoidStar.DisplayName: Void Star
-ZeroDeactivated.DisplayName: Strange Machine
-RoyalRabbit.DisplayName: Royal Rabbit
-VoidFlowey.DisplayName: ???
-Fishron.DisplayName: Fishron
-Scavenger.DisplayName: Scavenger
-ScavengerBody.DisplayName: Scavenger
-ScavengerTail.DisplayName: Scavenger
-MiniDjinn.DisplayName: Djinn
-FatPixie.DisplayName: Fat Pixie
-BlazePhoenix.DisplayName: Blaze Phoenix
-ChaoticDawn.DisplayName: Chaotic Dawn
-Dragron.DisplayName: Pigron
-Flamebrute.DisplayName: Flame Brute
-InfernalSlime.DisplayName: Infernal Slime
-InfernoGhoul.DisplayName: Infernal Ghoul
-InfernoMimic.DisplayName: Inferno Mimic
-InfernoSalamander.DisplayName: Singemander
-Lung.DisplayName: Ancient Lung
-LungBody.DisplayName: Ancient Lung
-LungTail.DisplayName: Ancient Lung
-MagmaSwimmer.DisplayName: Magma Swimmer
-TheStride.DisplayName: Flamebrute
-TheStrideDeathAnimation.DisplayName: Flamebrute
-WyrmHead.DisplayName: Wyrm
-WyrmBody1.DisplayName: Wyrm
-WyrmBody2.DisplayName: Wyrm
-WyrmBody3.DisplayName: Wyrm
-WyrmBody4.DisplayName: Wyrm
-Wyrmling.DisplayName: Wyrmling
-WyrmlingBody.DisplayName: Wyrmling
-WyrmlingTail1.DisplayName: Wyrmling
-WyrmlingTail2.DisplayName: Wyrmling
-ChaoticTwilight.DisplayName: Chaotic Twilight
-FogAngler.DisplayName: Fog Angler
-HarukaShadow.DisplayName: ...
-Kappa.DisplayName: Kappa
-MireGhoul.DisplayName: Shadow Ghoul
-Miregron.DisplayName: Pigron
-MireMimic.DisplayName: Mire Mimic
-MireSkulker.DisplayName: Skulker
-MireSlime.DisplayName: Murky Slime
-Miresquito.DisplayName: Miresquito
-Mosster.DisplayName: Mosster
-Newt.DisplayName: Newt
-Soulsucker.DisplayName: Soulsucker
-Toxitoad.DisplayName: Toxitoad
-Mushbug.DisplayName: Mushbug
-MushroomCrab.DisplayName: Mushroom Crab
-MushroomZombie.DisplayName: Mushroom Zombie
-MushroomZombie2.DisplayName: Mushroom Zombie
-ShroomJelly.DisplayName: Mushroom Jelly
-SmallFrog.DisplayName: Fungus Frog
-SmallToad.DisplayName: Tiny Toad
-AbyssClaw.DisplayName: Abyss Claw
-BlazeClaw.DisplayName: Blaze Claw
-ChaosDragon.DisplayName: Chaos Dragon
-MadnessBat.DisplayName: Madness Flier
-MadnessSlime.DisplayName: Madness Slime
-Nightguard.DisplayName: Night Guard
-Sunwatcher.DisplayName: Sun Watcher
-ElderDragon.DisplayName: Elder Dragon
 SnowSerpentBody.DisplayName: Snow Serpent
 SnowSerpentHead.DisplayName: Snow Serpent
 SnowSerpentTail.DisplayName: Snow Serpent
-TerraProbe.DisplayName: Unity Probe
-TerraSquire.DisplayName: Terra Squire
-TerraWatcher.DisplayName: Unity Watcher
-TerraSerpent.DisplayName: Terra Serpent
-TerraSerpentBody.DisplayName: Terra Serpent
-TerraSerpentTail.DisplayName: Terra Serpent
-Bladon.DisplayName: Terra Knight
-Minion1.DisplayName: Terra Squid
-Minion2.DisplayName: Terra Crawler
-Minion3.DisplayName: Terra Sphere
-Minion4.DisplayName: Terra Weaver
-Minion4Body.DisplayName: Terra Weaver
-Minion4Tail.DisplayName: Terra Weaver
-TerraDeadshot.DisplayName: Terra Deadshot
-TerraWarlock.DisplayName: Terra Warlock
-TerraWizard.DisplayName: Terra Wizard
+DaybringerBody.DisplayName: Daybringer
+DaybringerHead.DisplayName: Daybringer
+DaybringerTail.DisplayName: Daybringer
+Equiprobe.DisplayName: Equiprobe
+NightCloud.DisplayName: Night Cloud
+NightcrawlerBody.DisplayName: Nightcrawler
+NightcrawlerHead.DisplayName: Nightcrawler
+NightcrawlerTail.DisplayName: Nightcrawler
+SunWatcher.DisplayName: Sun Watcher
+NightGuard.DisplayName: Night Guard
+DBPortal.DisplayName: Bright Star
+NCPortal.DisplayName: N C Portal
+WormSpawn.DisplayName: Heavenly Voice
 PurityCrawler.DisplayName: Purity Crawler
 PuritySphere.DisplayName: Purity Sphere
 PuritySquid.DisplayName: Purity Squid
+PurityWeaverBody.DisplayName: Terra Weaver
 PurityWeaverHead.DisplayName: Purity Weaver
-PurityWeaverBody.DisplayName: Purity Weaver
-PurityWeaverTail.DisplayName: Purity Weaver
-SagittariusMini.DisplayName: Shadow Scout
+PurityWeaverTail.DisplayName: Terra Weaver
+TerraDeadshot.DisplayName: Terra Deadshot
+TerraKnight.DisplayName: Terra Knight
+TerraSquire.DisplayName: Terra Squire
+TerraWarlock.DisplayName: Terra Warlock
+TerraCrawler.DisplayName: Terra Crawler
+TerraSphere.DisplayName: Terra Sphere
+TerraSquid.DisplayName: Terra Squid
+TerraWeaverBody.DisplayName: Terra Weaver
+TerraWeaverHead.DisplayName: Terra Weaver
+TerraWeaverTail.DisplayName: Terra Weaver
+TerraWizard.DisplayName: Terra Wizard
+UnityProbe.DisplayName: Unity Probe
+UnityWatcher.DisplayName: Unity Watcher
 Sagittarius.DisplayName: Sagittarius
-Scout.DisplayName: Void Scout
-Searcher1.DisplayName: Stone Searcher
+ShadowScout.DisplayName: Shadow Scout
+StoneSearcher.DisplayName: Stone Searcher
+ZeroDeactivated.DisplayName: Strange Machine
+VoidScout.DisplayName: Void Scout
 Vortex.DisplayName: Vortex
-DBPortal.DisplayName: Bright Star
-NCPortal.DisplayName: Black Void
-WormSpawn.DisplayName: Heavenly Voice
-AsheRune.DisplayName: Ashe Rune
-EyeSentry.DisplayName: Eye Sentry
-CurseCircle.DisplayName: Curse Circle
-HorusSentry.DisplayName: Horus Sentry
-Naddaha.DisplayName: Naddaha
-Locust.DisplayName: Locust
-Scarab.DisplayName: Scarab
-AthenaDefeat.DisplayName: Athena Defeat
-SeraphHerald.DisplayName: Seraph Herald
-Seraph.DisplayName: Seraph
-Dynasaur.DisplayName: Dynasaur
-SeraphHurt.DisplayName: Seraph Hurt
-MireSoul.DisplayName: Mire Soul
-YamataAHeadFake.DisplayName: Yamata No Orochi
-YamataHeadFake1.DisplayName: Yamata
-YamataHeadFake2.DisplayName: Yamata
+NullZP.DisplayName: Null
+Null.DisplayName: Null
+ZeroA.DisplayName: ZER0 PR0T0C0L
+ZeroEcho.DisplayName: 3CH0
+ZeroMini.DisplayName: ZER0 SELF 0RGANIZATI0N
+ZeroTransition.DisplayName: Broken Rift
+Zero.DisplayName: Zero
+ZeroBrokenWeapon.DisplayName: Broken Weapon
+ZeroGenocideCannon.DisplayName: Genocide Cannon
+ZeroGigataser.DisplayName: Gigataser
+ZeroNeutralizer.DisplayName: Neutralizer
+ZeroNovaFocus.DisplayName: Nova Focus
+ZeroOmegaVolley.DisplayName: Omega Volley
+ZeroRealityCannon.DisplayName: Reality Cannon
+ZeroRiftShredder.DisplayName: Rift Shredder
+ZeroVoidStar.DisplayName: Void Star
+Searcher.DisplayName: Searcher
+OrthrusXBody.DisplayName: Orthrus X
+OrthrusXHead.DisplayName: Orthrus X
+OrthrusXHead_OrthrusReticle.DisplayName: Orthrus Reticle
+RaiderEgg.DisplayName: Raider Egg
+RaiderUltima.DisplayName: The Raider Ultima
+RaiderUltima_RaiderRocket.DisplayName: Raider Rocket
+Raidmini.DisplayName: Raidmini
+Retriever.DisplayName: The Retriever
+CyberClaw.DisplayName: Cyber Claw
+AmbientSoulOfCthulhu.DisplayName: ???
+OlympianDragon.DisplayName: Olympian Dragon
+AnubisUnreleased.DisplayName: Anubis Legendscribe
+AnubisCircle.DisplayName: Anubis Circle
+BiomiteCore.DisplayName: Biomite Core
+TechnoTruffle.DisplayName: Techno Truffle
+TruffleProbe.DisplayName: Truffle Probe
+Truffling.DisplayName: Truffling
+DimensionDiver.DisplayName: Trench Diver
+RiftShark.DisplayName: Trench Shark
+Cthulhu.DisplayName: Cthulhu, Cosmic Calamity
+DeityBrain.DisplayName: Lu'Kthu
+EyeOfAzathoth.DisplayName: Eye Of Azathoth
 DeityEater.DisplayName: Crom Cruach
 DeityEaterBody.DisplayName: Crom Cruach
 DeityEaterTail.DisplayName: Crom Cruach
@@ -332,7 +301,8 @@ LeviathanBubble.DisplayName: Leviathan Bubble
 DeityRose.DisplayName: Ei'lor
 DeityRoseClaws.DisplayName: Ei'Lor's Tentacle
 DeityRoseHook.DisplayName: Ei'Lor's Claw
-DeityRoseSpore.DisplayName: Ei'Lor's Tentacle
+DeityRoseSpore.DisplayName: Ei'Lor's Spore
+ShadowUrchin.DisplayName: Shadow Urchin
 DeitySkull.DisplayName: Rhan-Tegoth
 DeitySkull_Hand.DisplayName: Tegoth's Claw
 DeitySkull_Hand1.DisplayName: Tegoth's Claw
@@ -342,92 +312,20 @@ DeitySkull_Hand4.DisplayName: Tegoth's Claw
 DeitySkull_Hand5.DisplayName: Tegoth's Claw
 CthulhuPortal.DisplayName: Dark Portal
 CthulhuSpawn.DisplayName: Quantum Portal
-Cthulhu.DisplayName: Cthulhu, Cosmic Calamity
 DeityDragon.DisplayName: Psyvern
 DeityDragon_Arms.DisplayName: Psyvern
 DeityDragon_Body1.DisplayName: Psyvern
 DeityDragon_Body2.DisplayName: Psyvern
 DeityDragon_Body3.DisplayName: Psyvern
 DeityDragon_Tail.DisplayName: Psyvern
-EyeOfAzathoth.DisplayName: Eye Of Azathoth
 Portal.DisplayName: Rift Portal
 RiftVision.DisplayName: Rift Vision
-SoulOfCthulhu.DisplayName: Soul Of Cthulhu
+SoulOfCthulhu.DisplayName: Soul of Cthulhu
 UDUNFUKED.DisplayName: Lovecraftian Shadow
-InfinityCore.DisplayName: Infinity Core
-InfinityZero.DisplayName: Infinity Zero
+TrenchSquid.DisplayName: Trench Squid
+InfinityCore.DisplayName: Infinity Zero
+InfinityZero.DisplayName: Infinity Zero; Mechanical Malice
 InfinityZeroHand1.DisplayName: Chained Zero
 InfinityZeroHand2.DisplayName: Chained Zero
-InfinityZeroSpawn1.DisplayName: Infinity Zero
+InfinityZeroSpawn1.DisplayName: Death
 Oblivion.DisplayName: Oblivion
-ShadowGhoul.DisplayName: Shadow Ghoul
-PigronMire.DisplayName: Pigron Mire
-YamataABody.DisplayName: Yamata No Orochi
-YamataBody.DisplayName: Yamata
-HarukaShadowPostHydra.DisplayName: ???
-HydraBody.DisplayName: Hydra
-MurkySlime.DisplayName: Murky Slime
-Skulker.DisplayName: Skulker
-ChaoticDawn_NPC.DisplayName: Chaotic Dawn
-InfernalGhoul.DisplayName: Infernal Ghoul
-PigronInferno.DisplayName: Pigron Inferno
-AncientLungBody.DisplayName: Ancient Lung
-AncientLungHead.DisplayName: Ancient Lung
-AncientLungTail.DisplayName: Ancient Lung
-FlameBrute.DisplayName: Flame Brute
-Singemander.DisplayName: Singemander
-WyrmlingHead.DisplayName: Wyrmling
-ScavengerHead.DisplayName: Scavenger
-TerraKnight.DisplayName: Terra Knight
-TerraCrawler.DisplayName: Terra Crawler
-TerraSphere.DisplayName: Terra Sphere
-TerraSquid.DisplayName: Terra Squid
-TerraWeaverBody.DisplayName: Terra Weaver
-TerraWeaverHead.DisplayName: Terra Weaver
-TerraWeaverTail.DisplayName: Terra Weaver
-UnityProbe.DisplayName: Unity Probe
-UnityWatcher.DisplayName: Unity Watcher
-VoidScout.DisplayName: Void Scout
-StoneSearcher.DisplayName: Stone Searcher
-ShadowScout.DisplayName: Shadow Scout
-DesertDjinn.DisplayName: Desert Djinn
-FungusFrog.DisplayName: Fungus Frog
-MushroomJelly.DisplayName: Mushroom Jelly
-FeudalFungus_FungalSpore.DisplayName: Fungal Spore
-FeudalFungus_FungusFlier.DisplayName: Fungus Flier
-FeudalFungusAsleep.DisplayName: Feudal Fungus
-FeudalFungusWakeUp.DisplayName: Feudal Fungus
-GlowingMushling.DisplayName: Glowing Mushling
-RoyalRabbit_NPC.DisplayName: Royal Rabbit
-GregariousGlowshrooms.DisplayName: Gregarious Glowshrooms
-LuminousAccordyceps.DisplayName: Luminous Accordyceps
-DragonEgg.DisplayName: Dragon Egg
-DragonClaw_NPC.DisplayName: Dragon Claw
-HydraClaw_NPC.DisplayName: Hydra Claw
-AnubisRework.DisplayName: Anubis Legendscribe
-AnubisCircle.DisplayName: Anubis Circle
-AnubisUnreleased.DisplayName: Anubis Legendscribe
-RaiderEgg.DisplayName: Raider Egg
-RaiderUltima.DisplayName: Raider Ultima
-Raidmini.DisplayName: Raidmini
-Retriever.DisplayName: Retriever
-TechnoTruffle.DisplayName: Techno Truffle
-TruffleProbe.DisplayName: Truffle Probe
-Truffling.DisplayName: Truffling
-CyberClaw.DisplayName: Cyber Claw
-RaiderUltima_RaiderRocket.DisplayName: Raider Rocket
-OrthrusXBody.DisplayName: Orthrus X
-OrthrusXHead.DisplayName: Orthrus X
-OrthrusXHead_OrthrusReticle.DisplayName: Orthrus Reticle
-BiomiteCore.DisplayName: Biomite Core
-DimensionDiver.DisplayName: Dimension Diver
-Squid.DisplayName: Squid
-RiftShark.DisplayName: Trench Shark
-NightCloud.DisplayName: Night Cloud
-DeityBrain.DisplayName: Lu'Kthu
-DeityRose_Urchin.DisplayName: Shadow Urchin
-AmbientSoulOfCthulhu.DisplayName: ???
-ShadowUrchin.DisplayName: Shadow Urchin
-TrenchSquid.DisplayName: Trench Squid
-SunWatcher.DisplayName: Sun Watcher
-NightGuard.DisplayName: Night Guard

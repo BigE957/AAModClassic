@@ -1,46 +1,66 @@
 Functional: {
 	ChaosCrucible: {
 		DisplayName: Chaos Crucible
-		Tooltip: ""
+		Tooltip: Even chaos requires a steady hand and a gigantic forge to work with
 	}
 
 	TruePaladinsSmeltery: {
-		DisplayName: True Paladins Smeltery
-		Tooltip: ""
+		DisplayName: True Paladin's Smeltery
+		Tooltip:
+			'''
+			A superforge meant for only the worthiest of smiths
+			Functions as most necessary crafting stations
+			'''
 	}
 
 	HaphestusForge: {
-		DisplayName: Haphestus Forge
-		Tooltip: ""
+		DisplayName: Hephaestus Forge
+		Tooltip:
+			'''
+			*Slaps top of forge* 'This baby can fit so many crafting stations in it.'
+			Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer's Workshop, and a Table and Chair
+			'''
 	}
 
 	DragonAltarSafe: {
-		DisplayName: Dragon Altar Safe
+		DisplayName: Dragon Altar
 		Tooltip: ""
 	}
 
 	QuantumFusionAccelerator: {
 		DisplayName: Quantum Fusion Accelerator
-		Tooltip: ""
+		Tooltip:
+			'''
+			Launching particles at the speed of sound
+			Allows you to work with Dark Matter and Radium
+			'''
 	}
 
 	RadiantArcanum: {
 		DisplayName: Radiant Arcanum
-		Tooltip: ""
+		Tooltip:
+			'''
+			Wish upon a star
+			Allows you to work with Dark Matter and Radium
+			'''
 	}
 
 	BinaryReassembler: {
-		DisplayName: Binary Reassembler
-		Tooltip: ""
+		DisplayName: Binary Fragmentation Reassembler
+		Tooltip: Reality has never been so easy to manipulate
 	}
 
 	FurnitureDynamo: {
 		DisplayName: Furniture Dynamo
-		Tooltip: ""
+		Tooltip:
+			'''
+			Combines all funiture-crafting stations into one block
+			Now you don't have to clutter your base with 12 crafting stations!
+			'''
 	}
 
 	CorruptAltar: {
-		DisplayName: Corrupt Altar
+		DisplayName: Demon Altar
 		Tooltip: ""
 	}
 
@@ -51,22 +71,26 @@ Functional: {
 
 	HallowedAnvil: {
 		DisplayName: Hallowed Anvil
-		Tooltip: ""
+		Tooltip: A Holy Anvil
 	}
 
 	HallowedForge: {
 		DisplayName: Hallowed Forge
-		Tooltip: ""
+		Tooltip: It's amazing what this thing CAN'T cook
 	}
 
 	PaladinsSmeltery: {
-		DisplayName: Paladins Smeltery
-		Tooltip: ""
+		DisplayName: Paladin's Smeltery Forge
+		Tooltip:
+			'''
+			This thing can make a lot of stuff
+			Functions as most hardmode crafting stations + A workbench and heavy workbench
+			'''
 	}
 
 	HellstoneAnvil: {
 		DisplayName: Hellstone Anvil
-		Tooltip: ""
+		Tooltip: Is this thing supposed to be on fire?
 	}
 
 	SharpeningLavaFish: {
@@ -75,7 +99,7 @@ Functional: {
 	}
 
 	AbyssAltarSafe: {
-		DisplayName: Abyss Altar Safe
+		DisplayName: Abyss Altar
 		Tooltip: ""
 	}
 
@@ -85,13 +109,21 @@ Functional: {
 	}
 
 	TerraCore: {
-		DisplayName: Terra Core
-		Tooltip: ""
+		DisplayName: Core of Terraria
+		Tooltip:
+			'''
+			Combines most crafting stations into one
+			Used to create ancient crafting stations
+			'''
 	}
 
 	TerraPrismStation: {
-		DisplayName: Terra Prism Station
-		Tooltip: ""
+		DisplayName: Infinity Core
+		Tooltip:
+			'''
+			The 'craft-all'.
+			Combiles all vanilla and Ancients Awakened crafting stations together
+			'''
 	}
 }
 
@@ -111,88 +143,92 @@ DoomstoneBrick: {
 }
 
 VoidUnit: {
-	DisplayName: Void Unit
+	DisplayName: Void Recreation Unit
 	Tooltip: ""
 }
 
 AvesInABox: {
 	DisplayName: Aves In A Box
-	Tooltip: ""
+	Tooltip: MAKE MORE MUSIC BOXES YOU DAMN DUCK
 }
 
 AvesStatue: {
-	DisplayName: Aves Statue
+	DisplayName: Mallard Meistro Statue
 	Tooltip: ""
 }
 
 BegStatue: {
-	DisplayName: Beg Statue
+	DisplayName: Weird Horse Statue
 	Tooltip: ""
 }
 
 CharlieStatue: {
-	DisplayName: Charlie Statue
+	DisplayName: Guitar Statue
 	Tooltip: ""
 }
 
 DallinStatue: {
-	DisplayName: Dallin Statue
+	DisplayName: Doctor Statue
 	Tooltip: ""
 }
 
 EnderStatue: {
-	DisplayName: Ender Statue
+	DisplayName: Hero of Legend Statue
 	Tooltip: ""
 }
 
 FargoStatue: {
-	DisplayName: Fargo Statue
+	DisplayName: Top Hat Squirrel Statue
 	Tooltip: ""
 }
 
 FazerStatue: {
-	DisplayName: Fazer Statue
+	DisplayName: Sammy Statue
 	Tooltip: ""
 }
 
 GroxStatue: {
-	DisplayName: Grox Statue
+	DisplayName: Guardian Statue
 	Tooltip: ""
 }
 
 HallamStatue: {
-	DisplayName: Hallam Statue
+	DisplayName: God of Rainbows Statue
 	Tooltip: ""
 }
 
 KyuuStatue: {
-	DisplayName: Kyuu Statue
+	DisplayName: Excaligrim Statue
 	Tooltip: ""
 }
 
 LCSStatue: {
-	DisplayName: L C S Statue
+	DisplayName: Lie Statue
 	Tooltip: ""
 }
 
 MoonStatue: {
-	DisplayName: Moon Statue
+	DisplayName: Wasp Statue
 	Tooltip: ""
 }
 
 SauceStatue: {
-	DisplayName: Sauce Statue
+	DisplayName: Snake Statue
 	Tooltip: ""
 }
 
 TailsStatue: {
-	DisplayName: Tails Statue
+	DisplayName: Fox Statue
 	Tooltip: ""
 }
 
 EnderMemory: {
-	DisplayName: Ender Memory
-	Tooltip: ""
+	DisplayName: Eternal Memory
+	Tooltip:
+		'''
+		An immense statue made to commemorate somebody
+		A somber engraving is etched into the base.
+		'''
 }
 
 SkycrystalBrick: {
@@ -212,12 +248,22 @@ RoyalRabbitCage: {
 
 RitualAltar: {
 	DisplayName: Ritual Altar
-	Tooltip: ""
+	Tooltip: An old altar whose function has been lost to time...
 }
 
 DiscordianTorch: {
 	DisplayName: Discordian Torch
 	Tooltip: ""
+}
+
+DesertCrate: {
+	DisplayName: Desert Crate
+	Tooltip: "'It's too dusty to open'"
+}
+
+HellCrate: {
+	DisplayName: Hell Crate
+	Tooltip: "'It's too molten to open'"
 }
 
 CovetiteBrick: {
@@ -230,13 +276,23 @@ CovetiteBrickWall: {
 	Tooltip: ""
 }
 
+GreedBrick: {
+	DisplayName: Hoard Brick
+	Tooltip: ""
+}
+
 GreedChest: {
 	DisplayName: Greed Chest
 	Tooltip: ""
 }
 
 GreedLantern: {
-	DisplayName: Greed Lantern
+	DisplayName: Stone Lantern
+	Tooltip: ""
+}
+
+GreedStone: {
+	DisplayName: Hoardstone
 	Tooltip: ""
 }
 
@@ -266,12 +322,12 @@ DragonfireTorch: {
 }
 
 SunAltar: {
-	DisplayName: Sun Altar
+	DisplayName: Draconic Sun Altar
 	Tooltip: ""
 }
 
 SunAltarA: {
-	DisplayName: Sun Altar A
+	DisplayName: Awakened Sun Altar
 	Tooltip: ""
 }
 
@@ -311,12 +367,12 @@ ScorchedShingles: {
 }
 
 TorchAsh: {
-	DisplayName: Torch Ash
+	DisplayName: Volcanic Ash
 	Tooltip: ""
 }
 
 Torchice: {
-	DisplayName: Torchice
+	DisplayName: Orange Ice
 	Tooltip: ""
 }
 
@@ -326,7 +382,7 @@ Torchsand: {
 }
 
 TorchsandHardened: {
-	DisplayName: Torchsand Hardened
+	DisplayName: Hardened Torchsand
 	Tooltip: ""
 }
 
@@ -337,7 +393,7 @@ Torchsandstone: {
 
 Torchstone: {
 	DisplayName: Torchstone
-	Tooltip: ""
+	Tooltip: Warm to the touch
 }
 
 AbyssiumBrick: {
@@ -366,12 +422,12 @@ DreadMoonAltar: {
 }
 
 DreadMoonAltarA: {
-	DisplayName: Dread Moon Altar A
+	DisplayName: Awakened Moon Altar
 	Tooltip: ""
 }
 
 EventideAbyssiumBrick: {
-	DisplayName: Eventide Abyssium Brick
+	DisplayName: Eventide Brick
 	Tooltip: ""
 }
 
@@ -401,7 +457,7 @@ Depthsand: {
 }
 
 DepthsandHardened: {
-	DisplayName: Depthsand Hardened
+	DisplayName: Hardened Depthsand
 	Tooltip: ""
 }
 
@@ -412,7 +468,7 @@ Depthsandstone: {
 
 Depthstone: {
 	DisplayName: Depthstone
-	Tooltip: ""
+	Tooltip: Dank
 }
 
 IndigoIce: {
@@ -423,6 +479,11 @@ IndigoIce: {
 MushroomBlock: {
 	DisplayName: Mushroom Block
 	Tooltip: ""
+}
+
+IceCrate: {
+	DisplayName: Ice Crate
+	Tooltip: "'It's too frigid to open'"
 }
 
 RelicBrick: {
@@ -447,7 +508,7 @@ DarkmatterBrickWall: {
 
 EquinoxBrick: {
 	DisplayName: Equinox Brick
-	Tooltip: ""
+	Tooltip: Changes depending on the time of day
 }
 
 EquinoxBrickWall: {
@@ -467,7 +528,7 @@ RadiumBrickWall: {
 
 PermeableTerraWoodWand: {
 	DisplayName: Permeable Terra Wood Wand
-	Tooltip: ""
+	Tooltip: Right click to swap modes
 }
 
 TerraLeafWand: {
@@ -477,21 +538,21 @@ TerraLeafWand: {
 
 TerraWoodWand: {
 	DisplayName: Terra Wood Wand
+	Tooltip: Right click to swap modes
+}
+
+OuroborosWood: {
+	DisplayName: Ouroboros Wood
 	Tooltip: ""
 }
 
-OroborosWood: {
-	DisplayName: Oroboros Wood
-	Tooltip: ""
-}
-
-OroborosWoodWall: {
-	DisplayName: Oroboros Wood Wall
+OuroborosWoodWall: {
+	DisplayName: Ouroboros Wood Wall
 	Tooltip: ""
 }
 
 DoomsdayPlatingWall: {
-	DisplayName: Doomsday Plating Wall
+	DisplayName: Doomsday Circuit Wall
 	Tooltip: ""
 }
 
@@ -501,12 +562,12 @@ DoomstoneBrickWall: {
 }
 
 DoomstoneB: {
-	DisplayName: Doomstone B
+	DisplayName: Doomstone
 	Tooltip: ""
 }
 
 Doomstone: {
-	DisplayName: Doomstone
+	DisplayName: Charged Doomstone
 	Tooltip: ""
 }
 
@@ -541,7 +602,7 @@ AnubisPainting: {
 }
 
 CRajahPainting: {
-	DisplayName: C Rajah Painting
+	DisplayName: Champion Rajah Painting
 	Tooltip: ""
 }
 
@@ -566,12 +627,12 @@ GreedPainting: {
 }
 
 HotJPainting: {
-	DisplayName: Hot J Painting
+	DisplayName: Heart of the Jungle Painting
 	Tooltip: ""
 }
 
 IZPainting: {
-	DisplayName: I Z Painting
+	DisplayName: Infinity Zero Painting
 	Tooltip: ""
 }
 
@@ -581,7 +642,7 @@ JojoBagginsPainting: {
 }
 
 KingQueenPainting: {
-	DisplayName: King Queen Painting
+	DisplayName: King & Queen Painting
 	Tooltip: ""
 }
 
@@ -596,12 +657,12 @@ MushmadPainting: {
 }
 
 NKPainting: {
-	DisplayName: N K Painting
+	DisplayName: Nameless Knight Painting
 	Tooltip: ""
 }
 
 RajahPainting: {
-	DisplayName: Rajah Painting
+	DisplayName: Rajah Rabbit Painting
 	Tooltip: ""
 }
 
@@ -611,17 +672,17 @@ SanguinePainting: {
 }
 
 ShenPainting: {
-	DisplayName: Shen Painting
+	DisplayName: Shen Doragon Painting
 	Tooltip: ""
 }
 
 ShipPainting: {
-	DisplayName: Ship Painting
+	DisplayName: Sunken Ship Painting
 	Tooltip: ""
 }
 
 SoCPainting: {
-	DisplayName: So C Painting
+	DisplayName: Soul of Cthulhu Painting
 	Tooltip: ""
 }
 
@@ -641,7 +702,7 @@ ValkyriePainting: {
 }
 
 WizardPainting: {
-	DisplayName: Wizard Painting
+	DisplayName: Chaos Wizard Painting
 	Tooltip: ""
 }
 
@@ -662,7 +723,7 @@ TerraBrick: {
 
 RottedDynastyWood: {
 	DisplayName: Rotted Dynasty Wood
-	Tooltip: ""
+	Tooltip: It's squishy
 }
 
 RottedShingles: {
@@ -676,41 +737,6 @@ SunkenChest: {
 }
 
 Sticker: {
-	DisplayName: Sticker
-	Tooltip: ""
-}
-
-DesertCrate: {
-	DisplayName: Desert Crate
-	Tooltip: ""
-}
-
-HellCrate: {
-	DisplayName: Hell Crate
-	Tooltip: ""
-}
-
-IceCrate: {
-	DisplayName: Ice Crate
-	Tooltip: ""
-}
-
-GreedBrick: {
-	DisplayName: Greed Brick
-	Tooltip: ""
-}
-
-GreedStone: {
-	DisplayName: Greed Stone
-	Tooltip: ""
-}
-
-OuroborosWood: {
-	DisplayName: Ouroboros Wood
-	Tooltip: ""
-}
-
-OuroborosWoodWall: {
-	DisplayName: Ouroboros Wood Wall
-	Tooltip: ""
+	DisplayName: Special Sticker
+	Tooltip: Y0u're winner
 }

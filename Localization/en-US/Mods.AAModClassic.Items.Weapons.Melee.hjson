@@ -1,116 +1,188 @@
 BladeOfNight: {
-	DisplayName: Blade Of Night
-	Tooltip: ""
+	DisplayName: Blade of Night
+	Tooltip: A dark sword from a dark creature.
 }
 
 Doragonburedo: {
 	DisplayName: Doragonburedo
-	Tooltip: ""
+	Tooltip:
+		'''
+		'I'm gonna wipe their whole team' 
+		- Jace
+		'''
 }
 
 GentlemansRapier: {
-	DisplayName: Gentlemans Rapier
-	Tooltip: ""
+	DisplayName: Gentleman's Rapier
+	Tooltip:
+		'''
+		Shoots spooky dapper top hats
+		Right clicking thrusts the blade forward
+		Left clicking swings the blade
+		'Spoopy'
+		- Tied
+		'''
 }
 
 Aerodrake: {
 	DisplayName: Aerodrake
-	Tooltip: ""
+	Tooltip: Flying Dragon EX
 }
 
 Apocalypse: {
 	DisplayName: Apocalypse
-	Tooltip: ""
+	Tooltip:
+		'''
+		The Flaming Jacks travel towards the sunset, where
+		souls travel to reach the afterlife.
+		Horseman's Blade EX
+		'''
 }
 
 DraconianFury: {
 	DisplayName: Draconian Fury
-	Tooltip: ""
+	Tooltip:
+		'''
+		Rains fire and fury upon your foes
+		Inflicts Daybroken
+		Reign of Fire EX
+		'''
 }
 
 DraculaKnives: {
 	DisplayName: Dracula Knives
-	Tooltip: ""
+	Tooltip:
+		'''
+		Rapidly throw life stealing daggers
+		Vampire Knives EX
+		'''
 }
 
 FuryGreatforger: {
 	DisplayName: Fury Greatforger
-	Tooltip: ""
+	Tooltip:
+		'''
+		Striking enemies causes an explosion + sparks to fly from them
+		Fury Forger EX
+		'''
 }
 
 GentlemansLongblade: {
-	DisplayName: Gentlemans Longblade
-	Tooltip: ""
+	DisplayName: Gentleman's Longblade
+	Tooltip:
+		'''
+		Shoots many spooky dapper top hats
+		Right clicking thrusts the blade forward
+		Left clicking swings the blade
+		Gentleman's Rapier EX
+		'''
 }
 
 Ikari: {
 	DisplayName: Ikari
-	Tooltip: ""
+	Tooltip:
+		'''
+		Unleashes explosive blades of chaos to smite your foes
+		blades go through tiles
+		Chaos Slayer EX
+		'''
 }
 
 PerfectChaos: {
 	DisplayName: Perfect Chaos
-	Tooltip: ""
+	Tooltip: Chaos EX
 }
 
 ScourgeOfTheShadows: {
-	DisplayName: Scourge Of The Shadows
-	Tooltip: ""
+	DisplayName: Scourge of the Shadows
+	Tooltip:
+		'''
+		Bounce off tiles up to 3 times
+		Breaks after hitting an enemy
+		Sprays little eaters while travelling and on enemy hit
+		Scourge of the Corruptor EX
+		'''
 }
 
 ScytheOfEvil: {
-	DisplayName: Scythe Of Evil
-	Tooltip: ""
+	DisplayName: Scythe of Evil
+	Tooltip:
+		'''
+		The scythe of the lord of death himself
+		Inflicts Ichor and Cursed Inferno
+		Death Sickle EX
+		'''
 }
 
 TheLolkat: {
 	DisplayName: The Lolkat
-	Tooltip: ""
+	Tooltip:
+		'''
+		WHAT DOES IT MEAN?!?!?!111!!11
+		Meowmere EX
+		'''
 }
 
 TrueTerraBlade: {
 	DisplayName: True Terra Blade
-	Tooltip: ""
+	Tooltip:
+		'''
+		Shoots homing projectiles that inflict terrablaze
+		Terra Blade EX
+		'''
 }
 
 UltimaShortsword: {
 	DisplayName: Ultima Shortsword
-	Tooltip: ""
+	Tooltip: Copper Shortsword EX
 }
 
 Umbra: {
 	DisplayName: Umbra
-	Tooltip: ""
+	Tooltip:
+		'''
+		A dark sword from a dark creature
+		Blade of Night EX
+		'''
 }
 
 CthulhusBlade: {
-	DisplayName: Cthulhus Blade
+	DisplayName: Cthulhu's Blade
 	Tooltip: ""
 }
 
 ChaosSlayer: {
 	DisplayName: Chaos Slayer
-	Tooltip: ""
+	Tooltip:
+		'''
+		Unleashes blades of chaos to smite your foes
+		blades go through tiles
+		'Shatter all sanity'
+		'''
 }
 
 TrueFleshrendClaymore: {
 	DisplayName: True Fleshrend Claymore
-	Tooltip: ""
+	Tooltip:
+		'''
+		Inflics Ichor on your target
+		Despite the name, it's not actually made of flesh
+		'''
 }
 
 BlazingDawn: {
 	DisplayName: Blazing Dawn
-	Tooltip: ""
+	Tooltip: The Radiant Dawn calls
 }
 
 FlamingFury: {
 	DisplayName: Flaming Fury
-	Tooltip: ""
+	Tooltip: Forged with the kindled rage of ancient dragons.
 }
 
 DraconianDawn: {
 	DisplayName: Draconian Dawn
-	Tooltip: ""
+	Tooltip: The True blade of the Rising Sun
 }
 
 Dragonkite: {
@@ -120,37 +192,75 @@ Dragonkite: {
 
 Daycrusher: {
 	DisplayName: Daycrusher
-	Tooltip: ""
+	Tooltip:
+		'''
+		Slams into foes with the force of a solar mass
+		Inflicts Daybroken
+		'''
 }
 
 MorningGlory: {
 	DisplayName: Morning Glory
-	Tooltip: ""
+	Tooltip: Splits into 4 additional phantom piercing spears on throw
 }
 
 ReignOfFire: {
-	DisplayName: Reign Of Fire
-	Tooltip: ""
+	DisplayName: Reign of Fire
+	Tooltip:
+		'''
+		Rains fire and fury upon your foes
+		Inflicts Daybroken
+		'''
+}
+
+Solar: {
+	DisplayName: Solar
+	Tooltip:
+		'''
+		Spins with the speed of a planet orbiting the sun
+		Inflicts daybroken
+		'''
 }
 
 SunPartisan: {
 	DisplayName: Sun Partisan
-	Tooltip: ""
+	Tooltip:
+		'''
+		One of two legendary spears used to divide time into day and night
+		Inflicts daybroken
+		'''
 }
 
 AbyssalYari: {
 	DisplayName: Abyssal Yari
-	Tooltip: ""
+	Tooltip: One of two legendary spears used to divide time into day and night
+}
+
+Crescent: {
+	DisplayName: Crescent
+	Tooltip:
+		'''
+		Faster than the light of the moon
+		Inflicts Moonraze
+		'''
 }
 
 Flairdra: {
 	DisplayName: Flairdra
-	Tooltip: ""
+	Tooltip:
+		'''
+		Be the hydra.
+		Inflicts Moonraze
+		'''
 }
 
 HydraStabber: {
-	DisplayName: Hydra Stabber
-	Tooltip: ""
+	DisplayName: Abyssal Shiv
+	Tooltip:
+		'''
+		Extremely fast and dangerous
+		Inflicts Moonraze
+		'''
 }
 
 ThrowingCrescent: {
@@ -160,7 +270,7 @@ ThrowingCrescent: {
 
 DragonBlade: {
 	DisplayName: Dragon Blade
-	Tooltip: ""
+	Tooltip: Shoots tiny swords!
 }
 
 DarkmatterSlasher: {
@@ -175,7 +285,12 @@ DarkmatterSpinblade: {
 
 RealityShredders: {
 	DisplayName: Reality Shredders
-	Tooltip: ""
+	Tooltip: Blades made out of Dark matter. Inflicts the Electified debuff
+}
+
+Void: {
+	DisplayName: Void
+	Tooltip: Made out of pure Dark Matter
 }
 
 Poppy: {
@@ -185,17 +300,22 @@ Poppy: {
 
 TrueCopperShortsword: {
 	DisplayName: True Copper Shortsword
-	Tooltip: ""
+	Tooltip: Literally just did it for the memes
 }
 
 StallionsStar: {
-	DisplayName: Stallions Star
-	Tooltip: ""
+	DisplayName: Stalion's Star
+	Tooltip: A spinning blade of doom
 }
 
 RiftShredder: {
 	DisplayName: Rift Shredder
-	Tooltip: ""
+	Tooltip: Shoots void stars that shred through reality itself
+}
+
+TheVortex: {
+	DisplayName: The Vortex
+	Tooltip: Spins fast enough to drag all enemies into its gravitational pull
 }
 
 FulguriteTazesaber: {
@@ -215,22 +335,31 @@ InfinityBlade: {
 
 Sagittarius: {
 	DisplayName: Sagittarius
-	Tooltip: ""
+	Tooltip: Throws out 6 razor sharp flails
 }
 
 FuryForger: {
 	DisplayName: Fury Forger
-	Tooltip: ""
+	Tooltip: Striking enemies causes sparks to fly from them
 }
 
 CursedSickle: {
 	DisplayName: Cursed Sickle
-	Tooltip: ""
+	Tooltip:
+		'''
+		Spins a cursed scythe around you that shreds through enemies
+		Right click to swing the scythe overhead and fire a Cursed Scythe
+		'''
 }
 
 Demise: {
 	DisplayName: Demise
-	Tooltip: ""
+	Tooltip:
+		'''
+		A legendary sword that was once wielded by the demon king
+		Left Click to unleash destructive demonic energy
+		Right Click to unleash demon blades that fall from the sky
+		'''
 }
 
 ExtravagantLongsword: {
@@ -239,78 +368,191 @@ ExtravagantLongsword: {
 }
 
 ExtravagantLongswordS: {
-	DisplayName: Extravagant Longsword S
+	DisplayName: Extravagant Longsword
 	Tooltip: ""
 }
 
 ScytheOfTheGrimReaper: {
-	DisplayName: Scythe Of The Grim Reaper
-	Tooltip: ""
+	DisplayName: Scythe of the Grim Reaper
+	Tooltip:
+		'''
+		Left click to swing and release homing scythe
+		Right click to do dashing hit
+		You are immune during the dash and deal 10x damage in true melee
+		Dashing ability has 10 seconds CD
+		'Well, how many Grim Reapers have you met before, mate?'
+		- Gregg
+		'''
 }
 
 SoulSiphon: {
 	DisplayName: Soul Siphon
-	Tooltip: ""
+	Tooltip:
+		'''
+		I swear if you ask me for a song one more time...
+		- Charlie
+		'''
+}
+
+TimeTeller: {
+	DisplayName: Time Teller
+	Tooltip:
+		'''
+		Damage changes based on time of day
+		Damage is greatest at Midday and Midnight
+		'Time to Die!'
+		- Dallin
+		'''
 }
 
 TitanAxe: {
 	DisplayName: Titan Axe
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right clicking throws the axe. 
+		Left clicking swings the axe. 
+		'Oof this isn't google' 
+		- Welox
+		'''
+}
+
+NoodleSword: {
+	DisplayName: "[DEV] Noodle Sword"
+	Tooltip: Top 10 op weapons in video games
+}
+
+EmperorFlairon: {
+	DisplayName: Emperor Flairon
+	Tooltip: Lets loose an armada of homing bubbles
 }
 
 Axis: {
 	DisplayName: Axis
-	Tooltip: ""
+	Tooltip:
+		'''
+		Enemies struck by this spear will be surrounded by snowflakes
+		North Pole EX
+		'''
 }
 
 Catastrophe: {
 	DisplayName: Catastrophe
-	Tooltip: ""
+	Tooltip:
+		'''
+		An almighty greatblade that was once wielded by the demon lord
+		Left Click to unleash destructive demonic energy
+		Right Click to unleash catastrophic blades that fall from the sky
+		True Melee Strikes have a chance to instantly devour an enemy's soul
+		Demise EX
+		'''
+}
+
+Chronos: {
+	DisplayName: Chronos
+	Tooltip:
+		'''
+		Time Teller EX
+		Damage changes based on time of day
+		Damage is greatest at Midday and Midnight
+		'Time is big ball of wibbly-wobbly timey-wimey yo-yos.'
+		- Dallin
+		'''
+}
+
+CosmicFury: {
+	DisplayName: Cosmic Fury
+	Tooltip:
+		'''
+		Causes stars to rain from the sky
+		Stars can reach enemies through any obstacles
+		Star Wrath EX
+		'''
 }
 
 ExquisiteExtravagantGreatblade: {
-	DisplayName: Exquisite Extravagant Greatblade
-	Tooltip: ""
+	DisplayName: Exquisite, Extravagant Greatblade
+	Tooltip: Extravagant Longsword EX
 }
 
 ExquisiteExtravagantGreatbladeS: {
-	DisplayName: Exquisite Extravagant Greatblade S
-	Tooltip: ""
+	DisplayName: Exquisite, Extravagant Greatblade
+	Tooltip: Extravagant Longsword EX
 }
 
 FinalChaos: {
 	DisplayName: Final Chaos
-	Tooltip: ""
+	Tooltip:
+		'''
+		'I CAN DO ANYTHING'
+		Legendary Weapon
+		'''
 }
 
 PerfectChaosChain: {
 	DisplayName: Perfect Chaos Chain
-	Tooltip: ""
+	Tooltip:
+		'''
+		Fires a spinning blade that shreds enemies
+		Chaos Chain EX
+		'''
 }
 
 PerfectChaosYari: {
 	DisplayName: Perfect Chaos Yari
-	Tooltip: ""
+	Tooltip: Chaos Yari EX
+}
+
+SlapBone: {
+	DisplayName: Slap Bone
+	Tooltip:
+		'''
+		The smallest smack will send your enemies into orbit!
+		Slap Hand EX
+		'''
 }
 
 SoulShredder: {
 	DisplayName: Soul Shredder
-	Tooltip: ""
+	Tooltip:
+		'''
+		Left click to swing and release homing scythe
+		Right click to do dashing hit
+		You are immune during the dash and deal 15x damage in true melee
+		Dashing ability has 5 seconds CD
+		'Well, how many Grim Reapers have you met before, mate?'
+		- Gregg
+		Scythe of the Grim Reaper EX
+		'''
 }
 
 TartarusReaper: {
 	DisplayName: Tartarus Reaper
-	Tooltip: ""
+	Tooltip:
+		'''
+		Spins a cursed scythe around you that shreds through enemies
+		Right click to swing the scythe
+		Cursed Sickle EX
+		'''
+}
+
+TitanSlayer: {
+	DisplayName: Titan Slayer
+	Tooltip:
+		'''
+		Left click to quickly swing the axe
+		Right click to throw the axe
+		Titan Axe EX
+		'''
 }
 
 BugSwatter: {
 	DisplayName: Bug Swatter
-	Tooltip: ""
+	Tooltip: Does extra damage to creepy crawlies
 }
 
 MidasClub: {
 	DisplayName: Midas Club
-	Tooltip: ""
+	Tooltip: Hit stuff for more cash
 }
 
 Tizona: {
@@ -334,8 +576,13 @@ BloodyMary: {
 }
 
 BaneOfTheBunny: {
-	DisplayName: Bane Of The Bunny
-	Tooltip: ""
+	DisplayName: Bane of the Bunny
+	Tooltip:
+		'''
+		Right click to use as a spear
+		Left click to use as a javelin
+		Throwing Javelins right after a spear thrust throws javelins faster for a moment
+		'''
 }
 
 ThePunisher: {
@@ -344,8 +591,14 @@ ThePunisher: {
 }
 
 BaneOfTheSlaughterer: {
-	DisplayName: Bane Of The Slaughterer
-	Tooltip: ""
+	DisplayName: Bane of the Slaughterer
+	Tooltip:
+		'''
+		Right click to use as a spear
+		Left click to use as a javelin
+		Throwing Javelins right after a spear thrust throws javelins faster for a moment
+		Bane of the Bunny EX
+		'''
 }
 
 Excalihare: {
@@ -355,17 +608,17 @@ Excalihare: {
 
 TheAvenger: {
 	DisplayName: The Avenger
-	Tooltip: ""
+	Tooltip: The Punisher EX
 }
 
 Chaos_Item: {
-	DisplayName: Chaos_ Item
-	Tooltip: ""
+	DisplayName: Chaos
+	Tooltip: Wrath and fury upon those struck by this discordian blade
 }
 
 ChaosChain: {
 	DisplayName: Chaos Chain
-	Tooltip: ""
+	Tooltip: Throws a volitile sphere of chaotic energy
 }
 
 ChaosYari: {
@@ -375,17 +628,30 @@ ChaosYari: {
 
 Asteroid: {
 	DisplayName: Asteroid
-	Tooltip: ""
+	Tooltip:
+		'''
+		Crashes into enemies with the force of an astroid crashing into earth
+		Inflicts Discordian Inferno
+		'''
 }
 
 Timesplitter: {
 	DisplayName: Timesplitter
-	Tooltip: ""
+	Tooltip:
+		'''
+		It has been said that this spear was used to divide time into day and night
+		Inflicts Daybroken and Moonraze
+		'''
 }
 
 Masamune: {
 	DisplayName: Masamune
-	Tooltip: ""
+	Tooltip:
+		'''
+		Left click to quickly slash at your foes with the blade
+		Ignores invicibility frames
+		Right click to shoot a blade wave
+		'''
 }
 
 DuskBringer: {
@@ -394,18 +660,18 @@ DuskBringer: {
 }
 
 FleshrendClaymore: {
-	DisplayName: Fleshrend Claymore
-	Tooltip: ""
+	DisplayName: Flesh Claymore
+	Tooltip: Stained with the blood of your fallen foes.
 }
 
 CarnalCrusher: {
 	DisplayName: Carnal Crusher
-	Tooltip: ""
+	Tooltip: Critical Hits heal you
 }
 
 IchorSpear: {
 	DisplayName: Ichor Spear
-	Tooltip: ""
+	Tooltip: Inflicts Ichor to enemy on hit
 }
 
 Djinnerang: {
@@ -414,7 +680,7 @@ Djinnerang: {
 }
 
 SultansScimitar: {
-	DisplayName: Sultans Scimitar
+	DisplayName: Sultan's Scimitar
 	Tooltip: ""
 }
 
@@ -439,28 +705,36 @@ SandScimitar: {
 }
 
 JackalsWrath: {
-	DisplayName: Jackals Wrath
-	Tooltip: ""
+	DisplayName: Jackal's Wrath
+	Tooltip: Shoots out a wall-piercing returning phantom blade on swing
 }
 
 Judgment: {
-	DisplayName: Judgment
-	Tooltip: ""
+	DisplayName: Judgement
+	Tooltip: Releases enchanted sand rain on enemy hit
 }
 
 CrookOfTheSoulJudge: {
-	DisplayName: Crook Of The Soul Judge
-	Tooltip: ""
+	DisplayName: Crook of the Soul Judge
+	Tooltip:
+		'''
+		Phases through tiles
+		Every hit the crook makes heals you when it returns
+		'''
 }
 
 Soulsplitter: {
 	DisplayName: Soulsplitter
-	Tooltip: ""
+	Tooltip: Shoots out a trio of wall-piercing returning phantom blades on swing
 }
 
 Verdict: {
 	DisplayName: Verdict
-	Tooltip: ""
+	Tooltip:
+		'''
+		Releases enchanted sand rain on enemy hit
+		Creates 2 forsaken phantom blades which hit enemy horizontally as well
+		'''
 }
 
 AquaLance: {
@@ -469,18 +743,26 @@ AquaLance: {
 }
 
 BladeOfEvil: {
-	DisplayName: Blade Of Evil
-	Tooltip: ""
+	DisplayName: Blade of Evil
+	Tooltip:
+		'''
+		The perfect balance between Corruption and Crimson
+		Shoots alternating fireballs of Ichor and Cursed Flames
+		'''
 }
 
 ToadTongue: {
 	DisplayName: Toad Tongue
-	Tooltip: ""
+	Tooltip: Pulls enemies towards you when it retracts
 }
 
 GoblinSlayer: {
 	DisplayName: Goblin Slayer
-	Tooltip: ""
+	Tooltip:
+		'''
+		Can be swung with left click and thrust forward with a right click
+		'The blade of a legendary goblin slayer'
+		'''
 }
 
 IlluminantFlail: {
@@ -490,7 +772,7 @@ IlluminantFlail: {
 
 MoltenLance: {
 	DisplayName: Molten Lance
-	Tooltip: ""
+	Tooltip: Makes instant barbeque shish kebabs!
 }
 
 ScorchedSaw: {
@@ -500,17 +782,27 @@ ScorchedSaw: {
 
 StoneSlammer: {
 	DisplayName: Stone Slammer
-	Tooltip: ""
+	Tooltip: Hitting an airborne always crits and sends the target flying into the ground
 }
 
 Earthbreaker: {
 	DisplayName: Earthbreaker
-	Tooltip: ""
+	Tooltip:
+		'''
+		Hitting an airborne always crits and sends the target flying into the ground
+		Concussive force of the hit also has a 50% chance to confuse the struck enemy
+		If the enemy hits the ground after being hit, they will take damage
+		'''
 }
 
 DragonGlove: {
 	DisplayName: Dragon Glove
 	Tooltip: ""
+}
+
+Incineration: {
+	DisplayName: Incineration
+	Tooltip: Spinning Singe
 }
 
 Pyrosphere: {
@@ -520,32 +812,36 @@ Pyrosphere: {
 
 Yogan: {
 	DisplayName: Yogan
-	Tooltip: ""
+	Tooltip: Ignites enemies on hit
 }
 
 Dracorang: {
 	DisplayName: Dracorang
-	Tooltip: ""
+	Tooltip: Leaves short living flame trail
 }
 
 Firestorm: {
 	DisplayName: Firestorm
-	Tooltip: ""
+	Tooltip: Launches bouncing fireballs on swing
 }
 
 Ryusei: {
 	DisplayName: Ryusei
-	Tooltip: ""
+	Tooltip: Ignites enemies on hit with flames and Dragonfire
 }
 
 SunHalberd: {
 	DisplayName: Sun Halberd
-	Tooltip: ""
+	Tooltip: Strikes foes in an arc, then stabs in the direction of the cursor
 }
 
 DragonShiv: {
 	DisplayName: Dragon Shiv
-	Tooltip: ""
+	Tooltip:
+		'''
+		Slow, but hits like a celestial body
+		Inflicts Daybroken
+		'''
 }
 
 GrassSpear: {
@@ -555,7 +851,7 @@ GrassSpear: {
 
 JungleReaper: {
 	DisplayName: Jungle Reaper
-	Tooltip: ""
+	Tooltip: It's a scythe. Calm down Welox.
 }
 
 MadnessSaber: {
@@ -565,12 +861,17 @@ MadnessSaber: {
 
 AbyssalTwilight: {
 	DisplayName: Abyssal Twilight
-	Tooltip: ""
+	Tooltip: The Eternal Dusk Beckons
+}
+
+Depthwalker: {
+	DisplayName: Depthwalker
+	Tooltip: Walk the Hydra
 }
 
 ExilesKatana: {
-	DisplayName: Exiles Katana
-	Tooltip: ""
+	DisplayName: Exile's Katana
+	Tooltip: Formed with the unyielding wrath of the depths.
 }
 
 HydraGlove: {
@@ -579,7 +880,7 @@ HydraGlove: {
 }
 
 HydrasSpear: {
-	DisplayName: Hydras Spear
+	DisplayName: Hydra Spear
 	Tooltip: ""
 }
 
@@ -595,16 +896,16 @@ BackScratcher: {
 
 DeathDaggers: {
 	DisplayName: Death Daggers
-	Tooltip: ""
+	Tooltip: Throw life stealing daggers that inflict Hydratoxin
 }
 
 DreadTwilight: {
 	DisplayName: Dread Twilight
-	Tooltip: ""
+	Tooltip: The rising moon incarnate
 }
 
 GuardianOfTheDepths: {
-	DisplayName: Guardian Of The Depths
+	DisplayName: Guardian of the Depths
 	Tooltip: ""
 }
 
@@ -615,12 +916,16 @@ SwimmingHydra: {
 
 Amenomuraku: {
 	DisplayName: Amenomuraku
-	Tooltip: ""
+	Tooltip:
+		'''
+		Used to defeat the multi-headed monstrosities of the abyss
+		Inflicts Moonrazed
+		'''
 }
 
 OceanRazor: {
 	DisplayName: Ocean Razor
-	Tooltip: ""
+	Tooltip: Salty
 }
 
 SaltwaterSpear: {
@@ -629,13 +934,13 @@ SaltwaterSpear: {
 }
 
 RomulusTazesaber: {
-	DisplayName: Romulus Tazesaber
-	Tooltip: ""
+	DisplayName: Romulus' Tazesaber
+	Tooltip: A fulgarian Tazesaber stolen from a respected hero.
 }
 
 SpookySawblade: {
 	DisplayName: Spooky Sawblade
-	Tooltip: ""
+	Tooltip: A posessed chakram than homes in on enemies because it's possessed by a spooky ghost
 }
 
 Musharang: {
@@ -650,11 +955,16 @@ Mushmace: {
 
 CloudEdge: {
 	DisplayName: Cloud Edge
-	Tooltip: ""
+	Tooltip: Shoots cloud projectiles
+}
+
+TheDragonsBreath: {
+	DisplayName: The Dragon's Breath
+	Tooltip: It must need to brush it's teeth
 }
 
 BlizzardBuster: {
-	DisplayName: Blizzard Buster
+	DisplayName: Blizzard Breaker
 	Tooltip: ""
 }
 
@@ -665,17 +975,17 @@ SerpentSpike: {
 
 SubzeroSlasher: {
 	DisplayName: Subzero Slasher
-	Tooltip: ""
+	Tooltip: Has a chance to shoot a subzero projectile on swing
 }
 
 GlacierBreaker: {
 	DisplayName: Glacier Breaker
-	Tooltip: ""
+	Tooltip: Drops Icicles while the flail travels
 }
 
 IceLongsword: {
 	DisplayName: Ice Longsword
-	Tooltip: ""
+	Tooltip: Chuck literal ice at your foes instead of that wimpy little snow bolt
 }
 
 RaiderLance: {
@@ -695,7 +1005,7 @@ AsgardianLance: {
 
 DragonFang: {
 	DisplayName: Dragon Fang
-	Tooltip: ""
+	Tooltip: Right click to slash at your foes with the grace of a Valkyrie
 }
 
 BreakingDawn: {
@@ -780,12 +1090,12 @@ TopazSaber: {
 
 TrueTinShortsword: {
 	DisplayName: True Tin Shortsword
-	Tooltip: ""
+	Tooltip: The true blade of shadows
 }
 
 SagittariusLeg: {
-	DisplayName: Sagittarius Leg
-	Tooltip: ""
+	DisplayName: Sagittarius' Leg
+	Tooltip: It's a piece of metal. You beat things with it. Pretty basic concept.
 }
 
 DoomiteSaber: {
@@ -803,11 +1113,6 @@ Voidsaber: {
 	Tooltip: ""
 }
 
-Void: {
-	DisplayName: Void
-	Tooltip: ""
-}
-
 EventHorizon: {
 	DisplayName: Event Horizon
 	Tooltip: ""
@@ -815,70 +1120,5 @@ EventHorizon: {
 
 RealityAnchor: {
 	DisplayName: Reality Anchor
-	Tooltip: ""
-}
-
-Solar: {
-	DisplayName: Solar
-	Tooltip: ""
-}
-
-TheVortex: {
-	DisplayName: The Vortex
-	Tooltip: ""
-}
-
-TimeTeller: {
-	DisplayName: Time Teller
-	Tooltip: ""
-}
-
-NoodleSword: {
-	DisplayName: Noodle Sword
-	Tooltip: ""
-}
-
-EmperorFlairon: {
-	DisplayName: Emperor Flairon
-	Tooltip: ""
-}
-
-Chronos: {
-	DisplayName: Chronos
-	Tooltip: ""
-}
-
-CosmicFury: {
-	DisplayName: Cosmic Fury
-	Tooltip: ""
-}
-
-SlapBone: {
-	DisplayName: Slap Bone
-	Tooltip: ""
-}
-
-TitanSlayer: {
-	DisplayName: Titan Slayer
-	Tooltip: ""
-}
-
-Incineration: {
-	DisplayName: Incineration
-	Tooltip: ""
-}
-
-Depthwalker: {
-	DisplayName: Depthwalker
-	Tooltip: ""
-}
-
-TheDragonsBreath: {
-	DisplayName: The Dragons Breath
-	Tooltip: ""
-}
-
-Crescent: {
-	DisplayName: Crescent
-	Tooltip: ""
+	Tooltip: Hurls a mysterious anchor that deals an impact with the forces of several dimensions
 }

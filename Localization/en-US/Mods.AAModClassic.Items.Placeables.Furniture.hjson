@@ -1,4 +1,4 @@
-Doom: {
+﻿Doom: {
 	DoomBathtub: {
 		DisplayName: Doom Bathtub
 		Tooltip: ""
@@ -35,7 +35,7 @@ Doom: {
 	}
 
 	DoomClock: {
-		DisplayName: Doom Clock
+		DisplayName: Countdown Clock
 		Tooltip: ""
 	}
 
@@ -102,7 +102,7 @@ Razewood: {
 	}
 
 	RazewoodBookshelf: {
-		DisplayName: Razewood Bookshelf
+		DisplayName: Razewood Bookcase
 		Tooltip: ""
 	}
 
@@ -182,7 +182,7 @@ Razewood: {
 	}
 
 	RazewoodTub: {
-		DisplayName: Razewood Tub
+		DisplayName: Razewood Bathtub
 		Tooltip: ""
 	}
 
@@ -204,12 +204,12 @@ Bogwood: {
 	}
 
 	BogwoodBench: {
-		DisplayName: Bogwood Bench
+		DisplayName: Bogwood Couch
 		Tooltip: ""
 	}
 
 	BogwoodBookshelf: {
-		DisplayName: Bogwood Bookshelf
+		DisplayName: Bogwood Bookcase
 		Tooltip: ""
 	}
 
@@ -294,71 +294,71 @@ Bogwood: {
 	}
 }
 
-OroborosWood: {
-	OroborosWoodBathtub: {
-		DisplayName: Oroboros Wood Bathtub
+OuroborosWood: {
+	OuroborosWoodBathtub: {
+		DisplayName: Ouroboros Wood Bathtub
 		Tooltip: ""
 	}
 
-	OroborosWoodBed: {
-		DisplayName: Oroboros Wood Bed
+	OuroborosWoodBed: {
+		DisplayName: Ouroboros Wood Bed
 		Tooltip: ""
 	}
 
-	OroborosWoodBookcase: {
-		DisplayName: Oroboros Wood Bookcase
+	OuroborosWoodBookcase: {
+		DisplayName: Ouroboros Wood Bookcase
 		Tooltip: ""
 	}
 
-	OroborosWoodCandle: {
-		DisplayName: Oroboros Wood Candle
+	OuroborosWoodCandle: {
+		DisplayName: Ouroboros Wood Candle
 		Tooltip: ""
 	}
 
-	OroborosWoodChair: {
-		DisplayName: Oroboros Wood Chair
+	OuroborosWoodChair: {
+		DisplayName: Ouroboros Wood Chair
 		Tooltip: ""
 	}
 
-	OroborosWoodChest: {
-		DisplayName: Oroboros Wood Chest
+	OuroborosWoodChest: {
+		DisplayName: Ouroboros Wood Chest
 		Tooltip: ""
 	}
 
-	OroborosWoodClock: {
-		DisplayName: Oroboros Wood Clock
+	OuroborosWoodClock: {
+		DisplayName: Ouroboros Wood Clock
 		Tooltip: ""
 	}
 
-	OroborosWoodDoor: {
-		DisplayName: Oroboros Wood Door
+	OuroborosWoodDoor: {
+		DisplayName: Ouroboros Wood Door
 		Tooltip: ""
 	}
 
-	OroborosWoodLamp: {
-		DisplayName: Oroboros Wood Lamp
+	OuroborosWoodLamp: {
+		DisplayName: Ouroboros Wood Lamp
 		Tooltip: ""
 	}
 
-	OroborosWoodLantern: {
-		DisplayName: Oroboros Wood Lantern
+	OuroborosWoodLantern: {
+		DisplayName: Ouroboros Wood Lantern
 		Tooltip: ""
 	}
 
-	OroborosWoodPlatform: {
-		DisplayName: Oroboros Wood Platform
+	OuroborosWoodPlatform: {
+		DisplayName: Ouroboros Wood Platform
 		Tooltip: ""
 	}
 
-	OroborosWoodWorkbench: {
-		DisplayName: Oroboros Wood Workbench
+	OuroborosWoodWorkbench: {
+		DisplayName: Ouroboros Wood Workbench
 		Tooltip: ""
 	}
 }
 
 Keep: {
 	KeepBath: {
-		DisplayName: Keep Bath
+		DisplayName: Keep Bathtub
 		Tooltip: ""
 	}
 
@@ -450,7 +450,7 @@ Keep: {
 
 Terra: {
 	TerraBath: {
-		DisplayName: Terra Bath
+		DisplayName: Terra Bathtub
 		Tooltip: ""
 	}
 
@@ -538,66 +538,4 @@ Terra: {
 		DisplayName: Terra Workbench
 		Tooltip: ""
 	}
-}
-
-OuroborosWood: {
-	OuroborosWoodBathtub: {
-		DisplayName: Ouroboros Wood Bathtub
-		Tooltip: ""
-	}
-
-	OuroborosWoodBed: {
-		DisplayName: Ouroboros Wood Bed
-		Tooltip: ""
-	}
-
-	OuroborosWoodBookcase: {
-		DisplayName: Ouroboros Wood Bookcase
-		Tooltip: ""
-	}
-
-	OuroborosWoodCandle: {
-		DisplayName: Ouroboros Wood Candle
-		Tooltip: ""
-	}
-
-	OuroborosWoodChair: {
-		DisplayName: Ouroboros Wood Chair
-		Tooltip: ""
-	}
-
-	OuroborosWoodChest: {
-		DisplayName: Ouroboros Wood Chest
-		Tooltip: ""
-	}
-
-	OuroborosWoodClock: {
-		DisplayName: Ouroboros Wood Clock
-		Tooltip: ""
-	}
-
-	OuroborosWoodDoor: {
-		DisplayName: Ouroboros Wood Door
-		Tooltip: ""
-	}
-
-	OuroborosWoodLamp: {
-		DisplayName: Ouroboros Wood Lamp
-		Tooltip: ""
-	}
-
-	OuroborosWoodLantern: {
-		DisplayName: Ouroboros Wood Lantern
-		Tooltip: ""
-	}
-
-	OuroborosWoodPlatform: {
-		DisplayName: Ouroboros Wood Platform
-		Tooltip: ""
-	}
-
-	OuroborosWoodWorkbench: {
-		DisplayName: Ouroboros Wood Workbench
-		Tooltip: ""
-	}
-}
+}

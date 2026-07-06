@@ -1,3 +1,28 @@
+AleisterBook: {
+	DisplayName: Aleister Book
+	Tooltip:
+		'''
+		A Legendary Book of the Mega Therion.
+		10% increased minion damage
+		+2 minion slots
+		Maybe you could make it stronger..?
+		There's a note written on the cover: 
+		I need more powerful souls, *****,*********,**********
+		'''
+}
+
+TheBookOfTheLaw: {
+	DisplayName: The Book of the Law
+	Tooltip:
+		'''
+		A Legendary Book of the Mega Therion.
+		30% increased minion damage
+		+2 minion slots
+		Includes the effects of all the pieces used to make this.
+
+		'''
+}
+
 DemonGauntlet: {
 	DisplayName: Demon Gauntlet
 	Tooltip: ""
@@ -5,16 +30,16 @@ DemonGauntlet: {
 
 Equinox: {
 	DisplayName: Equinox
-	Tooltip: ""
+	Tooltip: True balance
 }
 
 Duality: {
 	DisplayName: Duality
-	Tooltip: ""
+	Tooltip: Chaos flares from this ancient talisman
 }
 
 DragontamersCloak: {
-	DisplayName: Dragontamers Cloak
+	DisplayName: Dragontamer's Cloak
 	Tooltip: ""
 }
 
@@ -40,21 +65,16 @@ Naitokurosu: {
 
 DarkVoid: {
 	DisplayName: Dark Void
-	Tooltip: ""
+	Tooltip: Dark and spooky
 }
 
 RadiantStar: {
 	DisplayName: Radiant Star
-	Tooltip: ""
+	Tooltip: "'It's Shiny'"
 }
 
-DarkmatterJetpack: {
-	DisplayName: Darkmatter Jetpack
-	Tooltip: ""
-}
-
-BrokenCode: {
-	DisplayName: Broken Code
+DarkmatterWings: {
+	DisplayName: Darkmatter Booster
 	Tooltip: ""
 }
 
@@ -64,7 +84,7 @@ StormCharm: {
 }
 
 StormRiot: {
-	DisplayName: Storm Riot
+	DisplayName: Storm Riot Shield
 	Tooltip: ""
 }
 
@@ -74,8 +94,8 @@ StormPendant: {
 }
 
 HoloCape: {
-	DisplayName: Holo Cape
-	Tooltip: ""
+	DisplayName: Holographic Cloak
+	Tooltip: 15% Increased Damage Resistance
 }
 
 StormClaw: {
@@ -83,28 +103,18 @@ StormClaw: {
 	Tooltip: ""
 }
 
-AleisterBook: {
-	DisplayName: Aleister Book
+APageOfTheRuneBook: {
+	DisplayName: A Page of the Rune Book
 	Tooltip: ""
 }
 
 EmperorFishronWings: {
 	DisplayName: Emperor Fishron Wings
-	Tooltip: ""
+	Tooltip: Allows flight and slow fall
 }
 
-TheBookOfTheLaw: {
-	DisplayName: The Book Of The Law
-	Tooltip: ""
-}
-
-CCBookofRunes: {
-	DisplayName: C C Bookof Runes
-	Tooltip: ""
-}
-
-CCRuneBookPage: {
-	DisplayName: C C Rune Book Page
+TheBookOfRunes: {
+	DisplayName: The Book of Runes
 	Tooltip: ""
 }
 
@@ -118,9 +128,17 @@ FireFrostMedallion: {
 	Tooltip: ""
 }
 
-CursedEyeofSoulBinder: {
-	DisplayName: Cursed Eyeof Soul Binder
-	Tooltip: ""
+CursedEyeOfTheSoulBinder: {
+	DisplayName: Cursed Eye of the Soul Binder
+	Tooltip:
+		'''
+		Increase 21% minion damage
+		Increase your max number of minions
+		Increase your max number of sentries
+		+50 Max Life
+		Your minions can strike the enemy's soul
+		While Old One's Army is on, increase 31% minion damage.
+		'''
 }
 
 OlympianWings: {
@@ -130,31 +148,39 @@ OlympianWings: {
 
 SeraphHarp: {
 	DisplayName: Seraph Harp
-	Tooltip: ""
+	Tooltip:
+		'''
+		Summons a seraph to fight for you
+		Seraph is boosted by minion damage
+		'''
 }
 
 GoddessHarp: {
 	DisplayName: Goddess Harp
-	Tooltip: ""
+	Tooltip:
+		'''
+		Summons the seraph queen herself to fight with you
+		Athena is boosted by minion damage
+		'''
 }
 
-RabbitcopterEars: {
+RabbitcopterWings: {
 	DisplayName: Rabbitcopter Ears
-	Tooltip: ""
+	Tooltip: "'Yeah that's not how rabbit ears work but whatever, it works.'"
 }
 
 RajahRabbitsSashOfVengeance: {
-	DisplayName: Rajah Rabbits Sash Of Vengeance
+	DisplayName: Rajah Rabbit's Sash of Vengeance
 	Tooltip: ""
 }
 
 RajahRabbitsCloakOfSupremacy: {
-	DisplayName: Rajah Rabbits Cloak Of Supremacy
-	Tooltip: ""
+	DisplayName: Rajah Rabbit's Cloak of Supremecy
+	Tooltip: You have been deemed a worthy successor by the Champion of the Innocent
 }
 
 ClawOfChaos: {
-	DisplayName: Claw Of Chaos
+	DisplayName: Claw of Chaos
 	Tooltip: ""
 }
 
@@ -169,18 +195,24 @@ DragonstrideBoots: {
 }
 
 HeartOfPassion: {
-	DisplayName: Heart Of Passion
+	DisplayName: Heart of Passion
 	Tooltip: ""
 }
 
 HeartOfSorrow: {
-	DisplayName: Heart Of Sorrow
-	Tooltip: ""
+	DisplayName: Heart of Sorrow
+	Tooltip:
+		'''
+		Your melee and ranged attacks grow stronger the less health you have
+		Melee and Ranged inflict Hydratoxin
+		Below 2/3 of your maximum life, Your movement speed is doubled
+		Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze instead of Hydratoxin
+		'''
 }
 
 WingsOfChaos: {
-	DisplayName: Wings Of Chaos
-	Tooltip: ""
+	DisplayName: Wings of Chaos
+	Tooltip: Allows flight and slow fall
 }
 
 SandstormMedallion: {
@@ -194,12 +226,12 @@ VultureWings: {
 }
 
 ArtifactOfJudgement: {
-	DisplayName: Artifact Of Judgement
+	DisplayName: Artifact of Judgement
 	Tooltip: ""
 }
 
 ArtifactOfGuilt: {
-	DisplayName: Artifact Of Guilt
+	DisplayName: Artifact of Guilt
 	Tooltip: ""
 }
 
@@ -210,26 +242,31 @@ PalladiumShield: {
 
 GlowingTruffle: {
 	DisplayName: Glowing Truffle
-	Tooltip: ""
+	Tooltip: "'Don't lick it.'"
 }
 
 TruffleLegs: {
 	DisplayName: Truffle Legs
-	Tooltip: ""
+	Tooltip:
+		'''
+		Increased jump speed and allows auto-jump
+		You are immune to fall damage
+		Increased jump height
+		'''
 }
 
 CharmOfDesire: {
-	DisplayName: Charm Of Desire
+	DisplayName: Charm of Desire
 	Tooltip: ""
 }
 
 TalismanOfDesire: {
-	DisplayName: Talisman Of Desire
+	DisplayName: Talisman of Desire
 	Tooltip: ""
 }
 
 DragonsGuard: {
-	DisplayName: Dragons Guard
+	DisplayName: Dragon's Guard
 	Tooltip: ""
 }
 
@@ -244,7 +281,7 @@ OrnateBand: {
 }
 
 DraconianWings: {
-	DisplayName: Draconian Wings
+	DisplayName: Draconian Sun Wings
 	Tooltip: ""
 }
 
@@ -254,23 +291,23 @@ HydraPendant: {
 }
 
 AshProofVest0: {
-	DisplayName: Ash Proof Vest0
-	Tooltip: ""
+	DisplayName: Ash-Proof Vest
+	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
 }
 
 AshProofVest1: {
-	DisplayName: Ash Proof Vest1
-	Tooltip: ""
+	DisplayName: Ash-Proof Vest
+	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
 }
 
 AshProofVest2: {
-	DisplayName: Ash Proof Vest2
-	Tooltip: ""
+	DisplayName: Ash-Proof Vest
+	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
 }
 
 AshProofVest3: {
-	DisplayName: Ash Proof Vest3
-	Tooltip: ""
+	DisplayName: Ash-Proof Vest
+	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
 }
 
 ShadowBand: {
@@ -293,8 +330,8 @@ BotchedBand: {
 	Tooltip: ""
 }
 
-DreadWings: {
-	DisplayName: Dread Wings
+DreadMoonWings: {
+	DisplayName: Dread Moon Wings
 	Tooltip: ""
 }
 
@@ -305,7 +342,7 @@ OldOneCharm: {
 
 HeartyTruffle: {
 	DisplayName: Hearty Truffle
-	Tooltip: ""
+	Tooltip: "'Don't eat it'"
 }
 
 ArcticMedallion: {
@@ -328,8 +365,17 @@ SagittariusShield: {
 	Tooltip: ""
 }
 
+BrokenCode: {
+	DisplayName: Broken Code
+	Tooltip:
+		'''
+
+		   'You don't look so good'
+		'''
+}
+
 ZeroWings: {
-	DisplayName: Zero Wings
+	DisplayName: Zero Jet
 	Tooltip: ""
 }
 
@@ -338,47 +384,17 @@ DragonSerpentNecklace: {
 	Tooltip: ""
 }
 
-MetallicTruffle: {
-	DisplayName: Metallic Truffle
-	Tooltip: ""
-}
-
-APageOfTheRuneBook: {
-	DisplayName: A Page Of The Rune Book
-	Tooltip: ""
-}
-
-TheBookOfRunes: {
-	DisplayName: The Book Of Runes
-	Tooltip: ""
-}
-
 MadnessTruffle: {
 	DisplayName: Madness Truffle
-	Tooltip: ""
+	Tooltip: "'You know what? Just don't put it anywhere near your mouth.'"
 }
 
 HeartOfAnarchy: {
-	DisplayName: Heart Of Anarchy
-	Tooltip: ""
+	DisplayName: Heart of Anarchy
+	Tooltip: "'The Sisters' hearts beat as one in this antique china'"
 }
 
-DreadMoonWings: {
-	DisplayName: Dread Moon Wings
-	Tooltip: ""
-}
-
-CursedEyeOfTheSoulBinder: {
-	DisplayName: Cursed Eye Of The Soul Binder
-	Tooltip: ""
-}
-
-DarkmatterWings: {
-	DisplayName: Darkmatter Wings
-	Tooltip: ""
-}
-
-RabbitcopterWings: {
-	DisplayName: Rabbitcopter Wings
-	Tooltip: ""
+MetallicTruffle: {
+	DisplayName: Metallic Truffle
+	Tooltip: "'Don't bite it.'"
 }

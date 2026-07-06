@@ -1,6 +1,6 @@
-Trophy: {
+﻿Trophy: {
 	InfernoGripTrophy: {
-		DisplayName: Inferno Grip Trophy
+		DisplayName: Inferno Grip of Chaos Trophy
 		Tooltip: ""
 	}
 
@@ -50,7 +50,7 @@ Trophy: {
 	}
 
 	AthenaATrophy: {
-		DisplayName: Athena A Trophy
+		DisplayName: Olympian Athena Trophy
 		Tooltip: ""
 	}
 
@@ -60,12 +60,12 @@ Trophy: {
 	}
 
 	MireGripTrophy: {
-		DisplayName: Mire Grip Trophy
+		DisplayName: Mire Grip of Chaos Trophy
 		Tooltip: ""
 	}
 
 	ShenDoragonATrophy: {
-		DisplayName: Shen Doragon A Trophy
+		DisplayName: Shen Doragon Awakened Trophy
 		Tooltip: ""
 	}
 
@@ -95,7 +95,7 @@ Trophy: {
 	}
 
 	AnubisATrophy: {
-		DisplayName: Anubis A Trophy
+		DisplayName: Forsaken Anubis Trophy
 		Tooltip: ""
 	}
 
@@ -115,12 +115,12 @@ Trophy: {
 	}
 
 	GreedATrophy: {
-		DisplayName: Greed A Trophy
+		DisplayName: Worm King Greed Trophy
 		Tooltip: ""
 	}
 
 	AkumaATrophy: {
-		DisplayName: Akuma A Trophy
+		DisplayName: Oni Akuma Trophy
 		Tooltip: ""
 	}
 
@@ -135,7 +135,7 @@ Trophy: {
 	}
 
 	YamataATrophy: {
-		DisplayName: Yamata A Trophy
+		DisplayName: Yamata No Orochi Trophy
 		Tooltip: ""
 	}
 
@@ -160,7 +160,7 @@ Trophy: {
 	}
 
 	ZeroATrophy: {
-		DisplayName: Zero A Trophy
+		DisplayName: Zero Protocol Trophy
 		Tooltip: ""
 	}
 
@@ -170,7 +170,7 @@ Trophy: {
 	}
 
 	SoulOfCthulhuTrophy: {
-		DisplayName: Soul Of Cthulhu Trophy
+		DisplayName: Soul of Cthulhu Trophy
 		Tooltip: ""
 	}
 }
@@ -181,8 +181,28 @@ Relic: {
 		Tooltip: ""
 	}
 
+	AthenaARelic: {
+		DisplayName: Olympian Athena Relic
+		Tooltip: ""
+	}
+
+	RajahRabbitRelic: {
+		DisplayName: Rajah Rabbit Relic
+		Tooltip: ""
+	}
+
+	RajahRabbitARelic: {
+		DisplayName: Champion of the Innocent Relic
+		Tooltip: ""
+	}
+
 	GripsOfChaosRelic: {
 		DisplayName: Grips Of Chaos Relic
+		Tooltip: ""
+	}
+
+	ShenDoragonRelic: {
+		DisplayName: Shen Doragon Relic
 		Tooltip: ""
 	}
 
@@ -201,6 +221,11 @@ Relic: {
 		Tooltip: ""
 	}
 
+	AnubisARelic: {
+		DisplayName: Forsaken Judge, Anubis Relic
+		Tooltip: ""
+	}
+
 	FeudalFungusRelic: {
 		DisplayName: Feudal Fungus Relic
 		Tooltip: ""
@@ -213,6 +238,11 @@ Relic: {
 
 	GreedRelic: {
 		DisplayName: Greed Relic
+		Tooltip: ""
+	}
+
+	GreedARelic: {
+		DisplayName: Worm King Greed Relic
 		Tooltip: ""
 	}
 
@@ -261,36 +291,6 @@ Relic: {
 		Tooltip: ""
 	}
 
-	RajahRabbitRelic: {
-		DisplayName: Rajah Rabbit Relic
-		Tooltip: ""
-	}
-
-	RajahRabbitARelic: {
-		DisplayName: Rajah Rabbit A Relic
-		Tooltip: ""
-	}
-
-	AthenaARelic: {
-		DisplayName: Athena A Relic
-		Tooltip: ""
-	}
-
-	ShenDoragonRelic: {
-		DisplayName: Shen Doragon Relic
-		Tooltip: ""
-	}
-
-	AnubisARelic: {
-		DisplayName: Anubis A Relic
-		Tooltip: ""
-	}
-
-	GreedARelic: {
-		DisplayName: Greed A Relic
-		Tooltip: ""
-	}
-
 	OrthrusXRelic: {
 		DisplayName: Orthrus X Relic
 		Tooltip: ""
@@ -320,4 +320,4 @@ Relic: {
 		DisplayName: Infinity Zero Relic
 		Tooltip: ""
 	}
-}
+}

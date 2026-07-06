@@ -10,12 +10,16 @@ DarkmatterPitchet: {
 
 Terratool: {
 	DisplayName: Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 DoomiteMiningLaser: {
 	DisplayName: Doomite Mining Laser
-	Tooltip: ""
+	Tooltip: Mines with an antimatter laser
 }
 
 FulguritePitchet: {
@@ -25,32 +29,57 @@ FulguritePitchet: {
 
 ExtravagantTerratool: {
 	DisplayName: Extravagant Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 GroviteTerratool: {
 	DisplayName: Grovite Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 Terraformer: {
 	DisplayName: Terraformer
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		Terratool EX
+		'''
 }
 
 ChaosTerratool: {
 	DisplayName: Chaos Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 Timecaller: {
 	DisplayName: Timecaller
-	Tooltip: ""
+	Tooltip:
+		'''
+		Brings forth the next light.
+		Non-Consumable
+		'''
 }
 
 DiscordianTerratool: {
 	DisplayName: Discordian Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 Nightaxe: {
@@ -95,22 +124,22 @@ GlowingMushpick: {
 
 UnityPickaxe: {
 	DisplayName: Unity Pickaxe
-	Tooltip: ""
+	Tooltip: Can mine mythril and orichalcum.
 }
 
 MINEer: {
-	DisplayName: M I N Eer
-	Tooltip: ""
+	DisplayName: MINE-er
+	Tooltip: Mines ores faster
 }
 
 Unearther: {
 	DisplayName: Unearther
-	Tooltip: ""
+	Tooltip: Mines ores even faster
 }
 
 DragonDigger: {
 	DisplayName: Dragon Digger
-	Tooltip: ""
+	Tooltip: Dragons don't really dig, but this'll do
 }
 
 Stonebreaker: {
@@ -130,12 +159,21 @@ ScorchShark: {
 
 Suncaller: {
 	DisplayName: Suncaller
-	Tooltip: ""
+	Tooltip:
+		'''
+		Brings forth the morning sun.
+		Non-Consumable
+		'''
 }
 
 DraconianTerratool: {
 	DisplayName: Draconian Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		+20 tile reach
+		'''
 }
 
 Grasscutter: {
@@ -160,12 +198,12 @@ MadnessPickaxe: {
 
 HydraTuneller: {
 	DisplayName: Hydra Tuneller
-	Tooltip: ""
+	Tooltip: Okay, this is getting rediculous. Hydras don't use drills.
 }
 
 ShadowDrill: {
 	DisplayName: Shadow Drill
-	Tooltip: ""
+	Tooltip: Mines things with a spinning...green thing I guess?
 }
 
 DepthDigger: {
@@ -175,27 +213,35 @@ DepthDigger: {
 
 Mooncaller: {
 	DisplayName: Mooncaller
-	Tooltip: ""
+	Tooltip:
+		'''
+		Brings forth the shimmering moon.
+		Non-Consumable
+		'''
 }
 
 PerfectShadowDrill: {
 	DisplayName: Perfect Shadow Drill
-	Tooltip: ""
+	Tooltip: Now that's more like it.
 }
 
 DreadTerratool: {
 	DisplayName: Dread Terratool
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 CoralAxe: {
 	DisplayName: Coral Axe
-	Tooltip: ""
+	Tooltip: the axe made from the Ocean
 }
 
 CoralPickaxe: {
 	DisplayName: Coral Pickaxe
-	Tooltip: ""
+	Tooltip: Because Blue Pickaxe was a boring name
 }
 
 Mushmallet: {
@@ -230,50 +276,64 @@ Starminer: {
 
 RiftMirror: {
 	DisplayName: Rift Mirror
-	Tooltip: ""
+	Tooltip:
+		'''
+		Pressing the rift hotkey returns you home
+		Pressing the rift return hotkey brings you back to your most recent rift location
+		'''
 }
 
 CodeMagnet: {
-	DisplayName: Code Magnet
-	Tooltip: ""
+	DisplayName: Binary Code Magnet
+	Tooltip:
+		'''
+		Pulls items to you by moving its code closer to you
+		   Right click to deactivate effects
+		'''
 }
 
 CodeMagnetOff: {
-	DisplayName: Code Magnet Off
-	Tooltip: ""
+	DisplayName: Binary Code Magnet
+	Tooltip:
+		'''
+		Pulls items to you by moving its code closer to you
+		   Effects are currently inactive, Right click to reactivate
+		'''
 }
 
 DoomiteJacksaw: {
 	DisplayName: Doomite Jacksaw
-	Tooltip: ""
-}
-
-VoidGraivtyItemIDKTheNameYet: {
-	DisplayName: Void Graivty Item I D K The Name Yet
-	Tooltip: ""
-}
-
-VoidGraivtyItemIDKTheNameYetOff: {
-	DisplayName: Void Graivty Item I D K The Name Yet Off
-	Tooltip: ""
+	Tooltip: Engineered for ultimate tree and wall breaking action!
 }
 
 DoomsdayTerratool: {
 	DisplayName: Doomsday Terratool
-	Tooltip: ""
-}
-
-GravitronCentrifuge: {
-	DisplayName: Gravitron Centrifuge
-	Tooltip: ""
-}
-
-GravitronCentrifugeOff: {
-	DisplayName: Gravitron Centrifuge
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
 }
 
 ShatteredMirror: {
 	DisplayName: Shattered Mirror
-	Tooltip: ""
+	Tooltip: A long abandoned keepsake in dire need of repairs.
+}
+
+GravitronCentrifuge: {
+	DisplayName: Gravitron Centrifuge
+	Tooltip:
+		'''
+		Provides a great deal of centrifugal force, granting standard gravity in space
+		   Right click to deactivate effects
+		'''
+}
+
+GravitronCentrifugeOff: {
+	DisplayName: Gravitron Centrifuge (Inactive)
+	Tooltip:
+		'''
+		Provides a great deal of centrifugal force, granting standard gravity in space
+		   Effects are currently inactive, Right click to reactivate
+		'''
 }

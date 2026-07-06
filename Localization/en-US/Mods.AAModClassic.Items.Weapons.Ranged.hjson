@@ -1,41 +1,75 @@
 Skullshot: {
-	DisplayName: Skullshot
-	Tooltip: ""
+	DisplayName: Super Skullshot
+	Tooltip:
+		'''
+		fires a massive spread of bullets at your foes
+		Right click to fire spinning bones at your foe
+		Uses Bullets and Bones as ammo
+		'I have an irrational hatred for gods`
+		- Gibs
+		'''
 }
 
 StormRifle: {
 	DisplayName: Storm Rifle
-	Tooltip: ""
+	Tooltip:
+		'''
+		Fires off static shots
+		'NUM'
+		- BlazenBreaker
+		'''
 }
 
 EternalTwilight: {
 	DisplayName: Eternal Twilight
-	Tooltip: ""
+	Tooltip: Falling Twilight EX
 }
 
 PerfectChaosBustershot: {
 	DisplayName: Perfect Chaos Bustershot
-	Tooltip: ""
+	Tooltip:
+		'''
+		Fires a piercing dualblast as well as a spread of 10 bullets
+		Chaos Bustershot EX
+		'''
 }
 
 PerfectChaosJavelin: {
 	DisplayName: Perfect Chaos Javelin
-	Tooltip: ""
+	Tooltip:
+		'''
+		Explodes on contact
+		Chaos Javelin EX
+		'''
 }
 
 SupremeHellshot: {
 	DisplayName: Supreme Hellshot
-	Tooltip: ""
+	Tooltip:
+		'''
+		fires a massive spread of bullets at your foes
+		Right click to fire hellskulls at your foe
+		Uses Bullets & Bones as ammo
+		Super Skullshot EX
+		'''
 }
 
 ThunderLord: {
 	DisplayName: Thunder Lord
-	Tooltip: ""
+	Tooltip:
+		'''
+		Fires off Thundershots and has a rare chance to shoot a Supercharged Thundershot that calls down Thunder from the sky
+		Storm Rifle EX
+		'''
 }
 
 ApollosWrath: {
-	DisplayName: Apollos Wrath
-	Tooltip: ""
+	DisplayName: Apollo's Wrath
+	Tooltip:
+		'''
+		Shoots Shadow beams
+		Doesn't use Ammo
+		'''
 }
 
 Skyfall: {
@@ -45,37 +79,49 @@ Skyfall: {
 
 Bonesaw: {
 	DisplayName: Bonesaw
-	Tooltip: ""
+	Tooltip:
+		'''
+		Turns bullets into ichor bullets!
+		16% chance not to consume ammo.
+		'''
 }
 
 Battlestar: {
 	DisplayName: Battlestar
-	Tooltip: ""
+	Tooltip:
+		'''
+		Turns bullets into chlorophyte bullets!
+		32% chance not to consume ammo.
+		'''
 }
 
 TheVulcano: {
 	DisplayName: The Vulcano
-	Tooltip: ""
+	Tooltip: Turns Gel into an explosive lob of magma
 }
 
 BurningGel: {
 	DisplayName: Burning Gel
-	Tooltip: ""
+	Tooltip: Ignites target on hit
 }
 
 Dawnstrike: {
 	DisplayName: Dawnstrike
-	Tooltip: ""
+	Tooltip: Charge the blaster to fire larger flame blasts
 }
 
 AlienRifle: {
 	DisplayName: Alien Rifle
-	Tooltip: ""
+	Tooltip: Uses energy cells as ammo
 }
 
 Darksprayer: {
 	DisplayName: Darksprayer
-	Tooltip: ""
+	Tooltip:
+		'''
+		'Spouts of dark, leaves its mark'
+		Inflicts Moonrazed
+		'''
 }
 
 FallingTwilight: {
@@ -84,18 +130,22 @@ FallingTwilight: {
 }
 
 MidnightWrath: {
-	DisplayName: Midnight Wrath
-	Tooltip: ""
+	DisplayName: Midnight's Wrath
+	Tooltip: Non-consumable
 }
 
 Sevenshot: {
-	DisplayName: Sevenshot
-	Tooltip: ""
+	DisplayName: Hydra Sevenshot
+	Tooltip:
+		'''
+		Fires 6 bullets and a destructive moon blast
+		50% chance to not consume ammo
+		'''
 }
 
 DragonsMaw: {
 	DisplayName: Dragons Maw
-	Tooltip: ""
+	Tooltip: Transforms arrows into Dragon Arrows
 }
 
 DarkmatterKunai: {
@@ -105,52 +155,74 @@ DarkmatterKunai: {
 
 TerraBallista: {
 	DisplayName: Terra Ballista
-	Tooltip: ""
+	Tooltip: Replaces Arrows with Terra Arrows
 }
 
 BlackHoleBlaster: {
 	DisplayName: Black Hole Blaster
-	Tooltip: ""
+	Tooltip: Occasionally fires off a rocket that explodes into a vortex when it collides with a tile
 }
 
 BrokenZeroWeapon: {
 	DisplayName: Broken Zero Weapon
-	Tooltip: ""
+	Tooltip: Violently attempting to zap you
 }
 
 GenocideCannon: {
 	DisplayName: Genocide Cannon
-	Tooltip: ""
+	Tooltip:
+		'''
+		Fires highly explosive Rockets
+		25% chance to fire a glitched rocket that explodes into frag rockets
+		'''
 }
 
 Genocide: {
 	DisplayName: Genocide
-	Tooltip: ""
+	Tooltip:
+		'''
+		Fires a spread of infinitely piercing lasers that ignores tiles and home in on enemies
+		Gets stronger the more the laser pierces
+		Doesn't require ammo
+		'''
 }
 
 Gigataser: {
 	DisplayName: Gigataser
-	Tooltip: ""
+	Tooltip: Fires void lightning
 }
 
 Neutralizer: {
 	DisplayName: Neutralizer
-	Tooltip: ""
+	Tooltip:
+		'''
+		Left click to fire a bouncing laser that gets more powerful as it bounces off walls
+		Right click to fire normal arrows
+		'''
 }
 
 OmegaVolley: {
 	DisplayName: Omega Volley
-	Tooltip: ""
+	Tooltip:
+		'''
+		Shoots an insanely accurate volley of sonic bullets quickly
+		Every ten shots, it can shoot two extra bullets.
+		33% chance to not consume ammo
+		'''
 }
 
 RealityCannon: {
 	DisplayName: Reality Cannon
-	Tooltip: ""
+	Tooltip: Rapidly Fires a spread of dark lasers
 }
 
 FulguriteTazerblaster: {
 	DisplayName: Fulgurite Tazerblaster
-	Tooltip: ""
+	Tooltip:
+		'''
+		Rapidly fires taserblasts
+		Slim chance to fire 2 taserblasts at once
+		'''
 }
 
 Annihilator: {
@@ -160,112 +232,210 @@ Annihilator: {
 
 GameRaider: {
 	DisplayName: Game Raider
-	Tooltip: ""
+	Tooltip: Fires explosive Mooshroom Rockets
 }
 
 GibsFemur: {
-	DisplayName: Gibs Femur
-	Tooltip: ""
+	DisplayName: Angry Femur
+	Tooltip: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 }
 
 MobianBuster: {
 	DisplayName: Mobian Buster
-	Tooltip: ""
+	Tooltip:
+		'''
+		A standard issue Mobian blaster.
+		Hold the use button to charge, and then release a powerful Charged Shot!
+		'Remember, the charged shot fires when you RELEASE the trigger, not the other way around.'
+		- Tails
+		'''
 }
 
 Hurricane: {
 	DisplayName: Hurricane
-	Tooltip: ""
+	Tooltip:
+		'''
+		Shoots 2 waves of 6 arrows
+		You have a chance to shoot Oceanic Arrow
+		66% chance not to consume arrow
+		Tsunami EX
+		'''
 }
 
 FreedomStar: {
 	DisplayName: Freedom Star
-	Tooltip: ""
+	Tooltip:
+		'''
+		Tails' trusty blaster.
+		Hold the use button to charge, and then release a powerful Charged Shot!
+		'Kept you waiting, huh?'
+		- Tails
+		Mobian Buster EX
+		'''
+}
+
+Independence: {
+	DisplayName: Independence
+	Tooltip:
+		'''
+		Shoots 3 firework rockets
+		Celebration EX
+		'''
+}
+
+SharkLauncher: {
+	DisplayName: Shark Launcher
+	Tooltip:
+		'''
+		Launches latching deadly shark
+		Piranha Gun EX
+		'''
+}
+
+Skystrike: {
+	DisplayName: Skystrike
+	Tooltip:
+		'''
+		Drops Aerial Bane arrows from the sky
+		Initial arrows ignore tiles
+		Aerial Bane EX
+		'''
+}
+
+UltimateOreCannon: {
+	DisplayName: Ultimate Ore Cannon
+	Tooltip:
+		'''
+		Uses Any Ore as Ammunition
+		Certain ores have special effects when shot
+		Legendary Weapon
+		OreCannonEX
+		'''
 }
 
 UnityBallista: {
 	DisplayName: Unity Ballista
-	Tooltip: ""
+	Tooltip:
+		'''
+		Replaces Arrows with Terra Arrows
+		Shoots 3 waves of 3 arrows on single use
+		Terra Ballista EX
+		'''
 }
 
 UWAM: {
-	DisplayName: U W A M
-	Tooltip: ""
+	DisplayName: U.W.A.M.
+	Tooltip:
+		'''
+		Shoots hundreds of bullets with a very low spread
+		Have a chance to shoot sharks, dealing 2x damage
+		88% chance not to consume ammo
+		S.D.M.G. EX
+		'''
 }
 
 FlareMinigun: {
 	DisplayName: Flare Minigun
-	Tooltip: ""
+	Tooltip:
+		'''
+		Shoots dozens of flares in rapid succession
+		33% chance not to consume flares
+		Right-click to disable all flares
+		'''
 }
 
 HKMP5: {
-	DisplayName: H K M P5
-	Tooltip: ""
+	DisplayName: HK MP5
+	Tooltip: Turns bullets into explosive bullets!
 }
 
 L85A2: {
-	DisplayName: L85 A2
-	Tooltip: ""
+	DisplayName: L85A2
+	Tooltip: Turns bullets into high-velocity bullets!
 }
 
 LaserRifle: {
-	DisplayName: Laser Rifle
-	Tooltip: ""
+	DisplayName: Laser Carbine
+	Tooltip: Uses energy cells as ammo
 }
 
 M79: {
 	DisplayName: M79
-	Tooltip: ""
+	Tooltip:
+		'''
+		Uses M79 Rounds as ammo
+		33% chance not to consume ammo
+		'''
 }
 
 MidasGun: {
-	DisplayName: Midas Gun
-	Tooltip: ""
+	DisplayName: Midas Blaster
+	Tooltip: Shoot stuff and get more money.
 }
 
 RazorwindLongbow: {
 	DisplayName: Razorwind Longbow
-	Tooltip: ""
+	Tooltip: Replaces wooden arrows with wind arrows with high knockback
 }
 
 Windfury: {
 	DisplayName: Windfury
-	Tooltip: ""
+	Tooltip: Replaces wooden arrows with gale arrows with high knockback and infinite piercing
 }
 
 Bunzooka: {
 	DisplayName: Bunzooka
-	Tooltip: ""
+	Tooltip: Fires Rabbit Rockets
 }
 
 FluffyFury: {
 	DisplayName: Fluffy Fury
-	Tooltip: ""
+	Tooltip:
+		'''
+		Converts arrows into splitting Carrows
+		Potential lag warning
+		'''
 }
 
 RPG: {
-	DisplayName: R P G
-	Tooltip: ""
+	DisplayName: RPG
+	Tooltip:
+		'''
+		`Rabbit Propelled Grenade`
+		Fires Rabbit Rockets
+		Bunnyzooka EX
+		'''
 }
 
 ChaosBustershot: {
 	DisplayName: Chaos Bustershot
-	Tooltip: ""
+	Tooltip: Fires a piercing dualblast as well as a spread of 6 bullets
 }
 
 ChaosJavelin: {
 	DisplayName: Chaos Javelin
-	Tooltip: ""
+	Tooltip: Explodes on contact
 }
 
 DraconicRipper: {
 	DisplayName: Draconic Ripper
-	Tooltip: ""
+	Tooltip:
+		'''
+		Shoots dozens of high-caliber teeth
+		Ignores enemy defense
+		50% chance to not consume ammo
+		'''
 }
 
 FlamingTwilight: {
 	DisplayName: Flaming Twilight
-	Tooltip: ""
+	Tooltip:
+		'''
+		Left click to blasts a discordian fireball at your foes 
+		Right click to rain fire and fury at your cursor position
+		Consumes gel as ammo
+		33% chance not to consume gel
+		'''
 }
 
 AbyssalKunai: {
@@ -275,12 +445,21 @@ AbyssalKunai: {
 
 MizuArashi: {
 	DisplayName: Mizu Arashi
-	Tooltip: ""
+	Tooltip:
+		'''
+		Has a 1/15 chance to shoot a Mizu spirit
+		Spirits deal 2x damage, pierce up to 10 enemies and go through tiles
+		77% not to consume arrows
+		'''
 }
 
 Scourge: {
 	DisplayName: Scourge
-	Tooltip: ""
+	Tooltip:
+		'''
+		Turns bullets into cursed bullets!
+		24% chance not to consume ammo.
+		'''
 }
 
 Sandagger: {
@@ -290,12 +469,12 @@ Sandagger: {
 
 SandstormCrossbow: {
 	DisplayName: Sandstorm Crossbow
-	Tooltip: ""
+	Tooltip: Replaces arrows with desert bolts
 }
 
 DynaskullJavelin: {
 	DisplayName: Dynaskull Javelin
-	Tooltip: ""
+	Tooltip: If stuck in an enemy and that enemy dies, releases a homing bolt of Dyna-Energy
 }
 
 FossilBoneslinger: {
@@ -304,43 +483,57 @@ FossilBoneslinger: {
 }
 
 NeithsString: {
-	DisplayName: Neiths String
-	Tooltip: ""
+	DisplayName: Neith's String
+	Tooltip:
+		'''
+		Shoots 2 arrows at once
+		Can occasionally shoot ``Judgement arrow``, which lowers enemy defense
+		Converts wooden arrows into slower, but high-damaging mummy arrows
+		'''
 }
 
 Sandthrower: {
 	DisplayName: Sandthrower
-	Tooltip: ""
+	Tooltip: 30% chance to not consume gel
 }
 
 PrimevalJavelin: {
 	DisplayName: Primeval Javelin
-	Tooltip: ""
+	Tooltip: If stuck in an enemy and that enemy dies, releases 4 homing bolts of Dyna-Energy
 }
 
 CursedFlamefury: {
 	DisplayName: Cursed Flamefury
-	Tooltip: ""
+	Tooltip: 50% chance to not consume gel
 }
 
 Lifeline: {
 	DisplayName: Lifeline
-	Tooltip: ""
+	Tooltip:
+		'''
+		Shoots 2 enchanced Mummy arrows alongside with normal
+		Shoots ``Forsaken arrows`` burst if 2 enchanted arrows hit the target
+		Forsaken arrows lower enemy contact damage
+		'''
 }
 
 BoneBow: {
 	DisplayName: Bone Bow
-	Tooltip: ""
+	Tooltip: Replaces Wooden Arrows with Bone Arrows
 }
 
 DeathlyLongbow: {
 	DisplayName: Deathly Longbow
-	Tooltip: ""
+	Tooltip: Replaces Bone Arrows with Flaming Skulls
 }
 
 TrueDeathlyLongbow: {
-	DisplayName: True Deathly Longbow
-	Tooltip: ""
+	DisplayName: Deathly Ghastbow
+	Tooltip:
+		'''
+		Replaces Arrows with Reaper Arrows
+		Fires an explosive ghast skull every other shot
+		'''
 }
 
 FrogLob: {
@@ -350,21 +543,30 @@ FrogLob: {
 
 Fireball: {
 	DisplayName: Fireball
-	Tooltip: ""
+	Tooltip: Even better than Mario's Fire Flower!
 }
 
 GildedGlock: {
 	DisplayName: Gilded Glock
-	Tooltip: ""
+	Tooltip: Uses Coins as Ammo
+}
+
+OreCannon: {
+	DisplayName: Ore Cannon
+	Tooltip:
+		'''
+		Uses Some Ores as Ammunition
+		Certain ores have special effects when shot
+		'''
 }
 
 DragonFlamebow: {
 	DisplayName: Dragon Flamebow
-	Tooltip: ""
+	Tooltip: Transforms arrows into Dragon Arrows
 }
 
 DragonsSpine: {
-	DisplayName: Dragons Spine
+	DisplayName: Dragon's Spine
 	Tooltip: ""
 }
 
@@ -375,17 +577,21 @@ Firebuster: {
 
 Blastshot: {
 	DisplayName: Blastshot
-	Tooltip: ""
+	Tooltip: Consumes Gel
 }
 
 RadiantDawn: {
 	DisplayName: Radiant Dawn
-	Tooltip: ""
+	Tooltip: Hold to fire more arrows
 }
 
 YearOfTheDragon: {
-	DisplayName: Year Of The Dragon
-	Tooltip: ""
+	DisplayName: Year of the Dragon
+	Tooltip:
+		'''
+		Fires dazzling fireworks to amaze your friends and blow your enemies away!
+		'Akuma brand fireworks is not responsible for damage done by shooting fireworks point-blank into enemies' faces.'
+		'''
 }
 
 MadnessBow: {
@@ -405,7 +611,7 @@ AbyssalPentashot: {
 
 HydraFang: {
 	DisplayName: Hydra Fang
-	Tooltip: ""
+	Tooltip: Pierces up to 3 enemies
 }
 
 HydraTrishot: {
@@ -420,12 +626,12 @@ Mossket: {
 
 MurkyGel: {
 	DisplayName: Murky Gel
-	Tooltip: ""
+	Tooltip: Inflicts Oiled debuff on hit
 }
 
 AbyssalShadowshot: {
 	DisplayName: Abyssal Shadowshot
-	Tooltip: ""
+	Tooltip: Fires a homing shadow blast as well as a a blast of 6 bullets
 }
 
 Bubbleshot: {
@@ -435,22 +641,22 @@ Bubbleshot: {
 
 TheSquirter: {
 	DisplayName: The Squirter
-	Tooltip: ""
+	Tooltip: Doesnt use ammo
 }
 
 Toxithrower: {
 	DisplayName: Toxithrower
-	Tooltip: ""
+	Tooltip: Uses gel for ammo
 }
 
 AbyssalEruption: {
 	DisplayName: Abyssal Eruption
-	Tooltip: ""
+	Tooltip: spews out abyssal acid that will cause enamys to explode of killed by its visious acid, also uses gel
 }
 
 CoralBow: {
 	DisplayName: Coral Bow
-	Tooltip: ""
+	Tooltip: Somehow better than a metallic bow
 }
 
 OceanWhaler: {
@@ -460,7 +666,7 @@ OceanWhaler: {
 
 SpookyKnife: {
 	DisplayName: Spooky Knife
-	Tooltip: ""
+	Tooltip: Spreads Mourning Wood Embers on hit
 }
 
 MushroomBow: {
@@ -469,13 +675,13 @@ MushroomBow: {
 }
 
 SerpentsSting: {
-	DisplayName: Serpents Sting
-	Tooltip: ""
+	DisplayName: Serpent's Sting
+	Tooltip: Turns bullets into snow shots
 }
 
 Sickleshot: {
 	DisplayName: Sickleshot
-	Tooltip: ""
+	Tooltip: Shoots 2 ice arrows with high velocity
 }
 
 SnowflakeShuriken: {
@@ -489,8 +695,8 @@ Winterbreak: {
 }
 
 OdinsBlade: {
-	DisplayName: Odins Blade
-	Tooltip: ""
+	DisplayName: Odin's Iceblade
+	Tooltip: Looks like Greed accidentally snagged this at some point from someone
 }
 
 ShootingStar: {
@@ -525,40 +731,10 @@ SingularityCannon: {
 
 AncientHydraTrishot: {
 	DisplayName: Ancient Hydra Trishot
-	Tooltip: ""
+	Tooltip: It even purifies the corruption!
 }
 
 CthulhuCannon: {
 	DisplayName: Cthulhu Cannon
-	Tooltip: ""
-}
-
-OreCannon: {
-	DisplayName: Ore Cannon
-	Tooltip: ""
-}
-
-OreCannonEX: {
-	DisplayName: Ore Cannon E X
-	Tooltip: ""
-}
-
-Independence: {
-	DisplayName: Independence
-	Tooltip: ""
-}
-
-SharkLauncher: {
-	DisplayName: Shark Launcher
-	Tooltip: ""
-}
-
-Skystrike: {
-	DisplayName: Skystrike
-	Tooltip: ""
-}
-
-UltimateOreCannon: {
-	DisplayName: Ultimate Ore Cannon
-	Tooltip: ""
+	Tooltip: Uses cannonballs for ammo\Fires reality-breaking bombs that fragment into powerful dark rifts on impact
 }

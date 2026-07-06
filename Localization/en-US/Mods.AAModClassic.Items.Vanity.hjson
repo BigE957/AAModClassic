@@ -1,11 +1,37 @@
+Aves: {
+	AvesWings: {
+		DisplayName: Duckstep Bass Boosters
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	AvesChestplate: {
+		DisplayName: DJ Duck Shirt
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	AvesHelmet: {
+		DisplayName: DJ Duck Mask
+		Tooltip:
+			'''
+			'Quek'
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+
+	AvesLeggings: {
+		DisplayName: DJ Duck Pants
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+}
+
 Masks: {
 	AthenaAMask: {
-		DisplayName: Athena A Mask
+		DisplayName: Olympian Athena Mask
 		Tooltip: ""
 	}
 
 	InfernoGripMask: {
-		DisplayName: Inferno Grip Mask
+		DisplayName: Inferno Grip of Chaos Mask
 		Tooltip: ""
 	}
 
@@ -50,12 +76,12 @@ Masks: {
 	}
 
 	MireGripMask: {
-		DisplayName: Mire Grip Mask
+		DisplayName: Mire Grip of Chaos Mask
 		Tooltip: ""
 	}
 
 	ShenDoragonAMask: {
-		DisplayName: Shen Doragon A Mask
+		DisplayName: Shen Doragon Awakened Mask
 		Tooltip: ""
 	}
 
@@ -75,7 +101,7 @@ Masks: {
 	}
 
 	AnubisAMask: {
-		DisplayName: Anubis A Mask
+		DisplayName: Forsaken Anubis Mask
 		Tooltip: ""
 	}
 
@@ -95,7 +121,7 @@ Masks: {
 	}
 
 	GreedAMask: {
-		DisplayName: Greed A Mask
+		DisplayName: Worm King Greed Mask
 		Tooltip: ""
 	}
 
@@ -105,7 +131,7 @@ Masks: {
 	}
 
 	AkumaAMask: {
-		DisplayName: Akuma A Mask
+		DisplayName: Oni Akuma Mask
 		Tooltip: ""
 	}
 
@@ -115,22 +141,22 @@ Masks: {
 	}
 
 	HydraMask1: {
-		DisplayName: Hydra Mask1
+		DisplayName: Hydra Mask
 		Tooltip: ""
 	}
 
 	HydraMask2: {
-		DisplayName: Hydra Mask2
+		DisplayName: Hydra Mask
 		Tooltip: ""
 	}
 
 	HydraMask3: {
-		DisplayName: Hydra Mask3
+		DisplayName: Hydra Mask
 		Tooltip: ""
 	}
 
 	YamataAMask: {
-		DisplayName: Yamata A Mask
+		DisplayName: Yamata No Orochi Mask
 		Tooltip: ""
 	}
 
@@ -160,7 +186,7 @@ Masks: {
 	}
 
 	RajahRabbitAMask: {
-		DisplayName: Rajah Rabbit A Mask
+		DisplayName: Champion Rajah Rabbit Mask
 		Tooltip: ""
 	}
 
@@ -180,12 +206,12 @@ Masks: {
 	}
 
 	SoulOfCthulhuAMask: {
-		DisplayName: Soul Of Cthulhu A Mask
+		DisplayName: Cosmic Calamity Mask
 		Tooltip: ""
 	}
 
 	SoulOfCthulhuMask: {
-		DisplayName: Soul Of Cthulhu Mask
+		DisplayName: Soul of Cthulhu Mask
 		Tooltip: ""
 	}
 
@@ -195,7 +221,7 @@ Masks: {
 	}
 
 	ZeroAMask: {
-		DisplayName: Zero A Mask
+		DisplayName: Zero Protocol Mask
 		Tooltip: ""
 	}
 
@@ -208,47 +234,47 @@ Masks: {
 Pets: {
 	ScorchedEgg: {
 		DisplayName: Scorched Egg
-		Tooltip: ""
+		Tooltip: What will hatch from this egg?
 	}
 
 	Seashroom: {
 		DisplayName: Seashroom
-		Tooltip: ""
+		Tooltip: It smells like fish
 	}
 
 	CyberneticEgg: {
 		DisplayName: Cybernetic Egg
-		Tooltip: ""
+		Tooltip: What will hatch from this...wait haven't we done this already?
 	}
 
 	CerberusWhistle: {
-		DisplayName: Cerberus Whistle
-		Tooltip: ""
+		DisplayName: Hades' Whistle
+		Tooltip: Summons the guard dog of the king of the underworld himself
 	}
 
 	K9Collar: {
 		DisplayName: K9 Collar
-		Tooltip: ""
+		Tooltip: Summons a robotic buddy
 	}
 
 	MoonBeeInAJar: {
-		DisplayName: Moon Bee In A Jar
-		Tooltip: ""
+		DisplayName: Moon Bee in a Jar
+		Tooltip: Summons a Lunamini
 	}
 
 	MudFishBall: {
 		DisplayName: Mud Fish Ball
-		Tooltip: ""
+		Tooltip: It seems to have something in it already
 	}
 
 	RoyalStar: {
 		DisplayName: Royal Star
-		Tooltip: ""
+		Tooltip: Summons a very pretty kitty
 	}
 
 	ShinyFishBall: {
 		DisplayName: Shiny Fish Ball
-		Tooltip: ""
+		Tooltip: It seems to have something in it already
 	}
 
 	PaperBomb: {
@@ -258,109 +284,47 @@ Pets: {
 
 	DragonSoul: {
 		DisplayName: Dragon Soul
-		Tooltip: ""
+		Tooltip:
+			'''
+			Summons a Dragon Soul
+			It feels hot, but comforting...
+			'''
 	}
 
 	GlowingMossBall: {
 		DisplayName: Glowing Moss Ball
-		Tooltip: ""
+		Tooltip:
+			'''
+			Summons a glowmoss ball
+			Don't ask what makes it glow, Trust me
+			'''
 	}
 
 	ZeroCore: {
 		DisplayName: Zero Core
-		Tooltip: ""
-	}
-}
-
-Anarchy: {
-	AnarchyChestplate: {
-		DisplayName: Anarchy Chestplate
-		Tooltip: ""
-	}
-
-	AnarchyHelmet: {
-		DisplayName: Anarchy Helmet
-		Tooltip: ""
-	}
-
-	AnarchyLeggings: {
-		DisplayName: Anarchy Leggings
-		Tooltip: ""
-	}
-}
-
-Apawn: {
-	ApawnChestplate: {
-		DisplayName: Apawn Chestplate
-		Tooltip: ""
-	}
-
-	ApawnHelmet: {
-		DisplayName: Apawn Helmet
-		Tooltip: ""
-	}
-
-	ApawnLeggings: {
-		DisplayName: Apawn Leggings
-		Tooltip: ""
-	}
-}
-
-Aves: {
-	AvesWings: {
-		DisplayName: Aves Wings
-		Tooltip: ""
-	}
-
-	AvesChestplate: {
-		DisplayName: Aves Chestplate
-		Tooltip: ""
-	}
-
-	AvesHelmet: {
-		DisplayName: Aves Helmet
-		Tooltip: ""
-	}
-
-	AvesLeggings: {
-		DisplayName: Aves Leggings
-		Tooltip: ""
-	}
-}
-
-Beg: {
-	BegChestplate: {
-		DisplayName: Beg Chestplate
-		Tooltip: ""
-	}
-
-	BegHelmet: {
-		DisplayName: Beg Helmet
-		Tooltip: ""
-	}
-
-	BegLeggings: {
-		DisplayName: Beg Leggings
-		Tooltip: ""
+		Tooltip: Summons a creature-detecting ZER0 lite
 	}
 }
 
 BigE: {
 	BigEWings: {
-		DisplayName: Big E Wings
-		Tooltip: ""
+		DisplayName: Efficient Elevators
+		Tooltip:
+			'''
+			Hold down and jump to hover for an extended period of time
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	Shiny: {
 		BigEWingsS: {
-			DisplayName: Big E Wings S
-			Tooltip: ""
+			DisplayName: Efficient Elevators
+			Tooltip:
+				'''
+				Hold down and jump to hover for an extended period of time
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
 		}
-	}
-
-	CalamitE: {
-		DisplayName: Calamit E
-		Tooltip: "'Dude, you like Calamity Mod? {0}, bro, I knew I liked you, dude. Come here, bring it in. Bring it in, brother.'"
 	}
 
 	LittleE: {
@@ -369,358 +333,549 @@ BigE: {
 	}
 
 	LittleES: {
-		DisplayName: Little E S
-		Tooltip: ""
+		DisplayName: Calamit E
+		Tooltip: "'Dude, you like Calamity Mod? {0}, bro, I knew I liked you, dude. Come here, bring it in. Bring it in, brother.'"
 	}
 }
 
 Blazen: {
+	BlazenWings: {
+		DisplayName: Tactical Assault Booster
+		Tooltip:
+			'''
+			Hold up to rocket faster
+			'Great for impersonating Ancients Awakened Developers!'
+			'''
+	}
+
 	BlazenChestplate: {
-		DisplayName: Blazen Chestplate
-		Tooltip: ""
+		DisplayName: Tactical Assault Armor
+		Tooltip: Great for impersonating Ancients Awakened Developers!
 	}
 
 	BlazenHelmet: {
-		DisplayName: Blazen Helmet
-		Tooltip: ""
+		DisplayName: Tactical Assault Helmet
+		Tooltip: Great for impersonating Ancients Awakened Developers!
 	}
 
 	BlazenLeggings: {
-		DisplayName: Blazen Leggings
-		Tooltip: ""
+		DisplayName: Tactical Assault Boots
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+}
+
+Charlie: {
+	CharlieWings: {
+		DisplayName: Grim Nightmare Wings
+		Tooltip:
+			'''
+			Hold down and jump to hover for an extended period of time
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
-	BlazenWings: {
-		DisplayName: Blazen Wings
-		Tooltip: ""
+	CharlieChestplate: {
+		DisplayName: Wraith Cloak
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	CharlieHelmet: {
+		DisplayName: Wraith Cowl
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	CharlieLeggings: {
+		DisplayName: Wraith Boots
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+}
+
+Gibs: {
+	GibsWings: {
+		DisplayName: Revenant's Jet Booster
+		Tooltip:
+			'''
+			Hold down and jump to hover for an extended period of time
+			'Great for impersonating Ancients Awakened Developers!'
+			'''
+	}
+
+	GibsChestplate: {
+		DisplayName: Revenant Plate
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+
+	GibsHelmet: {
+		DisplayName: Revenant Skull
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+
+	GibsLeggings: {
+		DisplayName: Revenant Legs
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+}
+
+Grox: {
+	GroxWings: {
+		DisplayName: Angry Pirate's Skysails
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	GroxChestplate: {
+		DisplayName: Angry Pirate's Cofferplate
+		Tooltip:
+			'''
+			Hatred towards fish that can't code radiates from this Chestplate.
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+
+	GroxHelmet: {
+		DisplayName: Angry Pirate's Hood
+		Tooltip:
+			'''
+			Hatred towards fish that can't code radiates from this hood.
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+
+	GroxLeggings: {
+		DisplayName: Angry Pirate's Legguards
+		Tooltip:
+			'''
+			Hatred towards fish that can't code radiates from these boots.
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+}
+
+Moon: {
+	MoonWings: {
+		DisplayName: Lunar Wasp Wings
+		Tooltip:
+			'''
+			Hold down and jump to hover for an extended period of time
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+
+	MoonChestplate: {
+		DisplayName: Lunar Robe
+		Tooltip:
+			'''
+			The Robe of a legendary lunar mage
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+
+	Shiny: {
+		MoonChestplateS: {
+			DisplayName: Lunar Robe
+			Tooltip:
+				'''
+				The Robe of a legendary lunar mage
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
+		}
+
+		MoonHelmetS: {
+			DisplayName: Lunar Hood
+			Tooltip:
+				'''
+				The hood of a legendary lunar mage
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
+		}
+
+		MoonLeggingsS: {
+			DisplayName: Lunar Boots
+			Tooltip:
+				'''
+				The boots of a legendary lunar mage
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
+		}
+	}
+
+	MoonHelmet: {
+		DisplayName: Lunar Hood
+		Tooltip:
+			'''
+			The hood of a legendary lunar mage
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+
+	MoonLeggings: {
+		DisplayName: Lunar Boots
+		Tooltip:
+			'''
+			The boots of a legendary lunar mage
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
+	}
+}
+
+Anarchy: {
+	AnarchyChestplate: {
+		DisplayName: Pristine Chestplate
+		Tooltip:
+			'''
+			'Great for impersonating Ancients Awakened Contributors!'
+			For the record, Anarchy sprited this himself.
+			'''
+	}
+
+	AnarchyHelmet: {
+		DisplayName: Pristine Helmet
+		Tooltip:
+			'''
+			'Great for impersonating Ancients Awakened Contributors!'
+			For the record, Anarchy sprited this himself.
+			'''
+	}
+
+	AnarchyLeggings: {
+		DisplayName: Pristine Leggings
+		Tooltip:
+			'''
+			'Great for impersonating Ancients Awakened Contributors!'
+			For the record, Anarchy sprited this himself.
+			'''
+	}
+}
+
+Apawn: {
+	ApawnChestplate: {
+		DisplayName: Apawn's Plate
+		Tooltip: Great for impersonating Ancients Awakened Testers!
+	}
+
+	ApawnHelmet: {
+		DisplayName: Apawn's Visor
+		Tooltip: Great for impersonating Ancients Awakened Testers!
+	}
+
+	ApawnLeggings: {
+		DisplayName: Apawn's Greaves
+		Tooltip: Great for impersonating Ancients Awakened Testers!
+	}
+}
+
+Beg: {
+	BegChestplate: {
+		DisplayName: Weird Horse Shirt
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	BegHelmet: {
+		DisplayName: Weird Horse Mask
+		Tooltip: Great for impersonating Ancients Awakened Devs!
+	}
+
+	BegLeggings: {
+		DisplayName: Weird Horse Hoofs
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 }
 
 CC: {
 	CCChestplate: {
-		DisplayName: C C Chestplate
-		Tooltip: ""
+		DisplayName: Dread Cultist Robe
+		Tooltip:
+			'''
+			The hood of a crazy lizard enthusiast
+			'Great for impersonating Ancients Awakened Developers!'
+			'''
 	}
 
 	Shiny: {
 		CCChestplateS: {
-			DisplayName: C C Chestplate S
-			Tooltip: ""
+			DisplayName: Dread Cultist Robe
+			Tooltip:
+				'''
+				The hood of a crazy lizard enthusiast
+				'Great for impersonating Ancients Awakened Developers!'
+				'''
 		}
 
 		CCHelmetS: {
-			DisplayName: C C Helmet S
-			Tooltip: ""
+			DisplayName: Dread Cultist Mask
+			Tooltip:
+				'''
+				The mask of a crazy lizard enthusiast
+				'Great for impersonating Ancients Awakened Developers!'
+				'''
 		}
 	}
 
 	CCHelmet: {
-		DisplayName: C C Helmet
-		Tooltip: ""
+		DisplayName: Dread Cultist Mask
+		Tooltip:
+			'''
+			The mask of a crazy lizard enthusiast
+			'Great for impersonating Ancients Awakened Developers!'
+			'''
 	}
 }
 
 Cerberus: {
 	CerberusChestplate: {
-		DisplayName: Cerberus Chestplate
-		Tooltip: ""
+		DisplayName: Invoker Robe
+		Tooltip:
+			'''
+			The enchanted robe of Aleister the 'Mega Therion'
+			Great for impersonating Awakened Devs!
+			'''
 	}
 
 	CerberusHelmet: {
-		DisplayName: Cerberus Helmet
-		Tooltip: ""
+		DisplayName: Invoker Hood
+		Tooltip:
+			'''
+			The enchanted hood of Aleister the 'Mega Therion'
+			Great for impersonating Awakened Devs!
+			'''
 	}
 
 	CerberusLeggings: {
-		DisplayName: Cerberus Leggings
-		Tooltip: ""
-	}
-}
-
-Charlie: {
-	CharlieChestplate: {
-		DisplayName: Charlie Chestplate
-		Tooltip: ""
-	}
-
-	CharlieHelmet: {
-		DisplayName: Charlie Helmet
-		Tooltip: ""
-	}
-
-	CharlieLeggings: {
-		DisplayName: Charlie Leggings
-		Tooltip: ""
-	}
-
-	CharlieWings: {
-		DisplayName: Charlie Wings
-		Tooltip: ""
+		DisplayName: Invoker Boots
+		Tooltip:
+			'''
+			The enchanted boots of Aleister the 'Mega Therion'
+			Great for impersonating Awakened Devs!
+			'''
 	}
 }
 
 Delly: {
 	DellyChestplate: {
-		DisplayName: Delly Chestplate
-		Tooltip: ""
+		DisplayName: Shadow Shirt
+		Tooltip: Great for impersonating Ancients Awakened Developers!
 	}
 
 	DellyHelmet: {
-		DisplayName: Delly Helmet
-		Tooltip: ""
+		DisplayName: Shadow Wig
+		Tooltip: Great for impersonating Ancients Awakened Developers!
 	}
 
 	DellyLeggings: {
-		DisplayName: Delly Leggings
-		Tooltip: ""
+		DisplayName: Shadow Boots
+		Tooltip: Great for impersonating Ancients Awakened Developers!
 	}
 }
 
 Fargo: {
 	FargoChestplate: {
-		DisplayName: Fargo Chestplate
-		Tooltip: ""
+		DisplayName: Dapper Squirrel Suit
+		Tooltip:
+			'''
+			soonTM
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	FargoHelmet: {
-		DisplayName: Fargo Helmet
-		Tooltip: ""
+		DisplayName: Dapper Squirrel Top Hat
+		Tooltip:
+			'''
+			soonTM
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	FargoLeggings: {
-		DisplayName: Fargo Leggings
-		Tooltip: ""
+		DisplayName: Dapper Squirrel Trousers
+		Tooltip:
+			'''
+			soonTM
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 }
 
 Fazer: {
 	FazerChestplate: {
-		DisplayName: Fazer Chestplate
-		Tooltip: ""
+		DisplayName: Fluffy Fox Sweater
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	FazerHelmet: {
-		DisplayName: Fazer Helmet
-		Tooltip: ""
+		DisplayName: Fluffy Fox Wig
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	FazerLeggings: {
-		DisplayName: Fazer Leggings
-		Tooltip: ""
-	}
-}
-
-Gibs: {
-	GibsChestplate: {
-		DisplayName: Gibs Chestplate
-		Tooltip: ""
-	}
-
-	GibsHelmet: {
-		DisplayName: Gibs Helmet
-		Tooltip: ""
-	}
-
-	GibsLeggings: {
-		DisplayName: Gibs Leggings
-		Tooltip: ""
-	}
-
-	GibsWings: {
-		DisplayName: Gibs Wings
-		Tooltip: ""
-	}
-}
-
-Grox: {
-	GroxChestplate: {
-		DisplayName: Grox Chestplate
-		Tooltip: ""
-	}
-
-	GroxHelmet: {
-		DisplayName: Grox Helmet
-		Tooltip: ""
-	}
-
-	GroxLeggings: {
-		DisplayName: Grox Leggings
-		Tooltip: ""
-	}
-
-	GroxWings: {
-		DisplayName: Grox Wings
-		Tooltip: ""
+		DisplayName: Fluffy Fox Pants
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 }
 
 Hallam: {
 	HallamChestplate: {
-		DisplayName: Hallam Chestplate
-		Tooltip: ""
+		DisplayName: Hallam's Fancy Tux
+		Tooltip:
+			'''
+			This tux was woven with pure class
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	Shiny: {
 		HallamChestplateS: {
-			DisplayName: Hallam Chestplate S
-			Tooltip: ""
+			DisplayName: Hallam's Fancy Tux
+			Tooltip:
+				'''
+				This tux was woven with pure class
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
 		}
 
 		HallamHelmetS: {
-			DisplayName: Hallam Helmet S
-			Tooltip: ""
+			DisplayName: Hallam's Dapper Top Hat
+			Tooltip:
+				'''
+				You can't help but feel fancy just wearing this
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
 		}
 
 		HallamLeggingsS: {
-			DisplayName: Hallam Leggings S
-			Tooltip: ""
+			DisplayName: Hallam's Fashionable Trousers
+			Tooltip:
+				'''
+				These pants cost way more than you do
+				'Great for impersonating Ancients Awakened Devs!'
+				'''
 		}
 	}
 
 	HallamHelmet: {
-		DisplayName: Hallam Helmet
-		Tooltip: ""
+		DisplayName: Hallam's Dapper Top Hat
+		Tooltip:
+			'''
+			You can't help but feel fancy just wearing this
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	HallamLeggings: {
-		DisplayName: Hallam Leggings
-		Tooltip: ""
+		DisplayName: Hallam's Fashionable Trousers
+		Tooltip:
+			'''
+			These pants cost way more than you do
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 }
 
 Maskano: {
 	MaskanoChestplate: {
-		DisplayName: Maskano Chestplate
-		Tooltip: ""
+		DisplayName: Mask Lord's Chestplate
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	MaskanoHelmet: {
-		DisplayName: Maskano Helmet
-		Tooltip: ""
+		DisplayName: The Mask
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	MaskanoLeggings: {
-		DisplayName: Maskano Leggings
-		Tooltip: ""
+		DisplayName: Mask Lord's Boots
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 }
 
 Mikpin: {
 	MikpinChestplate: {
-		DisplayName: Mikpin Chestplate
-		Tooltip: ""
+		DisplayName: Kitsune Dress
+		Tooltip: Great for impersonating Ancients Awakened Testers!
 	}
 
 	MikpinHelmet: {
-		DisplayName: Mikpin Helmet
-		Tooltip: ""
+		DisplayName: Kitsune Wig
+		Tooltip: Great for impersonating Ancients Awakened Testers!
 	}
 
 	MikpinLeggings: {
-		DisplayName: Mikpin Leggings
-		Tooltip: ""
-	}
-}
-
-Moon: {
-	MoonChestplate: {
-		DisplayName: Moon Chestplate
-		Tooltip: ""
-	}
-
-	Shiny: {
-		MoonChestplateS: {
-			DisplayName: Moon Chestplate S
-			Tooltip: ""
-		}
-
-		MoonHelmetS: {
-			DisplayName: Moon Helmet S
-			Tooltip: ""
-		}
-
-		MoonLeggingsS: {
-			DisplayName: Moon Leggings S
-			Tooltip: ""
-		}
-	}
-
-	MoonHelmet: {
-		DisplayName: Moon Helmet
-		Tooltip: ""
-	}
-
-	MoonLeggings: {
-		DisplayName: Moon Leggings
-		Tooltip: ""
-	}
-
-	MoonWings: {
-		DisplayName: Moon Wings
-		Tooltip: ""
+		DisplayName: Kitsune Pants
+		Tooltip: Great for impersonating Ancients Awakened Testers!
 	}
 }
 
 Pluto: {
 	PlutoChestplate: {
-		DisplayName: Pluto Chestplate
-		Tooltip: ""
+		DisplayName: Outer God's Chestplate
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 
 	Shiny: {
 		PlutoChestplateS: {
-			DisplayName: Pluto Chestplate S
-			Tooltip: ""
+			DisplayName: Outer God's Chestplate
+			Tooltip: Great for impersonating Ancients Awakened Devs!
 		}
 
 		PlutoHelmetS: {
-			DisplayName: Pluto Helmet S
-			Tooltip: ""
+			DisplayName: Outer God's Mask
+			Tooltip: Great for impersonating Ancients Awakened Devs!
 		}
 	}
 
 	PlutoHelmet: {
-		DisplayName: Pluto Helmet
-		Tooltip: ""
+		DisplayName: Outer God's Mask
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 
 	PlutoLeggings: {
-		DisplayName: Pluto Leggings
-		Tooltip: ""
+		DisplayName: Outer God's Greaves
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 }
 
 Shox: {
 	ShoxChestplate: {
-		DisplayName: Shox Chestplate
-		Tooltip: ""
+		DisplayName: Shock Lord's Plate
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	ShoxHelmet: {
-		DisplayName: Shox Helmet
-		Tooltip: ""
+		DisplayName: Shock Lord's Visor
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	ShoxLeggings: {
-		DisplayName: Shox Leggings
-		Tooltip: ""
+		DisplayName: Shock Lord's Boots
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 }
 
 Tails: {
 	TailsChestplate: {
-		DisplayName: Tails Chestplate
-		Tooltip: ""
+		DisplayName: Tails Body Costume
+		Tooltip:
+			'''
+			A body suit made to resemble a certain two-tailed fox.
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	TailsHelmet: {
 		DisplayName: Tails Helmet
-		Tooltip: ""
+		Tooltip:
+			'''
+			A helmet made to resemble a certain two-tailed fox.
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 
 	TailsLeggings: {
 		DisplayName: Tails Leggings
-		Tooltip: ""
+		Tooltip:
+			'''
+			Leggings made to resemble a certain two-tailed fox.
+			'Great for impersonating Ancients Awakened Devs!'
+			'''
 	}
 }
 
@@ -731,58 +886,58 @@ Tied: {
 	}
 
 	TiedHelmet: {
-		DisplayName: Tied Helmet
-		Tooltip: ""
+		DisplayName: Spooky Skull
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 
 	TiedLeggings: {
-		DisplayName: Tied Leggings
-		Tooltip: ""
+		DisplayName: Spooky Trousers
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 }
 
 Universe: {
 	UniverseChestplate: {
-		DisplayName: Universe Chestplate
-		Tooltip: ""
+		DisplayName: Cursed Reaper Robe
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 
 	UniverseHelmet: {
-		DisplayName: Universe Helmet
-		Tooltip: ""
+		DisplayName: Cursed Reaper Hood
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 
 	UniverseLeggings: {
-		DisplayName: Universe Leggings
-		Tooltip: ""
+		DisplayName: Cursed Reaper Boots
+		Tooltip: Great for impersonating Ancients Awakened Devs!
 	}
 }
 
 VoidEye: {
 	VoidEyeChestplate: {
-		DisplayName: Void Eye Chestplate
-		Tooltip: ""
+		DisplayName: Void Eye's Chestplate
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	VoidEyeHelmet: {
-		DisplayName: Void Eye Helmet
-		Tooltip: ""
+		DisplayName: Void Eye's Mask
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 
 	VoidEyeLeggings: {
-		DisplayName: Void Eye Leggings
-		Tooltip: ""
+		DisplayName: Void Eye's Boots
+		Tooltip: Great for impersonating Ancients Awakened Contributors!
 	}
 }
 
 HappySunSticker: {
 	DisplayName: Happy Sun Sticker
-	Tooltip: ""
+	Tooltip: ":D"
 }
 
 Ohno: {
 	Ono: {
-		DisplayName: Ono
-		Tooltip: ""
+		DisplayName: ono
+		Tooltip: ono
 	}
 }

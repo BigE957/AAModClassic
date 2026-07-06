@@ -1,254 +1,254 @@
-BroodmotherBox: {
-	DisplayName: Broodmother Box
-	Tooltip: ""
+﻿BroodmotherBox: {
+	DisplayName: Music Box (Broodmother)
+	Tooltip: Plays 'Blazing Fury' by SpectralAves
 }
 
 EquinoxBox: {
-	DisplayName: Equinox Box
-	Tooltip: ""
+	DisplayName: Music Box (Equinox Worms)
+	Tooltip: Plays 'Celestial Cyclone' by ProduceVGM
 }
 
 InfinityZeroBox: {
-	DisplayName: Infinity Zero Box
-	Tooltip: ""
+	DisplayName: Music Box (Infinity Zero )
+	Tooltip: Plays 'Infinitum' by MaestroVGM
 }
 
 AthenaBox: {
-	DisplayName: Athena Box
-	Tooltip: ""
+	DisplayName: Music Box (Athena)
+	Tooltip: Plays 'Magisaint' by ENNWAY
 }
 
 AcropolisBox: {
-	DisplayName: Acropolis Box
-	Tooltip: ""
+	DisplayName: Music Box (Acropolis)
+	Tooltip: Plays 'Palace in the Sky' by ENNWAY
 }
 
 AthenaAwakenedBox: {
-	DisplayName: Athena Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Olympian Athena)
+	Tooltip: Plays 'Goddess of Those Winged' by ENNWAY
 }
 
 RajahBox: {
-	DisplayName: Rajah Box
-	Tooltip: ""
+	DisplayName: Music Box (Rajah Rabbit)
+	Tooltip: Plays 'JUSTICE' by SpectralAves
 }
 
 RajahAwakenedBox: {
-	DisplayName: Rajah Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Champion of the Innocent)
+	Tooltip: Plays 'Supreme Justice'
 }
 
 GripsBox: {
-	DisplayName: Grips Box
-	Tooltip: ""
+	DisplayName: Music Box (Grips of Chaos)
+	Tooltip: Plays 'Twin Terror' by SpectralAves
 }
 
 ShenAwakenedBox: {
-	DisplayName: Shen Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Awakened Shen Doragon)
+	Tooltip: Plays 'Discordant Coda' by MaestroVGM
 }
 
 ShenBox: {
-	DisplayName: Shen Box
-	Tooltip: ""
+	DisplayName: Music Box (Shen Doragon)
+	Tooltip: Plays 'Wings of Duality' by MaestroVGM
 }
 
 SistersBox: {
-	DisplayName: Sisters Box
-	Tooltip: ""
+	DisplayName: Music Box (Sisters of Discord)
+	Tooltip: Plays 'United' by MaestroVGM
 }
 
 ChaosPreShenBox: {
-	DisplayName: Chaos Pre Shen Box
-	Tooltip: ""
+	DisplayName: Music Box (Sleeping Dragon)
+	Tooltip: Plays 'Condemned' by MaestroVGM
 }
 
 DjinnBox: {
-	DisplayName: Djinn Box
-	Tooltip: ""
+	DisplayName: Music Box (Desert Djinn)
+	Tooltip: Plays 'The Dust Bowl' by Tyeski
 }
 
 AnubisBox: {
-	DisplayName: Anubis Box
-	Tooltip: ""
+	DisplayName: Music Box (Anubis)
+	Tooltip: Plays 'Strings of Judgement' by Tyeski
 }
 
 AnubisAwakenedBox: {
-	DisplayName: Anubis Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Forsaken Anubis)
+	Tooltip: Plays 'Purgatorium' by Tyeski
 }
 
 FungusBox: {
-	DisplayName: Fungus Box
-	Tooltip: ""
+	DisplayName: Music Box (Feudal Fungus)
+	Tooltip: Plays 'Bioluminescent Beatdown' by SpectralAves
 }
 
 TruffleToadBox: {
-	DisplayName: Truffle Toad Box
-	Tooltip: ""
+	DisplayName: Music Box (Truffle Toad)
+	Tooltip: Plays 'TODESTOOL' by SpectralAves
 }
 
 GreedBox: {
-	DisplayName: Greed Box
-	Tooltip: ""
+	DisplayName: Music Box (Greed)
+	Tooltip: Plays 'Gold Digger' by Tyeski
 }
 
 HoardBox: {
-	DisplayName: Hoard Box
-	Tooltip: ""
+	DisplayName: Music Box (Hoard)
+	Tooltip: Plays 'Cove' by Tyeski
 }
 
 GreedAwakenedBox: {
-	DisplayName: Greed Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Worm King Greed)
+	Tooltip: Plays 'Ira De Riquezas Perdidas' by Tyeski
 }
 
 InfernoNightBox: {
-	DisplayName: Inferno Night Box
-	Tooltip: ""
+	DisplayName: Music Box (Inferno Night)
+	Tooltip: Plays ‘Emberstorm’ by ProduceVGM
 }
 
 InfernoSurfaceBox: {
-	DisplayName: Inferno Surface Box
-	Tooltip: ""
+	DisplayName: Music Box (Inferno)
+	Tooltip: Plays ‘Scorched Earth’ by ProduceVGM
 }
 
 InfernoUndergroundBox: {
-	DisplayName: Inferno Underground Box
-	Tooltip: ""
+	DisplayName: Music Box (Underground Inferno)
+	Tooltip: Plays ‘Inner Mantle’ by ProduceVGM
 }
 
 AkumaAwakenedBox: {
-	DisplayName: Akuma Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Oni Akuma)
+	Tooltip: Plays 'Dawn of the Dragon' by Tyeski
 }
 
 AkumaBox: {
-	DisplayName: Akuma Box
-	Tooltip: ""
+	DisplayName: Music Box (Akuma)
+	Tooltip: Plays 'Trial By Fire' by Saucecoie
 }
 
 InfernoPagodaBox: {
-	DisplayName: Inferno Pagoda Box
-	Tooltip: ""
+	DisplayName: Music Box (Pagoda of the Rising Sun)
+	Tooltip: Plays 'Scorched Tower' by Rockwizard
 }
 
 HydraBox: {
-	DisplayName: Hydra Box
-	Tooltip: ""
+	DisplayName: Music Box (Hydra)
+	Tooltip: Plays 'RAW Abyssal Wrath' by SpectralAves
 }
 
 MireDayBox: {
-	DisplayName: Mire Day Box
-	Tooltip: ""
+	DisplayName: Music Box (Mire Day)
+	Tooltip: Plays 'Through the Toxic Mist' by ProduceVGM
 }
 
 MireSurfaceBox: {
-	DisplayName: Mire Surface Box
-	Tooltip: ""
+	DisplayName: Music Box (Mire)
+	Tooltip: Plays 'Secluded Swamp' by ProduceVGM
 }
 
 MireUndergroundBox: {
-	DisplayName: Mire Underground Box
-	Tooltip: ""
+	DisplayName: Music Box (Underground Mire)
+	Tooltip: Plays 'Creepy Crawlers' by ProduceVGM
 }
 
 YamataAwakenedBox: {
-	DisplayName: Yamata Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Yamata No Orochi)
+	Tooltip: Plays 'Abyssal Nightmare' by Tyeski
 }
 
 YamataBox: {
-	DisplayName: Yamata Box
-	Tooltip: ""
+	DisplayName: Music Box (Yamata)
+	Tooltip: Plays 'Crescent of Madness' by Saucecoie
 }
 
 MireLakeBox: {
-	DisplayName: Mire Lake Box
-	Tooltip: ""
+	DisplayName: Music Box (Lake of the Rising Moon)
+	Tooltip: Plays 'Lake of Souls' by Rockwizard
 }
 
 MonarchBox: {
-	DisplayName: Monarch Box
-	Tooltip: ""
+	DisplayName: Music Box (Mushroom Monarch)
+	Tooltip: Plays 'Fungal Face-off' by SpectralAves
 }
 
 MushroomSurfaceBox: {
-	DisplayName: Mushroom Surface Box
-	Tooltip: ""
+	DisplayName: Red Mushroom Music Box
+	Tooltip: Plays 'Overgrowth' by SpectralAves
 }
 
 SubzeroBox: {
-	DisplayName: Subzero Box
-	Tooltip: ""
+	DisplayName: Music Box (Subzero Serpent)
+	Tooltip: Plays 'Glacial Grace' by ProduceVGM
 }
 
 StarsBox: {
-	DisplayName: Stars Box
-	Tooltip: ""
+	DisplayName: Music Box (Celestial Stars)
+	Tooltip: Plays 'Scattered Stars' by ProduceVGM
 }
 
 TerrariumBox: {
-	DisplayName: Terrarium Box
-	Tooltip: ""
+	DisplayName: Music Box (Terrarium)
+	Tooltip: Plays ‘Resting Place’ by ProduceVGM
 }
 
 SagittariusBox: {
-	DisplayName: Sagittarius Box
-	Tooltip: ""
+	DisplayName: Music Box (Sagittarius)
+	Tooltip: Plays 'Event Horizon' by SpectralAves
 }
 
 VoidBox: {
-	DisplayName: Void Box
-	Tooltip: ""
+	DisplayName: Music Box (Void)
+	Tooltip: Plays 'Waste' by ProduceVGM
 }
 
 ZeroAwakenedBox: {
-	DisplayName: Zero Awakened Box
-	Tooltip: ""
+	DisplayName: Music Box (Zero Protocol)
+	Tooltip: Plays 'Doomsday Arrives' by Saucecoie
 }
 
 ZeroBox: {
-	DisplayName: Zero Box
-	Tooltip: ""
+	DisplayName: Music Box (Zero)
+	Tooltip: Plays 'Clockwork Catastrophe' by SpectralAves
 }
 
 VoidPostMLBox: {
-	DisplayName: Void Post M L Box
-	Tooltip: ""
+	DisplayName: Music Box (Void - Activated)
+	Tooltip: Plays 'Inanis' by ProduceVGM
 }
 
 VoidPreIZBox: {
-	DisplayName: Void Pre I Z Box
-	Tooltip: ""
+	DisplayName: Music Box (Sleeping Giant)
+	Tooltip: Plays 'Sleeping Giant' by Cosmoptera
 }
 
 SiegeBox: {
-	DisplayName: Siege Box
-	Tooltip: ""
+	DisplayName: Music Box (S.I.E.G.E. Units)
+	Tooltip: Plays 'Controlled Chaos' by ProduceVGM
 }
 
 ParthenanBox: {
-	DisplayName: Parthenan Box
-	Tooltip: ""
+	DisplayName: Music Box (Parthenan)
+	Tooltip: Plays 'Maelstrom' by Tyeski
 }
 
 SunkenShipBox: {
-	DisplayName: Sunken Ship Box
-	Tooltip: ""
+	DisplayName: Music Box (Sunken Ship)
+	Tooltip: Plays 'Rift-Torn Ruins' by Cosmoptera
 }
 
 SoulOfCthulhuBox: {
-	DisplayName: Soul Of Cthulhu Box
-	Tooltip: ""
+	DisplayName: Music Box (Soul of Cthulhu)
+	Tooltip: Plays 'Wheel Of Misfortune' by ProduceVGM
 }
 
 SunkenShipPreSoCBox: {
-	DisplayName: Sunken Ship Pre So C Box
-	Tooltip: ""
+	DisplayName: Music Box (Sleeping Curse)
+	Tooltip: Plays 'Sleeping Curse' by ProduceVGM
 }
 
 CthulhuBox: {
-	DisplayName: Cthulhu Box
-	Tooltip: ""
-}
+	DisplayName: Music Box (Cthulhu)
+	Tooltip: Plays 'Soul Ultimatum' by ProduceVGM
+}

@@ -1,224 +1,264 @@
 ChaosSlayer: {
 	ChaosSlayerChestplate: {
-		DisplayName: Chaos Slayer Chestplate
-		Tooltip: ""
+		DisplayName: Chaos Slayer Plate
+		Tooltip: The power of discordian rage radiates from this armor
 	}
 
 	ChaosSlayerHelmetMage: {
-		DisplayName: Chaos Slayer Helmet Mage
-		Tooltip: ""
+		DisplayName: Chaos Slayer Hood
+		Tooltip:
+			'''
+			32% increased Magic damage
+			20% increased Magic critical strike chance
+			2% increased damage resistance
+			30% reduced Mana consumption
+			150 increased maximum mana
+			The power of discordian rage radiates from this hood
+			'''
 	}
 
 	ChaosSlayerHelmetMelee: {
-		DisplayName: Chaos Slayer Helmet Melee
-		Tooltip: ""
+		DisplayName: Chaos Slayer Kabuto
+		Tooltip:
+			'''
+			30% increased Melee damage & critical strike chance
+			5% increased damage resistance
+			15% increased melee speed
+			+25 Max Life
+			The power of discordian rage radiates from this armor
+			'''
 	}
 
 	ChaosSlayerHelmetRanged: {
-		DisplayName: Chaos Slayer Helmet Ranged
-		Tooltip: ""
+		DisplayName: Chaos Slayer Visor
+		Tooltip:
+			'''
+			45% increased ranged damage
+			38% increased ranged critical strike chance
+			3% increased damage resistance
+			25% reduced ammo consumption
+			+15 Max Life
+			The power of discordian rage radiates from this hood
+			'''
 	}
 
 	ChaosSlayerHelmetSummoner: {
-		DisplayName: Chaos Slayer Helmet Summoner
-		Tooltip: ""
+		DisplayName: Chaos Slayer Mask
+		Tooltip:
+			'''
+			70% increased minion damage
+			1% increased damage resistance
+			+6 maximum Minions
+			+2 maximum sentries 
+			The power of discordian rage radiates from this hood
+			'''
 	}
 
 	ChaosSlayerLeggings: {
-		DisplayName: Chaos Slayer Leggings
-		Tooltip: ""
+		DisplayName: Chaos Slayer Greaves
+		Tooltip: The power of discordian rage radiates from this armor
 	}
 }
 
 Chaos: {
 	ChaosChestplate: {
-		DisplayName: Chaos Chestplate
+		DisplayName: Chaos Dou
 		Tooltip: ""
 	}
 
 	ChaosHelmetMage: {
-		DisplayName: Chaos Helmet Mage
+		DisplayName: Chaos Mask
 		Tooltip: ""
 	}
 
 	ChaosHelmetMelee: {
-		DisplayName: Chaos Helmet Melee
+		DisplayName: Chaos Kabuto
 		Tooltip: ""
 	}
 
 	ChaosHelmetRanged: {
-		DisplayName: Chaos Helmet Ranged
+		DisplayName: Chaos Fukumen
 		Tooltip: ""
 	}
 
 	ChaosHelmetSummoner: {
-		DisplayName: Chaos Helmet Summoner
+		DisplayName: Chaos Visor
 		Tooltip: ""
 	}
 
 	ChaosLeggings: {
-		DisplayName: Chaos Leggings
+		DisplayName: Chaos Greaves
 		Tooltip: ""
 	}
 }
 
 DraconianSun: {
 	DraconianSunChestplate: {
-		DisplayName: Draconian Sun Chestplate
-		Tooltip: ""
+		DisplayName: Draconian Sun Dao
+		Tooltip: The blazing fury of the Inferno rests in this armor
 	}
 
 	DraconianSunLeggings: {
-		DisplayName: Draconian Sun Leggings
-		Tooltip: ""
+		DisplayName: Draconian Sun Greaves
+		Tooltip: The blazing fury of the Inferno rests in this armor
 	}
 
 	DraconianSunHelmet: {
-		DisplayName: Draconian Sun Helmet
-		Tooltip: ""
+		DisplayName: Draconian Sun Kabuto
+		Tooltip: The blazing fury of the Inferno rests in this armor
 	}
 }
 
 Darkmatter: {
 	DarkmatterChestplate: {
-		DisplayName: Darkmatter Chestplate
-		Tooltip: ""
+		DisplayName: Darkmatter Breastplate
+		Tooltip: Dark, yet still barely visible
 	}
 
 	DarkmatterHelmetMage: {
-		DisplayName: Darkmatter Helmet Mage
-		Tooltip: ""
+		DisplayName: Darkmatter Mask
+		Tooltip: Dark, yet still barely visible
 	}
 
 	DarkmatterHelmetMelee: {
-		DisplayName: Darkmatter Helmet Melee
-		Tooltip: ""
+		DisplayName: Darkmatter Helmet
+		Tooltip:
+			'''
+			10% increased melee damage
+			Dark, yet still barely visible
+			'''
 	}
 
 	DarkmatterHelmetRanged: {
-		DisplayName: Darkmatter Helmet Ranged
-		Tooltip: ""
+		DisplayName: Darkmatter Visor
+		Tooltip: Dark, yet still barely visible
 	}
 
 	DarkmatterHelmetSummoner: {
-		DisplayName: Darkmatter Helmet Summoner
-		Tooltip: ""
+		DisplayName: Darkmatter Headress
+		Tooltip: Dark, yet still barely visible
 	}
 
 	DarkmatterLeggings: {
-		DisplayName: Darkmatter Leggings
-		Tooltip: ""
+		DisplayName: Darkmatter Greaves
+		Tooltip: Dark, yet still barely visible
 	}
 }
 
 Radium: {
 	RadiumChestplate: {
-		DisplayName: Radium Chestplate
-		Tooltip: ""
+		DisplayName: Radium Platemail
+		Tooltip: Shines with the light of a starry night sky
 	}
 
 	RadiumHelmetMage: {
-		DisplayName: Radium Helmet Mage
-		Tooltip: ""
+		DisplayName: Radium Mask
+		Tooltip: Shines with the light of a starry night sky
 	}
 
 	RadiumHelmetMelee: {
-		DisplayName: Radium Helmet Melee
-		Tooltip: ""
+		DisplayName: Radium Helmet
+		Tooltip: Shines with the light of a starry night sky
 	}
 
 	RadiumHelmetRanged: {
-		DisplayName: Radium Helmet Ranged
-		Tooltip: ""
+		DisplayName: Radium Headgear
+		Tooltip: Shines with the light of a starry night sky
 	}
 
 	RadiumHelmetSummoner: {
-		DisplayName: Radium Helmet Summoner
-		Tooltip: ""
+		DisplayName: Radium Hat
+		Tooltip: Shines with the light of a starry night sky
 	}
 
 	RadiumLeggings: {
-		DisplayName: Radium Leggings
-		Tooltip: ""
+		DisplayName: Radium Cuisses
+		Tooltip: Shines with the light of a starry night sky
 	}
 }
 
 Biomite: {
+	BiomiteChestplate: {
+		DisplayName: Biomite Crystalmail
+		Tooltip: ""
+	}
+
 	BiomiteHelmet: {
 		DisplayName: Biomite Helmet
 		Tooltip: ""
 	}
 
-	BiomiteChestplate: {
-		DisplayName: Biomite Chestplate
-		Tooltip: ""
-	}
-
 	BiomiteLeggings: {
-		DisplayName: Biomite Leggings
+		DisplayName: Biomite Greaves
 		Tooltip: ""
 	}
 }
 
 Doomsday: {
 	DoomsdayChestplate: {
-		DisplayName: Doomsday Chestplate
-		Tooltip: ""
+		DisplayName: Doomsday Assault Armor
+		Tooltip: The power to destroy entire planets rests in this armor
 	}
 
 	DoomsdayHelmetMage: {
-		DisplayName: Doomsday Helmet Mage
-		Tooltip: ""
+		DisplayName: Doomsday Assault Visor
+		Tooltip: The power to destroy entire planets rests in this armor
 	}
 
 	DoomsdayHelmetSummoner: {
-		DisplayName: Doomsday Helmet Summoner
-		Tooltip: ""
+		DisplayName: Doomsday Tactical Visor
+		Tooltip: The power to destroy entire planets rests in this armor
 	}
 
 	DoomsdayLeggings: {
-		DisplayName: Doomsday Leggings
-		Tooltip: ""
+		DisplayName: Doomsday Assault Greaves
+		Tooltip: The power to destroy entire planets rests in this armor
 	}
 }
 
 InfinitySlayer: {
 	InfinitySlayerChestplate: {
 		DisplayName: Infinity Slayer Chestplate
-		Tooltip: ""
+		Tooltip: Infinite power and malice flows through this armor
 	}
 
 	InfinitySlayerHelmet: {
-		DisplayName: Infinity Slayer Helmet
-		Tooltip: ""
+		DisplayName: Infinity Slayer Visor
+		Tooltip: power and malice flows through this armor'
 	}
 
 	InfinitySlayerLeggings: {
-		DisplayName: Infinity Slayer Leggings
-		Tooltip: ""
+		DisplayName: Infinity Slayer Greaves
+		Tooltip: Infinite power and malice flows through this armor
 	}
 }
 
 StripemansLucky: {
 	StripemansLuckyChestplate: {
-		DisplayName: Stripemans Lucky Chestplate
+		DisplayName: Stripeman's Lucky Shirt
 		Tooltip: ""
 	}
 
 	StripemansLuckyHelmet: {
-		DisplayName: Stripemans Lucky Helmet
-		Tooltip: ""
+		DisplayName: Stripeman's Lucky Hat
+		Tooltip:
+			'''
+			Provides light when worn
+			Get the effect of Architect Gizmo Pack
+			When digging stones, you may get ore from them
+			You can put any sand into the Extractinator
+			'''
 	}
 
 	StripemansLuckyLeggings: {
-		DisplayName: Stripemans Lucky Leggings
+		DisplayName: Stripeman's Lucky Pants
 		Tooltip: ""
 	}
 }
 
 Olympian: {
 	OlympianChestplate: {
-		DisplayName: Olympian Chestplate
+		DisplayName: Olympian Breastplate
 		Tooltip: ""
 	}
 
@@ -228,57 +268,75 @@ Olympian: {
 	}
 
 	OlympianLeggings: {
-		DisplayName: Olympian Leggings
+		DisplayName: Olympian Greaves
 		Tooltip: ""
 	}
 }
 
 HoppingHoodlum: {
 	HoppingHoodlumChestplate: {
-		DisplayName: Hopping Hoodlum Chestplate
-		Tooltip: ""
+		DisplayName: Hopping Hoodlum Shirt
+		Tooltip: Hopping Mad
 	}
 
 	HoppingHoodlumHelmet: {
-		DisplayName: Hopping Hoodlum Helmet
-		Tooltip: ""
+		DisplayName: Hopping Hoodlum Hood
+		Tooltip: Hopping Mad
 	}
 
 	HoppingHoodlumLeggings: {
-		DisplayName: Hopping Hoodlum Leggings
-		Tooltip: ""
+		DisplayName: Hopping Hoodlum Paws
+		Tooltip: Hopping Mad
 	}
 }
 
 Champion: {
 	ChampionChestplate: {
 		DisplayName: Champion Chestplate
-		Tooltip: ""
+		Tooltip:
+			'''
+			15% increased damage
+			'The armor of a champion feared across the land'
+			'''
 	}
 
 	ChampionHelmetMage: {
-		DisplayName: Champion Helmet Mage
-		Tooltip: ""
+		DisplayName: Champion Hood
+		Tooltip:
+			'''
+			32% increased Magic damage
+			10% increased non-magic damage
+			25% increased Magic critical strike chance
+			25% reduced Mana consumption
+			150 increased maximum mana
+			The armor of a champion feared across the land
+			'''
 	}
 
 	ChampionHelmetMelee: {
-		DisplayName: Champion Helmet Melee
-		Tooltip: ""
+		DisplayName: Champion Greathelm
+		Tooltip:
+			'''
+			35% increased Melee damage & critical strike chance
+			10% increased non-melee damage
+			18% increased melee speed
+			'The armor of a champion feared across the land'
+			'''
 	}
 
 	ChampionHelmetRanged: {
-		DisplayName: Champion Helmet Ranged
-		Tooltip: ""
+		DisplayName: Champion Mask
+		Tooltip: The armor of a champion feared across the land
 	}
 
 	ChampionHelmetSummoner: {
-		DisplayName: Champion Helmet Summoner
-		Tooltip: ""
+		DisplayName: Champion Headdress
+		Tooltip: The armor of a champion feared across the land
 	}
 
 	ChampionLeggings: {
-		DisplayName: Champion Leggings
-		Tooltip: ""
+		DisplayName: Champion' Greaves
+		Tooltip: The armor of a champion feared across the land
 	}
 }
 
@@ -289,13 +347,13 @@ FuryWitchs: {
 	}
 
 	FuryWitchsHelmet: {
-		DisplayName: Fury Witchs Helmet
-		Tooltip: ""
+		DisplayName: Fury Witch's Cowl
+		Tooltip: A hood enchanted with the firey spirit of a supreme dragon acolyte
 	}
 
 	FuryWitchsLeggings: {
-		DisplayName: Fury Witchs Leggings
-		Tooltip: ""
+		DisplayName: Fury Witch's Boots
+		Tooltip: Boots enchanted with the firey spirit of a supreme dragon acolyte
 	}
 }
 
@@ -306,168 +364,163 @@ MidnightAssassin: {
 	}
 
 	MidnightAssassinHelmet: {
-		DisplayName: Midnight Assassin Helmet
-		Tooltip: ""
+		DisplayName: Midnight Assassin Hood
+		Tooltip: A dark hood infused with the shadow of midnight
 	}
 
 	MidnightAssassinLeggings: {
-		DisplayName: Midnight Assassin Leggings
-		Tooltip: ""
+		DisplayName: Midnight Assassin's Boots
+		Tooltip: Dark boots infused with the shadow of midnight
 	}
 }
 
 Nights: {
 	NightsChestplate: {
-		DisplayName: Nights Chestplate
+		DisplayName: Night's Plate
 		Tooltip: ""
 	}
 
 	NightsHelmet: {
-		DisplayName: Nights Helmet
+		DisplayName: Night's Helm
 		Tooltip: ""
 	}
 
 	NightsLeggings: {
-		DisplayName: Nights Leggings
+		DisplayName: Night's Greaves
 		Tooltip: ""
 	}
 }
 
 Fleshrend: {
 	FleshrendChestplate: {
-		DisplayName: Fleshrend Chestplate
+		DisplayName: Fleshrend Plate
 		Tooltip: ""
 	}
 
 	FleshrendHelmet: {
-		DisplayName: Fleshrend Helmet
+		DisplayName: Fleshrend Helm
 		Tooltip: ""
 	}
 
 	FleshrendLeggings: {
-		DisplayName: Fleshrend Leggings
+		DisplayName: Fleshrend Greaves
 		Tooltip: ""
 	}
 }
 
 Dynaskull: {
 	DynaskullChestplate: {
-		DisplayName: Dynaskull Chestplate
+		DisplayName: Dynaskull Ribguard
 		Tooltip: ""
 	}
 
 	DynaskullHelmet: {
-		DisplayName: Dynaskull Helmet
+		DisplayName: Dynaskull
 		Tooltip: ""
 	}
 
 	DynaskullLeggings: {
-		DisplayName: Dynaskull Leggings
+		DisplayName: Dynaskull Greaves
 		Tooltip: ""
 	}
 }
 
 Deathly: {
 	DeathlyChestplate: {
-		DisplayName: Deathly Chestplate
+		DisplayName: Deathly Ribguard
 		Tooltip: ""
 	}
 
 	DeathlyHelmet: {
-		DisplayName: Deathly Helmet
+		DisplayName: Deathly Skull
 		Tooltip: ""
 	}
 
 	DeathlyLeggings: {
-		DisplayName: Deathly Leggings
+		DisplayName: Deathly Greaves
 		Tooltip: ""
 	}
 }
 
 GlowingMushium: {
 	GlowingMushiumChestplate: {
-		DisplayName: Glowing Mushium Chestplate
+		DisplayName: Glowing Mushium Shirt
 		Tooltip: ""
 	}
 
 	GlowingMushiumHelmet: {
-		DisplayName: Glowing Mushium Helmet
+		DisplayName: Glowing Mushium Hat
 		Tooltip: ""
 	}
 
 	GlowingMushiumLeggings: {
-		DisplayName: Glowing Mushium Leggings
+		DisplayName: Glowing Mushium Pants
 		Tooltip: ""
 	}
 }
 
 GoblinSlayers: {
 	GoblinSlayersChestplate: {
-		DisplayName: Goblin Slayers Chestplate
-		Tooltip: ""
+		DisplayName: Goblin Slayer's Chestplate
+		Tooltip: An immense hatred of Goblinkind haunts this chestplate
 	}
 
 	GoblinSlayersHelmet: {
-		DisplayName: Goblin Slayers Helmet
-		Tooltip: ""
+		DisplayName: Goblin Slayer's Helm
+		Tooltip: An immense hatred of Goblinkind haunts this helm
 	}
 
 	GoblinSlayersLeggings: {
-		DisplayName: Goblin Slayers Leggings
-		Tooltip: ""
+		DisplayName: Goblin Slayer's Greaves
+		Tooltip: An immense hatred of Goblinkind haunts these greaves
 	}
 }
 
 Hallowed: {
-	HallowedPaint: {
-		DisplayName: Hallowed Paint
-		Tooltip: ""
-	}
-
 	HallowedHelmetSummoner: {
-		DisplayName: Hallowed Helmet Summoner
+		DisplayName: Hallowed Face Paint
 		Tooltip: ""
 	}
 }
 
 Demon: {
 	DemonChestplate: {
-		DisplayName: Demon Chestplate
+		DisplayName: Demon Garb
 		Tooltip: ""
 	}
 
 	DemonHelmet: {
-		DisplayName: Demon Helmet
+		DisplayName: Demon Cowl
 		Tooltip: ""
 	}
 
 	DemonLeggings: {
-		DisplayName: Demon Leggings
+		DisplayName: Demon Hoofs
 		Tooltip: ""
 	}
 }
 
 Imp: {
 	ImpChestplate: {
-		DisplayName: Imp Chestplate
+		DisplayName: Imp Garb
 		Tooltip: ""
 	}
 
 	ImpHelmet: {
-		DisplayName: Imp Helmet
+		DisplayName: Imp Hood
 		Tooltip: ""
 	}
 
 	ImpLeggings: {
-		DisplayName: Imp Leggings
+		DisplayName: Imp Boots
 		Tooltip: ""
 	}
 }
 
 StoneSoldier: {
 	StoneSoldierChestplate: {
-		DisplayName: Stone Soldier Chestplate
-		Tooltip: ""
+		DisplayName: Stone Soldier Breastplate
+		Tooltip: Increases mining speed by 15%
 	}
 
 	StoneSoldierHelmet: {
@@ -476,42 +529,42 @@ StoneSoldier: {
 	}
 
 	StoneSoldierLeggings: {
-		DisplayName: Stone Soldier Leggings
-		Tooltip: ""
+		DisplayName: Stone Soldier Greaves
+		Tooltip: Increases mining speed by 15%
 	}
 }
 
 Blazing: {
 	BlazingChestplate: {
-		DisplayName: Blazing Chestplate
-		Tooltip: ""
+		DisplayName: Blazing Dao
+		Tooltip: Forged in the flames of the blazing sun
 	}
 
 	BlazingHelmet: {
-		DisplayName: Blazing Helmet
-		Tooltip: ""
+		DisplayName: Blazing Kabuto
+		Tooltip: Forged in the flames of the blazing sun
 	}
 
 	BlazingLeggings: {
-		DisplayName: Blazing Leggings
-		Tooltip: ""
+		DisplayName: Blazing Suneate
+		Tooltip: Forged in the flames of the blazing sun
 	}
 }
 
 Kindled: {
 	KindledChestplate: {
-		DisplayName: Kindled Chestplate
-		Tooltip: ""
+		DisplayName: Kindled Dao
+		Tooltip: Forged in the flames of the blazing sun
 	}
 
 	KindledHelmet: {
-		DisplayName: Kindled Helmet
-		Tooltip: ""
+		DisplayName: Kindled Kabuto
+		Tooltip: Forged in the flames of the blazing sun
 	}
 
 	KindledLeggings: {
-		DisplayName: Kindled Leggings
-		Tooltip: ""
+		DisplayName: Kindled Suneate
+		Tooltip: Forged in the flames of the blazing sun
 	}
 }
 
@@ -527,54 +580,58 @@ Razewood: {
 	}
 
 	RazewoodLeggings: {
-		DisplayName: Razewood Leggings
+		DisplayName: Razewood Boots
 		Tooltip: ""
 	}
 }
 
 Tribal: {
 	TribalChestplate: {
-		DisplayName: Tribal Chestplate
+		DisplayName: Tribal Cloak
 		Tooltip: ""
 	}
 
 	TribalHelmet: {
-		DisplayName: Tribal Helmet
-		Tooltip: ""
+		DisplayName: Tribal Hat
+		Tooltip:
+			'''
+			8% Increased magic critical chance
+			Increases maximum mana by 20
+			'''
 	}
 
 	TribalLeggings: {
-		DisplayName: Tribal Leggings
+		DisplayName: Tribal Kilt
 		Tooltip: ""
 	}
 }
 
 Chlorophyte: {
 	ChlorophyteHelmetSummoner: {
-		DisplayName: Chlorophyte Helmet Summoner
+		DisplayName: Chlorophyte Face Paint
 		Tooltip: ""
 	}
 
 	ChlorophyteHelmetSummoner2: {
-		DisplayName: Chlorophyte Helmet Summoner2
+		DisplayName: Terra Face Paint
 		Tooltip: ""
 	}
 }
 
 Abyssal: {
 	AbyssalChestplate: {
-		DisplayName: Abyssal Chestplate
-		Tooltip: ""
+		DisplayName: Abyssal Gi
+		Tooltip: Weightless as shadow itself
 	}
 
 	AbyssalHelmet: {
-		DisplayName: Abyssal Helmet
-		Tooltip: ""
+		DisplayName: Abyssal Fukumen
+		Tooltip: Weightless as shadow itself
 	}
 
 	AbyssalLeggings: {
-		DisplayName: Abyssal Leggings
-		Tooltip: ""
+		DisplayName: Abyssal Hakama
+		Tooltip: Weightless as shadow itself
 	}
 }
 
@@ -590,66 +647,76 @@ Bogwood: {
 	}
 
 	BogwoodLeggings: {
-		DisplayName: Bogwood Leggings
+		DisplayName: Bogwood Boots
 		Tooltip: ""
 	}
 }
 
 Depth: {
 	DepthChestplate: {
-		DisplayName: Depth Chestplate
-		Tooltip: ""
+		DisplayName: Depth Gi
+		Tooltip: Weightless as shadow itself
 	}
 
 	DepthHelmet: {
-		DisplayName: Depth Helmet
-		Tooltip: ""
+		DisplayName: Depth Fukumen
+		Tooltip: Weightless as shadow itself
 	}
 
 	DepthLeggings: {
-		DisplayName: Depth Leggings
-		Tooltip: ""
+		DisplayName: Depth Hakama
+		Tooltip: Weightless as shadow itself
 	}
 }
 
 DreadMoon: {
 	DreadMoonChestplate: {
-		DisplayName: Dread Moon Chestplate
-		Tooltip: ""
+		DisplayName: Dread Moon Gi
+		Tooltip: The abyssal wrath of the Mire rests in this armor
 	}
 
 	DreadMoonHelmet: {
-		DisplayName: Dread Moon Helmet
-		Tooltip: ""
+		DisplayName: Dread Moon Fukumen
+		Tooltip:
+			'''
+			24% increased ranged critical chance
+			20% increased movement speed
+			+15 Max Life
+			The abyssal wrath of the Mire rests in this armor
+			'''
 	}
 
 	DreadMoonLeggings: {
-		DisplayName: Dread Moon Leggings
-		Tooltip: ""
+		DisplayName: Dread Moon Hakama
+		Tooltip: The abyssal wrath of the Mire rests in this armor
 	}
 }
 
 Atlantean: {
 	AtlanteanChestplate: {
 		DisplayName: Atlantean Chestplate
-		Tooltip: ""
+		Tooltip: It vibrates with the powers of Atlantis
 	}
 
 	AtlanteanHelmet: {
 		DisplayName: Atlantean Helmet
-		Tooltip: ""
+		Tooltip: It vibrates with the powers of Atlantis
 	}
 
 	AtlanteanLeggings: {
-		DisplayName: Atlantean Leggings
-		Tooltip: ""
+		DisplayName: Atlantean Greaves
+		Tooltip: It vibrates with the powers of Atlantis
 	}
 }
 
 Ocean: {
 	OceanChestplate: {
 		DisplayName: Ocean Chestplate
-		Tooltip: ""
+		Tooltip:
+			'''
+			Increases maximum mana by 20
+			5% increased magic damage
+			'''
 	}
 
 	OceanHelmet: {
@@ -658,24 +725,24 @@ Ocean: {
 	}
 
 	OceanLeggings: {
-		DisplayName: Ocean Leggings
+		DisplayName: Ocean Greaves
 		Tooltip: ""
 	}
 }
 
 Mushium: {
 	MushiumChestplate: {
-		DisplayName: Mushium Chestplate
+		DisplayName: Mushium Shirt
 		Tooltip: ""
 	}
 
 	MushiumHelmet: {
-		DisplayName: Mushium Helmet
+		DisplayName: Mushium Hat
 		Tooltip: ""
 	}
 
 	MushiumLeggings: {
-		DisplayName: Mushium Leggings
+		DisplayName: Mushium Pants
 		Tooltip: ""
 	}
 }
@@ -692,14 +759,14 @@ Raider: {
 	}
 
 	RaiderLeggings: {
-		DisplayName: Raider Leggings
+		DisplayName: Raider Greaves
 		Tooltip: ""
 	}
 }
 
 Viking: {
 	VikingChestplate: {
-		DisplayName: Viking Chestplate
+		DisplayName: Viking Platemail
 		Tooltip: ""
 	}
 
@@ -709,7 +776,7 @@ Viking: {
 	}
 
 	VikingLeggings: {
-		DisplayName: Viking Leggings
+		DisplayName: Viking Greaves
 		Tooltip: ""
 	}
 }
@@ -721,86 +788,96 @@ Terra: {
 	}
 
 	TerraHelmetMage: {
-		DisplayName: Terra Helmet Mage
-		Tooltip: ""
+		DisplayName: Terra Hood
+		Tooltip:
+			'''
+			Increases maximum mana by 100 and 30% reduced mana cost
+			   17% increased magic damage
+			   15% increased magic critical strike chance
+			'''
 	}
 
 	TerraHelmetMelee: {
-		DisplayName: Terra Helmet Melee
+		DisplayName: Terra Helm
 		Tooltip: ""
 	}
 
 	TerraHelmetRanged: {
-		DisplayName: Terra Helmet Ranged
+		DisplayName: Terra Visor
 		Tooltip: ""
 	}
 
 	TerraHelmetSummoner: {
-		DisplayName: Terra Helmet Summoner
+		DisplayName: Terra Mask
 		Tooltip: ""
 	}
 
 	TerraLeggings: {
-		DisplayName: Terra Leggings
+		DisplayName: Terra Greaves
 		Tooltip: ""
 	}
 
 	TerraHelmetMageTest: {
-		DisplayName: Terra Helmet Mage Test
-		Tooltip: ""
+		DisplayName: Terra Hood
+		Tooltip:
+			'''
+			Increases maximum mana by 100 and 30% reduced mana cost
+			   17% increased magic damage
+			   15% increased magic critical strike chance
+			'''
 	}
 }
 
 AncientGold: {
 	AncientGoldChestplate: {
-		DisplayName: Ancient Gold Chestplate
+		DisplayName: Ancient Gold Chainmail
 		Tooltip: ""
 	}
 
 	AncientGoldLeggings: {
-		DisplayName: Ancient Gold Leggings
+		DisplayName: Ancient Gold Greaves
 		Tooltip: ""
 	}
 }
 
 Adamantite: {
 	AdamantiteHelmetSummoner: {
-		DisplayName: Adamantite Helmet Summoner
+		DisplayName: Adamantite Face Paint
 		Tooltip: ""
 	}
 }
 
 Cobalt: {
 	CobaltHelmetSummoner: {
-		DisplayName: Cobalt Helmet Summoner
+		DisplayName: Cobalt Face Paint
 		Tooltip: ""
 	}
 }
 
 Mythril: {
 	MythrilHelmetSummoner: {
-		DisplayName: Mythril Helmet Summoner
+		DisplayName: Mythril Face Paint
 		Tooltip: ""
 	}
 }
 
 Orichalcum: {
 	OrichalcumHelmetSummoner: {
-		DisplayName: Orichalcum Helmet Summoner
+		DisplayName: Oricalcum Face Paint
 		Tooltip: ""
 	}
 }
 
 Palladium: {
 	PalladiumHelmetSummoner: {
-		DisplayName: Palladium Helmet Summoner
+		DisplayName: Palladium Face Paint
 		Tooltip: ""
 	}
 }
 
 Titanium: {
 	TitaniumHelmetSummoner: {
-		DisplayName: Titanium Helmet Summoner
+		DisplayName: Titanium Face Paint
 		Tooltip: ""
 	}
 }
@@ -817,100 +894,68 @@ DarkDoomite: {
 	}
 
 	DarkDoomiteLeggings: {
-		DisplayName: Dark Doomite Leggings
+		DisplayName: Dark Doomite Greaves
 		Tooltip: ""
 	}
 }
 
 Doomite: {
 	DoomiteChestplate: {
-		DisplayName: Doomite Chestplate
+		DisplayName: Doomite Plate
 		Tooltip: ""
 	}
 
 	DoomiteHelmet: {
-		DisplayName: Doomite Helmet
+		DisplayName: Doomite Visor
 		Tooltip: ""
 	}
 
 	DoomiteLeggings: {
-		DisplayName: Doomite Leggings
-		Tooltip: ""
-	}
-}
-
-Oroboros: {
-	OroborosChestplate: {
-		DisplayName: Oroboros Chestplate
-		Tooltip: ""
-	}
-
-	OroborosHelmet: {
-		DisplayName: Oroboros Helmet
-		Tooltip: ""
-	}
-
-	OroborosLeggings: {
-		DisplayName: Oroboros Leggings
-		Tooltip: ""
-	}
-
-	OuroborosChestplate: {
-		DisplayName: Ouroboros Chestplate
-		Tooltip: ""
-	}
-
-	OuroborosHelmet: {
-		DisplayName: Ouroboros Helmet
-		Tooltip: ""
-	}
-
-	OuroborosLeggings: {
-		DisplayName: Ouroboros Leggings
-		Tooltip: ""
-	}
-}
-
-Fulgurite: {
-	FulguriteChestplate: {
-		DisplayName: Fulgurite Chestplate
-		Tooltip: ""
-	}
-
-	FulguriteHelmetMage: {
-		DisplayName: Fulgurite Helmet Mage
-		Tooltip: ""
-	}
-
-	FulguriteHelmetMelee: {
-		DisplayName: Fulgurite Helmet Melee
-		Tooltip: ""
-	}
-
-	FulguriteHelmetRanged: {
-		DisplayName: Fulgurite Helmet Ranged
-		Tooltip: ""
-	}
-
-	FulguriteLeggings: {
-		DisplayName: Fulgurite Leggings
+		DisplayName: Doomite Greaves
 		Tooltip: ""
 	}
 }
 
 Ouroboros: {
 	OuroborosChestplate: {
-		DisplayName: Ouroboros Chestplate
+		DisplayName: Ouroboros Wood Chestplate
 		Tooltip: ""
 	}
 
 	OuroborosHelmet: {
-		DisplayName: Ouroboros Helmet
+		DisplayName: Ouroboros Wood Helmet
 		Tooltip: ""
 	}
 
 	OuroborosLeggings: {
-		DisplayName: Ouroboros Leggings
+		DisplayName: Ouroboros Wood Boots
+		Tooltip: ""
+	}
+}
+
+Fulgurite: {
+	FulguriteChestplate: {
+		DisplayName: Fulgurite Breastplate
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMage: {
+		DisplayName: Fulgurite Helm
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMelee: {
+		DisplayName: Fulgurite Helmet
+		Tooltip: ""
+	}
+
+	FulguriteHelmetRanged: {
+		DisplayName: Fulgurite Visor
+		Tooltip: ""
+	}
+
+	FulguriteLeggings: {
+		DisplayName: Fulgurite Pants
 		Tooltip: ""
 	}
 }

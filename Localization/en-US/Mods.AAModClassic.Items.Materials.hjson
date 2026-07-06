@@ -1,81 +1,101 @@
 RainbowMushroom: {
 	DisplayName: Rainbow Mushroom
-	Tooltip: ""
+	Tooltip: You're not really sure if it's colorful naturally or because you're high.
 }
 
 ChampionPlate: {
 	DisplayName: Champion Plate
-	Tooltip: ""
+	Tooltip: Forged from Champium
 }
 
 ChaosScale: {
 	DisplayName: Chaos Scale
-	Tooltip: ""
+	Tooltip: Chaos radiates from this blazing scale
 }
 
 DiscordiumBar: {
-	DisplayName: Discordium Bar
-	Tooltip: ""
+	DisplayName: Discordium
+	Tooltip: The World Chaoses melded together into a single, powerful bar
 }
 
 IncineriteBar: {
 	DisplayName: Incinerite Bar
-	Tooltip: ""
+	Tooltip: Careful. It's hot.
 }
 
 IncineriteOre: {
-	DisplayName: Incinerite Ore
-	Tooltip: ""
+	DisplayName: Incinerite
+	Tooltip: This stuff is really friggin' hot. Careful.
 }
 
 ScorchedScale: {
 	DisplayName: Scorched Scale
-	Tooltip: ""
+	Tooltip: The scale of a formidable foe
 }
 
 RadiantIncineriteBar: {
 	DisplayName: Radiant Incinerite Bar
-	Tooltip: ""
+	Tooltip: You can barely look at it, it's so bright
 }
 
 DreadScale: {
 	DisplayName: Dread Scale
-	Tooltip: ""
+	Tooltip: The power of the dread moon is in your hands
 }
 
 EventideAbyssiumOre: {
 	DisplayName: Eventide Abyssium Ore
-	Tooltip: ""
+	Tooltip: It's cold and wet, like an evening in a swampy marsh
 }
 
 DarkEnergy: {
 	DisplayName: Dark Energy
-	Tooltip: ""
+	Tooltip: It's oddly weightless
 }
 
 ApocalyptiteOre: {
-	DisplayName: Apocalyptite Ore
+	DisplayName: Apocalyptite
 	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: Fulgurite Bar
+	Tooltip: It's static-y
+}
+
+FulguriteShard: {
+	DisplayName: Fulgurite Shard
+	Tooltip: The fury of a thousand bolts of lightning run through this shard
+}
+
+RealityBar: {
+	DisplayName: Reality Bar
+	Tooltip: Raw, interdimensional energy
+}
+
+Infinitium: {
+	DisplayName: Infinitium
+	Tooltip: Pure, unpredictable malice
 }
 
 ShinyCharm: {
 	DisplayName: Shiny Charm
-	Tooltip: ""
+	Tooltip: A rare charm that allows you to make certain weapons shiny
 }
 
 ShinyCharmFish: {
 	DisplayName: Shiny Charm Fish
-	Tooltip: ""
+	Tooltip: A kind of rare fish
 }
 
 EXSoul: {
-	DisplayName: E X Soul
-	Tooltip: ""
+	DisplayName: EX Soul
+	Tooltip: Essence of ancient, arcane magic
 }
 
 BiomePrism: {
 	DisplayName: Biome Prism
-	Tooltip: ""
+	Tooltip: A magical prism that can be enhanced with the power of a biome.
 }
 
 M79Parts: {
@@ -85,47 +105,47 @@ M79Parts: {
 
 BlueAlchemicalMushroom: {
 	DisplayName: Blue Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 BrownAlchemicalMushroom: {
 	DisplayName: Brown Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 GrayAlchemicalMushroom: {
 	DisplayName: Gray Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 GreenAlchemicalMushroom: {
 	DisplayName: Green Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 OrangeAlchemicalMushroom: {
 	DisplayName: Orange Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 PinkAlchemicalMushroom: {
 	DisplayName: Pink Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 PurpleAlchemicalMushroom: {
 	DisplayName: Purple Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 RedAlchemicalMushroom: {
 	DisplayName: Red Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 YellowAlchemicalMushroom: {
 	DisplayName: Yellow Alchemical Mushroom
-	Tooltip: ""
+	Tooltip: It smells weird
 }
 
 GoddessFeather: {
@@ -135,32 +155,32 @@ GoddessFeather: {
 
 SeraphFeather: {
 	DisplayName: Seraph Feather
-	Tooltip: ""
+	Tooltip: A silvery feather from a harpy seraph
 }
 
 SkyCrystal: {
 	DisplayName: Sky Crystal
-	Tooltip: ""
+	Tooltip: A beautiful crystal, said to contain a piece of the sky
 }
 
 StormSphere: {
 	DisplayName: Storm Sphere
-	Tooltip: ""
+	Tooltip: A supercharged crystal sphere of Varian Energy
 }
 
 RajahPelt: {
-	DisplayName: Rajah Pelt
-	Tooltip: ""
+	DisplayName: Rabbit Pelt
+	Tooltip: Surpisingly durable for a pelt of fur
 }
 
 ChaosPrism: {
 	DisplayName: Chaos Prism
-	Tooltip: ""
+	Tooltip: Imbued with the discordian flames of chaos
 }
 
 ChaosSoul: {
 	DisplayName: Chaos Soul
-	Tooltip: ""
+	Tooltip: Solid discord, symbolizing unrest and Anarchy itself
 }
 
 DesertMana: {
@@ -170,7 +190,7 @@ DesertMana: {
 
 DynaskullFossil: {
 	DisplayName: Dynaskull Fossil
-	Tooltip: ""
+	Tooltip: The energy of millions of years pulsates through this ancient fossil
 }
 
 VultureFeather: {
@@ -195,47 +215,51 @@ GlowingMushium: {
 
 GlowingMushiumBar: {
 	DisplayName: Glowing Mushium Bar
-	Tooltip: ""
+	Tooltip: Glowy
 }
 
 HallowedOre: {
 	DisplayName: Hallowed Ore
-	Tooltip: ""
+	Tooltip: It's super bright
 }
 
 DevilSilk: {
 	DisplayName: Devil Silk
-	Tooltip: ""
+	Tooltip: Physical Sin; feels good, but it isn't a good long-lasting material
 }
 
 PureEvil: {
 	DisplayName: Pure Evil
-	Tooltip: ""
+	Tooltip: So insidious, you feel guilty just looking at it
 }
 
 CovetiteCrystal: {
 	DisplayName: Covetite Crystal
-	Tooltip: ""
+	Tooltip:
+		'''
+		You have a strange desire for this crystal, 
+		despite you already owning it.
+		'''
 }
 
 StoneShell: {
 	DisplayName: Stone Shell
-	Tooltip: ""
+	Tooltip: Harder than bedrock but lighter than pumice
 }
 
 CovetiteBar: {
 	DisplayName: Covetite Bar
-	Tooltip: ""
+	Tooltip: It's somehow shiny but not at the same time. How did greed fall for this?
 }
 
 CovetiteOre: {
 	DisplayName: Covetite Ore
-	Tooltip: ""
+	Tooltip: Only a fool would want this. Makes sense why greed has it.
 }
 
 DragonClaw_Item: {
-	DisplayName: Dragon Claw_ Item
-	Tooltip: ""
+	DisplayName: Dragon Claw
+	Tooltip: Don't prick yourself
 }
 
 DragonScale: {
@@ -244,33 +268,33 @@ DragonScale: {
 }
 
 Hotshroom: {
-	DisplayName: Hotshroom
-	Tooltip: ""
+	DisplayName: Solar Mushroom
+	Tooltip: Only grows during the day
 }
 
 DragonFire: {
-	DisplayName: Dragon Fire
-	Tooltip: ""
+	DisplayName: Dragon's Fire
+	Tooltip: It's really really hot.
 }
 
 SoulOfSmite: {
-	DisplayName: Soul Of Smite
-	Tooltip: ""
+	DisplayName: Soul of Smite
+	Tooltip: The essence of Inferno creatures
 }
 
 CrucibleScale: {
 	DisplayName: Crucible Scale
-	Tooltip: ""
+	Tooltip: The fury of the draconian sun eminates from this scale
 }
 
 DaybreakIncineriteBar: {
-	DisplayName: Daybreak Incinerite Bar
-	Tooltip: ""
+	DisplayName: Daybreak Incinerite
+	Tooltip: Bright as the radiant sun
 }
 
 DaybreakIncineriteOre: {
 	DisplayName: Daybreak Incinerite Ore
-	Tooltip: ""
+	Tooltip: It's warm to the touch, like a bright summer morning.
 }
 
 SearingSpark: {
@@ -280,7 +304,7 @@ SearingSpark: {
 
 PlanteraPetal: {
 	DisplayName: Plantera Petal
-	Tooltip: ""
+	Tooltip: It's very pink
 }
 
 MadnessFragment: {
@@ -290,32 +314,32 @@ MadnessFragment: {
 
 AbyssiumBar: {
 	DisplayName: Abyssium Bar
-	Tooltip: ""
+	Tooltip: Solid Darkness
 }
 
 AbyssiumOre: {
-	DisplayName: Abyssium Ore
-	Tooltip: ""
+	DisplayName: Abyssium
+	Tooltip: It's all mushy. Nasty.
 }
 
 BlackLotus: {
 	DisplayName: Black Lotus
-	Tooltip: ""
+	Tooltip: It's said that someone offered $160000 for this thing.
 }
 
 Darkshroom: {
-	DisplayName: Darkshroom
-	Tooltip: ""
+	DisplayName: Lunar Mushroom
+	Tooltip: Only grows at night
 }
 
 HydraClaw_Item: {
-	DisplayName: Hydra Claw_ Item
-	Tooltip: ""
+	DisplayName: Hydra Claw
+	Tooltip: Don't prick yourself
 }
 
 HydraHide: {
 	DisplayName: Hydra Hide
-	Tooltip: ""
+	Tooltip: The skin of a formidable foe
 }
 
 MirePod: {
@@ -325,22 +349,22 @@ MirePod: {
 
 Bogtoxin: {
 	DisplayName: Bogtoxin
-	Tooltip: ""
+	Tooltip: Exceedingly corrosive venom.
 }
 
 DeepAbyssiumBar: {
 	DisplayName: Deep Abyssium Bar
-	Tooltip: ""
+	Tooltip: It's a wonder you can even see it, it's so dark
 }
 
 SoulOfSpite: {
-	DisplayName: Soul Of Spite
-	Tooltip: ""
+	DisplayName: Soul of Spite
+	Tooltip: The essence of Mire creatures
 }
 
 EventideAbyssiumBar: {
-	DisplayName: Eventide Abyssium Bar
-	Tooltip: ""
+	DisplayName: Eventide Abyssium
+	Tooltip: Cold as the evening moon
 }
 
 TerrorSoul: {
@@ -355,12 +379,12 @@ Mushium: {
 
 MushiumBar: {
 	DisplayName: Mushium Bar
-	Tooltip: ""
+	Tooltip: Mushy
 }
 
 DragonSpirit: {
 	DisplayName: Dragon Spirit
-	Tooltip: ""
+	Tooltip: It looks apple-flavored
 }
 
 RelicBar: {
@@ -379,33 +403,33 @@ VikingRelic: {
 }
 
 DarkmatterBar: {
-	DisplayName: Darkmatter Bar
-	Tooltip: ""
+	DisplayName: Dark Matter
+	Tooltip: The building blocks of physics itself
 }
 
 DarkmatterOre: {
 	DisplayName: Darkmatter Ore
-	Tooltip: ""
+	Tooltip: It feels weightless, yet it still has some kind of mass to it
 }
 
 RadiantPhoton: {
 	DisplayName: Radiant Photon
-	Tooltip: ""
+	Tooltip: A shard of the heavenly cosmos
 }
 
 RadiumBar: {
 	DisplayName: Radium Bar
-	Tooltip: ""
+	Tooltip: It's sparkly
 }
 
 RadiumOre: {
 	DisplayName: Radium Ore
-	Tooltip: ""
+	Tooltip: Twinkles like the stars in the midnight skies
 }
 
 HeroRelics: {
 	DisplayName: Hero Relics
-	Tooltip: ""
+	Tooltip: Shards of a shattered relic
 }
 
 TerraShard: {
@@ -415,50 +439,34 @@ TerraShard: {
 
 TerraPrism: {
 	DisplayName: Terra Prism
-	Tooltip: ""
+	Tooltip: Imbued with the unified harmony of the land of Terraria
 }
 
 Prism: {
 	DisplayName: Prism
-	Tooltip: ""
+	Tooltip: Shines with the colors of all the gems
 }
 
 DoomiteBar: {
 	DisplayName: Doomite Bar
-	Tooltip: ""
+	Tooltip: Unsettling energy radiates from this bar
 }
 
 DoomiteScrap: {
 	DisplayName: Doomite Scrap
-	Tooltip: ""
+	Tooltip:
+		'''
+		It's worthless
+		...or is it?
+		'''
 }
 
 ApocalyptitePlate: {
 	DisplayName: Apocalyptite Plate
-	Tooltip: ""
+	Tooltip: A forboding energy rings from this metal plating
 }
 
 UnstableSingularity: {
 	DisplayName: Unstable Singularity
-	Tooltip: ""
-}
-
-FulguriteBar: {
-	DisplayName: Fulgurite Bar
-	Tooltip: ""
-}
-
-RealityBar: {
-	DisplayName: Reality Bar
-	Tooltip: ""
-}
-
-Infinitium: {
-	DisplayName: Infinitium
-	Tooltip: ""
-}
-
-FulguriteShard: {
-	DisplayName: Fulgurite Shard
-	Tooltip: ""
+	Tooltip: Barely stable enough to hold
 }
