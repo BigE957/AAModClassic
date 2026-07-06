@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<FleshrendChestplate>() && legs.type == ModContent.ItemType<FleshrendLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .07f;
 

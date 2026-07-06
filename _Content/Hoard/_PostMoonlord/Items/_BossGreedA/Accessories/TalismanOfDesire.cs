@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessorie
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new CharmOfDesireEffect(40));
             AddEffect<GoldRingEffect>();

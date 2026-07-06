@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<BiomiteChestplate>() && legs.type == ModContent.ItemType<BiomiteLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
 			AddSetEffect<BiomiteHelmetSetEffect>();
         }

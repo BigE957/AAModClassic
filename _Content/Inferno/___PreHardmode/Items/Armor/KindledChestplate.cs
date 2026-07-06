@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 			Item.defense = 7;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new BuffImmunityEffect(BuffID.OnFire));
         }

@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessor
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<ArtifactOfGuiltEffect>();
         }

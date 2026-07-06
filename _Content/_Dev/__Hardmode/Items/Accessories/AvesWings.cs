@@ -42,7 +42,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             }
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(300));
         }

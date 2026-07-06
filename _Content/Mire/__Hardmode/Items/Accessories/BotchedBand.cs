@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += 0.10f;
             AddEffect(new MovementSpeedEffect(0.10f));

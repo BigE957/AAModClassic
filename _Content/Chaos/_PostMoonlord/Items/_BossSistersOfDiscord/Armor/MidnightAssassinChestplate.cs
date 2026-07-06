@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Item.defense = 29;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .14f;
             damageMap.GetDamage(DamageClass.Ranged) += .14f;

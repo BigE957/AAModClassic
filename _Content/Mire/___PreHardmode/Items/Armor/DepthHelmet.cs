@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<DepthChestplate>() && legs.type == ModContent.ItemType<DepthLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += .08f;
             AddEffect(new MovementSpeedEffect(0.25f));

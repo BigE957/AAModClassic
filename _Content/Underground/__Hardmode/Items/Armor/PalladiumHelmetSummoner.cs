@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             return body.type == ItemID.PalladiumBreastplate && legs.type == ItemID.PalladiumLeggings;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.15f;
             AddEffect(new MaxManaEffect(40));

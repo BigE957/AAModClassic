@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<BlazingChestplate>() && legs.type == ModContent.ItemType<BlazingLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.03f;
             AddEffect(new EnduranceEffect(0.01f));

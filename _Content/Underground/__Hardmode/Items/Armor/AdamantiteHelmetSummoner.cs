@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             return body.type == ItemID.AdamantiteBreastplate && legs.type == ItemID.AdamantiteLeggings;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.3f;
             AddEffect(new MaxManaEffect(80));

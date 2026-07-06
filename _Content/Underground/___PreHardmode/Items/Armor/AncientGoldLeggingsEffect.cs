@@ -36,6 +36,8 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 
     public class AncientGoldLeggingsNPC : GlobalNPC
     {
+        public override bool InstancePerEntity => true;
+
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             if (spawnInfo.Player.GetModPlayer<AncientGoldLeggingsPlayer>().effect && spawnInfo.Player.GetModPlayer<AncientGoldLeggingsPlayer>().isStripeman)

@@ -100,6 +100,7 @@ base
 -titanium face paint gives the 1.4 armor set effect instead of shadow dodge
 -hallowed face paint gives the 1.4 armor set effect instead of just minion slots
 -oroboros items are now properly named ouroboros
+-the player no longer takes 20% damage from goblins at all times
 -
 
 removed
@@ -174,7 +175,7 @@ unofficial
 -baron bunnys unused javelin no longer deals damage to the enemy every frame when impaled
 -baron bunnys visuals now work as intended 
 -baron bunny attack speed now properly scales with missing player hp
--goblin slayers set now actually reduces goblin damage by 80%
+-slightly reworked stripemans lucky leggings fishing from enemies mechanic. now immediately reels back lure on contact w enemy, chance to fish up loot is vastly increased
 -
 
 crossmod

@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessor
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.4f));
             AddEffect(new JumpStatsEffect(3.6f, 10, true));

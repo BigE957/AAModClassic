@@ -137,7 +137,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessori
             return false;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<TaiyangBaoleiEnduranceEffect>();
             AddEffect<FallDamageImmunityEffect>();

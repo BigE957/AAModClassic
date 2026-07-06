@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new FrostsparkBootsEffect(3, 9f, true));
             AddEffect(new MovementSpeedEffect(0.12f));

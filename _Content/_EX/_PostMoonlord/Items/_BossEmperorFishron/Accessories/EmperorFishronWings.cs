@@ -28,7 +28,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Acce
 			Item.accessory = true;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(270));
         }

@@ -43,7 +43,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
             recipe.Register();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .15f;
             damageMap.GetDamage(DamageClass.Default).Flat += 20;

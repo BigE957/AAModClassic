@@ -59,7 +59,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .20f;
         }

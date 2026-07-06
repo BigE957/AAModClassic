@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<NightsChestplate>() && legs.type == ModContent.ItemType<NightsLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.09f;
 

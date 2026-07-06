@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<OuroborosChestplate>() && legs.type == ModContent.ItemType<OuroborosLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddSetEffect(new DefenseEffect(3));
         }

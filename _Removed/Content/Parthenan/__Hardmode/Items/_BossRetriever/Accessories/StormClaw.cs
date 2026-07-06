@@ -30,7 +30,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
             // DisplayName.SetDefault("Storm Claw");
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Default).Flat += 20;
             AddEffect<StormClawEffect>();

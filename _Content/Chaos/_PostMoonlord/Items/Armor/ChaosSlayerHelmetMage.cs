@@ -65,7 +65,7 @@ The power of discordian rage radiates from this hood"); */
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Magic) += .32f;
             damageMap.GetCritChance(DamageClass.Magic) += 20;

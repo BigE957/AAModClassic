@@ -30,7 +30,7 @@ Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze i
             Item.defense = 3;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<HeartOfSorrowDamageBoostEffect>();
             AddEffect<HeartOfSorrowMovementSpeedEffect>();

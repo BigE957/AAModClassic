@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<KindledChestplate>() && legs.type == ModContent.ItemType<KindledLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddSetEffect(new EnduranceEffect(0.02f));
             AddSetEffect<MagmaStoneEffect>();

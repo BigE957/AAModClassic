@@ -24,7 +24,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             base.UpdateEquip(player);
             Clear();
-            RegisterEquipStats();
+            RegisterEquipEffects();
 
             for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
             {
@@ -32,6 +32,18 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                 player.GetDamage(currentClass) = player.GetDamage(currentClass).CombineWith(damageMap.GetDamage(currentClass));
                 player.GetCritChance(currentClass) += damageMap.GetCritChance(currentClass);
             }
+
+            foreach (EquipmentEffectData effect in effectMap)
+            {
+                effect.DoEffect(player);
+            }
+        }
+
+        public override void UpdateInventory(Player player)
+        {
+            base.UpdateInventory(player);
+            Clear();
+            RegisterInventoryEffects();
 
             foreach (EquipmentEffectData effect in effectMap)
             {
@@ -54,7 +66,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             base.UpdateVanity(player);
             Clear();
-            RegisterAccVanity();
+            RegisterVanityEffects();
 
             foreach (EquipmentEffectData effect in effectMap)
             {
@@ -66,7 +78,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             base.UpdateArmorSet(player);
             Clear();
-            RegisterEquipStats();
+            RegisterEquipEffects();
 
             for (int i = 0; i < DamageClassLoader.DamageClassCount; i++)
             {
@@ -84,12 +96,17 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
         #endregion
 
-        public virtual void RegisterEquipStats()
+        public virtual void RegisterEquipEffects()
         {
 
         }
 
-        public virtual void RegisterAccVanity()
+        public virtual void RegisterVanityEffects()
+        {
+
+        }
+
+        public virtual void RegisterInventoryEffects()
         {
 
         }
@@ -98,7 +115,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             base.ModifyTooltips(list);
             Clear();
-            RegisterEquipStats();
+            RegisterEquipEffects();
 
             const string rootPath = "Mods.AAModClassic.EquipStats";
             const string statModifierPath = "ClassGlobalStats.StatModifier";
@@ -318,6 +335,17 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
     }
 
+    public class FishingPowerEffect(int amount) : EquipmentEffectData
+    {
+        private readonly int Amount = amount;
+        public override void DoEffect(Player player)
+        {
+            player.fishingSkill += Amount;
+        }
+
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(Amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(Amount));
+    }
+
     public class MaxLifeEffect(int amount) : EquipmentEffectData
     {
         private readonly int Amount = amount;
@@ -373,6 +401,30 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override void DoEffect(Player player)
         {
             player.accFlipper = true;
+        }
+    }
+
+    public class HighTestFishingLineEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.accFishingLine = true;
+        }
+    }
+
+    public class TackleBoxEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.accTackleBox = true;
+        }
+    }
+
+    public class SonarEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.sonarPotion = true;
         }
     }
 
@@ -469,6 +521,39 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override void DoEffect(Player player)
         {
             player.noKnockback = true;
+        }
+    }
+
+    public class PDAEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.accWatch = 3;
+            player.accDepthMeter = 1;
+            player.accCompass = 1;
+            player.accFishFinder = true;
+            player.accWeatherRadio = true;
+            player.accCalendar = true;
+            player.accThirdEye = true;
+            player.accJarOfSouls = true;
+            player.accCritterGuide = true;
+            player.accStopwatch = true;
+            player.accOreFinder = true;
+            player.accDreamCatcher = true;
+        }
+    }
+
+    // got lazy
+    public class ArcticDivingGearEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.arcticDivingGear = true;
+            player.accFlipper = true;
+            player.accDivingHelm = true;
+            player.iceSkate = true;
+            if (player.wet)
+                Lighting.AddLight((int)player.Center.X / 16, (int)player.Center.Y / 16, 0.2f, 0.8f, 0.9f);
         }
     }
 

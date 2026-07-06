@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
 			Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(180));
         }

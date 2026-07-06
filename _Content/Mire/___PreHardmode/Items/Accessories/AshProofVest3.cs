@@ -85,7 +85,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
             }
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<AshProofVestEffect>();
         }

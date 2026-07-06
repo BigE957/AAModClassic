@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 			Item.defense = 28;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.18f));
             AddEffect(new MaxRunSpeedEffect(0.18f));

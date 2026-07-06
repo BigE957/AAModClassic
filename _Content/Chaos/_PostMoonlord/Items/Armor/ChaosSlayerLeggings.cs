@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new EnduranceEffect(0.02f));
             AddEffect(new MovementSpeedEffect(0.45f));

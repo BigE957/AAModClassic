@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
 			return body.type == ModContent.ItemType<HoppingHoodlumChestplate>() && legs.type == ModContent.ItemType<HoppingHoodlumLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .18f;
             damageMap.GetDamage(DamageClass.Summon) += .18f;

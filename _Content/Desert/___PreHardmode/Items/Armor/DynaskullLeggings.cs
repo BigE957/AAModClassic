@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 			Item.defense = 7;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Ranged) += 12;
         }

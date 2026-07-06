@@ -39,12 +39,12 @@ Athena is boosted by minion damage"); */
             return incomingItem.type != ModContent.ItemType<SeraphHarp>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<GoddessHarpEffect>();
         }
 
-        public override void RegisterAccVanity()
+        public override void RegisterVanityEffects()
         {
             AddEffect<GoddessHarpEffect>();
         }

@@ -83,7 +83,7 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
             return false;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.14f;
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;

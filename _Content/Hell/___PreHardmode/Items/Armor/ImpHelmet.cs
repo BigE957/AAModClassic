@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<ImpChestplate>() && legs.type == ModContent.ItemType<ImpLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.07f;
             AddEffect(new MaxMinionSlotEffect(1));

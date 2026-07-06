@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Acce
             /* Tooltip.SetDefault(@"'It's Shiny'"); */
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new EquinoxDayNightStatBoostsEffect());
             AddEffect(new EmitLightFromPlayerEffect(1f, 0.95f, 0.8f));

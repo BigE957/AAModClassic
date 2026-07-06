@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<DarkDoomiteChestplate>() && legs.type == ModContent.ItemType<DarkDoomiteLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.05f;
 

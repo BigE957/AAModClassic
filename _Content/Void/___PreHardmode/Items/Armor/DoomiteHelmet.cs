@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<DoomiteChestplate>() && legs.type == ModContent.ItemType<DoomiteLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MaxMinionSlotEffect(1));
 

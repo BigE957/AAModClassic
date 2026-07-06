@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .07f;
         }

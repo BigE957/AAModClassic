@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Armor
 			return body.type == ModContent.ItemType<OlympianChestplate>() && legs.type == ModContent.ItemType<OlympianLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
 			setDamageMap.GetCritChance(DamageClass.Generic) += 60;
 			AddSetEffect<OlympianHelmetSetDescEffect>();

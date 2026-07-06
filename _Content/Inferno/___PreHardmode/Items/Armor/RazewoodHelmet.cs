@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<RazewoodChestplate>() && legs.type == ModContent.ItemType<RazewoodLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddSetEffect(new DefenseEffect(1));
         }

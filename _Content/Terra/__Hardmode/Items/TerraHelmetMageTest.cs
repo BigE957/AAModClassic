@@ -32,9 +32,9 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items
             Item.defense = 22;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
-            base.RegisterEquipStats();
+            base.RegisterEquipEffects();
 
             damageMap.GetDamage(DamageClass.Magic) += 0.20f;
             damageMap.GetArmorPenetration(DamageClass.Magic) += 5;

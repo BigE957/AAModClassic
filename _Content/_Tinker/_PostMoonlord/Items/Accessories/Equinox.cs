@@ -31,7 +31,7 @@ namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<MoonCharmEffect>();
             AddEffect<NeptunesShellEffect>();

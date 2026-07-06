@@ -43,7 +43,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             modPlayer.CCBook = true;
         }
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<APageOfTheRuneBookEffect>();
         }

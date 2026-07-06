@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Armor
             Item.defense = 7;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.09f;
         }

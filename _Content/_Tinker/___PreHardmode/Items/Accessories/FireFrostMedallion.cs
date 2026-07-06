@@ -24,7 +24,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<SandstormMedallionEffect>();
             AddEffect<ArcticMedallionEffect>();

@@ -25,7 +25,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .10f;
             damageMap.GetAttackSpeed(DamageClass.Melee) += .10f;

@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Armor
 			return body.type == ItemID.HallowedPlateMail && legs.type == ItemID.HallowedGreaves;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += .32f;
             AddEffect(new MaxManaEffect(100));

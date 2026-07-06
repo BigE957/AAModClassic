@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MaxLifeEffect(50));
         }

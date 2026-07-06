@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 			return body.type == ModContent.ItemType<MidnightAssassinChestplate>() && legs.type == ModContent.ItemType<MidnightAssassinLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .13f;
             damageMap.GetDamage(DamageClass.Ranged) += .13f;

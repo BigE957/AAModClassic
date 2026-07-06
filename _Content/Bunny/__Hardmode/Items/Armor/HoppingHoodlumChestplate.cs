@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
             Item.defense = 28;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(180));
             damageMap.GetAttackSpeed(DamageClass.Melee) += .1f;

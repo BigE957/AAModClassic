@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             Item.defense = 55;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .15f;
         }

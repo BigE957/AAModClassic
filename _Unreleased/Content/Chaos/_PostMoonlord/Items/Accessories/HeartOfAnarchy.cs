@@ -38,7 +38,7 @@ namespace AAModClassic._Unreleased.Content.Chaos._PostMoonlord.Items.Accessories
             Item.defense = 6;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<HeartOfAnarchyDamageBoostEffect>();
             AddEffect<HeartOfAnarchyBullshitEffect>();

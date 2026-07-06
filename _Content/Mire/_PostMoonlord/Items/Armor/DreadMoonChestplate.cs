@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Armor
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += .35f;
             AddEffect(new MovementSpeedEffect(0.20f));

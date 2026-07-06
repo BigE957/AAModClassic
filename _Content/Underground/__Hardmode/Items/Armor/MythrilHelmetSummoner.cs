@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             return body.type == ItemID.MythrilChainmail && legs.type == ItemID.MythrilGreaves;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.26f;
             AddEffect(new MaxManaEffect(60));

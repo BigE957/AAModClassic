@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 			Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new AncientGoldLeggingsEffect(false));
         }

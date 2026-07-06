@@ -33,7 +33,7 @@ Increases maximum mana by 20"); */
             return body.type == ModContent.ItemType<TribalChestplate>() && legs.type == ModContent.ItemType<TribalLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Magic) += 8;
             AddEffect(new MaxManaEffect(20));

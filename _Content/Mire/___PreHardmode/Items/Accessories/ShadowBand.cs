@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.15f));
         }

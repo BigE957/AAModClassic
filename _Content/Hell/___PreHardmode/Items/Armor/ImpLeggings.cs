@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Item.defense = 4;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.07f;
         }

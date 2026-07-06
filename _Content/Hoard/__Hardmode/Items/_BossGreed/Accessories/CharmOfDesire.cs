@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new CharmOfDesireEffect(20));
         }

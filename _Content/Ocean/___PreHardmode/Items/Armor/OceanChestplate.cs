@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 			Item.defense = 4;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
 			damageMap.GetDamage(DamageClass.Magic) += 0.05f;
 			AddEffect(new MaxManaEffect(20));

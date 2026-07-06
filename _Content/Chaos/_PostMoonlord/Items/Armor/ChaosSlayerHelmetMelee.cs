@@ -64,7 +64,7 @@ The power of discordian rage radiates from this armor"); */
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .3f;
             damageMap.GetCritChance(DamageClass.Melee) += 30;

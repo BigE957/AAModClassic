@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
             Item.defense = 3;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<DragonsGuardEffect>();
         }

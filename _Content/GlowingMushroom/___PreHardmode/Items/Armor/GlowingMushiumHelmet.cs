@@ -38,7 +38,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<GlowingMushiumChestplate>() && legs.type == ModContent.ItemType<GlowingMushiumLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new ManaRegenEffect(2));
 

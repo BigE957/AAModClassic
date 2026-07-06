@@ -28,7 +28,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
             Item.defense = 3;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Default).Flat += 5;
             AddEffect<ShieldOfCthulhuDashEffect>();

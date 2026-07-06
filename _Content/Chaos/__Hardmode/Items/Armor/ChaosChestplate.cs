@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             Item.defense = 22;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .07f;
         }

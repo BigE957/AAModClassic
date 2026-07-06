@@ -26,7 +26,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 			Item.defense = 11;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
 			damageMap.GetCritChance(DamageClass.Generic) += 5;
 			AddEffect(new MovementSpeedEffect(0.16f));

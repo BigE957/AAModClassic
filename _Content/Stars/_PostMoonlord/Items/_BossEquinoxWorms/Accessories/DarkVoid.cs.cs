@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Acce
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new EquinoxDayNightStatBoostsEffect(true));
             AddEffect<NightOwlEffect>();

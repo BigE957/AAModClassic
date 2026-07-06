@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             Item.rare = ItemRarityID.Lime;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .07f;
             AddEffect(new MovementSpeedEffect(0.10f));

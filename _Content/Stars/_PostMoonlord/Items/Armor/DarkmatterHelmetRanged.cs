@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.15f;
             AddEffect<AmmoCost80Effect>();

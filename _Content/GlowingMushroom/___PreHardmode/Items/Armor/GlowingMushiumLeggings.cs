@@ -34,7 +34,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
             Item.defense = 2;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new ManaRegenEffect(2));
         }

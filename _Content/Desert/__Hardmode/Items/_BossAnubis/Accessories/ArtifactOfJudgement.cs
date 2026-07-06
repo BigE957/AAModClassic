@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<ArtifactOfJudgementEffect>();
         }

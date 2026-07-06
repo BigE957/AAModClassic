@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 			Item.defense = 8;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.13f;
         }

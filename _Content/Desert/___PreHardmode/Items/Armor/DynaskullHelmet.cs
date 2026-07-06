@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<DynaskullChestplate>() && legs.type == ModContent.ItemType<DynaskullLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<AmmoCost80Effect>();
 

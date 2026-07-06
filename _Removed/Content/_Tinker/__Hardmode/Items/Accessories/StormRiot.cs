@@ -32,7 +32,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
             // DisplayName.SetDefault("Storm Riot Shield");
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Default).Flat += 20;
             AddEffect<StormClawEffect>();

@@ -37,7 +37,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<GoblinSlayersChestplate>() && legs.type == ModContent.ItemType<GoblinSlayersLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddSetEffect<GoblinSlayersHelmetSetDamageEffect>();
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))

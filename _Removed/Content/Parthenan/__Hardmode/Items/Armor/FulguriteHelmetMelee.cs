@@ -31,7 +31,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 			return body.type == ModContent.ItemType<FulguriteChestplate>() && legs.type == ModContent.ItemType<FulguriteLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.12f;
             damageMap.GetCritChance(DamageClass.Melee) += 12;

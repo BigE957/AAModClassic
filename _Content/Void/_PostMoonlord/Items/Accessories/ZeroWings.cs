@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Accessories
             
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(220));
         }

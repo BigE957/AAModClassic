@@ -27,7 +27,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
             Item.value = Item.sellPrice(0, 0, 25, 0);
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new LifeRegenEffect(1));
         }

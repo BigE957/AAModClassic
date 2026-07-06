@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 			return head.type == ModContent.ItemType<RaiderHelmet>() && legs.type == ModContent.ItemType<RaiderLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
 			AddSetEffect<KnockbackImmunityEffect>();
 			AddSetEffect<RaiderChestplateSetEffect>();

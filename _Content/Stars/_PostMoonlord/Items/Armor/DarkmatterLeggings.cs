@@ -60,7 +60,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             );
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.24f));
             AddEffect(new MaxRunSpeedEffect(0.24f));

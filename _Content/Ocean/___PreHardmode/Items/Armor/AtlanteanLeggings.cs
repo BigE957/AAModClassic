@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 			Item.defense = 6;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Magic) += 10;
             AddEffect<FlipperEffect>();

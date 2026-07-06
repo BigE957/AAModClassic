@@ -38,7 +38,7 @@ While Old One's Army is on, increase 31% minion damage."); */
             Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += .21f;
             AddEffect(new MaxMinionSlotEffect(1));

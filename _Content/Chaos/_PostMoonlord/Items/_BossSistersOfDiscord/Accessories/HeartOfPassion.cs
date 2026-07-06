@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Item.defense = 3;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<HeartOfPassionDamageBoostEffect>();
             AddEffect<HeartOfPassionManaRegenEffect>();

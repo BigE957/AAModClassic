@@ -46,7 +46,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             modPlayer.CCBookEX = true;
         }
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(180));
         }

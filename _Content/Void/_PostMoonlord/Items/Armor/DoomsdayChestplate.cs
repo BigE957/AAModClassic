@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
 			AddEffect(new ManaCostMultiplierEffect(0.75f));
 			AddEffect(new MaxManaEffect(50));

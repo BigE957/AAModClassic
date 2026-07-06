@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<AtlanteanChestplate>() && legs.type == ModContent.ItemType<AtlanteanLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new ManaCostEffect(-0.15f));
             AddEffect<UnlimitedBreathingUnderWaterForeverAndEverEffect>();

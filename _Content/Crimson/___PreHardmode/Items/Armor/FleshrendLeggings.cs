@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Armor
 			Item.defense = 8;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .07f;
         }

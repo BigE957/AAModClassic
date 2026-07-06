@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<DemonChestplate>() && legs.type == ModContent.ItemType<DemonLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.09f;
 

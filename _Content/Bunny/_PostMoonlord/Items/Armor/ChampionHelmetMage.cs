@@ -45,7 +45,7 @@ The armor of a champion feared across the land"); */
 			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Magic) += .22f;
             damageMap.GetDamage(DamageClass.Generic) += .1f;

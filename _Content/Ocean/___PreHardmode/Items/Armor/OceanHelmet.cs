@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<OceanChestplate>() && legs.type == ModContent.ItemType<OceanLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Magic) += 0.05f;
             AddEffect(new MaxManaEffect(20));

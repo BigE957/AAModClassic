@@ -55,7 +55,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 			return body.type == ModContent.ItemType<InfinitySlayerChestplate>() && legs.type == ModContent.ItemType<InfinitySlayerLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.35f;
             AddEffect(new EnduranceEffect(0.12f));

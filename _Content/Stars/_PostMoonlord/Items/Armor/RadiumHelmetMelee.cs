@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             return body.type == ModContent.ItemType<RadiumChestplate>() && legs.type == ModContent.ItemType<RadiumLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.15f;
 

@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Ac
             Item.defense = 3;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new EnduranceEffect(0.03f));
         }

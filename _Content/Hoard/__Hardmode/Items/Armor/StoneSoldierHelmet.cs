@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 			return body.type == ModContent.ItemType<StoneSoldierChestplate>() && legs.type == ModContent.ItemType<StoneSoldierLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MiningSpeedEffect(0.10f));
 			AddEffect<SpelunkerEffect>();

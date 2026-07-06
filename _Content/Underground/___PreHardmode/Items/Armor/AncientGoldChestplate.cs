@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 			return head.type == ItemID.AncientGoldHelmet && legs.type == ModContent.ItemType<AncientGoldLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<AncientGoldChestplateEffect>();
 

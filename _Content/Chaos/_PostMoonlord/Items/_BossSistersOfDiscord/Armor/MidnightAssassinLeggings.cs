@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .15f;
             damageMap.GetDamage(DamageClass.Ranged) += .15f;

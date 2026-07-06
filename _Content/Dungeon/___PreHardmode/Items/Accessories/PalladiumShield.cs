@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Accessories
             Item.defense = 1;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<KnockbackImmunityEffect>();
         }

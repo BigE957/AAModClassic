@@ -37,12 +37,12 @@ Seraph is boosted by minion damage"); */
             return incomingItem.type != ModContent.ItemType<GoddessHarp>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<SeraphHarpEffect>();
         }
 
-        public override void RegisterAccVanity()
+        public override void RegisterVanityEffects()
         {
             AddEffect<SeraphHarpEffect>();
         }

@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 			return body.type == ModContent.ItemType<DoomsdayChestplate>() && legs.type == ModContent.ItemType<DoomsdayLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Magic) += .25f;
             damageMap.GetCritChance(DamageClass.Magic) += 18;

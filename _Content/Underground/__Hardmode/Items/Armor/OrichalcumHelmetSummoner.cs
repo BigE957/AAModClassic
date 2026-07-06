@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Armor
             return body.type == ItemID.OrichalcumBreastplate && legs.type == ItemID.OrichalcumLeggings;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += 0.22f;
             AddEffect(new MaxManaEffect(80));

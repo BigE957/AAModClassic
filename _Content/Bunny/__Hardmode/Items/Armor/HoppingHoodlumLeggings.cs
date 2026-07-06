@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
             Item.rare = ItemRarityID.Yellow;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Melee) += 9;
             AddEffect(new MovementSpeedEffect(0.10f));

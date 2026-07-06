@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .10f;
             damageMap.GetDamage(DamageClass.Summon) += .60f;

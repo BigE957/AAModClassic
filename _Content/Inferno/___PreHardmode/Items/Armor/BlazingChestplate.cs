@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 			Item.defense = 8;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.02f;
             AddEffect(new EnduranceEffect(0.02f));

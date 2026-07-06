@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 			Item.defense = 15;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Ranged) += 24;
 

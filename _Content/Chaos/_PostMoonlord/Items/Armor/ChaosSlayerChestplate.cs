@@ -61,7 +61,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
             Item.defense = 60;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetAttackSpeed(DamageClass.Melee) += .15f;
             AddEffect(new EnduranceEffect(0.04f));

@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             return body.type == ModContent.ItemType<RadiumChestplate>() && legs.type == ModContent.ItemType<RadiumLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.20f;
             AddSetEffect(new EmitLightFromPlayerEffect(0.8f, 0.95f, 1f)); // shine potion

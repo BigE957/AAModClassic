@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 			Item.defense = 6;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.30f));
 			AddEffect(new MaxRunSpeedEffect(0.30f));

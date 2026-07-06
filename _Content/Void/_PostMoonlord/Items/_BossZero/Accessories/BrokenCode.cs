@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
             return AAColor.COLOR_WHITEFADE1;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {

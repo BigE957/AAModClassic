@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
 			return body.type == ModContent.ItemType<DraconianSunChestplate>() && legs.type == ModContent.ItemType<DraconianSunLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Melee) += 20;
 			AddEffect(new EnduranceEffect(0.03f));

@@ -42,7 +42,7 @@ namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories
         }
         */
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new JumpStatsEffect(3.6f, 25, true));
             AddEffect<FallDamageImmunityEffect>();

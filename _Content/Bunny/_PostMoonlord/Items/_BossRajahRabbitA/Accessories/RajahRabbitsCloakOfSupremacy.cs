@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Acce
             Item.defense = 10;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.4f));
             AddEffect(new JumpStatsEffect(3.6f, 40, true));

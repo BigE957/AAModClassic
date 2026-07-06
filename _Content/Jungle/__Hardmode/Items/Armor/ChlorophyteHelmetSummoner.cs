@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items.Armor
 			return body.type == ItemID.ChlorophytePlateMail && legs.type == ItemID.ChlorophyteGreaves;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Summon) += .38f;
 			AddEffect(new MaxManaEffect(80));

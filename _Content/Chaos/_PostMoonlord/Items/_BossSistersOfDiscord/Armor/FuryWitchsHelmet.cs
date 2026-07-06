@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 			return body.type == ModContent.ItemType<FuryWitchsChestplate>() && legs.type == ModContent.ItemType<FuryWitchsLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Magic) += .1f;
             damageMap.GetCritChance(DamageClass.Magic) += 10;

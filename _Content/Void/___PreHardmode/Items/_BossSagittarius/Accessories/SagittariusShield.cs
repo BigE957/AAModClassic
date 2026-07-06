@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Acces
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect<SagittariusShieldEffect>();
         }

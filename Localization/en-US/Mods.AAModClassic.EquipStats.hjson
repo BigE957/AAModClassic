@@ -425,4 +425,25 @@ Effect: {
 	AncientGoldChestplateEffect: You have a chance to find gold coins while mining through stone
 	AncientGoldChestplateSetEffect: If you have more gold coins than the value of damage taken, you will dodge the attack in exchange for your money
 	AncientGoldLeggingsEffect: Increased chance to find golden critters
+	StripemansLuckyLeggingsEffect: 
+		'''
+		Doubles caught fish
+		Chance to catch a crate alongside doubled fish
+		You have a chance to steal loot from enemies by snagging them with a fishing rod
+		You can pick up items from the ground with a fishing rod
+		'''
+	StripemansLuckyChestplateEffect: 
+	StripemansLuckyHelmetEffect:
+	StripemansLuckyHelmetSetEffect: 
+	FishingPowerEffect: "{0} fishing power by {1}"
+	HighTestFishingLineEffect: Fishing line will never break
+	TackleBoxEffect: Decreases chance of bait consumption
+	SonarEffect: Detects hooked fish
+	PDAEffect: Displays everything
+	ArcticDivingGearEffect: 
+		'''
+		Grants the ability to swim and greatly extends underwater breathing
+		Provides extra mobility on ice
+		Generates a very subtle glow which becomes more vibrant underwater
+		'''
 }

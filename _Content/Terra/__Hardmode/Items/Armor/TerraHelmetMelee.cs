@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 			return body.type == ModContent.ItemType<TerraChestplate>() && legs.type == ModContent.ItemType<TerraLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += .22f;
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.09f;

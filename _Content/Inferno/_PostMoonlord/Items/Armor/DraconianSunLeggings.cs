@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Armor
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.15f;
             AddEffect(new MovementSpeedEffect(0.16f));

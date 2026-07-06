@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
             Lighting.AddLight(Item.Center, Color.DarkMagenta.ToVector3() * 0.55f * Main.essScale);
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .15f;
             damageMap.GetDamage(DamageClass.Default).Flat += 5;

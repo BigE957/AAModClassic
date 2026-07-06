@@ -27,7 +27,7 @@ namespace AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories
             
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MovementSpeedEffect(0.5f));
             AddEffect(new MaxRunSpeedEffect(0.5f));

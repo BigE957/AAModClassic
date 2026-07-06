@@ -130,7 +130,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
             return false;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.09f;
             AddEffect<NaitokurosuMireEffect>();

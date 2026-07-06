@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<DeathlyChestplate>() && legs.type == ModContent.ItemType<DeathlyLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.09f;
 

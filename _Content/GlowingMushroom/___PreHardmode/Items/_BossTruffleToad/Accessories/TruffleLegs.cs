@@ -30,7 +30,7 @@ Increased jump height"); */
             Item.expert = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new JumpStatsEffect(1.5f, 20, true));
             AddEffect<FallDamageImmunityEffect>();

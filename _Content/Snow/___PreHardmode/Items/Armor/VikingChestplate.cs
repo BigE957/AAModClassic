@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 			return head.type == ModContent.ItemType<VikingHelmet>() && legs.type == ModContent.ItemType<VikingLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.07f;
 

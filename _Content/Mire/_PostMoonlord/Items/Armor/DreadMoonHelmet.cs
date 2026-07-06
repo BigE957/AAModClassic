@@ -42,7 +42,7 @@ The abyssal wrath of the Mire rests in this armor"); */
 			return body.type == ModContent.ItemType<DreadMoonChestplate>() && legs.type == ModContent.ItemType<DreadMoonLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetCritChance(DamageClass.Ranged) += 24;
             AddEffect(new MovementSpeedEffect(0.20f));

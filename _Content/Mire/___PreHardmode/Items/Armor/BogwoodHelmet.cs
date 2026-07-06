@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<BogwoodChestplate>() && legs.type == ModContent.ItemType<BogwoodLeggings>();
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new DefenseEffect(1));
         }

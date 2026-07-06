@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
 			Item.accessory = true;
         }
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(170));
             AddEffect<OlympianWingsEffect>();

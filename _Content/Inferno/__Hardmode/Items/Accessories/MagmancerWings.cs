@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Accessories
             Item.alpha = 100;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new WingTimeMaxEffect(120));
         }

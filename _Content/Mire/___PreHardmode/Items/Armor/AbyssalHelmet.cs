@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<AbyssalChestplate>() && legs.type == ModContent.ItemType<AbyssalLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Ranged) += .15f;
             AddEffect(new MovementSpeedEffect(0.35f));

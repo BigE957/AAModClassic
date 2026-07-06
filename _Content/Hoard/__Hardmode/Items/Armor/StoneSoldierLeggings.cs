@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 			Item.defense = 16;
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new MiningSpeedEffect(0.15f));
         }

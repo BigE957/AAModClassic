@@ -32,7 +32,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<MushiumChestplate>() && legs.type == ModContent.ItemType<MushiumLeggings>();
 		}
 
-        public override void RegisterEquipStats()
+        public override void RegisterEquipEffects()
         {
             AddEffect(new LifeRegenEffect(1));
 
