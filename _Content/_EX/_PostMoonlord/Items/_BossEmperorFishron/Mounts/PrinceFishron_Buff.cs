@@ -7,8 +7,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Moun
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Pretty Pony");
-            // Description.SetDefault("Its a horse.");
+            // DisplayName.SetDefault("Prince Fishron");
+            // Description.SetDefault("The fishron heir");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }
