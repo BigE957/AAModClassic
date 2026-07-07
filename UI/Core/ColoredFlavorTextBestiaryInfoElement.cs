@@ -33,7 +33,6 @@ namespace AAModClassic.UI.Core
 
             if (_key == "Mods.AAModClassic.Bestiary.Oblivion")
             {
-                Main.NewText("oblivion");
                 UIElement probablyInfoPage = Main.BestiaryUI.Children.ToArray()[0].Children.ToArray()[1].Children.ToArray()[1].Children.ToArray()[1];
                 if (probablyInfoPage is UIBestiaryEntryInfoPage infoPage)
                 {

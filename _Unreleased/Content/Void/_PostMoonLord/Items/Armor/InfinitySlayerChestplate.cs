@@ -39,7 +39,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
             damageMap.GetDamage(DamageClass.Ranged) += 0.35f;
             AddEffect(new EnduranceEffect(0.12f));
             AddEffect<AmmoCost75Effect>();
-            Main.NewText(Main.LocalPlayer.GetModPlayer<ZAAPlayer>().MaxMovespeedboost);
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

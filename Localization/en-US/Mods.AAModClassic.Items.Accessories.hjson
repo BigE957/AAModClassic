@@ -265,7 +265,7 @@ HydraPendant: {
 
 AshProofVest0: {
 	DisplayName: Ash-Proof Vest
-	Tooltip: 
+	Tooltip:
 		'''
 		"{$Accessories.AshProofVest3.SharedFlavorText}"
 		Vest Status: Ashes in the wind...
@@ -274,7 +274,7 @@ AshProofVest0: {
 
 AshProofVest1: {
 	DisplayName: Ash-Proof Vest
-	Tooltip: 
+	Tooltip:
 		'''
 		"{$Accessories.AshProofVest3.SharedFlavorText}"
 		Vest Status: Going going gone
@@ -283,7 +283,7 @@ AshProofVest1: {
 
 AshProofVest2: {
 	DisplayName: Ash-Proof Vest
-	Tooltip: 
+	Tooltip:
 		'''
 		"{$Accessories.AshProofVest3.SharedFlavorText}"
 		Vest Status: Seen better days
@@ -291,9 +291,9 @@ AshProofVest2: {
 }
 
 AshProofVest3: {
-	SharedFlavorText: "Lingering in the firestorm for too long will degrade this accessory and cause it to break..."
+	SharedFlavorText: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
 	DisplayName: Ash-Proof Vest
-	Tooltip: 
+	Tooltip:
 		'''
 		"{$Accessories.AshProofVest3.SharedFlavorText}"
 		Vest Status: Good as new
