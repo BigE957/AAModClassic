@@ -142,7 +142,7 @@ AllBossesKilled: {
 //Ores Mined
 ChaosOreMined: {
 	FriendlyName: Chaos Control
-	Description: Mire Incinerite or Abyssium, chaotic ore found deep underground.
+	Description: Mine Incinerite or Abyssium, chaotic ore found deep underground.
 }
 
 CelestialOreMined: {
@@ -157,7 +157,7 @@ TierThreeChaosOreMined: {
 
 ApocalyptiteOreMined: {
 	FriendlyName: Apocalypse Now
-	Description: Mire Apocalyptite, an unstable ore formed by the destructive energies of the Void.
+	Description: Mine Apocalyptite, an unstable ore formed by the destructive energies of the Void.
 }
 
 //Items Obtained
