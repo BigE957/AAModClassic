@@ -24,3 +24,265 @@ GreedChest: {
 	GreedChest2: You hear a scream echo through the caverns...
 	GreedChest3: HANDS OFF MY LOOT YOU THIEVING APE!!!
 }
+
+AvesInABox_Tile.MapEntry: Aves In A Box
+DevStatue_Tile.MapEntry: Dev Statue
+AleisterBook_Tile.MapEntry: Aleister Book
+CCBag_Tile.MapEntry: C C Bag
+CerberusBag_Tile.MapEntry: Cerberus Bag
+CrystalChandelier_Tile.MapEntry: Crystal Chandelier
+EnderMemory_Tile.MapEntry: Ender Memory
+FurnitureDynamo_Tile.MapEntry: Furniture Dynamo
+AthenaBox_Tile.MapEntry: Athena Box
+AcropolisBox_Tile.MapEntry: Acropolis Box
+AthenaAwakenedBox_Tile.MapEntry: Athena Awakened Box
+SkyCrystal_Tile.MapEntry: Sky Crystal
+AcropolisAltar_Tile.MapEntry: Acropolis Altar
+RajahBox_Tile.MapEntry: Rajah Box
+RoyalRabbitCage_Tile.MapEntry: Royal Rabbit Cage
+RajahAwakenedBox_Tile.MapEntry: Rajah Awakened Box
+GripsBox_Tile.MapEntry: Grips Box
+RitualAltar_Tile.MapEntry: Ritual Altar
+ShenAwakenedBox_Tile.MapEntry: Shen Awakened Box
+ShenBox_Tile.MapEntry: Shen Box
+SistersBox_Tile.MapEntry: Sisters Box
+ChaosPreShenBox_Tile.MapEntry: Chaos Pre Shen Box
+DiscordianTorch_Tile.MapEntry: Discordian Torch
+AnyAncientCraftingStation_Tile.MapEntry: Any Ancient Crafting Station
+ChaosCrucible_Tile.MapEntry: Chaos Crucible
+ChaosAltarSafe_Tile.MapEntry: Chaos Altar Safe
+DjinnBox_Tile.MapEntry: Djinn Box
+DynaskullFossil_Tile.MapEntry: Dynaskull Fossil
+AnubisBox_Tile.MapEntry: Anubis Box
+AnubisAwakenedBox_Tile.MapEntry: Anubis Awakened Box
+EvilAltarSafe_Tile.MapEntry: Evil Altar Safe
+FungusBox_Tile.MapEntry: Fungus Box
+TruffleToadBox_Tile.MapEntry: Truffle Toad Box
+HallowedOre_Tile.MapEntry: Hallowed Ore
+ThixxieBanner_Tile.MapEntry: Thixxie Banner
+HallowedAnvil_Tile.MapEntry: Hallowed Anvil
+HallowedForge_Tile.MapEntry: Hallowed Forge
+PaladinsSmeltery_Tile.MapEntry: Paladins Smeltery
+TruePaladinsSmeltery_Tile.MapEntry: True Paladins Smeltery
+FatPixie_Banner_Tile.MapEntry: Fat Pixie_ Banner
+HaphestusForge_Tile.MapEntry: Haphestus Forge
+HellstoneAnvil_Tile.MapEntry: Hellstone Anvil
+Throne_Tile.MapEntry: Throne
+GreedBox_Tile.MapEntry: Greed Box
+HoardBox_Tile.MapEntry: Hoard Box
+GreedAwakenedBox_Tile.MapEntry: Greed Awakened Box
+CovetiteOre_Tile.MapEntry: Covetite Ore
+GreedAltar_Tile.MapEntry: Greed Altar
+GreedChest_Tile.MapEntry: Greed Chest
+GreedLantern_Tile.MapEntry: Greed Lantern
+BroodmotherBox_Tile.MapEntry: Broodmother Box
+IncineriteOre_Tile.MapEntry: Incinerite Ore
+RazewoodBed_Tile.MapEntry: Razewood Bed
+RazewoodBookshelf_Tile.MapEntry: Razewood Bookshelf
+RazewoodCandelabra_Tile.MapEntry: Razewood Candelabra
+RazewoodCandle_Tile.MapEntry: Razewood Candle
+RazewoodChair_Tile.MapEntry: Razewood Chair
+RazewoodChandelier_Tile.MapEntry: Razewood Chandelier
+RazewoodChest_Tile.MapEntry: Razewood Chest
+RazewoodClock_Tile.MapEntry: Razewood Clock
+RazewoodCouch_Tile.MapEntry: Razewood Couch
+RazewoodDoorClosed_Tile.MapEntry: Razewood Door Closed
+RazewoodDoorOpen_Tile.MapEntry: Razewood Door Open
+RazewoodDresser_Tile.MapEntry: Razewood Dresser
+RazewoodLamp_Tile.MapEntry: Razewood Lamp
+RazewoodLantern_Tile.MapEntry: Razewood Lantern
+RazewoodPiano_Tile.MapEntry: Razewood Piano
+RazewoodSink_Tile.MapEntry: Razewood Sink
+RazewoodTable_Tile.MapEntry: Razewood Table
+RazewoodTub_Tile.MapEntry: Razewood Tub
+RazewoodWorkbench_Tile.MapEntry: Razewood Workbench
+DragonfireTorch_Tile.MapEntry: Dragonfire Torch
+InfernoNightBox_Tile.MapEntry: Inferno Night Box
+InfernoSurfaceBox_Tile.MapEntry: Inferno Surface Box
+InfernoUndergroundBox_Tile.MapEntry: Inferno Underground Box
+SharpeningLavaFish_Tile.MapEntry: Sharpening Lava Fish
+AkumaAwakenedBox_Tile.MapEntry: Akuma Awakened Box
+AkumaBox_Tile.MapEntry: Akuma Box
+DaybreakIncineriteOre_Tile.MapEntry: Daybreak Incinerite Ore
+DaybreakTorch_Tile.MapEntry: Daybreak Torch
+InfernoPagodaBox_Tile.MapEntry: Inferno Pagoda Box
+InfernoChest_Tile.MapEntry: Inferno Chest
+DragonAltarUnsafe_Tile.MapEntry: Dragon Altar Unsafe
+DragonEgg_Tile.MapEntry: Dragon Egg
+RazewoodPalmSapling_Tile.MapEntry: Razewood Palm Sapling
+RazewoodSapling_Tile.MapEntry: Razewood Sapling
+HydraBox_Tile.MapEntry: Hydra Box
+AbyssiumOre_Tile.MapEntry: Abyssium Ore
+BogwoodBathtub_Tile.MapEntry: Bogwood Bathtub
+BogwoodBed_Tile.MapEntry: Bogwood Bed
+BogwoodBench_Tile.MapEntry: Bogwood Bench
+BogwoodBookshelf_Tile.MapEntry: Bogwood Bookshelf
+BogwoodCandelabra_Tile.MapEntry: Bogwood Candelabra
+BogwoodCandle_Tile.MapEntry: Bogwood Candle
+BogwoodChair_Tile.MapEntry: Bogwood Chair
+BogwoodChandelier_Tile.MapEntry: Bogwood Chandelier
+BogwoodChest_Tile.MapEntry: Bogwood Chest
+BogwoodClock_Tile.MapEntry: Bogwood Clock
+BogwoodCouch_Tile.MapEntry: Bogwood Couch
+BogwoodDoorClosed_Tile.MapEntry: Bogwood Door Closed
+BogwoodDoorOpen_Tile.MapEntry: Bogwood Door Open
+BogwoodDresser_Tile.MapEntry: Bogwood Dresser
+BogwoodLamp_Tile.MapEntry: Bogwood Lamp
+BogwoodLantern_Tile.MapEntry: Bogwood Lantern
+BogwoodPiano_Tile.MapEntry: Bogwood Piano
+BogwoodSink_Tile.MapEntry: Bogwood Sink
+BogwoodTable_Tile.MapEntry: Bogwood Table
+BogwoodWorkbench_Tile.MapEntry: Bogwood Workbench
+BogtoxinTorch_Tile.MapEntry: Bogtoxin Torch
+MireDayBox_Tile.MapEntry: Mire Day Box
+MireSurfaceBox_Tile.MapEntry: Mire Surface Box
+MireUndergroundBox_Tile.MapEntry: Mire Underground Box
+ToxinMonkfish_Tile.MapEntry: Toxin Monkfish
+YamataAwakenedBox_Tile.MapEntry: Yamata Awakened Box
+YamataBox_Tile.MapEntry: Yamata Box
+EventideAbyssiumOre_Tile.MapEntry: Eventide Abyssium Ore
+EventideTorch_Tile.MapEntry: Eventide Torch
+MireLakeBox_Tile.MapEntry: Mire Lake Box
+MireChest_Tile.MapEntry: Mire Chest
+AbyssAltarUnsafe_Tile.MapEntry: Abyss Altar Unsafe
+HydraPod_Tile.MapEntry: Hydra Pod
+BogwoodPalmTreeSapling_Tile.MapEntry: Bogwood Palm Tree Sapling
+BogwoodSapling_Tile.MapEntry: Bogwood Sapling
+MonarchBox_Tile.MapEntry: Monarch Box
+MushroomSurfaceBox_Tile.MapEntry: Mushroom Surface Box
+SubzeroBox_Tile.MapEntry: Subzero Box
+VikingRelic_Tile.MapEntry: Viking Relic
+EquinoxBox_Tile.MapEntry: Equinox Box
+RadiumOre_Tile.MapEntry: Radium Ore
+StarsBox_Tile.MapEntry: Stars Box
+QuantumFusionAccelerator_Tile.MapEntry: Quantum Fusion Accelerator
+RadiantArcanum_Tile.MapEntry: Radiant Arcanum
+GravAltar_Tile.MapEntry: Grav Altar
+StarAltar_Tile.MapEntry: Star Altar
+WormAltar_Tile.MapEntry: Worm Altar
+TerraCore_Tile.MapEntry: Terra Core
+TerraPrismStation_Tile.MapEntry: Terra Prism Station
+TerrariumBox_Tile.MapEntry: Terrarium Box
+PrismOre_Tile.MapEntry: Prism Ore
+SagittariusBox_Tile.MapEntry: Sagittarius Box
+OuroborosWoodBathtub_Tile.MapEntry: Ouroboros Wood Bathtub
+OuroborosWoodBed_Tile.MapEntry: Ouroboros Wood Bed
+OuroborosWoodBookcase_Tile.MapEntry: Ouroboros Wood Bookcase
+OuroborosWoodChair_Tile.MapEntry: Ouroboros Wood Chair
+OuroborosWoodChest_Tile.MapEntry: Ouroboros Wood Chest
+OuroborosWoodClock_Tile.MapEntry: Ouroboros Wood Clock
+OuroborosWoodDoorClosed_Tile.MapEntry: Ouroboros Wood Door Closed
+OuroborosWoodDoorOpen_Tile.MapEntry: Ouroboros Wood Door Open
+OuroborosWoodLantern_Tile.MapEntry: Ouroboros Wood Lantern
+OuroborosWoodWorkbench_Tile.MapEntry: Ouroboros Wood Workbench
+VoidBox_Tile.MapEntry: Void Box
+ZeroAwakenedBox_Tile.MapEntry: Zero Awakened Box
+ZeroBox_Tile.MapEntry: Zero Box
+ApocalyptiteOre_Tile.MapEntry: Apocalyptite Ore
+DoomBathtub_Tile.MapEntry: Doom Bathtub
+DoomBed_Tile.MapEntry: Doom Bed
+DoomBookcase_Tile.MapEntry: Doom Bookcase
+DoomCandelabra_Tile.MapEntry: Doom Candelabra
+DoomCandle_Tile.MapEntry: Doom Candle
+DoomChair_Tile.MapEntry: Doom Chair
+DoomChandelier_Tile.MapEntry: Doom Chandelier
+DoomChest_Tile.MapEntry: Doom Chest
+DoomClock_Tile.MapEntry: Doom Clock
+DoomCouch_Tile.MapEntry: Doom Couch
+DoomDoorClosed_Tile.MapEntry: Doom Door Closed
+DoomDoorOpen_Tile.MapEntry: Doom Door Open
+DoomDresser_Tile.MapEntry: Doom Dresser
+DoomLamp_Tile.MapEntry: Doom Lamp
+DoomLantern_Tile.MapEntry: Doom Lantern
+DoomPiano_Tile.MapEntry: Doom Piano
+DoomSink_Tile.MapEntry: Doom Sink
+DoomTable_Tile.MapEntry: Doom Table
+DoomWorkbench_Tile.MapEntry: Doom Workbench
+VoidPostMLBox_Tile.MapEntry: Void Post M L Box
+VoidPreIZBox_Tile.MapEntry: Void Pre I Z Box
+BinaryReassembler_Tile.MapEntry: Binary Reassembler
+DoomsdayChest_Tile.MapEntry: Doomsday Chest
+OuroborosSapling_Tile.MapEntry: Ouroboros Sapling
+AncientDataBank_Tile.MapEntry: Ancient Data Bank
+DataBank_Tile.MapEntry: Data Bank
+StormChest_Tile.MapEntry: Storm Chest
+SiegeBox_Tile.MapEntry: Siege Box
+ParthenanBox_Tile.MapEntry: Parthenan Box
+SunkenShipBox_Tile.MapEntry: Sunken Ship Box
+SoulOfCthulhuBox_Tile.MapEntry: Soul Of Cthulhu Box
+SunkenShipPreSoCBox_Tile.MapEntry: Sunken Ship Pre So C Box
+Core_Tile.MapEntry: Core
+CoreActivator_Tile.MapEntry: Core Activator
+CoreDoor_Tile.MapEntry: Core Door
+KeepBath_Tile.MapEntry: Keep Bath
+KeepBed_Tile.MapEntry: Keep Bed
+KeepBookcase_Tile.MapEntry: Keep Bookcase
+KeepCandelabra_Tile.MapEntry: Keep Candelabra
+KeepCandle_Tile.MapEntry: Keep Candle
+KeepChair_Tile.MapEntry: Keep Chair
+KeepChandelier_Tile.MapEntry: Keep Chandelier
+KeepClock_Tile.MapEntry: Keep Clock
+KeepCouch_Tile.MapEntry: Keep Couch
+KeepDoorClosed_Tile.MapEntry: Keep Door Closed
+KeepDoorOpen_Tile.MapEntry: Keep Door Open
+KeepDresser_Tile.MapEntry: Keep Dresser
+KeepLamp_Tile.MapEntry: Keep Lamp
+KeepLantern_Tile.MapEntry: Keep Lantern
+KeepPiano_Tile.MapEntry: Keep Piano
+KeepSink_Tile.MapEntry: Keep Sink
+KeepTable_Tile.MapEntry: Keep Table
+KeepWorkbench_Tile.MapEntry: Keep Workbench
+SpiralStairs_Tile.MapEntry: Spiral Stairs
+TerraBath_Tile.MapEntry: Terra Bath
+TerraBed_Tile.MapEntry: Terra Bed
+TerraBookcase_Tile.MapEntry: Terra Bookcase
+TerraCandelabra_Tile.MapEntry: Terra Candelabra
+TerraCandle_Tile.MapEntry: Terra Candle
+TerraChair_Tile.MapEntry: Terra Chair
+TerraChandelier_Tile.MapEntry: Terra Chandelier
+TerraChest_Tile.MapEntry: Terra Chest
+TerraClock_Tile.MapEntry: Terra Clock
+TerraCouch_Tile.MapEntry: Terra Couch
+TerraDoorClosed_Tile.MapEntry: Terra Door Closed
+TerraDoorOpen_Tile.MapEntry: Terra Door Open
+TerraDresser_Tile.MapEntry: Terra Dresser
+TerraLamp_Tile.MapEntry: Terra Lamp
+TerraLantern_Tile.MapEntry: Terra Lantern
+TerraPiano_Tile.MapEntry: Terra Piano
+TerraSink_Tile.MapEntry: Terra Sink
+TerraTable_Tile.MapEntry: Terra Table
+TerraWorkbench_Tile.MapEntry: Terra Workbench
+KeepDoor1_Tile.MapEntry: Keep Door1
+KeepDoor2_Tile.MapEntry: Keep Door2
+KeepDoor2S_Tile.MapEntry: Keep Door2 S
+KeepDoor3_Tile.MapEntry: Keep Door3
+AcropolisPainting_Tile.MapEntry: Acropolis Painting
+AkumaPainting_Tile.MapEntry: Akuma Painting
+AnubisPainting_Tile.MapEntry: Anubis Painting
+CRajahPainting_Tile.MapEntry: C Rajah Painting
+DaedalusPainting_Tile.MapEntry: Daedalus Painting
+DecayPainting_Tile.MapEntry: Decay Painting
+FulgurusPainting_Tile.MapEntry: Fulgurus Painting
+GreedPainting_Tile.MapEntry: Greed Painting
+HotJPainting_Tile.MapEntry: Hot J Painting
+IZPainting_Tile.MapEntry: I Z Painting
+JojoBagginsPainting_Tile.MapEntry: Jojo Baggins Painting
+KingQueenPainting_Tile.MapEntry: King Queen Painting
+LuciferPainting_Tile.MapEntry: Lucifer Painting
+MushmadPainting_Tile.MapEntry: Mushmad Painting
+NKPainting_Tile.MapEntry: N K Painting
+RajahPainting_Tile.MapEntry: Rajah Painting
+SanguinePainting_Tile.MapEntry: Sanguine Painting
+ShenPainting_Tile.MapEntry: Shen Painting
+ShipPainting_Tile.MapEntry: Ship Painting
+SoCPainting_Tile.MapEntry: So C Painting
+TerraPainting_Tile.MapEntry: Terra Painting
+UmbraPainting_Tile.MapEntry: Umbra Painting
+ValkyriePainting_Tile.MapEntry: Valkyrie Painting
+WizardPainting_Tile.MapEntry: Wizard Painting
+YamataPainting_Tile.MapEntry: Yamata Painting
+ZeroPainting_Tile.MapEntry: Zero Painting
+TerraStatue_Tile.MapEntry: Terra Statue
+CthulhuBox_Tile.MapEntry: Cthulhu Box
+SunkenChest_Tile.MapEntry: Sunken Chest
+InfinityZeroBox_Tile.MapEntry: Infinity Zero Box
