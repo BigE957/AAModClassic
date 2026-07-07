@@ -1,4 +1,4 @@
-﻿APageOfTheRuneBook_Buff: {
+﻿APageOfTheRuneBookEffect_Buff: {
 	DisplayName: Rune
 	Description: Summons runes to fight for you
 }
@@ -83,7 +83,7 @@ FishnadoStaff_Buff: {
 	Description: Summons a fishnado to fight for you
 }
 
-TheBookOfRunes_Buff: {
+TheBookOfRunesEffect_Buff: {
 	DisplayName: Rune
 	Description: Summons runes to fight for you
 }

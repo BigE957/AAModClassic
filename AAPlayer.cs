@@ -137,10 +137,6 @@ namespace AAModClassic
         public bool DragonSpirit = false;
         public bool Xiao = false;
         public bool ChaosConstruct = false;
-        public bool CCBook = false;
-        public bool CCBookEX = false;
-        public bool WeakCCRune = false;
-        public bool CCRune = false;
         #endregion
 
         #region Biome bools.
@@ -369,10 +365,6 @@ namespace AAModClassic
             DragonSpirit = false;
             Xiao = false;
             ChaosConstruct = false;
-            CCBook = false;
-            CCBookEX = false;
-            WeakCCRune = false;
-            CCRune = false;
         }
 
         private void ResetArmorEffect()
@@ -1120,54 +1112,6 @@ namespace AAModClassic
             if (ZoneVoid)
             {
                 Player.gravity = Player.defaultGravity + .1f;
-            }
-
-            if (CCBook || CCBookEX)
-            {
-                float slotscanuse = Player.maxMinions - Player.slotsMinions;
-                if (slotscanuse > 1)
-                {
-                    bool RuneControl = Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>()] > 1;
-                    bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_VoidRune>()] > 1;
-                    if (RuneControl || RuneControlEX)
-                    {
-                        Player.ClearBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>());
-                    }
-                    if (Player.FindBuffIndex(ModContent.BuffType<APageOfTheRuneBook_Buff>()) == -1)
-                    {
-                        Player.AddBuff(ModContent.BuffType<APageOfTheRuneBook_Buff>(), 3600, true);
-                    }
-                    if (CCBook)
-                    {
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>()] < 1 && slotscanuse > 1f)
-                        {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<APageOfTheRuneBook_BunnyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
-                        }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>()] < 1 && slotscanuse > 2f)
-                        {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<APageOfTheRuneBook_DiscordRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(50), 4f, Player.whoAmI, 0f, 0f);
-                        }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>()] < 1 && slotscanuse > 3f)
-                        {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<APageOfTheRuneBook_EnergyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(100), 2f, Player.whoAmI, 0f, 0f);
-                        }
-                    }
-                    if (CCBookEX)
-                    {
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_TerraRune>()] < 1 && slotscanuse > 1f)
-                        {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunes_TerraRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
-                        }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_ChaosRune>()] < 1 && slotscanuse > 2f)
-                        {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunes_ChaosRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(400), 4f, Player.whoAmI, 0f, 0f);
-                        }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunes_VoidRune>()] < 1 && slotscanuse > 3f)
-                        {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunes_VoidRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(800), 2f, Player.whoAmI, 0f, 0f);
-                        }
-                    }
-                }
             }
         }
 

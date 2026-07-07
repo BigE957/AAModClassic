@@ -41,14 +41,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            modPlayer.CCBookEX = true;
-        }
         public override void RegisterEquipEffects()
         {
-            AddEffect(new WingTimeMaxEffect(180));
+            AddEffect<TheBookOfRunesEffect>();
         }
 
         public override void AddRecipes()

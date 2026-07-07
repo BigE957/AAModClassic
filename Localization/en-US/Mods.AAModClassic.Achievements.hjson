@@ -1,12 +1,12 @@
 //Boss Kills
 MushroomMonarchKilled: {
 	FriendlyName: Big Fungus
-	Description: Overthrow the Mushroom Monarch, a fungal abomination who calls himself a monarch.
+	Description: Overthrow the Mushroom Monarch, a fungal abomination whose title is self-imposed.
 }
 
 FeudalFungusKilled: {
 	FriendlyName: Glowing Feud
-	Description: Strike down the Feudal Fungus, another abomination with mind warping abilities.
+	Description: Strike down the Feudal Fungus, a fungal abomination with a mean streak.
 }
 
 GripsOfChaosKilled: {
@@ -31,17 +31,17 @@ HydraKilled: {
 
 DesertDjinnKilled: {
 	FriendlyName: No Wishes?
-	Description: End the magic of the Desert Djinn, a muscular genie that roams the sandy wastes.
+	Description: Outflex the the Desert Djinn, a muscular genie who roams the sandy wastes.
 }
 
 SubzeroSerpentKilled: {
-	FriendlyName: Zero Mercy
+	FriendlyName: Below Zero
 	Description: Defrost the Subzero Serpent, a glistening snake that lives in the frigid tundra.
 }
 
 SagittariusKilled: {
 	FriendlyName: Feeling Hoarse
-	Description: Destroy Sagittarius, a machine turned Trojan by the dark influence of the Void.
+	Description: Destroy Sagittarius, a machine-turned-trojan by the dark will of the Void.
 }
 
 AkumaKilled: {
@@ -51,12 +51,12 @@ AkumaKilled: {
 
 AnubisKilled: {
 	FriendlyName: Your First Step
-	Description: Best Anubis in a friendly spar.
+	Description: Best the legendscribe Anubis in a friendly spar.
 }
 
 BiomiteCoreKilled: {
 	FriendlyName: Core of the World
-	Description: Endure the Biomite Core, the Keep's defence and training mechanism.
+	Description: Endure the Biomite Core, the Keep's defense and training mechanism.
 }
 
 AthenaKilled: {
@@ -65,7 +65,7 @@ AthenaKilled: {
 }
 
 ChampionRajahKilled: {
-	FriendlyName: Who Hunted Rajah Rabbit?
+	FriendlyName: Who Framed Rajah Rabbit?
 	Description: Make peace with Rajah Rabbit and inherit the title of 'Champion of the Innocent'.
 }
 
@@ -75,13 +75,13 @@ EquinoxWormsKilled: {
 }
 
 GreedKilled: {
-	FriendlyName: Non Fungible Totem
-	Description: Defeat the avaricious Greed and escape his Hoard.
+	FriendlyName: Non-Fungible Totem
+	Description: Defeat the avaricious Greed and make his Hoard your own.
 }
 
 InfinityZeroKilled: {
 	FriendlyName: Fatal Error
-	Description: Obliterate Infinity Zero, leaving Oblivion with no more genocidal toys.
+	Description: Obliterate Infinity Zero, leaving none of Oblivion's toys unscathed.
 }
 
 PreEquinoxAncientsKilled: {
@@ -101,7 +101,7 @@ ShenDoragonKilled: {
 
 SiegeMechsKilled: {
 	FriendlyName: Warheap Arsenal
-	Description: Destroy all 3 nocturnal fulgur menaces: the Retriever, Ortrus X, Raider Ultima.
+	Description: Defeat the three nocturnal fulgarian menaces: the Retriever, Ortrus X, and Raider Ultima.
 }
 
 SistersOfDiscordKilled: {
@@ -116,33 +116,33 @@ SoulOfCthulhuKilled: {
 
 StormingSiege: {
 	FriendlyName: Geargrind Assault
-	Description: Fight against the Retriever, Orthrus X, and Raider Ultima at the same time and emerge victorious.
+	Description: Do battle against the Retriever, Orthrus X, and Raider Ultima simultaneously and emerge victorious.
 }
 
 TechnoTruffleKilled: {
 	FriendlyName: The Fourth Metal Ingredient
-	Description: Destroy the fulgur fungal menace, Techno Truffle
+	Description: Destroy the fulgarian fungal mistake, Techno Truffle
 }
 
 YamataKilled: {
 	FriendlyName: Talking Heads
-	Description: Sever the heads of Yamata, the Dread Nightmare.
+	Description: Sever the many heads of Yamata, the Dread Nightmare.
 }
 
 ZeroKilled: {
 	FriendlyName: System.DivideByZeroException
-	Description: Decommision the Void's Zero Unit and earn a greater threat's ire.
+	Description: Decommision the Void's primary Zero Unit, and earn the ire of a far greater threat...
 }
 
 AllBossesKilled: {
-	FriendlyName: Slayer of Ancients
+	FriendlyName: Who's Awakening Now?
 	Description: Defeat every boss in Ancients Awakened: Classic.
 }
 
 //Ores Mined
 ChaosOreMined: {
 	FriendlyName: Chaos Control
-	Description: Mire Incinerite or Abyssium, chaotic ores found in the Inferno and Mire.
+	Description: Mire Incinerite or Abyssium, chaotic ore found deep underground.
 }
 
 CelestialOreMined: {
@@ -152,18 +152,18 @@ CelestialOreMined: {
 
 TierThreeChaosOreMined: {
 	FriendlyName: Antediluvian
-	Description: Mine Daybreak Incinerite or Eventide Abyssium, primeval forms of the ores found in the Inferno and Mire.
+	Description: Mine Daybreak Incinerite or Eventide Abyssium, primeval forms of previous ore found within the Inferno and Mire respectively.
 }
 
 ApocalyptiteOreMined: {
-	FriendlyName: Armageddon
+	FriendlyName: Apocalypse Now
 	Description: Mire Apocalyptite, an unstable ore formed by the destructive energies of the Void.
 }
 
 //Items Obtained
 LuckyArmorEquipped: {
 	FriendlyName: Yu-Farm-Lot
-	Description: Equip the Stripeman's Lucky armor, allowing you to mine, fish and farm like no other.
+	Description: Equip a full set of the Stripeman's Lucky armor, allowing you to mine, fish and farm like no other.
 }
 
 MadnessPotionCrafted: {
@@ -193,7 +193,7 @@ TimecallerCrafted: {
 
 EXSoulCrafted: {
 	FriendlyName: Going to the Extreme
-	Description: Craft one of the ultimate items using an EX Soul.
+	Description: Upgrade a weapon with an EX Soul. Now you're cooking with gas!
 }
 
 InfinityCoreCrafted: {
