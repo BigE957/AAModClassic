@@ -1,7 +1,8 @@
 ChaosSlayer: {
+	SharedFlavorText: "'The power of discordian rage radiates from this armor'"
 	ChaosSlayerChestplate: {
 		DisplayName: Chaos Slayer Plate
-		Tooltip: The power of discordian rage radiates from this armor
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
 	}
 
 	ChaosSlayerHelmetMage: {
@@ -13,7 +14,7 @@ ChaosSlayer: {
 			2% increased damage resistance
 			30% reduced Mana consumption
 			150 increased maximum mana
-			The power of discordian rage radiates from this hood
+			{$Armor.ChaosSlayer.SharedFlavorText}
 			'''
 	}
 
@@ -25,7 +26,7 @@ ChaosSlayer: {
 			5% increased damage resistance
 			15% increased melee speed
 			+25 Max Life
-			The power of discordian rage radiates from this armor
+			{$Armor.ChaosSlayer.SharedFlavorText}
 			'''
 	}
 
@@ -38,7 +39,7 @@ ChaosSlayer: {
 			3% increased damage resistance
 			25% reduced ammo consumption
 			+15 Max Life
-			The power of discordian rage radiates from this hood
+			{$Armor.ChaosSlayer.SharedFlavorText}
 			'''
 	}
 
@@ -50,13 +51,13 @@ ChaosSlayer: {
 			1% increased damage resistance
 			+6 maximum Minions
 			+2 maximum sentries 
-			The power of discordian rage radiates from this hood
+			{$Armor.ChaosSlayer.SharedFlavorText}
 			'''
 	}
 
 	ChaosSlayerLeggings: {
 		DisplayName: Chaos Slayer Greaves
-		Tooltip: The power of discordian rage radiates from this armor
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
 	}
 }
 
@@ -93,87 +94,86 @@ Chaos: {
 }
 
 DraconianSun: {
+	SharedFlavorText: "'The blazing fury of the Inferno rests in this armor'"
 	DraconianSunChestplate: {
 		DisplayName: Draconian Sun Dao
-		Tooltip: The blazing fury of the Inferno rests in this armor
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
 	}
 
 	DraconianSunLeggings: {
 		DisplayName: Draconian Sun Greaves
-		Tooltip: The blazing fury of the Inferno rests in this armor
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
 	}
 
 	DraconianSunHelmet: {
 		DisplayName: Draconian Sun Kabuto
-		Tooltip: The blazing fury of the Inferno rests in this armor
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
 	}
 }
 
 Darkmatter: {
+	SharedFlavorText: "'Dark, yet still barely visible'"
 	DarkmatterChestplate: {
 		DisplayName: Darkmatter Breastplate
-		Tooltip: Dark, yet still barely visible
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
 	}
 
 	DarkmatterHelmetMage: {
 		DisplayName: Darkmatter Mask
-		Tooltip: Dark, yet still barely visible
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
 	}
 
 	DarkmatterHelmetMelee: {
 		DisplayName: Darkmatter Helmet
-		Tooltip:
-			'''
-			10% increased melee damage
-			Dark, yet still barely visible
-			'''
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
 	}
 
 	DarkmatterHelmetRanged: {
 		DisplayName: Darkmatter Visor
-		Tooltip: Dark, yet still barely visible
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
 	}
 
 	DarkmatterHelmetSummoner: {
 		DisplayName: Darkmatter Headress
-		Tooltip: Dark, yet still barely visible
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
 	}
 
 	DarkmatterLeggings: {
 		DisplayName: Darkmatter Greaves
-		Tooltip: Dark, yet still barely visible
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
 	}
 }
 
 Radium: {
+	SharedFlavorText: "'Shines with the light of a starry night sky'"
 	RadiumChestplate: {
 		DisplayName: Radium Platemail
-		Tooltip: Shines with the light of a starry night sky
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
 	}
 
 	RadiumHelmetMage: {
 		DisplayName: Radium Mask
-		Tooltip: Shines with the light of a starry night sky
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
 	}
 
 	RadiumHelmetMelee: {
 		DisplayName: Radium Helmet
-		Tooltip: Shines with the light of a starry night sky
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
 	}
 
 	RadiumHelmetRanged: {
 		DisplayName: Radium Headgear
-		Tooltip: Shines with the light of a starry night sky
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
 	}
 
 	RadiumHelmetSummoner: {
 		DisplayName: Radium Hat
-		Tooltip: Shines with the light of a starry night sky
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
 	}
 
 	RadiumLeggings: {
 		DisplayName: Radium Cuisses
-		Tooltip: Shines with the light of a starry night sky
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
 	}
 }
 
@@ -195,41 +195,43 @@ Biomite: {
 }
 
 Doomsday: {
+	SharedFlavorText: "'The power to destroy entire planets rests in this armor'"
 	DoomsdayChestplate: {
 		DisplayName: Doomsday Assault Armor
-		Tooltip: The power to destroy entire planets rests in this armor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
 	}
 
 	DoomsdayHelmetMage: {
 		DisplayName: Doomsday Assault Visor
-		Tooltip: The power to destroy entire planets rests in this armor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
 	}
 
 	DoomsdayHelmetSummoner: {
 		DisplayName: Doomsday Tactical Visor
-		Tooltip: The power to destroy entire planets rests in this armor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
 	}
 
 	DoomsdayLeggings: {
 		DisplayName: Doomsday Assault Greaves
-		Tooltip: The power to destroy entire planets rests in this armor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
 	}
 }
 
 InfinitySlayer: {
+	SharedFlavorText: "'Infinite power and malice flows through this armor'"
 	InfinitySlayerChestplate: {
 		DisplayName: Infinity Slayer Chestplate
-		Tooltip: Infinite power and malice flows through this armor
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
 	}
 
 	InfinitySlayerHelmet: {
 		DisplayName: Infinity Slayer Visor
-		Tooltip: power and malice flows through this armor'
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
 	}
 
 	InfinitySlayerLeggings: {
 		DisplayName: Infinity Slayer Greaves
-		Tooltip: Infinite power and malice flows through this armor
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
 	}
 }
 
@@ -241,13 +243,7 @@ StripemansLucky: {
 
 	StripemansLuckyHelmet: {
 		DisplayName: Stripeman's Lucky Hat
-		Tooltip:
-			'''
-			Provides light when worn
-			Get the effect of Architect Gizmo Pack
-			When digging stones, you may get ore from them
-			You can put any sand into the Extractinator
-			'''
+		Tooltip: ""
 	}
 
 	StripemansLuckyLeggings: {
@@ -274,103 +270,87 @@ Olympian: {
 }
 
 HoppingHoodlum: {
+	SharedFlavorText: "'Hopping Mad'"
 	HoppingHoodlumChestplate: {
 		DisplayName: Hopping Hoodlum Shirt
-		Tooltip: Hopping Mad
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
 	}
 
 	HoppingHoodlumHelmet: {
 		DisplayName: Hopping Hoodlum Hood
-		Tooltip: Hopping Mad
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
 	}
 
 	HoppingHoodlumLeggings: {
 		DisplayName: Hopping Hoodlum Paws
-		Tooltip: Hopping Mad
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
 	}
 }
 
 Champion: {
+	SharedFlavorText: "'The armor of a champion feared across the land'"
 	ChampionChestplate: {
 		DisplayName: Champion Chestplate
-		Tooltip:
-			'''
-			15% increased damage
-			'The armor of a champion feared across the land'
-			'''
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
 	}
 
 	ChampionHelmetMage: {
 		DisplayName: Champion Hood
-		Tooltip:
-			'''
-			32% increased Magic damage
-			10% increased non-magic damage
-			25% increased Magic critical strike chance
-			25% reduced Mana consumption
-			150 increased maximum mana
-			The armor of a champion feared across the land
-			'''
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
 	}
 
 	ChampionHelmetMelee: {
 		DisplayName: Champion Greathelm
-		Tooltip:
-			'''
-			35% increased Melee damage & critical strike chance
-			10% increased non-melee damage
-			18% increased melee speed
-			'The armor of a champion feared across the land'
-			'''
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
 	}
 
 	ChampionHelmetRanged: {
 		DisplayName: Champion Mask
-		Tooltip: The armor of a champion feared across the land
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
 	}
 
 	ChampionHelmetSummoner: {
 		DisplayName: Champion Headdress
-		Tooltip: The armor of a champion feared across the land
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
 	}
 
 	ChampionLeggings: {
 		DisplayName: Champion' Greaves
-		Tooltip: The armor of a champion feared across the land
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
 	}
 }
 
 FuryWitchs: {
 	FuryWitchsChestplate: {
 		DisplayName: Fury Witchs Chestplate
-		Tooltip: ""
+		Tooltip: "'A dress enchanted with the fiery spirit of a supreme dragon acolyte'"
 	}
 
 	FuryWitchsHelmet: {
 		DisplayName: Fury Witch's Cowl
-		Tooltip: A hood enchanted with the firey spirit of a supreme dragon acolyte
+		Tooltip: "'A hood enchanted with the fiery spirit of a supreme dragon acolyte'"
 	}
 
 	FuryWitchsLeggings: {
 		DisplayName: Fury Witch's Boots
-		Tooltip: Boots enchanted with the firey spirit of a supreme dragon acolyte
+		Tooltip: "'Boots enchanted with the fiery spirit of a supreme dragon acolyte'"
 	}
 }
 
 MidnightAssassin: {
 	MidnightAssassinChestplate: {
 		DisplayName: Midnight Assassin Chestplate
-		Tooltip: ""
+		Tooltip: "'A dark chestplate infused with the shadow of midnight'"
 	}
 
 	MidnightAssassinHelmet: {
 		DisplayName: Midnight Assassin Hood
-		Tooltip: A dark hood infused with the shadow of midnight
+		Tooltip: "'A dark hood infused with the shadow of midnight'"
 	}
 
 	MidnightAssassinLeggings: {
 		DisplayName: Midnight Assassin's Boots
-		Tooltip: Dark boots infused with the shadow of midnight
+		Tooltip: "'Dark boots infused with the shadow of midnight'"
 	}
 }
 
@@ -520,7 +500,7 @@ Imp: {
 StoneSoldier: {
 	StoneSoldierChestplate: {
 		DisplayName: Stone Soldier Breastplate
-		Tooltip: Increases mining speed by 15%
+		Tooltip: ""
 	}
 
 	StoneSoldierHelmet: {
@@ -530,41 +510,43 @@ StoneSoldier: {
 
 	StoneSoldierLeggings: {
 		DisplayName: Stone Soldier Greaves
-		Tooltip: Increases mining speed by 15%
+		Tooltip: ""
 	}
 }
 
 Blazing: {
+	SharedFlavorText: "{$Armor.Kindled.SharedFlavorText}"
 	BlazingChestplate: {
 		DisplayName: Blazing Dao
-		Tooltip: Forged in the flames of the blazing sun
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
 	}
 
 	BlazingHelmet: {
 		DisplayName: Blazing Kabuto
-		Tooltip: Forged in the flames of the blazing sun
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
 	}
 
 	BlazingLeggings: {
 		DisplayName: Blazing Suneate
-		Tooltip: Forged in the flames of the blazing sun
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
 	}
 }
 
 Kindled: {
+	SharedFlavorText: "'Forged in the flames of the blazing sun'"
 	KindledChestplate: {
 		DisplayName: Kindled Dao
-		Tooltip: Forged in the flames of the blazing sun
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
 	}
 
 	KindledHelmet: {
 		DisplayName: Kindled Kabuto
-		Tooltip: Forged in the flames of the blazing sun
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
 	}
 
 	KindledLeggings: {
 		DisplayName: Kindled Suneate
-		Tooltip: Forged in the flames of the blazing sun
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
 	}
 }
 
@@ -593,11 +575,7 @@ Tribal: {
 
 	TribalHelmet: {
 		DisplayName: Tribal Hat
-		Tooltip:
-			'''
-			8% Increased magic critical chance
-			Increases maximum mana by 20
-			'''
+		Tooltip: ""
 	}
 
 	TribalLeggings: {
@@ -619,19 +597,20 @@ Chlorophyte: {
 }
 
 Abyssal: {
+	SharedFlavorText: "{$Armor.Depth.SharedFlavorText}"
 	AbyssalChestplate: {
 		DisplayName: Abyssal Gi
-		Tooltip: Weightless as shadow itself
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
 	}
 
 	AbyssalHelmet: {
 		DisplayName: Abyssal Fukumen
-		Tooltip: Weightless as shadow itself
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
 	}
 
 	AbyssalLeggings: {
 		DisplayName: Abyssal Hakama
-		Tooltip: Weightless as shadow itself
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
 	}
 }
 
@@ -653,59 +632,56 @@ Bogwood: {
 }
 
 Depth: {
+	SharedFlavorText: "'Weightless as shadow itself'"
 	DepthChestplate: {
 		DisplayName: Depth Gi
-		Tooltip: Weightless as shadow itself
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
 	}
 
 	DepthHelmet: {
 		DisplayName: Depth Fukumen
-		Tooltip: Weightless as shadow itself
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
 	}
 
 	DepthLeggings: {
 		DisplayName: Depth Hakama
-		Tooltip: Weightless as shadow itself
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
 	}
 }
 
 DreadMoon: {
+	SharedFlavorText: "'The abyssal wrath of the Mire rests in this armor'"
 	DreadMoonChestplate: {
 		DisplayName: Dread Moon Gi
-		Tooltip: The abyssal wrath of the Mire rests in this armor
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
 	}
 
 	DreadMoonHelmet: {
 		DisplayName: Dread Moon Fukumen
-		Tooltip:
-			'''
-			24% increased ranged critical chance
-			20% increased movement speed
-			+15 Max Life
-			The abyssal wrath of the Mire rests in this armor
-			'''
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
 	}
 
 	DreadMoonLeggings: {
 		DisplayName: Dread Moon Hakama
-		Tooltip: The abyssal wrath of the Mire rests in this armor
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
 	}
 }
 
 Atlantean: {
+	SharedFlavorText: "'It vibrates with the powers of Atlantis'"
 	AtlanteanChestplate: {
 		DisplayName: Atlantean Chestplate
-		Tooltip: It vibrates with the powers of Atlantis
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
 	}
 
 	AtlanteanHelmet: {
 		DisplayName: Atlantean Helmet
-		Tooltip: It vibrates with the powers of Atlantis
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
 	}
 
 	AtlanteanLeggings: {
 		DisplayName: Atlantean Greaves
-		Tooltip: It vibrates with the powers of Atlantis
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
 	}
 }
 
