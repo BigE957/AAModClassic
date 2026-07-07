@@ -5,6 +5,7 @@ using Humanizer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -1122,11 +1123,19 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     }
                     if (damageMap.GetCritChance(currentClass) != 0 && !critAndDamageAdditiveAreSame)
                     {
+                        line = new TooltipLine(mod, "CritChanceLine", "increases crit by something (wip)");
 
+                        int index = list.FindIndex(x => x.Name == "Tooltip0");
+                        if (index != -1)
+                            list.Insert(index, line);
                     }
                     if (damageMap.GetAttackSpeed(currentClass) != 1)
                     {
+                        line = new TooltipLine(mod, "AttackSpeedLine", "increases attack speed by something (wip)");
 
+                        int index = list.FindIndex(x => x.Name == "Tooltip0");
+                        if (index != -1)
+                            list.Insert(index, line);
                     }
                     if (damageMap.GetArmorPenetration(currentClass) != 0)
                     {

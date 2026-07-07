@@ -102,7 +102,7 @@ base
 -oroboros items are now properly named ouroboros
 -the player no longer takes 20% damage from goblins at all times
 -all chaos slayer set pieces share flavor text instead of some arbitrarily saying hood instead of armor
--all flavor text descriptions are now surrounded with 'these things'
+-all flavor text descriptions for armor and accessories are now surrounded with 'these things'
 -fixed misspelling of fiery in ashe armor desc
 -
 
