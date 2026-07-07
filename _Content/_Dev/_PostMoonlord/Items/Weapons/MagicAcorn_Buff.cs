@@ -1,0 +1,34 @@
+using Terraria;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
+{
+    public class MagicAcorn_Buff : ModBuff
+	{
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Squirrel");
+			// Description.SetDefault("Throws nuts");
+			Main.buffNoSave[Type] = true;
+			Main.buffNoTimeDisplay[Type] = true;
+		}
+
+		public override void Update(Player player, ref int buffIndex)
+		{
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<MagicAcorn_Squirrel1>()] + player.ownedProjectileCounts[ModContent.ProjectileType<MagicAcorn_Squirrel2>()] > 0)
+			{
+				modPlayer.Squirrel = true;
+			}
+			if (!modPlayer.Squirrel)
+			{
+				player.DelBuff(buffIndex);
+				buffIndex--;
+			}
+			else
+			{
+				player.buffTime[buffIndex] = 18000;
+			}
+		}
+	}
+}

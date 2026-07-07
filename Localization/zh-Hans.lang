@@ -1617,7 +1617,7 @@ ItemName.AthenaBox=八音盒(穹武鸮姬)
 ItemTooltip.AthenaBox=播放 'Magisaint' by Turquoise
 
 ItemName.BroodBox=八音盒(育母炎龙)
-ItemTooltip.BroodBox=播放 'Blazing Fury' by Spectral Aves
+ItemTooltip.BroodBox=播放 'Blazing Fury' by SpectralAves
 
 ItemName.DjinnBox=八音盒(沙漠巨灵)
 ItemTooltip.DjinnBox=播放 'The Dust Bowl' by Universe
@@ -1629,7 +1629,7 @@ ItemName.FateBox=八音盒(永劫虚空)
 ItemTooltip.FateBox=播放 'Nihil' by Charlie Debnam
 
 ItemName.FungusBox=八音盒(真菌帝)
-ItemTooltip.FungusBox=播放 'Bioluminescent Beatdown' by Spectral Aves
+ItemTooltip.FungusBox=播放 'Bioluminescent Beatdown' by SpectralAves
 
 ItemName.GreedABox=八音盒(鎏金万蟲王)
 ItemTooltip.GreedABox=播放 'Ira De Riquezas Perdidas' by Universe
@@ -1638,13 +1638,13 @@ ItemName.GreedBox=八音盒(金食饕餮)
 ItemTooltip.GreedBox=播放 'Gold Digger' by Universe
 
 ItemName.GripsBox=八音盒(混沌之爪)
-ItemTooltip.GripsBox=播放 'Twin Terror' by Spectral Aves
+ItemTooltip.GripsBox=播放 'Twin Terror' by SpectralAves
 
 ItemName.HoardBox=八音盒(欲望金窟)
 ItemTooltip.HoardBox=播放 'Cove' by Universe
 
 ItemName.HydraBox=八音盒(九头渊蛇)
-ItemTooltip.HydraBox=播放 'Abyssal Wrath' by Spectral Aves
+ItemTooltip.HydraBox=播放 'Abyssal Wrath' by SpectralAves
 
 ItemName.InfernoBox=八音盒(燎狱地表)
 ItemTooltip.InfernoBox=播放 'Flame-Razed Rock' by Karamitasu
@@ -1668,13 +1668,13 @@ ItemName.MireUBox=八音盒(潭渊地下)
 ItemTooltip.MireUBox=播放 'The Deepest Reaches' by Charlie Debnam
 
 ItemName.MonarchBox=八音盒(赤孢皇)
-ItemTooltip.MonarchBox=播放 'Fungal Face-off' by Spectral Aves
+ItemTooltip.MonarchBox=播放 'Fungal Face-off' by SpectralAves
 
 ItemName.PagodaBox=八音盒(升阳之塔)
 ItemTooltip.PagodaBox=播放 'Scorched Tower' by Rockwizard
 
 ItemName.RajahBox=八音盒(巨兔王公)
-ItemTooltip.RajahBox=播放 'JUSTICE' by Spectral Aves
+ItemTooltip.RajahBox=播放 'JUSTICE' by SpectralAves
 
 
 
@@ -1706,7 +1706,7 @@ ItemName.TerrariumBox=八音盒(泰拉心球)
 ItemTooltip.TerrariumBox=播放 'Heart of the World' by Quicksilvur feat Charlie Debnam
 
 ItemName.ToadBox=八音盒(松露蟾蜍)
-ItemTooltip.ToadBox=播放 'TODESTOOL' by Spectral Aves
+ItemTooltip.ToadBox=播放 'TODESTOOL' by SpectralAves
 
 ItemName.VoidBox=八音盒(虚空)
 ItemTooltip.VoidBox=播放 'Gaze into Darkness' by Charlie Debnam

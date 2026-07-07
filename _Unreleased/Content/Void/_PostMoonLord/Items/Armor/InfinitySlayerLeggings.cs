@@ -1,0 +1,86 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.ModLoader;
+
+
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
+{
+    [AutoloadEquip(EquipType.Legs)]
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class InfinitySlayerLeggings : EquipAbstract, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Infinity Slayer Greaves");
+			/* Tooltip.SetDefault(@"'Infinite power and malice flows through this armor'"); */
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 22;
+			Item.height = 16;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.defense = 29;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
+		}
+
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetDamage(DamageClass.Ranged) += 0.35f;
+            AddEffect(new MovementSpeedEffect(0.60f));
+            AddEffect(new EnduranceEffect(0.12f));
+            AddEffect<AmmoCost75Effect>();
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> list)
+        {
+            foreach (TooltipLine line2 in list)
+            {
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    line2.OverrideColor = AAColor.IZ;
+                }
+            }
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayLeggings>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 14);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
+
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            spriteBatch.Draw
+            (
+                texture,
+                new Vector2
+                (
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
+                ),
+                new Rectangle(0, 0, texture.Width, texture.Height),
+                Color.White,
+                rotation,
+                texture.Size() * 0.5f,
+                scale,
+                SpriteEffects.None,
+                0f
+            );
+        }
+    }
+}

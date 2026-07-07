@@ -26,9 +26,15 @@ namespace AAModClassic
 
         [DefaultValue(true)]
         public bool EnableContentReplacement;
+
+        [DefaultValue(false)]
+        public bool DisableAnticheat;
+
+        [DefaultValue(false)]
+        public bool DisablePinchThemes;
     }
 
-    public static class Config
+    public static class AALuckyConfig
 	{
 		public static void Load()
 		{
@@ -40,7 +46,7 @@ namespace AAModClassic
             SaveConfig();
 		}
 
-        private static readonly string ConfigPath = Path.Combine(Main.SavePath, "Mod Configs", "AAConfig.json");
+        private static readonly string ConfigPath = Path.Combine(Main.SavePath, "ModConfigs", "AALuckyConfig.json");
 		private static readonly Preferences Configuration = new Preferences(ConfigPath, false, false);
 
         public static void SetDefaults()

@@ -1,0 +1,387 @@
+PromptDialogue: {
+	MushroomMonarch: {
+		Seen: {
+			Asphodene: Woah! Big mushroom! And it's moving... I guess that's not too weird for this world.
+			Eridani: The fungi of this world are truly strange... Best not to underestimate this foe.
+		}
+
+		Defeat: {
+			Asphodene: It's flying away! Guess we won...? I'll take it.
+			Eridani: The Monarch flees. A temporary victory, but a victory nonetheless.
+		}
+	}
+
+	FeudalFungus: {
+		Seen: {
+			Asphodene: Glowing mushroom royalty. Of course that's a thing. Those spores look hazardous, though.
+			Eridani: The counterpart to the red monarch. I suspect those luminescent spores carry deleterious properties.
+		}
+
+		Defeat: {
+			Asphodene: It's retreating. A glowing coward, but at least it's gone.
+			Eridani: The Feudal Fungus escapes. It will return, but we have bought ourselves time.
+		}
+	}
+
+	GripsOfChaos: {
+		Seen: {
+			Asphodene: Two giant icky hands? Who made these? They don't look friendly.
+			Eridani: I can sense chaotic energy eminating from those Grips. Stay on your toes.
+		}
+
+		Defeat: {
+			Asphodene: Hands off! ...Okay, I'll stop. They're down.
+			Eridani: A formidable foe, but we prevailed through careful positioning. Though I doubt this is the last we'll see of such chaotic forces.
+		}
+	}
+
+	TruffleToad: {
+		Seen: {
+			Asphodene: A mushroom frog. It glows. Terraria is weird, but I'm starting to enjoy it.
+			Eridani: That toad seems agitated. Do not let its diminutive, cute appearance fool you.
+		}
+
+		Defeat: {
+			Asphodene: The toad has croaked. ...I'll see myself out now.
+			Eridani: The Truffle Toad is no more. Its agility was noteworthy, but ultimately insufficient.
+		}
+	}
+
+	Broodmother: {
+		Seen: {
+			Asphodene: A real dragon! Okay, this is awesome. ...Please don't burn me to a crisp.
+			Eridani: The Broodmother of the Inferno. A pyrogenic reptile of considerable power. Its flames will be lethal.
+		}
+
+		Defeat: {
+			Asphodene: The Broodmother is down! I knew we could do it. ...I won't ask about the burn marks.
+			Eridani: The Broodmother is defeated. Its flames have been extinguished. A significant threat neutralized.
+		}
+	}
+
+	HydraBody: {
+		Seen: {
+			Asphodene: One head, two heads... how many are there?! This is getting out of hand.
+			Eridani: The Hydra. Each head represents a separate threat. Focus on one at a time.
+		}
+
+		Defeat: {
+			Asphodene: How many heads was that? I lost count. At least they're all gone now.
+			Eridani: The Hydra's heads have ceased moving. A well‑fought victory.
+		}
+	}
+
+	SubzeroSerpent: {
+		Seen: {
+			Asphodene: An icy serpent?! Beautiful but probably lethal. Don't get too close.
+			Eridani: Subzero Serpent. Its frostfire breath is no joke; maintain distance when possible.
+		}
+
+		Defeat: {
+			Asphodene: That snake just got iced. I'm on a roll today.
+			Eridani: The Subzero Serpent is vanquished. Perhaps the tundra will be a little safer to explore now.
+		}
+	}
+
+	Djinn: {
+		Seen: {
+			Asphodene: A genie! Can I get three wishes? No? Just sand and punches?
+			Eridani: The Desert Djinn commands the sands themselves. Do not let it control the battlefield.
+		}
+
+		Defeat: {
+			Asphodene: No wishes, but we got loot. I'll take that as a consolation prize.
+			Eridani: The Djinn returns to its lamp. The sands are calm once more.
+		}
+	}
+
+	Sagittarius: {
+		Seen: {
+			Asphodene: A robot horse that shoots lasers. Sure, why not. This world keeps surprising me.
+			Eridani: A Fulgurian construct, but the Void's influence seems to have taken hold. Proceed with caution.
+		}
+
+		Defeat: {
+			Asphodene: Robot horse is down for the count. 'Extensive damage'? Yeah, no kidding.
+			Eridani: Sagittarius decommissioned. It is now little more than scrap.
+		}
+	}
+
+	Anubis: {
+		Seen: {
+			Asphodene: Anubis wants to test us. He said he won't hold back. Let's hope we got this...
+			Eridani: Anubis, our ally, now our sparring partner. He seeks to gauge our strength. Do not disappoint.
+		}
+
+		Defeat: {
+			Asphodene: He says we did good. Phew! That was tense, but guess in the end he was all bark, no bite.
+			Eridani: Anubis acknowledges our strength. It seems we're ready for whatever might come our way next.
+		}
+	}
+
+	Athena: {
+		Seen: {
+			Asphodene: Oh geez, maybe beating up those Seraphs wasn't a great idea... Get ready for a fight!
+			Eridani: It seems our trespassing here didn't go unnoticed... Now we have the Seraph's Queen to contend with.
+		}
+
+		Defeat: {
+			Asphodene: Hah! We showed her! Leaving us alone is the right call.
+			Eridani: Athena relents. Seems even she was impressed with your strength. Perhaps amends can be made.
+		}
+	}
+
+	Greed: {
+		Seen: {
+			Asphodene: A giant worm covered in gold. Tacky AND deadly. That's quite the combination.
+			Eridani: Greed, the Gilded Glutton. It hoards treasure and despises intruders. A predictable motivation.
+		}
+
+		Defeat: {
+			Asphodene: It burrowed away. Guess we beat it enough for now.
+			Eridani: Greed retreats into the stone. The creature lives, but so do we.
+		}
+	}
+
+	Rajah: {
+		Seen: {
+			Asphodene: Woah, that's one big bunny! And MAN does it seem mad.
+			Eridani: Rajah Rabbit, the Pouncing Punisher. He seeks justice, but what did we do to attract his ire?
+
+			Murderer: {
+				Asphodene: He called you a murderer. {0}, what did you DO?
+				Eridani: ...I see. This is no spar. He genuinely despises us. His anger is not without cause.
+			}
+		}
+
+		Defeat: {
+			Asphodene: He's flying away... With his ears... As propellers... This world never ceases to impress.
+			Eridani: We've bested the Pouncing Punisher, but still, his anger was rather unsettling.
+
+			Murderer: {
+				Asphodene: He's gone, but he swore vengeance. Perhaps we should reconsider our choices here...
+				Eridani: He retreats with hatred in his eyes. This is not over. We will face him again.
+			}
+		}
+	}
+
+	ForsakenAnubis: {
+		Seen: {
+			Asphodene: This guy's got some nerve thinking we aren't ready. This new form of his won't stop us! Let's show him!
+			Eridani: The Forsaken Judge rises. He is testing whether we are ready for what lies locked away. Let's prove ourselves ready.
+		}
+
+		Defeat: {
+			Asphodene: You certainly did do good! That was quite the showdown. Let's see what he wants.
+			Eridani: A well earned victory. A strategy meeting would indeed be wise. Let's go speak with him.
+		}
+	}
+
+	AthenaA: {
+		Seen: {
+			Asphodene: Athena's not done?! She's going all out for 'one last fight', huh? We'll just have to do the same!
+			Eridani: Athena's determined to not lose again... She won't go down as easilly as last time. Be on your guard. The very winds are against us.
+		}
+
+		Defeat: {
+			Asphodene: That's one angry harpy! But she mentioned dark forces waking up... ominous. We'll have to watch our back.
+			Eridani: Athena warns of chaotic forces stirring. Who could this 'he' be that she referred to?
+		}
+	}
+
+	GreedA: {
+		Seen: {
+			Asphodene: Greed is back and way stronger! Though I'm afraid our lives aren't for the taking!
+			Eridani: Worm King Greed. The glutton has grown. It threatens to consume our very lives.
+		}
+
+		Defeat: {
+			Asphodene: It fled again. Still angry, but at least it's gone for now.
+			Eridani: The Worm King escapes. Greed never truly dies; it only hibernates.
+		}
+	}
+
+	EquinoxWorms: {
+		Seen: {
+			Asphodene: The Equinox Worms... they said this would be a test. Here we go.
+			Eridani: Daybringer and Nightcrawler. They honor us with a trial of strength. Let us not disappoint.
+		}
+
+		Defeat: {
+			Asphodene: They're fading away. Guess we passed their test after all.
+			Eridani: The Equinox Worms dissolve. Seems we've been judged as worthy.
+		}
+	}
+
+	SistersOfDiscord: {
+		Seen: {
+			Asphodene: Ashe and Haruka. They've heard about us. This might be personal.
+			Eridani: The Sisters of Discord. Fire and steel, and they want revenge for some past slight.
+		}
+
+		Defeat: {
+			Asphodene: They're retreating. 'Someone has to tell dad'? Who's their dad? I'm curious now.
+			Eridani: Ashe and Haruka withdraw. They underestimated our capabilities. Though their father might be someone to worry about.
+		}
+	}
+
+	YamataBody: {
+		Seen: {
+			Asphodene: Seven heads. And it won't stop screaming. Great. Just great.
+			Eridani: Yamata, the Dread Nightmare. Massive ego, massive venom. Avoid its breath at all costs.
+		}
+
+		Defeat: {
+			NotExpert: {
+				Asphodene: It's down, but it's already bragging. 'I went easy on ya!' Sure you did.
+				Eridani: Yamata's body falls, but something isn't right. I think it might be serious about having gone easy on us...
+			}
+
+			Expert: {
+				Asphodene: Hah! That hydra wasn't so bad. ...Wait, something doesn't seem right.
+				Eridani: Yamata's form collapses, and yet...the air's gone stiff. I detect a deleterious power surge. Brace yourself.
+			}
+		}
+	}
+
+	YamataABody: {
+		Seen: {
+			Asphodene: Oh gosh! Seven heads wasn't enough?! Now it's even bigger and angrier. We're in trouble.
+			Eridani: So this is Yamata's power has awakened to its fullest. This is its true form – do not falter.
+		}
+
+		Defeat: {
+			Asphodene: It's retreating, still angry. Quite the nerve to be calling us a cheater though. Whatever, we won.
+			Eridani: Yamata flees in rage. It will return, but we have proven ourselves today.
+		}
+	}
+
+	Akuma: {
+		Seen: {
+			Asphodene: A fire wyvern that keeps calling us 'kid'. Rude AND deadly. Typical.
+			Eridani: Akuma, the Draconian Demon. Head‑on assault or nothing. There is no trickery here.
+		}
+
+		Defeat: {
+			NotExpert: {
+				Asphodene: It dissolved into embers. 'Come back when you're better.' Modest, aren't you?
+				Eridani: Akuma's soul remains. The Draconian Demon is not truly dead – merely dispersed.
+			}
+
+			Expert: {
+				Asphodene: It's dissolving... Did we win? Wait, something's happening...
+				Eridani: Akuma's form scatters, yet its essence lingers. No, wait... I sense a power surge building.
+			}
+		}
+	}
+
+	AkumaA: {
+		Seen: {
+			Asphodene: It's not over?! The wyvern just got WAY hotter. We really did fan the flames...! This is bad.
+			Eridani: This must be Akuma's true, awakened, power. The air temperature is rising dramatically – stay mobile.
+		}
+
+		Defeat: {
+			Asphodene: Finally! It admits we won fair and square. Took long enough.
+			Eridani: Akuma concedes defeat. There is a hint of respect in its tone. A grudging honor.
+		}
+	}
+
+	Zero: {
+		Seen: {
+			Asphodene: A floating machine with orbiting weapons. It's speaking in code. Creepy.
+			Eridani: Zero. A Doomsday Construct. Its weapons will unleash a relentless assault. Get to cover! Quick!
+		}
+
+		Defeat: {
+			NotExpert: {
+				Asphodene: Zero is down. Though it seems like it was trying to do something at the end there... Maybe we're lucky it malfunctioned.
+				Eridani: The construct falls, but its 'Doomsday Protocol' has me worried. We may be lucky it failed to utilize it.
+			}
+		}
+	}
+
+	ZeroProtocol: {
+		Seen: {
+			Asphodene: Woah! It just tossed its physical body?! This 'Doomsday Protocol' is no joke! We're fighting a living glitch now.
+			Eridani: Tossing away the Zero Unit. Now, we're fighting something else entirely. Its become much more mobile now. Don't let it catch you!
+		}
+
+		Defeat: {
+			Asphodene: A distress signal? Now who could THAT thing be calling for help?! I'm not sure I like that ominous rift either...
+			Eridani: Letting that machine get out its distress signal may prove disasterous. I believe the Void's master may be on our horizon.
+		}
+	}
+
+	SupremeRajah: {
+		Seen: {
+			Asphodene: This guy again?! Talk about a power up! But we can't let this bunny be the end of us.
+			Eridani: The Champion of the Innocent. This is his true power. We won't win this so easilly.
+
+			Murderer: {
+				Asphodene: He's even angrier. 'Murderer' again. We really messed up, didn't we?
+				Eridani: No forgiveness. Only vengeance. He will not stop until justice is served.
+			}
+		}
+
+		Defeat: {
+			Asphodene: He stopped? Wow, he wants us to take his place? {0}, he's serious.
+			Eridani: The Champion passes his duty to us. 'Be the one the innocent can look to.' A heavy responsibility.
+		}
+	}
+
+	Shen: {
+		Seen: {
+			Asphodene: That's... both Yamata AND Akuma. Combined. We're doomed...
+			Eridani: Shen Doragon, the Discordian Doomsayer. The true test of our abilities.
+		}
+
+		Defeat: {
+			Expert: {
+				Asphodene: Phew... That was a tough one! Wait a minute... What's happening?
+				Eridani: The Doomsayer falls. No, wait. This isn't over, is it? I sense lingering energy.
+			}
+
+			NotExpert: {
+				Asphodene: Phew... That was a tough one! Wait... 'true power'? You're telling me that wasn't all he had?!
+				Eridani: To think that wasn't all that dragon had... I'd be frightened to see what its capable of if it went all out.
+			}
+		}
+	}
+
+	ShenA: {
+		Seen: {
+			Asphodene: That wasn't even their final form?! This guy just won't quit!
+			Eridani: He is right. We should have anticipated this. The test continues.
+		}
+
+		Defeat: {
+			Asphodene: It's splitting apart! And they're blaming each other. Classic villain teamwork.
+			Eridani: Shen Doragon's fusion collapses. 'You will face our fury again.' A cycle without end.
+		}
+	}
+
+	InfinityZero: {
+		Seen: {
+			Asphodene: That's one huge machine... Is this what that distress signal called?! And now its locked onto us. We might be in for it...
+			Eridani: A mechanical construct of immense power. This must be what that distress signal was sent to... Get ready.
+		}
+
+		Defeat: {
+			Asphodene: Who the heck was that?! 'Won't be so forgiving'? No way that guys tougher than that mechanical monster, right...?
+			Eridani: We're lucky it left so easilly... Its power was off the charts. 'Next time, I won't be so forgiving.' A warning for the future.
+		}
+	}
+
+	SoulOfCthulhu: {
+		Seen: {
+			Asphodene: A ship's wheel with a face? And I hear whispers... 'leave'... creepy.
+			Eridani: The Soul of Cthulhu. Ancient, malevolent, and now awake. We must be cautious.
+		}
+
+		Defeat: {
+			Asphodene: It exploded while cursing us. 'By the name of Azathoth!' ...Should we be worried?
+			Eridani: Cthulhu's wrath is spent. But his curse shouldn't be taken lightly. This may not be the end... Greater forces may still be at play.
+		}
+	}
+}

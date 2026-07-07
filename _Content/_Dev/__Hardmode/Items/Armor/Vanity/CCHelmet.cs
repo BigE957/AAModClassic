@@ -1,0 +1,38 @@
+﻿using System.Collections.Generic;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+
+namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
+{
+    [AutoloadEquip(EquipType.Head)]
+	public class CCHelmet : ModItem, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Vanity.CC";
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Dread Cultist Mask");
+			/* Tooltip.SetDefault(@"The mask of a crazy lizard enthusiast
+'Great for impersonating Ancients Awakened Developers!'"); */
+		}
+
+		public override void SetDefaults() {
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = 10000;
+			Item.rare = ItemRarityID.Green;
+			Item.vanity = true;
+		}
+
+		public override void ModifyTooltips(List<TooltipLine> list)
+		{
+			foreach (TooltipLine line2 in list)
+			{
+				if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+				{
+					line2.OverrideColor = new Color(92, 101, 150);
+				}
+			}
+		}
+	}
+}

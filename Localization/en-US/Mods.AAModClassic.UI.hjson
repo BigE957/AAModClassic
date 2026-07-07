@@ -5,12 +5,12 @@ Removed: {
 
 Unreleased: {
 	Title: Unreleased
-	Description: Experience never-before Ancients Awakened content from in-dev builds.
+	Description: Experience never-before seen content from in-dev builds.
 }
 
 Unofficial: {
 	Title: Unofficial
-	Description: Experience a smoother experience with improvements and new additions.
+	Description: Enjoy a smoother experience with improvements and new additions.
 }
 
 WindowTitle: {
@@ -34,4 +34,297 @@ WindowTitle: {
 	17: Ancients Awakened: Also Try Elements Awoken!
 	18: Ancients Awakened: Ported in full for your enjoyment
 	19: Ancients Awakened: A bright but dark future unfolds...
+}
+
+Quests: {
+	LegendscribeEarlyGame: {
+		MushroomMonarch: {
+			Name: Mushrooms. I'm serious.
+
+			Description: {
+				Incomplete: Hey, you know all these little red mushrooms growing everywhere? I hear if you squish a bunch of them together and wave them around, their king or something will come and attempt to run you down. I gotta see that.
+				Complete: ...that was it?
+			}
+
+			Tasks: - Defeat the Mushroom Monarch
+		}
+
+		FeudalFungus: {
+			Name: More Mushrooms.
+
+			Description: {
+				Incomplete: The glowing mushroom caves always make me feel loopy for some reason. Anyways, you want better magic abilities? There's a big mushroom monster that has some great magic abilities infused into it. Just plug your nose while your down there.
+				Complete: Nice work. Now be honest, how high are you right now?
+			}
+
+			Tasks: - Defeat the Feudal Fungus
+		}
+
+		GripsOfChaos: {
+			Name: Get a Grip
+
+			Description: {
+				Incomplete: Those flying claws at night are a nightmare to deal with, and they freak me out. In my travels, I've come across these two REEEEEEEEALLY big ones. Maybe if you kill them, the little ones will bugger off. Maybe killing a few of them and showing that you have in some way will call them down.
+				Complete: Nice job taking down those giant hands. Maybe the little ones will finally leave me alone for once.
+			}
+
+			Tasks: - Defeat the Grips of Chaos
+		}
+
+		Broodmother: {
+			Name: Deadweight Dragon
+
+			Description: {
+				Incomplete: Like dragons? No? Too bad. You want better gear? You gotta go kill of this HUGE dragon made of lava. She's big, scary, and WAAAAAAAAAAAY too fat to fly, but she does anyways.
+				Complete: That was the fattest dragon I've ever seen in my life.
+			}
+
+			Tasks: - Defeat the Broodmother
+		}
+
+		Hydra: {
+			Name: Three-Headed Freak
+
+			Description: {
+				Incomplete: The Mire has always been a gathering spot for all the nastiest lizards, but there's a really big one there, and it's got 3 heads. She's really grouchy all the time, and any time I try to go into her den, she tries to EAT me!
+				Complete: Good riddance. That hydra can't seem to lay off. At least her daughter is a bit more mellow...huh? Who? I'll explain later, good job.
+			}
+
+			Tasks: - Defeat the Hydra
+		}
+
+		DesertDjinn: {
+			Name: 3 Wishes
+
+			Description: {
+				Incomplete: THAT SON OF A-- Oh hi. Sorry, I was just a bit angry about a little tussle I had with desert djinn. That magical meathead and his goons to stop flexing their muscles on me. Could you go teach em' a thing or two?
+				Complete: Hah! Who's tough now you sandy sadsack!
+			}
+
+			Tasks: - Defeat the Desert Djinn
+		}
+
+		SubzeroSerpent: {
+			Name: Cool as Ice
+
+			Description: {
+				Incomplete: Snakes, why does it always have to be snakes? I hate 'em! Whatever, in the tundra recently, there have been these snow snerpents that won't leave me alone. Could ya play exterminator and find out what they're doing?
+				Complete: Hope you didn't get any 'FROSTBITES'! *buh-dum-tish* ...yeah I know that was lame.
+			}
+
+			Tasks: - Defeat the Subzero Serpent
+		}
+
+		Sagittarius: {
+			Name: Horseplay
+
+			Description: {
+				Incomplete: You know the void? Those spooky floating islands to the east? I swear I saw a robot horse flying around there. Gave me the heebie-jeebies! I was thinking, would you be able to take care of that tin can for me?
+				Complete: Nice job dealing with that horse. I don't know why, but I'm suddenly feeling pretty hungry...
+			}
+
+			Tasks: - Defeat Sagittarius
+		}
+
+		Retriever: {
+			Name: Gotcha'
+
+			Description: {
+				Incomplete: Remember the Grips of Chaos? Those nasty grabby hands? There's a robotic one and it keeps stealing my stuff. Can you do me a favor and go throw a wrench at it or something?
+				Complete: Did you get my 3rd edition of 'The Life and Epic Adventures of Anubis the Wonder Dog!' back by any chance?
+			}
+
+			Tasks: - Defeat the Retriever
+		}
+
+		OrthrusX: {
+			Name: Two heads; zero brains
+
+			Description: {
+				Incomplete: Remeber the Hydra? There's a bigger one out there. And it's a robot. And it uh...shoots lightning. So uh...good luck!
+				Complete: I guess orthrus is what it eats, now.
+			}
+
+			Tasks: - Defeat Orthrus X
+		}
+
+		RaiderUltima: {
+			Name: Mechanical Mass
+
+			Description: {
+				Incomplete: People said that they saw strange shade in one of the nights. It was so big that it even closed the moon for a moment. You should discover this mystery and do something.
+				Complete: So it was a giant robot after all? Well, sometimes people just overthinking the problem. That thing was almost as fat as the Broodmother.
+			}
+
+			Tasks: - Defeat Raider Ultima
+		}
+
+		Anubis: {
+			Name: Ancient of Judgement
+
+			Description: {
+				Incomplete: I hear there's this lorekeeper guy that's really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy.
+				Complete: You could have gone a little easier on me, ya know. My back still hurts from that.
+			}
+
+			Tasks: - Defeat Anubis; Legendscribe
+		}
+
+		Athena: {
+			Name: Squakin' Headache
+
+			Description: {
+				Incomplete: You know those screechin' harpies up in the sky? Well there are these REALLY obnoxious ones called seraphs who just WILL NOT SHUT UP!!! They have a leader in that sky palace to the east. Maybe if you give her the ol' one-two, they'll shut their yappers.
+				Complete: Thank the Equinox, you shut those annoying little squakers up! I was about to roast one of them over a spit and have fried chicken for dinner if they shrieked at me one more time.
+			}
+
+			Tasks: - Defeat Athena
+		}
+
+		Greed: {
+			Name: What a Worm
+
+			Description: {
+				Incomplete: Hey uh, there's this HUGE hoard of treasure underground somewhere with lots of gold in it, but it's guarded by this really stingy worm. You should go check it out for a boatload of booty, but uh...there's something of mine down there. Could you go get it for me? Don't worry, when you see it, you'll know it's mine.
+				Complete: Hey uh...did you find my thing yet? No? Just dig around in that loot pile down there, I'm sure it's there somewhere.
+				FoundBook: Hey thanks for getting my book back. Greed stole it a while ago, probably because of the gold highlights I used to bind it. Look around that cave, maybe there's some other stuff he's stolen?
+			}
+
+			Tasks: - Defeat Greed
+		}
+
+		Rajah: {
+			Name: Hopping Hoodlum
+
+			Description: {
+				Incomplete: Hey, you know those bunnies that hop around all the time? I uh... I wouldn't harass them if I were you. There's a legend around here of a sort of 'Guardian' of sorts that protects from the danger. Why is it a legend? Because apparently nobody has fought this thing and lived. Neat story, eh?
+				Complete: You bested Rajah? Pft, yeah right, I've seen him trounce supposed gods before, there's no way you beat him..!
+			}
+
+			Tasks: - Defeat Rajah Rabbit
+		}
+	}
+
+	LegendscribeLateGame: {
+		ForsakenAnubis: {
+			Name: I demand a rematch.
+
+			Description: {
+				Incomplete: I want a rematch, {0}. Not because of my pride, either. I need to make sure you're ready for what's ahead. Meet me in the desert and fight again. And be ready.
+				Complete: You did good, pal. I'm pretty impressed, even though I was still holding back. Huh? My full power..? Like I said earlier, some things should stay locked away for your own good.
+			}
+
+			Tasks: - Defeat Anubis; Forsaken Judge
+		}
+
+		AthenaA: {
+			Name: Harpy Hags are back
+
+			Description: {
+				Incomplete: Hey, did that annoying little witch find you? Sorry for telling her where you were, she wouldn't stop screeching in my ear. Anyways, looks like Athena wants a rematch. Stay on your guard, bud. This seems like a trap...
+				Complete: Huh? What's a Varian you ask? That's something I haven't heard in years...so long ago that I barely even remember the name. Although I do recall something about another one kicking around somewhere...
+			}
+
+			Tasks: - Defeat Olympian Athena
+		}
+
+		GreedA: {
+			Name: Riches and R.I.P. you
+
+			Description: {
+				Incomplete: You know, I seem to remember a story about ol' grabby-mc-steal-your-crap. When he first showed up in these parts, he was much stronger than he was when you kicked his rear end. Maybe he got weaker as time went on..? Or maybe...nah, that couldn't be it.
+				Complete: So he WAS hiding his true power all along. I wonder why, though...could he be hiding from something, perhaps..?
+			}
+
+			Tasks: - Defeat Worm King, Greed
+		}
+
+		Equinox: {
+			Name: More worm bosses goddammit.
+
+			Description: {
+				Incomplete: Like worms? Me neither, but guess what? There are 2 big ones that control the flow of day and night, and they're tough buggers. Good luck.
+				Complete: Nice job taking on the Equinox Worms. I could tell you did because it's like a week later now. I hope I didn't miss my nurse's appointment.
+			}
+
+			Tasks: - Defeat the Equinox Worms
+		}
+
+		Sisters: {
+			Name: Terrible Twins
+
+			Description: {
+				Incomplete: Remember ol' Brood and Hydra? Well, those two have daughters. And MAN they're annoying..! Everytime I go into the chaos biomes, those two are just waiting to ruin my day! Can you go give em' the ol' one-two?
+				Complete: Nice, you taught those two spoiled brats a lesson! Those two didn't see it coming!
+			}
+
+			Tasks: - Defeat the Sisters of Discord
+		}
+
+		Akuma: {
+			Name: Ancient of Fury
+
+			Description: {
+				Incomplete: Why would anyone call a sun serpent a demon? I have no idea personally...but Akuma has got to go. He always glasses my deserts with his flame breath and it pisses me off.
+				Complete: Akuma thinks he's edgy. To me, he just comes across as trying to be way too cool and failing. Anyways, might wanna run some water through your hair. You got a little singed up there.
+			}
+
+			Tasks: - Defeat Akuma
+		}
+
+		Yamata: {
+			Name: Ancient of Wrath
+
+			Description: {
+				Incomplete: Yamata, the whiny nit! He complains about everything, and he WONT SHUT UP! LIKE SERIOUSLY, YOU try and deal with seven obnoxiously loud dragon heads that chatter constantly and talk over eachother!
+				Complete: Thanks for shutting up that 7-headed loud-mouth. He makes me want to tear my fur out.
+			}
+
+			Tasks: - Defeat Yamata
+		}
+
+		Zero: {
+			Name: Ancient of Doom
+
+			Description: {
+				Incomplete: You've seen that BIG scary machine there that's always just floating in the Void, yeah? After you slammed the Moon Lord, I heard a massive shockwave come from fomr over there. Could you check it out for me?
+				Complete: ...I'll be honest. I don't like what that thing said after it died one bit.
+			}
+
+			Tasks: - Defeat Zero
+		}
+
+		Shen: {
+			Name: Discordian Doomsayer
+
+			Description: {
+				Incomplete: Akuma and Yamata...you know, those two were once one being. And hot dang, that guy was powerful. He leveled 2 civilizations one time. Anyways, so what was it that you needed?
+				Complete: Holy-- I knew you had it in you, man! Awesome job! Although...he seemed pretty angry when you beat him...almost as angry as when he got beat by-- er, nevermind that.
+			}
+
+			Tasks: - Defeat Shen Doragon
+		}
+
+		InfinityZero: {
+			Name: Mechanical Malice
+
+			Description: {
+				Incomplete: Hey so remember that stuff Zero was spouting after you scrapped it? Yeah... So, it turns out we were right to be concerned. A huge machine warped into the void through the big rift you probably noticed. I'd be careful if you plan on poking around there anytime soon...
+				Complete: Wow-- You beat that thing? There was something living inside it, huh? And you're saying it just wanted to be left alone... There's no way... It couldn't be- er, let's worry about that later.
+			}
+
+			Tasks: - Defeat Infinity Zero
+		}
+
+		SoulOfCthulhu: {
+			Name: Cosmic Calamity
+
+			Description: {
+				Incomplete: You been to the ocean lately? There's this crazy fog that's enveloped the whole ocean! Now that I think about it, I remember some boat being sunk around there a while back. Wonder if the two are related...?
+				Complete: You fought and killed CTHULHU'S SOUL?! Geez, that's no small feat. Though that curse stuff it was spouting has me worried... Azathoth... Let's just hope there isn't any merit behind it.
+			}
+
+			Tasks: - Defeat the Soul of Cthulhu
+		}
+	}
 }

@@ -1,0 +1,92 @@
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using AAModClassic.Globals;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._CrossMod.Overhaul;
+
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
+{
+    public class DarkmatterSlasher : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Darkmatter Slasher");
+        }
+
+        public override void SetDefaults()
+        {
+            Item.width = 56;
+            Item.height = 56;
+            Item.DamageType = DamageClass.MeleeNoSpeed;
+            Item.damage = 350;
+            Item.knockBack = 3;
+            Item.autoReuse = true;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.UseSound = SoundID.Item1;
+            Item.useTime = 30 / 2; //dont change the 30 unless you want to soft lock your computer. instead use it as a value and use 15 as the number 2, doing this will divide the 30 with 15 to get a use time of 2
+            Item.useAnimation = 13;
+            Item.shoot = ModContent.ProjectileType<DarkmatterSlasher_DarkmatterWave>();
+            Item.shootSpeed = 25f;
+            Item.value = 25000;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
+        }
+
+        
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 35);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 25);
+		    recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.Register();
+        }
+
+        public override void HoldItem(Player player)
+        {
+            Saber.HoldItemManager(player, Item, ModContent.ProjectileType<DarkmatterSlasher_Slash>(), Color.Blue, 0.9f, player.itemTime == 0 ? 0f : 1f);
+        }
+
+        // Doesn't get called unless item.shoot is defined.
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        { 
+            return Saber.IsChargedShot(player);
+        }
+
+        public override void UseItemFrame(Player player)
+        {
+            Saber.UseItemFrame(player, 0.9f, Item.beingGrabbed);
+        }
+
+        public override void UseItemHitbox(Player player, ref Rectangle hitbox, ref bool noHitbox)
+        {
+            //TODO: THis shit did not work either.
+            //int height = 80;
+            //int length = 132;
+            //Saber.UseItemHitboxCalculate(player, Item, ref hitbox, ref noHitbox, 0.9f, height, length);
+        }
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            Color colour = new Color(0.1f, 255f, 181f);
+            Saber.OnHitFX(player, target, hit.Crit, colour, true);
+        }
+
+        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            if (Saber.SabreIsChargedStriking(player, Item))
+            { modifiers.FinalDamage.Flat = -500; }
+        }
+    }
+}

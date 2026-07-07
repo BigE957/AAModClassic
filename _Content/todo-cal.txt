@@ -1,0 +1,46 @@
+base
+-FINISH THIS DIPSHIT rework how unbreakable tiles work. ideally, no more breakable tiles as tiles, make breakability tile data? unbreakable exclusive tiles can be obtained and built with. terraformer can break unbreakables
+-
+
+removed
+-DONE port siege units, with all gear 
+-DONE port techno truffle who is legally not a siege unit so he has to be listed separately
+-port the early hm ore alts
+-port emperor fishron
+-bring back the underground void 
+-port discordian grips from the last ver they were a separate boss
+-
+
+unreleased
+-theres unused sprites for a chaos face paint. add as hm chaos armor set summoner helm shimmer?
+-get mire, inferno sand sharks working and add them
+-finish and implement soc plantera phase
+-finish and implement soc anchor drop
+-
+
+unofficial
+-electric eel for emperor fishron, when 1.4.5 releases
+-underground and surface void consistency content
+--void sand shark
+--void pigron
+--void ghoul (ug desert enemy)
+-buff the shit out of certain bosses
+--athena: juice her health
+--athena a: juice her health
+--greed: better pierce resist, adjust health/def accordingly
+--greed a: better pierce resist, adjust health/def accordingly
+--biolite core: rework??? maybe???????? i have ideas and they arent hard. i think its so bad and obscenely incomplete compared to the other stuff in unreleased we kinda have to do smth w it
+--yamata a: add loads of anticheat. player shouldnt be able to fly above him. tweak attacks accordingly
+--shen: nerf the fucking predictive attack
+--shen a: force the player to actually stay close to him. you suck, terry! i can do better! nerf the above attack too
+--soul of cthuhlu: maybe tweak bosses to be more threatening. biblically accurate awakened phase
+-shadow bosses. older vers of bosses if they had an older iteration that was notably different and funny. no rewards probably. maybe a special relic?
+--sagittarius from when he was a ball
+--shen pre-terry
+-
+
+crossmod
+-rename goozma to whatever the aa slime boss was named (amalgamation)
+
+notes
+-

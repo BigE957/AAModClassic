@@ -2,7 +2,6 @@
 using Terraria.ModLoader;
 using Terraria.Localization;
 using System.Collections.Generic;
-using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ReLogic.OS;

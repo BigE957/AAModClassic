@@ -1,5 +1,5 @@
-author = BigE
-version = 0.1
+author = Big E
+version = 1.0.0
 displayName = Ancients Awakened: Classic
 loadAfter = AAMod, CalamityMod
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, *.sln

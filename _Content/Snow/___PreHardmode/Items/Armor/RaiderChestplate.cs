@@ -1,0 +1,54 @@
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
+{
+    [AutoloadEquip(EquipType.Body)]
+	public class RaiderChestplate : EquipAbstract, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Armor.Raider";
+		public static int counter = 0;
+		public override void SetStaticDefaults()
+		{
+			base.SetStaticDefaults();
+			// DisplayName.SetDefault("Raider Chestplate");
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 22;
+			Item.height = 24;
+			Item.value = Item.sellPrice (0, 0, 5, 0);
+			Item.rare = ItemRarityID.LightRed;
+			Item.defense = 14;
+		}
+
+		public override bool IsArmorSet(Item head, Item body, Item legs)
+		{
+			return head.type == ModContent.ItemType<RaiderHelmet>() && legs.type == ModContent.ItemType<RaiderLeggings>();
+		}
+
+        public override void RegisterEquipEffects()
+        {
+			AddSetEffect<KnockbackImmunityEffect>();
+			AddSetEffect<RaiderChestplateSetEffect>();
+        }
+
+        public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<VikingChestplate>());
+            recipe.AddIngredient(ItemID.Coral, 8);
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 8);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 8);
+            recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+		}
+	}
+}

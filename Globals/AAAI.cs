@@ -1,20 +1,19 @@
 
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
+using AAModClassic.Utilities;
 
 namespace AAModClassic.Globals
 {
     public class AAAI
 	{
-        public static AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+        public static ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
         public static void InfernoFighterAI(NPC npc, ref float[] ai, bool fleeWhenNight = true, bool allowBoredom = true, int openDoors = 1, float moveInterval = 0.07f, float velMax = 1f, int maxJumpTilesX = 3, int maxJumpTilesY = 4, int ticksUntilBoredom = 60, bool targetPlayers = true, int doorBeatCounterMax = 10, int doorCounterMax = 60, bool jumpUpPlatforms = false, Action<bool, bool, Vector2, Vector2> onTileCollide = null, bool ignoreJumpTiles = false)
         {
             bool xVelocityChanged = false;
@@ -174,7 +173,7 @@ namespace AAModClassic.Globals
                 PlayerPosX = npc.velocity.X;
                 PlayerPosY = npc.velocity.Y;
             }
-            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, Main.myPlayer);
+            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, ai1: npc.whoAmI);
         }
 
         public static void AIShadowflameGhost(NPC npc, ref float[] ai, bool speedupOverTime = false, float distanceBeforeTakeoff = 660f, float velIntervalX = 0.3f, float velMaxX = 7f, float velIntervalY = 0.2f, float velMaxY = 4f, float velScalarY = 4f, float velScalarYMax = 15f, float velIntervalXTurn = 0.4f, float velIntervalYTurn = 0.4f, float velIntervalScalar = 0.95f, float velIntervalMaxTurn = 5f)
@@ -763,7 +762,7 @@ namespace AAModClassic.Globals
                 {
                     for (int tY = tileY; tY < tileCenterY; tY++)
                     {
-						Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
+						Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                         if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                         {
                             Vector2 tPos;
@@ -772,7 +771,7 @@ namespace AAModClassic.Globals
                             if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
                             {
                                 canMove = true;
-                                if (spawnTileDust && Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
+                                if (spawnTileDust && Main.rand.NextBool(100) && checkTile.HasUnactuatedTile)
                                 {
                                     WorldGen.KillTile(tX, tY, true, true, false);
                                 }

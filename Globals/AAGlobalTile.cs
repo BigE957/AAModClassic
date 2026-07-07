@@ -3,11 +3,24 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using AAModClassic.Tiles.Boss;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.Tiles.Plants;
-using AAModClassic.Items.Potions.LuckyPotions;
+using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Tiles;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System.Collections.Generic;
+using Terraria.ModLoader.IO;
+using System.Linq;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
+using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPotions;
+using AAModClassic._Content.Void.World.Tiles;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.Hoard.World.Tiles;
+using AAModClassic._Content.Stars.World.Altar;
 
 namespace AAModClassic.Globals
 {
@@ -27,7 +40,7 @@ namespace AAModClassic.Globals
 
         #region Tile Colors
 
-        public static Color GetIncineriteColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAPlayer.IncineriteColor, color, min, max, clamp);
+        public static Color GetIncineriteColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(ZAAPlayer.IncineriteColor, color, min, max, clamp);
         public static Color GetIncineriteColorDim(Color color) => GetIncineriteColor(color, 0.4f, 1f, false);
         public static Color GetIncineriteColorBright(Color color) => GetIncineriteColor(color, 0.6f, 1f, false);
         public static Color GetIncineriteColorBrightInvert(Color color) => GetIncineriteColor(color, 1f, 0.6f, true);
@@ -120,31 +133,6 @@ namespace AAModClassic.Globals
             {
                 return;
             }
-
-            if (type == 28)
-            {
-                if(Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManSpawn)
-                {
-                    PotsDropMethod(i, j);
-                }
-            }
-
-            if (Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManOre)
-            {
-                if(TileID.Sets.Conversion.Stone[type])
-                {
-                    int k = DropOreMethod(i, j, type);
-                    if(k != 0) Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, k, 1, false, 0, false, false);
-                }
-            }
-
-            if (Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().AncientGoldBody)
-            {
-                if(TileID.Sets.Conversion.Stone[type] && Main.rand.Next(50) == 0)
-                {
-                    Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.GoldCoin, 1, false, 0, false, false);
-                }
-            }
         }
 
         public static Color GetTimedrawColor(Color tColor, Color color, float min, float max, bool clamp)
@@ -188,125 +176,99 @@ namespace AAModClassic.Globals
 
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
-            {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
-            }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar>()))
-            {
+            Tile t = Main.tile[i, j - 1];
+
+            if(!t.HasTile)
+                return true;
+
+            if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
-            }
 
-            return base.CanKillTile(i, j, type, ref blockDamaged);
+            if ((t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+                return false;
+
+            if ((t.TileType == ModContent.TileType<StarAltar_Tile>() || t.TileType == ModContent.TileType<GravAltar_Tile>() || t.TileType == ModContent.TileType<WormAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<StarAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<GravAltar_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<WormAltar_Tile>()))
+                return false;
+
+            return true;
+        }
+
+        public override bool CanReplace(int i, int j, int type, int tileTypeBeingPlaced)
+        {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
+                return false;
+
+            Tile t = Main.tile[i, j - 1];
+
+            if (!t.HasTile)
+                return true;
+
+            if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+                return false;
+
+            if ((t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+                return false;
+
+            if ((t.TileType == ModContent.TileType<StarAltar_Tile>() || t.TileType == ModContent.TileType<GravAltar_Tile>() || t.TileType == ModContent.TileType<WormAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<StarAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<GravAltar_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<WormAltar_Tile>()))
+                return false;
+
+            return true;
         }
 
         public override bool CanExplode(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
-            {
+            Tile t = Main.tile[i, j - 1];
+            if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (t.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
-            }
 
-            return base.CanExplode(i, j, type);
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
+                return false;
+
+            return true;
         }
 
         public override bool Slope(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
             {
                 return false;
             }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
             {
                 return false;
             }
 
-            return base.Slope(i, j, type);
+            return true;
         }
 
         public override void RandomUpdate(int i, int j, int type)
         {
             if (Main.tile[i, j].TileType == TileID.MushroomGrass)
             {
-                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1000) == 0)
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1000))
                 {
                     int style = Main.rand.Next(5);
 
-                    if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom>(), false, style))
+                    if (PlaceObject(i, j - 1, ModContent.TileType<MadnessMushroom_Tile>(), false, style))
                     {
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom>(), style, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessMushroom_Tile>(), style, 0, -1, -1);
                     }
                 }
             }
 
             if (Main.tile[i, j].TileType == TileID.Grass && Main.hardMode)
             {
-                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(800) == 0)
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(800))
                 {
-                    if (PlaceObject(i, j - 1, ModContent.TileType<Carrot>(), false, 0))
+                    if (PlaceObject(i, j - 1, ModContent.TileType<Carrot_Tile>(), false, 0))
                     {
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot>(), 0, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot_Tile>(), 0, 0, -1, -1);
                     }
                 }
-            }
-
-            if(Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManSpawn)
-            {
-                if(Main.rand.Next(800) == 0 && j >= GenVars.worldSurfaceLow)
-                {
-                    if (Main.tile[i, j + 1].HasTile && Main.tileSolid[Main.tile[i, j].TileType] && !Main.tile[i, j - 1].lava())
-                    {
-                        int style = WorldGen.genRand.Next(0, 4);
-                        int tiletype = 0;
-                        if (j < Main.maxTilesY - 5)
-                        {
-                            tiletype = Main.tile[i, j + 1].TileType;
-                        }
-                        if (tiletype == 147 || tiletype == 161 || tiletype == 162)
-                        {
-                            style = WorldGen.genRand.Next(4, 7);
-                        }
-                        if (tiletype == 60)
-                        {
-                            style = WorldGen.genRand.Next(7, 10);
-                        }
-                        if (Main.wallDungeon[Main.tile[i, j].WallType])
-                        {
-                            style = WorldGen.genRand.Next(10, 13);
-                        }
-                        if (tiletype == 41 || tiletype == 43 || tiletype == 44)
-                        {
-                            style = WorldGen.genRand.Next(10, 13);
-                        }
-                        if (tiletype == 22 || tiletype == 23 || tiletype == 25)
-                        {
-                            style = WorldGen.genRand.Next(16, 19);
-                        }
-                        if (tiletype == 199 || tiletype == 203 || tiletype == 204 || tiletype == 200)
-                        {
-                            style = WorldGen.genRand.Next(22, 25);
-                        }
-                        if (tiletype == 367)
-                        {
-                            style = WorldGen.genRand.Next(31, 34);
-                        }
-                        if (tiletype == 226)
-                        {
-                            style = WorldGen.genRand.Next(28, 31);
-                        }
-                        if (j > Main.maxTilesY - 200)
-                        {
-                            style = WorldGen.genRand.Next(13, 16);
-                        }
-                        if (WorldGen.PlacePot(i, j, 28, style))
-                        {
-                            NetMessage.SendObjectPlacement(-1, i, j, 28, 0, 0, -1, -1);
-                        }
-                    }
-                }
-                
             }
         }
 
@@ -326,502 +288,75 @@ namespace AAModClassic.Globals
             return false;
         }
 
-        public static void PotsDropMethod(int i, int j)
+        public override void PostDraw(int i, int j, int type, SpriteBatch spriteBatch)
         {
-            int itemcreat = 0;
-            if (WorldGen.genRand.Next(30) == 0 || (Main.rand.Next(30) == 0 && Main.expertMode))
+            ModTile tile = ModContent.GetModTile(type);
+            if (tile != null && tile is IGlowmaskTile glowTile && glowTile.ShouldDrawGlow)
             {
-                if (WorldGen.genRand.Next(20) == 0)
+                if (ModContent.RequestIfExists(tile.Texture + "_Glow", out Asset<Texture2D> tex))
                 {
-                    int rand = WorldGen.genRand.Next(100);
-                    if (rand == 0)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 678, 1, false, 0, false, false);
-                    }
-                    else
-                    {
-                        int rand2 = WorldGen.genRand.Next(3);
-                        if(rand2 == 0)
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2352, 1, false, 0, false, false);
-                        }
-                        if(rand2 == 1)
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2353, 1, false, 0, false, false);
-                        }
-                        if(rand2 == 2)
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2756, 1, false, 0, false, false);
-                        }
-                    }
-                }
-                if(Main.rand.Next(200) == 0)
-                {
-                    int k = Config.LuckyPotion.Keys.Count;
-                    foreach (int itempotion in Config.LuckyPotion.Keys)
-			        {
-                        if(Main.rand.Next(k) == 0)
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, itempotion, 1, false, 0, false, false);
-                            break;
-                        }
-                        k -= 1;
-                    }
-                }
-                else if (Main.tile[i, j].LiquidAmount > 0)
-                {
-                    int rand = WorldGen.genRand.Next(3);
-                    if (rand == 0)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2354, 1, false, 0, false, false);
-                    }
-                    if (rand == 1)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2355, 1, false, 0, false, false);
-                    }
-                    if (rand >= 2)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2356, 1, false, 0, false, false);
-                    }
-                }
-                else if (j < Main.worldSurface)
-                {
-                    int rand = WorldGen.genRand.Next(12);
-                    if (rand == 0)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyIronskinPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 292, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 1)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 298, 1, false, 0, false, false);
-                    }
-                    if (rand == 2)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
-                    }
-                    if (rand == 3)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckySwiftnessPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 290, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 4)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
-                    }
-                    if (rand == 5)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyCalmingPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2324, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 6)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2325, 1, false, 0, false, false);
-                    }
-                    if (rand == 7 || rand == 8)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<LuckyWrathPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2349, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand >= 9)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
-                    }
-                }
-                else if (j < Main.rockLayer)
-                {
-                    if (Main.player[Main.myPlayer].ZoneJungle)
-                    {
-                        int rand2 = WorldGen.genRand.Next(3);
-                        if (rand2 == 0)
-                        {
-                            if(Main.rand.Next(100) == 0)
-                            {
-                                int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckySummoningPotion>();
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                            }
-                            else
-                            {
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2328, 1, false, 0, false, false);
-                            }
-                        }
-                        else
-                        {
-                            if(Main.rand.Next(100) == 0)
-                            {
-                                int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyThornsPotion>();
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                            }
-                            else
-                            {
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
-                            }
-                        }
-                    }
-                    else if (Main.player[Main.myPlayer].ZoneSnow)
-                    {
-                        if (WorldGen.genRand.Next(2) == 0)
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2359, 1, false, 0, false, false);
-                        }
-                    }
-                    int rand = WorldGen.genRand.Next(12);
-                    if (rand == 0)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyRegenerationPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 289, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 1)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 298, 1, false, 0, false, false);
-                    }
-                    if (rand == 2)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
-                    }
-                    if (rand == 3)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckySwiftnessPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 290, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 4)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 303, 1, false, 0, false, false);
-                    }
-                    if (rand == 5)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 291, 1, false, 0, false, false);
-                    }
-                    if (rand == 6)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
-                    }
-                    if (rand == 7)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
-                    }
-                    if (rand == 8)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2329, 1, false, 0, false, false);
-                    }
-                    if (rand == 9)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyEndurancePotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2346, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand >= 10)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
-                    }
-                }
-                else if (j < Main.maxTilesY - 200)
-                {
-                    int rand = WorldGen.genRand.Next(15);
-                    if (rand == 0)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 296, 1, false, 0, false, false);
-                    }
-                    if (rand == 1)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 295, 1, false, 0, false, false);
-                    }
-                    if (rand == 2)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
-                    }
-                    if (rand == 3)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
-                    }
-                    if (rand == 4)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 303, 1, false, 0, false, false);
-                    }
-                    if (rand == 5)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 305, 1, false, 0, false, false);
-                    }
-                    if (rand == 6)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyThornsPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 7)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
-                    }
-                    if (rand == 8)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 297, 1, false, 0, false, false);
-                    }
-                    if (rand == 9)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
-                    }
-                    if (rand == 10)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
-                    }
-                    if (rand == 11)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
-                    }
-                    if (rand == 12)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2327, 1, false, 0, false, false);
-                    }
-                    if (rand == 13)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2329, 1, false, 0, false, false);
-                    }
-                    if (rand == 14)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
-                    }
-                }
-                else
-                {
-                    int rand = WorldGen.genRand.Next(16);
-                    if (rand == 0)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 296, 1, false, 0, false, false);
-                    }
-                    if (rand == 1)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 295, 1, false, 0, false, false);
-                    }
-                    if (rand == 2)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 293, 1, false, 0, false, false);
-                    }
-                    if (rand == 3)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 288, 1, false, 0, false, false);
-                    }
-                    if (rand == 4)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 294, 1, false, 0, false, false);
-                    }
-                    if (rand == 5)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 297, 1, false, 0, false, false);
-                    }
-                    if (rand == 6)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
-                    }
-                    if (rand == 7)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 305, 1, false, 0, false, false);
-                    }
-                    if (rand == 8)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyThornsPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 9)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
-                    }
-                    if (rand == 10)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 288, 1, false, 0, false, false);
-                    }
-                    if (rand == 11)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 300, 1, false, 0, false, false);
-                    }
-                    if (rand == 12)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
-                    }
-                    if (rand == 13)
-                    {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2326, 1, false, 0, false, false);
-                    }
-                    if (rand == 14)
-                    {
-                        if(Main.rand.Next(100) == 0)
-                        {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyRagePotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2347, 1, false, 0, false, false);
-                        }
-                    }
-                    if (rand == 15)
-                    {
-                        if(Main.rand.Next(5) == 0)
-                        {
-                            if(Main.rand.Next(100) == 0)
-                            {
-                                int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.LuckyLifeforcePotion>();
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
-                            }
-                            else
-                            {
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2345, 1, false, 0, false, false);
-                            }
-                        }
-                        else if (Main.rand.Next(2) == 0)
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2326, 1, false, 0, false, false);
-                        }
-                        else
-                        {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
-                        }
-                    }
-                }
-            }
-            if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
-            {
-                NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
-            }
-        }
+                    Tile t = Main.tile[i, j];
+                    Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
+                    if (Main.drawToScreen)
+                        zero = Vector2.Zero;
 
-        public int DropOreMethod(int x, int y, int type)
-        {
-            float ChanceBalance = 1;
-            int SecondDrop = Config.LuckyOre.Keys.Count;
-            foreach (int itemtype in Config.LuckyOre.Keys)
-			{
-				float chance = Config.LuckyOre[itemtype];
-                chance -= Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].pick;
-                chance = chance/ChanceBalance * 100f;
-                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == Mod.Find<ModItem>("Abyssium").Type || itemtype == Mod.Find<ModItem>("Incinerite").Type || itemtype == Mod.Find<ModItem>("Apocalyptite").Type))
-                {
-                    if(Utils.NextFloat(Main.rand, SecondDrop) < 1)
-                    {
-                        int itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), x * 16, y * 16, 32, 32, itemtype, 1, false, 0, false, false);
-                        if (Main.netMode == NetmodeID.MultiplayerClient)
-                        {
-                            NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
-                        }
-                    }
-                    SecondDrop -= 1;
-                    continue;
+                    Point coordSize = glowTile.GetCoordinateSize(i, j);
+                    Main.spriteBatch.Draw(tex.Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(t.TileFrameX, t.TileFrameY, coordSize.X, coordSize.Y), glowTile.GlowColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 }
-                else if(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre)
-                {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && (type == TileID.Crimstone || type == TileID.Ebonstone))
-                    {
-                        return itemtype;
-                    }
-                }
-                else if(itemtype == Mod.Find<ModItem>("Abyssium").Type)
-                {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == Mod.Find<ModTile>("Depthstone").Type)
-                    {
-                        return itemtype;
-                    }
-                }
-                else if(itemtype == Mod.Find<ModItem>("Incinerite").Type)
-                {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == Mod.Find<ModTile>("Torchstone").Type)
-                    {
-                        return itemtype;
-                    }
-                }
-                else if(itemtype == Mod.Find<ModItem>("Apocalyptite").Type)
-                {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == Mod.Find<ModTile>("Doomstone").Type && AAWorld.downedZero)
-                    {
-                        return itemtype;
-                    }
-                }
-                else if(!Main.hardMode)
-                {
-                    if(Config.LuckyOre[itemtype] <= 500)
-                    {
-                        if(Utils.NextFloat(Main.rand, chance) < 1)
-                        {
-                            return itemtype;
-                        }
-                    }
-                }
-                else
-                {
-                    chance /= 2 * (1 + (NPC.downedPlantBoss? 1 : 0) + (NPC.downedMoonlord? 1 : 0) + (AAWorld.downedEquinox? 1 : 0) + (AAWorld.downedShen? 1 : 0));
-                    int digcheck = 500 + (NPC.downedPlantBoss? 200 : 0) + (NPC.downedMoonlord? 110 : 0) + (AAWorld.downedEquinox? 20 : 0);
-                    bool flag = Config.LuckyOre[itemtype] <= digcheck;
-                    if(flag || AAWorld.downedShen)
-                    {
-                        if(Utils.NextFloat(Main.rand, chance) < 1)
-                        {
-                            return itemtype;
-                        }
-                    }
-                }
-                ChanceBalance = 1 - 1/chance;
             }
-            return 0;
         }
     }
-}
 
+    public class AAGlobalWall : GlobalWall
+    {
+        public override void KillWall(int i, int j, int type, ref bool fail)
+        {
+            if (TileProtectionSystem.UnbreakableWalls.Contains(new(i, j)))
+                fail = true;
+        }
+
+        public override bool CanExplode(int i, int j, int type)
+        {
+            if (TileProtectionSystem.UnbreakableWalls.Contains(new(i, j)))
+                return false;
+            return base.CanExplode(i, j, type);
+        }
+    }
+
+    public class TileProtectionSystem : ModSystem
+    {
+        public static readonly HashSet<Point> UnbreakableTiles = [];
+
+        public static readonly HashSet<Point> UnbreakableWalls = [];
+
+        public override void SaveWorldData(TagCompound tag)
+        {
+            tag["ProtectedTileList"] = UnbreakableTiles.ToList();
+            tag["ProtectedWallList"] = UnbreakableWalls.ToList();
+        }
+
+        public override void LoadWorldData(TagCompound tag)
+        {
+            UnbreakableTiles.Clear();
+            var list = tag.GetList<Point>("ProtectedTileList");
+            foreach(Point p in list)
+                UnbreakableTiles.Add(p);
+
+            UnbreakableWalls.Clear();
+            list = tag.GetList<Point>("ProtectedWallList");
+            foreach (Point p in list)
+                UnbreakableWalls.Add(p);
+        }
+
+        public static void UnprotectTiles(params int[] types) => UnbreakableTiles.RemoveWhere((p) => types.Contains(Main.tile[p].TileType));
+
+        public static void UnprotectWalls(params int[] types) => UnbreakableWalls.RemoveWhere((p) => types.Contains(Main.tile[p].WallType));
+    }
+
+    public interface IGlowmaskTile
+    {
+        public bool ShouldDrawGlow => true;
+        public Point GetCoordinateSize(int x, int y) => new(16, 16);
+        public Color GlowColor => Color.White;
+    }
+}

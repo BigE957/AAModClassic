@@ -2,12 +2,13 @@ using Terraria.ModLoader;
 using Terraria.Graphics.Effects;
 using Terraria;
 using AAModClassic.Globals;
+using AAModClassic.Assets;
 
 namespace AAModClassic.Effects
 {
     public class ShockwaveBoom : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Shockwave Boom");

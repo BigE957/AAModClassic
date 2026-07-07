@@ -1,0 +1,52 @@
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
+{
+    public class RealityShredders : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
+        public override void SetDefaults()
+        {
+
+            Item.damage = 350;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 80;
+            Item.height = 80;
+            Item.useTime = 6;
+            Item.useAnimation = 6;
+            Item.channel = true;
+            Item.useStyle = 100;
+            Item.knockBack = 3f;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = ItemRarityID.Purple;      
+            Item.shoot = ModContent.ProjectileType<RealityShredders_Holdout>();
+            Item.noUseGraphic = true;
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 12);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.Register();
+        }
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Reality Shredders");
+            // Tooltip.SetDefault("Blades made out of Dark matter. Inflicts the Electified debuff");
+        }
+
+ 
+        public override void UseItemFrame(Player player)
+        {
+            player.bodyFrame.Y = 3 * player.bodyFrame.Height;
+        }
+    }
+}

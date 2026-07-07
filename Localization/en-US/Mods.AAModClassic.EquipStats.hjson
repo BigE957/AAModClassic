@@ -1,0 +1,472 @@
+ClassGlobalStats: {
+	DefaultDamageClass: classless
+	GenericDamageClass: ""
+	MeleeDamageClass: melee
+	MeleeNoSpeedDamageClass: "{$EquipStats.ClassGlobalStats.MeleeDamageClass}"
+	RangedDamageClass: ranged
+	MagicDamageClass: magic
+	SummonDamageClass: summon
+	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
+	MagicSummonHybridDamageClass: magic and summon
+	ThrowingDamageClass: throwing
+	CritChance: ""
+	AttackSpeed: ""
+	ArmorPenetration: "{0} {1}{2}armor penetration by {3}"
+
+	StatModifier: {
+		Adlibs: {
+			EverySingleClassExceptSummoner: {
+				Base: "{0} {1} {2}{3}{4}"
+				Additive: "{0}% {1} {2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4} multiplied by {0}%"
+				Flat: "{0} {1} flat {2}{3}{4}"
+			}
+
+			Summoner: {
+				Base: "{1} {2}{3}{4} by {0}"
+				Additive: "{1} {2}{3}{4}{5} by {0}%"
+				Multiplicative: Multiplies {2}{3}{4} by {0}%
+				Flat: "{1} {2}{3}{4} by a flat {0}"
+			}
+		}
+
+		Increases: increases
+		Decreases: decreases
+		Increased: increased
+		Decreased: decreased
+		Increase: increase
+		Decrease: decrease
+		Reduced: reduced
+		More: more
+		Less: less
+		Damage: damage
+		Knockback: knockback
+		CritSameAsDamageAdditive: " & critical strike chance"
+	}
+}
+
+Misc.Nothing: ""
+
+Effect: {
+	ManaFlowerEffect: Automatically use mana potions when needed
+	CrimsonArmorSetBonusEffect: Greatly increased life regen
+	EnduranceEffect: Reduces damage taken by {0}%
+	MaxLifeEffect: "{0} maximum life by {1}"
+	MovementSpeedEffect: "{0}% increased movement speed"
+	BrokenCodeTeleportEffect:
+		'''
+		Allows you to glitch with a 5 second cooldown
+		Grapple to Glitch
+		While cooldown is occurring, your speed is increased, you gain invincibility frames
+		While cooldown is occurring, your magic/summon weapons require no mana and have 20% increased damage
+		Teleportation has 15 second cooldown
+		WARNING: May permanently displace appendages until game restart. This is a feature.
+		'''
+	BrokenCodeTeleportUnofficialEffect:
+		'''
+		Replaces your grappling hook with the ability to glitch
+		Press {0} to glitch with a {1} second cooldown
+		Glitching teleports you to your cursor and causes all entities to freeze for {2} seconds
+		Pressing {0} while glitched will telport you to your cursor and unfreeze the game
+		'''
+	BrokenCodeWhateverThisShitIsEffect: Increases movement speed and length of invincibility after taking damage
+	GoddessHarpEffect:
+		'''
+		Summons the Seraph Queen herself to fight alongside you
+		Athena is boosted by minion damage
+		'''
+	SeraphHarpEffect: Summons a seraph to fight for you that is boosted by minion damage
+	OlympianWingsEffect: Grants a dash while flying
+	WingTimeMaxEffect: Allows flight and slow fall
+	FallDamageImmunityEffect: Negates fall damage
+
+	JumpStatsEffect: {
+		JumpSpeed: jump speed
+		JumpHeight: jump height
+		AutoJump: allows auto-jump
+	}
+
+	RajahRabbitsSashOfVengeanceEffect:
+		'''
+		Every {0}% of health lost gives you {1}% increased damage to your strongest damage class
+		[c/{2}:Current Damage Boost: +{3}% {4} damage]
+		'''
+	RajahRabbitsCloakOfSupremacyEffect:
+		'''
+		Every {0}% of health lost gives you {1}% increased damage to your strongest damage class and {2}% increased movement speed
+		[c/{3}:Current Damage Boost: +{4}% {5} damage]
+		Current Speed Boost: +{6}% movement speed and max run speed
+		'''
+	MaxRunSpeedEffect: "{0}% increased run speed"
+	BlackBeltEffect: Gives a chance to dodge attacks
+
+	MasterNinjaMobilityEffect: {
+		ShoeSpikes1: Allows the ability to slide down walls
+		ShoeSpikes2: Allows the ability to climb walls
+		Tabi: " and dash"
+	}
+
+	NaitokurosuMireEffect: Grants an extra {0}% ranged damage while in the Mire
+	NaitokurosuNightEffect: Grants an extra {0}% movement speed at night
+	BuffImmunityEffect: "Grants immunity to "
+	NaitokurosuDebuffEffect:
+		'''
+		Ranged attacks and minions inflict Venom
+		Ranged attacks and minions instead inflict Moonraze at night
+		'''
+	TaiyangBaoleiImmunityEffect: Grants immunity to almost all debuffs
+	SolarArmorSetDashEffect: Allows the player to dash into the enemy and explode
+	TaiyangBaoleiEnduranceEffect: Grants an extra {0}% damage resistance during the day
+	TaiyangBaoleiDebuffEffect:
+		'''
+		Melee and magic attacks inflict fire damage
+		Melee and magic attacks instead inflict Daybroken during the day
+		'''
+	DualityChaosEffect: Grants an extra {0}% damage while in the Inferno or Mire
+	DualityDefenseEffect: Grants an extra {0} defense while in the Inferno
+	AttacksInflictBuffEffect: "Your {0}{1}attacks inflict "
+	HeartOfPassionDamageBoostEffect: Magic and summon damage increases the less health you have
+	HeartOfPassionManaRegenEffect: Below 2/3rds of your maximum life, your mana regenerates much faster
+	HeartOfPassionDebuffEffect:
+		'''
+		Magic and summon damage inflicts Dragon Fire
+		Below 1/3rd of your maximum life, your magic and summon damage inflicts Daybroken instead
+		'''
+	HeartOfSorrowDamageBoostEffect: Melee and ranged damage increases the less health you have
+	HeartOfSorrowMovementSpeedEffect: Below 2/3rds of your maximum life, your movement speed is increased by 100%
+	HeartOfSorrowDebuffEffect:
+		'''
+		Melee and ranged damage inflicts Hydra Toxin
+		Below 1/3rd of your maximum life, your melee and ranged damage inflicts Moonraze instead
+		'''
+	HeartOfAnarchyDamageBoostEffect: Your damage increases the less health you have
+	HeartOfAnarchyBullshitEffect: Below 2/3rds of your maximum life, your movement speed is increased by 100% and your mana regenerates much faster
+	HeartOfAnarchyDebuffEffect:
+		'''
+		Your attacks inflict Dragon Fire and Hydra Toxin
+		Below 1/3rd of your maximum life, you inflict Daybroken and Moonraze instead
+		'''
+	FlipperEffect: Grants the ability to swim
+
+	FrostsparkBootsEffect: {
+		Default: "Allows "
+		Flight: flight
+		Running: super fast running
+		IceSkates: extra mobility on ice
+	}
+
+	LavaWadersWaterWalkingEffect: {
+		Default: "Provides the ability to walk on "
+		Water: water
+		Honey: honey
+		Lava: lava
+	}
+
+	LavaWadersFireImmunityEffect: {
+		Default: "Grants "
+		FireImmune: immunity to fire blocks
+		LavaImmune: "{0} seconds of immunity to lava"
+	}
+
+	ObsidianRoseEffect: Reduces damage from touching lava
+	SandstormMedallionEffect: Increases your damage and critical strike chance by 100% during a Sandstorm
+	ArtifactOfJudgementEffect:
+		'''
+		Taking damage builds a charge in the Artifact
+		Reaching a charge of 250 will summon an Eye of Judgement and reset the charge value
+		Your defense is lowered and speed is raised while the Eye is active
+		[c/FFFF00:Current Charge: {0}]
+		'''
+	ArtifactOfGuiltEffect:
+		'''
+		Taking damage builds a charge in the Artifact
+		Reaching a charge of 250 will summon an Eye of the Forsaken and reset the charge value
+		You will get major damage and speed boost while the Eye is active
+		[c/FFFF00:Current Charge: {0}]
+		'''
+	KnockbackImmunityEffect: Grants immunity to knockback
+	MaxManaEffect: "{0} maximum mana by {1}"
+	DiscountCardEffect: Lowers shop prices by 20%
+	LuckyCoinEffect: Hitting enemies will sometimes drop extra coins
+	GoldRingEffect: Increases coin pickup range
+	CharmOfDesireEffect:
+		'''
+		Grabbing coins boosts your damage by 1% for 4 seconds
+		Grabbing another coin increases the damage by 1% and resets the countdown
+		Caps out at {0}% damage
+		Current Damage Boost: {1}%
+		'''
+	DragonsGuardEffect: Enemies that strike you are set ablaze
+	LanternEffect: Allows you to see through the Mire's fog during the day
+	ManaCostEffect: "{0}% {1} mana cost"
+	CelestialMagnetEffect: Increases pickup range for mana stars
+	BlackLotusEmblemEffect:
+		'''
+		Automatically use mana potions when needed
+		Greatly reduces the length of Mana Sickness
+		'''
+	AshProofVestEffect: Allows you to survive the Inferno's firestorm during the night
+	MaxSentrySlotEffect: "{0} your max number of sentries by {1}"
+	OldOneCharmEffect: While the Old One's Army is ongoing, increases your summon damage by {0}%
+	ArcticMedallionEffect: Increases your damage and critical strike chance by 100% during a Blizzard
+	NightOwlEffect: Increases night vision
+
+	EquinoxDayNightStatBoostsEffect: {
+		Default:
+			'''
+			During {0}, grants a great but not particularly exceptional increase to damage,
+			melee speed, critical strike chance, life regeneration,
+			defense, mining speed, and minion knockback
+			'''
+		Day: daytime
+		Night: nighttime
+	}
+
+	EquinoxEffect:
+		'''
+		Major increase to damage, melee speed, 
+		critical strike chance, life regeneration,
+		defense, mining speed, and minion knockback
+		'''
+	EmitLightFromPlayerEffect: Provides light when worn
+	MoonCharmEffect: Turns the holder into a werewolf at night
+	NeptunesShellEffect: Turns the holder into a merfolk when entering water
+	SagittariusShieldEffect:
+		'''
+		Pressing the accessory ability hotkey puts up a barrier around you to protect you from damage
+		While shielded, you cannot use items
+		While shielded, your health regeneration is increased dramatically
+		Shield lasts for 5 seconds
+		Shield has a 5 minute cooldown
+		'''
+	APageOfTheRuneBookEffect:
+		'''
+		Summons runes for each unused minion slot
+		Having 1 minion slot open summons a Bunny Rune
+		Having 2 minion slots open summons an additional Discord Rune
+		Having 3 minion slots open summons an additional Energy Rune
+		'''
+	TheBookOfRunesEffect:
+		'''
+		Summons runes for each unused minion slot
+		Having 1 minion slot open summons a Terra Rune
+		Having 2 minion slots open summons an additional Chaos Rune
+		Having 3 minion slots open summons an additional Void Rune
+		'''
+	MaxMinionSlotEffect: "{0} your max number of minions by {1}"
+	ShieldOfCthulhuDashEffect: Allows you to dash into enemies, damaging them
+	DemonGauntletEffect: ""
+	AggroEffect: Enemies are {0} likely to target you
+	StormClawEffect: Your non-autoswinging weapons are lightning fast
+	IgnoreWaterEffect: Liquid does not affect your movement
+	GillsEffect: Allows you to breathe in liquids
+	ChaosHelmetMageSetEffect: While submerged in liquids, your magic abilities are increased drastically
+	AmmoCost75Effect: 25% chance to save ammo
+	HunterEffect: Shows the location of enemies
+	ChaosHelmetSummonerSetEffect: A dragon soul ravages foes for you
+	OlympianHelmetSetDescEffect: "'They will fear your precision, yet you will fear the slightest gust'"
+	HoppingHoodlumHelmetSetEffect: While below half health, your movement speed, melee damage, and summon damage are increased by 50%
+	ManaCostMultiplierEffect: Multiplies mana cost by {0}
+	ChampionHelmetMageSetDescEffect: "'Energy emanates from your body...'"
+	ChampionHelmetMageSetEffect:
+		'''
+		Magic damage has a chance to spawn energy carrots
+		Pick energy carrots up to get stacking buffs
+		'''
+	ChampionHelmetMeleeSetDescEffect: `You are the wall that protects the innocent...`
+	ChampionHelmetRangedSetDescEffect: `Time to hunt the hunters...`
+	ChampionHelmetSummonerSetDescEffect: "'Even the innocent shall come to protect you...'"
+	ChampionHelmetMeleeSetEffect:
+		'''
+		Pressing the armor ability hotkey gives you the 'Defender's Rage' Buff
+		While enraged, you gain more defense as your life gets lower
+		'Defender's Rage' Lasts longer the less health you have
+		'Defender's Rage' has a longer cooldown the less health you have
+		During Cooldown, your defense is slightly lowered, but your speed is increased
+		'''
+	ChampionHelmetRangedSetEffect:
+		'''
+		Pressing the armor ability hotkey summons a R.A.B.I.T. Drone for 8 seconds
+		R.A.B.I.T. Drone has a 15 second cooldown
+		During Cooldown, your ranged damage and critical chance are increased by 15%
+		'''
+	ChampionHelmetSummonerSetEffect:
+		'''
+		Baron Bunny comes to aid you and all of rabbit-kind
+		Baron Bunny will throw javelins, spreads of carrots, and shoot rabbit beams
+		The weaker you are, the stronger Baron Bunny fights
+		'''
+	FuryWitchsHelmetSetDescEffect: "'Scorch and Burn.'"
+	FuryWitchsHelmetSetHotkeyEffect:
+		'''
+		Press the Armor Ability Key to unleash Ashe's power of flames
+		Her power surrounds you with a shielding inferno and releases a barrage of Fire Bombs
+		You can only unleash her power while wielding a magic or summon weapon
+		'''
+	FuryWitchsHelmetSetMinionEffect:
+		'''
+		A Fire spirit protects you
+		The Fire spirit becomes more powerful the less mana you have
+		'''
+	AmmoCost80Effect: 20% chance to save ammo
+	MidnightAssassinHelmetSetEffect:
+		'''
+		Your melee weapons have a chance to throw Assassin Daggers
+		Your ranged weapons have a chance to shoot Assassin Arrows
+		Daggers and arrows decrease enemy defense by 20 and increase damage taken by 10%
+		'''
+	MidnightAssassinHelmetSetDescEffect: "'Hunt and kill.'"
+	ChaosSlayerHelmetMeleeSetStatScalingEffect: Your melee attacks and endurance grow stronger as your health decreases
+	ChaosSlayerHelmetRangedSetStatScalingEffect: Your ranged attacks and critical strike chance grow stronger as your health decreases
+	ChaosSlayerHelmetMageSetStatScalingEffect: Your magic attacks grow stronger and your spells grow cheaper as your health decreases
+	ChaosSlayerHelmetSummonerSetStatScalingEffect: Your summon attacks grow stronger as your health decreases
+	ChaosSlayerHelmetSetDescEffect: "'Chaos empowers you'"
+	PanicNecklaceEffect: Increases movement speed after taking damage
+	FleshrendHelmetSetEffect: Being hit by enemies may trigger a bloodsplosion that damages all enemies around you
+	DynaskullHelmetSetEffect: Your ranged projectiles have so much power behind them, they confuse the target due to concussive force
+	ManaRegenEffect: "{0} mana regeneration rate by {1}"
+	LifeRegenEffect: "{0} life regeneration rate by {1}"
+	GoblinSlayersHelmetSetDamageEffect: Your swung weapons deal 5x damage and increaed knockback against goblins
+	GoblinSlayersHelmetSetEnduranceEffect: Goblins deal 80% less damage to you
+	GoblinSlayersHelmetSetDescEffect: "'I hunt goblins or nothing.'"
+	MiningSpeedEffect: "{0} mining speed by {1}%"
+	SpelunkerEffect: Shows the location of treasure and ore
+	StoneSoldierHelmetSetEffect: Enemies have a small chance to spawn a coin portal upon dying
+	StoneSoldierHelmetSetDescEffect: "'Become the primo penny pincher!'"
+	DefenseEffect: "{0} defense"
+	MagmaStoneEffect: Melee attacks inflict fire damage
+	DraconianSunHelmetSetDescEffect: "'Blazing fury consumes you'"
+	ChlorophyteHelmetSetEffect: Summons a powerful leaf crystal to shoot at nearby enemies
+	DreadMoonHelmetSetDescEffect: "'Abyssal Wrath enrages you'"
+	UnlimitedBreathingUnderWaterForeverAndEverEffect: Allows you to breathe in liquids
+	OceanHelmetSetEffect: While submerged in liquids, your magic abilities are slightly enhanced
+	AtlanteanHelmetSefEffect: While submerged in liquids, your magic abilities and defense are greatly enhanced
+	PhilosophersStoneEffect: Reduces the cooldown of healing potions by 25%
+	RaiderChestplateSetEffect: As your health goes down, your damage resistance goes up
+	DarkmatterHelmetMageSetEffect:
+		'''
+		Damages enemies within your negative aura
+		Your aura's damage scales with your magic stats and heals you every time it damages an enemy
+		Your aura currently deals {0} magic damage and has a {1}% critical strike chance
+		'Ohh... Is that so...'
+		'''
+	DrawShadowLokisEffect: ""
+	DarkmatterHelmetMeleeSetEffect:
+		'''
+		Summons a dark shield to protect you and nearby allies
+		The shield will reduce damage taken by 40% 
+		When the shield absorbs a hit, it goes on cooldown for 30 seconds
+		Your life regen is increased while the shield is on cooldown during the night
+		'''
+	DarkmatterHelmetRangedSetEffect:
+		'''
+		Summons an unstable portal to protect you
+		The unstable portal shoots alongside you, deals 30% of your held weapons damage, weakens enemies, and locks them in place
+		'''
+	DarkmatterHelmetSummonerSetEffect: Minions will occasionally attempt to disrupt enemy projectiles
+	RadiumHelmetMageSetEffect:
+		'''
+		Damages enemies within your positive aura
+		Your aura's damage scales with your magic stats and returns 50% of the damage dealt as mana
+		If you are at max mana the aura instead grants you Mana Overload
+		Your aura currently deals {0} magic damage and has a {1}% critical strike chance
+		'''
+	RadiumHelmetMeleeSetEffect:
+		'''
+		Summons a light shield over nearby enemies
+		The shield reduces the damage they take by 40%
+		'''
+	RadiumHelmetRangedSetEffect:
+		'''
+		Summons a sun portal to protect you
+		The sun portal shoots alongside you, deals 30% of your held weapons damage, and ignites enemies
+		'''
+	RadiumHelmetSummonerSetEffect: Minions will occasionally deal {0} damage to nearby enemies
+	TerraHelmetMageSetEffect:
+		'''
+		Pressing the Armor Ability hotkey causes 2 terra rose stalks to grow around you
+		Enemies struck by the stalks drop mana stars
+		'''
+	TerraHelmetRangedSetEffect: Striking an enemy with a ranged projectile may cause a terra bullet to fire at the target
+	TerraHelmetSummonerSetEffect:
+		'''
+		Summons a powerful terra crystal to shoot at nearby enemies
+		Pressing the Armor Ability hotkey toggles the crystal between offense, defense, and support
+		While in offense mode the crystal will chase and rapidly shoot down enemies
+		While in defensive mode the crystal will stay above you and shoot down nearby enemies
+		While in support mode your defense and life regeneration are increased significantly, but your damage is cut in half
+		'''
+	TerraHelmetMeleeSetEffect: Being struck by an enemy causes an exploding terra sphere to home in on the enemy that attacked you
+
+	BiomiteHelmetSetEffect: {
+		Default: Provide different effects based on the biomes you're in
+		Day: Increases max life by 20
+		Night: Increases max mana by 20
+		Void: Shows the location of enemies
+		Inferno: Grants immunity to On Fire!
+		Mire: Grants immunity to Poisoned
+		Terrarium: 5 defense
+		Jungle: Increases mana regen by 3
+		Snow: Grants immunity to Chilled
+		Desert: Grants immunity to the Desert's winds
+		Hallow: Grants immunity to Slow and 3 regen
+		Corruption: Increases movement speed and max run speed by 10%
+		Crimson: Increases armor penetration by 5
+	}
+
+	OrichalcumHelmetSetEffect: Flower petals will fall on your target for extra damage
+	TitaniumHelmetSetEffect: Attacking generates a defensive barrier of titanium shards
+	PalladiumHelmetSetEffect: Greatly increases life regeneration after striking an enemy
+	HallowedHelmetSetEffect: Become immune after striking an enemy
+	DoomiteHelmetSetEffect: A void searcher fights by your side
+	DoomsdayHelmetSetDescEffect: "'Life termination systems activated.'"
+	FulguriteHelmetSetEffect: Being struck causes a burst of lightning to erupt from your body, knocking back enemies
+	InfinitySlayerHelmetSetDescEffect: Infinite power enrages you
+	AncientGoldChestplateEffect: You have a chance to find gold coins while mining through stone
+	AncientGoldChestplateSetEffect: If you have more gold coins than the value of damage taken, you will dodge the attack in exchange for your money
+	AncientGoldLeggingsEffect: Increased chance to find golden critters
+	StripemansLuckyLeggingsEffect:
+		'''
+		Doubles caught fish
+		Chance to catch a crate alongside doubled fish
+		You have a chance to steal loot from enemies by snagging them with a fishing rod
+		You can pick up items from the ground with a fishing rod
+		'''
+	StripemansLuckyChestplateEffect:
+		'''
+		You have a higher chance to encounter rare enemies
+		Rare objects appear more frequently
+		Pots may appear in places you would never expect them to be in
+		You have a chance to get better things from pots
+		'''
+	StripemansLuckyHelmetEffect:
+		'''
+		You may find ores when mining stone
+		You can extract any kind of sand in an extractinator for related materials
+		'''
+	StripemansLuckyHelmetSetEffect:
+		'''
+		You change the rule of Nature's randomicity
+		You will be a lucky guy? Or an unfortunate man.
+		Press the Armor Ability Key to change the world's random system: {0}
+		'Behold, the man is become as one of us, to know good and evil.
+		And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever'
+		'''
+	FishingPowerEffect: "{0} fishing power by {1}"
+	HighTestFishingLineEffect: Fishing line will never break
+	TackleBoxEffect: Decreases chance of bait consumption
+	SonarEffect: Detects hooked fish
+	PDAEffect: Displays everything
+	ArcticDivingGearEffect:
+		'''
+		Grants the ability to swim and greatly extends underwater breathing
+		Provides extra mobility on ice
+		Generates a very subtle glow which becomes more vibrant underwater
+		'''
+	ArchitectGizmoPackEffect:
+		'''
+		Increases block & wall placement speed
+		Increases block placement & tool range by 3
+		Automatically paints or coats placed objects
+		'''
+}

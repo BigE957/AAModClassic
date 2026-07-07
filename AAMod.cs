@@ -1,15 +1,67 @@
-using AAModClassic;
-using AAModClassic.Backgrounds;
-using AAModClassic.Base.BaseMod;
+using AAModClassic._Content._Dev.___PreHardmode.Items.Currency;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
+using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened.Skies;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies;
+using AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Crimson.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies;
+using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
+using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
+using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
+using AAModClassic._Content.Hoard.World.Tiles;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Parthenan.__Hardmode.Items.Weapons;
+using AAModClassic._Content.PirateInvasion.__Hardmode.Items.Currency;
+using AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Currency;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.SolarEclipse.__Hardmode.Items.Currency;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
+using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
-using AAModClassic.CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Dev.Invoker;
-using AAModClassic.UI;
 using AAModClassic.UI.Core;
-using log4net;
+using AAModClassic.UI.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -17,44 +69,39 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using Terraria;
-using Terraria.Audio;
-using Terraria.Chat;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
+using Terraria.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
-using Terraria.Utilities;
-using Terraria.WorldBuilding;
-using static Terraria.GameContent.Bestiary.IL_BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions;
 
 namespace AAModClassic
 {
-    public class AAMod : Mod
+    public partial class AAMod : Mod
     {
         // Miscellaneous
-        public static int Coin = -1;
-        public static int GoblinSoul = -1;
-        public static int BloodRune = -1;
-        public static int PirateBooty = -1;
-        public static int MonsterSoul = -1;
-        public static int HalloweenTreat = -1;
-        public static int ChristmasCheer = -1;
-        public static int MartianCredit = -1;
-        public static int DustIDSlashFX;
-
-        public static int BoneAmmo = 10000;
+        internal static int AncientCoin = -1;
+        internal static int GoblinSoul = -1;
+        internal static int BloodRune = -1;
+        internal static int PirateBooty = -1;
+        internal static int MonsterSoul = -1;
+        internal static int HalloweenTreat = -1;
+        internal static int ChristmasCheer = -1;
+        internal static int MartianCredit = -1;
+        internal static int DustIDSlashFX; //TODO: This thing never gets set but is used once inside Overhaul cross mod. No clue what to make of it...
 
         // Hotkeys
-        public static ModKeybind AccessoryAbilityKey;
-        public static ModKeybind ArmorAbilityKey;
-        public static ModKeybind Rift;
-        public static ModKeybind RiftReturn;
+        internal static ModKeybind AccessoryAbilityKey;
+        internal static ModKeybind ArmorAbilityKey;
+        internal static ModKeybind Rift;
+        internal static ModKeybind RiftReturn;
 
         // UI
         internal UserInterface TerratoolInterface;
@@ -69,9 +116,6 @@ namespace AAModClassic
         internal TerratoolEXUI TerratoolEXState;
 
         internal static AAMod instance;
-        public static AAMod self = null;
-
-        public static bool isFullyReady;
 
         public AAMod()
         {
@@ -83,196 +127,318 @@ namespace AAModClassic
             instance = this;
         }
 
-        public static Texture2D GetTexture(string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
-
-        public static void SetupBannerItemTextures()
+        public static readonly PropertyInfo valueProp = typeof(LocalizedText).GetProperty("Value", BindingFlags.Public | BindingFlags.Instance);
+        public static void AddLocalization(string key, string value)
         {
-            if (Main.netMode == NetmodeID.Server || Main.dedServ) return; //don't do any texture stuff on a server lol
-            try
+            var text = LanguageManager.Instance.GetOrRegister(key, () => value);
+            valueProp.SetValue(text, value);
+        }
+
+        public static string GetStatDifferences(Player playerA, Player playerB)
+        {
+            StringBuilder sb = new StringBuilder();
+            Type type = typeof(Player);
+
+            FieldInfo damageDataField = type.GetField("damageData", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (damageDataField != null)
             {
-                int fx = 16;
-                Texture2D tex = TextureAssets.Tile[instance.Find<ModTile>("Banners").Type].Value;
+                Array arrA = damageDataField.GetValue(playerA) as Array;
+                Array arrB = damageDataField.GetValue(playerB) as Array;
+                ScanPrivateDamageData(arrA, arrB, sb);
+            }
 
-                while (Tiles.Banners.Banners.GetBannerName(fx) != null)
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+            foreach (FieldInfo field in fields)
+            {
+                if (field.Name == "damageStats" || field.Name == "damageData")
+                    continue;
+                if (!field.FieldType.IsValueType)
+                    continue;
+
+                object valA, valB;
+                try
                 {
-                    string name = Tiles.Banners.Banners.GetBannerName(fx);
+                    valA = field.GetValue(playerA);
+                    valB = field.GetValue(playerB);
+                }
+                catch { continue; }
 
-                    if (name.Equals("DUMMY"))
-                    {
-                        fx += 16;
+                string formattedLine = FormatValueOrBoolChange(field.FieldType, valA, valB, field.Name);
+                if (!string.IsNullOrEmpty(formattedLine))
+                    sb.Append(formattedLine);
+            }
+
+            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in properties)
+            {
+                if (!prop.CanRead || prop.Name == "damageStats" || prop.Name == "damageData")
+                    continue;
+
+                object valA, valB;
+                try
+                {
+                    valA = prop.GetValue(playerA);
+                    valB = prop.GetValue(playerB);
+                }
+                catch { continue; }
+
+                string formattedLine = FormatValueOrBoolChange(prop.PropertyType, valA, valB, prop.Name);
+                if (!string.IsNullOrEmpty(formattedLine))
+                    sb.Append(formattedLine);
+            }
+
+            return sb.ToString();
+        }
+
+        private static void ScanPrivateDamageData(Array arrA, Array arrB, StringBuilder sb)
+        {
+            if (arrA == null || arrB == null)
+                return;
+
+            int length = Math.Min(arrA.Length, arrB.Length);
+            for (int i = 0; i < length; i++)
+            {
+                object itemA = arrA.GetValue(i);
+                object itemB = arrB.GetValue(i);
+                if (itemA == null || itemB == null)
+                    continue;
+
+                string className = DamageClassLoader.GetDamageClass(i)?.Name ?? $"Class{i}";
+                className = className.Replace("DamageClass", "");
+                className = FormatFieldName(className);
+
+                Type dataType = itemA.GetType();
+                FieldInfo[] subFields = dataType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+                foreach (FieldInfo subField in subFields)
+                {
+                    object subValA = subField.GetValue(itemA);
+                    object subValB = subField.GetValue(itemB);
+
+                    if (Equals(subValA, subValB))
                         continue;
-                    }
 
-                    var data = new Color[16 * 16 * 3];
-                    BaseDrawing.GetCroppedTex(tex, new Rectangle(fx, 0, 16, 16 * 3)).GetData<Color>(data);
-                    TextureAssets.Item[instance.Find<ModItem>(name + "Banner").Type].Value.SetData<Color>(data);
-                    fx += 16;
+                    if (subField.FieldType == typeof(StatModifier))
+                    {
+                        StatModifier modA = (StatModifier)subValA;
+                        StatModifier modB = (StatModifier)subValB;
+
+                        if (modA.Additive != modB.Additive)
+                        {
+                            double percentIncrease = (modB.Additive - modA.Additive) * 100;
+                            if (percentIncrease > 0)
+                                sb.Append($"{percentIncrease:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
+                        }
+                        if (modA.Flat != modB.Flat)
+                        {
+                            float flatIncrease = modB.Flat - modA.Flat;
+                            if (flatIncrease > 0)
+                                sb.Append($"{flatIncrease:0.#} {className} Flat {FormatFieldName(subField.Name)}\n");
+                        }
+                    }
+                    else if (subField.FieldType == typeof(float))
+                    {
+                        float numA = (float)subValA;
+                        float numB = (float)subValB;
+                        float diff = numB - numA;
+
+                        if (diff > 0)
+                        {
+                            string fieldName = subField.Name.ToLower();
+
+                            if (fieldName.Contains("crit") || fieldName.Contains("pen"))
+                                sb.Append($"{diff:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
+                            else if (fieldName.Contains("speed"))
+                            {
+                                double percentIncrease = diff * 100;
+                                sb.Append($"{percentIncrease:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
+                            }
+                            else
+                                sb.Append($"{diff:0.#}% increased {className} {FormatFieldName(subField.Name)}\n");
+                        }
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                instance.Logger.InfoFormat(e.Message);
-                instance.Logger.InfoFormat(e.StackTrace);
             }
         }
 
-        public static FieldInfo _bannerField = null;
-        public static IDictionary<int, int> BannerToItemDict
+        private static string FormatValueOrBoolChange(Type type, object valA, object valB, string displayName)
         {
-            get
+            if (Equals(valA, valB))
+                return null;
+            string formattedName = FormatFieldName(displayName);
+
+            // Booleans
+            if (type == typeof(bool))
             {
-                if (_bannerField == null)
-                {
-                    _bannerField = typeof(NPCLoader).GetField("bannerToItem", BindingFlags.NonPublic | BindingFlags.Static);
-                }
-                return (IDictionary<int, int>)_bannerField.GetValue(null);
+                bool boolB = (bool)valB;
+                return $"{formattedName} {(boolB ? "Enabled" : "Disabled")}\n";
             }
-            set
+            // Integers / Flat Numbers
+            if (type == typeof(int) || type == typeof(long) || type == typeof(short))
             {
-                if (_bannerField != null)
-                {
-                    _bannerField.SetValue(null, value);
-                }
+                long difference = Convert.ToInt64(valB) - Convert.ToInt64(valA);
+                if (difference > 0)
+                    return $"{difference} {formattedName}\n";
             }
-        }
-
-        public static void SetupBannerNPCs()
-        {
-            Mod mod = instance;
-            try
+            // Floating point values / Percentages
+            else if (type == typeof(float) || type == typeof(double) || type == typeof(decimal))
             {
-                IDictionary<int, int> bannerToItem = BannerToItemDict;
-                int fx = 16;
+                double numA = Convert.ToDouble(valA);
+                double numB = Convert.ToDouble(valB);
+                double percentIncrease = (numA == 0) ? numB * 100 : ((numB - numA) / numA) * 100;
 
-                while (Tiles.Banners.Banners.GetBannerName(fx) != null)
-                {
-                    string name = Tiles.Banners.Banners.GetBannerName(fx, false);
-
-                    if (name.Equals("DUMMY"))
-                    {
-                        fx += 16;
-                        continue;
-                    }
-
-                    if (name.Contains("Wyrmling"))
-                    {
-                        for (int m = 0; m < 4; m++)
-                        {
-                            ModNPC npc = GetNPC(m == 0 ? "Wyrmling" : (m == 1 ? "WyrmlingBody" : (m == 2 ? "WyrmlingTail1" : "WyrmlingTail2")));
-                            if (npc != null)
-                            {
-                                npc.Banner = mod.Find<ModNPC>("Wyrmling").Type;
-                                npc.BannerItem = mod.Find<ModItem>("WyrmlingBanner").Type;
-                                bannerToItem[npc.Banner] = npc.BannerItem;
-                            }
-                        }
-                    }
-                    else if (name.Contains("Wyrm"))
-                    {
-                        for (int m = 0; m < 5; m++)
-                        {
-                            ModNPC npc = GetNPC(m == 0 ? "Wyrm" : (m == 1 ? "WyrmBody1" : (m == 2 ? "WyrmBody2" : (m == 3 ? "WyrmBody3" : "WyrmBody4"))));
-                            if (npc != null)
-                            {
-                                npc.Banner = mod.Find<ModNPC>("Wyrm").Type;
-                                npc.BannerItem = mod.Find<ModItem>("WyrmBanner").Type;
-                                bannerToItem[npc.Banner] = npc.BannerItem;
-                            }
-                        }
-                    }
-                    else if (name.Contains("Snake"))
-                    {
-                        for (int m = 0; m < 3; m++)
-                        {
-                            ModNPC npc = GetNPC(m == 0 ? "SnakeHead" : (m == 1 ? "SnakeBody" : "SnakeTail"));
-                            if (npc != null)
-                            {
-                                npc.Banner = mod.Find<ModNPC>("SnakeHead").Type;
-                                npc.BannerItem = mod.Find<ModItem>("SnakeBanner").Type;
-                                bannerToItem[npc.Banner] = npc.BannerItem;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        ModNPC npc = GetNPC(name);
-                        if (npc != null)
-                        {
-                            npc.Banner = mod.Find<ModNPC>(name).Type;
-                            npc.BannerItem = mod.Find<ModItem>(name + "Banner").Type;
-                            bannerToItem[npc.Banner] = npc.BannerItem;
-                        }
-                    }
-                    fx += 16;
-                }
-                BannerToItemDict = bannerToItem;
+                if (percentIncrease > 0)
+                    return $"{percentIncrease:0.#}% increased {formattedName}\n";
             }
-            catch (Exception e)
-            {
-                instance.Logger.InfoFormat(e.Message);
-                instance.Logger.InfoFormat(e.StackTrace);
-            }
-        }
 
-        private static ModNPC GetNPC(string npcName)
-        {
-            if (ModContent.TryFind<ModNPC>(npcName, out var modnpc))
-                return modnpc;
             return null;
+        }
+
+        private static string FormatFieldName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return name;
+
+            if (name.StartsWith("stat") && name.Length > 4 && char.IsUpper(name[4]))
+                name = name.Substring(4);
+
+            string spaced = Regex.Replace(name, "([a-z])([A-Z])", "$1 $2");
+            spaced = Regex.Replace(spaced, "([A-Z])([A-Z][a-z])", "$1 $2");
+
+            return char.ToUpper(spaced[0]) + spaced.Substring(1);
         }
 
         public override void PostSetupContent()
         {
             WeakReferences.PerformModSupport();
 
+            //Set Bonus Text Generator
+
+            foreach(ModItem modItem in instance.GetContent<ModItem>())
+            {
+                if (!modItem.Item.vanity && modItem.Name.Contains("Helmet"))
+                {
+                    Player dummyPlayerA = new();
+                    Player dummyPlayerB = new();
+
+                    modItem.UpdateArmorSet(dummyPlayerB);
+
+                    string statDifferences = GetStatDifferences(dummyPlayerA, dummyPlayerB);
+
+                    if(statDifferences == "" && instance.TryFind<ModItem>(modItem.Name.Replace("Helmet", "Chestplate"), out var chest))
+                    {
+                        dummyPlayerA = new();
+                        dummyPlayerB = new();
+                        chest.UpdateArmorSet(dummyPlayerB);
+                        statDifferences = GetStatDifferences(dummyPlayerA, dummyPlayerB);
+                    }
+
+                    AddLocalization("Mods.AAModClassic.SetBonuses." + modItem.Name.Replace("Helmet", ""), statDifferences);
+                }
+            }
+
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Monarch"), Find<ModItem>("MonarchBox").Type, Find<ModTile>("MonarchBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Fungus"), Find<ModItem>("FungusBox").Type, Find<ModTile>("FungusBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/GripsTheme"), Find<ModItem>("GripsBox").Type, Find<ModTile>("GripsBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/HydraTheme"), Find<ModItem>("HydraBox").Type, Find<ModTile>("HydraBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/BroodTheme"), Find<ModItem>("BroodBox").Type, Find<ModTile>("BroodBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shroom"), Find<ModItem>("MushBox").Type, Find<ModTile>("MushBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/InfernoSurface"), Find<ModItem>("InfernoBox").Type, Find<ModTile>("InfernoBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/IN"), Find<ModItem>("InfernoNightBox").Type, Find<ModTile>("InfernoNightBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/MireSurface"), Find<ModItem>("MireBox").Type, Find<ModTile>("MireBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/DM"), Find<ModItem>("MireDayBox").Type, Find<ModTile>("MireDayBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/InfernoUnderground"), Find<ModItem>("InfernoUBox").Type, Find<ModTile>("InfernoUBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/MireUnderground"), Find<ModItem>("MireUBox").Type, Find<ModTile>("MireUBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Void"), Find<ModItem>("VoidBox").Type, Find<ModTile>("VoidBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Djinn"), Find<ModItem>("DjinnBox").Type, Find<ModTile>("DjinnBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/TODE"), Find<ModItem>("ToadBox").Type, Find<ModTile>("ToadBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Boss6"), Find<ModItem>("SerpentBox").Type, Find<ModTile>("SerpentBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Sag"), Find<ModItem>("SagBox").Type, Find<ModTile>("SagBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Anubis"), Find<ModItem>("AnubisBox").Type, Find<ModTile>("AnubisBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Acropolis"), Find<ModItem>("AcropolisBox").Type, Find<ModTile>("AcropolisBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Hoard"), Find<ModItem>("HoardBox").Type, Find<ModTile>("HoardBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Greed"), Find<ModItem>("GreedBox").Type, Find<ModTile>("GreedBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Athena"), Find<ModItem>("AthenaBox").Type, Find<ModTile>("AthenaBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/RajahTheme"), Find<ModItem>("RajahBox").Type, Find<ModTile>("RajahBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/GreedA"), Find<ModItem>("GreedABox").Type, Find<ModTile>("GreedABox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AthenaA"), Find<ModItem>("AthenaABox").Type, Find<ModTile>("AthenaABox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AnubisA"), Find<ModItem>("AnubisFBox").Type, Find<ModTile>("AnubisFBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Equinox"), Find<ModItem>("Equibox").Type, Find<ModTile>("Equibox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Stars"), Find<ModItem>("StarBox").Type, Find<ModTile>("StarBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AH"), Find<ModItem>("SistersBox").Type, Find<ModTile>("SistersBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/VoidButNowItsSpooky"), Find<ModItem>("FateBox").Type, Find<ModTile>("FateBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shrines"), Find<ModItem>("LakeBox").Type, Find<ModTile>("LakeBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AkumaShrine"), Find<ModItem>("PagodaBox").Type, Find<ModTile>("PagodaBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Zero"), Find<ModItem>("ZeroBox").Type, Find<ModTile>("ZeroBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Zero2"), Find<ModItem>("Zero2Box").Type, Find<ModTile>("Zero2Box").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Akuma"), Find<ModItem>("AkumaBox").Type, Find<ModTile>("AkumaBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Akuma2"), Find<ModItem>("AkumaABox").Type, Find<ModTile>("AkumaABox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Yamata"), Find<ModItem>("YamataBox").Type, Find<ModTile>("YamataBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Yamata2"), Find<ModItem>("YamataABox").Type, Find<ModTile>("YamataABox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Terrarium"), Find<ModItem>("TerrariumBox").Type, Find<ModTile>("TerrariumBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SleepingDragon"), Find<ModItem>("SDBox").Type, Find<ModTile>("SDBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SleepingGiant"), Find<ModItem>("SGBox").Type, Find<ModTile>("SGBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shen"), Find<ModItem>("ShenBox").Type, Find<ModTile>("ShenBox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/ShenA"), Find<ModItem>("ShenABox").Type, Find<ModTile>("ShenABox").Type);
-            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SupremeRajah"), Find<ModItem>("SRajahBox").Type, Find<ModTile>("SRajahBox").Type);
+            if (!Main.dedServ)
+            {
+                foreach (ModItem modItem in this.GetContent<ModItem>())
+                {
+                    if (ModContent.RequestIfExists<Texture2D>(modItem.Texture + "_Glow", out var texture))
+                    {
+                        if (BaseAAItem.GlowmaskCache.TryAdd(modItem.Type, texture) == false)
+                        {
+                            Logger.Warn("some shit did NOT get loaded into the glowmask cache bcuz something was already there.");
+                            Logger.Warn("item id: " + modItem.Type);
+                            Logger.Warn("item name: " + modItem.DisplayName);
+                            Logger.Warn("glowmask in that slot: " + texture.Name);
+                        }
+                        Logger.Warn("added item name: " + modItem.DisplayName);
+                    }
+                }
+            }
 
-            isFullyReady = true;
+            var field = typeof(FinalFractalHelper).GetField("_fractalProfiles", BindingFlags.Static | BindingFlags.NonPublic);
+            if(field != null)
+            {
+                var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
+
+                profiles.Add(ModContent.ItemType<TrueTerraBlade>(), new(74f, AAColor.TerraGlow));
+                profiles.Add(ModContent.ItemType<FleshrendClaymore>(), new(52f, Color.Crimson));
+                profiles.Add(ModContent.ItemType<TrueFleshrendClaymore>(), new(56f, Color.Crimson));
+
+                profiles.Add(ModContent.ItemType<TheLolkat>(), new(98f, AAColor.Rainbow1));
+
+                profiles.Add(ModContent.ItemType<CosmicFury>(), new(58f, Color.Magenta));
+
+                profiles.Add(ModContent.ItemType<Apocalypse>(), new(54f, Color.Orange));
+
+                profiles.Add(ModContent.ItemType<PrismaticGreatsword>(), new(60f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<Poppy>(), new(44f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<AmethystGreatsword>(), new(50f, Color.MediumPurple));
+                profiles.Add(ModContent.ItemType<AmethystSaber>(), new(44f, Color.MediumPurple));
+                profiles.Add(ModContent.ItemType<TopazGreatsword>(), new(50f, Main.OurFavoriteColor));
+                profiles.Add(ModContent.ItemType<TopazSaber>(), new(44f, Main.OurFavoriteColor));
+                profiles.Add(ModContent.ItemType<SapphireGreatsword>(), new(50f, Color.Aquamarine));
+                profiles.Add(ModContent.ItemType<SapphireSaber>(), new(44f, Color.Aquamarine));
+                profiles.Add(ModContent.ItemType<EmeraldGreatsword>(), new(50f, Color.Green));
+                profiles.Add(ModContent.ItemType<EmeraldSaber>(), new(44f, Color.Green));
+                profiles.Add(ModContent.ItemType<RubyGreatsword>(), new(50f, Color.IndianRed));
+                profiles.Add(ModContent.ItemType<RubySaber>(), new(44f, Color.IndianRed));
+                profiles.Add(ModContent.ItemType<AmberGreatsword>(), new(50f, Color.Orange));
+                profiles.Add(ModContent.ItemType<AmberSaber>(), new(44f, Color.Orange));
+                profiles.Add(ModContent.ItemType<DiamondGreatsword>(), new(50f, Color.White));
+                profiles.Add(ModContent.ItemType<DiamondSaber>(), new(44f, Color.White));
+                profiles.Add(ItemID.BeamSword, new(52f, Color.Yellow));
+
+                profiles.Add(ModContent.ItemType<BladeOfEvil>(), new(68f, AAColor.Jevil));
+
+                profiles.Add(ModContent.ItemType<Ikari>(), new(86f, AAColor.Shen3));
+                profiles.Add(ModContent.ItemType<ChaosSlayer>(), new(90f, AAColor.Shen2));
+                profiles.Add(ModContent.ItemType<ReignOfFire>(), new(56f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<Amenomuraku>(), new(64f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<PerfectChaos>(), new(120f, AAColor.Shen));
+                profiles.Add(ModContent.ItemType<Masamune>(), new(62f, AAColor.Yamata));
+                profiles.Add(ModContent.ItemType<Chaos_Item>(), new(90f, AAColor.Shen2));
+                profiles.Add(ModContent.ItemType<DraconianDawn>(), new(86f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<BlazingDawn>(), new(62f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<FlamingFury>(), new(50f, Color.OrangeRed));
+                profiles.Add(ModContent.ItemType<OceanRazor>(), new(40f, Color.DarkBlue));
+                profiles.Add(ModContent.ItemType<DoomiteSaber>(), new(60f, Color.Red));
+                profiles.Add(ModContent.ItemType<DesertScimitar>(), new(70f, Color.SandyBrown));
+                profiles.Add(ModContent.ItemType<DreadTwilight>(), new(76f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<AbyssalTwilight>(), new(60f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<ExilesKatana>(), new(66f, Color.LightBlue));
+                profiles.Add(ModContent.ItemType<IceLongsword>(), new(64f, Color.AliceBlue));
+
+                profiles.Add(ModContent.ItemType<InfinityBlade>(), new(84f, Color.Red));
+                profiles.Add(ModContent.ItemType<RiftShredder>(), new(56f, Color.Red));
+                profiles.Add(ModContent.ItemType<BreakingDawn>(), new(56f, Color.Yellow));
+
+                profiles.Add(ModContent.ItemType<Verdict>(), new(92f, Color.SeaGreen));
+                profiles.Add(ModContent.ItemType<Judgment>(), new(72f, Color.Blue));
+                profiles.Add(ModContent.ItemType<SultansScimitar>(), new(66f, Color.SandyBrown));
+
+                profiles.Add(ModContent.ItemType<SagittariusLeg>(), new(92f, Color.Red));
+
+                profiles.Add(ModContent.ItemType<RomulusTazesaber>(), new(54f, Color.Purple));
+
+                profiles.Add(ModContent.ItemType<SubzeroSlasher>(), new(56f, Color.Snow));
+
+                profiles.Add(ModContent.ItemType<Olympia>(), new(52f, Color.Turquoise));
+                profiles.Add(ModContent.ItemType<SkycutterKopis>(), new(50f, Color.Turquoise));
+                profiles.Add(ItemID.SilverBroadsword, new(38f, Color.Silver));
+                profiles.Add(ItemID.TungstenBroadsword, new(38f, Color.LightSeaGreen));
+
+                profiles.Add(ModContent.ItemType<Excalihare>(), new(80f, AAColor.Rainbow1));
+                //TODO: this item got a prequel in lost sea. add that here when the time is right
+
+                profiles.Add(ModContent.ItemType<CarnalCrusher>(), new(90f, Color.Crimson));
+
+                profiles.Add(ModContent.ItemType<UltimaShortsword>(), new(36f, AAColor.Rainbow1));
+                profiles.Add(ModContent.ItemType<TrueCopperShortsword>(), new(64f, AAColor.Rainbow1));
+
+                field.SetValue(null, profiles);
+            }
         }
 
         public static void PremultiplyTexture(Texture2D texture)
@@ -291,19 +457,33 @@ namespace AAModClassic
             Logger.InfoFormat("{0} AA log", Name);
 
             instance = this;
-            Coin = CustomCurrencyManager.RegisterCurrency(new Items.Currency.ACoin(ModContent.ItemType<Items.Currency.AncientCoin>()));
-            GoblinSoul = CustomCurrencyManager.RegisterCurrency(new Items.Currency.GSouls(ModContent.ItemType<Items.Currency.GoblinSoul>()));
-            BloodRune = CustomCurrencyManager.RegisterCurrency(new Items.Currency.BRune(ModContent.ItemType<Items.Currency.BloodRune>()));
-            PirateBooty = CustomCurrencyManager.RegisterCurrency(new Items.Currency.PBooty(ModContent.ItemType<Items.Currency.PirateBooty>()));
-            MonsterSoul = CustomCurrencyManager.RegisterCurrency(new Items.Currency.MSouls(ModContent.ItemType<Items.Currency.MonsterSoul>()));
-            HalloweenTreat = CustomCurrencyManager.RegisterCurrency(new Items.Currency.HTreat(ModContent.ItemType<Items.Currency.HalloweenTreat>()));
-            ChristmasCheer = CustomCurrencyManager.RegisterCurrency(new Items.Currency.CCheer(ModContent.ItemType<Items.Currency.ChristmasCheer>()));
-            MartianCredit = CustomCurrencyManager.RegisterCurrency(new Items.Currency.MCredit(ModContent.ItemType<Items.Currency.MartianCredit>()));
+            AncientCoin = CustomCurrencyManager.RegisterCurrency(new ACoin(ModContent.ItemType<AncientCoin>()));
+            GoblinSoul = CustomCurrencyManager.RegisterCurrency(new GSouls(ModContent.ItemType<GoblinSoul>()));
+            BloodRune = CustomCurrencyManager.RegisterCurrency(new BRune(ModContent.ItemType<BloodRune>()));
+            PirateBooty = CustomCurrencyManager.RegisterCurrency(new PBooty(ModContent.ItemType<PirateBooty>()));
+            MonsterSoul = CustomCurrencyManager.RegisterCurrency(new MSouls(ModContent.ItemType<MonsterSoul>()));
+            HalloweenTreat = CustomCurrencyManager.RegisterCurrency(new HTreat(ModContent.ItemType<HalloweenTreat>()));
+            ChristmasCheer = CustomCurrencyManager.RegisterCurrency(new CCheer(ModContent.ItemType<ChristmasCheer>()));
+            MartianCredit = CustomCurrencyManager.RegisterCurrency(new MCredit(ModContent.ItemType<MartianCredit>()));
 
-            BoneAmmo = ItemID.Bone;
-            if (Main.rand == null)
-                Main.rand = new UnifiedRandom();
+            Rift = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.Rifthotkey"), "C");
+            RiftReturn = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.RiftReturnhotkey"), "X");
 
+            AccessoryAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.AccessoryAbilityKey"), "U");
+            ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.ArmorAbilityKey"), "Y"); 
+            
+            On_Wiring.ActuateForced += Wiring_ActuateForced;
+            On_Wiring.Actuate += Actuate;
+
+            if (!Main.dedServ)
+            {
+                AALuckyConfig.Load();
+                LoadClient();
+            }
+        }
+
+        public void LoadClient()
+        {
             GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
             GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
             GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.VortexDye)).UseImage("Images/Misc/noise").UseColor(0f, 0f, 0f).UseSecondaryColor(1f, 0f, 0f).UseSaturation(1f);
@@ -312,56 +492,52 @@ namespace AAModClassic
             GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
             GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
 
-            Rift = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.Rifthotkey"), "C");
-            RiftReturn = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.RiftReturnhotkey"), "X");
-
-            AccessoryAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.AccessoryAbilityKey"), "U");
-            ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.ArmorAbilityKey"), "Y"); 
-            
-            Terraria.On_Wiring.ActuateForced += Wiring_ActuateForced;
-            Terraria.On_Wiring.Actuate += Actuate;
-
-            if (!Main.dedServ)
-            {
-                Config.Load();
-                LoadClient();
-            }
-        }
-
-        public void LoadClient()
-        {
             Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
             ScreenShaderData shaderdata = new(shader, "Shockwave");
             Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
             Filters.Scene["AAModClassic:Shockwave"].Load();
 
+            shader = ModContent.Request<Effect>("AAModClassic/Effects/Mask");
+            shaderdata = new(shader, "Mask");
+            Filters.Scene["AAModClassic:Mask"] = new Filter(shaderdata, EffectPriority.VeryHigh);
+            Filters.Scene["AAModClassic:Mask"].Load();
+
+            //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
             Main.QueueMainThreadAction(() => {
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/ZeroShield", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Toad/ToadBubble", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar", AssetRequestMode.ImmediateLoad).Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/FogTex", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Sun", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/_PostMoonlord/NPCs/__BossYamata/Awakened/Skies/YamataASky_Moon", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/_PostMoonlord/NPCs/__BossYamata/Awakened/Skies/YamataASky_Beam", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Meteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/Skies/AkumaASky_Meteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/SkyTex", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/Skies/ShenDoragonSky_Meteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/__BossAthenaA/Skies/AthenaASky_Bolt", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/__BossAthenaA/Skies/AthenaASky_Flash", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/__BossZero/Zero_Shield", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<StarStaff_Star2>().Texture, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(ModContent.GetInstance<TruffleToad_LargeFungusBubble>().Texture, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/__BossZero/Awakened/ZeroA_ProtoStarRay", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
+
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Bolt", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Flash", AssetRequestMode.ImmediateLoad).Value);
+
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/CthulhuPortal", AssetRequestMode.ImmediateLoad).Value);
+                //PremultiplyTexture(ModContent.Request<Texture2D>("NPCs/Bosses/SoC/CthulhuPortal2", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Portal", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/CthulhuSpawn", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/CthulhuCannon_CthulhuBoom", AssetRequestMode.ImmediateLoad).Value);
             });
 
-            Filters.Scene["AAModClassic:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:ShenSky"] = new ShenSky();
+            Filters.Scene["AAModClassic:ShenDoragonSky"] = new Filter(new ShenDoragonSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:ShenDoragonSky"] = new ShenDoragonSky();
 
-            Filters.Scene["AAModClassic:ShenASky"] = new Filter(new ShenASkyData("FilterMiniTower").UseColor(.7f, 0f, .7f).UseOpacity(0.2f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:ShenASky"] = new ShenASky();
+            Filters.Scene["AAModClassic:ShenDoragonASky"] = new Filter(new ShenDoragonASkyData("FilterMiniTower").UseColor(.7f, 0f, .7f).UseOpacity(0.2f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:ShenDoragonASky"] = new ShenDoragonASky();
 
             Filters.Scene["AAModClassic:MireSky"] = new Filter(new MireSkyData("FilterMiniTower").UseColor(0f, 0.20f, 1f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:MireSky"] = new MireSky();
@@ -369,43 +545,43 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:VoidSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0.15f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:VoidSky"] = new VoidSky();
 
-            Filters.Scene["AAModClassic:AthenaSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:AthenaSky"] = new AthenaSky();
+            Filters.Scene["AAModClassic:AthenaASky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:AthenaASky"] = new AthenaASky();
 
             Filters.Scene["AAModClassic:InfernoSky"] = new Filter(new InfernoSkyData("FilterMiniTower").UseColor(1f, 0.20f, 0f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:InfernoSky"] = new InfernoSky();
 
-            Filters.Scene["AAModClassic:AkumaSky"] = new Filter(new AkumaSkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:AkumaSky"] = new AkumaSky();
+            Filters.Scene["AAModClassic:AkumaASky"] = new Filter(new AkumaASkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:AkumaASky"] = new AkumaASky();
 
-            Filters.Scene["AAModClassic:YamataSky"] = new Filter(new YamataSkyData("FilterMiniTower").UseColor(.7f, 0f, 0f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:YamataSky"] = new YamataSky();
+            Filters.Scene["AAModClassic:YamataASky"] = new Filter(new YamataASkyData("FilterMiniTower").UseColor(.7f, 0f, 0f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:YamataASky"] = new YamataASky();
 
-            Filters.Scene["AAModClassic:AnubisSky"] = new Filter(new AnubisSkyData("FilterMiniTower").UseColor(.2f, .5f, .2f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:AnubisSky"] = new AnubisSky();
+            Filters.Scene["AAModClassic:AnubisASky"] = new Filter(new AnubisASkyData("FilterMiniTower").UseColor(.2f, .5f, .2f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:AnubisASky"] = new AnubisASky();
 
             ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligulaLegs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_EX/_PostMoonlord/Items/Accessories/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligula_Head", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_EX/_PostMoonlord/Items/Accessories/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligula_Body", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_EX/_PostMoonlord/Items/Accessories/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligula_Legs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Head", EquipType.Head, name: "onoHead", equipTexture: new Items.Vanity.Ohno.OnoHead());
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Body", EquipType.Body, name: "onoBody", equipTexture: new Items.Vanity.Ohno.OnoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Legs", EquipType.Legs, name: "onoLegs", equipTexture: new Items.Vanity.Ohno.OnoLegs());
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Head", EquipType.Head, name: "Ono_Head", equipTexture: new OnoHead());
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Body", EquipType.Body, name: "Ono_Body", equipTexture: new OnoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/Void/_PostMoonlord/Items/Accessories/Vanity/Ono_Legs", EquipType.Legs, name: "Ono_Legs", equipTexture: new OnoLegs());
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/InvokerHood_Head", EquipType.Head, name: "InvokerHead", equipTexture: new InvokerHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/InvokerRobe_Body", EquipType.Body, name: "InvokerBody", equipTexture: new InvokerBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/InvokerPants_Legs", EquipType.Legs, name: "InvokerLegs", equipTexture: new InvokerLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CerberusHelmet_Head", EquipType.Head, name: "CerberusHelmet_Head", equipTexture: new InvokerHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CerberusChestplate_Body", EquipType.Body, name: "CerberusChestplate_Body", equipTexture: new InvokerBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CerberusLeggings_Legs", EquipType.Legs, name: "CerberusLeggings_Legs", equipTexture: new InvokerLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/CCRobe_Legs", EquipType.Legs, name: "CCRobe_Legs");
-            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/Shiny/ShinyCCRobe_Legs", EquipType.Legs, name: "ShinyCCRobe_Legs");
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CCChestplate_Legs", EquipType.Legs, name: "CCChestplate_Legs");
+            EquipLoader.AddEquipTexture(this, "AAModClassic/_Content/_Dev/__Hardmode/Items/Armor/Vanity/CCChestplateS_Legs", EquipType.Legs, name: "CCChestplateS_Legs");
 
-            BackgroundTextureLoader.AddBackgroundTexture(this, "AAModClassic/BlankTex");
+            BackgroundTextureLoader.AddBackgroundTexture(this, AssetDirectory.General.Nothing);
         }
 
-        public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = new Dictionary<int, Asset<Texture2D>>();
+        public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = [];
 
         public void ReplaceItemTexture(int id, string texturePath)
         {
@@ -415,17 +591,32 @@ namespace AAModClassic
 
         public void ResetItemTexture(int id)
         {
-            if (vanillaTextureBackups.ContainsKey(id))
-            {
-                TextureAssets.Item[id] = vanillaTextureBackups[id];
-            }
+            if (vanillaTextureBackups.TryGetValue(id, out Asset<Texture2D> value))
+                TextureAssets.Item[id] = value;
         }
 
         public override void Unload()
         {
             if (!Main.dedServ)
             {
-                UnloadClient();
+                ResetItemTexture(3460);
+                ResetItemTexture(512);
+            }
+
+            var field = typeof(FinalFractalHelper).GetField("_fractalProfiles", BindingFlags.Static | BindingFlags.NonPublic);
+            if (field != null)
+            {
+                var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
+                foreach(int key in profiles.Keys)
+                {
+                    if (ContentSamples.ItemsByType[key].ModItem != null && ContentSamples.ItemsByType[key].ModItem.Mod is AAMod)
+                        profiles.Remove(key);
+                }
+                profiles.Remove(ItemID.SilverBroadsword);
+                profiles.Remove(ItemID.TungstenBroadsword);
+                profiles.Remove(ItemID.BeamSword);
+
+                field.SetValue(null, profiles);
             }
 
             instance = null;
@@ -433,124 +624,22 @@ namespace AAModClassic
             RiftReturn = null;
             AccessoryAbilityKey = null;
             ArmorAbilityKey = null;
-
-            isFullyReady = false;
-        }
-
-        public void UnloadClient()
-        {
-            ResetItemTexture(3460);
-            ResetItemTexture(512);
-        }
-
-        public static Texture2D GetGlowmask(string Name)
-        {
-            return ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + Name + "_Glow").Value;
         }
 
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)
         {
-            Tile tile = Main.tile[i, j];
-            if (tile.TileType == ModContent.TileType<Tiles.AcropolisBlock2>() || tile.TileType == ModContent.TileType<Tiles.AcropolisBlock>() ||
-                tile.TileType == ModContent.TileType<Tiles.GreedStone>() || tile.TileType == ModContent.TileType<Tiles.GreedBrick>())
-            {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return;
-            }
+
             orig(i, j);
         }
 
         private static bool Actuate(Terraria.On_Wiring.orig_Actuate orig, int i, int j)
         {
-            Tile tile = Main.tile[i, j];
-            if (tile.TileType == ModContent.TileType<Tiles.AcropolisBlock2>() || tile.TileType == ModContent.TileType<Tiles.AcropolisBlock>() ||
-                tile.TileType == ModContent.TileType<Tiles.GreedStone>() || tile.TileType == ModContent.TileType<Tiles.GreedBrick>())
-            {
+            if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
-            }
+
             return orig(i, j);
-        }
-
-        public static void Chat(string s, Color color, bool sync = true)
-        {
-            Chat(s, color.R, color.G, color.B, sync);
-        }
-
-        /*
-         * Sends the given string to chat, with the given color values.
-         */
-        public static void Chat(string s, byte colorR = 255, byte colorG = 255, byte colorB = 255, bool sync = true)
-        {
-            if (!AAConfigClient.Instance.NoBossDialogue)
-            {
-                if (Main.netMode == NetmodeID.SinglePlayer) { Main.NewText(s, colorR, colorG, colorB); }
-                else
-                if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }
-                else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-                if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
-            }
-        }
-
-        public override object Call(params object[] args)
-        {
-            if (args.Length <= 0 || !(args[0] is string))
-                return new Exception("ANCIENTS AWAKENED CALL ERROR: NO METHOD NAME! First param MUST be a method name!");
-
-            string methodName = (string)args[0];
-
-            if (methodName.Equals("Downed")) //returns a Func which will return a downed value based on player and name.
-            {
-                Func<string, bool> downed = (name) =>
-                {
-                    name = name.ToLower();
-                    switch (name)
-                    {
-                        default: return false;
-                        case "mushroommonarch": return AAWorld.downedMonarch;
-                        case "broodmother": return AAWorld.downedBrood;
-                        case "hydra": return AAWorld.downedHydra;
-                        case "grips":
-                        case "gripsofchaos": return AAWorld.downedGrips;
-                        case "tode": return AAWorld.downedToad;
-                        case "daybringer": return AAWorld.downedDB;
-                        case "nightcrawler": return AAWorld.downedNC;
-                        case "equinox": return AAWorld.downedEquinox;
-                        case "ancient":
-                        case "ancientany": return AAWorld.downedAncient;
-                        case "sancient":
-                        case "sancientany": return AAWorld.downedSAncient;
-                        case "gripsS":
-                        case "akuma": return AAWorld.downedAkuma;
-                        case "yamata": return AAWorld.downedYamata;
-                        case "zero": return AAWorld.downedZero;
-                        case "shen":
-                        case "shendoragon": return AAWorld.downedShen;
-                    }
-                };
-                return downed;
-            }
-            else if (methodName.Equals("InZone")) //returns a Func which will return a zone value based on player and name.
-            {
-                Func<Player, string, bool> inZone = (p, name) =>
-                {
-                    name = name.ToLower();
-                    AAPlayer aap = p.GetModPlayer<AAPlayer>();
-                    switch (name)
-                    {
-                        default: return false;
-                        case "mire": return aap.ZoneMire;
-                        case "lake": return aap.ZoneRisingMoonLake;
-                        case "inferno": return aap.ZoneInferno;
-                        case "pagoda": return aap.ZoneRisingSunPagoda;
-                        case "ship": return aap.ZoneShip;
-                        case "storm": return aap.ZoneStorm;
-                        case "void": return aap.ZoneVoid;
-                        case "mush": return aap.ZoneMush;
-                        case "terrarium": return aap.Terrarium;
-                    }
-                };
-                return inZone;
-            }
-            return new Exception("ANCIENTS AWAKENED CALL ERROR: NO METHOD FOUND: " + methodName);
         }
 
         public override void HandlePacket(BinaryReader bb, int whoAmI)
@@ -570,7 +659,8 @@ namespace AAModClassic
                     Main.projectile[projID].friendly = friendly;
                     Main.projectile[projID].hostile = hostile;
                 }
-                if (Main.netMode == NetmodeID.Server) MNet.SendBaseNetMessage(0, owner, projID, friendly, hostile);
+                if (Main.netMode == NetmodeID.Server)
+                    BaseNet.WriteToPacket(AAMod.instance.GetPacket(), 0, owner, projID, friendly, hostile).Send();
             }
             else
             if (msg == MsgType.SyncAI) //sync AI array
@@ -629,6 +719,18 @@ namespace AAModClassic
             ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
             ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
+
+            On_Player.GetPickaxeDamage += ModifyLuminitePickaxePower;
+
+            BrokenCodeTeleportUnofficialEdits.ApplyEdits();
+        }
+
+        private int ModifyLuminitePickaxePower(On_Player.orig_GetPickaxeDamage orig, Player self, int x, int y, int pickPower, int hitBufferIndex, Tile tileTarget)
+        {
+            if (tileTarget.TileType == TileID.LunarOre && pickPower < 225)
+                return 0;
+
+            return orig(self, x, y, pickPower, hitBufferIndex, tileTarget);
         }
 
         public override void AddRecipeGroups()
@@ -651,25 +753,25 @@ namespace AAModClassic
                     AAloadedOnly = false;
                 }
             }
-            Config.SaveConfig();
+            AALuckyConfig.SaveConfig();
         }
 
         private static void LuckyCheckProgress()
         {
-            Config.LuckyOre.Clear();
-            Config.LuckyPotion.Clear();
-            Config.ListRareNpc.Clear();
+            AALuckyConfig.LuckyOre.Clear();
+            AALuckyConfig.LuckyPotion.Clear();
+            AALuckyConfig.ListRareNpc.Clear();
             Item item = new Item();
             for (int i = -48; i < ItemLoader.ItemCount; i++)
             {
                 item.netDefaults(i);
                 if (item.createTile > TileID.Dirt && Main.tileOreFinderPriority[item.createTile] > 0 && !Main.tileContainer[item.createTile] && item.createTile != TileID.FakeContainers && item.createTile != TileID.FakeContainers2)
                 {
-                    Config.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
+                    AALuckyConfig.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
                 }
                 if (item.buffType > 0 && item.buffType != BuffID.WellFed && item.buffTime > 0 && item.type > ItemID.Celeb2)
                 {
-                    Config.LuckyPotion.Add(item.type, item.value);
+                    AALuckyConfig.LuckyPotion.Add(item.type, item.value);
                 }
             }
             NPC npc = new NPC();
@@ -681,7 +783,7 @@ namespace AAModClassic
                 }
                 if (npc.rarity >= 1)
                 {
-                    Config.ListRareNpc.Add(i);
+                    AALuckyConfig.ListRareNpc.Add(i);
                 }
             }
         }
@@ -716,25 +818,6 @@ namespace AAModClassic
                 },
                 InterfaceScaleType.UI));
             }
-        }
-    }
-
-    public static class ModUtils
-    {
-        public static Texture2D GetTexture(this Mod mod, string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
-
-        public static SoundStyle GetLegacySoundSlot(this Mod mod, SoundType type, string path)
-        {
-            if (type == SoundType.Sound)
-                return new SoundStyle("AAModClassic/" + path);
-            return new();
-        }
-
-        public static int GetSoundSlot(this Mod mod, SoundType type, string path)
-        {
-            if (type == SoundType.Music)
-                return MusicLoader.GetMusicSlot("AAModClassic/" + path);
-            return -1;
         }
     }
 }

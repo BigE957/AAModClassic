@@ -1,0 +1,43 @@
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo
+{
+    public class DragonArrow : BaseAAItem, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Ammo";
+		public override void SetStaticDefaults()
+		{
+            // DisplayName.SetDefault("Dragon Arrow");
+			// Tooltip.SetDefault("Has stronger knockback than most arrows");
+		}
+
+		public override void SetDefaults()
+		{
+			Item.damage = 11;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 14;
+			Item.height = 32;
+			Item.maxStack = Item.CommonMaxStack;
+			Item.consumable = true;             //You need to set the item consumable so that the ammo would automatically consumed
+			Item.knockBack = 4f;
+			Item.value = 30;
+			Item.rare = ItemRarityID.Blue;
+			Item.shoot = ModContent.ProjectileType<DragonArrow_Proj>();   //The projectile shoot when your weapon using this ammo
+			Item.shootSpeed = 1f;                  //The speed of the projectile
+			Item.ammo = AmmoID.Arrow;              //The ammo class this ammo belongs to.
+		}
+
+        public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe(50);
+			recipe.AddIngredient(ItemID.WoodenArrow, 50);
+			recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 1);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
+	}
+}

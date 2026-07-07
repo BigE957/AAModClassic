@@ -5,10 +5,11 @@ namespace AAModClassic.Dusts
 {
     public class CarrotDust : ModDust
 	{
-        public override void SetStaticDefaults()
+        public override void OnSpawn(Dust dust)
         {
-            Main.dust[Type].noGravity = false;
+            dust.noGravity = false;
         }
+
         public override bool MidUpdate(Dust dust)
         {
             dust.rotation += dust.velocity.X / 3f;

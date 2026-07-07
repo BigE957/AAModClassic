@@ -1,0 +1,48 @@
+﻿using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
+{
+    public class DesertStaff : BaseAAItem, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
+		public override void SetStaticDefaults()
+		{
+            // DisplayName.SetDefault("Desert Staff");
+			// Tooltip.SetDefault("Shoots enchanted sand bolt which explodes into bouncing balls on hit");
+			Item.staff[Item.type] = true;
+		}
+
+		public override void SetDefaults()
+		{
+			Item.damage = 60;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 10;
+			Item.width = 76;
+			Item.height = 76;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 10000;
+			Item.rare = ItemRarityID.LightPurple;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = ModContent.ProjectileType<DesertStaff_DesertBlast>();
+			Item.shootSpeed = 12f;
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.AmberStaff, 1);
+			recipe.AddIngredient(ModContent.ItemType<ForsakenFragment>(), 5);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+		}
+	}
+}

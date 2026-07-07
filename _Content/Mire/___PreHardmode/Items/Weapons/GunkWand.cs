@@ -1,0 +1,35 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
+{
+    public class GunkWand : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Gunk Wand");
+        }
+
+        public override void SetDefaults()
+        {
+            Item.damage = 20;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 6;
+            Item.width = 36;
+            Item.height = 38;
+            Item.useTime = 28;
+            Item.useAnimation = 28;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.noMelee = true;
+            Item.knockBack = 3;
+            Item.value = 1000;
+            Item.rare = ItemRarityID.Green;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<GunkWand_Gunk>();
+            Item.shootSpeed = 4f;
+        }
+    }
+}

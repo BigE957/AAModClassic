@@ -1,0 +1,173 @@
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
+{
+    public class RajahRabbit_ThePunisher : ModProjectile
+    {
+        public override string Texture => ModContent.GetInstance<ThePunisher_Holdout>().Texture;
+        public static Asset<Texture2D> Chain;
+        public static Asset<Texture2D> Chain2;
+
+        public override void SetStaticDefaults()
+		{
+            // DisplayName.SetDefault("The Punisher");
+
+            Chain = ModContent.Request<Texture2D>(ModContent.GetInstance<ThePunisher_Holdout>().Texture + "_Chain");
+            Chain2 = ModContent.Request<Texture2D>(ModContent.GetInstance<TheAvenger_Holdout>().Texture + "_Chain");
+        }
+        public override void SetDefaults()
+        {
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.aiStyle = -1;
+            Projectile.hostile = true;
+            Projectile.penetrate = -1;
+            Projectile.alpha = 255;
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+            Projectile.ai[0] = 1f;
+            Projectile.netUpdate = true;
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+            return false;
+        }
+
+        public RajahRabbit rajah = null;
+
+        public override void AI()
+        {
+            if (rajah == null)
+            {
+                NPC npcBody = Main.npc[(int)Projectile.ai[2]];
+                if (npcBody.type == ModContent.NPCType<RajahRabbit>())
+                    rajah = npcBody.ModNPC as RajahRabbit;
+                else if (npcBody.type == ModContent.NPCType<RajahRabbitA>())
+                    rajah = npcBody.ModNPC as RajahRabbit;
+                else
+                    rajah = null;
+            }
+            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.ThePunisher || rajah == null || rajah.NPC.active == false || rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>())
+                Projectile.active = false;
+
+            Vector2 vector54 = rajah.WeaponPos - Projectile.Center;
+            Projectile.rotation = vector54.ToRotation() - 1.57f;
+            float arg_1C53D_0 = vector54.X;
+            if (vector54.X < 0f)
+                Projectile.direction = 1;
+            else
+                Projectile.direction = -1;
+            Projectile.spriteDirection = vector54.X > 0f ? -1 : 1;
+            if (Projectile.ai[0] == 0f && vector54.Length() > 400f)
+            {
+                Projectile.ai[0] = 1f;
+            }
+            if (Projectile.ai[0] == 1f || Projectile.ai[0] == 2f)
+            {
+                float num687 = vector54.Length();
+                if (num687 > 1500f)
+                {
+                    Projectile.Kill();
+                    return;
+                }
+                if (num687 > 600f)
+                {
+                    Projectile.ai[0] = 2f;
+                }
+                Projectile.tileCollide = false;
+                float num688 = 20f;
+                if (Projectile.ai[0] == 2f)
+                {
+                    num688 = 40f;
+                }
+                Projectile.velocity = Vector2.Normalize(vector54) * num688;
+                if (vector54.Length() < num688)
+                {
+                    Projectile.Kill();
+                    return;
+                }
+            }
+            Projectile.ai[1] += 1f;
+            if (Projectile.ai[1] > 5f)
+            {
+                Projectile.alpha = 0;
+            }
+            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
+            {
+                Vector2 vector55 = vector54 * -1f;
+                vector55.Normalize();
+                vector55 *= Main.rand.Next(45, 65) * 0.1f;
+                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
+                int type = rajah.isSupreme == true ? ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>() : ModContent.ProjectileType<RajahRabbit_Carrot>();
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                return;
+            }
+        }
+
+        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
+		{
+            if (Projectile.ai[0] != 1)
+            {
+                Projectile.ai[1] = 1f;
+            }
+            Projectile.ai[0] = 1;
+        }
+		
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            width = 30;
+            height = 30;
+            return true;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture = Chain.Value;
+            if (rajah.isSupreme)
+                texture = Chain2.Value;
+            Vector2 position = Projectile.Center;
+            Vector2 mountedCenter = rajah.WeaponPos;
+            Rectangle? sourceRectangle = new Rectangle?();
+            Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+            float num1 = texture.Height;
+            Vector2 vector24 = mountedCenter - position;
+            float rotation = (float)Math.Atan2(vector24.Y, vector24.X) - 1.57f;
+            bool flag = true;
+            if (float.IsNaN(position.X) && float.IsNaN(position.Y))
+                flag = false;
+            if (float.IsNaN(vector24.X) && float.IsNaN(vector24.Y))
+                flag = false;
+            while (flag)
+            {
+                if (vector24.Length() < num1 + 1.0)
+                {
+                    flag = false;
+                }
+                else
+                {
+                    Vector2 vector21 = vector24;
+                    vector21.Normalize();
+                    position += vector21 * num1;
+                    vector24 = mountedCenter - position;
+                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
+                }
+            }
+            
+            return true;
+        }
+    }
+}

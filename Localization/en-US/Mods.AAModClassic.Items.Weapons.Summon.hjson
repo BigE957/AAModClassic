@@ -1,0 +1,266 @@
+ConflagrateScythe: {
+	DisplayName: Conflagrate Scythe
+	Tooltip:
+		'''
+		Summons a spinning construct that shreds through enemies
+		Conflagrate Staff EX
+		'''
+}
+
+DivineWindStone: {
+	DisplayName: Divine Wind Stone
+	Tooltip: Summons an owl rune sentry
+}
+
+HurricaneStone: {
+	DisplayName: Hurricane Stone
+	Tooltip: Summons a charged owl rune sentry
+}
+
+SolarStaff: {
+	DisplayName: Solar Staff
+	Tooltip:
+		'''
+		Rains fire and fury upon your foes
+		Inflicts Daybroken
+		'''
+}
+
+CyberBaton: {
+	DisplayName: Cyber Baton
+	Tooltip: Summons a cyber claw to fight with you
+}
+
+AleisterStaff: {
+	DisplayName: Aleister Staff
+	Tooltip: ""
+}
+
+ConflagrateStaff: {
+	DisplayName: Conflagrate Staff
+	Tooltip:
+		'''
+		Summons a spinning construct that shreds through enemies
+		'I thought the sky was purple.'
+		- Ender
+		'''
+}
+
+MagicAcorn: {
+	DisplayName: Magic Acorn
+	Tooltip:
+		'''
+		Attracts squirrels to fight with you for glory.
+		'SoonTM'
+		- Fargowilta
+		'''
+}
+
+SockStaff: {
+	DisplayName: Sock Puppet Staff
+	Tooltip: Summons a sock puppet to fight with you
+}
+
+FishnadoStaff: {
+	DisplayName: Fishnado Staff
+	Tooltip: ""
+}
+
+BlizzardDragonStaff: {
+	DisplayName: Blizzard Dragon Staff
+	Tooltip:
+		'''
+		Summons a blizzard dragon to fight for you
+		Hydra Staff EX
+		'''
+}
+
+OmenStaff: {
+	DisplayName: Omen Staff
+	Tooltip:
+		'''
+		Summons a vicious crow to fight with you
+		Raven Staff EX
+		'''
+}
+
+PerfectChaosRitual: {
+	DisplayName: Perfect Chaos Ritual
+	Tooltip: Summons a small chaos dragon to fight for you
+}
+
+SoccOnAStick: {
+	DisplayName: Socc on a Stick
+	Tooltip:
+		'''
+		Summons a cotton god to fight for you
+		Only one Socc may exist. 
+		Any summons after one has been summoned will result in a regular Sock
+		Sock Puppet Staff EX
+		'''
+}
+
+CottonCane: {
+	DisplayName: Cotton Cane
+	Tooltip: Summons a Rabbitcopter Soldier to fight with you
+}
+
+RajahsRage: {
+	DisplayName: Rajah's Rage
+	Tooltip: Summons a Royal Rabbit to fight with you
+}
+
+ClawBaton: {
+	DisplayName: Claw Baton
+	Tooltip: Summons a chaos claw to fight with you
+}
+
+ChaosRitual: {
+	DisplayName: Chaos Ritual
+	Tooltip: Summons a chaos construct to fight with you
+}
+
+FlameVortexStaff: {
+	DisplayName: Flame Vortex Staff
+	Tooltip:
+		'''
+		Conjures flaming spheres that increase your minion damage
+		Each sphere takes up 1 minion slot
+		You must have at least 2 open slots for the first summon
+		'''
+}
+
+ChaosBaton: {
+	DisplayName: Chaos Baton
+	Tooltip: Summons a discordian claw to fight with you
+}
+
+DemoniteStaff: {
+	DisplayName: Demonite Staff
+	Tooltip: Summons an Eater to fight with you
+}
+
+CrimeraStaff: {
+	DisplayName: Crimera Staff
+	Tooltip: Summons a Crimera to fight with you
+}
+
+SandScepter: {
+	DisplayName: Sand Scepter
+	Tooltip: Summons a dust devil to fight with you
+}
+
+SentryOfTheEye: {
+	DisplayName: Sentry of the Eye
+	Tooltip: Summons an eye sentry
+}
+
+HorusCane: {
+	DisplayName: Horus' Cane
+	Tooltip: Summons a Horus Eye sentry
+}
+
+SkullWand: {
+	DisplayName: Skull Wand
+	Tooltip: Summons a dungeon skull to fight with you
+}
+
+HallowStaff: {
+	DisplayName: Hallow Staff
+	Tooltip: Summons a prism to fight with you
+}
+
+TrueHallowStaff: {
+	DisplayName: True Hallow Staff
+	Tooltip: Summons a rainbow prism to fight with you
+}
+
+DemonStaff: {
+	DisplayName: Demon Staff
+	Tooltip: Summons a demon to fight with you
+}
+
+DevilStaff: {
+	DisplayName: Devil Staff
+	Tooltip: Summons a devil to fight with you
+}
+
+FireStaff: {
+	DisplayName: Fire Staff
+	Tooltip: Summons a baby phoenix to fight for you
+}
+
+DragonsPike: {
+	DisplayName: Dragon's Pike
+	Tooltip: Summons a fire dragon to fight for you
+}
+
+AncientLungStaff: {
+	DisplayName: Ancient Lung Staff
+	Tooltip: Summons an ancient lung to fight for you
+}
+
+HydraStaff: {
+	DisplayName: Hydra Staff
+	Tooltip: Summons a stone hydra to fight for you
+}
+
+SnakeStaff: {
+	DisplayName: Snake Staff
+	Tooltip:
+		'''
+		Summons a Snow Serpent to fight for you
+		Summons 2 segments for each minion slot
+		'''
+}
+
+TerraStaff: {
+	DisplayName: Terra Staff
+	Tooltip: Summons a Terra Wizard to fight with you
+}
+
+TerraGauntlet: {
+	DisplayName: Terra Gauntlet
+	Tooltip: Summons a Terra Squid, Terra Sphere, Terra Crawler, or Terra Weaver to Fight for you
+}
+
+SagittariusCore: {
+	DisplayName: Sagittarius Core
+	Tooltip: Activates probes that orbit you and defend you from surrounding enemies
+}
+
+DoomiteRadio: {
+	DisplayName: Doomite Radio
+	Tooltip: Summons a doomite radio probe to fight with you
+}
+
+DoomiteSignal: {
+	DisplayName: Doomite Signal
+	Tooltip: Summons a doomite probe to fight with you
+}
+
+VoidProbeControlUnit: {
+	DisplayName: Void Probe Control Unit
+	Tooltip: Summons a Void Probe to fight for you
+}
+
+OverloadedDoomiteRadio: {
+	DisplayName: Overloaded Doomite Radio
+	Tooltip: Summons a void scout to fight with you
+}
+
+DoomPortal: {
+	DisplayName: Doom Portal
+	Tooltip: Summons a small Doom Protocol to fight for you
+}
+
+DapperAcorn: {
+	DisplayName: Dapper Acorn
+	Tooltip:
+		'''
+		Attracts squirrels to fight with you for glory.
+		'Multiplayer = big meme'
+		- Fargowilta
+		Magic Acorn EX
+		'''
+}

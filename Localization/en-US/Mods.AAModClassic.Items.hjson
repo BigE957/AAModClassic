@@ -1,3103 +1,746 @@
-AshProofVest0: {
-	DisplayName: Ash-Proof Vest
-	Tooltip: Temporary accessory to completly remove Ash Rain
-}
-
-AshProofVest1: {
-	DisplayName: Ash-Proof Vest
-	Tooltip: Temporary accessory to completly remove Ash Rain
-}
-
-AshProofVest2: {
-	DisplayName: Ash-Proof Vest
-	Tooltip: Temporary accessory to completly remove Ash Rain
-}
-
-AshProofVest3: {
-	DisplayName: Ash-Proof Vest
-	Tooltip: Temporary accessory to completly remove Ash Rain
-}
-
-BlackLotusEmblem: {
-	DisplayName: Black Lotus Emblem
-	Tooltip:
-		'''
-		Increases pickup range for mana stars
-		Automatically use mana potions when needed
-		Greatly reduce manasick time
-		Your magic attacks inflicts moonraze
-		15% increased movement speed
-		12% reduced mana usage
-		18% increased magic damage
-		'''
-}
-
-BlackLotus: {
-	DisplayName: Black Lotus
-	Tooltip: It's said that someone offered $160000 for this thing.
-}
-
-BotchedBand: {
-	DisplayName: Botched Band
-	Tooltip: 10% Increased movement speed and damage
-}
-
-CursedEyeofSoulBinder: {
-	DisplayName: Cursed Eye of the Soul Binder
-	Tooltip:
-		'''
-		Pressing the accessory ability hotkey helps player skip the time between old one army two waves.
-		Increase 21% minion damage
-		Increase your max number of minions
-		Increase your max number of sentries
-		+50 Max Life
-		Your minions can strike the enemy's soul
-		While Old One's Army is on, increase 31% minion damage.
-		'''
-}
-
-DemonGauntlet: {
-	DisplayName: Demon Gauntlet
-	Tooltip:
-		'''
-		Enemies are more likely to target you
-		14% Increased Melee Damage
-		10% Increased melee speed
-		Increased Melee Knockback
-		Melee Attacks Inflict a different debuff depending on your world evil
-		Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds
-		'''
-}
-
-DragonsGuard: {
-	DisplayName: Dragon's Guard
-	Tooltip: Enemies that strike you are set ablaze
-}
-
-DragonstrideBoots: {
-	DisplayName: Dragonstride Boots
-	Tooltip:
-		'''
-		Allows flight, super fast running, and extra mobility on ice
-		12% increased movement speed
-		Provides the ability to walk on water and lava
-		Grants immunity to fire blocks and 10 seconds of immunity to lava
-		Grants the ability to swim
-		Allows the ability to climb walls
-		'''
-}
-
-Energy_Conduit: {
-	DisplayName: Energy Conduit
-	Tooltip: 50% increased movement speed
-}
-
-Lantern: {
-	DisplayName: Lantern
-	Tooltip: Permanent accessory to partially remove The Fog
-}
-
-OldOneCharm: {
-	DisplayName: Old One Charm
-	Tooltip:
-		'''
-		Pressing the accessory ability hotkey helps player skip the time between old one army two waves.
-		Increase 12% minion damage
-		Increases your max number of sentries
-		While Old One's Army is on, increase 22% minion damage.
-		'''
-}
-
-OrnateBand: {
-	DisplayName: Ornate Band
-	Tooltip: +50 Max Life
-}
-
-PalladiumShield: {
-	DisplayName: Palladium Shield
-	Tooltip: Grants knockback immunity
-}
-
-ShadowBand: {
-	DisplayName: Shadow Band
-	Tooltip: 15% increased movement speed
-}
-
-AquamancerWings: {
-	DisplayName: Aquamancer Wings
-	Tooltip: Allows flight and slow fall
-}
-
-ChaosWings: {
-	DisplayName: Chaos Wings
-	Tooltip: Allows flight and slow fall
-}
-
-DarkmatterJetpack: {
-	DisplayName: Darkmatter Booster
-	Tooltip: Allows flight and slow fall
-}
-
-DraconianWings: {
-	DisplayName: Draconian Sun Wings
-	Tooltip: Allows flight and slow fall
-}
-
-DreadWings: {
-	DisplayName: Dread Moon Wings
-	Tooltip: Allows flight and slow fall
-}
-
-MagmancerWings: {
-	DisplayName: Magmancer Wings
-	Tooltip: Allows flight and slow fall
-}
-
-OlympianWings: {
-	DisplayName: Olympian Wings
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Grants a dash while flying
-		'''
-}
-
-RadiumWings: {
-	DisplayName: Radium Wings
-	Tooltip: Allows flight and slow fall
-}
-
-TerraWings: {
-	DisplayName: Terra Wings
-	Tooltip: Allows flight and slow fall
-}
-
-VultureWings: {
-	DisplayName: Vulture Wings
-	Tooltip: Allows slow fall
-}
-
-WingsofChaos: {
-	DisplayName: Wings of Chaos
-	Tooltip: Allows flight and slow fall
-}
-
-ZeroWings: {
-	DisplayName: Zero Jet
-	Tooltip: Allows flight and slow fall
-}
-
-AbyssalFukumen: {
-	DisplayName: Abyssal Fukumen
-	Tooltip:
-		'''
-		35% increased movement speed
-		15% increased ranged damage
-		Weightless as shadow itself
-		'''
-}
-
-AbyssalGi: {
-	DisplayName: Abyssal Gi
-	Tooltip:
-		'''
-		40% increased movement speed
-		Weightless as shadow itself
-		'''
-}
-
-AbyssalHakama: {
-	DisplayName: Abyssal Hakama
-	Tooltip:
-		'''
-		30% increased movement speed
-		Weightless as shadow itself
-		'''
-}
-
-AncientGoldBody: {
-	DisplayName: Ancient Gold Chainmail
-	Tooltip: You have chance to get gold coins in stoneblocks
-}
-
-AncientGoldLeg: {
-	DisplayName: Ancient Gold Greaves
-	Tooltip: You have more chance to meet with vanilla gold critters.
-}
-
-AssassinBoots: {
-	DisplayName: Midnight Assassin's Boots
-	Tooltip:
-		'''
-		15% increased ranged/melee damage
-		15% increased movement speed
-		8% increased melee speed
-		Dark boots infused with the shadow of midnight
-		'''
-}
-
-AssassinHood: {
-	DisplayName: Midnight Assassin Hood
-	Tooltip:
-		'''
-		13% increased melee/ranged damage and critical strike chance
-		A dark hood infused with the shadow of midnight
-		'''
-}
-
-AssassinShirt: {
-	DisplayName: Midnight Assassin Shirt
-	Tooltip:
-		'''
-		14% increased melee/ranged damage and critical strike chance
-		20% decreased ammo consumption
-		+50 Max Life
-		A dark armor infused with the shadow of midnight
-		'''
-}
-
-AtlanteanGreaves: {
-	DisplayName: Atlantean Greaves
-	Tooltip:
-		'''
-		Increases magic critical strike chance by 10%
-		Allows to freely move in liquids
-		'''
-}
-
-AtlanteanHelm: {
-	DisplayName: Atlantean Helmet
-	Tooltip:
-		'''
-		Decreases mana usage by 15%
-		Allows to breath underwater
-		'''
-}
-
-AtlanteanPlate: {
-	DisplayName: Atlantean Chestplate
-	Tooltip:
-		'''
-		Increases magic damage by 15%
-		It vibrates with the powers of Atlantis
-		'''
-}
-
-BiomiteBoots: {
-	DisplayName: Biomite Greaves
-	Tooltip: ""
-}
-
-BiomiteHelmet: {
-	DisplayName: Biomite Helmet
-	Tooltip: ""
-}
-
-BiomitePlate: {
-	DisplayName: Biomite Crystalmail
-	Tooltip: ""
-}
-
-BlazingDou: {
-	DisplayName: Blazing Dao
-	Tooltip:
-		'''
-		2% increased Damage Resistance
-		2% increased Melee Damage
-		Forged in the flames of the blazing sun
-		'''
-}
-
-BlazingKabuto: {
-	DisplayName: Blazing Kabuto
-	Tooltip:
-		'''
-		1% increased Damage Resistance
-		3% increased Melee Damage
-		Forged in the flames of the blazing sun
-		'''
-}
-
-BlazingSuneate: {
-	DisplayName: Blazing Suneate
-	Tooltip:
-		'''
-		1% increased Damage Resistance
-		2% increased Melee Damage
-		Forged in the flames of the blazing sun
-		'''
-}
-
-BogwoodBoots: {
-	DisplayName: Bogwood Boots
-	Tooltip: ""
-}
-
-BogwoodChestplate: {
-	DisplayName: Bogwood Chestplate
-	Tooltip: ""
-}
-
-BogwoodChest: {
-	DisplayName: Bogwood Chest
-	Tooltip: ""
-}
-
-BogwoodHelmet: {
-	DisplayName: Bogwood Helmet
-	Tooltip: ""
-}
-
-Bogwood: {
-	DisplayName: Bogwood
-	Tooltip: ""
-}
-
-CarrotBooster: {
-	DisplayName: Carrot Booster
-	Tooltip: Etheral, but crunchy.
-}
-
-Carrot: {
-	DisplayName: Carrot
-	Tooltip: Good for your eyesight
-}
-
-ChampionChestplate: {
-	DisplayName: Champion Chestplate
-	Tooltip:
-		'''
-		15% increased damage
-		The armor of a champion feared across the land
-		'''
-}
-
-ChampionGreaves: {
-	DisplayName: Champion' Greaves
-	Tooltip:
-		'''
-		50% increased movement speed
-		15% increased damage
-		The armor of a champion feared across the land
-		'''
-}
-
-ChampionHeaddress: {
-	DisplayName: Champion Headdress
-	Tooltip:
-		'''
-		70% increased minion damage
-		10% increased non-minion damage
-		+7 maximum Minions
-		+2 maximum sentries 
-		The armor of a champion feared across the land
-		'''
-}
-
-ChampionHelmet: {
-	DisplayName: Champion Greathelm
-	Tooltip:
-		'''
-		35% increased Melee damage & critical strike chance
-		10% increased non-melee damage
-		18% increased melee speed
-		The armor of a champion feared across the land
-		'''
-}
-
-ChampionHood: {
-	DisplayName: Champion Hood
-	Tooltip:
-		'''
-		32% increased Magic damage
-		10% increased non-magic damage
-		25% increased Magic critical strike chance
-		25% reduced Mana consumption
-		150 increased maximum mana
-		The armor of a champion feared across the land
-		'''
-}
-
-ChampionMask: {
-	DisplayName: Champion Mask
-	Tooltip:
-		'''
-		55% increased ranged damage
-		44% increased ranged critical strike chance
-		10% increased non-ranged damage
-		25% reduced ammo consumption
-		The armor of a champion feared across the land
-		'''
-}
-
-ChaosDou: {
-	DisplayName: Chaos Dou
-	Tooltip: 7% increased damage
-}
-
-ChaosFukumen: {
-	DisplayName: Chaos Fukumen
-	Tooltip: 24% increased ranged critical strike chance
-}
-
-ChaosGreaves: {
-	DisplayName: Chaos Greaves
-	Tooltip:
-		'''
-		10% increased movement speed
-		7% increased damage
-		'''
-}
-
-ChaosKabuto: {
-	DisplayName: Chaos Kabuto
-	Tooltip: 25% increased melee damage
-}
-
-ChaosMask: {
-	DisplayName: Chaos Mask
-	Tooltip:
-		'''
-		Increases maximum mana by 80
-		Increases magic damage by 20%
-		Increases magic crit by 20%
-		Allows you to breath underwater
-		'''
-}
-
-ChaosVisor: {
-	DisplayName: Chaos Visor
-	Tooltip: 30% increased minion damage
-}
-
-DarkmatterBreastplate: {
-	DisplayName: Darkmatter Breastplate
-	Tooltip:
-		'''
-		20% increased damage
-		Dark, yet still barely visible
-		'''
-}
-
-DarkmatterGreaves: {
-	DisplayName: Darkmatter Greaves
-	Tooltip:
-		'''
-		24% increased movement speed
-		Dark, yet still barely visible
-		'''
-}
-
-DarkmatterHeaddress: {
-	DisplayName: Darkmatter Headress
-	Tooltip:
-		'''
-		25% increased minion damage
-		Dark, yet still barely visible
-		'''
-}
-
-DarkmatterHelmet: {
-	DisplayName: Darkmatter Helmet
-	Tooltip:
-		'''
-		10% increased melee damage
-		Dark, yet still barely visible
-		'''
-}
-
-DarkmatterMask: {
-	DisplayName: Darkmatter Mask
-	Tooltip:
-		'''
-		10% increased magic damage
-		15% decreased mana usage
-		Dark, yet still barely visible
-		'''
-}
-
-DarkmatterVisor: {
-	DisplayName: Darkmatter Visor
-	Tooltip:
-		'''
-		15% increased Ranged damage
-		20% decreased ammo consumption 
-		Dark, yet still barely visible
-		'''
-}
-
-DeathlyGreaves: {
-	DisplayName: Deathly Greaves
-	Tooltip: 9% Increased ranged damage
-}
-
-DeathlyRibguard: {
-	DisplayName: Deathly Ribguard
-	Tooltip: 9% Increased ranged damage
-}
-
-DeathlySkull: {
-	DisplayName: Deathly Skull
-	Tooltip: 9% Increased ranged damage
-}
-
-DemonBoots: {
-	DisplayName: Demon Hoofs
-	Tooltip: 9% Increased Minion damage
-}
-
-DemonGarb: {
-	DisplayName: Demon Garb
-	Tooltip:
-		'''
-		9% Increased Minion damage
-		+2 minion slots
-		'''
-}
-
-DemonHood: {
-	DisplayName: Demon Cowl
-	Tooltip: 9% Increased Minion damage
-}
-
-DepthFukumen: {
-	DisplayName: Depth Fukumen
-	Tooltip:
-		'''
-		25% increased movement speed
-		8% increased ranged damage
-		Weightless as shadow itself
-		'''
-}
-
-DepthGi: {
-	DisplayName: Depth Gi
-	Tooltip:
-		'''
-		40% increased movement speed
-		Weightless as shadow itself
-		'''
-}
-
-DepthHakama: {
-	DisplayName: Depth Hakama
-	Tooltip:
-		'''
-		15% increased movement speed
-		Weightless as shadow itself
-		'''
-}
-
-DoomiteBreastplate: {
-	DisplayName: Doomite Plate
-	Tooltip: +1 Minion slot
-}
-
-DoomiteGreaves: {
-	DisplayName: Doomite Greaves
-	Tooltip: +1 Minion slot
-}
-
-DoomiteVisor: {
-	DisplayName: Doomite Visor
-	Tooltip: +1 Minion slot
-}
-
-DoomiteUGreaves: {
-	DisplayName: Dark Doomite Greaves
-	Tooltip: ""
-}
-
-DoomiteUHelm: {
-	DisplayName: Dark Doomite Helmet
-	Tooltip: Increases minion damage by 5%
-}
-
-DoomiteUPlate: {
-	DisplayName: Dark Doomite Chestplate
-	Tooltip: Increases minion damage by 6%
-}
-
-Doomite: {
-	DisplayName: Doomite Bar
-	Tooltip: Unsettling energy radiates from this bar
-}
-
-DoomsdayChestplate: {
-	DisplayName: Doomsday Assault Armor
-	Tooltip:
-		'''
-		22% decreased mana usage
-		+50 Max Life
-		The power to destroy entire planets rests in this armor
-		'''
-}
-
-DoomsdayChest: {
-	DisplayName: Doomsday Chest
-	Tooltip: ""
-}
-
-DoomsdayHelmet: {
-	DisplayName: Doomsday Assault Visor
-	Tooltip:
-		'''
-		25% increased magic damage
-		18% increased magic critical strike chance
-		The power to destroy entire planets rests in this armor
-		'''
-}
-
-DoomsdayLeggings: {
-	DisplayName: Doomsday Assault Greaves
-	Tooltip:
-		'''
-		18% increased movement speed
-		120 increased mana
-		The power to destroy entire planets rests in this armor
-		'''
-}
-
-DoomsdayMask: {
-	DisplayName: Doomsday Tactical Visor
-	Tooltip:
-		'''
-		50% increased minion damage
-		The power to destroy entire planets rests in this armor
-		'''
-}
-
-DracoHelm: {
-	DisplayName: Draconian Sun Kabuto
-	Tooltip:
-		'''
-		20% increased melee critical chance
-		3% increased damage resistance
-		+25 Max Life
-		The blazing fury of the Inferno rests in this armor
-		'''
-}
-
-DracoLeggings: {
-	DisplayName: Draconian Sun Greaves
-	Tooltip:
-		'''
-		16% increased movement speed
-		15% increased melee speed
-		3% increased damage resistance
-		+25 Max Life
-		The blazing fury of the Inferno rests in this armor
-		'''
-}
-
-DracoPlate: {
-	DisplayName: Draconian Sun Dao
-	Tooltip:
-		'''
-		25% increased melee damage
-		3% increased damage resistance
-		+25 Max Life
-		The blazing fury of the Inferno rests in this armor
-		'''
-}
-
-DreadBoots: {
-	DisplayName: Dread Moon Hakama
-	Tooltip:
-		'''
-		50% increased movement speed
-		25% decreased ammo consumption
-		The abyssal wrath of the Mire rests in this armor
-		'''
-}
-
-DreadHelm: {
-	DisplayName: Dread Moon Fukumen
-	Tooltip:
-		'''
-		24% increased ranged critical chance
-		20% increased movement speed
-		+15 Max Life
-		The abyssal wrath of the Mire rests in this armor
-		'''
-}
-
-DreadPlate: {
-	DisplayName: Dread Moon Gi
-	Tooltip:
-		'''
-		35% increased ranged damage
-		20% increased movement speed
-		+50 Max Life
-		The abyssal wrath of the Mire rests in this armor
-		'''
-}
-
-Dynaskull: {
-	DisplayName: Dynaskull
-	Tooltip: 20% decreased ammo consumption
-}
-
-DynaskullGreaves: {
-	DisplayName: Dynaskull Greaves
-	Tooltip: 12% Increased ranged critical chance
-}
-
-DynaskullRibguard: {
-	DisplayName: Dynaskull Ribguard
-	Tooltip: 13% increased ranged damage
-}
-
-FleshrendGreaves: {
-	DisplayName: Fleshrend Greaves
-	Tooltip: 7% increased melee damage
-}
-
-FleshrendHelm: {
-	DisplayName: Fleshrend Helm
-	Tooltip: 7% increased melee damage
-}
-
-FleshrendPlate: {
-	DisplayName: Fleshrend Plate
-	Tooltip: 7% Increased melee damage
-}
-
-ShroomHat: {
-	DisplayName: Glowing Mushium Hat
-	Tooltip: 2% increased mana regeneration
-}
-
-ShroomPants: {
-	DisplayName: Glowing Mushium Pants
-	Tooltip: 2% increased mana regeneration
-}
-
-ShroomShirt: {
-	DisplayName: Glowing Mushium Shirt
-	Tooltip: 2% increased mana regeneration
-}
-
-GoblinSlayerChest: {
-	DisplayName: Goblin Slayer's Chestplate
-	Tooltip: An immense hatred of Goblinkind haunts this chestplate
-}
-
-GoblinSlayerGreaves: {
-	DisplayName: Goblin Slayer's Greaves
-	Tooltip: An immense hatred of Goblinkind haunts these greaves
-}
-
-GoblinSlayerHelm: {
-	DisplayName: Goblin Slayer's Helm
-	Tooltip: An immense hatred of Goblinkind haunts this helm
-}
-
-GoblinSlayer: {
-	DisplayName: Goblin Slayer
-	Tooltip:
-		'''
-		Can be swung with left click and thrust forward with a right click
-		'The blade of a legendary goblin slayer'
-		'''
-}
-
-HoodlumHood: {
-	DisplayName: Hopping Hoodlum Hood
-	Tooltip:
-		'''
-		18% increased melee & minion Damage
-		Enemies are more likely to target you
-		Hopping Mad.
-		'''
-}
-
-HoodlumPants: {
-	DisplayName: Hopping Hoodlum Paws
-	Tooltip:
-		'''
-		10% increased movement speed
-		9% increased melee critical strike chance
-		+1 Max Minion
-		Enemies are more likely to target you
-		Hopping Mad.
-		'''
-}
-
-HoodlumShirt: {
-	DisplayName: Hopping Hoodlum Shirt
-	Tooltip:
-		'''
-		10% increased melee speed
-		+1 max minion
-		Enemies are more likely to target you
-		Hopping Mad.
-		'''
-}
-
-ImpBoots: {
-	DisplayName: Imp Boots
-	Tooltip: 7% Increased Minion damage
-}
-
-ImpGarb: {
-	DisplayName: Imp Garb
-	Tooltip: 7% Increased Minion damage
-}
-
-ImpHood: {
-	DisplayName: Imp Hood
-	Tooltip:
-		'''
-		7% Increased Minion damage 
-		+1 Minion slot
-		'''
-}
-
-KindledDou: {
-	DisplayName: Kindled Dao
-	Tooltip: Forged in the flames of the blazing sun
-}
-
-KindledKabuto: {
-	DisplayName: Kindled Kabuto
-	Tooltip: Forged in the flames of the blazing sun
-}
-
-KindledSuneate: {
-	DisplayName: Kindled Suneate
-	Tooltip: Forged in the flames of the blazing sun
-}
-
-MushiumHat: {
-	DisplayName: Mushium Hat
-	Tooltip: 1% Increased life regeneration
-}
-
-MushiumPants: {
-	DisplayName: Mushium Pants
-	Tooltip: 1% Increased life regeneration
-}
-
-MushiumShirt: {
-	DisplayName: Mushium Shirt
-	Tooltip: 2% Increased life regeneration
-}
-
-Mushium: {
-	DisplayName: Mushium
-	Tooltip: ""
-}
-
-NightsGreaves: {
-	DisplayName: Night's Greaves
-	Tooltip: 9% increased melee speed
-}
-
-NightsHelm: {
-	DisplayName: Night's Helm
-	Tooltip: 9% increased melee speed
-}
-
-NightsPlate: {
-	DisplayName: Night's Plate
-	Tooltip: 9% increased melee speed
-}
-
-OceanBoots: {
-	DisplayName: Ocean Greaves
-	Tooltip:
-		'''
-		Increases maximum mana by 20
-		5% increased magic damage
-		You can walk on water
-		'''
-}
-
-OceanHelm: {
-	DisplayName: Ocean Helmet
-	Tooltip:
-		'''
-		Increases maximum mana by 20
-		You can breath in water
-		5% increased magic damage
-		'''
-}
-
-OceanShirt: {
-	DisplayName: Ocean Chestplate
-	Tooltip:
-		'''
-		Increases maximum mana by 20
-		5% increased magic damage
-		'''
-}
-
-OlympianBoots: {
-	DisplayName: Olympian Greaves
-	Tooltip: ""
-}
-
-OlympianHelm: {
-	DisplayName: Olympian Helmet
-	Tooltip: ""
-}
-
-OlympianPlate: {
-	DisplayName: Olympian Breastplate
-	Tooltip: ""
-}
-
-Olympia: {
-	DisplayName: Olympia
-	Tooltip: ""
-}
-
-OroborosBoots: {
-	DisplayName: Oroboros Wood Boots
-	Tooltip: ""
-}
-
-OroborosChestplate: {
-	DisplayName: Oroboros Wood Chestplate
-	Tooltip: ""
-}
-
-OroborosChest: {
-	DisplayName: Oroboros Chest
-	Tooltip: ""
-}
-
-OroborosHelmet: {
-	DisplayName: Oroboros Wood Helmet
-	Tooltip: ""
-}
-
-AdamantitePaint: {
-	DisplayName: Adamantite Face Paint
-	Tooltip:
-		'''
-		30% increased minion damage
-		+80 mana
-		'''
-}
-
-ChlorophytePaint: {
-	DisplayName: Chlorophyte Face Paint
-	Tooltip:
-		'''
-		38% increased minion damage
-		+80 mana
-		'''
-}
-
-CobaltPaint: {
-	DisplayName: Cobalt Face Paint
-	Tooltip:
-		'''
-		18% increased minion damage
-		+40 Mana
-		'''
-}
-
-HallowedPaint: {
-	DisplayName: Hallowed Face Paint
-	Tooltip:
-		'''
-		32% increased minion damage
-		+100 mana
-		'''
-}
-
-MythrilPaint: {
-	DisplayName: Mythril Face Paint
-	Tooltip:
-		'''
-		26% increased minion damage
-		+60 mana
-		'''
-}
-
-OrichalcumPaint: {
-	DisplayName: Oricalcum Face Paint
-	Tooltip:
-		'''
-		22% increased minion damage
-		+80 mana
-		'''
-}
-
-PalladiumPaint: {
-	DisplayName: Palladium Face Paint
-	Tooltip:
-		'''
-		15% increased minion damage
-		+40 Mana
-		'''
-}
-
-TerraPaint: {
-	DisplayName: Terra Face Paint
-	Tooltip:
-		'''
-		42% increased minion damage
-		+120 mana
-		'''
-}
-
-TitaniumPaint: {
-	DisplayName: Titanium Face Paint
-	Tooltip:
-		'''
-		27% increased minion damage
-		+100 mana
-		'''
-}
-
-PerfectChaosGreaves: {
-	DisplayName: Chaos Slayer Greaves
-	Tooltip:
-		'''
-		45% increased movement speed
-		2% increased damage resistance
-		The power of discordian rage radiates from this armor
-		'''
-}
-
-PerfectChaosHood: {
-	DisplayName: Chaos Slayer Hood
-	Tooltip:
-		'''
-		32% increased Magic damage
-		20% increased Magic critical strike chance
-		2% increased damage resistance
-		30% reduced Mana consumption
-		150 increased maximum mana
-		The power of discordian rage radiates from this hood
-		'''
-}
-
-PerfectChaosKabuto: {
-	DisplayName: Chaos Slayer Kabuto
-	Tooltip:
-		'''
-		30% increased Melee damage & critical strike chance
-		5% increased damage resistance
-		15% increased melee speed
-		+25 Max Life
-		The power of discordian rage radiates from this armor
-		'''
-}
-
-PerfectChaosMask: {
-	DisplayName: Chaos Slayer Mask
-	Tooltip:
-		'''
-		70% increased minion damage
-		1% increased damage resistance
-		+6 maximum Minions
-		+2 maximum sentries 
-		The power of discordian rage radiates from this hood
-		'''
-}
-
-PerfectChaosPlate: {
-	DisplayName: Chaos Slayer Plate
-	Tooltip:
-		'''
-		4% increased damage resistance
-		+75 Max Life
-		The power of discordian rage radiates from this armor
-		'''
-}
-
-PerfectChaosVisor: {
-	DisplayName: Chaos Slayer Visor
-	Tooltip:
-		'''
-		45% increased ranged damage
-		38% increased ranged critical strike chance
-		3% increased damage resistance
-		25% reduced ammo consumption
-		+15 Max Life
-		The power of discordian rage radiates from this hood
-		'''
-}
-
-PerfectChaos: {
-	DisplayName: Perfect Chaos
-	Tooltip: Chaos EX
-}
-
-RadiumCuisses: {
-	DisplayName: Radium Cuisses
-	Tooltip:
-		'''
-		30% increased movement speed
-		Shines with the light of a starry night sky
-		'''
-}
-
-RadiumHat: {
-	DisplayName: Radium Hat
-	Tooltip:
-		'''
-		35% increased minion damage
-		Shines with the light of a starry night sky
-		'''
-}
-
-RadiumHeadgear: {
-	DisplayName: Radium Headgear
-	Tooltip:
-		'''
-		20% increased Ranged damage
-		Shines with the light of a starry night sky
-		'''
-}
-
-RadiumHelmet: {
-	DisplayName: Radium Helmet
-	Tooltip:
-		'''
-		15% increased melee damage
-		Shines with the light of a starry night sky
-		'''
-}
-
-RadiumMask: {
-	DisplayName: Radium Mask
-	Tooltip:
-		'''
-		15% increased magic damage
-		Increases maximum mana by 100
-		Shines with the light of a starry night sky
-		'''
-}
-
-RadiumPlatemail: {
-	DisplayName: Radium Platemail
-	Tooltip:
-		'''
-		25% increased damage 
-		Shines with the light of a starry night sky
-		'''
-}
-
-RaiderChest: {
-	DisplayName: Raider Chestplate
-	Tooltip: ""
-}
-
-RaiderHelm: {
-	DisplayName: Raider Helmet
-	Tooltip: ""
-}
-
-RaiderLegs: {
-	DisplayName: Raider Greaves
-	Tooltip: ""
-}
-
-RazewoodBoots: {
-	DisplayName: Razewood Boots
-	Tooltip: ""
-}
-
-RazewoodChestplate: {
-	DisplayName: Razewood Chestplate
-	Tooltip: ""
-}
-
-RazewoodChest: {
-	DisplayName: Razewood Chest
-	Tooltip: ""
-}
-
-RazewoodHelmet: {
-	DisplayName: Razewood Helmet
-	Tooltip: ""
-}
-
-Razewood: {
-	DisplayName: Razewood
-	Tooltip: ""
-}
-
-StoneSoldierGreaves: {
-	DisplayName: Stone Soldier Greaves
-	Tooltip: Increases mining speed by 15%
-}
-
-StoneSoldierMask: {
-	DisplayName: Stone Soldier Helmet
-	Tooltip:
-		'''
-		Increases mining speed by 10%
-		Provides light & spelunker effect when worn
-		'''
-}
-
-StoneSoldierPlate: {
-	DisplayName: Stone Soldier Breastplate
-	Tooltip: Increases mining speed by 15%
-}
-
-StripeManHat: {
-	DisplayName: Stripeman's Lucky Hat
-	Tooltip:
-		'''
-		Provides light when worn
-		Get the effect of Architect Gizmo Pack
-		When digging stones, you may get ore from them
-		You can put any sand into the Extractinator
-		'''
-}
-
-StripeManPants: {
-	DisplayName: Stripeman's Lucky Pants
-	Tooltip:
-		'''
-		Get all of the fisher skill effects
-		When fish swallowed the hook, you can get an extra fish.
-		Your fishing rod has chance to steal drops from the enemies and npcs
-		You can use your fishing rod to catch the items on the ground  
-		You have more chance to get a crate among the extra booty
-		'''
-}
-
-StripeManShirt: {
-	DisplayName: Stripeman's Lucky Shirt
-	Tooltip:
-		'''
-		Displays everything
-		You have chance to get gold coins in stoneblocks
-		You have more chance to meet with rare creatures.
-		You have more chance to get better things in pots
-		If you have enough money, you can resist an attack by losting all your money.
-		Have the effect of Arctic Diving Gear
-		'''
-}
-
-TerraGreaves: {
-	DisplayName: Terra Greaves
-	Tooltip:
-		'''
-		10% increased movement speed
-		5% increased damage
-		'''
-}
-
-TerraHelm: {
-	DisplayName: Terra Helm
-	Tooltip:
-		'''
-		22% increased melee damage
-		9% increased melee speed
-		'''
-}
-
-TerraHood: {
-	DisplayName: Terra Hood
-	Tooltip:
-		'''
-		Increases maximum mana by 100
-		Increases magic damage by 17%
-		Increases magic crit by 15%
-		'''
-}
-
-TerraMask: {
-	DisplayName: Terra Mask
-	Tooltip: 9% Increased Minion damage
-}
-
-TerraPlate: {
-	DisplayName: Terra Chestplate
-	Tooltip: 5% increased damage
-}
-
-TerraVisor: {
-	DisplayName: Terra Visor
-	Tooltip:
-		'''
-		24% Increased ranged damage
-		25% Reduced Ammo Consumption
-		Grants hunter & night vision
-		'''
-}
-
-TribalCloak: {
-	DisplayName: Tribal Cloak
-	Tooltip:
-		'''
-		8% Increased magic critical chance
-		Increases Maximum Mana by 20
-		'''
-}
-
-TribalHat: {
-	DisplayName: Tribal Hat
-	Tooltip:
-		'''
-		8% Increased magic critical chance
-		Increases maximum mana by 20
-		'''
-}
-
-TribalKilt: {
-	DisplayName: Tribal Kilt
-	Tooltip:
-		'''
-		8% Increased magic critical chance
-		Increases Maximum Mana by 20
-		'''
-}
-
-VikingBoots: {
-	DisplayName: Viking Greaves
-	Tooltip: ""
-}
-
-VikingHelm: {
-	DisplayName: Viking Helmet
-	Tooltip: ""
-}
-
-VikingPlate: {
-	DisplayName: Viking Platemail
-	Tooltip: ""
-}
-
-WitchBoots: {
-	DisplayName: Fury Witch's Boots
-	Tooltip:
-		'''
-		12% increased magic/minion damage
-		12% increased movement speed
-		+2 max minions
-		Boots enchanted with the firey spirit of a supreme dragon acolyte
-		'''
-}
-
-WitchHood: {
-	DisplayName: Fury Witch's Cowl
-	Tooltip:
-		'''
-		+120 Max Mana
-		Reduced mana consumption by 20%
-		+2 Max Minions
-		10% increased magic/minion damage 
-		10% increased magic critical strike chance
-		A hood enchanted with the firey spirit of a supreme dragon acolyte
-		'''
-}
-
-WitchRobe: {
-	DisplayName: Fury Witch's Robe
-	Tooltip:
-		'''
-		10% increased magic/minion damage 
-		10% increased critical strike chance
-		+2 Max Minions
-		+30 Max Life
-		A robe enchanted with the firey spirit of a supreme dragon acolyte
-		'''
-}
-
-LungBanner: {
-	DisplayName: Ancient Lung Banner
-	Tooltip: ""
-}
-
-MiniDjinnBanner: {
-	DisplayName: Djinn Banner
-	Tooltip: ""
-}
-
-TerraProbeBanner: {
-	DisplayName: Unity Probe Banner
-	Tooltip: ""
-}
-
-TerraWatcherBanner: {
-	DisplayName: Unity Watcher Banner
-	Tooltip: ""
-}
-
-VoidScoutBanner: {
-	DisplayName: Scout Banner
-	Tooltip: ""
-}
-
-Abyssium: {
-	DisplayName: Abyssium
-	Tooltip: It's all mushy. Nasty.
-}
-
-Apocalyptite: {
-	DisplayName: Apocalyptite
-	Tooltip: ""
-}
-
-BinaryReassembler: {
-	DisplayName: Binary Fragmentation Reassembler
-	Tooltip: Reality has never been so easy to manipulate
-}
-
-BogwoodBathtub: {
-	DisplayName: Bogwood Bathtub
-	Tooltip: ""
-}
-
-BogwoodBed: {
-	DisplayName: Bogwood Bed
-	Tooltip: ""
-}
-
-BogwoodBench: {
-	DisplayName: Bogwood Couch
-	Tooltip: ""
-}
-
-BogwoodBookshelf: {
-	DisplayName: Bogwood Bookcase
-	Tooltip: ""
-}
-
-BogwoodCandelabra: {
-	DisplayName: Bogwood Candelabra
-	Tooltip: ""
-}
-
-BogwoodCandle: {
-	DisplayName: Bogwood Candle
-	Tooltip: ""
-}
-
-BogwoodChair: {
-	DisplayName: Bogwood Chair
-	Tooltip: ""
-}
-
-BogwoodChandelier: {
-	DisplayName: Bogwood Chandelier
-	Tooltip: ""
-}
-
-BogwoodClock: {
-	DisplayName: Bogwood Clock
-	Tooltip: ""
-}
-
-BogwoodCouch: {
-	DisplayName: Bogwood Couch
-	Tooltip: ""
-}
-
-BogwoodDoor: {
-	DisplayName: Bogwood Door
-	Tooltip: ""
-}
-
-BogwoodDresser: {
-	DisplayName: Bogwood Dresser
-	Tooltip: ""
-}
-
-BogwoodLamp: {
-	DisplayName: Bogwood Lamp
-	Tooltip: ""
-}
-
-BogwoodLantern: {
-	DisplayName: Bogwood Lantern
-	Tooltip: ""
-}
-
-BogwoodPiano: {
-	DisplayName: Bogwood Piano
-	Tooltip: ""
-}
-
-BogwoodPlatform: {
-	DisplayName: Bogwood Platform
-	Tooltip: ""
-}
-
-BogwoodSink: {
-	DisplayName: Bogwood Sink
-	Tooltip: ""
-}
-
-BogwoodTable: {
-	DisplayName: Bogwood Table
-	Tooltip: ""
-}
-
-BogwoodWall: {
-	DisplayName: Bogwood Wall
-	Tooltip: ""
-}
-
-BogwoodWorkbench: {
-	DisplayName: Bogwood Workbench
-	Tooltip: ""
-}
-
-AcropolisBox: {
-	DisplayName: Music Box (Acropolis)
-	Tooltip: Plays 'Palace in the Sky' by ENNWAY
-}
-
-AkumaABox: {
-	DisplayName: Music Box (Oni Akuma)
-	Tooltip: Plays 'Dawn of the Dragon' by Tyseki
-}
-
-AkumaBox: {
-	DisplayName: Music Box (Akuma)
-	Tooltip: Plays 'Trial By Fire' by Saucecoie
-}
-
-AnubisBox: {
-	DisplayName: Music Box (Anubis)
-	Tooltip: Plays 'Strings of Judgement' by Tyseki
-}
-
-AnubisFBox: {
-	DisplayName: Music Box (Forsaken Anubis)
-	Tooltip: Plays 'Purgatorium' by Tyseki
-}
-
-AthenaABox: {
-	DisplayName: Music Box (Olympian Athena)
-	Tooltip: Plays 'Goddess of Those Winged' by ENNWAY
-}
-
-AthenaBox: {
-	DisplayName: Music Box (Athena)
-	Tooltip: Plays 'Magisaint' by ENNWAY
-}
-
-BroodBox: {
-	DisplayName: Music Box (Broodmother)
-	Tooltip: Plays 'Blazing Fury' by Spectral Aves
-}
-
-DjinnBox: {
-	DisplayName: Music Box (Desert Djinn)
-	Tooltip: Plays 'The Dust Bowl' by Tyseki
-}
-
-Equibox: {
-	DisplayName: Music Box (Equinox Worms)
-	Tooltip: Plays 'Symphony of the Stars'
-}
-
-FateBox: {
-	DisplayName: Music Box (True Void)
-	Tooltip: Plays 'Systems Engaged'
-}
-
-FungusBox: {
-	DisplayName: Music Box (Feudal Fungus)
-	Tooltip: Plays 'Bioluminescent Beatdown' by Spectral Aves
-}
-
-GreedABox: {
-	DisplayName: Music Box (Worm King Greed)
-	Tooltip: Plays 'Ira De Riquezas Perdidas' by Tyseki
-}
-
-GreedBox: {
-	DisplayName: Music Box (Greed)
-	Tooltip: Plays 'Gold Digger' by Tyseki
-}
-
-GripsBox: {
-	DisplayName: Music Box (Grips of Chaos)
-	Tooltip: Plays 'Twin Terror' by Spectral Aves
-}
-
-HoardBox: {
-	DisplayName: Music Box (Hoard)
-	Tooltip: Plays 'Cove' by Tyseki
-}
-
-HydraBox: {
-	DisplayName: Music Box (Hydra)
-	Tooltip: Plays 'Abyssal Wrath' by Spectral Aves
-}
-
-InfernoBox: {
-	DisplayName: Music Box (Inferno)
-	Tooltip: Plays 'Scorched Landscape' by Shadow Figure
-}
-
-InfernoNightBox: {
-	DisplayName: Music Box (Inferno Night)
-	Tooltip: Plays 'Burnt to Ashes' by Shadow Figure
-}
-
-InfernoUBox: {
-	DisplayName: Music Box (Underground Inferno)
-	Tooltip: Plays 'Superheated' by Shadow Figure
-}
-
-LakeBox: {
-	DisplayName: Music Box (Lake of the Rising Moon)
-	Tooltip: Plays 'Lake of Souls' by Rockwizard
-}
-
-MireBox: {
-	DisplayName: Music Box (Mire)
-	Tooltip: Plays 'Secluded Swamp' by ProduceVGM
-}
-
-MireDayBox: {
-	DisplayName: Music Box (Mire Day)
-	Tooltip: Plays 'Through the Toxic Mist' by ProduceVGM
-}
-
-MireUBox: {
-	DisplayName: Music Box (Underground Mire)
-	Tooltip: Plays 'Creepy Crawlers' by ProduceVGM
-}
-
-MonarchBox: {
-	DisplayName: Music Box (Mushroom Monarch)
-	Tooltip: Plays 'Fungal Face-off' by Spectral Aves
-}
-
-PagodaBox: {
-	DisplayName: Music Box (Pagoda of the Rising Sun)
-	Tooltip: Plays 'Scorched Tower' by Rockwizard
-}
-
-RajahBox: {
-	DisplayName: Music Box (Rajah Rabbit)
-	Tooltip: Plays 'JUSTICE' by Spectral Aves
-}
-
-SagBox: {
-	DisplayName: Music Box (Sagittarius)
-	Tooltip: Plays 'Event Horizon' by SpectralAves
-}
-
-SDBox: {
-	DisplayName: Music Box (Sleeping Dragon)
-	Tooltip: Plays 'Sleeping Dragon'
-}
-
-SerpentBox: {
-	DisplayName: Subzero Serpent Music Box
-	Tooltip: Plays 'Bells of Ice'
-}
-
-SGBox: {
-	DisplayName: Music Box (Sleeping Giant)
-	Tooltip: Plays 'Sleeping Giant' by LordCakeSpy
-}
-
-ShenABox: {
-	DisplayName: Music Box (Awakened Shen Doragon)
-	Tooltip: Plays 'VS Champion Of Alola' by Emdasche
-}
-
-ShenBox: {
-	DisplayName: Music Box (Shen Doragon)
-	Tooltip: Plays 'Trial by Fire (Old)'
-}
-
-SistersBox: {
-	DisplayName: Music Box (Sisters of Discord)
-	Tooltip: Plays 'Sisters of Anarchy' by Shadow Figure
-}
-
-StarBox: {
-	DisplayName: Music Box (Celestial Stars)
-	Tooltip: Plays 'Interstellar'
-}
-
-TerrariumBox: {
-	DisplayName: Music Box (Terrarium)
-	Tooltip: Plays 'Heart of the World' by Shadow Figure feat. Charlie Debnam
-}
-
-ToadBox: {
-	DisplayName: Music Box (Truffle Toad)
-	Tooltip: Plays 'TODESTOOL' by Spectral Aves
-}
-
-VoidBox: {
-	DisplayName: Music Box (Void)
-	Tooltip: Plays 'What Once Was'
-}
-
-YamataABox: {
-	DisplayName: Music Box (Yamata No Orochi)
-	Tooltip: Plays 'Abyssal Nightmare' by Tyseki
-}
-
-YamataBox: {
-	DisplayName: Music Box (Yamata)
-	Tooltip: Plays 'Crescent of Madness' by Saucecoie
-}
-
-Zero2Box: {
-	DisplayName: Music Box (Zero Protocol)
-	Tooltip: Plays 'Doomsday Arrives' by Saucecoie
-}
-
-ZeroBox: {
-	DisplayName: Music Box (Zero)
-	Tooltip: Plays 'Clockwork Catastrophe'
-}
-
-AbyssiumBrick: {
-	DisplayName: Abyssium Brick
-	Tooltip: ""
-}
-
-CovetiteBrick: {
-	DisplayName: Covetite Brick
-	Tooltip: ""
-}
-
-DarkmatterBrick: {
-	DisplayName: Darkmatter Brick
-	Tooltip: ""
-}
-
-DaybreakBrick: {
-	DisplayName: Daybreak Brick
-	Tooltip: ""
-}
-
-DoomsdayPlating: {
-	DisplayName: Doomsday Circuit Plating
-	Tooltip: ""
-}
-
-DoomstoneBrick: {
-	DisplayName: Doomstone Brick
-	Tooltip: ""
-}
-
-DoomstoneB: {
-	DisplayName: Doomstone
-	Tooltip: ""
-}
-
-Doomstone: {
-	DisplayName: Charged Doomstone
-	Tooltip: ""
-}
-
-EquinoxBrick: {
-	DisplayName: Equinox Brick
-	Tooltip: Changes depending on the time of day
-}
-
-Equinox: {
-	DisplayName: Equinox
-	Tooltip:
-		'''
-		Turns the holder into a werewolf at night and a merfolk when entering water
-		Gives immensely increased stats
-		'True balance'
-		'''
-}
-
-EventideBrick: {
-	DisplayName: Eventide Brick
-	Tooltip: ""
-}
-
-IncineriteBrick: {
-	DisplayName: Incinerite Brick
-	Tooltip: ""
-}
-
-Incinerite: {
-	DisplayName: Incinerite
-	Tooltip: This stuff is really friggin' hot. Careful.
-}
-
-RadiumBrick: {
-	DisplayName: Radium Brick
-	Tooltip: ""
-}
-
-RelicBrick: {
-	DisplayName: Relic Brick
-	Tooltip: ""
-}
-
-SkycrystalBrick: {
-	DisplayName: Skycrystal Brick
-	Tooltip: ""
-}
-
-SkymarbleBrick: {
-	DisplayName: Skymarble Brick
-	Tooltip: ""
-}
-
-ChaosCrucible: {
-	DisplayName: Chaos Crucible
-	Tooltip: Even chaos requires a steady hand and a gigantic forge to work with
-}
-
-CorruptAltar: {
-	DisplayName: Demon Altar
-	Tooltip: ""
-}
-
-CrimsonAltar: {
-	DisplayName: Crimson Altar
-	Tooltip: ""
-}
-
-DarkmatterOre: {
-	DisplayName: Darkmatter Ore
-	Tooltip: It feels weightless, yet it still has some kind of mass to it
-}
-
-Darkmud: {
-	DisplayName: Darkmud
-	Tooltip: ""
-}
-
-DaybreakIncineriteOre: {
-	DisplayName: Daybreak Incinerite Ore
-	Tooltip: It's warm to the touch, like a bright summer morning.
-}
-
-DaybreakIncinerite: {
-	DisplayName: Daybreak Incinerite
-	Tooltip: Bright as the radiant sun
-}
-
-DaybreakTorch: {
-	DisplayName: Daybreak Torch
-	Tooltip: ""
-}
-
-Depthsand: {
-	DisplayName: Depthsand
-	Tooltip: ""
-}
-
-DepthsandHardened: {
-	DisplayName: Hardened Depthsand
-	Tooltip: ""
-}
-
-Depthsandstone: {
-	DisplayName: Depthsandstone
-	Tooltip: ""
-}
-
-Depthstone: {
-	DisplayName: Depthstone
-	Tooltip: Dank
-}
-
-DiscordianTorch: {
-	DisplayName: Discordian Torch
-	Tooltip: ""
-}
-
-DoomBathtub: {
-	DisplayName: Doom Bathtub
-	Tooltip: ""
-}
-
-DoomBed: {
-	DisplayName: Doom Bed
-	Tooltip: ""
-}
-
-DoomBookshelf: {
-	DisplayName: Doom Bookcase
-	Tooltip: ""
-}
-
-DoomCandelabra: {
-	DisplayName: Doom Candelabra
-	Tooltip: ""
-}
-
-DoomCandle: {
-	DisplayName: Doom Candle
-	Tooltip: ""
-}
-
-DoomChair: {
-	DisplayName: Doom Chair
-	Tooltip: ""
-}
-
-DoomChandelier: {
-	DisplayName: Doom Chandelier
-	Tooltip: ""
-}
-
-DoomChest: {
-	DisplayName: Doom Chest
-	Tooltip: ""
-}
-
-DoomClock: {
-	DisplayName: Countdown Clock
-	Tooltip: ""
-}
-
-DoomCouch: {
-	DisplayName: Doom Couch
-	Tooltip: ""
-}
-
-DoomDoor: {
-	DisplayName: Doom Door
-	Tooltip: ""
-}
-
-DoomDresser: {
-	DisplayName: Doom Dresser
-	Tooltip: ""
-}
-
-DoomLamp: {
-	DisplayName: Doom Lamp
-	Tooltip: ""
-}
-
-DoomLantern: {
-	DisplayName: Doom Lantern
-	Tooltip: ""
-}
-
-DoomPiano: {
-	DisplayName: Doom Piano
-	Tooltip: ""
-}
-
-DoomPlatform: {
-	DisplayName: Doom Platform
-	Tooltip: ""
-}
-
-DoomSink: {
-	DisplayName: Doom Sink
-	Tooltip: ""
-}
-
-DoomTable: {
-	DisplayName: Doom Table
-	Tooltip: ""
-}
-
-DoomWorkbench: {
-	DisplayName: Doom Workbench
-	Tooltip: ""
-}
-
-DragonfireTorch: {
-	DisplayName: Dragonfire Torch
-	Tooltip: ""
-}
-
-DynaskullOre: {
-	DisplayName: Dynaskull Fossil
-	Tooltip: The energy of millions of years pulsates through this ancient fossil
-}
-
-EnderMemory: {
-	DisplayName: Eternal Memory
-	Tooltip:
-		'''
-		An immense statue made to commemorate somebody
-		A somber engraving is etched into the base.
-		'''
-}
-
-EventideAbyssiumOre: {
-	DisplayName: Eventide Abyssium Ore
-	Tooltip: It's cold and wet, like an evening in a swampy marsh
-}
-
-EventideAbyssium: {
-	DisplayName: Eventide Abyssium
-	Tooltip: Cold as the evening moon
-}
-
-EventideTorch: {
-	DisplayName: Eventide Torch
-	Tooltip: ""
-}
-
-FurnitureDynamo: {
-	DisplayName: Furniture Dynamo
-	Tooltip:
-		'''
-		Combines all funiture-crafting stations into one block
-		Now you don't have to clutter your base with 12 crafting stations!
-		'''
-}
-
-GreedChest: {
-	DisplayName: Greed Chest
-	Tooltip: ""
-}
-
-GreedLantern: {
-	DisplayName: Stone Lantern
-	Tooltip: ""
-}
-
-HallowedAnvil: {
-	DisplayName: Hallowed Anvil
-	Tooltip: A Holy Anvil
-}
-
-HallowedForge: {
-	DisplayName: Hallowed Forge
-	Tooltip: It's amazing what this thing CAN'T cook
-}
-
-HallowedOre: {
-	DisplayName: Hallowed Ore
-	Tooltip: It's super bright
-}
-
-HaphestusForge: {
-	DisplayName: Hephaestus Forge
-	Tooltip:
-		'''
-		*Slaps top of forge* This baby can fit so many crafting stations in it
-		Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer's Workshop, and a Table and Chair
-		'''
-}
-
-HellstoneAnvil: {
-	DisplayName: Hellstone Anvil
-	Tooltip: Is this thing supposed to be on fire?
-}
-
-HydratoxinTorch: {
-	DisplayName: Bogtoxin Torch
-	Tooltip: ""
-}
-
-IndigoIce: {
-	DisplayName: Indigo Ice
-	Tooltip: ""
-}
-
-InfernoAltar: {
-	DisplayName: Dragon Altar
-	Tooltip: ""
-}
-
-InfernoChest: {
-	DisplayName: Inferno Chest
-	Tooltip: ""
-}
-
-MireAltar: {
-	DisplayName: Abyss Altar
-	Tooltip: ""
-}
-
-MireChest: {
-	DisplayName: Mire Chest
-	Tooltip: ""
-}
-
-MoonAltar: {
-	DisplayName: Dread Moon Altar
-	Tooltip: ""
-}
-
-MoonAltarA: {
-	DisplayName: Awakened Moon Altar
-	Tooltip: ""
-}
-
-MushBox: {
-	DisplayName: Red Mushroom Music Box
-	Tooltip: Plays 'Overgrowth' by Spectral Aves
-}
-
-MushroomBlock: {
-	DisplayName: Mushroom Block
-	Tooltip: ""
-}
-
-OroborosBathtub: {
-	DisplayName: Oroboros Bathtub
-	Tooltip: ""
-}
-
-OroborosBed: {
-	DisplayName: Oroboros Bed
-	Tooltip: ""
-}
-
-OroborosBookshelf: {
-	DisplayName: Oroboros Bookcase
-	Tooltip: ""
-}
-
-OroborosCandle: {
-	DisplayName: Oroboros Candle
-	Tooltip: ""
-}
-
-OroborosChair: {
-	DisplayName: Oroboros Chair
-	Tooltip: ""
-}
-
-OroborosClock: {
-	DisplayName: Oroboros Clock
-	Tooltip: ""
-}
-
-OroborosDoor: {
-	DisplayName: Oroboros Door
-	Tooltip: ""
-}
-
-OroborosLamp: {
-	DisplayName: Oroboros Lamp
-	Tooltip: ""
-}
-
-OroborosLantern: {
-	DisplayName: Oroboros Lantern
-	Tooltip: ""
-}
-
-OroborosPlatform: {
-	DisplayName: Oroboros Wood Platform
-	Tooltip: ""
-}
-
-OroborosWall: {
-	DisplayName: Oroboros Wall
-	Tooltip: ""
-}
-
-OroborosWorkbench: {
-	DisplayName: Oroboros Workbench
-	Tooltip: ""
-}
-
-OroborosWood: {
-	DisplayName: Oroboros Wood
-	Tooltip: ""
-}
-
-PaladinsSmeltery: {
-	DisplayName: Paladin's Smeltery Forge
-	Tooltip:
-		'''
-		This thing can make a lot of stuff
-		Functions as most hardmode crafting stations + A workbench and heavy workbench
-		'''
-}
-
-QuantumFusionAccelerator: {
-	DisplayName: Quantum Fusion Accelerator
-	Tooltip:
-		'''
-		Launching particles at the speed of sound
-		Allows you to work with Dark Matter and Radium
-		'''
-}
-
-RadiantArcanum: {
-	DisplayName: Radiant Arcanum
-	Tooltip:
-		'''
-		Wish upon a star
-		Allows you to work with Dark Matter and Radium
-		'''
-}
-
-RadiumOre: {
-	DisplayName: Radium Ore
-	Tooltip: Twinkles like the stars in the midnight skies
-}
-
-RazewoodBed: {
-	DisplayName: Razewood Bed
-	Tooltip: ""
-}
-
-RazewoodBookshelf: {
-	DisplayName: Razewood Bookcase
-	Tooltip: ""
-}
-
-RazewoodCandelabra: {
-	DisplayName: Razewood Candelabra
-	Tooltip: ""
-}
-
-RazewoodCandle: {
-	DisplayName: Razewood Candle
-	Tooltip: ""
-}
-
-RazewoodChair: {
-	DisplayName: Razewood Chair
-	Tooltip: ""
-}
-
-RazewoodChandelier: {
-	DisplayName: Razewood Chandelier
-	Tooltip: ""
-}
-
-RazewoodClock: {
-	DisplayName: Razewood Clock
-	Tooltip: ""
-}
-
-RazewoodCouch: {
-	DisplayName: Razewood Couch
-	Tooltip: ""
-}
-
-RazewoodDoor: {
-	DisplayName: Razewood Door
-	Tooltip: ""
-}
-
-RazewoodDresser: {
-	DisplayName: Razewood Dresser
-	Tooltip: ""
-}
-
-RazewoodLamp: {
-	DisplayName: Razewood Lamp
-	Tooltip: ""
-}
-
-RazewoodLantern: {
-	DisplayName: Razewood Lantern
-	Tooltip: ""
-}
-
-RazewoodPiano: {
-	DisplayName: Razewood Piano
-	Tooltip: ""
-}
-
-RazewoodPlatform: {
-	DisplayName: Razewood Platform
-	Tooltip: ""
-}
-
-RazewoodSink: {
-	DisplayName: Razewood Sink
-	Tooltip: ""
-}
-
-RazewoodTable: {
-	DisplayName: Razewood Table
-	Tooltip: ""
-}
-
-RazewoodTub: {
-	DisplayName: Razewood Bathtub
-	Tooltip: ""
-}
-
-RazewoodWall: {
-	DisplayName: Razewood Wall
-	Tooltip: ""
-}
-
-RazewoodWorkbench: {
-	DisplayName: Razewood Workbench
-	Tooltip: ""
-}
-
-RottedDynastyWood: {
-	DisplayName: Rotted Dynasty Wood
-	Tooltip: It's squishy
-}
-
-RottedShingles: {
-	DisplayName: Rotted Shingles
-	Tooltip: ""
-}
-
-RoyalBunnyCage: {
-	DisplayName: Royal Bunny Cage
-	Tooltip: ""
-}
-
-ScorchedDynastyWood: {
-	DisplayName: Scorched Dynasty Wood
-	Tooltip: ""
-}
-
-ScorchedShingles: {
-	DisplayName: Scorched Dynasty Shingles
-	Tooltip: ""
-}
-
-SpiralStairs: {
-	DisplayName: Spiral Stairs
-	Tooltip: ""
-}
-
-AlphakipStatue: {
-	DisplayName: Fish Knight Statue
-	Tooltip: ""
-}
-
-AvesStatue: {
-	DisplayName: Mallard Meistro Statue
-	Tooltip: ""
-}
-
-BegStatue: {
-	DisplayName: Weird Horse Statue
-	Tooltip: ""
-}
-
-CharlieStatue: {
-	DisplayName: Guitar Statue
-	Tooltip: ""
-}
-
-DallinStatue: {
-	DisplayName: Doctor Statue
-	Tooltip: ""
-}
-
-EnderStatue: {
-	DisplayName: Hero of Legend Statue
-	Tooltip: ""
-}
-
-FargoStatue: {
-	DisplayName: Top Hat Squirrel Statue
-	Tooltip: ""
-}
-
-FazerStatue: {
-	DisplayName: Sammy Statue
-	Tooltip: ""
-}
-
-FerretStatue: {
-	DisplayName: Ferret Statue
-	Tooltip: ""
-}
-
-GroxStatue: {
-	DisplayName: Guardian Statue
-	Tooltip: ""
-}
-
-HallamStatue: {
-	DisplayName: God of Rainbows Statue
-	Tooltip: ""
-}
-
-KyuuStatue: {
-	DisplayName: Excaligrim Statue
-	Tooltip: ""
-}
-
-LCSStatue: {
-	DisplayName: Lie Statue
-	Tooltip: ""
-}
-
-LizStatue: {
-	DisplayName: Kitty Statue
-	Tooltip: ""
-}
-
-MoonStatue: {
-	DisplayName: Wasp Statue
-	Tooltip: ""
-}
-
-SauceStatue: {
-	DisplayName: Snake Statue
-	Tooltip: ""
-}
-
-TailsStatue: {
-	DisplayName: Fox Statue
-	Tooltip: ""
-}
-
-SunAltar: {
-	DisplayName: Draconic Sun Altar
-	Tooltip: ""
-}
-
-SunAltarA: {
-	DisplayName: Awakened Sun Altar
-	Tooltip: ""
-}
-
-TerraCore: {
-	DisplayName: Core of Terraria
-	Tooltip:
-		'''
-		Combines most crafting stations into one
-		Used to create ancient crafting stations
-		'''
-}
-
-TerraPrismStation: {
-	DisplayName: Infinity Core
-	Tooltip:
-		'''
-		The 'craft-all'.
-		Combiles all vanilla and Ancients Awakened crafting stations together
-		'''
-}
-
-TorchAsh: {
-	DisplayName: Volcanic Ash
-	Tooltip: ""
-}
-
-Torchice: {
-	DisplayName: Orange Ice
-	Tooltip: ""
-}
-
-Torchsand: {
-	DisplayName: Torchsand
-	Tooltip: ""
-}
-
-TorchsandHardened: {
-	DisplayName: Hardened Torchsand
-	Tooltip: ""
-}
-
-Torchsandstone: {
-	DisplayName: Torchsandstone
-	Tooltip: ""
-}
-
-Torchstone: {
-	DisplayName: Torchstone
-	Tooltip: Warm to the touch
-}
-
-Transmuter: {
-	DisplayName: Material Transmuter
-	Tooltip: Allows for Transmutation of materials into their counterparts
-}
-
-TruePaladinsSmeltery: {
-	DisplayName: True Paladin's Smeltery
-	Tooltip:
-		'''
-		A superforge meant for only the worthiest of smiths
-		Functions as most necessary crafting stations
-		'''
-}
-
-VoidUnit: {
-	DisplayName: Void Recreation Unit
-	Tooltip: ""
-}
-
-AHBag: {
-	DisplayName: Treasure Bag (Sisters of Discord)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-AsheSatchel: {
-	DisplayName: Ashe's Satchel
-	Tooltip:
-		'''
-		Right click to open
-		Contains a set of Fury Witch's robes
+BossSummon: {
+	ChaosRune: {
+		DisplayName: Chaos Rune
+		Tooltip:
+			'''
+			A cursed tablet bursting with chaotic energy
+			Summons Shen Doragon's true awakened form
+			Non-Consumable
+			'''
+	}
+
+	ChaosSigil: {
+		DisplayName: Chaos Sigil
+		Tooltip:
+			'''
+			A cursed tablet filled with unstable magic
+			Summons the chaos emperor
+			Non-Consumable
+			'''
+	}
+
+	DraconianSunRune: {
+		DisplayName: Draconian Sun Rune
+		Tooltip:
+			'''
+			An enchanted tablet bursting with flaming chaotic energy
+			Summons Akuma Awakened
+			Only Usable during the day in the inferno
+			Non-Consumable
+			'''
+	}
+
+	DreadMoonRune: {
+		DisplayName: Dread Moon Rune
+		Tooltip:
+			'''
+			An enchanted tablet radiating dark chaotic energy
+			Summons Yamata no Orochi
+			Can only be used in the mire at night
+			Non-Consumable
+			'''
+	}
+
+	DreadMoonSigil: {
+		DisplayName: Dread Moon Sigil
+		Tooltip:
+			'''
+			A ragged old tablet said to contain the dark magic of a new moon
+			Summons Yamata
+			Can only be used at night in the mire
+			Non-Consumable
+			'''
+	}
+
+	EquinoxWorm: {
+		DisplayName: Equinox Worm
+		Tooltip:
+			'''
+			A worm created using celestial materials
+			Summons the Equinox Worms
+			Non-Consumable
+			'''
+	}
+
+	DoomsdayTesseract: {
+		DisplayName: Doomsday Tesseract
+		Tooltip:
+			'''
+			DESCRIPTI0NHERE
+			UNSTABLE. C0NTAINS C0DE T0 ACTIVATE THE BRINGER 0F DEATH
+			N0N-C0NSUMABLE
+			'''
+	}
+
+	ScrapHeap: {
+		DisplayName: Scrap Heap
+		Tooltip:
+			'''
+			A bunch of metal garbage
+			Summons the Orthrus X
+			Can only be used at night
+			'''
+	}
+
+	CyberneticBell: {
+		DisplayName: Cybernetic Bell
+		Tooltip:
+			'''
+			A carefully tinkered bell
+			Summons the Raider Ultima
+			Can only be used at night
+			'''
+	}
+
+	CyberneticClaw: {
+		DisplayName: Cybernetic Claw
+		Tooltip:
+			'''
+			Summons the Retriever
+			Only useable at night
+			'''
+	}
+
+	InfinityBeacon: {
+		DisplayName: Infinity Beacon
+		Tooltip:
+			'''
+			An ominous device with unstable code
+			Summons the Infinity Slayer
+			Non-consumable
+			'''
+	}
+
+	OwlStatue: {
+		DisplayName: Owl Statue
+		Tooltip:
+			'''
+			Summons Athena
+			Can only be used in the Acropolis at the Owl Altar
+			'It stares into your soul.'
+			'''
+	}
+
+	GoldenCarrot: {
+		DisplayName: Ten Karat Carrot
+		Tooltip: Summons the Pouncing Punisher himself
+	}
+
+	PlatinumCarrot: {
+		DisplayName: Ten Karat Carrot
+		Tooltip: Summons the Pouncing Punisher himself
+	}
+
+	TenCaratCarrot: {
+		DisplayName: Ten Carat Carrot
+		Tooltip:
+			'''
+			The fury of the Raging Rajah can be felt radiating from this ornate carrot...
+			Non-consumable
+			'''
+	}
+
+	CuriousLookingClaw: {
+		DisplayName: Curious Looking Claw
+		Tooltip:
+			'''
+			It's strangely dry
+			Can only be used at night
+			'''
+	}
+
+	InterestingLookingClaw: {
+		DisplayName: Interesting Looking Claw
+		Tooltip:
+			'''
+			It's oddly Clammy
+			Can only be used at night
+			'''
+	}
+
+	FlamesOfAnarchy: {
+		DisplayName: Flames of Anarchy
+		Tooltip:
+			'''
+			The flames of chaos burn in this antique china
+			Calls upon the Sisters of Discord
+			Non-Consumable
+			'''
+	}
+
+	DesertLamp: {
+		DisplayName: Desert Lamp
+		Tooltip: Summons the Desert Djinn
+	}
+
+	RasScepter: {
+		DisplayName: Ra's Scepter
+		Tooltip:
+			'''
+			Summons Anubis
+			Can only be used in the desert on the surface
+			'I uh...borrowed this from a bird friend of mine.'
+			'''
+	}
+
+	CursedSkull: {
+		DisplayName: Cursed Skull
+		Tooltip:
+			'''
+			Summons Skeletron
+			Can only be used at night
+			'''
+	}
+
+	ConfusingLookingMushroom: {
+		DisplayName: Confusing Looking Mushroom
+		Tooltip:
+			'''
+			Summons the Feudal Fungus
+			Can only be used in a glowing mushroom biome
+			'''
+	}
+
+	Toadstool: {
+		DisplayName: Toadstool
+		Tooltip:
+			'''
+			Summons the Truffle Toad
+			Can only be used in a glowing mushroom biome
+			'''
+	}
+
+	GoldenGrub: {
+		DisplayName: Golden Grub
+		Tooltip:
+			'''
+			Summons Greed
+			Can only be used in Greed's Hoard at the Altar of Desire
+			'It's really shiny.'
+			'''
+	}
+
+	AncientBell: {
+		DisplayName: Ancient Bell
+		Tooltip:
+			'''
+			An ornately crafted bell
+			Summons the Broodmother in the Inferno
+			Only useable during the day
+			'''
+	}
+
+	DraconianSunSigil: {
+		DisplayName: Draconian Sun Sigil
+		Tooltip:
+			'''
+			An ornate tablet said to contain the radiant power of a thousand suns
+			Summons Akuma
+			Only Usable during the day in the inferno
+			Non-Consumable
+			'''
+	}
+
+	JungleOrchid: {
+		DisplayName: Jungle Orchid
+		Tooltip:
+			'''
+			Summons Plantera
+			Can only be used in the underground jungle
+			'''
+	}
+
+	HydraChow: {
+		DisplayName: Hydra Chow
+		Tooltip:
+			'''
+			Just holding this makes you gag
+			Summons the Hydra
+			Can only be used at night
+			'''
+	}
+
+	IntimidatingLookingMushroom: {
+		DisplayName: Intimidating Looking Mushroom
+		Tooltip: Summons the Mushroom Monarch
+	}
+
+	SubzeroCrystal: {
+		DisplayName: Subzero Crystal
+		Tooltip: Summons the Subzero Serpent
+	}
+
+	Lifescanner: {
+		DisplayName: Lifescanner
+		Tooltip:
+			'''
+			Summons Sagittarius
+			Can only be used in the Void
+			'''
+	}
+
+	ERROR_NULL: {
+		DisplayName: ERR0R_NULL
+		Tooltip:
+			'''
+			ACTIVATES THE GR0UND ZER0 C0DE F0R THE NEAREST ZER0 UNIT
+			N0N-C0NSUMABLE
+			'''
+	}
+
+	CyberneticShroom: {
+		DisplayName: Cybernetic Shroom
+		Tooltip:
+			'''
+			Summons the Techno Truffle
+			Can only be used at night
+			'''
+	}
+
+	CursedCompass: {
+		DisplayName: Cursed Compass
+		Tooltip: An old Compass. Who knows what it's for?
+	}
+
+	Masshroom: {
+		DisplayName: Masshroom
+		Tooltip: Summons a lot of Mushroom Monarchs
+	}
+
+	GlowingMasshroom: {
+		DisplayName: Glowing Masshroom
+		Tooltip:
+			'''
+			Summons a lot of Feudal Fungi
+			Can only be used in glowing mushroom biomes
+			'''
+	}
+}
+
+Consumables: {
+	InfernoKey: {
+		DisplayName: Inferno Key
+		Tooltip: Unlocks the power of the blazing sun
+	}
+
+	VoidKey: {
+		DisplayName: Doomstopper Chip
+		Tooltip: Unlocks Doomsday Chests
+	}
+
+	LuckyCracker: {
+		DisplayName: Lucky Cracker
+		Tooltip: She said it can make you lucky. Do you trust her?
+	}
+
+	LuckyCalmingPotion: {
+		DisplayName: Lucky Calming Potion
+		Tooltip: Reduces enemy aggression
+	}
+
+	LuckyEndurancePotion: {
+		DisplayName: Lucky Endurance Potion
+		Tooltip:
+			'''
+			Reduces damage taken by 10%
+			Increase your 10% defense
+			'''
+	}
+
+	LuckyIronskinPotion: {
+		DisplayName: Lucky Ironskin Potion
+		Tooltip: Increase defense by 9
+	}
+
+	LuckyLifeforcePotion: {
+		DisplayName: Lucky Lifeforce Potion
+		Tooltip: Increases max life by 21%
+	}
+
+	LuckyRagePotion: {
+		DisplayName: Lucky Rage Potion
+		Tooltip: Increases critical chance by 11%
+	}
+
+	LuckyRegenerationPotion: {
+		DisplayName: Lucky Regeneration Potion
+		Tooltip: Provides life regeneration
+	}
+
+	LuckySummoningPotion: {
+		DisplayName: Lucky Summoning Potion
+		Tooltip: Increases your max number of minions and turrents
+	}
+
+	LuckySwiftnessPotion: {
+		DisplayName: Lucky Swiftness Potion
+		Tooltip: 26% increased movement speed
+	}
+
+	LuckyThornsPotion: {
+		DisplayName: Lucky Thorns Potion
+		Tooltip: Attackers also take damage
+	}
+
+	LuckyWrathPotion: {
+		DisplayName: Lucky Wrath Potion
+		Tooltip: Increases damage by 11%
+	}
+
+	RoninPotion: {
+		DisplayName: Ronin Potion
+		Tooltip: When you don't get hurt, you will have 3s immune time
+	}
+
+	Carrot: {
+		DisplayName: Carrot
+		Tooltip: Good for your eyesight
+	}
+
+	GrandHealingPotion: {
+		DisplayName: Grand Healing Potion
+		Tooltip: ""
+	}
+
+	GrandManaPotion: {
+		DisplayName: Grand Mana Potion
+		Tooltip: ""
+	}
+
+	TheBigOne: {
+		DisplayName: The Big One
+		Tooltip: ""
+	}
+
+	OrderBottle: {
+		DisplayName: Order Flask
+		Tooltip: Brings order to the Chaos Biomes
+	}
+
+	OrderSolution: {
+		DisplayName: Order Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Cleanses the Chaos
+			'''
+	}
+
+	CorruptionFlask: {
+		DisplayName: Shadow Flask
+		Tooltip: Spreads the Corruption
+	}
+
+	CrimsonFlask: {
+		DisplayName: Blood Flask
+		Tooltip: Spreads the Crimson
+	}
+
+	YellowSolution: {
+		DisplayName: Yellow Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Clears the Snow biome
+			'''
+	}
+
+	GlowingSporeBag: {
+		DisplayName: Glowing Spore Bag
+		Tooltip: Spreads Glowing Mushrooms
+	}
+
+	HallowFlask: {
+		DisplayName: Crystal Flask
+		Tooltip: Spreads the Hallow
+	}
+
+	GildedKey: {
+		DisplayName: Gilded Key
+		Tooltip: This probably unlocks...something?
+	}
+
+	AshJar: {
+		DisplayName: Ash Jar
+		Tooltip: Spreads the Inferno
+	}
+
+	ScorchedSeeds: {
+		DisplayName: Scorched Seeds
+		Tooltip: Plants Inferno grass
+	}
+
+	Sunpowder: {
+		DisplayName: Sunpowder
+		Tooltip: ""
+	}
+
+	FlaskOfDragonfire: {
+		DisplayName: Flask of Dragonfire
+		Tooltip: Melee attacks inflict Dragonflame
+	}
+
+	KeyOfSmite: {
+		DisplayName: Key of Smite
+		Tooltip: Charged with flaming energy
+	}
+
+	OrangeSolution: {
+		DisplayName: Orange Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Spreads the Inferno
+			'''
+	}
+
+	Fungicide: {
+		DisplayName: Fungicide
+		Tooltip: Originally concocted by the Swarm to combat the ever-expending mushroom menace.
+	}
+
+	JungleFlask: {
+		DisplayName: Jungle Flask
+		Tooltip: Converts Forest into Jungle
+	}
+
+	LimeSolution: {
+		DisplayName: Lime Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Converts the forest into the jungle
+			'''
+	}
+
+	SwarmSolution: {
+		DisplayName: Swarm Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Cleanses the mushroom biomes
+			'''
+	}
+
+	GodlySoul: {
+		DisplayName: Godly Soul
+		Tooltip:
+			'''
+			Gives a weapon the ''Godly'' prefix if it is possible
+			Right-click weapon with the soul to set prefix
+			Consumes in process
+			'''
+	}
+
+	LegendarySoul: {
+		DisplayName: Legendary Soul
+		Tooltip:
+			'''
+			Gives a weapon the ''Legendary'' prefix if it is possible
+			Right-click weapon with the soul to set prefix
+			Consumes in process
+			'''
+	}
+
+	MythicalSoul: {
+		DisplayName: Mythical Soul
+		Tooltip:
+			'''
+			Gives a weapon the ''Mythical'' prefix if it is possible
+			Right-click weapon with the soul to set prefix
+			Consumes in process
+			'''
+	}
+
+	UnrealSoul: {
+		DisplayName: Unreal Soul
+		Tooltip:
+			'''
+			Gives a weapon the ''Unreal'' prefix if it is possible
+			Right-click weapon with the soul to set prefix
+			Consumes in process
+			'''
+	}
+
+	DankSeeds: {
+		DisplayName: Dank Seeds
+		Tooltip: Plants Mire grass
+	}
+
+	DarkwaterFlask: {
+		DisplayName: Darkwater Flask
+		Tooltip: Spreads the Mire
+	}
+
+	Moonpowder: {
+		DisplayName: Moonpowder
+		Tooltip: ""
+	}
+
+	FlaskOfHydratoxin: {
+		DisplayName: Flask of Hydratoxin
+		Tooltip: Melee attacks inflict hydratoxin
+	}
+
+	IndigoSolution: {
+		DisplayName: Indigo Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Spreads the Mire
+			'''
+	}
+
+	KeyOfSpite: {
+		DisplayName: Key of Spite
+		Tooltip: Charged with abyssal energy
+	}
+
+	MireKey: {
+		DisplayName: Mire Key
+		Tooltip: Unlocks the power of the wrathful abyss
+	}
+
+	ForestFlask: {
+		DisplayName: Forest Flask
+		Tooltip: Converts Jungle to Forest
+	}
+
+	DeepGreenSolution: {
+		DisplayName: Deep Green Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Converts the jungle into forest
+			'''
+	}
+
+	BrownSolution: {
+		DisplayName: Brown Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Spreads the Red Mushroom biome
+			'''
+	}
+
+	MyceliumSeeds: {
+		DisplayName: Mycelium Seeds
+		Tooltip: Plants Mycelium
+	}
+
+	SporeBag: {
+		DisplayName: Spore Bag
+		Tooltip: Spreads the surface mushroom biome
+	}
+
+	IceFlask: {
+		DisplayName: Ice Flask
+		Tooltip: Spreads the Tundra
+	}
+
+	IcemeltFlask: {
+		DisplayName: Icemelt Flask
+		Tooltip: Clears the snow biome
+	}
+
+	WhiteSolution: {
+		DisplayName: White Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Spreads the snow biome
+			'''
+	}
+
+	StarIdol: {
+		DisplayName: Blessing of the Stars
+		Tooltip:
+			'''
+			It sparkles like the stars in the sky
+			Can only be used if there arent many radium stars in the world.
+			'''
+	}
+
+	PurityFlask: {
+		DisplayName: Purity Flask
+		Tooltip: Spreads the Forest
+	}
+
+	VoidFlask: {
+		DisplayName: Void Flask
+		Tooltip: Spreads the Void
+	}
+
+	BlackSolution: {
+		DisplayName: Black Solution
+		Tooltip:
+			'''
+			Used by the Clentaminator
+			Spreads the Void
+			'''
+	}
+
+	TerraKey: {
+		DisplayName: Terra Key
+		Tooltip: ""
+	}
+}
+
+Currency: {
+	AncientCoin: {
+		DisplayName: Ancient Coin
+		Tooltip: A red and blue coin with an A engraved into it
+	}
+
+	BloodRune: {
+		DisplayName: Blood Rune
+		Tooltip: An ancient stone said to contain the blood of an ancient being
+	}
+
+	ChristmasCheer: {
+		DisplayName: Christmas Cheer
+		Tooltip: Pure joy and minty fresh goodness
+	}
+
+	GoblinSoul: {
+		DisplayName: Goblin Soul
+		Tooltip: The soul of a goblin
+	}
+
+	MartianCredit: {
+		DisplayName: Martian Credit
+		Tooltip: A card that has some sort of monetary value to the martians
+	}
+
+	PirateBooty: {
+		DisplayName: Pirate's Booty
+		Tooltip: An exceedingly well-crafted gold coin
+	}
+
+	HalloweenTreat: {
+		DisplayName: Halloween Treat
+		Tooltip: A very tasty treat. Don't eat it though, most likely cursed.
+	}
+
+	MonsterSoul: {
+		DisplayName: Monster Soul
+		Tooltip: The soul of a terrifying Monster
+	}
+}
+
+MonochromeApple: {
+	DisplayName: Monochromatic Apple
+	Tooltip: Will attract an equestrian friend
+}
+
+GRealmAdvertisement: {
+	DisplayName: GRealm Advertisement
+	Tooltip:
+		'''
+		'Want more AA content and more Grox-filled fun? Go play GRealm!'
+		- Grox The Great
 		'''
-}
-
-AsheTrophy: {
-	DisplayName: Ashe Trophy
-	Tooltip: ""
-}
-
-AshRain: {
-	DisplayName: Ash Rain
-	Tooltip:
-		'''
-		Shoots fireball which explodes on hit or after some time
-		Right click to detonate fireballs
-		'''
-}
-
-ChaosBaton: {
-	DisplayName: Chaos Baton
-	Tooltip: Summons a discordian claw to fight with you
-}
-
-FireSpiritStaff: {
-	DisplayName: Flame Vortex Staff
-	Tooltip: ""
-}
-
-FuryFlame: {
-	DisplayName: Fury Flame
-	Tooltip: Allows you to blast explosive flames at your foes
-}
-
-HarukaBox: {
-	DisplayName: Haruka's Lockbox
-	Tooltip:
-		'''
-		Right click to open
-		Contains a set of Midnight Assassin clothes
-		'''
-}
-
-HarukaKunai: {
-	DisplayName: Abyssal Kunai
-	Tooltip: ""
-}
-
-HarukaTrophy: {
-	DisplayName: Haruka Trophy
-	Tooltip: ""
-}
-
-HeartOfPassion: {
-	DisplayName: Heart of Passion
-	Tooltip:
-		'''
-		Your magic attacks and minions grow stronger the less health you have
-		Magic attacks and Minions inflict 'On Fire!'
-		Below 2/3 of your maximum life, Your mana regenerates much faster
-		Below 1/3 of your maximum life, your magic attacks and minions inflict Daybroken instead of 'On Fire'
-		'''
-}
-
-HeartOfSorrow: {
-	DisplayName: Heart of Sorrow
-	Tooltip:
-		'''
-		Your melee and ranged attacks grow stronger the less health you have
-		Melee and Ranged inflict Hydratoxin
-		Below 2/3 of your maximum life, Your movement speed is doubled
-		Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze instead of Hydratoxin
-		'''
-}
-
-Masamune: {
-	DisplayName: Masamune
-	Tooltip:
-		'''
-		Left click to quickly slash at your foes with the blade
-		Ignores invicibility frames
-		Right click to shoot a blade wave
-		'''
-}
-
-MizuArashi: {
-	DisplayName: Mizu Arashi
-	Tooltip:
-		'''
-		Has a 1/15 chance to shoot a Mizu spirit
-		Spirits deal 2x damage, pierce up to 10 enemies and go through tiles
-		77% not to consume arrows
-		'''
-}
-
-AkumaATrophy: {
-	DisplayName: Oni Akuma Trophy
-	Tooltip: ""
-}
-
-AkumaBag: {
-	DisplayName: Treasure Bag (Oni Akuma)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-AkumaTerratool: {
-	DisplayName: Draconian Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		+20 tile reach
-		'''
-}
-
-AkumaTrophy: {
-	DisplayName: Akuma Trophy
-	Tooltip: ""
-}
-
-CrucibleScale: {
-	DisplayName: Crucible Scale
-	Tooltip: The fury of the draconian sun eminates from this scale
-}
-
-Dawnstrike: {
-	DisplayName: Dawnstrike
-	Tooltip: Charge the blaster to fire larger flame blasts
-}
-
-DaybreakArrow: {
-	DisplayName: Daybreak Arrow
-	Tooltip:
-		'''
-		Scorches its target with the heat of the blazing sun
-		Inflicts Daybroken
-		Non-consumable
-		'''
-}
-
-Daycrusher: {
-	DisplayName: Daycrusher
-	Tooltip:
-		'''
-		Slams into foes with the force of a solar mass
-		Inflicts Daybroken
-		'''
-}
-
-Daystorm: {
-	DisplayName: Daystorm
-	Tooltip: Incinerate your enemies in a storm of scorching fiery mayhem
-}
-
-DragonSlasher: {
-	DisplayName: Dragon Shiv
-	Tooltip:
-		'''
-		Slow, but hits like a celestial body
-		Inflicts Daybroken
-		'''
-}
-
-LungStaff: {
-	DisplayName: Ancient Lung Staff
-	Tooltip: Summons an ancient lung to fight for you
-}
-
-MorningGlory: {
-	DisplayName: Morning Glory
-	Tooltip: Splits into 4 additional phantom piercing spears on throw
-}
-
-RadiantDawn: {
-	DisplayName: Radiant Dawn
-	Tooltip: Hold to fire more arrows
-}
-
-ReignOfFire: {
-	DisplayName: Reign of Fire
-	Tooltip:
-		'''
-		Rains fire and fury upon your foes
-		Inflicts Daybroken
-		'''
-}
-
-ReignOfFireEX: {
-	DisplayName: Draconian Fury
-	Tooltip:
-		'''
-		Rains fire and fury upon your foes
-		Inflicts Daybroken
-		Reign of Fire EX
-		'''
-}
-
-Solar: {
-	DisplayName: Solar
-	Tooltip:
-		'''
-		Spins with the speed of a planet orbiting the sun
-		Inflicts daybroken
-		'''
-}
-
-SunSpear: {
-	DisplayName: Sun Partisan
-	Tooltip:
-		'''
-		One of two legendary spears used to divide time into day and night
-		Inflicts daybroken
-		'''
-}
-
-SunStaff: {
-	DisplayName: Solar Staff
-	Tooltip:
-		'''
-		Rains fire and fury upon your foes
-		Inflicts Daybroken
-		'''
-}
-
-SunStorm: {
-	DisplayName: Sunstorm
-	Tooltip:
-		'''
-		Summons orbiting fireballs which home to enemies after some time
-		Right click and hold to release and aim manually
-		'''
-}
-
-TaiyangBaolei: {
-	DisplayName: Taiyang Baolei
-	Tooltip:
-		'''
-		Makes you immune to almost all debuffs
-		Allows you to do a fiery, explosive dash
-		Your melee & magic attacks set enemies ablaze
-		During the day, you gain 6% damage resistance and your melee & magic attacks inflict daybroken instead of 'On Fire!'
-		'''
-}
-
-YOTD: {
-	DisplayName: Year of the Dragon
-	Tooltip:
-		'''
-		Fires dazzling fireworks to amaze your friends and blow your enemies away!
-		'Akuma brand fireworks is not responsible for damage done by shooting fireworks point-blank into enemies' faces.'
-		'''
-}
-
-AnubisBag: {
-	DisplayName: Treasure Bag (Anubis)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-AnubisTrophy: {
-	DisplayName: Anubis Trophy
-	Tooltip: ""
-}
-
-ArtifactOfJudgement: {
-	DisplayName: Artifact of Judgement
-	Tooltip:
-		'''
-		Taking damage builds a charge in the Artifact
-		Reaching a charge of 250 will summon an ''Eye of Judgement'' and reset the charge value
-		Your defense is lowered and speed is raised while the Eye is active
-		'''
-}
-
-DesertStaff: {
-	DisplayName: Desert Staff
-	Tooltip: Shoots enchanted sand bolt which explodes into bouncing balls on hit
-}
-
-ArtifactOfGuilt: {
-	DisplayName: Artifact of Guilt
-	Tooltip:
-		'''
-		Taking damage builds a charge in the Artifact
-		Reaching a charge of 250 will summon an ''Eye of the Forsaken'' and reset the charge value
-		You will get major damage and speed boosts while Eye is active
-		'''
-}
-
-CursedFury: {
-	DisplayName: Cursed Flamefury
-	Tooltip: 50% chance to not consume gel
-}
-
-FAnubisBag: {
-	DisplayName: Treasure Bag (Forsaken Anubis)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-FAnubisTrophy: {
-	DisplayName: Forsaken Anubis Trophy
-	Tooltip: ""
-}
-
-ForsakenStaff: {
-	DisplayName: Forsaken Staff
-	Tooltip: Shoots 2 homing blasts of forsaken energy which explode into forsaken sparks
-}
-
-HorusCane: {
-	DisplayName: Horus' Cane
-	Tooltip: Summons a Horus Eye sentry
-}
-
-Lifeline: {
-	DisplayName: Lifeline
-	Tooltip:
-		'''
-		Shoots 2 enchanced Mummy arrows alongside with normal
-		Shoots ``Forsaken arrows`` burst if 2 enchanted arrows hit the target
-		Forsaken arrows lower enemy contact damage
-		'''
-}
-
-SoulCrook: {
-	DisplayName: Crook of the Soul Judge
-	Tooltip: ""
-}
-
-SoulFragment: {
-	DisplayName: Soul Fragment
-	Tooltip: ""
-}
-
-Soulsplitter: {
-	DisplayName: Soulsplitter
-	Tooltip: Shoots out a trio of wall-piercing returning phantom blades on swing
-}
-
-Verdict: {
-	DisplayName: Verdict
-	Tooltip:
-		'''
-		Releases enchanted sand rain on enemy hit
-		Creates 2 forsaken phantom blades which hit enemy horizontally as well
-		'''
-}
-
-ForsakenFragment: {
-	DisplayName: Forsaken Fragment
-	Tooltip: ""
-}
-
-JackalsWrath: {
-	DisplayName: Jackal's Wrath
-	Tooltip: Shoots out a wall-piercing returning phantom blade on swing
-}
-
-Judgment: {
-	DisplayName: Judgement
-	Tooltip: Releases enchanted sand rain on enemy hit
-}
-
-NeithsString: {
-	DisplayName: Neith's String
-	Tooltip:
-		'''
-		Shoots 2 arrows at once
-		Can occasionally shoot ``Judgement arrow``, which lowers enemy defense
-		Converts wooden arrows into slower, but high-damaging mummy arrows
-		'''
-}
-
-SandstormThrower: {
-	DisplayName: Sandthrower
-	Tooltip: 30% chance to not consume gel
-}
-
-SentryOfTheEye: {
-	DisplayName: Sentry of the Eye
-	Tooltip: Summons an eye sentry
-}
-
-AthenaBag: {
-	DisplayName: Treasure Bag (Athena)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-AthenaTrophy: {
-	DisplayName: Athena Trophy
-	Tooltip: ""
-}
-
-DivineWindCharm: {
-	DisplayName: Divine Wind Stone
-	Tooltip: Summons an owl rune sentry
-}
-
-GaleOfWings: {
-	DisplayName: Gale of Wings
-	Tooltip: ""
-}
-
-GoddessFeather: {
-	DisplayName: Goddess Feather
-	Tooltip: ""
-}
-
-AthenaABag: {
-	DisplayName: Treasure Bag (Olympian Athena)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-AthenaATrophy: {
-	DisplayName: Olympian Athena Trophy
-	Tooltip: ""
-}
-
-GaleForce: {
-	DisplayName: Gale Force
-	Tooltip: ""
-}
-
-GoddessHarp: {
-	DisplayName: Goddess Harp
-	Tooltip:
-		'''
-		Summons the seraph queen herself to fight with you
-		Athena is boosted by minion damage
-		'''
-}
-
-HurricaneStone: {
-	DisplayName: Hurricane Stone
-	Tooltip: Summons a charged owl rune sentry
-}
-
-Hurricane: {
-	DisplayName: Hurricane
-	Tooltip:
-		'''
-		Shoots 2 waves of 6 arrows
-		You have a chance to shoot Oceanic Arrow
-		66% chance not to consume arrow
-		Tsunami EX
-		'''
-}
-
-SkyCrystal: {
-	DisplayName: Sky Crystal
-	Tooltip: A beautiful crystal, said to contain a piece of the sky
-}
-
-StarChart: {
-	DisplayName: Star Chart
-	Tooltip: A map of the solar system up to this planet.
-}
-
-StormSphere: {
-	DisplayName: Storm Sphere
-	Tooltip: A supercharged crystal sphere of Varian Energy
-}
-
-Windfury: {
-	DisplayName: Windfury
-	Tooltip: Replaces wooden arrows with gale arrows with high knockback and infinite piercing
-}
-
-RazorwindLongbow: {
-	DisplayName: Razorwind Longbow
-	Tooltip: Replaces wooden arrows with wind arrows with high knockback
-}
-
-SeraphHarp: {
-	DisplayName: Seraph Harp
-	Tooltip:
-		'''
-		Summons a seraph to fight for you
-		Seraph is boosted by minion damage
-		'''
-}
-
-SkycutterKopis: {
-	DisplayName: Skycutter Kopis
-	Tooltip: ""
-}
-
-BroodBag: {
-	DisplayName: Treasure Bag (Broodmother)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-BroodmotherTrophy: {
-	DisplayName: Broodmother Trophy
-	Tooltip: ""
-}
-
-BroodScale: {
-	DisplayName: Scorched Scale
-	Tooltip: The scale of a formidable foe
-}
-
-DragonCape: {
-	DisplayName: Dragontamer's Cloak
-	Tooltip: 3% Increased Damage Resistance
-}
-
-DjinnBag: {
-	DisplayName: Treasure Bag (Desert Djinn)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-Djinnerang: {
-	DisplayName: Djinnerang
-	Tooltip: ""
-}
-
-DjinnTrophy: {
-	DisplayName: Desert Djinn Trophy
-	Tooltip: ""
-}
-
-Sandagger: {
-	DisplayName: Sandagger
-	Tooltip: ""
-}
-
-SandLamp: {
-	DisplayName: Sand Lamp
-	Tooltip: ""
-}
-
-SandScepter: {
-	DisplayName: Sand Scepter
-	Tooltip: Summons a dust devil to fight with you
-}
-
-SandstormCrossbow: {
-	DisplayName: Sandstorm Crossbow
-	Tooltip: Replaces arrows with desert bolts
-}
-
-SandstormMedallion: {
-	DisplayName: Sandstorm Medallion
-	Tooltip: Doubles your stats during a Sandstorm
-}
-
-SultanScimitar: {
-	DisplayName: Sultan's Scimitar
-	Tooltip: ""
-}
-
-DragonSerpentNecklace: {
-	DisplayName: Dragon Serpent Necklace
-	Tooltip:
-		'''
-		7% increased damage and 3% increased damage resistance
-		Ignores 5 Enemy defense
-		'''
-}
-
-EFishWings: {
-	DisplayName: Emperor Fishron Wings
-	Tooltip: Allows flight and slow fall
-}
-
-EFlairon: {
-	DisplayName: Emperor Flairon
-	Tooltip: Lets loose an armada of homing bubbles
 }
 
 FancyTruffle: {
@@ -3105,2123 +748,74 @@ FancyTruffle: {
 	Tooltip: Attracts a royal creature which flourishes in water & combat
 }
 
-FishnadoStaff: {
-	DisplayName: Fishnado Staff
+RoyalRabbit_Item: {
+	DisplayName: Royal Rabbit
+	Tooltip: Under direct protection by the Pouncing Punisher
+}
+
+ChampionHelmetMageSetEffect_CarrotBooster: {
+	DisplayName: Carrot Booster
+	Tooltip: Etheral, but crunchy.
+}
+
+Dyes: {
+	DiscordianDye: {
+		DisplayName: Discordian Dye
+		Tooltip: Gives a discordian touch to whatever this dye is applied to
+	}
+
+	DiscordianInfernoDye: {
+		DisplayName: Discordian Inferno Dye
+		Tooltip: Gives a discordian touch to whatever this dye is applied to
+	}
+
+	BlazingDye: {
+		DisplayName: Blazing Dye
+		Tooltip: Gives a blazing touch to whatever this dye is applied to
+	}
+
+	BlazingFuryDye: {
+		DisplayName: Blazing Fury Dye
+		Tooltip: Gives a blazing touch to whatever this dye is applied to
+	}
+
+	AbyssalDye: {
+		DisplayName: Abyssal Dye
+		Tooltip: Gives an abyssal touch to whatever this dye is applied to
+	}
+
+	AbyssalWrathDye: {
+		DisplayName: Abyssal Wrath Dye
+		Tooltip: Gives an abyssal touch to whatever this dye is applied to
+	}
+
+	DoomsdayDye: {
+		DisplayName: Doomsday Dye
+		Tooltip: Adds a glitchy-look to whatever this dye is applied to
+	}
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDog: {
+	DisplayName: The Life And Epic Adventures Of Anubis The Wonder Dog
 	Tooltip: ""
 }
 
-SoapBlaster: {
-	DisplayName: Soap Blaster
-	Tooltip: Rapidly shoots destructive bubbles
-}
-
-UltibladeTyphoon: {
-	DisplayName: Ultiblade Typhoon
-	Tooltip:
-		'''
-		Casts 3 fast homing razorwheels
-		Razorblade Typhoon EX
-		'''
-}
-
-DarkVoid: {
-	DisplayName: Dark Void
-	Tooltip:
-		'''
-		Gives immensely increased stats at night
-		'Dark and spooky'
-		'''
-}
-
-DBTrophy: {
-	DisplayName: Daybringer Trophy
+Fishmother: {
+	DisplayName: Fishmother
 	Tooltip: ""
 }
 
-EquinoxBag: {
-	DisplayName: Treasure Bag (Equinox Worms)
-	Tooltip:
-		'''
-		{$CommonItemTooltip.RightClickToOpen}
-		Contained loot depends on the time of day
-		'''
-}
-
-NCTrophy: {
-	DisplayName: Nightcrawler Trophy
+Hellfisher: {
+	DisplayName: Hellfisher
 	Tooltip: ""
 }
 
-RadiantStar: {
-	DisplayName: Radiant Star
-	Tooltip:
-		'''
-		Gives immensely increased stats during the day
-		'It's Shiny'
-		'''
-}
-
-StarIdol: {
-	DisplayName: Blessing of the Stars
-	Tooltip:
-		'''
-		It sparkles like the stars in the sky
-		Can only be used if there arent many radium stars in the world.
-		'''
-}
-
-EXSoul: {
-	DisplayName: EX Soul
-	Tooltip: Essence of ancient, arcane magic
-}
-
-FireFrostMedallion: {
-	DisplayName: Fire Frost Medallion
-	Tooltip: Doubles your stats during a Blizzard or Sandstorm
-}
-
-DesireCharm: {
-	DisplayName: Charm of Desire
-	Tooltip:
-		'''
-		Grabbing coins boosts your damage by 1% for 4 seconds
-		Grabbing another coin increases the damage by 1% and resets the countdown
-		Caps out at 20% damage
-		'''
-}
-
-GildedGlock: {
-	DisplayName: Gilded Glock
-	Tooltip: Uses Coins as Ammo
-}
-
-GoldDigger: {
-	DisplayName: Gold Digger
-	Tooltip:
-		'''
-		Fires a projectile that, upon collision with a tile, creates a fountain of coins
-		Only 1 fountain may be active at once
-		'''
-}
-
-GreedBag: {
-	DisplayName: Treasure Bag (Greed)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-GreedTrophy: {
-	DisplayName: Greed Trophy
+TriHeadedKoi: {
+	DisplayName: Tri-headed Koi
 	Tooltip: ""
 }
 
-Miner: {
-	DisplayName: MINE-er
-	Tooltip: Mines ores faster
-}
-
-StoneShell: {
-	DisplayName: Stone Shell
-	Tooltip: Harder than bedrock but lighter than pumice
-}
-
-StoneSlammer: {
-	DisplayName: Stone Slammer
-	Tooltip: Hitting an airborne always crits and sends the target flying into the ground
-}
-
-CovetiteBar: {
-	DisplayName: Covetite Bar
-	Tooltip: It's somehow shiny but not at the same time. How did greed fall for this?
-}
-
-CovetiteOre: {
-	DisplayName: Covetite Ore
-	Tooltip: Only a fool would want this. Makes sense why greed has it.
-}
-
-DesireTalisman: {
-	DisplayName: Talisman of Desire
-	Tooltip:
-		'''
-		Grabbing coins boosts your damage by 1% for 4 seconds
-		Grabbing another coin increases the damage by 1% and resets the countdown
-		Caps out at 20% damage
-		Increases coin pickup range 
-		Shops have lower prices
-		Hitting enemies will sometimes drop extra coins
-		'''
-}
-
-Earthbreaker: {
-	DisplayName: Earthbreaker
-	Tooltip:
-		'''
-		Hitting an airborne always crits and sends the target flying into the ground
-		Concussive force of the hit also has a 50% chance to confuse the struck enemy
-		If the enemy hits the ground after being hit, they will take damage
-		'''
-}
-
-GravitySphere: {
-	DisplayName: Gravity Sphere
-	Tooltip: A stone model of the planet, complete with an orbitting moon!
-}
-
-GreedABag: {
-	DisplayName: Treasure Bag (Worm King Greed)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-OreCannon: {
-	DisplayName: Ore Cannon
-	Tooltip:
-		'''
-		Uses Some Ores as Ammunition
-		Certain ores have special effects when shot
-		'''
-}
-
-OreCannonEX: {
-	DisplayName: Ultimate Ore Cannon
-	Tooltip:
-		'''
-		Uses Any Ore as Ammunition
-		Certain ores have special effects when shot
-		Legendary Weapon
-		OreCannonEX
-		'''
-}
-
-OreStaff: {
-	DisplayName: Ore Staff
-	Tooltip: ""
-}
-
-Unearther: {
-	DisplayName: Unearther
-	Tooltip: Mines ores even faster
-}
-
-WKGTrophy: {
-	DisplayName: Worm King Greed Trophy
-	Tooltip: ""
-}
-
-BulwarkOfChaos: {
-	DisplayName: Bulwark Of Chaos
-	Tooltip:
-		'''
-		For every hit you land on an enemy, 5 true damage (damage unassigned to any class) is dealt
-		Allows you to dash into enemies, damaging them
-		'''
-}
-
-ClawBaton: {
-	DisplayName: Claw Baton
-	Tooltip: Summons a chaos claw to fight with you
-}
-
-ClawOfChaos: {
-	DisplayName: Claw of Chaos
-	Tooltip: For every hit you land on an enemy, 5 true damage (damage unassigned to any class) is dealt
-}
-
-GripBag: {
-	DisplayName: Treasure Bag (Grips of Chaos)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-GripTrophyBlue: {
-	DisplayName: Mire Grip of Chaos Trophy
-	Tooltip: ""
-}
-
-GripTrophyRed: {
-	DisplayName: Inferno Grip of Chaos Trophy
-	Tooltip: ""
-}
-
-HydraBag: {
-	DisplayName: Treasure Bag (Hydra)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-HydraHide: {
-	DisplayName: Hydra Hide
-	Tooltip: The skin of a formidable foe
-}
-
-HydraPendant: {
-	DisplayName: Hydra Pendant
-	Tooltip: 7% Increased damage
-}
-
-HydraTrophy: {
-	DisplayName: Hydra Trophy
-	Tooltip: ""
-}
-
-FungusBag: {
-	DisplayName: Treasure Bag (Feudal Fungus)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-FungusTrophy: {
-	DisplayName: Feudal Fungus Trophy
-	Tooltip: ""
-}
-
-GlowingMushium: {
-	DisplayName: Glowing Mushium
-	Tooltip: ""
-}
-
-GlowingMushiumBar: {
-	DisplayName: Glowing Mushium Bar
-	Tooltip: Glowy
-}
-
-HeartyTruffle: {
-	DisplayName: Hearty Truffle
-	Tooltip:
-		'''
-		+50 Health
-		Don't eat it
-		'''
-}
-
-MagicTruffle: {
-	DisplayName: Glowing Truffle
-	Tooltip:
-		'''
-		+30 Mana
-		Don't lick it.
-		'''
-}
-
-MonarchBag: {
-	DisplayName: Treasure Bag (Mushroom Monarch)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-MonarchTrophy: {
-	DisplayName: Mushroom Monarch Trophy
-	Tooltip: ""
-}
-
-MushiumBar: {
-	DisplayName: Mushium Bar
-	Tooltip: Mushy
-}
-
-BaneOfTheBunny: {
-	DisplayName: Bane Of The Bunny
-	Tooltip:
-		'''
-		Right click to use as a spear
-		Left click to use as a javelin
-		Throwing Javelins right after a spear thrust throws javelins faster for a moment
-		'''
-}
-
-Bunzooka: {
-	DisplayName: Bunzooka
-	Tooltip: Fires Rabbit Rockets
-}
-
-CottonCane: {
-	DisplayName: Cotton Cane
-	Tooltip: Summons a Rabbitcopter Soldier to fight with you
-}
-
-Punisher: {
-	DisplayName: The Punisher
-	Tooltip: ""
-}
-
-RabbitcopterEars: {
-	DisplayName: Rabbitcopter Ears
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		'Yeah that's not how rabbit ears work but whatever, it works.'
-		'''
-}
-
-RajahBag: {
-	DisplayName: Treasure Bag (Rajah Rabbit)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-RajahCape: {
-	DisplayName: Rajah Rabbit's Cloak of Supremecy
-	Tooltip:
-		'''
-		Every 10% of health lost gives you:
-		1. 12% extra attack power to your highest damage type boost
-		2. 5% increased movement speed
-		All effects of the Sash of Vengeance
-		'You have been deemed a worthy successor by the Champion of the Innocent'
-		'''
-}
-
-RajahPelt: {
-	DisplayName: Rabbit Pelt
-	Tooltip: Surpisingly durable for a pelt of fur
-}
-
-RajahSash: {
-	DisplayName: Rajah Rabbit's Sash of Vengeance
-	Tooltip:
-		'''
-		Every 10% of health lost gives you 8% extra attack power to your highest damage type boost
-		40% increased movement speed
-		Increased Jump Height and Speed
-		Grants Autojump
-		Immunity to fall damage
-		'''
-}
-
-RajahTrophy: {
-	DisplayName: Rajah Trophy
-	Tooltip: ""
-}
-
-RoyalScepter: {
-	DisplayName: Royal Scepter
-	Tooltip: Shoots a spread of three carrots
-}
-
-BaneOfTheBunnyEX: {
-	DisplayName: Bane of the Slaughterer
-	Tooltip:
-		'''
-		Right click to use as a spear
-		Left click to use as a javelin
-		Throwing Javelins right after a spear thrust throws javelins faster for a moment
-		Bane of the Bunny EX
-		'''
-}
-
-BunzookaEX: {
-	DisplayName: RPG
-	Tooltip:
-		'''
-		`Rabbit Propelled Grenade`
-		Fires Rabbit Rockets
-		Bunnyzooka EX
-		'''
-}
-
-ChampionPlate: {
-	DisplayName: Champion Plate
-	Tooltip: Forged from Champium
-}
-
-CottonCaneEX: {
-	DisplayName: Rajah's Rage
-	Tooltip: Summons a Royal Rabbit to fight with you
-}
-
-FluffyFury: {
-	DisplayName: Fluffy Fury
-	Tooltip:
-		'''
-		Converts arrows into splitting Carrows
-		Potential lag warning
-		'''
-}
-
-PunisherEX: {
-	DisplayName: The Avenger
-	Tooltip: The Punisher EX
-}
-
-RabbitsWrath: {
-	DisplayName: Rabbit's Wrath
-	Tooltip: Drops razor sharp carrots on your foes
-}
-
-RajahCache: {
-	DisplayName: Treasure Cache (Rajah Rabbit)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-RoyalScepterEX: {
-	DisplayName: Royal Staff
-	Tooltip:
-		'''
-		Shoots a spread of five golden carrots
-		Royal Scepter EX
-		'''
-}
-
-Legg: {
-	DisplayName: Sagittarius' Leg
-	Tooltip: It's a piece of metal. You beat things with it. Pretty basic concept.
-}
-
-NeutronStaff: {
-	DisplayName: Neutron Rod
-	Tooltip: Fires spinning stars that bounce on walls
-}
-
-SagBag: {
-	DisplayName: Treasure Bag (Sagittarius)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-SagCore: {
-	DisplayName: Sagittarius Core
-	Tooltip: ""
-}
-
-SagShield: {
-	DisplayName: Sagittarius Shield
-	Tooltip:
-		'''
-		Pressing the accessory ability hotkey puts up a barrier around you to protect you from damage
-		While shielded, you cannot use items
-		While shielded, your health regeneration is increased dramatically
-		Shield lasts for 5 seconds
-		Shield has a 5 minute cooldown
-		'''
-}
-
-SagTrophy: {
-	DisplayName: Sagittarius Trophy
-	Tooltip: ""
-}
-
-ZeroStar: {
-	DisplayName: Stalion's Star
-	Tooltip: A spinning blade of doom
-}
-
-ArcticMedallion: {
-	DisplayName: Arctic Medallion
-	Tooltip: Doubles your stats during a Blizzard
-}
-
-BlizzardBuster: {
-	DisplayName: Blizzard Breaker
-	Tooltip: ""
-}
-
-Icepick: {
-	DisplayName: Icepick
-	Tooltip: ""
-}
-
-SerpentBag: {
-	DisplayName: Treasure Bag (Subzero Serpent)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-SerpentSpike: {
-	DisplayName: Serpent Spike
-	Tooltip: ""
-}
-
-SerpentSting: {
-	DisplayName: Serpent's Sting
-	Tooltip: Turns bullets into snow shots
-}
-
-SerpentTrophy: {
-	DisplayName: Subzero Serpent Trophy
-	Tooltip: ""
-}
-
-Sickle: {
-	DisplayName: Icicle
-	Tooltip: Casts crystals that shatter in pieces.
-}
-
-SickleShot: {
-	DisplayName: Sickleshot
-	Tooltip: "Shoots 2 ice arrows with high velocity "
-}
-
-SnakeStaff: {
-	DisplayName: Snake Staff
-	Tooltip:
-		'''
-		Summons a Snow Serpent to fight for you
-		Summons 2 segments for each minion slot
-		'''
-}
-
-SnowflakeShuriken: {
-	DisplayName: Snowflake Shuriken
-	Tooltip: ""
-}
-
-SubzeroSlasher: {
-	DisplayName: Subzero Slasher
-	Tooltip: Has a chance to shoot a subzero projectile on swing
-}
-
-Astroid: {
-	DisplayName: Asteroid
-	Tooltip:
-		'''
-		Crashes into enemies with the force of an astroid crashing into earth
-		Inflicts Discordian Inferno
-		'''
-}
-
-ChaosScale: {
-	DisplayName: Chaos Scale
-	Tooltip: Chaos radiates from this blazing scale
-}
-
-ChaosSlayer: {
-	DisplayName: Chaos Slayer
-	Tooltip:
-		'''
-		Unleashes blades of chaos to smite your foes
-		blades go through tiles
-		'Shatter all sanity'
-		'''
-}
-
-ChaosSlayerEX: {
-	DisplayName: Ikari
-	Tooltip:
-		'''
-		Unleashes explosive blades of chaos to smite your foes
-		blades go through tiles
-		Chaos Slayer EX
-		'''
-}
-
-ChaosSoul: {
-	DisplayName: Chaos Soul
-	Tooltip: Solid discord, symbolizing unrest and Anarchy itself
-}
-
-DraconicRipper: {
-	DisplayName: Draconic Ripper
-	Tooltip:
-		'''
-		Shoots dozens of high-caliber teeth
-		Ignores enemy defense
-		50% chance to not consume ammo
-		'''
-}
-
-Duality: {
-	DisplayName: Duality
-	Tooltip:
-		'''
-		Chaos flares from this ancient talisman
-		Combines the effects of the Taiyang Baolei and the Naitokurosu, while granting their strongest effects at all times
-		Your attacks inflict Discordian Inferno
-		You are immune to Terrablaze, Dragonfire, Hydratoxin, Discordian Inferno
-		Attack is multiplied by 15%
-		While in the chaos biomes, your attack multiplier is increased to 30%
-		While in the Inferno, your defense is increased by 10
-		While in the Mire, your speed is increased by 50%
-		Grants a strong dash that shreds through enemies in a fiery blaze of glory
-		'''
-}
-
-FlamingTwilight: {
-	DisplayName: Flaming Twilight
-	Tooltip:
-		'''
-		Left click to blasts a discordian fireball at your foes 
-		Right click to rain fire and fury at your cursor position
-		Consumes gel as ammo
-		33% chance not to consume gel
-		'''
-}
-
-MeteorStrike: {
-	DisplayName: Meteor Strike
-	Tooltip:
-		'''
-		Fires a barrage of meteors at your foes
-		Hitting enemies causes a smaller, but more damaging explosion
-		Hitting a tile causes a larger, but less damaging projectile
-		Inflicts Discordian Inferno
-		'''
-}
-
-ShenATrophy: {
-	DisplayName: Shen Awakened Trophy
-	Tooltip: ""
-}
-
-ShenCache: {
-	DisplayName: Treasure Cache (Shen Doragon)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-ShenTerratool: {
-	DisplayName: Discordian Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-ShenTrophy: {
-	DisplayName: Shen Trophy
-	Tooltip: ""
-}
-
-Skyfall: {
-	DisplayName: Skyfall
-	Tooltip: ""
-}
-
-Timesplitter: {
-	DisplayName: Timesplitter
-	Tooltip:
-		'''
-		It has been said that this spear was used to divide time into day and night
-		Inflicts Daybroken and Moonraze
-		'''
-}
-
-MushrockStaff: {
-	DisplayName: Mushrock Staff
-	Tooltip: ""
-}
-
-ToadBag: {
-	DisplayName: Treasure Bag (Truffle Toad)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-ToadLeg: {
-	DisplayName: Truffle Legs
-	Tooltip:
-		'''
-		Increased jump speed and allows auto-jump
-		You are immune to fall damage
-		Increased jump height
-		'''
-}
-
-ToadTongue: {
-	DisplayName: Toad Tongue
-	Tooltip: Pulls enemies towards you when it retracts
-}
-
-ToadTrophy: {
-	DisplayName: Truffle Toad Trophy
-	Tooltip: ""
-}
-
-Todegun: {
-	DisplayName: Frog Lob
-	Tooltip: ""
-}
-
-AbyssalYari: {
-	DisplayName: Abyssal Yari
-	Tooltip: One of two legendary spears used to divide time into day and night
-}
-
-AbyssArrow: {
-	DisplayName: Eventide Arrow
-	Tooltip:
-		'''
-		Blinds its target with the darkness of the moonless night
-		Inflicts Moonraze
-		Non-consumable
-		'''
-}
-
-AE: {
-	DisplayName: Abyssal Eruption
-	Tooltip: spews out abyssal acid that will cause enamys to explode of killed by its visious acid, also uses gel
-}
-
-Crescent: {
-	DisplayName: Crescent
-	Tooltip:
-		'''
-		Faster than the light of the moon
-		Inflicts Moonraze
-		'''
-}
-
-Darksprayer: {
-	DisplayName: Darksprayer
-	Tooltip:
-		'''
-		'Spouts of dark, leaves its mark'
-		Inflicts Moonrazed
-		'''
-}
-
-DreadScale: {
-	DisplayName: Dread Scale
-	Tooltip: The power of the dread moon is in your hands
-}
-
-EternalTwilight: {
-	DisplayName: Eternal Twilight
-	Tooltip: Falling Twilight EX
-}
-
-FallingTwilight: {
-	DisplayName: Falling Twilight
-	Tooltip: ""
-}
-
-Flairdra: {
-	DisplayName: Flairdra
-	Tooltip:
-		'''
-		Be the hydra.
-		Inflicts Moonraze
-		'''
-}
-
-Hydraslayer: {
-	DisplayName: Amenomuraku
-	Tooltip:
-		'''
-		Used to defeat the multi-headed monstrosities of the abyss
-		Inflicts Moonrazed
-		'''
-}
-
-HydraStabber: {
-	DisplayName: Abyssal Shiv
-	Tooltip:
-		'''
-		Extremely fast and dangerous
-		IInflicts Moonraze
-		'''
-}
-
-MidnightWrath: {
-	DisplayName: Midnight's Wrath
-	Tooltip: Non-consumable
-}
-
-Naitokurosu: {
-	DisplayName: Naitokurosu
-	Tooltip:
-		'''
-		8% increased ranged damage
-		Grants you the abilities of a true master ninja
-		Allows you to do a speedy dash
-		You move twice as fast and your ranged attacks & minions inflict Venom
-		While in the mire, you gain 18% increased ranged damage instead of 9%
-		At night, you move three times as fast and your ranged attacks & minions inflict Moonraze
-		'''
-}
-
-Sevenshot: {
-	DisplayName: Hydra Sevenshot
-	Tooltip:
-		'''
-		Fires 6 bullets and a destructive moon blast
-		50% chance to not consume ammo
-		'''
-}
-
-ThrowingCrescent: {
-	DisplayName: Throwing Crescent
-	Tooltip: ""
-}
-
-Toxibomb: {
-	DisplayName: Abyssal Bomb
-	Tooltip:
-		'''
-		Fires off explosive spirit bombs
-		Small chance to fire an awakened bomb that explodes into abyss souls
-		'''
-}
-
-YamataATrophy: {
-	DisplayName: Yamata No Orochi Trophy
-	Tooltip: ""
-}
-
-YamataBag: {
-	DisplayName: Treasure Bag (Yamata No Orochi)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-YamataTerratool: {
-	DisplayName: Dread Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-YamataTrophy: {
-	DisplayName: Yamata Trophy
-	Tooltip: ""
-}
-
-Battery: {
-	DisplayName: Unstable Power Cell
-	Tooltip:
-		'''
-		Acts as a bullet
-		Non-consumable
-		'''
-}
-
-BHB: {
-	DisplayName: Black Hole Blaster
-	Tooltip: Occasionally fires off a rocket that explodes into a vortex when it collides with a tile
-}
-
-BrokenCode: {
-	DisplayName: Broken Code
-	Tooltip:
-		'''
-		Allows you to glitch with a 5 second cooldown
-		Grapple to Glitch
-		While cooldown is occurring, your speed is increased, you gain invincibility frames
-		While cooldown is occurring, your magic/summon weapons require no mana and have 20% increased damage
-		Teleportation has 15 second cooldown
-		'You don't look so good'
-		WARNING: May permanently displace appendages until game restart. This is a feature.
-		'''
-}
-
-DoomPortal: {
-	DisplayName: Doom Portal
-	Tooltip: Summons a small Doom Protocol to fight for you
-}
-
-DoomRay: {
-	DisplayName: Nova Focus
-	Tooltip: Fires an insanely powerful death laser
-}
-
-EventHorizon: {
-	DisplayName: Event Horizon
-	Tooltip: ""
-}
-
-GenocideCannon: {
-	DisplayName: Genocide Cannon
-	Tooltip:
-		'''
-		Fires highly explosive Rockets
-		25% chance to fire a glitched rocket that explodes into frag rockets
-		'''
-}
-
-Gigataser: {
-	DisplayName: Gigataser
-	Tooltip: Fires void lightning
-}
-
-Neutralizer: {
-	DisplayName: Neutralizer
-	Tooltip:
-		'''
-		Left click to fire a bouncing laser that gets more powerful as it bounces off walls
-		Right click to fire normal arrows
-		'''
-}
-
-OmegaVolley: {
-	DisplayName: Omega Volley
-	Tooltip:
-		'''
-		Shoots an insanely accurate volley of sonic bullets quickly
-		Every ten shots, it can shoot two extra bullets.
-		33% chance to not consume ammo
-		'''
-}
-
-RealityCannon: {
-	DisplayName: Reality Cannon
-	Tooltip: Rapidly Fires a spread of dark lasers
-}
-
-RiftShredder: {
-	DisplayName: Rift Shredder
-	Tooltip: Shoots void stars that shred through reality itself
-}
-
-TeslaHand: {
-	DisplayName: Broken Zero Weapon
-	Tooltip: Violently attempting to zap you
-}
-
-UnstableSingularity: {
-	DisplayName: Unstable Singularity
-	Tooltip: Barely stable enough to hold
-}
-
-VoidStar: {
-	DisplayName: Void Star
-	Tooltip: Fires a dark, spinning vortex that homes in on enemies
-}
-
-Vortex: {
-	DisplayName: Vortex
-	Tooltip: Spins fast enough to drag all enemies into its gravitational pull
-}
-
-ZeroArrow: {
-	DisplayName: Singularity Arrow
-	Tooltip:
-		'''
-		The only thing faster than light is the void that devours it
-		Non-consumable
-		'''
-}
-
-ZeroATrophy: {
-	DisplayName: Zero Protocol Trophy
-	Tooltip: ""
-}
-
-ZeroBag: {
-	DisplayName: Treasure Bag (Zero Protocol)
-	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
-}
-
-ZeroTerratool: {
-	DisplayName: Doomsday Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-ZeroTrophy: {
-	DisplayName: Zero Trophy
-	Tooltip: ""
-}
-
-ChaosRune: {
-	DisplayName: Chaos Rune
-	Tooltip:
-		'''
-		A cursed tablet bursting with chaotic energy
-		Summons Shen Doragon's true awakened form
-		Non-Consumable
-		'''
-}
-
-ChaosSigil: {
-	DisplayName: Chaos Sigil
-	Tooltip:
-		'''
-		A cursed tablet filled with unstable magic
-		Summons the chaos emperor
-		Non-Consumable
-		'''
-}
-
-ConfusingMushroom: {
-	DisplayName: Confusing Looking Mushroom
-	Tooltip:
-		'''
-		Summons the Feudal Fungus
-		Can only be used in a glowing mushroom biome
-		'''
-}
-
-CuriousClaw: {
-	DisplayName: Curious Looking Claw
-	Tooltip:
-		'''
-		It's strangely dry
-		Can only be used at night
-		'''
-}
-
-CursedSkull: {
-	DisplayName: Cursed Skull
-	Tooltip:
-		'''
-		Summons Skeletron
-		Can only be used at night
-		'''
-}
-
-DiamondCarrot: {
-	DisplayName: Ten Carat Carrot
-	Tooltip:
-		'''
-		The fury of the Raging Rajah can be felt radiating from this ornate carrot...
-		Non-consumable
-		'''
-}
-
-DjinnLamp: {
-	DisplayName: Desert Lamp
-	Tooltip: Summons the Desert Djinn
-}
-
-DraconianRune: {
-	DisplayName: Draconian Sun Rune
-	Tooltip:
-		'''
-		An enchanted tablet bursting with flaming chaotic energy
-		Summons Akuma Awakened
-		Only Usable during the day in the inferno
-		Non-Consumable
-		'''
-}
-
-DraconianSigil: {
-	DisplayName: Draconian Sun Sigil
-	Tooltip:
-		'''
-		An ornate tablet said to contain the radiant power of a thousand suns
-		Summons Akuma
-		Only Usable during the day in the inferno
-		Non-Consumable
-		'''
-}
-
-DragonBell: {
-	DisplayName: Ancient Bell
-	Tooltip:
-		'''
-		An ornately crafted bell
-		Summons the Broodmother in the Inferno
-		Only useable during the day
-		'''
-}
-
-DreadRune: {
-	DisplayName: Dread Moon Rune
-	Tooltip:
-		'''
-		An enchanted tablet radiating dark chaotic energy
-		Summons Yamata no Orochi
-		Can only be used in the mire at night
-		Non-Consumable
-		'''
-}
-
-DreadSigil: {
-	DisplayName: Dread Moon Sigil
-	Tooltip:
-		'''
-		A ragged old tablet said to contain the dark magic of a new moon
-		Summons Yamata
-		Can only be used at night in the mire
-		Non-Consumable
-		'''
-}
-
-EquinoxWorm: {
-	DisplayName: Equinox Worm
-	Tooltip:
-		'''
-		A worm created using celestial materials
-		Summons the Equinox Worms
-		Non-Consumable
-		'''
-}
-
-FlamesOfAnarchy: {
-	DisplayName: Flames of Anarchy
-	Tooltip:
-		'''
-		The flames of chaos burn in this antique china
-		Calls upon the Sisters of Discord
-		Non-Consumable
-		'''
-}
-
-GoldenCarrot: {
-	DisplayName: Ten Karat Carrot
-	Tooltip: Summons the Pouncing Punisher himself
-}
-
-GoldenGrub: {
-	DisplayName: Golden Grub
-	Tooltip:
-		'''
-		Summons Greed
-		Can only be used in Greed's Hoard at the Altar of Desire
-		'It's really shiny.'
-		'''
-}
-
-HydraChow: {
-	DisplayName: Hydra Chow
-	Tooltip:
-		'''
-		Just holding this makes you gag
-		Summons the Hydra
-		Can only be used at night
-		'''
-}
-
-InterestingClaw: {
-	DisplayName: Interesting Looking Claw
-	Tooltip:
-		'''
-		It's oddly Clammy
-		Can only be used at night
-		'''
-}
-
-IntimidatingMushroom: {
-	DisplayName: Intimidating Looking Mushroom
-	Tooltip: Summons the Mushroom Monarch
-}
-
-Lifescanner: {
-	DisplayName: Lifescanner
-	Tooltip:
-		'''
-		Summons Sagittarius
-		Can only be used in the Void
-		'''
-}
-
-Owl: {
-	DisplayName: Owl Statue
-	Tooltip:
-		'''
-		Summons Athena
-		Can only be used in the Acropolis at the Owl Altar
-		'It stares into your soul.'
-		'''
-}
-
-PlanteraFlower: {
-	DisplayName: Jungle Orchid
-	Tooltip:
-		'''
-		Summons Plantera
-		Can only be used in the underground jungle
-		'''
-}
-
-PlatinumCarrot: {
-	DisplayName: Ten Karat Carrot
-	Tooltip: Summons the Pouncing Punisher himself
-}
-
-Scepter: {
-	DisplayName: Ra's Scepter
-	Tooltip:
-		'''
-		Summons Anubis
-		Can only be used in the desert on the surface
-		'I uh...borrowed this from a bird friend of mine.'
-		'''
-}
-
-SubzeroCrystal: {
-	DisplayName: Subzero Crystal
-	Tooltip: Summons the Subzero Serpent
-}
-
-Toadstool: {
-	DisplayName: Toadstool
-	Tooltip:
-		'''
-		Summons the Truffle Toad
-		Can only be used in a glowing mushroom biome
-		'''
-}
-
-WormIdol: {
-	DisplayName: Worm Idol
-	Tooltip:
-		'''
-		An ancient statue depicting some form of worm god.
-		It looks like it hasn't been touched in years
-		'''
-}
-
-ZeroRune: {
-	DisplayName: ERR0R_NULL
-	Tooltip:
-		'''
-		ACTIVATES THE GR0UND ZER0 C0DE F0R THE NEAREST ZER0 UNIT
-		N0N-C0NSUMABLE
-		'''
-}
-
-ZeroTesseract: {
-	DisplayName: Doomsday Tesseract
-	Tooltip:
-		'''
-		DESCRIPTI0NHERE
-		UNSTABLE. C0NTAINS C0DE T0 ACTIVATE THE BRINGER 0F DEATH
-		N0N-C0NSUMABLE
-		'''
-}
-
-Z: {
-	DisplayName: Void Flask
-	Tooltip: Spreads the Void
-}
-
-AncientCoin: {
-	DisplayName: Ancient Coin
-	Tooltip: A red and blue coin with an A engraved into it
-}
-
-BloodRune: {
-	DisplayName: Blood Rune
-	Tooltip: An ancient stone said to contain the blood of an ancient being
-}
-
-ChristmasCheer: {
-	DisplayName: Christmas Cheer
-	Tooltip: Pure joy and minty fresh goodness
-}
-
-GoblinSoul: {
-	DisplayName: Goblin Soul
-	Tooltip: The soul of a goblin
-}
-
-HalloweenTreat: {
-	DisplayName: Halloween Treat
-	Tooltip: A very tasty treat. Don't eat it though, most likely cursed.
-}
-
-MartianCredit: {
-	DisplayName: Martian Credit
-	Tooltip: A card that has some sort of monetary value to the martians
-}
-
-MonsterSoul: {
-	DisplayName: Monster Soul
-	Tooltip: The soul of a terrifying Monster
-}
-
-PirateBooty: {
-	DisplayName: Pirate's Booty
-	Tooltip: An exceedingly well-crafted gold coin
-}
-
-AmphibianLongsword: {
-	DisplayName: Extravagant Longsword
-	Tooltip:
-		'''
-		An Excellent choice. 
-		-Big E
-		'''
-}
-
-AmphibianLongswordEX: {
-	DisplayName: Exquisite, Extravagant Greatblade
-	Tooltip: Extravagant Longsword EX
-}
-
-AmphibianLongswordEXS: {
-	DisplayName: Exquisite, Extravagant  Greatblade
-	Tooltip: Extravagant Longsword EX
-}
-
-AmphibianLongswordS: {
-	DisplayName: Extravagant Longsword
-	Tooltip:
-		'''
-		An Excellent choice. 
-		-Big E
-		'''
-}
-
-ArchwitchStaff: {
-	DisplayName: Archwitch's Galactic Scepter
-	Tooltip:
-		'''
-		The staff of the Dragon Queen
-		Left-click to spin the scepter, firing off stars at nearby enemies
-		Right click to fire explosive magic bolts
-		'''
-}
-
-ArchwitchWand: {
-	DisplayName: Celestial Wand
-	Tooltip: An old wand. It seems to have not been used recently.
-}
-
-CatsEyeRifle: {
-	DisplayName: Cat's Eye Rifle
-	Tooltip:
-		'''
-		Fires Shadow bolts
-		Doesn't require ammo
-		'QUICK HIDE THE LOLI STASH'
-		-Liz
-		'''
-}
-
-CatsEyeRifleEX: {
-	DisplayName: The Silencer
-	Tooltip:
-		'''
-		Fires Shadow bolts
-		Doesn't require ammo
-		Cat's Eye Rifle EX
-		'''
-}
-
-Chronos: {
-	DisplayName: Chronos
-	Tooltip:
-		'''
-		Time Teller EX
-		Damage changes based on time of day
-		Damage is greatest at Midday and Midnight
-		'Time is big ball of wibbly-wobbly timey-wimey yo-yos.'
-		-Dallin
-		'''
-}
-
-CursedSickle: {
-	DisplayName: Cursed Sickle
-	Tooltip:
-		'''
-		Spins a cursed scythe around you that shreds through enemies
-		Left click to swing the scythe
-		'''
-}
-
-CursedSickleEX: {
-	DisplayName: Tartarus Reaper
-	Tooltip:
-		'''
-		Spins a cursed scythe around you that shreds through enemies
-		Right click to swing the scythe
-		Cursed Sickle EX
-		'''
-}
-
-Demise: {
-	DisplayName: Demise
-	Tooltip:
-		'''
-		A legendary sword that was once wielded by the demon king
-			Left Click to unleash destructive demonic energy
-		Right Click to unleash demon blades that fall from the sky
-		'''
-}
-
-DemiseEX: {
-	DisplayName: Catastrophe
-	Tooltip:
-		'''
-		An almighty greatblade that was once wielded by the demon lord
-		Left Click to unleash destructive demonic energy
-		Right Click to unleash catastrophic blades that fall from the sky
-		True Melee Strikes have a chance to instantly devour an enemy's soul
-		Demise EX
-		'''
-}
-
-Doragonburedo: {
-	DisplayName: Doragonburedo
-	Tooltip:
-		'''
-		'I'm gonna wipe their whole team' 
-		-Jace
-		'''
-}
-
-DuckstepGun: {
-	DisplayName: Duckstep Launcher
-	Tooltip:
-		'''
-		Quack.
-		-Aves
-		'''
-}
-
-DuckstepGunEX: {
-	DisplayName: Duckstep R.E.M.I.X.
-	Tooltip: Duckstep Launcher EX
-}
-
-EnderStaff: {
-	DisplayName: Conflagrate Staff
-	Tooltip:
-		'''
-		Summons a spinning construct that shreds through enemies
-		I thought the sky was purple
-		-Ender
-		'''
-}
-
-EnderStaffEX: {
-	DisplayName: Conflagrate Scythe
-	Tooltip:
-		'''
-		Summons a spinning construct that shreds through enemies
-		Conflagrate Staff EX
-		'''
-}
-
-Etheral: {
-	DisplayName: Etheral
-	Tooltip:
-		'''
-			"If in the wrong hands, it can cause devastating damage, so don't give it to me" 
-		-TheRedstoneBro
-		'''
-}
-
-EtheralEX: {
-	DisplayName: Light
-	Tooltip: Etheral EX
-}
-
-FreedomStar: {
-	DisplayName: Freedom Star
-	Tooltip:
-		'''
-		Tails' trusty blaster.
-		Hold the use button to charge, and then release a powerful Charged Shot!
-		Kept you waiting, huh?
-		Tails
-		Mobian Buster EX
-		'''
-}
-
-FuryForger: {
-	DisplayName: Fury Forger
-	Tooltip: Striking enemies causes sparks to fly from them
-}
-
-FuryForgerEX: {
-	DisplayName: Fury Greatforger
-	Tooltip:
-		'''
-		Striking enemies causes an explosion + sparks to fly from them
-		Fury Forger EX
-		'''
-}
-
-GameRaider: {
-	DisplayName: Game Raider
-	Tooltip: Fires explosive Mooshroom Rockets
-}
-
-GentlemansLongblade: {
-	DisplayName: Gentleman's Longblade
-	Tooltip:
-		'''
-		Shoots many spooky dapper top hats
-		Right clicking thrusts the blade forward
-		Left clicking swings the blade
-		Gentleman's Rapier EX
-		'''
-}
-
-GentlemansRapier: {
-	DisplayName: Gentleman's Rapier
-	Tooltip:
-		'''
-		Shoots spooky dapper top hats
-		Right clicking thrusts the blade forward
-		Left clicking swings the blade
-		'Spoopy'
-		-Tied
-		'''
-}
-
-GibsFemur: {
-	DisplayName: Angry Femur
-	Tooltip: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-}
-
-GrimReaperScythe: {
-	DisplayName: Scythe of the Grim Reaper
-	Tooltip:
-		'''
-		Left click to swing and release homing scythe
-		Right click to do dashing hit
-		You are immune during the dash and deal 10x damage in true melee
-		Dashing ability has 10 seconds CD
-		'Well, how many Grim Reapers have you met before, mate?'
-		-Gregg
-		'''
-}
-
-GrimReaperScytheEX: {
-	DisplayName: Soul Shredder
-	Tooltip:
-		'''
-		Left click to swing and release homing scythe
-		Right click to do dashing hit
-		You are immune during the dash and deal 15x damage in true melee
-		Dashing ability has 5 seconds CD
-		'Well, how many Grim Reapers have you met before, mate?'
-		-Gregg
-		Scythe of the Grim Reaper EX
-		'''
-}
-
-GroxNote: {
-	DisplayName: GRealm Advertisement
-	Tooltip:
-		'''
-		'Want more AA content and more Grox-filled fun? Go play GRealm!'
-		-Grox The Great
-		'''
-}
-
-HallamDevWeapon: {
-	DisplayName: Prismeow Spectrum
-	Tooltip:
-		'''
-		Summons a Legendary Rainbow Cat at cursor point
-		Shoots Rainbow Bolts that move in the direction of your cursor
-		Warning: Using this WILL lag your game!
-		Prismeow EX
-		'''
-}
-
-InvokerBook: {
-	DisplayName: Aleister Book
-	Tooltip:
-		'''
-		A Legendary Book of the Mega Therion.
-		10% increased minion damage
-		+2 minion slots
-		Maybe you could make it stronger..?
-		There's a note written on the cover: 
-		I need more powerful souls, *****,*********,**********
-		'''
-}
-
-InvokerBookEX: {
-	DisplayName: The Book of the Law
-	Tooltip:
-		'''
-		A Legendary Book of the Mega Therion.
-		30% increased minion damage
-		+2 minion slots
-		Includes the effects of all the pieces used to make this.
-		'''
-}
-
-InvokerStaff: {
-	DisplayName: Aleister Staff
-	Tooltip: ""
-}
-
-MagicAcorn: {
-	DisplayName: Magic Acorn
-	Tooltip:
-		'''
-		Attracts squirrels to fight with you for glory.
-		'SoonTM'
-		-Fargowilta
-		'''
-}
-
-MagicAcornEX: {
-	DisplayName: Dapper Acorn
-	Tooltip:
-		'''
-		Attracts squirrels to fight with you for glory.
-		'Multiplayer = big meme'
-		-Fargowilta
-		Magic Acorn EX
-		'''
-}
-
-MobianBuster: {
-	DisplayName: Mobian Buster
-	Tooltip:
-		'''
-		A standard issue Mobian blaster.
-		Hold the use button to charge, and then release a powerful Charged Shot!
-		"Remember, the charged shot fires when you RELEASE the trigger, not the other way around." 
-		- Tails
-
-		'''
-}
-
-PineBreaker: {
-	DisplayName: Pine Breaker
-	Tooltip:
-		'''
-		'I don't like egg'
-		-Planterror
-		'''
-}
-
-Placeholder: {
-	DisplayName: Placeholder
-	Tooltip:
-		'''
-		'They will die SoonTM'
-		-Fargo
-		'''
-}
-
-PoniumStaff: {
-	DisplayName: Ponium Staff
-	Tooltip:
-		'''
-		'That's a f***ing REEEEEEEEE if I've ever seen one'
-		-Beg
-		'''
-}
-
-PoniumStaffEX: {
-	DisplayName: Ponium Ultiscepter
-	Tooltip: Ponium Staff EX
-}
-
-Prismeow: {
-	DisplayName: Prismeow
-	Tooltip:
-		'''
-		Fires rainbow cats
-		'Godly'
-		-Hallam
-		'''
-}
-
-Prism: {
-	DisplayName: Prism
-	Tooltip: Shines with the colors of all the gems
-}
-
-CCBookofRunes: {
-	DisplayName: The Book of Runes
-	Tooltip:
-		'''
-		Summons runes according to how many minion slots you have left
-		When player has 1 minion slot it summons terra rune.
-		When player has 2 minion slots it summons terra and chaos rune.
-		When player has 3 minion slots it summons terra, chaos and void rune.
-		'''
-}
-
-CCRuneBookPage: {
-	DisplayName: A Page of RuneBook
-	Tooltip:
-		'''
-		Summons runes according to your minion slots
-		When player has 1 minion slot, it summons bunny rune.
-		When player has 2 minion slots, it summons bunny and discord rune.
-		When player has 3 minion slots, it summons bunny, discord and energy rune.
-		'''
-}
-
-SkrallStaff: {
-	DisplayName: Skrall Staff
-	Tooltip:
-		'''
-		A skraltopian Diamond wrapped in a stick 
-		It's the stick that's magic. The diamond is just for show
-		-Kingskrall
-		'''
-}
-
-Skullshot: {
-	DisplayName: Super Skullshot
-	Tooltip:
-		'''
-		fires a massive spread of bullets at your foes
-		Right click to fire spinning bones at your foe
-		Uses Bullets and Bones as ammo
-		'I have an irrational hatred for gods`
-		-Gibs
-		'''
-}
-
-SkullshotEX: {
-	DisplayName: Supreme Hellshot
-	Tooltip:
-		'''
-		fires a massive spread of bullets at your foes
-		Right click to fire hellskulls at your foe
-		Uses Bullets & Bones as ammo
-		Super Skullshot EX
-		'''
-}
-
-SoccStaff: {
-	DisplayName: Socc on a Stick
-	Tooltip:
-		'''
-		Summons a cotton god to fight for you
-		Only one Socc may exist. 
-		Any summons after one has been summoned will result in a regular Sock
-		Sock Puppet Staff EX
-		'''
-}
-
-SockStaff: {
-	DisplayName: Sock Puppet Staff
-	Tooltip: Summons a sock puppet to fight with you
-}
-
-SoulSiphon: {
-	DisplayName: Soul Siphon
-	Tooltip:
-		'''
-		I swear if you ask me for a song one more time...
-		-Charlie
-		'''
-}
-
-ThunderLord: {
-	DisplayName: Storm Rifle
-	Tooltip:
-		'''
-		Fires off static shots
-		'NUM'
-		-BlazenBreaker
-		'''
-}
-
-ThunderLordEX: {
-	DisplayName: Thunder Lord
-	Tooltip:
-		'''
-		Fires off Thundershots and has a rare chance to shoot a Supercharged Thundershot that calls down Thunder from the sky
-		Storm Rifle EX
-		'''
-}
-
-TimeTeller: {
-	DisplayName: Time Teller
-	Tooltip:
-		'''
-		Damage changes based on time of day
-		Damage is greatest at Midday and Midnight
-		'Time to Die!'
-		-Dallin
-		'''
-}
-
-TitanAxe: {
-	DisplayName: Titan Axe
-	Tooltip:
-		'''
-		Right clicking throws the axe. 
-		Left clicking swings the axe. 
-		'Oof this isn't google' 
-		'-Welox
-		'''
-}
-
-TitanAxeEX: {
-	DisplayName: Titan Slayer
-	Tooltip:
-		'''
-		Left click to quickly swing the axe
-		Right click to throw the axe
-		Titan Axe EX
-		'''
-}
-
-AlphakipTerratool: {
-	DisplayName: Extravagant Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-GroviteTerratool: {
-	DisplayName: Grovite Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-LizTerratool: {
-	DisplayName: Galaxium Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-UmbralReaper: {
-	DisplayName: Umbral Reaper
-	Tooltip:
-		'''
-		Left clicking shoots homing spears 
-		Right clicking shoots a wave of void energy 
-		'I never touched Valkyrie' 
-		'-CMD
-		'''
-}
-
-UmbreonSP: {
-	DisplayName: Blade of Night
-	Tooltip: A dark sword from a dark creature.
-}
-
-UmbreonSPEX: {
-	DisplayName: Umbra
-	Tooltip:
-		'''
-		A dark sword from a dark creature
-		Blade of Night EX
-		'''
-}
-
-AADowner: {
-	DisplayName: AA Downer
-	Tooltip:
-		'''
-		Downs all AA bosses.
-		Non-Consumable
-		'''
-}
-
-AASummonerTest: {
-	DisplayName: AA SummonerTest
-	Tooltip: Test the minion's stat
-}
-
-AAUndowner: {
-	DisplayName: AA Undowner
-	Tooltip:
-		'''
-		Undowns all AA bosses.
-		Non-Consumable
-		'''
-}
-
-AncientOreGenner: {
-	DisplayName: Ancient Ore Genner
-	Tooltip: Generates AA worldgen ore
-}
-
-ChaosConverter: {
-	DisplayName: "[DEV] Chaos Converter"
-	Tooltip: ""
-}
-
-CinematicMount: {
-	DisplayName: Cinematic Mount
-	Tooltip: ""
-}
-
-HardmodeUndowner: {
-	DisplayName: Hardmode Undowner
-	Tooltip:
-		'''
-		Undowns all post-WOF bosses.
-		Non-Consumable
-		'''
-}
-
-NoodleSword: {
-	DisplayName: "[DEV] Noodle Sword"
-	Tooltip: Top 10 op weapons in video games
-}
-
-RogueTest: {
-	DisplayName: "[DEV] Rogue Noodle Sword"
-	Tooltip: Top 10 op weapons in video games
-}
-
-StormTest: {
-	DisplayName: "[DEV] Feather Test"
-	Tooltip: ""
-}
-
-TerrariaUndowner: {
-	DisplayName: Terraria Undowner
-	Tooltip:
-		'''
-		Undowns all Vanilla bosses.
-		Non-Consumable
-		'''
-}
-
-Undowner: {
-	DisplayName: Undowner
-	Tooltip:
-		'''
-		Undowns all bosses.
-		Non-Consumable
-		'''
-}
-
-AbyssalDye: {
-	DisplayName: Abyssal Dye
-	Tooltip: ""
-}
-
-AbyssalWrathDye: {
-	DisplayName: Abyssal Wrath Dye
-	Tooltip: ""
-}
-
-BlazingDye: {
-	DisplayName: Blazing Dye
-	Tooltip: ""
-}
-
-BlazingFuryDye: {
-	DisplayName: Blazing Fury Dye
-	Tooltip: ""
-}
-
-DiscordianDye: {
-	DisplayName: Discordian Dye
-	Tooltip: ""
-}
-
-DiscordianInfernoDye: {
-	DisplayName: Discordian Inferno Dye
-	Tooltip: ""
-}
-
-DoomsdayDye: {
-	DisplayName: Doomsday Dye
-	Tooltip: ""
-}
-
-DesertCrate: {
-	DisplayName: Desert Crate
-	Tooltip: Right click to open
-}
-
-HellCrate: {
-	DisplayName: Hell Crate
-	Tooltip: Right click to open
-}
-
-IceCrate: {
-	DisplayName: Ice Crate
-	Tooltip: Right click to open
-}
-
-InfernoCrate: {
-	DisplayName: Inferno Crate
-	Tooltip: Right click to open
-}
-
-MireCrate: {
-	DisplayName: Mire Crate
-	Tooltip: Right click to open
-}
-
-VoidCrate: {
-	DisplayName: Void Crate
-	Tooltip: Right click to open
-}
-
-ScorchShark: {
-	DisplayName: Scorch Shark
-	Tooltip: ""
-}
-
-SharpeningLavaFish: {
-	DisplayName: Sharpening Lava Fish
-	Tooltip: ""
-}
-
-ShinyCharmFish: {
-	DisplayName: Shiny Charm Fish
-	Tooltip: A kind of rare fish
-}
-
-ShinyCharm: {
-	DisplayName: Shiny Charm
-	Tooltip: A rare charm that allows you to make certain weapons shiny
-}
-
-SwimmingHydra: {
-	DisplayName: Swimming Hydra
-	Tooltip: ""
-}
-
-ToxinMonkfish: {
-	DisplayName: Toxin Monkfish
-	Tooltip: ""
-}
-
-AshJar: {
-	DisplayName: Ash Jar
-	Tooltip: Spreads the Inferno
-}
-
-CorruptionFlask: {
-	DisplayName: Shadow Flask
-	Tooltip: Spreads the Corruption
-}
-
-CrimsonFlask: {
-	DisplayName: Blood Flask
-	Tooltip: Spreads the Crimson
-}
-
-DarkwaterFlask: {
-	DisplayName: Darkwater Flask
-	Tooltip: Spreads the Mire
-}
-
-ForestFlask: {
-	DisplayName: Forest Flask
-	Tooltip: Converts Jungle to Forest
-}
-
-Fungicide: {
-	DisplayName: Fungicide
-	Tooltip: Originally concocted by the Swarm to combat the ever-expending mushroom menace.
-}
-
-GlowingSporeSac: {
-	DisplayName: Glowing Spore Sack
-	Tooltip: Spreads Glowing Mushrooms
-}
-
-HallowFlask: {
-	DisplayName: Crystal Flask
-	Tooltip: Spreads the Hallow
-}
-
-IceFlask: {
-	DisplayName: Ice Flask
-	Tooltip: Spreads the Tundra
-}
-
-IcemeltFlask: {
-	DisplayName: Icemelt Flask
-	Tooltip: Clears the snow biome
-}
-
-JungleFlask: {
-	DisplayName: Jungle Flask
-	Tooltip: Converts Forest into Jungle
-}
-
-OrderBottle: {
-	DisplayName: Order Flask
-	Tooltip: Brings order to the Chaos Biomes
-}
-
-PurityFlask: {
-	DisplayName: Purity Flask
-	Tooltip: Spreads the Forest
-}
-
-SquidList: {
+LovecraftiansResearchList: {
 	DisplayName: Lovecraftian's Research List
 	Tooltip:
 		'''
@@ -5241,1096 +835,7 @@ SquidList: {
 		'''
 }
 
-VoidFlask: {
-	DisplayName: Void Flask
-	Tooltip: Spreads the Void
-}
-
-Void: {
-	DisplayName: Void
-	Tooltip: Made out of pure Dark Matter
-}
-
-DragonsGrip: {
-	DisplayName: Dragon's Grip
-	Tooltip: ""
-}
-
-GripsOfChaos: {
-	DisplayName: The Grips of Chaos
-	Tooltip:
-		'''
-		Fires 2 different hooks depending on which one is already out
-		Red has a longer range
-		Blue pulls in/retracts quicker
-		'''
-}
-
-AncientArcanum: {
-	DisplayName: Ancient Arcanum
-	Tooltip: Releases a homing miniature quazar that explodes upon hitting an enemy
-}
-
-AnubisBlockBook: {
-	DisplayName:
-		'''
-		The Life And Epic Adventures
-		of Anubis the Wonder Dog
-		~Special Edition~
-		'''
-	Tooltip:
-		'''
-		Left click to summon blocks that crush at your cursor's position Horizontally
-		Right click for vertical blocks instead
-		'''
-}
-
-AtlanteanTrident: {
-	DisplayName: Atlantean Trident
-	Tooltip: Fires off a tri-shot of water bolts
-}
-
-BlazePike: {
-	DisplayName: Blaze Pike
-	Tooltip: Very hot to touch
-}
-
-BogBomb: {
-	DisplayName: Bog Bomb
-	Tooltip: Fires an explosive bomb that inflicts venom upon whatever it strikes
-}
-
-CrystalTome: {
-	DisplayName: Crystal Tome
-	Tooltip: Casts crystals that shatter into pieces
-}
-
-Crystal: {
-	DisplayName: Biome Prism
-	Tooltip: A magical prism that can be enhanced with the power of a biome.
-}
-
-Depthsprayer: {
-	DisplayName: Depthsprayer
-	Tooltip: Covers enemies in Hydratoxin
-}
-
-DoomStaff: {
-	DisplayName: Doom Rod
-	Tooltip: ""
-}
-
-DragonsBreath: {
-	DisplayName: Dragon's Breath
-	Tooltip: ""
-}
-
-DragonStaff: {
-	DisplayName: Dragon Staff
-	Tooltip: Shoots dragon scales.
-}
-
-ElectricitySpell: {
-	DisplayName: Electricity Shard
-	Tooltip: It shoots sparks in an even spread.
-}
-
-Fireblast: {
-	DisplayName: Fireblast
-	Tooltip: Shoots an explosive bolt of dragonflame
-}
-
-GelWand: {
-	DisplayName: Flaming Gel Wand
-	Tooltip: It shoots flaming gel
-}
-
-Gong: {
-	DisplayName: Gong
-	Tooltip: ""
-}
-
-GunkWand: {
-	DisplayName: Gunk Wand
-	Tooltip: ""
-}
-
-HiveArtillery: {
-	DisplayName: Hive Artillery
-	Tooltip:
-		'''
-		Shoots dozens of terrifying bees
-		Bees ignore enemy invincibility frames
-		Bee Gun EX
-		'''
-}
-
-MadnessStaff: {
-	DisplayName: Madness Staff
-	Tooltip: ""
-}
-
-MagicFlower: {
-	DisplayName: Magic Flower
-	Tooltip: Pretty
-}
-
-ManaRose: {
-	DisplayName: Mana Rose
-	Tooltip:
-		'''
-		Long and Magical
-		Right Clicking fires a piercing rose
-		'''
-}
-
-NovaFlare: {
-	DisplayName: Nova Flare
-	Tooltip:
-		'''
-		Shoots homing flares from the sky
-		Lunar Flare EX
-		'''
-}
-
-OceanTrident: {
-	DisplayName: Ocean Trident
-	Tooltip: Very slippery
-}
-
-SludgeShot: {
-	DisplayName: Sludge Shot
-	Tooltip: Eew! It's mossy!
-}
-
-Spectrum: {
-	DisplayName: Spectrum
-	Tooltip:
-		'''
-		Focuses a devastating beam of light
-		Last Prism EX
-		'''
-}
-
-StarStaff: {
-	DisplayName: Star Staff
-	Tooltip: ""
-}
-
-SubzeroStaff: {
-	DisplayName: Subzero Storm Staff
-	Tooltip: Blizzard Staff EX
-}
-
-TerraFocus: {
-	DisplayName: Terra Focus
-	Tooltip: Fires shots of terra magic at your foes
-}
-
-TerraRose: {
-	DisplayName: Terra Rose
-	Tooltip:
-		'''
-		Some say this staff was used by the legendary hero themselves
-		Projectiles go through walls
-		Right Clicking fires a piercing rose
-		'''
-}
-
-Toxifang: {
-	DisplayName: Toxifang
-	Tooltip: Shoots Toxic Fangs
-}
-
-TrueGong: {
-	DisplayName: The True Gong
-	Tooltip: MORE GONG
-}
-
-TrueManaRose: {
-	DisplayName: True Mana Rose
-	Tooltip:
-		'''
-		Pretty in Pink
-		Right Clicking fires a piercing rose
-		'''
-}
-
-TrueTerraRose: {
-	DisplayName: True Terra Rose
-	Tooltip:
-		'''
-		Some say this staff was used by the legendary hero themselves
-		Projectiles explode on hit
-		Projectiles go through walls
-		Right Clicking fires a piercing rose
-		Terra Rose EX
-		'''
-}
-
-VenomSpray: {
-	DisplayName: Venom Spray
-	Tooltip: ""
-}
-
-Volley: {
-	DisplayName: Volley
-	Tooltip: Shoots a volley of three flameballs at an even spread
-}
-
-WandOfSparkingEX: {
-	DisplayName: Starburst Wand
-	Tooltip:
-		'''
-		Hold to charge the wand
-		Wand of Sparking EX
-		'''
-}
-
-AbyssiumBar: {
-	DisplayName: Abyssium Bar
-	Tooltip: Solid Darkness
-}
-
-ApocalyptitePlate: {
-	DisplayName: Apocalyptite Plate
-	Tooltip: A forboding energy rings from this metal plating
-}
-
-ChaosCrystal: {
-	DisplayName: Chaos Prism
-	Tooltip: Imbued with the discordian flames of chaos
-}
-
-Chaos: {
-	DisplayName: Chaos
-	Tooltip: Wrath and fury upon those struck by this discordian blade
-}
-
-CovetiteCrystal: {
-	DisplayName: Covetite Crystal
-	Tooltip:
-		'''
-		You have a strange desire for this crystal, 
-		despite you already owning it.
-		'''
-}
-
-DarkEnergy: {
-	DisplayName: Dark Energy
-	Tooltip: It's oddly weightless
-}
-
-DarkMatter: {
-	DisplayName: Dark Matter
-	Tooltip: The building blocks of physics itself
-}
-
-Darkshroom: {
-	DisplayName: Lunar Mushroom
-	Tooltip: Only grows at night
-}
-
-DeepAbyssium: {
-	DisplayName: Deep Abyssium Bar
-	Tooltip: It's a wonder you can even see it, it's so dark
-}
-
-DesertMana: {
-	DisplayName: Desert Mana
-	Tooltip: ""
-}
-
-DevilSilk: {
-	DisplayName: Devil Silk
-	Tooltip: Physical Sin; feels good, but it isn't a good long-lasting material
-}
-
-Discordium: {
-	DisplayName: Discordium
-	Tooltip: The World Chaoses melded together into a single, powerful bar
-}
-
-DoomiteScrap: {
-	DisplayName: Doomite Scrap
-	Tooltip:
-		'''
-		It's worthless
-		...or is it?
-		'''
-}
-
-Dracokarp: {
-	DisplayName: Dracokarp
-	Tooltip: ""
-}
-
-DragonClaw: {
-	DisplayName: Dragon Claw
-	Tooltip: Don't prick yourself
-}
-
-DragonFire: {
-	DisplayName: Dragon's Fire
-	Tooltip: It's really really hot.
-}
-
-DragonScale: {
-	DisplayName: Dragon Scale
-	Tooltip: ""
-}
-
-DragonSpirit: {
-	DisplayName: Dragon Spirit
-	Tooltip: It looks apple-flavored
-}
-
-HeroShards: {
-	DisplayName: Hero Relics
-	Tooltip: Shards of a shattered relic
-}
-
-Hotshroom: {
-	DisplayName: Solar Mushroom
-	Tooltip: Only grows during the day
-}
-
-HydraClaw: {
-	DisplayName: Hydra Claw
-	Tooltip: Don't prick yourself
-}
-
-HydraToxin: {
-	DisplayName: Bogtoxin
-	Tooltip: Exceedingly corrosive venom.
-}
-
-IncineriteBar: {
-	DisplayName: Incinerite Bar
-	Tooltip: Careful. It's hot.
-}
-
-M79Parts: {
-	DisplayName: M79 Parts
-	Tooltip: ""
-}
-
-MadnessFragment: {
-	DisplayName: Madness Fragment
-	Tooltip: ""
-}
-
-MirePod: {
-	DisplayName: Mire Pod
-	Tooltip: ""
-}
-
-OceanWhisper: {
-	DisplayName: Ocean Whisper
-	Tooltip: Sounds of the soft ocean waves eminate from this enchanted aura
-}
-
-OrderBar: {
-	DisplayName: Order Bar
-	Tooltip: Glows with the power of unity
-}
-
-PlanteraPetal: {
-	DisplayName: Plantera Petal
-	Tooltip: It's very pink
-}
-
-PrimevalSkull: {
-	DisplayName: Primeval Skull
-	Tooltip: Energy from an age since passed radiates from this ancient fossil
-}
-
-PureEvil: {
-	DisplayName: Pure Evil
-	Tooltip: So insidious, you feel guilty just looking at it
-}
-
-RadiantIncinerite: {
-	DisplayName: Radiant Incinerite Bar
-	Tooltip: You can barely look at it, it's so bright
-}
-
-RadiumBar: {
-	DisplayName: Radium Bar
-	Tooltip: It's sparkly
-}
-
-RelicBar: {
-	DisplayName: Relic Bar
-	Tooltip: ""
-}
-
-RoyalRabbit: {
-	DisplayName: Royal Rabbit
-	Tooltip: Under direct protection by the Pouncing Punisher
-}
-
-SearingSpark: {
-	DisplayName: Searing Spark
-	Tooltip: ""
-}
-
-SeraphFeather: {
-	DisplayName: Seraph Feather
-	Tooltip: A silvery feather from a harpy seraph
-}
-
-SnowMana: {
-	DisplayName: Snow Mana
-	Tooltip: ""
-}
-
-SoulOfSmite: {
-	DisplayName: Soul of Smite
-	Tooltip: The essence of Inferno creatures
-}
-
-SoulOfSpite: {
-	DisplayName: Soul of Spite
-	Tooltip: The essence of Mire creatures
-}
-
-Stardust: {
-	DisplayName: Radiant Photon
-	Tooltip: A shard of the heavenly cosmos
-}
-
-SwampKoi: {
-	DisplayName: Swamp Koi
-	Tooltip: ""
-}
-
-TerraCrystal: {
-	DisplayName: Terra Prism
-	Tooltip: Imbued with the unified harmony of the land of Terraria
-}
-
-TerraShard: {
-	DisplayName: Terra Shard
-	Tooltip: ""
-}
-
-TerrorSoul: {
-	DisplayName: Terror Soul
-	Tooltip: ""
-}
-
-VikingRelic: {
-	DisplayName: Viking Relic
-	Tooltip: ""
-}
-
-vulture_feather: {
-	DisplayName: Vulture Feather
-	Tooltip: ""
-}
-
-AbyssalTwilight: {
-	DisplayName: Abyssal Twilight
-	Tooltip: The Eternal Dusk Beckons
-}
-
-Aerodrake: {
-	DisplayName: Aerodrake
-	Tooltip: Flying Dragon EX
-}
-
-AncientPoker: {
-	DisplayName: Aqua Lance
-	Tooltip: ""
-}
-
-Apocalypse: {
-	DisplayName: Apocalypse
-	Tooltip:
-		'''
-		The Flaming Jacks travel towards the sunset, where
-		souls travel to reach the afterlife.
-		Horseman's Blade EX
-		'''
-}
-
-AsgardianLance: {
-	DisplayName: Asgardian Lance
-	Tooltip: ""
-}
-
-Axis: {
-	DisplayName: Axis
-	Tooltip:
-		'''
-		Enemies struck by this spear will be surrounded by snowflakes
-		North Pole EX
-		'''
-}
-
-BackScratcher: {
-	DisplayName: Back Scratcher
-	Tooltip: ""
-}
-
-BladeOfEvil: {
-	DisplayName: Blade of Evil
-	Tooltip:
-		'''
-		The perfect balance between Corruption and Crimson
-		Shoots alternating fireballs of Ichor and Cursed Flames
-		'''
-}
-
-BlazingDawn: {
-	DisplayName: Blazing Dawn
-	Tooltip: The Radiant Dawn calls
-}
-
-BloodyMary: {
-	DisplayName: Bloody Mary
-	Tooltip: ""
-}
-
-BreakingDawn: {
-	DisplayName: Breaking Dawn
-	Tooltip: ""
-}
-
-BugSwatter: {
-	DisplayName: Bug Swatter
-	Tooltip: Does extra damage to creepy crawlies
-}
-
-CarnalCrusher: {
-	DisplayName: Carnal Crusher
-	Tooltip: Critical Hits heal you
-}
-
-ChaosChain: {
-	DisplayName: Chaos Chain
-	Tooltip: Throws a volitile sphere of chaotic energy
-}
-
-ChaosChainEX: {
-	DisplayName: Perfect Chaos Chain
-	Tooltip:
-		'''
-		Fires a spinning blade that shreds enemies
-		Chaos Chain EX
-		'''
-}
-
-ChaosScythe: {
-	DisplayName: Final Chaos
-	Tooltip:
-		'''
-		'I CAN DO ANYTHING'
-		Legendary Weapon
-		'''
-}
-
-ChaosYari: {
-	DisplayName: Chaos Yari
-	Tooltip: ""
-}
-
-ChaosYariEX: {
-	DisplayName: Perfect Chaos Yari
-	Tooltip: Chaos Yari EX
-}
-
-Chicken: {
-	DisplayName: Rubber Chicken
-	Tooltip: ""
-}
-
-CloudEdge: {
-	DisplayName: Cloud Edge
-	Tooltip: Shoots cloud projectiles
-}
-
-CrystalShortsword: {
-	DisplayName: Harmony Shortsword
-	Tooltip: ""
-}
-
-CthulhusBlade: {
-	DisplayName: Cthulhu's Blade
-	Tooltip: ""
-}
-
-DarkShredders: {
-	DisplayName: Reality Shredders
-	Tooltip: Blades made out of Dark matter. Inflicts the Electified debuff
-}
-
-DeathDaggers: {
-	DisplayName: Death Daggers
-	Tooltip: Throw life stealing daggers that inflict Hydratoxin
-}
-
-Depthwalker: {
-	DisplayName: Depthwalker
-	Tooltip: Walk the Hydra
-}
-
-DesertScimitar: {
-	DisplayName: Desert Scimitar
-	Tooltip: ""
-}
-
-DMSlasher: {
-	DisplayName: Darkmatter Slasher
-	Tooltip: ""
-}
-
-DoomiteSaber: {
-	DisplayName: Doomite Saber
-	Tooltip: ""
-}
-
-DraculaKnives: {
-	DisplayName: Dracula Knives
-	Tooltip:
-		'''
-		Rapidly throw life stealing daggers
-		Vampire Knives EX
-		'''
-}
-
-DragonBlade: {
-	DisplayName: Dragon Blade
-	Tooltip: Shoots tiny swords!
-}
-
-DragonBreath: {
-	DisplayName: The Dragon's Breath
-	Tooltip: It must need to brush it's teeth
-}
-
-DragonFang: {
-	DisplayName: Dragon Fang
-	Tooltip: Right click to slash at your foes with the grace of a Valkyrie
-}
-
-DragonGlove: {
-	DisplayName: Dragon Glove
-	Tooltip: ""
-}
-
-Dragonkite: {
-	DisplayName: Dragonkite
-	Tooltip: ""
-}
-
-DuskBringer: {
-	DisplayName: Dusk Bringer
-	Tooltip: ""
-}
-
-Executioner: {
-	DisplayName: Executioner
-	Tooltip: ""
-}
-
-ExilesKatana: {
-	DisplayName: Exile's Katana
-	Tooltip: Formed with the unyielding wrath of the depths.
-}
-
-Firestorm: {
-	DisplayName: Firestorm
-	Tooltip: Launches bouncing fireballs on swing
-}
-
-FlamingFury: {
-	DisplayName: Flaming Fury
-	Tooltip: Forged with the kindled rage of ancient dragons.
-}
-
-FleshrendClaymore: {
-	DisplayName: Flesh Claymore
-	Tooltip: Stained with the blood of your fallen foes.
-}
-
-AmberGreatsword: {
-	DisplayName: Amber Greatsword
-	Tooltip: ""
-}
-
-AmberSaber: {
-	DisplayName: Amber Saber
-	Tooltip: ""
-}
-
-AmethystGreatsword: {
-	DisplayName: Amethyst Greatsword
-	Tooltip: ""
-}
-
-AmethystSaber: {
-	DisplayName: Amethyst Saber
-	Tooltip: ""
-}
-
-DiamondGreatsword: {
-	DisplayName: Diamond Greatsword
-	Tooltip: ""
-}
-
-DiamondSaber: {
-	DisplayName: Diamond Saber
-	Tooltip: ""
-}
-
-EmeraldGreatsword: {
-	DisplayName: Emerald Greatsword
-	Tooltip: ""
-}
-
-EmeraldSaber: {
-	DisplayName: Emerald Saber
-	Tooltip: ""
-}
-
-Poppy: {
-	DisplayName: Poppy
-	Tooltip: ""
-}
-
-PrismaticGreatsword: {
-	DisplayName: Prismatic Greatsword
-	Tooltip: ""
-}
-
-RubyGreatsword: {
-	DisplayName: Ruby Greatsword
-	Tooltip: ""
-}
-
-RubySaber: {
-	DisplayName: Ruby Saber
-	Tooltip: ""
-}
-
-SapphireGreatsword: {
-	DisplayName: Sapphire Greatsword
-	Tooltip: ""
-}
-
-SapphireSaber: {
-	DisplayName: Sapphire Saber
-	Tooltip: ""
-}
-
-TopazGreatsword: {
-	DisplayName: Topaz Greatsword
-	Tooltip: ""
-}
-
-TopazSaber: {
-	DisplayName: Topaz Saber
-	Tooltip: ""
-}
-
-GlacierBreaker: {
-	DisplayName: Glacier Breaker
-	Tooltip: Drops Icicles while the flail travels
-}
-
-GrassSpear: {
-	DisplayName: Grass Spear
-	Tooltip: ""
-}
-
-GuardianNight: {
-	DisplayName: Guardian of the Depths
-	Tooltip: ""
-}
-
-HydraGlove: {
-	DisplayName: Hydra Glove
-	Tooltip: ""
-}
-
-HydrasSpear: {
-	DisplayName: Hydra Spear
-	Tooltip: ""
-}
-
-IceLongsword: {
-	DisplayName: Ice Longsword
-	Tooltip: Chuck literal ice at your foes instead of that wimpy little snow bolt
-}
-
-IchorSpear: {
-	DisplayName: Ichor Spear
-	Tooltip: Inflicts Ichor to enemy on hit
-}
-
-IllumantFlail: {
-	DisplayName: Illuminant Flail
-	Tooltip: ""
-}
-
-Incineration: {
-	DisplayName: Incineration
-	Tooltip: Spinning Singe
-}
-
-JungleReaper: {
-	DisplayName: Jungle Reaper
-	Tooltip: It's a scythe. Calm down Welox.
-}
-
-Lolkat: {
-	DisplayName: The Lolkat
-	Tooltip:
-		'''
-		WHAT DOES IT MEAN?!?!?!111!!11
-		Meowmere EX
-		'''
-}
-
-MadnessSword: {
-	DisplayName: Madness Saber
-	Tooltip: ""
-}
-
-MagicSword: {
-	DisplayName: Mana Blade
-	Tooltip: Fires Homing projectiles at the cost of mana
-}
-
-MidasClub: {
-	DisplayName: Midas Club
-	Tooltip: Hit stuff for more cash
-}
-
-MoltenLance: {
-	DisplayName: Molten Lance
-	Tooltip: Makes instant barbeque shish kebabs!
-}
-
-MushMace: {
-	DisplayName: Mushmace
-	Tooltip: ""
-}
-
-OceanRazor: {
-	DisplayName: Ocean Razor
-	Tooltip: Salty
-}
-
-Pyrosphere: {
-	DisplayName: Pyrosphere
-	Tooltip: ""
-}
-
-RaiderLance: {
-	DisplayName: Raider Lance
-	Tooltip: ""
-}
-
-RomulusTazesaber: {
-	DisplayName: Romulus' Tazesaber
-	Tooltip: A fulgarian Tazesaber stolen from a respected hero.
-}
-
-RustyCutlass: {
-	DisplayName: Rusty Cutlass
-	Tooltip: Even being rusty, it's still hard 'n sharp
-}
-
-Ryusei: {
-	DisplayName: Ryusei
-	Tooltip: Ignites enemies on hit with flames and Dragonfire
-}
-
-SaltwaterSpear: {
-	DisplayName: Saltwater Spear
-	Tooltip: ""
-}
-
-SandScimitar: {
-	DisplayName: Sand Scimitar
-	Tooltip: ""
-}
-
-ScorchDagger: {
-	DisplayName: Scorch Dagger
-	Tooltip: ""
-}
-
-ScourgeOfShadows: {
-	DisplayName: Scourge of the Shadows
-	Tooltip:
-		'''
-		Bounce off tiles up to 3 times
-		Breaks after hitting an enemy
-		Sprays little eaters while travelling and on enemy hit
-		Scourge of the Corruptor EX
-		'''
-}
-
-Scourge: {
-	DisplayName: Scourge
-	Tooltip:
-		'''
-		Turns bullets into cursed bullets!
-		24% chance not to consume ammo.
-		'''
-}
-
-ScytheOfDecay: {
-	DisplayName: Scythe of Evil
-	Tooltip:
-		'''
-		The scythe of the lord of death himself
-		Inflicts Ichor and Cursed Inferno
-		Death Sickle EX
-		'''
-}
-
-SlapBone: {
-	DisplayName: Slap Bone
-	Tooltip:
-		'''
-		The smallest smack will send your enemies into orbit!
-		Slap Hand EX
-		'''
-}
-
-StarWrathEX: {
-	DisplayName: Cosmic Fury
-	Tooltip:
-		'''
-		Causes stars to rain from the sky
-		Stars can reach enemies through any obstacles
-		Star Wrath EX
-		'''
-}
-
-SunLance: {
-	DisplayName: Sun Halberd
-	Tooltip: ""
-}
-
-TerraBladeEX: {
-	DisplayName: True Terra Blade
-	Tooltip:
-		'''
-		Shoots homing projectiles that inflict terrablaze
-		Terra Blade EX
-		'''
-}
-
-TerraShortsword: {
-	DisplayName: Terra Broadsword
-	Tooltip: ""
-}
-
-TrueAbyssalTwilight: {
-	DisplayName: Dread Twilight
-	Tooltip: The rising moon incarnate
-}
-
-TrueBlazingDawn: {
-	DisplayName: Draconian Dawn
-	Tooltip: The True blade of the Rising Sun
-}
-
-TrueCopperShortsword: {
-	DisplayName: True Copper Shortsword
-	Tooltip: Literally just did it for the memes
-}
-
-TrueCopperShortswordEX: {
-	DisplayName: Ultima Shortsword
-	Tooltip: Copper Shortsword EX
-}
-
-TrueFleshrendClaymore: {
-	DisplayName: True Fleshrend Claymore
-	Tooltip:
-		'''
-		Inflics Ichor on your target
-		Despite the name, it's not actually made of flesh
-		'''
-}
-
-TrueTinShortsword: {
-	DisplayName: True Tin Shortsword
-	Tooltip: The true blade of shadows
-}
-
-VikingPolearm: {
-	DisplayName: Viking Polearm
-	Tooltip: ""
-}
-
-Voidsaber: {
-	DisplayName: Voidsaber
-	Tooltip: ""
-}
-
-Yogan: {
-	DisplayName: Yogan
-	Tooltip: Ignites enemies on hit
-}
-
-AnubisBook: {
-	DisplayName:
-		'''
-		The Life and Epic Adventures 
-		of Anubis the Wonder Dog!
-		'''
-	Tooltip:
-		'''
-		A very...interesting take on the life and misadventures of
-		Anubis the Legendscribe. Maybe if you give this to him he'll
-		give you something for it.
-		'''
-}
-
-Fishmother: {
-	DisplayName: Fishmother
-	Tooltip: ""
-}
-
-GlitchFish: {
-	DisplayName: Glitch Fish
-	Tooltip: ""
-}
-
-TriHeadedKoi: {
-	DisplayName: Tri-headed Koi
-	Tooltip: ""
-}
-
-Blue: {
-	DisplayName: Blue Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-Brown: {
-	DisplayName: Brown Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-Gray: {
-	DisplayName: Gray Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-Green: {
-	DisplayName: Green Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-MadnessShroom: {
+MadnessMushroom: {
 	DisplayName: Madness Mushroom
 	Tooltip:
 		'''
@@ -6339,2770 +844,23 @@ MadnessShroom: {
 		'''
 }
 
-Orange: {
-	DisplayName: Orange Alchemical Mushroom
-	Tooltip: It smells weird
+GravitySphere: {
+	DisplayName: Gravity Sphere
+	Tooltip: A stone model of the planet, complete with an orbitting moon!
 }
 
-Pink: {
-	DisplayName: Pink Alchemical Mushroom
-	Tooltip: It smells weird
+StarChart: {
+	DisplayName: Star Chart
+	Tooltip: A map of the solar system up to this planet.
 }
 
-Purple: {
-	DisplayName: Purple Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-Rainbow: {
-	DisplayName: Rainbow Mushroom
-	Tooltip: You're not really sure if it's colorful naturally or because you're high.
-}
-
-Red: {
-	DisplayName: Red Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-Yellow: {
-	DisplayName: Yellow Alchemical Mushroom
-	Tooltip: It smells weird
-}
-
-Bomb: {
-	DisplayName: Paper Bomb
-	Tooltip: ""
-}
-
-BroodEgg: {
-	DisplayName: Scorched Egg
-	Tooltip: What will hatch from this egg?
-}
-
-CerberusWhistle: {
-	DisplayName: Hades' Whistle
-	Tooltip: Summons the guard dog of the king of the underworld himself
-}
-
-DragonsSoul: {
-	DisplayName: Dragon Soul
-	Tooltip:
-		'''
-		Summons a Dragon Soul
-		It feels hot, but comforting...
-		'''
-}
-
-GlowmossBall: {
-	DisplayName: Glowing Moss Ball
-	Tooltip:
-		'''
-		Summons a glowmoss ball
-		Don?t ask what makes it glow, Trust me
-		'''
-}
-
-K9Collar: {
-	DisplayName: K9 Collar
-	Tooltip: Summons a robotic buddy
-}
-
-LunaminiJar: {
-	DisplayName: Moon Bee in a Jar
-	Tooltip: Summons a Lunamini
-}
-
-MudkipBall: {
-	DisplayName: Mud Fish Ball
-	Tooltip: It seems to have something in it already
-}
-
-MudkipBallS: {
-	DisplayName: Shiny Fish Ball
-	Tooltip: It seems to have something in it already
-}
-
-PortaProbe: {
-	DisplayName: Porta-Probe
-	Tooltip: Take a little life-seeking robot with you!
-}
-
-RoyalStar: {
-	DisplayName: Royal Star
-	Tooltip: Summons a very pretty kitty
-}
-
-Seashroom: {
-	DisplayName: Seashroom
-	Tooltip: It smells like fish
-}
-
-ZeroCore: {
-	DisplayName: Zero Core
-	Tooltip: Summons a creature-detecting ZER0 lite
-}
-
-DragonfireFlask: {
-	DisplayName: Flask of Dragonfire
-	Tooltip: Melee attacks inflict Dragonflame
-}
-
-GrandHealingPotion: {
-	DisplayName: Grand Healing Potion
-	Tooltip: ""
-}
-
-GrandManaPotion: {
-	DisplayName: Grand Mana Potion
-	Tooltip: ""
-}
-
-HydratoxinFlask: {
-	DisplayName: Flask of Hydratoxin
-	Tooltip: Melee attacks inflict hydratoxin
-}
-
-LuckyCracker: {
-	DisplayName: Lucky Cracker
-	Tooltip: She said it can make you lucky. Do you trust her?
-}
-
-LuckyCalmingPotion: {
-	DisplayName: Lucky Calming Potion
-	Tooltip: Reduces enemy aggression
-}
-
-LuckyEndurancePotion: {
-	DisplayName: Lucky Endurance Potion
-	Tooltip:
-		'''
-		Reduces damage taken by 10%
-		Increase your 10% defense
-		'''
-}
-
-LuckyIronskinPotion: {
-	DisplayName: Lucky Ironskin Potion
-	Tooltip: Increase defense by 9
-}
-
-LuckyLifeforcePotion: {
-	DisplayName: Lucky Lifeforce Potion
-	Tooltip: Increases max life by 21%
-}
-
-LuckyRagePotion: {
-	DisplayName: Lucky Rage Potion
-	Tooltip: Increases critical chance by 11%
-}
-
-LuckyRegenerationPotion: {
-	DisplayName: Lucky Regeneration Potion
-	Tooltip: Provides life regeneration
-}
-
-LuckySummoningPotion: {
-	DisplayName: Lucky Summoning Potion
-	Tooltip: Increases your max number of minions and sentries
-}
-
-LuckySwiftnessPotion: {
-	DisplayName: Lucky Swiftness Potion
-	Tooltip: 26% increased movement speed
-}
-
-LuckyThornsPotion: {
-	DisplayName: Lucky Thorns Potion
-	Tooltip: Attackers also take damage
-}
-
-LuckyWrathPotion: {
-	DisplayName: Lucky Wrath Potion
-	Tooltip: Increases damage by 11%
-}
-
-RoninPotion: {
-	DisplayName: Ronin Potion
-	Tooltip: When you don't get hurt, you will have 3s immune time
-}
-
-TheBigOne: {
-	DisplayName: The Big One
-	Tooltip: ""
-}
-
-AbyssalPentashot: {
-	DisplayName: Abyssal Pentashot
-	Tooltip: ""
-}
-
-AbyssalShadowshot: {
-	DisplayName: Abyssal Shadowshot
-	Tooltip: Fires a homing shadow blast as well as a a blast of 6 bullets
-}
-
-Alien_Rifle: {
-	DisplayName: Alien Rifle
-	Tooltip: Uses energy cells as ammo
-}
-
-ChaosArrow: {
-	DisplayName: Chaos Arrow
-	Tooltip: Inflicts randomly selected debuff on hit
-}
-
-DarkmatterArrow: {
-	DisplayName: Darkmatter Arrow
-	Tooltip: ""
-}
-
-DaybreakBullet: {
-	DisplayName: Daybreak Bullet
-	Tooltip: ""
-}
-
-DragonArrow: {
-	DisplayName: Dragon Arrow
-	Tooltip: Has stronger knockback than most arrows
-}
-
-DragonfireArrow: {
-	DisplayName: Dragonfire Arrow
-	Tooltip: Inflicts Dragonfire debuff on hit
-}
-
-DragonfireBullet: {
-	DisplayName: Dragonfire Bullet
-	Tooltip: ""
-}
-
-DragonfireDart: {
-	DisplayName: Dragonfire Dart
-	Tooltip: ""
-}
-
-Energy_Cell: {
-	DisplayName: Energy Cell
-	Tooltip: ""
-}
-
-EventideBullet: {
-	DisplayName: Eventide Bullet
-	Tooltip: ""
-}
-
-HydratoxinArrow: {
-	DisplayName: Hydratoxin Arrow
-	Tooltip: Inflicts Hydratoxin debuff on hit
-}
-
-HydratoxinBullet: {
-	DisplayName: Hydratoxin Bullet
-	Tooltip: ""
-}
-
-HydratoxinDart: {
-	DisplayName: Hydratoxin Dart
-	Tooltip: ""
-}
-
-M79Round: {
-	DisplayName: M79 Round
-	Tooltip: ""
-}
-
-M79: {
-	DisplayName: M79
-	Tooltip:
-		'''
-		Uses M79 Rounds as ammo
-		33% chance not to consume ammo
-		'''
-}
-
-OrderArrow: {
-	DisplayName: Order Arrow
-	Tooltip: Ignores up to 30 of enemy defense
-}
-
-RadiumArrow: {
-	DisplayName: Radium Arrow
-	Tooltip: ""
-}
-
-ReaperArrow: {
-	DisplayName: Reaper Arrow
-	Tooltip: This arrow can shoot through walls
-}
-
-TerraArrow: {
-	DisplayName: Terra Arrow
-	Tooltip:
-		'''
-		Homes in on enemies
-		Not Consumable
-		'''
-}
-
-ApollosWrath: {
-	DisplayName: Apollo's Wrath
-	Tooltip:
-		'''
-		Shoots Shadow beams
-		Doesn't use Ammo
-		'''
-}
-
-Battlestar: {
-	DisplayName: Battlestar
-	Tooltip:
-		'''
-		Turns bullets into chlorophyte bullets!
-		32% chance not to consume ammo.
-		'''
-}
-
-Blastshot: {
-	DisplayName: Blastshot
-	Tooltip: Consumes Gel
-}
-
-BoneBow: {
-	DisplayName: Bone Bow
-	Tooltip: Replaces Wooden Arrows with Bone Arrows
-}
-
-Bonesaw: {
-	DisplayName: Bonesaw
-	Tooltip:
-		'''
-		Turns bullets into ichor bullets!
-		16% chance not to consume ammo.
-		'''
-}
-
-Bubbleshot: {
-	DisplayName: Bubbleshot
-	Tooltip: ""
-}
-
-ChaosJavelin: {
-	DisplayName: Chaos Javelin
-	Tooltip: Explodes on contact
-}
-
-ChaosJavelinEX: {
-	DisplayName: Perfect Chaos Javelin
-	Tooltip:
-		'''
-		Explodes on contact
-		Chaos Javelin EX
-		'''
-}
-
-ChaosShot: {
-	DisplayName: Chaos Bustershot
-	Tooltip: Fires a piercing dualblast as well as a spread of 6 bullets
-}
-
-ChaosShotEX: {
-	DisplayName: Perfect Chaos Bustershot
-	Tooltip:
-		'''
-		Fires a piercing dualblast as well as a spread of 10 bullets
-		Chaos Bustershot EX
-		'''
-}
-
-CoinPistol: {
-	DisplayName: Coin Pistol
-	Tooltip: Coins do half of their normal damage
-}
-
-CoralBow: {
-	DisplayName: Coral Bow
-	Tooltip: Somehow better than a metallic bow
-}
-
-CosmicCarbine: {
-	DisplayName: Cosmic Carbine
-	Tooltip: Uses energy cells as ammo
-}
-
-Deagle: {
-	DisplayName: Deagle
-	Tooltip: ""
-}
-
-DeathlyLongbow: {
-	DisplayName: Deathly Longbow
-	Tooltip: Replaces Bone Arrows with Flaming Skulls
-}
-
-DoomGun: {
-	DisplayName: Doom Pistol
-	Tooltip: ""
-}
-
-DoomiteAssaultBlaster: {
-	DisplayName: Doomite Assault Blaster
-	Tooltip: ""
-}
-
-DoomiteHolobow: {
-	DisplayName: Doomite Holobow
-	Tooltip: ""
-}
-
-DragonFlamebow: {
-	DisplayName: Dragon Flamebow
-	Tooltip: Transforms arrows into Dragon Arrows
-}
-
-DragonsMaw: {
-	DisplayName: Dragons Maw
-	Tooltip: Transforms arrows into Dragon Arrows
-}
-
-DragonSpine: {
-	DisplayName: Dragon's Spine
-	Tooltip: ""
-}
-
-DynaskullJavelin: {
-	DisplayName: Dynaskull Javelin
-	Tooltip: If stuck in an enemy and that enemy dies, releases a homing bolt of Dyna-Energy
-}
-
-Festivity: {
-	DisplayName: Independence
-	Tooltip:
-		'''
-		Shoots 3 firework rockets
-		Celebration EX
-		'''
-}
-
-Flare_Minigun: {
-	DisplayName: Flare Minigun
-	Tooltip:
-		'''
-		Shoots dozens of flares in rapid succession
-		33% chance not to consume flares
-		Right-click to disable all flares
-		'''
-}
-
-FossilBoneslinger: {
-	DisplayName: Fossil Boneslinger
-	Tooltip: ""
-}
-
-HK_MP5: {
-	DisplayName: HK MP5
-	Tooltip: Turns bullets into explosive bullets!
-}
-
-HydraTrishot: {
-	DisplayName: Hydra Trishot
-	Tooltip: ""
-}
-
-Incapacitator: {
-	DisplayName: Incapacitator
-	Tooltip: ""
-}
-
-L85A2: {
-	DisplayName: L85A2
-	Tooltip: Turns bullets into high-velocity bullets!
-}
-
-Laser_Rifle: {
-	DisplayName: Laser Carbine
-	Tooltip: Uses energy cells as ammo
-}
-
-MadnessBow: {
-	DisplayName: Madness Bow
-	Tooltip: ""
-}
-
-MidasGun: {
-	DisplayName: Midas Blaster
-	Tooltip: Shoot stuff and get more money.
-}
-
-Mushbow: {
-	DisplayName: Mushroom Bow
-	Tooltip: ""
-}
-
-OdinsBlade: {
-	DisplayName: Odin's Iceblade
-	Tooltip: Looks like Greed accidentally snagged this at some point from someone
-}
-
-PrimevalJavelin: {
-	DisplayName: Primeval Javelin
-	Tooltip: If stuck in an enemy and that enemy dies, releases 4 homing bolts of Dyna-Energy
-}
-
-PurityString: {
-	DisplayName: Crystal Bow
-	Tooltip: ""
-}
-
-Railjaw: {
-	DisplayName: Railjaw
-	Tooltip: ""
-}
-
-RustyCrossbow: {
-	DisplayName: Rusty Crossbow
-	Tooltip: ""
-}
-
-SharkLauncher: {
-	DisplayName: Shark Launcher
-	Tooltip:
-		'''
-		Launches latching deadly shark
-		Piranha Gun EX
-		'''
-}
-
-ShootingStar: {
-	DisplayName: Shooting Star
-	Tooltip: ""
-}
-
-SingularityCannon: {
-	DisplayName: Singularity Cannon
-	Tooltip: ""
-}
-
-Skystrike: {
-	DisplayName: Skystrike
-	Tooltip:
-		'''
-		Drops Aerial Bane arrows from the sky
-		Initial arrows ignore tiles
-		Aerial Bane EX
-		'''
-}
-
-TerraBallista: {
-	DisplayName: Terra Ballista
-	Tooltip: Replaces Arrows with Terra Arrows
-}
-
-TheSquirter: {
-	DisplayName: The Squirter
-	Tooltip: Doesnt use ammo
-}
-
-TheVulcano: {
-	DisplayName: The Vulcan
-	Tooltip: Turns Gel into an explosive lob of magma
-}
-
-Toxithrower: {
-	DisplayName: Toxithrower
-	Tooltip: Uses gel for ammo
-}
-
-TrueDeathlyLongbow: {
-	DisplayName: Deathly Ghastbow
-	Tooltip:
-		'''
-		Replaces Arrows with Reaper Arrows
-		Fires an explosive ghast skull every other shot
-		'''
-}
-
-TrueTerraBallista: {
-	DisplayName: Unity Ballista
-	Tooltip:
-		'''
-		Replaces Arrows with Terra Arrows
-		Shoots 3 waves of 3 arrows on single use
-		Terra Ballista EX
-		'''
-}
-
-UWAM: {
-	DisplayName: U.W.A.M.
-	Tooltip:
-		'''
-		Shoots hundreds of bullets with a very low spread
-		Have a chance to shoot sharks, dealing 2x damage
-		88% chance not to consume ammo
-		S.D.M.G. EX
-		'''
-}
-
-Winterbreak: {
-	DisplayName: Winterbreak
-	Tooltip: ""
-}
-
-Godly: {
-	DisplayName: Godly Soul
-	Tooltip:
-		'''
-		Gives a weapon the ''Godly'' prefix if it is possible
-		Right-click weapon with the soul to set prefix
-		Consumes in process
-		'''
-}
-
-Legendary: {
-	DisplayName: Legendary Soul
-	Tooltip:
-		'''
-		Gives a weapon the ''Legendary'' prefix if it is possible
-		Right-click weapon with the soul to set prefix
-		Consumes in process
-		'''
-}
-
-Mythical: {
-	DisplayName: Mythical Soul
-	Tooltip:
-		'''
-		Gives a weapon the ''Mythical'' prefix if it is possible
-		Right-click weapon with the soul to set prefix
-		Consumes in process
-		'''
-}
-
-Unreal: {
-	DisplayName: Unreal Soul
-	Tooltip:
-		'''
-		Gives a weapon the ''Unreal'' prefix if it is possible
-		Right-click weapon with the soul to set prefix
-		Consumes in process
-		'''
-}
-
-BlizzardDragonStaff: {
-	DisplayName: Blizzard Dragon Staff
-	Tooltip:
-		'''
-		Summons a blizzard dragon to fight for you
-		Hydra Staff EX
-		'''
-}
-
-ChaosRitual: {
-	DisplayName: Chaos Ritual
-	Tooltip: Summons a chaos construct to fight with you
-}
-
-ChaosRitualEX: {
-	DisplayName: Perfect Chaos Ritual
-	Tooltip: Summons a small chaos dragon to fight for you
-}
-
-CrimsonStaff: {
-	DisplayName: Crimera Staff
-	Tooltip: Summons a Crimera to fight with you
-}
-
-DemonStaff: {
-	DisplayName: Demon Staff
-	Tooltip: Summons a demon to fight with you
-}
-
-DevilStaff: {
-	DisplayName: Devil Staff
-	Tooltip: Summons a devil to fight with you
-}
-
-DoomiteSignal: {
-	DisplayName: Doomite Signal
-	Tooltip: Summons a doomite probe to fight with you
-}
-
-DoomiteSignalC: {
-	DisplayName: Doomite Radio
-	Tooltip: Summons a doomite radio probe to fight with you
-}
-
-DoomiteSignalO: {
-	DisplayName: Overloaded Doomite Radio
-	Tooltip: Summons a void scout to fight with you
-}
-
-DragonriderStaff: {
-	DisplayName: Dragon's Pike
-	Tooltip: Summons a fire dragon to fight for you
-}
-
-EaterStaff: {
-	DisplayName: Demonite Staff
-	Tooltip: Summons an Eater to fight with you
-}
-
-FireStaff: {
-	DisplayName: Fire Staff
-	Tooltip: Summons a baby phoenix to fight for you
-}
-
-HallowStaff: {
-	DisplayName: Hallow Staff
-	Tooltip: Summons a prism to fight with you
-}
-
-HydraStaff: {
-	DisplayName: Hydra Staff
-	Tooltip: Summons a stone hydra to fight for you
-}
-
-OmenStaff: {
-	DisplayName: Omen Staff
-	Tooltip:
-		'''
-		Summons a vicious crow to fight with you
-		Raven Staff EX
-		'''
-}
-
-ProbeControlUnit: {
-	DisplayName: Void Probe Control Unit
-	Tooltip: Summons a Void Probe to fight for you
-}
-
-SkullStaff: {
-	DisplayName: Skull Wand
-	Tooltip: Summons a dungeon skull to fight with you
-}
-
-TerraGauntlet: {
-	DisplayName: Terra Gauntlet
-	Tooltip: Summons a Terra Squid, Terra Sphere, Terra Crawler, or Terra Weaver to Fight for you
-}
-
-TerraStaff: {
-	DisplayName: Terra Staff
-	Tooltip: Summons a Terra Wizard to fight with you
-}
-
-TrueHallowStaff: {
-	DisplayName: True Hallow Staff
-	Tooltip: Summons a rainbow prism to fight with you
-}
-
-AuroraScythe: {
-	DisplayName: Aurora Scythe
-	Tooltip:
-		'''
-		Spins a frostburning scythe around you that shreds through enemies
-		Scythes inflict frostburn on contact
-		Grants 1 soul essence on direct hit
-		'''
-}
-
-CarrotFarmer: {
-	DisplayName: Carrot Farmer
-	Tooltip:
-		'''
-		Spins a Carrot Scythe around you that shreds through enemies
-		Scythes fire off carrots while spun
-		Grants 1 soul essence on direct hit
-		'''
-}
-
-DragonsClaw: {
-	DisplayName: Dragon's Claw
-	Tooltip:
-		'''
-		Spins a fiery scythe around you that shreds through enemies
-		Scythes ignites enemies on contact
-		Grants 1 soul essence on direct hit
-		'''
-}
-
-HydrasFury: {
-	DisplayName: Hydra's Fury
-	Tooltip:
-		'''
-		Spins an abyssal scythe around you that shreds through enemies
-		Scythes inflict poison on contact
-		Grants 1 soul essence on direct hit
-		'''
-}
-
-AbyssalArc: {
-	DisplayName: Abyssal Arc
-	Tooltip: ""
-}
-
-BurningGel: {
-	DisplayName: Burning Gel
-	Tooltip: Ignites target on hit
-}
-
-DarkmatterChakram: {
-	DisplayName: Darkmatter Spinblade
-	Tooltip: ""
-}
-
-DarkmatterKunai: {
-	DisplayName: Darkmatter Kunai
-	Tooltip: ""
-}
-
-Dracorang: {
-	DisplayName: Dracorang
-	Tooltip:
-		'''
-		Leaves short living flame trail
-		Stacks up to 5
-		'''
-}
-
-Fireball: {
-	DisplayName: Fireball
-	Tooltip: Even better than Mario's Fire Flower!
-}
-
-HellBall: {
-	DisplayName: Scorched Saw
-	Tooltip: ""
-}
-
-HydraFang: {
-	DisplayName: Hydra Fang
-	Tooltip: Pierces up to 3 enemies
-}
-
-MadnessKnife: {
-	DisplayName: Madness Knife
-	Tooltip: ""
-}
-
-MurkyGel: {
-	DisplayName: Murky Gel
-	Tooltip: Inflicts Oiled debuff on hit
-}
-
-Musharang: {
-	DisplayName: Musharang
-	Tooltip: ""
-}
-
-OrderDisc: {
-	DisplayName: Order Disc
-	Tooltip: Ignores enemy defense
-}
-
-Spookerang: {
-	DisplayName: Spooky Sawblade
-	Tooltip: A posessed chakram than homes in on enemies because it's possessed by a spooky ghost
-}
-
-SpookyKnife: {
-	DisplayName: Spooky Knife
-	Tooltip: Spreads Mourning Wood Embers on hit
-}
-
-ChaosTerratool: {
-	DisplayName: Chaos Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-CrystalPickaxe: {
-	DisplayName: Unity Pickaxe
-	Tooltip: Can mine mythril and orichalcum.
-}
-
-DarkmatterJackhammer: {
-	DisplayName: Darkmatter Jackhammer
-	Tooltip: ""
-}
-
-DarkmatterPitchet: {
-	DisplayName: Darkmatter Pitchet
-	Tooltip: ""
-}
-
-DepthDigger: {
-	DisplayName: Depth Digger
-	Tooltip: ""
-}
-
-DoomiteJacksaw: {
-	DisplayName: Doomite Jacksaw
-	Tooltip: Engineered for ultimate tree and wall breaking action!
-}
-
-DoomiteMiningLaser: {
-	DisplayName: Doomite Mining Laser
-	Tooltip: ""
-}
-
-DragonDigger: {
-	DisplayName: Dragon Digger
-	Tooltip: Dragons don't really dig, but this'll do
-}
-
-DragonPickaxe: {
-	DisplayName: Dragon Pickaxe
-	Tooltip: ""
-}
-
-GlowMushmallet: {
-	DisplayName: Glowing Mushmallet
-	Tooltip: ""
-}
-
-GlowMushpick: {
-	DisplayName: Glowing Mushpick
-	Tooltip: ""
-}
-
-Grasscutter: {
-	DisplayName: Grasscutter
-	Tooltip: ""
-}
-
-Hellfisher: {
-	DisplayName: Hellfisher
-	Tooltip: ""
-}
-
-HydraTuneller: {
-	DisplayName: Hydra Tuneller
-	Tooltip: Okay, this is getting rediculous. Hydras don't use drills.
-}
-
-MadnessAxe: {
-	DisplayName: Madness Axe
-	Tooltip: ""
-}
-
-MadnessHammer: {
-	DisplayName: Madness Hammer
-	Tooltip: ""
-}
-
-MadnessPick: {
-	DisplayName: Madness Pickaxe
-	Tooltip: ""
-}
-
-Mushmallet: {
-	DisplayName: Mushmallet
-	Tooltip: ""
-}
-
-Mushpick: {
-	DisplayName: Mushpick
-	Tooltip: ""
-}
-
-Nightaxe: {
-	DisplayName: Nightaxe
-	Tooltip: ""
-}
-
-OceanAxe: {
-	DisplayName: Coral Axe
-	Tooltip: the axe made from the Ocean
-}
-
-OceanPick: {
-	DisplayName: Coral Pickaxe
-	Tooltip: Because Blue Pickaxe was a boring name
-}
-
-PerfectShadowDrill: {
-	DisplayName: Perfect Shadow Drill
-	Tooltip: Now that's more like it.
-}
-
-PerfectStonebreaker: {
-	DisplayName: Perfect Stonebreaker
-	Tooltip: ""
-}
-
-RadiumHammaxe: {
-	DisplayName: Radium Hammaxe
-	Tooltip: ""
-}
-
-RadiumPickaxe: {
-	DisplayName: Starminer
-	Tooltip: ""
-}
-
-Scalpel: {
-	DisplayName: Scalpel
-	Tooltip: ""
-}
-
-ShadowDrill: {
-	DisplayName: Shadow Drill
-	Tooltip: Mines things with a spinning...green thing I guess?
-}
-
-Stonebreaker: {
-	DisplayName: Stonebreaker
-	Tooltip: ""
-}
-
-Terratool: {
-	DisplayName: Terratool
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		'''
-}
-
-TerratoolEX: {
-	DisplayName: Terraformer
-	Tooltip:
-		'''
-		Right Click to change tool types
-		You may only have a maximum of 2 tool types active
-		Terratool EX
-		'''
-}
-
-Toothpick: {
-	DisplayName: Toothpick
-	Tooltip: ""
-}
-
-TrueNightaxe: {
-	DisplayName: True Nightaxe
-	Tooltip: ""
-}
-
-TrueScalpel: {
-	DisplayName: True Scalpel
-	Tooltip: ""
-}
-
-BlackSolution: {
-	DisplayName: Black Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Spreads the Void
-		'''
-}
-
-BrownSolution: {
-	DisplayName: Brown Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Spreads the Red Mushroom biome
-		'''
-}
-
-CodeMagnet: {
-	DisplayName: Binary Code Magnet
-	Tooltip:
-		'''
-		Pulls items to you by moving its code closer to you
-		Right click the item to turn it off
-		'''
-}
-
-CodeMagnetOff: {
-	DisplayName: Binary Code Magnet
-	Tooltip:
-		'''
-		Pulls items to you by moving its code closer to you
-		Right click the item to turn it on
-		'''
-}
-
-DeepGreenSolution: {
-	DisplayName: Deep Green Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Converts the jungle into forest
-		'''
-}
-
-DoomSeeds: {
-	DisplayName: Doom Seeds
-	Tooltip: Plants Doomgrass
-}
-
-DoomstopperKey: {
-	DisplayName: Doomstopper Chip
-	Tooltip: "'Unlocks Doomsday Chests'"
-}
-
-FungicideSolution: {
-	DisplayName: Swarm Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Cleanses the mushroom biomes
-		'''
-}
-
-GreedKey: {
-	DisplayName: Gilded Key
-	Tooltip: This probably unlocks...something?
-}
-
-IndigoSolution: {
-	DisplayName: Indigo Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Spreads the Mire
-		'''
-}
-
-InfernoKey: {
-	DisplayName: Inferno Key
-	Tooltip: "'Unlocks the power of the blazing sun'"
-}
-
-InfernoSeeds: {
-	DisplayName: Scorched Seeds
-	Tooltip: Plants Inferno grass
-}
-
-KeyOfSmite: {
-	DisplayName: Key of Smite
-	Tooltip: "'Charged with flaming energy'"
-}
-
-KeyOfSpite: {
-	DisplayName: Key of Spite
-	Tooltip: "'Charged with abyssal energy'"
-}
-
-LimeSolution: {
-	DisplayName: Lime Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Converts the forest into the jungle
-		'''
-}
-
-MireKey: {
-	DisplayName: Mire Key
-	Tooltip: "'Unlocks the power of the wrathful abyss'"
-}
-
-MireSeeds: {
-	DisplayName: Dank Seeds
-	Tooltip: Plants Mire grass
-}
-
-Mooncaller: {
-	DisplayName: Mooncaller
-	Tooltip:
-		'''
-		Brings forth the shimmering moon.
-		Non-Consumable
-		'''
-}
-
-Moonpowder: {
-	Tooltip: Cleanses the Inferno
-	DisplayName: Moonpowder
-}
-
-MyceliumSeeds: {
-	DisplayName: Mycelium Seeds
-	Tooltip: Plants Mycelium
-}
-
-OrangeSolution: {
-	DisplayName: Orange Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Spreads the Inferno
-		'''
-}
-
-OrderSolution: {
-	DisplayName: Order Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Cleanses the Chaos
-		'''
-}
-
-RiftMirror: {
-	DisplayName: Rift Mirror
-	Tooltip:
-		'''
-		Pressing the rift hotkey returns you home
-		Pressing the rift return hotkey brings you back to your most recent rift location
-		'''
-}
-
-SporeSac: {
-	DisplayName: Spore Bag
-	Tooltip: Spreads the surface mushroom biome
-}
-
-Suncaller: {
-	DisplayName: Suncaller
-	Tooltip:
-		'''
-		Brings forth the morning sun.
-		Non-Consumable
-		'''
-}
-
-Sunpowder: {
-	Tooltip: Cleanses the mire
-	DisplayName: Sunpowder
-}
-
-Timecaller: {
-	DisplayName: Timecaller
-	Tooltip:
-		'''
-		Brings forth the next light.
-		Non-Consumable
-		'''
-}
-
-TreasureRadar: {
-	DisplayName: Treasure Hunter
-	Tooltip: ""
-}
-
-WhiteSolution: {
-	DisplayName: White Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Spreads the snow biome
-		'''
-}
-
-YellowSolution: {
-	DisplayName: Yellow Solution
-	Tooltip:
-		'''
-		Used by the Clentaminator
-		Clears the Snow biome
-		'''
-}
-
-AlphaBag: {
-	DisplayName: Large Letter's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating a rather Large Letter!'
-		'''
-}
-
-FishDiverBoots: {
-	DisplayName: Alphakip's Flippers
-	Tooltip:
-		'''
-		Not actually flippers
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-FishDiverJacket: {
-	DisplayName: Alphakip's Diving Jacket
-	Tooltip:
-		'''
-		This jacket is so insulated, you could sit in the ocean and still come out dry
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-FishDiverMask: {
-	DisplayName: Alphakip's Diving Mask
-	Tooltip:
-		'''
-		So I heard you like mudkips
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-KipronWings: {
-	DisplayName: Ellusive Wings
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Hold down and jump to hover for an extended period of time
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyFishDiverBoots: {
-	DisplayName: Alphakip's Flippers
-	Tooltip:
-		'''
-		Not actually flippers
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyFishDiverJacket: {
-	DisplayName: Alphakip's Diving Jacket
-	Tooltip:
-		'''
-		This jacket is so insulated, you could sit in the ocean and still come out dry
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyFishDiverMask: {
-	DisplayName: Alphakip's Diving Mask
-	Tooltip:
-		'''
-		So I heard you like mudkips
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyKipronWings: {
-	DisplayName: Shiny Ellusive Wings
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Hold down and jump to hover for an extended period of time
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-AnarchyBag: {
-	DisplayName: Pristine Bag
-	Tooltip:
-		'''
-		<right> to open
-		'All the essentials for impersonating Anarchy! No really it's just Anarchy.'
-		For the record, Anarchy sprited this himself.
-		'''
-}
-
-PristineChestplate: {
-	DisplayName: Pristine Chestplate
-	Tooltip:
-		'''
-		'Great for impersonating Ancients Awakened Contributors!'
-		For the record, Anarchy sprited this himself.
-		'''
-}
-
-PristineHelmet: {
-	DisplayName: Pristine Helmet
-	Tooltip:
-		'''
-		'Great for impersonating Ancients Awakened Contributors!'
-		For the record, Anarchy sprited this himself.
-		'''
-}
-
-PristineLeggings: {
-	DisplayName: Pristine Leggings
-	Tooltip:
-		'''
-		'Great for impersonating Ancients Awakened Contributors!'
-		For the record, Anarchy sprited this himself.
-		'''
-}
-
-ApawnBoots: {
-	DisplayName: Apawn's Greaves
-	Tooltip: "'Great for impersonating Ancients Awakened Testers!'"
-}
-
-ApawnEgg: {
-	DisplayName: Surprise Egg
-	Tooltip:
-		'''
-		<right> to open 
-		'Its a plastic egg. A REEEEEEEALLY big one.!'
-		'''
-}
-
-ApawnHelm: {
-	DisplayName: Apawn's Visor
-	Tooltip: "'Great for impersonating Ancients Awakened Testers!'"
-}
-
-ApawnPlate: {
-	DisplayName: Apawn's Plate
-	Tooltip: "'Great for impersonating Ancients Awakened Testers!'"
-}
-
-AvesBag: {
-	DisplayName: DJ Duck's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Monochrome Mallard!'
-		'''
-}
-
-DJDuckHead: {
-	DisplayName: DJ Duck Mask
-	Tooltip:
-		'''
-		'Quek'
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-DJDuckPants: {
-	DisplayName: DJ Duck Pants
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-DJDuckShirt: {
-	DisplayName: DJ Duck Shirt
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-DuckstepWings: {
-	DisplayName: Duckstep Bass Boosters
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-BegBag: {
-	DisplayName: Weird Horse Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating that weird horse kid!'
-		'''
-}
-
-PonyBody: {
-	DisplayName: Weird Horse Shirt
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-PonyHoofs: {
-	DisplayName: Weird Horse Hoofs
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-PonyMask: {
-	DisplayName: Weird Horse Mask
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-BlazenBag: {
-	DisplayName: Thunder Lord's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Thunder Lord!'
-		'''
-}
-
-BlazenBooster: {
-	DisplayName: Tactical Assault Booster
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Hold up to rocket faster
-		'Great for impersonating Ancients Awakened Developers!'
-		'''
-}
-
-BlazenBoots: {
-	DisplayName: Tactical Assault Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-BlazenHelmet: {
-	DisplayName: Tactical Assault Helmet
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-BlazenPlate: {
-	DisplayName: Tactical Assault Armor
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-CCBox: {
-	DisplayName: Mire Manic's Cardboard Box
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Dread Devotee!'
-		'''
-}
-
-CCHood: {
-	DisplayName: Dread Cultist Mask
-	Tooltip:
-		'''
-		The mask of a crazy lizard enthusiast
-		'Great for impersonating Ancients Awakened Developers!'
-		'''
-}
-
-CCRobe: {
-	DisplayName: Dread Cultist Robe
-	Tooltip:
-		'''
-		The hood of a crazy lizard enthusiast
-		'Great for impersonating Ancients Awakened Developers!'
-		'''
-}
-
-ShinyCCHood: {
-	DisplayName: Draconian Cultist Mask
-	Tooltip:
-		'''
-		The mask of a crazy dragon enthusiast
-		'Great for impersonating Ancients Awakened Developers!'
-		'''
-}
-
-ShinyCCRobe: {
-	DisplayName: Draconian Cultist Robe
-	Tooltip:
-		'''
-		The hood of a crazy dragon enthusiast
-		'Great for impersonating Ancients Awakened Developers!'
-		'''
-}
-
-InvokerBag: {
-	DisplayName: Pup Cerberus' Kennel
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Invoker of Pups!'
-		'''
-}
-
-InvokerHood: {
-	DisplayName: Invoker Hood
-	Tooltip:
-		'''
-		The enchanted hood of Aleister the 'Mega Therion'
-		Great for impersonating Awakened Devs!
-		'''
-}
-
-InvokerPants: {
-	DisplayName: Invoker Boots
-	Tooltip:
-		'''
-		The enchanted boots of Aleister the 'Mega Therion'
-		Great for impersonating Awakened Devs!
-		'''
-}
-
-InvokerRobe: {
-	DisplayName: Invoker Robe
-	Tooltip:
-		'''
-		The enchanted robe of Aleister the 'Mega Therion'
-		Great for impersonating Awakened Devs!
-		'''
-}
-
-CharlieBag: {
-	DisplayName: Reaper's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Grim Edgelord!'
-		'''
-}
-
-CharlieBoots: {
-	DisplayName: Wraith Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-CharlieCloak: {
-	DisplayName: Wraith Cloak
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-CharlieCowl: {
-	DisplayName: Wraith Cowl
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-CharlieWings: {
-	DisplayName: Grim Nightmare Wings
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Hold down and jump to hover for an extended period of time
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-FezLordsBag: {
-	DisplayName: Fez Lord's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Fez Lord!'
-		'''
-}
-
-DellyBag: {
-	DisplayName: Daughter of the Void's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Void Mistress!'
-		'''
-}
-
-DellyBoots: {
-	DisplayName: Shadow Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-DellyShirt: {
-	DisplayName: Shadow Shirt
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-DellyWig: {
-	DisplayName: Shadow Wig
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-LizBoots: {
-	DisplayName: Midnight Cat Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-LizEars: {
-	DisplayName: Midnight Cat Ears
-	Tooltip:
-		'''
-		As opposed to normal cat ears
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-LizScarf: {
-	DisplayName: Midnight Scarf
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-LizShirt: {
-	DisplayName: Midnight Cat Blouse
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-NightingaleWings: {
-	DisplayName: Nightingale Wings
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-DragonWings: {
-	DisplayName: Dark Dragon Wings
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Hold down and jump to hover for an extended period of time
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-LizHood: {
-	DisplayName: Dark Dragoness' Hood
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-LizRobes: {
-	DisplayName: Dark Dragoness' Robes
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-LizSkirt: {
-	DisplayName: Dark Dragoness' Skirt
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-LizBag: {
-	DisplayName: Dark Dragon's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Dragon Queen!'
-		'''
-}
-
-FargoHat: {
-	DisplayName: Dapper Squirrel Top Hat
-	Tooltip:
-		'''
-		soonTM
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-FargoPants: {
-	DisplayName: Dapper Squirrel Trousers
-	Tooltip:
-		'''
-		soonTM
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-FargoSuit: {
-	DisplayName: Dapper Squirrel Suit
-	Tooltip:
-		'''
-		soonTM
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-TopHat: {
-	DisplayName: Squirrelly Top Hat
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Meme Squirrel!'
-		'''
-}
-
-SammyPants: {
-	DisplayName: Fluffy Fox Pants
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-SammySweater: {
-	DisplayName: Fluffy Fox Sweater
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-SammyWig: {
-	DisplayName: Fluffy Fox Wig
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-WetFurrbag: {
-	DisplayName: Wet Furrbag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Funloving Fox!'
-		'''
-}
-
-GibsBag: {
-	DisplayName: Angry Revenant's Sarcophagus
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Raging Revenant!'
-		'''
-}
-
-GibsJet: {
-	DisplayName: Revenant's Jet Booster
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		Hold down and jump to hover for an extended period of time
-		'Great for impersonating Ancients Awakened Developers!'
-		'''
-}
-
-GibsPlate: {
-	DisplayName: Revenant Plate
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-GibsShorts: {
-	DisplayName: Revenant Legs
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-GibsSkull: {
-	DisplayName: Revenant Skull
-	Tooltip: "'Great for impersonating Ancients Awakened Developers!'"
-}
-
-AngryPirateBoots: {
-	DisplayName: Angry Pirate's Legguards
-	Tooltip:
-		'''
-		Hatred towards fish that can't code radiates from these boots.
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-AngryPirateCofferplate: {
-	DisplayName: Angry Pirate's Cofferplate
-	Tooltip:
-		'''
-		Hatred towards fish that can't code radiates from this Chestplate.
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-AngryPirateHood: {
-	DisplayName: Angry Pirate's Hood
-	Tooltip:
-		'''
-		Hatred towards fish that can't code radiates from this hood.
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-AngryPirateSails: {
-	DisplayName: Angry Pirate's Skysails
-	Tooltip:
-		'''
-		Allows flight and slow fall
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-GroviteSeaChest: {
-	DisplayName: Grovite Sea Chest
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Angry Code Pirate!'
-		'''
-}
-
-HalHat: {
-	DisplayName: Hallam's Dapper Top Hat
-	Tooltip:
-		'''
-		You can't help but feel fancy just wearing this
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-HalTrousers: {
-	DisplayName: Hallam's Fashionable Trousers
-	Tooltip:
-		'''
-		These pants cost way more than you do
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-HalTux: {
-	DisplayName: Hallam's Fancy Tux
-	Tooltip:
-		'''
-		This tux was woven with pure class
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-MagiciansHat: {
-	DisplayName: Magician's Top Hat
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Mad Cat!'
-		'''
-}
-
-ShinyHalHat: {
-	DisplayName: Hallam's Velvet Top Hat
-	Tooltip:
-		'''
-		You can't help but feel fancy just wearing this
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyHalTrousers: {
-	DisplayName: Hallam's Velvet Trousers
-	Tooltip:
-		'''
-		These pants cost way more than you do
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyHalTux: {
-	DisplayName: Hallam's Velvet Tux
-	Tooltip:
-		'''
-		This tux was woven with pure class
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-HappySunSticker: {
-	DisplayName: Happy Sun Sticker
-	Tooltip: ":D"
-}
-
-AkumaAMask: {
-	DisplayName: Oni Akuma Mask
-	Tooltip: ""
-}
-
-AkumaMask: {
-	DisplayName: Akuma Mask
-	Tooltip: ""
-}
-
-AnubisMask: {
-	DisplayName: Anubis Mask
-	Tooltip: ""
-}
-
-AthenaAMask: {
-	DisplayName: Olympian Athena Mask
-	Tooltip: ""
-}
-
-AthenaMask: {
-	DisplayName: Athena Mask
-	Tooltip: ""
-}
-
-BroodmotherMask: {
-	DisplayName: Broodmother Mask
-	Tooltip: ""
-}
-
-DaybringerMask: {
-	DisplayName: Daybringer Mask
-	Tooltip: ""
-}
-
-DjinnMask: {
-	DisplayName: Desert Djinn Mask
-	Tooltip: ""
-}
-
-FAnubisMask: {
-	DisplayName: Forsaken Anubis Mask
-	Tooltip: ""
-}
-
-FungusMask: {
-	DisplayName: Feudal Fungus Mask
-	Tooltip: ""
-}
-
-GreedMask: {
-	DisplayName: Greed Mask
-	Tooltip: ""
-}
-
-GripMaskBlue: {
-	DisplayName: Mire Grip of Chaos Mask
-	Tooltip: ""
-}
-
-GripMaskRed: {
-	DisplayName: Inferno Grip of Chaos Mask
-	Tooltip: ""
-}
-
-HydraMask1: {
-	DisplayName: Hydra Mask
-	Tooltip: ""
-}
-
-HydraMask2: {
-	DisplayName: Hydra Mask
-	Tooltip: ""
-}
-
-HydraMask3: {
-	DisplayName: Hydra Mask
-	Tooltip: ""
-}
-
-MonarchMask: {
-	DisplayName: Mushroom Monarch Mask
-	Tooltip: ""
-}
-
-NightcrawlerMask: {
-	DisplayName: Nightcrawler Mask
-	Tooltip: ""
-}
-
-RajahMask: {
-	DisplayName: Rajah Rabbit Mask
-	Tooltip: ""
-}
-
-SagMask: {
-	DisplayName: Sagittarius Mask
-	Tooltip: ""
-}
-
-SerpentMask: {
-	DisplayName: Serpent Mask
-	Tooltip: ""
-}
-
-ShenAMask: {
-	DisplayName: Shen Doragon Awakened Mask
-	Tooltip: ""
-}
-
-ShenMask: {
-	DisplayName: Shen Doragon Mask
-	Tooltip: ""
-}
-
-ToadMask: {
-	DisplayName: Truffle Toad Mask
-	Tooltip: ""
-}
-
-WKGreedMask: {
-	DisplayName: Worm King Greed Mask
-	Tooltip: ""
-}
-
-YamataAMask: {
-	DisplayName: Yamata No Orochi Mask
-	Tooltip: ""
-}
-
-YamataMask: {
-	DisplayName: Yamata Mask
-	Tooltip: ""
-}
-
-ZeroMask: {
-	DisplayName: Zero Mask
-	Tooltip: ""
-}
-
-Mask: {
-	DisplayName: The Mask
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-MaskBag: {
-	DisplayName: Mask Bag
-	Tooltip:
-		'''
-		<right> to open
-		'All the essentials for impersonating the Mask Lord.'
-		'''
-}
-
-MaskBoots: {
-	DisplayName: Mask Lord's Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-MaskPlate: {
-	DisplayName: Mask Lord's Chestplate
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-MikBag: {
-	DisplayName: Kitsune's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Weeb Fox!'
-		'''
-}
-
-MikpinCloak: {
-	DisplayName: Kitsune Dress
-	Tooltip: "'Great for impersonating Ancients Awakened Testers!'"
-}
-
-MikpinPants: {
-	DisplayName: Kitsune Pants
-	Tooltip: "'Great for impersonating Ancients Awakened Testers!'"
-}
-
-MikpinWig: {
-	DisplayName: Kitsune Wig
-	Tooltip: "'Great for impersonating Ancients Awakened Testers!'"
-}
-
-MoonBag: {
-	DisplayName: Lunar Insect's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Moon Bee!'
-		'''
-}
-
-MoonBoots: {
-	DisplayName: Lunar Boots
-	Tooltip:
-		'''
-		The boots of a legendary lunar mage
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-MoonHood: {
-	DisplayName: Lunar Hood
-	Tooltip:
-		'''
-		The hood of a legendary lunar mage
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-MoonRobe: {
-	DisplayName: Lunar Robe
-	Tooltip:
-		'''
-		The Robe of a legendary lunar mage
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-MoonWings: {
-	DisplayName: Lunar Wasp Wings
+WormIdol: {
+	DisplayName: Worm Idol
 	Tooltip:
 		'''
-		Allows flight and slow fall
-		Hold down and jump to hover for an extended period of time
-		'Great for impersonating Ancients Awakened Devs!'
+		An ancient statue depicting some form of worm god.
+		It looks like it hasn't been touched in years
 		'''
-}
-
-ShinyMoonBoots: {
-	DisplayName: Lunar Boots
-	Tooltip:
-		'''
-		The boots of a legendary lunar mage
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyMoonHood: {
-	DisplayName: Lunar Hood
-	Tooltip:
-		'''
-		The hood of a legendary lunar mage
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-ShinyMoonRobe: {
-	DisplayName: Lunar Robe
-	Tooltip:
-		'''
-		The Robe of a legendary lunar mage
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-Ono: {
-	DisplayName: ono
-	Tooltip: ono
-}
-
-PlutoBag: {
-	DisplayName: Outer God's Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Dwarf God!'
-		'''
-}
-
-PlutoBoots: {
-	DisplayName: Outer God's Greaves
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-PlutoMask: {
-	DisplayName: Outer God's Mask
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-PlutoPlate: {
-	DisplayName: Outer God's Chestplate
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-ShinyPlutoMask: {
-	DisplayName: Outer God's Ancient Mask
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-ShinyPlutoPlate: {
-	DisplayName: Outer God's Ancient Chestplate
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-ShoxBag: {
-	DisplayName: Charged Shock Bag
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Shock Lord!'
-		'''
-}
-
-ShoxPants: {
-	DisplayName: Shock Lord's Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-ShoxPlate: {
-	DisplayName: Shock Lord's Plate
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-ShoxVisor: {
-	DisplayName: Shock Lord's Visor
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-TailsBody: {
-	DisplayName: Tails Body Costume
-	Tooltip:
-		'''
-		A body suit made to resemble a certain two-tailed fox.
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-TailsHead: {
-	DisplayName: Tails Helmet
-	Tooltip:
-		'''
-		A helmet made to resemble a certain two-tailed fox.
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-TailsLegs: {
-	DisplayName: Tails Leggings
-	Tooltip:
-		'''
-		Leggings made to resemble a certain two-tailed fox.
-		'Great for impersonating Ancients Awakened Devs!'
-		'''
-}
-
-TailsToolbox: {
-	DisplayName: Tails' Toolbox
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Fox Wonder!'
-		'''
-}
-
-OldMagiciansHat: {
-	DisplayName: Old Magician's Top Hat
-	Tooltip:
-		'''
-		<right> to open 
-		'All the essentials for impersonating the Dapper Bone Man!'
-		'''
-}
-
-TiedsLeggings: {
-	DisplayName: Spooky Trousers
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-TiedsMask: {
-	DisplayName: Spooky Skull
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-TiedsSuit: {
-	DisplayName: Spooky Suit
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-CursedHood: {
-	DisplayName: Cursed Reaper Hood
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-CursedPants: {
-	DisplayName: Cursed Reaper Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-CursedRobe: {
-	DisplayName: Cursed Reaper Robe
-	Tooltip: "'Great for impersonating Ancients Awakened Devs!'"
-}
-
-VoidBag: {
-	DisplayName: Void Gate
-	Tooltip:
-		'''
-		<right> to open
-		'All the essentials for impersonating the Dark Watcher!'
-		'''
-}
-
-VoidEyeBoots: {
-	DisplayName: Void Eye's Boots
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-VoidEyeHelm: {
-	DisplayName: Void Eye's Mask
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-VoidEyePlate: {
-	DisplayName: Void Eye's Chestplate
-	Tooltip: "'Great for impersonating Ancients Awakened Contributors!'"
-}
-
-CovetiteBrickWall: {
-	DisplayName: Covetite Brick Wall
-	Tooltip: ""
-}
-
-DarkmatterWall: {
-	DisplayName: Darkmatter Brick Wall
-	Tooltip: ""
-}
-
-DaybreakWall: {
-	DisplayName: Daybreak Brick Wall
-	Tooltip: ""
-}
-
-DoomiteWall: {
-	DisplayName: Doomite Plating Wall
-	Tooltip: ""
-}
-
-DoomsdayWall: {
-	DisplayName: Doomsday Circuit Wall
-	Tooltip: ""
-}
-
-DoomstoneBrickWall: {
-	DisplayName: Doomstone Brick Wall
-	Tooltip: ""
-}
-
-EquinoxWall: {
-	DisplayName: Equinox Brick Wall
-	Tooltip: ""
-}
-
-EventideWall: {
-	DisplayName: Eventide Brick Wall
-	Tooltip: ""
-}
-
-IncineriteWall: {
-	DisplayName: Incinerite Brick Wall
-	Tooltip: ""
-}
-
-RadiumWall: {
-	DisplayName: Radium Brick Wall
-	Tooltip: ""
-}
-
-RelicWall: {
-	DisplayName: Relic Brick Wall
-	Tooltip: ""
-}
-
-MonochromeApple: {
-	DisplayName: Monochromatic Apple
-	Tooltip: Will attract an equestrian friend
-}
-
-AbyssClawBanner: {
-	DisplayName: Abyss Claw Banner
-	Tooltip: ""
-}
-
-BladonBanner: {
-	DisplayName: Bladon Banner
-	Tooltip: ""
-}
-
-BlazeClawBanner: {
-	DisplayName: Blaze Claw Banner
-	Tooltip: ""
-}
-
-BlazePhoenixBanner: {
-	DisplayName: Blaze Phoenix Banner
-	Tooltip: ""
-}
-
-ChaosDragonBanner: {
-	DisplayName: Chaos Dragon Banner
-	Tooltip: ""
-}
-
-ChaoticDawnBanner: {
-	DisplayName: Chaotic Dawn Banner
-	Tooltip: ""
-}
-
-ChaoticTwilightBanner: {
-	DisplayName: Chaotic Twilight Banner
-	Tooltip: ""
-}
-
-DragonClawBanner: {
-	DisplayName: Dragon Claw Banner
-	Tooltip: ""
-}
-
-DragronBanner: {
-	DisplayName: Dragron Banner
-	Tooltip: ""
-}
-
-ElderDragonBanner: {
-	DisplayName: Elder Dragon Banner
-	Tooltip: ""
-}
-
-FatPixieBanner: {
-	DisplayName: Fat Pixie Banner
-	Tooltip: ""
-}
-
-FlamebruteBanner: {
-	DisplayName: Flamebrute Banner
-	Tooltip: ""
-}
-
-FlamespitterBanner: {
-	DisplayName: Flamespitter Banner
-	Tooltip: ""
-}
-
-FogAnglerBanner: {
-	DisplayName: Fog Angler Banner
-	Tooltip: ""
-}
-
-FungusFrogBanner: {
-	DisplayName: Fungus Frog Banner
-	Tooltip: ""
-}
-
-HydraClawBanner: {
-	DisplayName: Hydra Claw Banner
-	Tooltip: ""
-}
-
-InfernalSlimeBanner: {
-	DisplayName: Infernal Slime Banner
-	Tooltip: ""
-}
-
-InfernoGhoulBanner: {
-	DisplayName: Inferno Ghoul Banner
-	Tooltip: ""
-}
-
-InfernoSalamanderBanner: {
-	DisplayName: Inferno Salamander Banner
-	Tooltip: ""
-}
-
-InfernoSandSharkBanner: {
-	DisplayName: Inferno Sand Shark Banner
-	Tooltip: ""
-}
-
-KappaBanner: {
-	DisplayName: Kappa Banner
-	Tooltip: ""
-}
-
-MadnessBatBanner: {
-	DisplayName: Madness Bat Banner
-	Tooltip: ""
-}
-
-MadnessSlimeBanner: {
-	DisplayName: Madness Slime Banner
-	Tooltip: ""
-}
-
-MagmalgamBanner: {
-	DisplayName: Magmalgam Banner
-	Tooltip: ""
-}
-
-MireGhoulBanner: {
-	DisplayName: Mire Ghoul Banner
-	Tooltip: ""
-}
-
-MiregronBanner: {
-	DisplayName: Miregron Banner
-	Tooltip: ""
-}
-
-MireSandSharkBanner: {
-	DisplayName: Mire Sand Shark Banner
-	Tooltip: ""
-}
-
-MireSkulkerBanner: {
-	DisplayName: Mire Skulker Banner
-	Tooltip: ""
-}
-
-MireSlimeBanner: {
-	DisplayName: Mire Slime Banner
-	Tooltip: ""
-}
-
-MiresquitoBanner: {
-	DisplayName: Miresquito Banner
-	Tooltip: ""
-}
-
-MossterBanner: {
-	DisplayName: Mosster Banner
-	Tooltip: ""
-}
-
-MushbugBanner: {
-	DisplayName: Mushbug Banner
-	Tooltip: ""
-}
-
-MushroomCrabBanner: {
-	DisplayName: Mushroom Crab Banner
-	Tooltip: ""
-}
-
-MushroomZombieBanner: {
-	DisplayName: Mushroom Zombie Banner
-	Tooltip: ""
-}
-
-NewtBanner: {
-	DisplayName: Newt Banner
-	Tooltip: ""
-}
-
-NightGuardBanner: {
-	DisplayName: Night Guard Banner
-	Tooltip: ""
-}
-
-NullBanner: {
-	DisplayName: Null Banner
-	Tooltip: ""
-}
-
-PurityCrawlerBanner: {
-	DisplayName: Purity Crawler Banner
-	Tooltip: ""
-}
-
-PuritySphereBanner: {
-	DisplayName: Purity Sphere Banner
-	Tooltip: ""
-}
-
-PuritySquidBanner: {
-	DisplayName: Purity Squid Banner
-	Tooltip: ""
-}
-
-PurityWeaverBanner: {
-	DisplayName: Purity Weaver Banner
-	Tooltip: ""
-}
-
-ScavengerBanner: {
-	DisplayName: Scavenger Banner
-	Tooltip: ""
-}
-
-SearcherBanner: {
-	DisplayName: Searcher Banner
-	Tooltip: ""
-}
-
-SeraphBanner: {
-	DisplayName: Seraph Banner
-	Tooltip: ""
-}
-
-ShadowScoutBanner: {
-	DisplayName: Shadow Scout Banner
-	Tooltip: ""
-}
-
-ShroomJellyBanner: {
-	DisplayName: Shroom Jelly Banner
-	Tooltip: ""
-}
-
-SnakeBanner: {
-	DisplayName: Snake Banner
-	Tooltip: ""
-}
-
-SoulsuckerBanner: {
-	DisplayName: Soulsucker Banner
-	Tooltip: ""
-}
-
-StoneSearcherBanner: {
-	DisplayName: Stone Searcher Banner
-	Tooltip: ""
-}
-
-SunWatcherBanner: {
-	DisplayName: Sun Watcher Banner
-	Tooltip: ""
-}
-
-TerraCrawlerBanner: {
-	DisplayName: Terra Crawler Banner
-	Tooltip: ""
-}
-
-TerraDeadshotBanner: {
-	DisplayName: Terra Deadshot Banner
-	Tooltip: ""
-}
-
-TerraSerpentBanner: {
-	DisplayName: Terra Serpent Banner
-	Tooltip: ""
-}
-
-TerraSphereBanner: {
-	DisplayName: Terra Sphere Banner
-	Tooltip: ""
-}
-
-TerraSquidBanner: {
-	DisplayName: Terra Squid Banner
-	Tooltip: ""
-}
-
-TerraSquireBanner: {
-	DisplayName: Terra Squire Banner
-	Tooltip: ""
-}
-
-TerraWarlockBanner: {
-	DisplayName: Terra Warlock Banner
-	Tooltip: ""
-}
-
-TerraWeaverBanner: {
-	DisplayName: Terra Weaver Banner
-	Tooltip: ""
-}
-
-TerraWizardBanner: {
-	DisplayName: Terra Wizard Banner
-	Tooltip: ""
-}
-
-ThixxieBanner: {
-	DisplayName: Thixxie Banner
-	Tooltip: ""
-}
-
-TinyToadBanner: {
-	DisplayName: Tiny Toad Banner
-	Tooltip: ""
-}
-
-ToxitoadBanner: {
-	DisplayName: Toxitoad Banner
-	Tooltip: ""
-}
-
-VortexBanner: {
-	DisplayName: Vortex Banner
-	Tooltip: ""
-}
-
-WyrmBanner: {
-	DisplayName: Wyrm Banner
-	Tooltip: ""
-}
-
-WyrmlingBanner: {
-	DisplayName: Wyrmling Banner
-	Tooltip: ""
-}
-
-Excalihare: {
-	DisplayName: Excalihare
-	Tooltip: ""
-}
-
-Tizona: {
-	DisplayName: Tizona
-	Tooltip: ""
-}
-
-Firebuster: {
-	DisplayName: Firebuster
-	Tooltip: ""
-}
-
-Mossket: {
-	DisplayName: Mossket
-	Tooltip: ""
-}
-
-OceanWhaler: {
-	DisplayName: Ocean Whaler
-	Tooltip: ""
-}
-
-Excavator: {
-	DisplayName: Excavator
-	Tooltip: ""
 }
 
 GS: {
@@ -9115,407 +873,354 @@ SC: {
 	Tooltip: ""
 }
 
-KeepBrick: {
-	DisplayName: Keep Brick
-	Tooltip: ""
-}
-
-TerraBrick: {
-	DisplayName: Terra Brick
-	Tooltip: ""
-}
-
-KeepBath: {
-	DisplayName: Keep Bath
-	Tooltip: ""
-}
-
-KeepBed: {
-	DisplayName: Keep Bed
-	Tooltip: ""
-}
-
-KeepBookcase: {
-	DisplayName: Keep Bookcase
-	Tooltip: ""
-}
-
-KeepCandelabra: {
-	DisplayName: Keep Candelabra
-	Tooltip: ""
-}
-
-KeepCandle: {
-	DisplayName: Keep Candle
-	Tooltip: ""
-}
-
-KeepChair: {
-	DisplayName: Keep Chair
-	Tooltip: ""
-}
-
-KeepChandelier: {
-	DisplayName: Keep Chandelier
-	Tooltip: ""
-}
-
-KeepClock: {
-	DisplayName: Keep Clock
-	Tooltip: ""
-}
-
-KeepCouch: {
-	DisplayName: Keep Couch
-	Tooltip: ""
-}
-
-KeepDoor: {
-	DisplayName: Keep Door
-	Tooltip: ""
-}
-
-KeepDresser: {
-	DisplayName: Keep Dresser
-	Tooltip: ""
-}
-
-KeepLamp: {
-	DisplayName: Keep Lamp
-	Tooltip: ""
-}
-
-KeepLantern: {
-	DisplayName: Keep Lantern
-	Tooltip: ""
-}
-
-KeepPiano: {
-	DisplayName: Keep Piano
-	Tooltip: ""
-}
-
-KeepSink: {
-	DisplayName: Keep Sink
-	Tooltip: ""
-}
-
-KeepTable: {
-	DisplayName: Keep Table
-	Tooltip: ""
-}
-
-KeepWorkbench: {
-	DisplayName: Keep Workbench
-	Tooltip: ""
-}
-
-AcropolisPainting: {
-	DisplayName: Acropolis Painting
-	Tooltip: ""
-}
-
-AkumaPainting: {
-	DisplayName: Akuma Painting
-	Tooltip: ""
-}
-
-AnubisPainting: {
-	DisplayName: Anubis Painting
-	Tooltip: ""
-}
-
-CRajahPainting: {
-	DisplayName: C Rajah Painting
-	Tooltip: ""
-}
-
-DaedalusPainting: {
-	DisplayName: Daedalus Painting
-	Tooltip: ""
-}
-
-DecayPainting: {
-	DisplayName: Decay Painting
-	Tooltip: ""
-}
-
-FulgurusPainting: {
-	DisplayName: Fulgurus Painting
-	Tooltip: ""
-}
-
-GreedPainting: {
-	DisplayName: Greed Painting
-	Tooltip: ""
-}
-
-HotJPainting: {
-	DisplayName: Hot J Painting
-	Tooltip: ""
-}
-
-IZPainting: {
-	DisplayName: I Z Painting
-	Tooltip: ""
-}
-
-JojoBagginsPainting: {
-	DisplayName: Jojo Baggins Painting
-	Tooltip: ""
-}
-
-KingQueenPainting: {
-	DisplayName: King Queen Painting
-	Tooltip: ""
-}
-
-LuciferPainting: {
-	DisplayName: Lucifer Painting
-	Tooltip: ""
-}
-
-MushmadPainting: {
-	DisplayName: Mushmad Painting
-	Tooltip: ""
-}
-
-NKPainting: {
-	DisplayName: N K Painting
-	Tooltip: ""
-}
-
-RajahPainting: {
-	DisplayName: Rajah Painting
-	Tooltip: ""
-}
-
-SanguinePainting: {
-	DisplayName: Sanguine Painting
-	Tooltip: ""
-}
-
-ShenPainting: {
-	DisplayName: Shen Painting
-	Tooltip: ""
-}
-
-ShipPainting: {
-	DisplayName: Ship Painting
-	Tooltip: ""
-}
-
-SoCPainting: {
-	DisplayName: So C Painting
-	Tooltip: ""
-}
-
-TerraPainting: {
-	DisplayName: Terra Painting
-	Tooltip: ""
-}
-
-UmbraPainting: {
-	DisplayName: Umbra Painting
-	Tooltip: ""
-}
-
-ValkyriePainting: {
-	DisplayName: Valkyrie Painting
-	Tooltip: ""
-}
-
-WizardPainting: {
-	DisplayName: Wizard Painting
-	Tooltip: ""
-}
-
-YamataPainting: {
-	DisplayName: Yamata Painting
-	Tooltip: ""
-}
-
-ZeroPainting: {
-	DisplayName: Zero Painting
-	Tooltip: ""
-}
-
-TerraBath: {
-	DisplayName: Terra Bath
-	Tooltip: ""
-}
-
-TerraBed: {
-	DisplayName: Terra Bed
-	Tooltip: ""
-}
-
-TerraBookcase: {
-	DisplayName: Terra Bookcase
-	Tooltip: ""
-}
-
-TerraCandelabra: {
-	DisplayName: Terra Candelabra
-	Tooltip: ""
-}
-
-TerraCandle: {
-	DisplayName: Terra Candle
-	Tooltip: ""
-}
-
-TerraChair: {
-	DisplayName: Terra Chair
-	Tooltip: ""
-}
-
-TerraChandelier: {
-	DisplayName: Terra Chandelier
-	Tooltip: ""
-}
-
-TerraChest: {
-	DisplayName: Terra Chest
-	Tooltip: ""
-}
-
-TerraClock: {
-	DisplayName: Terra Clock
-	Tooltip: ""
-}
-
-TerraCouch: {
-	DisplayName: Terra Couch
-	Tooltip: ""
-}
-
-TerraDoor: {
-	DisplayName: Terra Door
-	Tooltip: ""
-}
-
-TerraDresser: {
-	DisplayName: Terra Dresser
-	Tooltip: ""
-}
-
-TerraLamp: {
-	DisplayName: Terra Lamp
-	Tooltip: ""
-}
-
-TerraLantern: {
-	DisplayName: Terra Lantern
-	Tooltip: ""
-}
-
-TerraPiano: {
-	DisplayName: Terra Piano
-	Tooltip: ""
-}
-
-TerraSink: {
-	DisplayName: Terra Sink
-	Tooltip: ""
-}
-
-TerraTable: {
-	DisplayName: Terra Table
-	Tooltip: ""
-}
-
-TerraWorkbench: {
-	DisplayName: Terra Workbench
-	Tooltip: ""
-}
-
-TerraKey: {
-	DisplayName: Terra Key
-	Tooltip: ""
-}
-
-SRajahBox: {
-	DisplayName: Champion of the Innocent Music Box
-	Tooltip: Plays 'Supreme Justice' by OmegaFerretMusic
-}
-
-RajahSPTooltip: {
-	Melee: Melee
-	Ranged: Ranged
-	Magic: Magic
-	Summoning: Summoning
-	Throwing: Throwing
-	DamageType: Damage Type
-	CurrentDamageBoost: +: "Current Damage Boost: +"
-	CurrentSpeedBoost: "Current Speed Boost: "
-	CurrentDamageResistance: "Current Damage Resistance: "
-	Damage: " Damage"
-}
-
-GreedTooltip.CurrentDamageBoost: +: "Current Damage Boost: +"
-
-BiomiteArmor: {
-	BiomiteArmor1: Provide different setbonuses based on biome you're in
-	BiomiteArmor2:
-		'''
-
-		Increases maximum life by 20
-		'''
-	BiomiteArmor3:
-		'''
-
-		Increases maximum mana by 20
-		'''
-	BiomiteArmor4:
-		'''
-
-		You can detect the enemies around you
-		'''
-	BiomiteArmor5:
-		'''
-
-		You immune to 'On fire!' debuff
-		'''
-	BiomiteArmor6:
-		'''
-
-		You immune to 'Poisoned' debuff
-		'''
-	BiomiteArmor7:
-		'''
-
-		Increase 5 defense
-		'''
-	BiomiteArmor8:
-		'''
-
-		Increase your mana regenaration
-		'''
-	BiomiteArmor9:
-		'''
-
-		You immune to 'Chilled' debuff
-		'''
-	BiomiteArmor10:
-		'''
-
-		You immune to 'Mighty Wind' debuff
-		'''
-	BiomiteArmor11:
-		'''
-
-		Increase your life regenaration
-		You immune to Slow
-		'''
-	BiomiteArmor12:
-		'''
-
-		Increase 10% movespeed
-		'''
-	BiomiteArmor13:
-		'''
-
-		Increase 5 armor penetration
-		'''
+GlitchFish: {
+	DisplayName: Glitch Fish
+	Tooltip: ""
+}
+
+Lore: {
+	Calamity: {
+		MushroomMonarchLore: {
+			DisplayName: Mushroom Monarch
+			Tooltip: ""
+			Lore:
+				'''
+				Even the simple beings have their kings.
+				For reasons I do not claim to know, the mushrooms of Terraria seek to expand their reach endlessly. 
+				With leaders as weak as this, it is of no surprise that they have not managed that, even with the advantages my crusade might have provided.
+				'''
+		}
+
+		FeudalFungusLore: {
+			DisplayName: Feudal Fungus
+			Tooltip: ""
+			Lore:
+				'''
+				Despite the ghastly control they can exert, it would be dishonest of me to say I do not find their nature fascinating.
+				Were my crusade to have properly ended, and my relationship with the engineer to not have faded, I would have asked him to engage in the study of the mushroom's magical properties.
+				'''
+		}
+
+		GripsOfChaosLore: {
+			DisplayName: Grips of Chaos
+			Tooltip: ""
+			Lore:
+				'''
+				These strange hands are a common sight among my scouters.
+				Their nature is unknown to me, but I assume them to be related to the wicked chaos over Terraria.
+				One thing I know for sure; gods are not the only thing desecrating this land.
+				'''
+		}
+
+		TruffleToadLore: {
+			DisplayName: Truffle Toad
+			Tooltip: ""
+			Lore:
+				'''
+				Another display of the fungus' tenacity and unwillingness to let the dead rest.
+				With time, I have learned that parades of power such as these are merely the weak desperately attempting to attain strength.
+				'''
+		}
+
+		BroodmotherLore: {
+			DisplayName: The Broodmother
+			Tooltip: ""
+			Lore:
+				'''
+				What a curious creature, born out of that infernal chaos, a shame to see it slayed.
+				I have met her daughter before, a strange relationship to be aware of, but one I learned to treat with respect.
+				I would tread with care from now on.
+				'''
+		}
+
+		HydraLore: {
+			DisplayName: The Hydra
+			Tooltip: ""
+			Lore:
+				'''
+				The harsh, chaotic mire it calls home was once a settlement of great renown.
+				They were my most avid supporters, and their destruction was a tragedy I could not prevent.
+				God or not, whoever is responsible will one day find my wrath.
+				'''
+		}
+
+		DesertDjinnLore: {
+			DisplayName: Desert Djinn
+			Tooltip: ""
+			Lore:
+				'''
+				Once, in the age of Dragons, the Ilmeran Sea was naught but a sand-swept desert and home to a forsaken caste.
+				By my Crusade's hand, it has been restored.
+				Now, the spirits of that forgotten civilization stir from their water-choked slumber.
+				A bizarre twist of fate, is it not?
+				'''
+		}
+
+		SubzeroSerpentLore: {
+			DisplayName: Subzero Serpent
+			Tooltip: ""
+			Lore:
+				'''
+				A poor creature.
+				It would seem it has grown weak as godly essence and chaotic forces encroach upon its habitat.
+				Both are scourges that must be expunged if this world is ever to know peace.
+				'''
+		}
+
+		SagittariusLore: {
+			DisplayName: Sagittarius
+			Tooltip: ""
+			Lore:
+				'''
+				Those ominous islands... They have long been a fascination of Draedon's.
+				A great many of my researchers under his command have studied the anomaly they surround.
+				Yet even they have learned little...
+				The construct you faced, its construction is unique from the others we've observed.
+				There are others who seek to understand the nature of this anomaly; perhaps they have a role to play in this.
+				'''
+		}
+
+		SiegeUnitsLore: {
+			DisplayName: The Siege Units
+			Tooltip: ""
+			Lore:
+				'''
+				Such laughable constructs, these are undoubtedly the products of the Fulgurians.
+				They were once a single being, the Storm Elemental, though they separated themselves long ago into a larger organization.
+				Their attempts at innovation are laughable; even these faulty machines clearly reflect their inspiration from Draedon's own failings.
+				Hubris will undoubtedly be their unmaking.
+				'''
+		}
+
+		OrthrusXLore: {
+			DisplayName: Orthrus X
+			Tooltip: ""
+			Lore:
+				'''
+				This crude machination is truly the Fulgurians' last line of defense?
+				How pitiful.
+				I have no doubt my Godseeker Knights could reduce it to little more than scrap with ease.
+				'''
+		}
+
+		RaiderUltimaLore: {
+			DisplayName: Raider Ultima
+			Tooltip: ""
+			Lore:
+				'''
+				I had heard rumors of this Siege Unit.
+				Members of my infantry have indeed been routed by it on a handful of occasions.
+				Seeing you dispatch of it... My soldiers have clearly grown soft in my absence.
+				'''
+		}
+
+		RetrieverLore: {
+			DisplayName: The Retriever
+			Tooltip: ""
+			Lore:
+				'''
+				Constructing a retrieval unit in the form of a hand... It's almost pitiful.
+				Despite the lacking design, it is indeed capable of entering the anomaly.
+				I have no doubt the fulgurians' meddling with that which they do not understand can only end poorly.
+				'''
+		}
+
+		AnubisLore: {
+			DisplayName: The Legendscribe
+			Tooltip: ""
+			Lore:
+				'''
+				Until recently, I had only heard myths murmured among my Knights of the Legendscribe.
+				After the Great Incineration, I was shocked to find him standing before my court in the flesh.
+				He issued a warning: one would rise to put an end to my reign.
+				It would seem he sees in you the means to destroy me.
+				Time will be the only one to tell how this fable ends...
+				'''
+		}
+
+		AthenaLore: {
+			DisplayName: Athena
+			Tooltip: ""
+			Lore:
+				'''
+				A rather peculiar cohort, the seraphs were known to mingle with the Chrysadians before the Downfall.
+				Now they've grown into reclusive hermits, relying on the protection of their Queen.
+				If this is all that has become of the Ancients, then I am sorely disappointed.
+				'''
+		}
+
+		GreedLore: {
+			DisplayName: Greed
+			Tooltip: ""
+			Lore:
+				'''
+				What is this...? Another worm like...him?
+				Impossible, they were all purged except for the Devourer because he escaped into a--
+				...hmm...what if he wasn't the only one with that ability..?
+				'''
+		}
+
+		RajahRabbitLore: {
+			DisplayName: Rajah Rabbit
+			Tooltip: ""
+			Lore:
+				'''
+				A noble warrior, Rajah is a worthy rival.
+				During my conquest, he challenged me for the same reason he sought you; I honored his invitation and bested him in a duel.
+				He survived through sheer grit, challenging me once more, and we came to see eye-to-eye.
+				We were not so different, avengers of the unjustly fallen. Our bond grew stronger, and our blades locked many more times.
+				Draedon once claimed he was a spy, studying my movements to one day kill me, but he was wrong. He could never understand the mutual respect of two rivals.
+				Despite having drifted apart, I know him well: this was far from the full breadth of his might. Be thankful he was merciful, and hope he does not wield his full fury against you.
+				'''
+		}
+
+		ForsakenAnubisLore: {
+			DisplayName: Forsaken Judge, Anubis
+			Tooltip: ""
+			Lore:
+				'''
+				So Anubis elected to show you a glimpse of what he's truly capable of.
+				When he chose to stand against me, it was undoubtedly at his strongest.
+				Even then, I felt no fear. This was nothing compared to the power I witnessed when facing the Traitor Almighty.
+				You'll need to grow even stronger if you hope to be my match.
+				'''
+		}
+
+		OlympianAthenaLore: {
+			DisplayName: Olympian Athena
+			Tooltip: ""
+			Lore:
+				'''
+				I had thought it possible that Athena was holding back in your first bout.
+				So that is the true power of a Varian... Time has worn their kind sparse, yet they still have fight left in them.
+				I wonder, had they aided the Dragons in their final fight, could fate have spun a different tale...?
+				'''
+		}
+
+		WormKingGreedLore: {
+			DisplayName: Worm King Greed
+			Tooltip: ""
+			Lore:
+				'''
+				My speculation is proven correct...
+				There can be no doubt. That gilded worm is indeed the Devourer's kin.
+				But if that is true, then...
+				For how long has the Distortion's ilk been influencing these lands...?
+				'''
+		}
+
+		EquinoxWormsLore: {
+			DisplayName: The Equinox Worms
+			Tooltip: ""
+			Lore:
+				'''
+				Our world knows many worms of cosmic origin, with these two being no exception.
+				Through their benevolence, our world is gifted with Day and Night.
+				They are the stark opposite of the Gods. They dedicate themselves to our prosperity.
+				Legends even tell of them fighting alongside a hero to banish the forces of Chaos.
+				It is that hero who inspired me to take up my blade and begin my Crusade.
+				'''
+		}
+
+		SistersOfDiscordLore: {
+			DisplayName: The Sisters of Discord
+			Tooltip: ""
+			Lore:
+				'''
+				A rather irksome pair those two are.
+				I have no doubt the quiet one has been spying on the Crusade's operations for some time now.
+				Likewise, the mage has attacked my troops on multiple occasions. I've heard she wishes to face Brimstone Witch one-on-one.
+				I doubt even as a team they would survive such an encounter.
+				'''
+		}
+
+		AkumaLore: {
+			DisplayName: Akuma
+			Tooltip: ""
+			Lore:
+				'''
+				The Draconian Demon...
+				Any attempts by my forces to push into the Inferno were swiftly repelled by his flames.
+				It was he who was responsible for the Infero: birthed from his flames, razing the civilization that once called the region their home.
+				Beware, your victory here is only temporary. Akuma's furious spirit endures even now.
+				And I fear their true power still slumbers... Waiting to be awakened.
+				'''
+		}
+
+		YamataLore: {
+			DisplayName: Yamata
+			Tooltip: ""
+			Lore:
+				'''
+				The Dread Nightmare...
+				My forces dared not step into the Mire, his vile toxins snuffed out any who did.
+				It was he who was responsible for the Mire: birthed from his toxins, choking out the civilization that once called the region their home.
+				Beware, your victory here is only temporary. Yamata's wrathful soul yet persists.
+				And I fear their true power still slumbers... Waiting to be awakened.
+				'''
+		}
+
+		ZeroLore: {
+			DisplayName: Zero
+			Tooltip: ""
+			Lore:
+				'''
+				The Doomsday Construct...
+				Draedon had long been fascinated by this unit. Its shields repelled each of his attempts to break them.
+				It seems only you were capable of activating it.
+				Be wary.
+				That distress signal, if Draedon's research on that anomaly is to be believed...
+				You've invited disaster onto our doorstep.
+				'''
+		}
+
+		ChampionRajahRabbitLore: {
+			DisplayName: The Champion of the Innocent
+			Tooltip: ""
+			Lore:
+				'''
+				I had thought Rajah's time as Champion of the Innocent would far outlast me, yet I was mistaken.
+				Now, you bear his title, and he retires to the wayside just as I have.
+				To best him at his fullest strength is no small feat; you may just be ready to face even me.
+				Emerge victorious in your coming battles, and that time shall soon be at hand.
+				'''
+		}
+
+		ShenDoragonLore: {
+			DisplayName: Shen Doragon
+			Tooltip: ""
+			Lore:
+				'''
+				To think, Akuma and Yamata were but two halves of a single being...
+				Even still, I can't help but doubt that was all it was capable of.
+				In ancient tales, I've heard the story of a hero who did battle against Discord Incarnate.
+				Yet that tale did not describe a dragon, but a man instead... How curious...
+				'''
+		}
+
+		InfinityZeroLore: {
+			DisplayName: Infinity Zero
+			Tooltip: ""
+			Lore:
+				'''
+				Knowledge of the Infinity Slayer was as far as Draedon's research into the anomaly reached.
+				To think it was that powerful, and it was no more than a shell for an even greater threat.
+				Oblivion... I fear I have heard that name once before, in ancient scripts describing our universe's creation.
+				Four Titans of immeasurable power...
+				Could this be the incarnation of Entropy they spoke of...?
+				'''
+		}
+
+		SoulOfCthulhuLore: {
+			DisplayName: Soul Of Cthulhu
+			Tooltip: ""
+			Lore:
+				'''
+				The downfall of the dragons... Could it be that there was not just one aberrant behemoth, but two...?
+				If that eldritch spirit is to be believed, then that must indeed have been the case, but why would this one's tale be kept from me...?
+				In my studies of the Dragons' language, I learned 'Cthulhu' to mean 'Great Beast'.
+				Perhaps it was this twin that such a moniker was inspired by...
+				'''
+		}
+	}
 }

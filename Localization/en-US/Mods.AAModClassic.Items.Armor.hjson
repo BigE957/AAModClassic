@@ -1,0 +1,937 @@
+ChaosSlayer: {
+	SharedFlavorText: "'The power of discordian rage radiates from this armor'"
+
+	ChaosSlayerChestplate: {
+		DisplayName: Chaos Slayer Plate
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMage: {
+		DisplayName: Chaos Slayer Hood
+		Tooltip:
+			'''
+			32% increased Magic damage
+			20% increased Magic critical strike chance
+			2% increased damage resistance
+			30% reduced Mana consumption
+			150 increased maximum mana
+			{$Armor.ChaosSlayer.SharedFlavorText}
+			'''
+	}
+
+	ChaosSlayerHelmetMelee: {
+		DisplayName: Chaos Slayer Kabuto
+		Tooltip:
+			'''
+			30% increased Melee damage & critical strike chance
+			5% increased damage resistance
+			15% increased melee speed
+			+25 Max Life
+			{$Armor.ChaosSlayer.SharedFlavorText}
+			'''
+	}
+
+	ChaosSlayerHelmetRanged: {
+		DisplayName: Chaos Slayer Visor
+		Tooltip:
+			'''
+			45% increased ranged damage
+			38% increased ranged critical strike chance
+			3% increased damage resistance
+			25% reduced ammo consumption
+			+15 Max Life
+			{$Armor.ChaosSlayer.SharedFlavorText}
+			'''
+	}
+
+	ChaosSlayerHelmetSummoner: {
+		DisplayName: Chaos Slayer Mask
+		Tooltip:
+			'''
+			70% increased minion damage
+			1% increased damage resistance
+			+6 maximum Minions
+			+2 maximum sentries 
+			{$Armor.ChaosSlayer.SharedFlavorText}
+			'''
+	}
+
+	ChaosSlayerLeggings: {
+		DisplayName: Chaos Slayer Greaves
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+}
+
+Chaos: {
+	ChaosChestplate: {
+		DisplayName: Chaos Dou
+		Tooltip: ""
+	}
+
+	ChaosHelmetMage: {
+		DisplayName: Chaos Mask
+		Tooltip: ""
+	}
+
+	ChaosHelmetMelee: {
+		DisplayName: Chaos Kabuto
+		Tooltip: ""
+	}
+
+	ChaosHelmetRanged: {
+		DisplayName: Chaos Fukumen
+		Tooltip: ""
+	}
+
+	ChaosHelmetSummoner: {
+		DisplayName: Chaos Visor
+		Tooltip: ""
+	}
+
+	ChaosLeggings: {
+		DisplayName: Chaos Greaves
+		Tooltip: ""
+	}
+}
+
+DraconianSun: {
+	SharedFlavorText: "'The blazing fury of the Inferno rests in this armor'"
+
+	DraconianSunChestplate: {
+		DisplayName: Draconian Sun Dao
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunLeggings: {
+		DisplayName: Draconian Sun Greaves
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunHelmet: {
+		DisplayName: Draconian Sun Kabuto
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+}
+
+Darkmatter: {
+	SharedFlavorText: "'Dark, yet still barely visible'"
+
+	DarkmatterChestplate: {
+		DisplayName: Darkmatter Breastplate
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMage: {
+		DisplayName: Darkmatter Mask
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMelee: {
+		DisplayName: Darkmatter Helmet
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetRanged: {
+		DisplayName: Darkmatter Visor
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetSummoner: {
+		DisplayName: Darkmatter Headress
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterLeggings: {
+		DisplayName: Darkmatter Greaves
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+}
+
+Radium: {
+	SharedFlavorText: "'Shines with the light of a starry night sky'"
+
+	RadiumChestplate: {
+		DisplayName: Radium Platemail
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMage: {
+		DisplayName: Radium Mask
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMelee: {
+		DisplayName: Radium Helmet
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetRanged: {
+		DisplayName: Radium Headgear
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetSummoner: {
+		DisplayName: Radium Hat
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumLeggings: {
+		DisplayName: Radium Cuisses
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+}
+
+Biomite: {
+	BiomiteChestplate: {
+		DisplayName: Biomite Crystalmail
+		Tooltip: ""
+	}
+
+	BiomiteHelmet: {
+		DisplayName: Biomite Helmet
+		Tooltip: ""
+	}
+
+	BiomiteLeggings: {
+		DisplayName: Biomite Greaves
+		Tooltip: ""
+	}
+}
+
+Doomsday: {
+	SharedFlavorText: "'The power to destroy entire planets rests in this armor'"
+
+	DoomsdayChestplate: {
+		DisplayName: Doomsday Assault Armor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetMage: {
+		DisplayName: Doomsday Assault Visor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetSummoner: {
+		DisplayName: Doomsday Tactical Visor
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayLeggings: {
+		DisplayName: Doomsday Assault Greaves
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+}
+
+InfinitySlayer: {
+	SharedFlavorText: "'Infinite power and malice flows through this armor'"
+
+	InfinitySlayerChestplate: {
+		DisplayName: Infinity Slayer Chestplate
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerHelmet: {
+		DisplayName: Infinity Slayer Visor
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerLeggings: {
+		DisplayName: Infinity Slayer Greaves
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+}
+
+StripemansLucky: {
+	StripemansLuckyChestplate: {
+		DisplayName: Stripeman's Lucky Shirt
+		Tooltip: ""
+	}
+
+	StripemansLuckyHelmet: {
+		DisplayName: Stripeman's Lucky Hat
+		Tooltip: ""
+	}
+
+	StripemansLuckyLeggings: {
+		DisplayName: Stripeman's Lucky Pants
+		Tooltip: ""
+	}
+}
+
+Olympian: {
+	OlympianChestplate: {
+		DisplayName: Olympian Breastplate
+		Tooltip: ""
+	}
+
+	OlympianHelmet: {
+		DisplayName: Olympian Helmet
+		Tooltip: ""
+	}
+
+	OlympianLeggings: {
+		DisplayName: Olympian Greaves
+		Tooltip: ""
+	}
+}
+
+HoppingHoodlum: {
+	SharedFlavorText: "'Hopping Mad'"
+
+	HoppingHoodlumChestplate: {
+		DisplayName: Hopping Hoodlum Shirt
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumHelmet: {
+		DisplayName: Hopping Hoodlum Hood
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumLeggings: {
+		DisplayName: Hopping Hoodlum Paws
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+}
+
+Champion: {
+	SharedFlavorText: "'The armor of a champion feared across the land'"
+
+	ChampionChestplate: {
+		DisplayName: Champion Chestplate
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMage: {
+		DisplayName: Champion Hood
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMelee: {
+		DisplayName: Champion Greathelm
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetRanged: {
+		DisplayName: Champion Mask
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetSummoner: {
+		DisplayName: Champion Headdress
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionLeggings: {
+		DisplayName: Champion' Greaves
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+}
+
+FuryWitchs: {
+	FuryWitchsChestplate: {
+		DisplayName: Fury Witchs Chestplate
+		Tooltip: "'A dress enchanted with the fiery spirit of a supreme dragon acolyte'"
+	}
+
+	FuryWitchsHelmet: {
+		DisplayName: Fury Witch's Cowl
+		Tooltip: "'A hood enchanted with the fiery spirit of a supreme dragon acolyte'"
+	}
+
+	FuryWitchsLeggings: {
+		DisplayName: Fury Witch's Boots
+		Tooltip: "'Boots enchanted with the fiery spirit of a supreme dragon acolyte'"
+	}
+}
+
+MidnightAssassin: {
+	MidnightAssassinChestplate: {
+		DisplayName: Midnight Assassin Chestplate
+		Tooltip: "'A dark chestplate infused with the shadow of midnight'"
+	}
+
+	MidnightAssassinHelmet: {
+		DisplayName: Midnight Assassin Hood
+		Tooltip: "'A dark hood infused with the shadow of midnight'"
+	}
+
+	MidnightAssassinLeggings: {
+		DisplayName: Midnight Assassin's Boots
+		Tooltip: "'Dark boots infused with the shadow of midnight'"
+	}
+}
+
+Nights: {
+	NightsChestplate: {
+		DisplayName: Night's Plate
+		Tooltip: ""
+	}
+
+	NightsHelmet: {
+		DisplayName: Night's Helm
+		Tooltip: ""
+	}
+
+	NightsLeggings: {
+		DisplayName: Night's Greaves
+		Tooltip: ""
+	}
+}
+
+Fleshrend: {
+	FleshrendChestplate: {
+		DisplayName: Fleshrend Plate
+		Tooltip: ""
+	}
+
+	FleshrendHelmet: {
+		DisplayName: Fleshrend Helm
+		Tooltip: ""
+	}
+
+	FleshrendLeggings: {
+		DisplayName: Fleshrend Greaves
+		Tooltip: ""
+	}
+}
+
+Dynaskull: {
+	DynaskullChestplate: {
+		DisplayName: Dynaskull Ribguard
+		Tooltip: ""
+	}
+
+	DynaskullHelmet: {
+		DisplayName: Dynaskull
+		Tooltip: ""
+	}
+
+	DynaskullLeggings: {
+		DisplayName: Dynaskull Greaves
+		Tooltip: ""
+	}
+}
+
+Deathly: {
+	DeathlyChestplate: {
+		DisplayName: Deathly Ribguard
+		Tooltip: ""
+	}
+
+	DeathlyHelmet: {
+		DisplayName: Deathly Skull
+		Tooltip: ""
+	}
+
+	DeathlyLeggings: {
+		DisplayName: Deathly Greaves
+		Tooltip: ""
+	}
+}
+
+GlowingMushium: {
+	GlowingMushiumChestplate: {
+		DisplayName: Glowing Mushium Shirt
+		Tooltip: ""
+	}
+
+	GlowingMushiumHelmet: {
+		DisplayName: Glowing Mushium Hat
+		Tooltip: ""
+	}
+
+	GlowingMushiumLeggings: {
+		DisplayName: Glowing Mushium Pants
+		Tooltip: ""
+	}
+}
+
+GoblinSlayers: {
+	GoblinSlayersChestplate: {
+		DisplayName: Goblin Slayer's Chestplate
+		Tooltip: An immense hatred of Goblinkind haunts this chestplate
+	}
+
+	GoblinSlayersHelmet: {
+		DisplayName: Goblin Slayer's Helm
+		Tooltip: An immense hatred of Goblinkind haunts this helm
+	}
+
+	GoblinSlayersLeggings: {
+		DisplayName: Goblin Slayer's Greaves
+		Tooltip: An immense hatred of Goblinkind haunts these greaves
+	}
+}
+
+Hallowed: {
+	HallowedHelmetSummoner: {
+		DisplayName: Hallowed Face Paint
+		Tooltip: ""
+	}
+}
+
+Demon: {
+	DemonChestplate: {
+		DisplayName: Demon Garb
+		Tooltip: ""
+	}
+
+	DemonHelmet: {
+		DisplayName: Demon Cowl
+		Tooltip: ""
+	}
+
+	DemonLeggings: {
+		DisplayName: Demon Hoofs
+		Tooltip: ""
+	}
+}
+
+Imp: {
+	ImpChestplate: {
+		DisplayName: Imp Garb
+		Tooltip: ""
+	}
+
+	ImpHelmet: {
+		DisplayName: Imp Hood
+		Tooltip: ""
+	}
+
+	ImpLeggings: {
+		DisplayName: Imp Boots
+		Tooltip: ""
+	}
+}
+
+StoneSoldier: {
+	StoneSoldierChestplate: {
+		DisplayName: Stone Soldier Breastplate
+		Tooltip: ""
+	}
+
+	StoneSoldierHelmet: {
+		DisplayName: Stone Soldier Helmet
+		Tooltip: ""
+	}
+
+	StoneSoldierLeggings: {
+		DisplayName: Stone Soldier Greaves
+		Tooltip: ""
+	}
+}
+
+Blazing: {
+	SharedFlavorText: "{$Armor.Kindled.SharedFlavorText}"
+
+	BlazingChestplate: {
+		DisplayName: Blazing Dao
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingHelmet: {
+		DisplayName: Blazing Kabuto
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingLeggings: {
+		DisplayName: Blazing Suneate
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+}
+
+Kindled: {
+	SharedFlavorText: "'Forged in the flames of the blazing sun'"
+
+	KindledChestplate: {
+		DisplayName: Kindled Dao
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledHelmet: {
+		DisplayName: Kindled Kabuto
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledLeggings: {
+		DisplayName: Kindled Suneate
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+}
+
+Razewood: {
+	RazewoodChestplate: {
+		DisplayName: Razewood Chestplate
+		Tooltip: ""
+	}
+
+	RazewoodHelmet: {
+		DisplayName: Razewood Helmet
+		Tooltip: ""
+	}
+
+	RazewoodLeggings: {
+		DisplayName: Razewood Boots
+		Tooltip: ""
+	}
+}
+
+Tribal: {
+	TribalChestplate: {
+		DisplayName: Tribal Cloak
+		Tooltip: ""
+	}
+
+	TribalHelmet: {
+		DisplayName: Tribal Hat
+		Tooltip: ""
+	}
+
+	TribalLeggings: {
+		DisplayName: Tribal Kilt
+		Tooltip: ""
+	}
+}
+
+Chlorophyte: {
+	ChlorophyteHelmetSummoner: {
+		DisplayName: Chlorophyte Face Paint
+		Tooltip: ""
+	}
+
+	ChlorophyteHelmetSummoner2: {
+		DisplayName: Terra Face Paint
+		Tooltip: ""
+	}
+}
+
+Abyssal: {
+	SharedFlavorText: "{$Armor.Depth.SharedFlavorText}"
+
+	AbyssalChestplate: {
+		DisplayName: Abyssal Gi
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalHelmet: {
+		DisplayName: Abyssal Fukumen
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalLeggings: {
+		DisplayName: Abyssal Hakama
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+}
+
+Bogwood: {
+	BogwoodChestplate: {
+		DisplayName: Bogwood Chestplate
+		Tooltip: ""
+	}
+
+	BogwoodHelmet: {
+		DisplayName: Bogwood Helmet
+		Tooltip: ""
+	}
+
+	BogwoodLeggings: {
+		DisplayName: Bogwood Boots
+		Tooltip: ""
+	}
+}
+
+Depth: {
+	SharedFlavorText: "'Weightless as shadow itself'"
+
+	DepthChestplate: {
+		DisplayName: Depth Gi
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthHelmet: {
+		DisplayName: Depth Fukumen
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthLeggings: {
+		DisplayName: Depth Hakama
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+}
+
+DreadMoon: {
+	SharedFlavorText: "'The abyssal wrath of the Mire rests in this armor'"
+
+	DreadMoonChestplate: {
+		DisplayName: Dread Moon Gi
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonHelmet: {
+		DisplayName: Dread Moon Fukumen
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonLeggings: {
+		DisplayName: Dread Moon Hakama
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+}
+
+Atlantean: {
+	SharedFlavorText: "'It vibrates with the powers of Atlantis'"
+
+	AtlanteanChestplate: {
+		DisplayName: Atlantean Chestplate
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanHelmet: {
+		DisplayName: Atlantean Helmet
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanLeggings: {
+		DisplayName: Atlantean Greaves
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+}
+
+Ocean: {
+	OceanChestplate: {
+		DisplayName: Ocean Chestplate
+		Tooltip: ""
+	}
+
+	OceanHelmet: {
+		DisplayName: Ocean Helmet
+		Tooltip: ""
+	}
+
+	OceanLeggings: {
+		DisplayName: Ocean Greaves
+		Tooltip: ""
+	}
+}
+
+Mushium: {
+	MushiumChestplate: {
+		DisplayName: Mushium Shirt
+		Tooltip: ""
+	}
+
+	MushiumHelmet: {
+		DisplayName: Mushium Hat
+		Tooltip: ""
+	}
+
+	MushiumLeggings: {
+		DisplayName: Mushium Pants
+		Tooltip: ""
+	}
+}
+
+Raider: {
+	RaiderChestplate: {
+		DisplayName: Raider Chestplate
+		Tooltip: ""
+	}
+
+	RaiderHelmet: {
+		DisplayName: Raider Helmet
+		Tooltip: ""
+	}
+
+	RaiderLeggings: {
+		DisplayName: Raider Greaves
+		Tooltip: ""
+	}
+}
+
+Viking: {
+	VikingChestplate: {
+		DisplayName: Viking Platemail
+		Tooltip: ""
+	}
+
+	VikingHelmet: {
+		DisplayName: Viking Helmet
+		Tooltip: ""
+	}
+
+	VikingLeggings: {
+		DisplayName: Viking Greaves
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraChestplate: {
+		DisplayName: Terra Chestplate
+		Tooltip: ""
+	}
+
+	TerraHelmetMage: {
+		DisplayName: Terra Hood
+		Tooltip: ""
+	}
+
+	TerraHelmetMelee: {
+		DisplayName: Terra Helm
+		Tooltip: ""
+	}
+
+	TerraHelmetRanged: {
+		DisplayName: Terra Visor
+		Tooltip: ""
+	}
+
+	TerraHelmetSummoner: {
+		DisplayName: Terra Mask
+		Tooltip: ""
+	}
+
+	TerraLeggings: {
+		DisplayName: Terra Greaves
+		Tooltip: ""
+	}
+
+	TerraHelmetMageTest: {
+		DisplayName: Terra Hood
+		Tooltip: ""
+	}
+}
+
+AncientGold: {
+	AncientGoldChestplate: {
+		DisplayName: Ancient Gold Chainmail
+		Tooltip: ""
+	}
+
+	AncientGoldLeggings: {
+		DisplayName: Ancient Gold Greaves
+		Tooltip: ""
+	}
+}
+
+Adamantite: {
+	AdamantiteHelmetSummoner: {
+		DisplayName: Adamantite Face Paint
+		Tooltip: ""
+	}
+}
+
+Cobalt: {
+	CobaltHelmetSummoner: {
+		DisplayName: Cobalt Face Paint
+		Tooltip: ""
+	}
+}
+
+Mythril: {
+	MythrilHelmetSummoner: {
+		DisplayName: Mythril Face Paint
+		Tooltip: ""
+	}
+}
+
+Orichalcum: {
+	OrichalcumHelmetSummoner: {
+		DisplayName: Oricalcum Face Paint
+		Tooltip: ""
+	}
+}
+
+Palladium: {
+	PalladiumHelmetSummoner: {
+		DisplayName: Palladium Face Paint
+		Tooltip: ""
+	}
+}
+
+Titanium: {
+	TitaniumHelmetSummoner: {
+		DisplayName: Titanium Face Paint
+		Tooltip: ""
+	}
+}
+
+DarkDoomite: {
+	DarkDoomiteChestplate: {
+		DisplayName: Dark Doomite Chestplate
+		Tooltip: ""
+	}
+
+	DarkDoomiteHelmet: {
+		DisplayName: Dark Doomite Helmet
+		Tooltip: ""
+	}
+
+	DarkDoomiteLeggings: {
+		DisplayName: Dark Doomite Greaves
+		Tooltip: ""
+	}
+}
+
+Doomite: {
+	DoomiteChestplate: {
+		DisplayName: Doomite Plate
+		Tooltip: ""
+	}
+
+	DoomiteHelmet: {
+		DisplayName: Doomite Visor
+		Tooltip: ""
+	}
+
+	DoomiteLeggings: {
+		DisplayName: Doomite Greaves
+		Tooltip: ""
+	}
+}
+
+Ouroboros: {
+	OuroborosChestplate: {
+		DisplayName: Ouroboros Wood Chestplate
+		Tooltip: ""
+	}
+
+	OuroborosHelmet: {
+		DisplayName: Ouroboros Wood Helmet
+		Tooltip: ""
+	}
+
+	OuroborosLeggings: {
+		DisplayName: Ouroboros Wood Boots
+		Tooltip: ""
+	}
+}
+
+Fulgurite: {
+	FulguriteChestplate: {
+		DisplayName: Fulgurite Breastplate
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMage: {
+		DisplayName: Fulgurite Helm
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMelee: {
+		DisplayName: Fulgurite Helmet
+		Tooltip: ""
+	}
+
+	FulguriteHelmetRanged: {
+		DisplayName: Fulgurite Visor
+		Tooltip: ""
+	}
+
+	FulguriteLeggings: {
+		DisplayName: Fulgurite Pants
+		Tooltip: ""
+	}
+}

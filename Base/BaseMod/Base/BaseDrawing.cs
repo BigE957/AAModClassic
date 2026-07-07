@@ -5,57 +5,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
-using Terraria.UI.Chat;
-using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using AAModClassic.Base.NPCs;
-using AAModClassic.Base.Projectiles;
-using ReLogic.Content;
 
 namespace AAModClassic.Base.BaseMod.Base
 {
-    public class DrawAnimationPrecise : DrawAnimation
-    {
-        int Width = 0, Height = 0, offsetX = 0, offsetY = 2;
-        bool vertical = true;
-        public DrawAnimationPrecise(int ticksperframe, int frameCount, int w, int h, bool v = true, int offX = 0, int offY = 2)
-        {
-            Width = w;
-            Height = h;
-            vertical = v;
-            offsetX = offX;
-            offsetY = offY;
-            this.Frame = 0;
-            this.FrameCounter = 0;
-            this.FrameCount = frameCount;
-            this.TicksPerFrame = ticksperframe;
-        }
-
-        public override void Update()
-        {
-            int num = this.FrameCounter + 1;
-            this.FrameCounter = num;
-            if (num >= this.TicksPerFrame)
-            {
-                this.FrameCounter = 0;
-                num = this.Frame + 1;
-                this.Frame = num;
-                if (num >= this.FrameCount)
-                {
-                    this.Frame = 0;
-                }
-            }
-        }
-
-        public override Rectangle GetFrame(Texture2D texture, int frameCounterOverride = -1)
-        {
-            return new Rectangle(vertical ? 0 : (this.Width + offsetX) * this.Frame, vertical ? (this.Height + offsetY) * this.Frame : 0, this.Width, this.Height);
-        }
-    }
     public class InterfaceLayer
     {
         public string name;
@@ -97,197 +54,6 @@ namespace AAModClassic.Base.BaseMod.Base
         //  Author(s): Grox the Great, Yoraiz0r                 //
         //------------------------------------------------------//
 
-        public static void DrawInvasionProgressBar(SpriteBatch sb, int progress, int progressMax, bool forceDisplay, ref int displayCount, ref float displayAlpha, Texture2D iconTex, string displayText, string percentText = null, Color backgroundrawColor = default(Color), Vector2 offset = default(Vector2))
-        {
-            if (Main.invasionProgressMode == 2 && forceDisplay && displayCount < 160)
-            {
-                displayCount = 160;
-            }
-            if (!Main.gamePaused && displayCount > 0) displayCount = Math.Max(0, displayCount - 1);
-            if (displayCount > 0) { displayAlpha += 0.05f; } else { displayAlpha -= 0.05f; }
-            if (displayAlpha < 0f) displayAlpha = 0f; if (displayAlpha > 1f) displayAlpha = 1f;
-            if (displayAlpha <= 0f) return;
-            float displayScalar = 0.5f + displayAlpha * 0.5f;
-
-            int displayWidth = (int)(200f * displayScalar);
-            int displayHeight = (int)(45f * displayScalar);
-            Vector2 basePosition = new Vector2((float)(Main.screenWidth - 120), (float)(Main.screenHeight - 40)) + offset;
-            Rectangle displayRect = new Rectangle((int)basePosition.X - displayWidth / 2, (int)basePosition.Y - displayHeight / 2, displayWidth, displayHeight);
-            Utils.DrawInvBG(Main.spriteBatch, displayRect, new Color(63, 65, 151, 255) * 0.785f);
-            string displayText2;
-            if (progressMax == 0) { displayText2 = progress.ToString(); } else { displayText2 = ((int)((float)progress * 100f / (float)progressMax)).ToString() + "%"; }
-            if (percentText != null) displayText2 = percentText;
-            //displayText2 = Language.GetTextValue("Game.WaveCleared", displayText2);
-            Texture2D barTex = TextureAssets.ColorBar.Value;
-            if (progressMax != 0)
-            {
-                Main.spriteBatch.Draw(barTex, basePosition, null, Color.White * displayAlpha, 0f, new Vector2((float)(barTex.Width / 2), 0f), displayScalar, SpriteEffects.None, 0f);
-                float progressPercent = MathHelper.Clamp((float)progress / (float)progressMax, 0f, 1f);
-                float scalarX = 169f * displayScalar;
-                float scalarY = 8f * displayScalar;
-                Vector2 vector4 = basePosition + Vector2.UnitY * scalarY + Vector2.UnitX * 1f;
-                Utils.DrawBorderString(Main.spriteBatch, displayText2, vector4, Microsoft.Xna.Framework.Color.White * displayAlpha, displayScalar, 0.5f, 1f, -1);
-                vector4 += Vector2.UnitX * (progressPercent - 0.5f) * scalarX;
-                Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), new Microsoft.Xna.Framework.Color(255, 241, 51) * displayAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(scalarX * progressPercent, scalarY), SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), new Microsoft.Xna.Framework.Color(255, 165, 0, 127) * displayAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(2f, scalarY), SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), Microsoft.Xna.Framework.Color.Black * displayAlpha, 0f, new Vector2(0f, 0.5f), new Vector2(scalarX * (1f - progressPercent), scalarY), SpriteEffects.None, 0f);
-            }
-
-            Vector2 center = new Vector2((float)(Main.screenWidth - 120), (float)(Main.screenHeight - 80)) + offset;
-            Vector2 stringLength = FontAssets.ItemStack.Value.MeasureString(displayText);
-            Microsoft.Xna.Framework.Rectangle textRect = Utils.CenteredRectangle(center, (stringLength + new Vector2((float)(iconTex.Width + 20), 10f)) * displayScalar);
-            Utils.DrawInvBG(Main.spriteBatch, textRect, backgroundrawColor);
-            Main.spriteBatch.Draw(iconTex, textRect.Left() + Vector2.UnitX * displayScalar * 8f, null, Microsoft.Xna.Framework.Color.White * displayAlpha, 0f, new Vector2(0f, (float)(iconTex.Height / 2)), displayScalar * 0.8f, SpriteEffects.None, 0f);
-            Utils.DrawBorderString(Main.spriteBatch, displayText, textRect.Right() + Vector2.UnitX * displayScalar * -8f, Microsoft.Xna.Framework.Color.White * displayAlpha, displayScalar * 0.9f, 1f, 0.4f, -1);
-        }
-
-        public static void AddInterfaceLayer(Mod mod, List<GameInterfaceLayer> list, InterfaceLayer layer, string parent, bool first)
-        {
-            GameInterfaceLayer item = new LegacyGameInterfaceLayer(mod.Name + ":" + layer.name, delegate
-            {
-                layer.Draw();
-                return true;
-            }, InterfaceScaleType.UI);
-            layer.listItem = item;
-
-            int insertAt = -1;
-            for (int m = 0; m < list.Count; m++)
-            {
-                GameInterfaceLayer dl = list[m];
-                if (dl.Name.Contains(parent)) { insertAt = m; break; }
-            }
-            if (insertAt == -1) list.Add(item); else list.Insert(first ? insertAt : insertAt + 1, item);
-        }
-
-        //NOTE: HIGHLY UNSTABLE, ONLY USE IF YOU KNOW WHAT YOU ARE DOING!	
-        public static Texture2D StitchTogetherTileTex(Texture2D tex, int tileType, int width = -1, int[] heights = null)
-        {
-            TileObjectData data = TileObjectData.GetTileData(tileType, 0);
-            if (width == -1) width = data.CoordinateWidth; if (heights == null) heights = data.CoordinateHeights; int padding = data.CoordinatePadding;
-            List<Texture2D> subTexs = new List<Texture2D>();
-            //List<Texture2D> subTexs2 = new List<Texture2D>();		
-            for (int w = 0; w < data.Width; w++)
-            {
-                //subTexs.Clear();
-                for (int h = 0; h < data.Height; h++)
-                {
-                    int currentHeight = 0, tempH = h;
-                    while (tempH > 0) { currentHeight += heights[tempH] + padding; tempH--; }
-                    subTexs.Add(GetCroppedTex(tex, new Rectangle(w * (width + padding), currentHeight, width, heights[h])));
-                }
-                /*for(int m = 0; m < subTexs.Count; m++)
-				{
-					int currentHeight = 0, int tempH = (data.Height - 1);
-					while(tempH > 0){ currentHeight += heights[tempH];  tempH--; }	
-					Rectangle newBounds = new Rectangle(0, 0, data.Width * width, newHeight);
-					Texture2D tex = new Texture2D(Main.instance.GraphicsDevice, newBounds);
-				}*/
-            }
-            int newHeight = 0, tempH2 = (data.Height - 1);
-            while (tempH2 > 0) { newHeight += heights[tempH2]; tempH2--; }
-            Rectangle newBounds = new Rectangle(0, 0, data.Width * width, newHeight);
-            Texture2D tex2 = new Texture2D(Main.instance.GraphicsDevice, newBounds.Width, newBounds.Height);
-            List<Vector2> drawPos = new List<Vector2>();
-            for (int m = 0; m < subTexs.Count; m++) drawPos.Add(new Vector2(width * m, 0));
-            return DrawTextureToTexture(tex2, subTexs.ToArray(), drawPos.ToArray());
-        }
-
-        //NOTE: HIGHLY UNSTABLE, ONLY USE IF YOU KNOW WHAT YOU ARE DOING!
-        public static Texture2D DrawTextureToTexture(Texture2D toDrawTo, Texture2D[] toDraws, Vector2[] drawPos)
-        {
-            RenderTarget2D renderTarget = new RenderTarget2D(Main.instance.GraphicsDevice, toDrawTo.Width, toDrawTo.Height, false, Main.instance.GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
-            Main.instance.GraphicsDevice.SetRenderTarget(renderTarget);
-            Main.instance.GraphicsDevice.Clear(Color.Black);
-            Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-            for (int m = 0; m < toDraws.Length; m++)
-            {
-                Texture2D toDraw = toDraws[m];
-                DrawTexture(Main.spriteBatch, toDraw, 0, drawPos[m], toDraw.Width, toDraw.Height, 1f, 0f, 0, 1, toDraw.Bounds, null);
-            }
-            Main.spriteBatch.End();
-            Main.instance.GraphicsDevice.SetRenderTarget(null);
-            return (Texture2D)renderTarget;
-        }
-
-        public static Texture2D GetCroppedTex(Texture2D texture, Rectangle rect)
-        {
-            return GetCroppedTex(texture, rect.X, rect.Y, rect.Width, rect.Height);
-        }
-
-        public static Texture2D GetCroppedTex(Texture2D texture, int startX, int startY, int newWidth, int newHeight)
-        {
-            Rectangle newBounds = texture.Bounds;
-            newBounds.X += startX;
-            newBounds.Y += startY;
-            newBounds.Width = newWidth;
-            newBounds.Height = newHeight;
-            Texture2D croppedTexture = new Texture2D(Main.instance.GraphicsDevice, newBounds.Width, newBounds.Height);
-            // Copy the data from the cropped region into a buffer, then into the new texture
-            Color[] data = new Color[newBounds.Width * newBounds.Height];
-            texture.GetData(0, newBounds, data, 0, newBounds.Width * newBounds.Height);
-            croppedTexture.SetData(data);
-            return croppedTexture;
-        }
-
-
-        public static Texture2D GetPlayerTex(Player p, string name)
-        {
-            return GetPlayerTex(p.skinVariant, name, p.Male);
-        }
-
-        public static Texture2D GetPlayerTex(int skinVariant, string name, bool male = true)
-        {
-            //TODO: FINISH THIS
-            return name switch
-            {
-                "Head" => TextureAssets.Players[skinVariant, 0].Value,
-                "EyeWhite" => TextureAssets.Players[skinVariant, 1].Value,
-                "Eye" => TextureAssets.Players[skinVariant, 2].Value,
-                "Body" => (male ? TextureAssets.Players[skinVariant, 4].Value : TextureAssets.Players[skinVariant, 6].Value),
-                "Hand" => TextureAssets.Players[skinVariant, 5].Value,
-                "Arms" => TextureAssets.Players[skinVariant, 7].Value,
-                "Legs" => TextureAssets.Players[skinVariant, 10].Value,
-                _ => null,
-            };
-        }
-
-        public static void AddPlayerDrawLayer(List<PlayerDrawLayer> list, PlayerDrawLayer layer, PlayerDrawLayer parent, bool first)
-        {
-            int insertAt = -1;
-            for (int m = 0; m < list.Count; m++)
-            {
-                PlayerDrawLayer dl = list[m];
-                if (dl.Name.Equals(parent.Name)) { insertAt = m; break; }
-            }
-            if (insertAt == -1) list.Add(layer); else list.Insert(first ? insertAt : insertAt + 1, layer);
-        }
-        /*
-        public static void AddPlayerHeadLayer(List<PlayerHeadLayer> list, PlayerHeadLayer layer, PlayerHeadLayer parent, bool first)
-        {
-            int insertAt = -1;
-            for (int m = 0; m < list.Count; m++)
-            {
-                PlayerHeadLayer dl = list[m];
-                if (dl.Name.Equals(parent.Name)){ insertAt = m; break; }
-            }
-            if (insertAt == -1) list.Add(layer); else list.Insert(first ? insertAt : insertAt + 1, layer);
-        }
-		*/
-        /*
-         * Returns a rectangle representing the frame on a texture, can offset on the x axis.
-         * 
-         * pixelSpaceX/pixelSpaceY : The 'pixel space' seperating two frames in the texture on the X/Y axis, respectively.
-         */
-        public static Rectangle GetAdvancedFrame(int currentFrame, int frameOffsetX, int frameWidth, int frameHeight, int pixelSpaceX = 0, int pixelSpaceY = 2)
-        {
-            int column = (currentFrame / frameOffsetX);
-            currentFrame -= (column * frameOffsetX);
-            pixelSpaceY *= currentFrame;
-            int startX = (frameOffsetX == 0 ? 0 : column * (frameWidth + pixelSpaceX));
-            int startY = (frameHeight * currentFrame) + pixelSpaceY;
-            return new Rectangle(startX, startY, frameWidth, frameHeight);
-        }
-
         /*
          * Returns a rectangle representing the frame on a texture.
          * 
@@ -300,75 +66,12 @@ namespace AAModClassic.Base.BaseMod.Base
             return new Rectangle(0, startY, frameWidth - pixelSpaceX, frameHeight);
         }
 
-        /*
-         * Returns true if the given pass is not an effect one. This is primary used for things that don't want to be 
-         * drawn in Shadow Aura (Hallow Armor), Shadow Afterimage (Necro Armor), or Glow (Chlorophyte Armor) effects.
-         */
-        public static bool IsNormalDrawPass(Player player, PlayerDrawSet pdi = default(PlayerDrawSet))
-        {
-            return player.ghostFade == 0f && true/*player.shadow == 0f*/ && (pdi.Equals(default(PlayerDrawSet)) || pdi.shadow == 0f);
-        }
 
         public static int GetDye(Player drawPlayer, int accSlot, bool social = false, bool wings = false)
         {
             int dye = accSlot % 10;
             if (!wings && accSlot < 10 && drawPlayer.hideVisibleAccessory[dye]) return -1;
             return GameShaders.Armor.GetShaderIdFromItemId(drawPlayer.dye[dye].type);
-        }
-
-        /*
-		 * Returns a color roughly associated with the given dye. (special dyes return null)
-		 */
-        public static Color? GetDyeColor(int dye)
-        {
-            Color? returnColor = null;
-            float brightness = 1f;
-            if (dye >= 13 && dye <= 24) { brightness = 0.7f; dye -= 12; } //black
-            if (dye >= 45 && dye <= 56) { brightness = 1.3f; dye -= 44; } //silver
-            if (dye >= 32 && dye <= 43) { brightness = 1.5f; dye -= 31; } //bright dyes
-            switch (dye)
-            {
-                case 1: returnColor = new Color(248, 63, 63); break; //red
-                case 2: returnColor = new Color(248, 148, 63); break; //orange
-                case 3: returnColor = new Color(248, 242, 62); break; //yellow
-                case 4: returnColor = new Color(157, 248, 70); break; //lime
-                case 5: returnColor = new Color(48, 248, 70); break; //green
-                case 6: returnColor = new Color(60, 248, 70); break; //teal
-                case 7: returnColor = new Color(62, 242, 248); break; //cyan
-                case 8: returnColor = new Color(64, 181, 247); break; //sky blue
-                case 9: returnColor = new Color(66, 95, 247); break; //blue
-                case 10: returnColor = new Color(159, 65, 247); break; //purple
-                case 11: returnColor = new Color(212, 65, 247); break; //violet
-                case 12: returnColor = new Color(242, 63, 131); break; //pink
-                case 31: returnColor = new Color(226, 226, 226); break; //silver
-                case 44: returnColor = new Color(40, 40, 40); break; //black
-                case 62: returnColor = new Color(157, 248, 70); break; //yellow gradient dye
-                case 63: returnColor = new Color(64, 181, 247); break; //cyan gradient dye
-                case 64: returnColor = new Color(212, 65, 247); break; //violet gradient dye
-            }
-            if (returnColor != null && brightness != 1f) returnColor = BaseUtility.ColorMult((Color)returnColor, brightness);
-            return returnColor;
-        }
-
-        /*
-         * Returns a color associated with the given vanilla gem type.
-         */
-        public static Color GetGemColor(int type)
-        {
-            if (type == 181) { return Color.MediumOrchid; }
-            else //Amethyst
-            if (type == 180) { return Color.Gold; }
-            else //Topaz
-            if (type == 177) { return Color.DeepSkyBlue; }
-            else //Sapphire
-            if (type == 178) { return Color.Crimson; }
-            else //Ruby
-            if (type == 179) { return Color.LimeGreen; }
-            else //Emerald
-            if (type == 182) { return Color.GhostWhite; }
-            else //Diamond
-            if (type == 999) { return Color.Orange; } //Amber
-            return Color.Black;
         }
 
         /*
@@ -418,7 +121,7 @@ namespace AAModClassic.Base.BaseMod.Base
         public static Color BuffEffects(Entity codable, Color lightColor, float shadow = 0f, bool effects = true, bool poisoned = false, bool onFire = false, bool onFire2 = false, bool hunter = false, bool noItems = false, bool blind = false, bool bleed = false, bool venom = false, bool midas = false, bool ichor = false, bool onFrostBurn = false, bool burned = false, bool honey = false, bool dripping = false, bool drippingSlime = false, bool loveStruck = false, bool stinky = false)
         {
             float cr = 1f; float cg = 1f; float cb = 1f; float ca = 1f;
-            if (effects && honey && Main.rand.Next(30) == 0)
+            if (effects && honey && Main.rand.NextBool(30))
             {
                 int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Honey, 0f, 0f, 150, default(Color), 1f);
                 Main.dust[dustID].velocity.Y = 0.3f;
@@ -431,7 +134,7 @@ namespace AAModClassic.Base.BaseMod.Base
             }
             if (poisoned)
             {
-                if (effects && Main.rand.Next(30) == 0)
+                if (effects && Main.rand.NextBool(30))
                 {
                     int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Poisoned, 0f, 0f, 120, default(Color), 0.2f);
                     Main.dust[dustID].noGravity = true;
@@ -443,7 +146,7 @@ namespace AAModClassic.Base.BaseMod.Base
             }
             if (venom)
             {
-                if (effects && Main.rand.Next(10) == 0)
+                if (effects && Main.rand.NextBool(10))
                 {
                     int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Venom, 0f, 0f, 100, default(Color), 0.5f);
                     Main.dust[dustID].noGravity = true;
@@ -489,7 +192,7 @@ namespace AAModClassic.Base.BaseMod.Base
                         Main.dust[dustID].noGravity = true;
                         Main.dust[dustID].velocity *= 1.8f;
                         Main.dust[dustID].velocity.Y -= 0.5f;
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             Main.dust[dustID].noGravity = false;
                             Main.dust[dustID].scale *= 0.5f;
@@ -508,13 +211,13 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 if (effects)
                 {
-                    if (Main.rand.Next(4) != 0)
+                    if (Main.rand.NextBool(4))
                     {
                         int dustID = Dust.NewDust(codable.position - new Vector2(2f, 2f), codable.width + 4, codable.height + 4, DustID.Torch, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
                         Main.dust[dustID].noGravity = true;
                         Main.dust[dustID].velocity *= 1.8f;
                         Main.dust[dustID].velocity.Y -= 0.5f;
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             Main.dust[dustID].noGravity = false;
                             Main.dust[dustID].scale *= 0.5f;
@@ -529,15 +232,15 @@ namespace AAModClassic.Base.BaseMod.Base
                     cg *= 0.7f;
                 }
             }
-            if (dripping && shadow == 0f && Main.rand.Next(4) != 0)
+            if (dripping && shadow == 0f && Main.rand.NextBool(4))
             {
                 Vector2 position = codable.position;
                 position.X -= 2f; position.Y -= 2f;
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     int dustID = Dust.NewDust(position, codable.width + 4, codable.height + 2, DustID.Wet, 0f, 0f, 50, default(Color), 0.8f);
-                    if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
-                    if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
+                    if (Main.rand.NextBool(2)) Main.dust[dustID].alpha += 25;
+                    if (Main.rand.NextBool(2)) Main.dust[dustID].alpha += 25;
                     Main.dust[dustID].noLight = true;
                     Main.dust[dustID].velocity *= 0.2f;
                     Main.dust[dustID].velocity.Y += 0.2f;
@@ -547,8 +250,8 @@ namespace AAModClassic.Base.BaseMod.Base
                 else
                 {
                     int dustID = Dust.NewDust(position, codable.width + 8, codable.height + 8, DustID.Wet, 0f, 0f, 50, default(Color), 1.1f);
-                    if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
-                    if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
+                    if (Main.rand.NextBool(2)) Main.dust[dustID].alpha += 25;
+                    if (Main.rand.NextBool(2)) Main.dust[dustID].alpha += 25;
                     Main.dust[dustID].noLight = true;
                     Main.dust[dustID].noGravity = true;
                     Main.dust[dustID].velocity *= 0.2f;
@@ -561,15 +264,15 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 int alpha = 175;
                 Color newColor = new Color(0, 80, 255, 100);
-                if (Main.rand.Next(4) != 0)
+                if (Main.rand.NextBool(4))
                 {
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.NextBool(2))
                     {
                         Vector2 position2 = codable.position;
                         position2.X -= 2f; position2.Y -= 2f;
                         int dustID = Dust.NewDust(position2, codable.width + 4, codable.height + 2, DustID.TintableDust, 0f, 0f, alpha, newColor, 1.4f);
-                        if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
-                        if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
+                        if (Main.rand.NextBool(2)) Main.dust[dustID].alpha += 25;
+                        if (Main.rand.NextBool(2)) Main.dust[dustID].alpha += 25;
                         Main.dust[dustID].noLight = true;
                         Main.dust[dustID].velocity *= 0.2f;
                         Main.dust[dustID].velocity.Y += 0.2f;
@@ -584,13 +287,13 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 if (effects)
                 {
-                    if (Main.rand.Next(4) != 0)
+                    if (Main.rand.NextBool(4))
                     {
                         int dustID = Dust.NewDust(codable.position - new Vector2(2f, 2f), codable.width + 4, codable.height + 4, DustID.CursedTorch, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
                         Main.dust[dustID].noGravity = true;
                         Main.dust[dustID].velocity *= 1.8f;
                         Main.dust[dustID].velocity.Y -= 0.5f;
-                        if (Main.rand.Next(4) == 0)
+                        if (Main.rand.NextBool(4))
                         {
                             Main.dust[dustID].noGravity = false;
                             Main.dust[dustID].scale *= 0.5f;
@@ -618,7 +321,7 @@ namespace AAModClassic.Base.BaseMod.Base
             if (bleed)
             {
                 bool dead = (codable is Player ? ((Player)codable).dead : codable is NPC ? ((NPC)codable).life <= 0 : false);
-                if (effects && !dead && Main.rand.Next(30) == 0)
+                if (effects && !dead && Main.rand.NextBool(30))
                 {
                     int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Blood, 0f, 0f, 0, default(Color), 1f);
                     Main.dust[dustID].velocity.Y += 0.5f;
@@ -628,7 +331,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 cg *= 0.9f;
                 cb *= 0.9f;
             }
-            if (loveStruck && effects && shadow == 0f && Main.instance.IsActive && !Main.gamePaused && Main.rand.Next(5) == 0)
+            if (loveStruck && effects && shadow == 0f && Main.instance.IsActive && !Main.gamePaused && Main.rand.NextBool(5))
             {
                 Vector2 value = new Vector2((float)Main.rand.Next(-10, 11), (float)Main.rand.Next(-10, 11));
                 value.Normalize();
@@ -643,7 +346,7 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 cr *= 0.7f;
                 cb *= 0.55f;
-                if (effects && Main.rand.Next(5) == 0 && Main.instance.IsActive && !Main.gamePaused)
+                if (effects && Main.rand.NextBool(5) && Main.instance.IsActive && !Main.gamePaused)
                 {
                     Vector2 value2 = new Vector2((float)Main.rand.Next(-10, 11), (float)Main.rand.Next(-10, 11));
                     value2.Normalize(); value2.X *= 0.66f; value2.Y = Math.Abs(value2.Y);
@@ -661,7 +364,7 @@ namespace AAModClassic.Base.BaseMod.Base
             if (codable is NPC) NPCLoader.DrawEffects((NPC)codable, ref lightColor);
             if (hunter && (codable is NPC ? ((NPC)codable).lifeMax > 1 : true))
             {
-                if (effects && !Main.gamePaused && Main.instance.IsActive && Main.rand.Next(50) == 0)
+                if (effects && !Main.gamePaused && Main.instance.IsActive && Main.rand.NextBool(50))
                 {
                     int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.MagicMirror, 0f, 0f, 150, default(Color), 0.8f);
                     Main.dust[dustID].velocity *= 0.1f;
@@ -688,8 +391,8 @@ namespace AAModClassic.Base.BaseMod.Base
         public static bool ShouldDrawArmor(Player drawPlayer, int armorType, int itemType = -1)
         {
             if (drawPlayer.merman || drawPlayer.wereWolf) { return false; }
-            if (itemType == -1) { return (drawPlayer.armor[10 + armorType].type > ItemID.None) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type > ItemID.None); }
-            return (drawPlayer.armor[10 + armorType].type == itemType) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type == itemType);
+            if (itemType == -1) { return (drawPlayer.armor[10 + armorType].type > ItemID.None) || (IsBlank(drawPlayer.armor[10 + armorType]) && drawPlayer.armor[0 + armorType].type > ItemID.None); }
+            return (drawPlayer.armor[10 + armorType].type == itemType) || (IsBlank(drawPlayer.armor[10 + armorType]) && drawPlayer.armor[0 + armorType].type == itemType);
         }
 
         public static bool ShouldDrawAccessory(Player drawPlayer, int itemType)
@@ -697,9 +400,15 @@ namespace AAModClassic.Base.BaseMod.Base
             for (int m = 3; m < 8 + drawPlayer.extraAccessorySlots; m++)
             {
                 if (drawPlayer.armor[m + 10].type == itemType) return true;
-                if (drawPlayer.armor[m + 10].IsBlank() && !drawPlayer.hideVisibleAccessory[m] && (drawPlayer.armor[m].type == itemType)) return true;
+                if (IsBlank(drawPlayer.armor[m + 10]) && !drawPlayer.hideVisibleAccessory[m] && (drawPlayer.armor[m].type == itemType)) return true;
             }
             return false;
+        }
+
+        private static bool IsBlank(Item item)
+        {
+            if (item.type <= ItemID.None || item.stack <= 0) return true;
+            return string.IsNullOrEmpty(item.Name);
         }
 
         /*
@@ -818,105 +527,7 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-
-        public static bool DrawHeldGun(object sb, int shader, Player drawPlayer, Color lightColor = default(Color), float scale = 0f, float xOffset = 0, float yOffset = 0, bool shakeX = false, bool shakeY = false, float shakeScalarX = 1.0f, float shakeScalarY = 1.0f, Rectangle? frame = null, int frameCount = 1, Texture2D overrideTex = null)
-        {
-            if (ShouldDrawHeldItem(drawPlayer))
-            {
-                Item item = drawPlayer.inventory[drawPlayer.selectedItem];
-                DrawHeldGun(sb, (overrideTex != null ? overrideTex : TextureAssets.Item[item.type].Value), shader, drawPlayer.itemLocation, item, drawPlayer.direction, drawPlayer.itemRotation, scale <= 0f ? item.scale : scale, lightColor, item.color, xOffset, yOffset, shakeX, shakeY, shakeScalarX, shakeScalarY, drawPlayer.gravDir, drawPlayer, frame, frameCount);
-                return false;
-            }
-            return true;
-        }
-
-        /*
-         * Draws a texture in a gun-like fashion. (ie only when used and in the direction of the cursor)
-         * 
-         * direction : the direction the sprite should point. (-1 for left, 1 for right)
-         * itemRotation : Rotation of the item.
-         * itemScale : Scale of the item.
-         * lightColor : color of the light the weapon is at.
-         * wepColor : weapon's tint.
-         * XOffset / YOffset : Offsets the gun's position on the X/Y axis.
-         * shakeX / shakeY : If true, shakes the sprite on the X/Y axis.
-         * shakeScaleX / shakeScaleY : If shakeX/shakeY is true, this scales the amount it shakes by.
-         * gravDir : the direction of gravity.
-         * entity : If drawing for a player or npc, the instance of them. (can be null)
-         */
-        public static void DrawHeldGun(object sb, Texture2D tex, int shader, Vector2 position, Item item, int direction, float itemRotation, float itemScale, Color lightColor = default(Color), Color wepColor = default(Color), float xOffset = 0, float yOffset = 0, bool shakeX = false, bool shakeY = false, float shakeScalarX = 1.0f, float shakeScalarY = 1.0f, float gravDir = 1f, Entity entity = null, Rectangle? frame = null, int frameCount = 1)
-        {
-            if (frame == null) { frame = new Rectangle(0, 0, tex.Width, tex.Height); }
-            if (lightColor == default(Color)) { lightColor = GetLightColor(position); }
-            SpriteEffects spriteEffect = direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            if (gravDir == -1f) { yOffset *= -1; spriteEffect = spriteEffect | SpriteEffects.FlipVertically; }
-            int type = item.type;
-            int fakeType = type;
-            Vector2 texOrigin = new Vector2((float)(tex.Width / 2), (float)(tex.Height / 2) / frameCount);
-            if (entity is Player)
-            {
-                Player drawPlayer = (Player)entity; yOffset += drawPlayer.gfxOffY;
-            }
-            else
-            if (entity is NPC)
-            {
-                NPC drawNPC = (NPC)entity; yOffset += drawNPC.gfxOffY;
-            }
-            Vector2 rotOrigin = new Vector2(-(float)xOffset, ((float)(tex.Height / 2) / frameCount) - yOffset);
-            if (direction == -1)
-            {
-                rotOrigin = new Vector2((float)(tex.Width + xOffset), ((float)(tex.Height / 2) / frameCount) - yOffset);
-            }
-            Vector2 pos = new Vector2((float)((int)(position.X - Main.screenPosition.X + texOrigin.X)), (float)((int)(position.Y - Main.screenPosition.Y + texOrigin.Y)));
-
-            if (shakeX) { pos.X += shakeScalarX * (Main.rand.Next(-5, 6) / 9f); }
-            if (shakeY) { pos.Y += shakeScalarY * (Main.rand.Next(-5, 6) / 9f); }
-
-            if (sb is List<DrawData>)
-            {
-                DrawData dd = new DrawData(tex, pos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-                dd.shader = shader;
-                ((List<DrawData>)sb).Add(dd);
-            }
-            else
-            if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, pos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-
-            if (wepColor != default(Color))
-            {
-                if (sb is List<DrawData>)
-                {
-                    DrawData dd = new DrawData(tex, pos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-                    dd.shader = shader;
-                    ((List<DrawData>)sb).Add(dd);
-                }
-                else
-                if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, pos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-            }
-            try { if (type != fakeType) { item.type = type; } }
-            catch { }
-        }
-
-        /*
-         * Draws the given texture in a spear-like fashion (texture is oriented at the upper-right corner) using the projectile provided.
-         */
-        public static void DrawProjectileSpear(object sb, Texture2D texture, int shader, Projectile p, Color? overrideColor = null, float offsetX = 0f, float offsetY = 0f)
-        {
-            offsetX += (-texture.Width * 0.5f);
-            Color lightColor = overrideColor != null ? (Color)overrideColor : p.GetAlpha(GetLightColor(Main.player[p.owner].Center));
-            Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
-            offsetY -= Main.player[p.owner].gfxOffY;
-            Vector2 offset = BaseUtility.RotateVector(p.Center, p.Center + new Vector2(p.direction == -1 ? offsetX : offsetY, p.direction == 1 ? offsetX : offsetY), p.rotation - 2.355f) - p.Center;
-            if (sb is List<DrawData>)
-            {
-                DrawData dd = new DrawData(texture, p.Center - Main.screenPosition + offset, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, p.rotation, origin, p.scale, p.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-                dd.shader = shader;
-                ((List<DrawData>)sb).Add(dd);
-            }
-            else
-            if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(texture, p.Center - Main.screenPosition + offset, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, p.rotation, origin, p.scale, p.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-        }
-
-        public static void DrawAura(object sb, Texture2D texture, int shader, Entity codable, float auraPercent, float distanceScalar = 1f, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
+        public static void DrawAura(object sb, Texture2D texture, int shader, Entity codable, float auraPercent, float distanceScalar = 1f, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null, bool centered = false)
         {
             int frameCount = (codable is NPC ? Main.npcFrameCount[((NPC)codable).type] : 1);
             Rectangle frame = (codable is NPC ? ((NPC)codable).frame : new Rectangle(0, 0, texture.Height, texture.Width));
@@ -924,10 +535,10 @@ namespace AAModClassic.Base.BaseMod.Base
             float rotation = (codable is NPC ? ((NPC)codable).rotation : ((Projectile)codable).rotation);
             int spriteDirection = (codable is NPC ? ((NPC)codable).spriteDirection : ((Projectile)codable).spriteDirection);
             float offsetY2 = (codable is NPC ? ((NPC)codable).gfxOffY : 0f);
-            DrawAura(sb, texture, shader, codable.position + new Vector2(0f, offsetY2), codable.width, codable.height, auraPercent, distanceScalar, scale, rotation, spriteDirection, frameCount, frame, offsetX, offsetY, overrideColor);
+            DrawAura(sb, texture, shader, codable.position + new Vector2(0f, offsetY2), codable.width, codable.height, auraPercent, distanceScalar, scale, rotation, spriteDirection, frameCount, frame, offsetX, offsetY, overrideColor, centered);
         }
 
-        public static void DrawAura(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float auraPercent, float distanceScalar = 1f, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default(Rectangle), float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
+        public static void DrawAura(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float auraPercent, float distanceScalar = 1f, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default(Rectangle), float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null, bool centered = false)
         {
             Color lightColor = overrideColor != null ? (Color)overrideColor : GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
             float percentHalf = auraPercent * 5f * distanceScalar;
@@ -949,205 +560,7 @@ namespace AAModClassic.Base.BaseMod.Base
                     case 3: offY -= percentHalf; break;
                 }
                 position2 = new Vector2(position.X + offX, position.Y + offY);
-                DrawTexture(sb, texture, shader, position2, width, height, scale, rotation, direction, framecount, frame, lightColor);
-            }
-        }
-
-        public static void DrawYoyoLine(SpriteBatch sb, Projectile projectile, Texture2D overrideTex = null, Color? overrideColor = null)
-        {
-            DrawYoyoLine(sb, projectile, Main.player[projectile.owner], projectile.Center, Main.player[projectile.owner].MountedCenter, overrideTex, overrideColor);
-        }
-
-        public static void DrawYoyoLine(SpriteBatch sb, Projectile projectile, Entity owner, Vector2 yoyoLoc, Vector2 connectionLoc, Texture2D overrideTex = null, Color? overrideColor = null)
-        {
-            Vector2 mountedCenter = connectionLoc;
-            if (owner is Player) mountedCenter.Y += Main.player[projectile.owner].gfxOffY;
-            float centerDistX = yoyoLoc.X - mountedCenter.X;
-            float centerDistY = yoyoLoc.Y - mountedCenter.Y;
-            Math.Sqrt((double)(centerDistX * centerDistX + centerDistY * centerDistY));
-            float rotation = (float)Math.Atan2((double)centerDistY, (double)centerDistX) - 1.57f;
-            if (owner is Player && !projectile.counterweight)
-            {
-                int projDir = -1;
-                if (projectile.position.X + (float)(projectile.width / 2) < Main.player[projectile.owner].position.X + (float)(Main.player[projectile.owner].width / 2)) projDir = 1;
-                projDir *= -1;
-                ((Player)owner).itemRotation = (float)Math.Atan2((double)(centerDistY * (float)projDir), (double)(centerDistX * (float)projDir));
-            }
-            bool flag = true;
-            if (centerDistX == 0f && centerDistY == 0f) { flag = false; }
-            else
-            {
-                float sqrtCenter = (float)Math.Sqrt((double)(centerDistX * centerDistX + centerDistY * centerDistY));
-                sqrtCenter = 12f / sqrtCenter;
-                centerDistX *= sqrtCenter;
-                centerDistY *= sqrtCenter;
-                mountedCenter.X -= centerDistX * 0.1f;
-                mountedCenter.Y -= centerDistY * 0.1f;
-                centerDistX = yoyoLoc.X - mountedCenter.X;
-                centerDistY = yoyoLoc.Y - mountedCenter.Y;
-            }
-            while (flag)
-            {
-                float textureHeight = 12f;
-                float sqrtCenter = (float)Math.Sqrt((double)(centerDistX * centerDistX + centerDistY * centerDistY));
-                float sqrtCenter2 = sqrtCenter;
-                if (float.IsNaN(sqrtCenter) || float.IsNaN(sqrtCenter2)) { flag = false; }
-                else
-                {
-                    if (sqrtCenter < 20f) { textureHeight = sqrtCenter - 8f; flag = false; }
-                    sqrtCenter = 12f / sqrtCenter;
-                    centerDistX *= sqrtCenter;
-                    centerDistY *= sqrtCenter;
-                    mountedCenter.X += centerDistX;
-                    mountedCenter.Y += centerDistY;
-                    centerDistX = yoyoLoc.X - mountedCenter.X;
-                    centerDistY = yoyoLoc.Y - mountedCenter.Y;
-                    if (sqrtCenter2 > 12f)
-                    {
-                        float scalar = 0.3f;
-                        float velocityAverage = Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y);
-                        if (velocityAverage > 16f) velocityAverage = 16f;
-                        velocityAverage = 1f - velocityAverage / 16f;
-                        scalar *= velocityAverage;
-                        velocityAverage = sqrtCenter2 / 80f;
-                        if (velocityAverage > 1f) velocityAverage = 1f;
-                        scalar *= velocityAverage;
-                        if (scalar < 0f) scalar = 0f;
-                        scalar *= velocityAverage;
-                        scalar *= 0.5f;
-                        if (centerDistY > 0f)
-                        {
-                            centerDistY *= 1f + scalar;
-                            centerDistX *= 1f - scalar;
-                        }
-                        else
-                        {
-                            velocityAverage = Math.Abs(projectile.velocity.X) / 3f;
-                            if (velocityAverage > 1f) velocityAverage = 1f;
-                            velocityAverage -= 0.5f;
-                            scalar *= velocityAverage;
-                            if (scalar > 0f) scalar *= 2f;
-                            centerDistY *= 1f + scalar;
-                            centerDistX *= 1f - scalar;
-                        }
-                    }
-                    rotation = (float)Math.Atan2((double)centerDistY, (double)centerDistX) - 1.57f;
-                    int stringColor = Main.player[projectile.owner].stringColor;
-                    Color color = (overrideColor != null && stringColor <= 0 ? (Color)overrideColor : WorldGen.paintColor(stringColor));
-                    if (color.R < 75) color.R = 75; if (color.G < 75) color.G = 75; if (color.B < 75) color.B = 75;
-                    if (stringColor == 13) { color = new Color(20, 20, 20); }
-                    else if (stringColor == 14 || stringColor == 0) { color = new Color(200, 200, 200); }
-                    else if (stringColor == 28) { color = new Color(163, 116, 91); }
-                    else if (stringColor == 27) { color = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB); }
-                    color.A = (byte)((float)color.A * 0.4f);
-                    float colorScalar = 0.5f;
-                    if (overrideColor == null)
-                    {
-                        color = Lighting.GetColor((int)mountedCenter.X / 16, (int)(mountedCenter.Y / 16f), color);
-                        color = new Microsoft.Xna.Framework.Color((int)((byte)((float)color.R * colorScalar)), (int)((byte)((float)color.G * colorScalar)), (int)((byte)((float)color.B * colorScalar)), (int)((byte)((float)color.A * colorScalar)));
-                    }
-                    Texture2D tex = (overrideTex != null ? overrideTex : TextureAssets.FishingLine.Value);
-                    Vector2 texCenter = new Vector2(tex.Width * 0.5f, tex.Height * 0.5f);
-                    Main.spriteBatch.Draw(TextureAssets.FishingLine.Value, new Vector2(mountedCenter.X - Main.screenPosition.X + texCenter.X, mountedCenter.Y - Main.screenPosition.Y + texCenter.Y) - new Vector2(6f, 0f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, tex.Width, (int)textureHeight)), color, rotation, new Vector2((float)tex.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
-                }
-            }
-        }
-
-        /*
-          * Draws a fishing line from the given projectile bobber to the player owning it.
-          */
-        public static void DrawFishingLine(SpriteBatch sb, Projectile projectile, Vector2 rodLoc, Vector2 bobberLoc, Texture2D overrideTex = null, Color? overrideColor = null)
-        {
-            Player player = Main.player[projectile.owner];
-            if (projectile.bobber && Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].holdStyle > 0)
-            {
-                float mountedCenterX = player.MountedCenter.X;
-                float mountedCenterY = player.MountedCenter.Y;
-                mountedCenterY += Main.player[projectile.owner].gfxOffY;
-                int type = Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].type;
-                float gravDir = Main.player[projectile.owner].gravDir;
-
-                mountedCenterX += (float)(rodLoc.X * Main.player[projectile.owner].direction);
-                if (Main.player[projectile.owner].direction < 0) mountedCenterX -= 13f;
-                mountedCenterY -= rodLoc.Y * gravDir;
-
-                if (gravDir == -1f) mountedCenterY -= 12f;
-                Vector2 mountedCenter = new Vector2(mountedCenterX, mountedCenterY);
-                mountedCenter = Main.player[projectile.owner].RotatedRelativePoint(mountedCenter + new Vector2(8f), true) - new Vector2(8f);
-                float projLineCenterX = projectile.position.X + (float)projectile.width * 0.5f - mountedCenter.X;
-                float projLineCenterY = projectile.position.Y + (float)projectile.height * 0.5f - mountedCenter.Y;
-                projLineCenterX += bobberLoc.X; projLineCenterY += bobberLoc.Y;
-                Math.Sqrt((double)(projLineCenterX * projLineCenterX + projLineCenterY * projLineCenterY));
-                float rotation2 = (float)Math.Atan2((double)projLineCenterY, (double)projLineCenterX) - 1.57f;
-                bool flag2 = true;
-                if (projLineCenterX == 0f && projLineCenterY == 0f) { flag2 = false; }
-                else
-                {
-                    float num15 = (float)Math.Sqrt((double)(projLineCenterX * projLineCenterX + projLineCenterY * projLineCenterY));
-                    num15 = 12f / num15;
-                    projLineCenterX *= num15;
-                    projLineCenterY *= num15;
-                    mountedCenter.X -= projLineCenterX;
-                    mountedCenter.Y -= projLineCenterY;
-                    projLineCenterX = projectile.position.X + (float)projectile.width * 0.5f - mountedCenter.X;
-                    projLineCenterY = projectile.position.Y + (float)projectile.height * 0.5f - mountedCenter.Y;
-                }
-                while (flag2)
-                {
-                    float num16 = 12f;
-                    float num17 = (float)Math.Sqrt((double)(projLineCenterX * projLineCenterX + projLineCenterY * projLineCenterY));
-                    float num18 = num17;
-                    if (float.IsNaN(num17) || float.IsNaN(num18)) { flag2 = false; }
-                    else
-                    {
-                        if (num17 < 20f)
-                        {
-                            num16 = num17 - 8f;
-                            flag2 = false;
-                        }
-                        num17 = 12f / num17;
-                        projLineCenterX *= num17;
-                        projLineCenterY *= num17;
-                        mountedCenter.X += projLineCenterX;
-                        mountedCenter.Y += projLineCenterY;
-                        projLineCenterX = projectile.position.X + (float)projectile.width * 0.5f - mountedCenter.X;
-                        projLineCenterY = projectile.position.Y + (float)projectile.height * 0.1f - mountedCenter.Y;
-                        if (num18 > 12f)
-                        {
-                            float num19 = 0.3f;
-                            float num20 = Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y);
-                            if (num20 > 16f) num20 = 16f;
-                            num20 = 1f - num20 / 16f;
-                            num19 *= num20;
-                            num20 = num18 / 80f;
-                            if (num20 > 1f) num20 = 1f;
-                            num19 *= num20;
-                            if (num19 < 0f) num19 = 0f;
-                            num20 = 1f - projectile.localAI[0] / 100f;
-                            num19 *= num20;
-                            if (projLineCenterY > 0f)
-                            {
-                                projLineCenterY *= 1f + num19;
-                                projLineCenterX *= 1f - num19;
-                            }
-                            else
-                            {
-                                num20 = Math.Abs(projectile.velocity.X) / 3f;
-                                if (num20 > 1f) num20 = 1f;
-                                num20 -= 0.5f;
-                                num19 *= num20;
-                                if (num19 > 0f) num19 *= 2f;
-                                projLineCenterY *= 1f + num19;
-                                projLineCenterX *= 1f - num19;
-                            }
-                        }
-                        rotation2 = (float)Math.Atan2((double)projLineCenterY, (double)projLineCenterX) - 1.57f;
-                        Color color2 = Lighting.GetColor((int)mountedCenter.X / 16, (int)(mountedCenter.Y / 16f), (overrideColor != null ? (Color)overrideColor : new Color(200, 200, 200, 100)));
-                        Texture2D tex = (overrideTex != null ? overrideTex : TextureAssets.FishingLine.Value);
-                        Vector2 texCenter = new Vector2(tex.Width * 0.5f, tex.Height * 0.5f);
-                        sb.Draw(tex, new Vector2(mountedCenter.X - Main.screenPosition.X + (float)texCenter.X * 0.5f, mountedCenter.Y - Main.screenPosition.Y + (float)texCenter.Y * 0.5f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, tex.Width, (int)num16)), color2, rotation2, new Vector2((float)tex.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
-                    }
-                }
+                DrawTexture(sb, texture, shader, position2, width, height, scale, rotation, direction, framecount, frame, lightColor, centered);
             }
         }
 
@@ -1211,257 +624,28 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        public static void DrawChain(object sb, Texture2D texture, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
+        public static void DrawChain(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f)
         {
-            DrawChain(sb, new Texture2D[] { texture, texture, texture }, shader, start, end, Jump, overrideColor, scale, drawEndsUnder, OnDrawTex);
-        }
-
-        //code written by Yoraiz0r, heavily edited by GroxTheGreat
-        /*
-         * Draws a chain from the start position to the end position using the texture provided.
-         * 
-         * textures : an array of 3 textures: the 'start' texture, the segment texture and the 'end' texture.
-         * start : the starting point of the chain.
-         * end : the ending point of the chain.
-         * Jump : The amount to 'jump' to draw the next piece of chain. If -1, will use the texture height.
-         * overrideColor : the color to draw the chain with.
-         * scale : the scalar of the chain.
-         * drawEndsUnder : If true, the end textures will be drawn under the segment texture. Otherwise, drawn above it.
-         * OnDrawTex : If not null, called when the chain draws a texture. Return true to draw the chain piece, false to not draw it. Parameters, in order:
-         *             1 - The texture.
-         *             2 - The world position of the chain.
-         *             3 - The draw position of the chain.
-         *             4 - The center of the texture.
-         *             5 - The frame of the texture being used.
-         *             6 - The color the texture is being drawn.
-         *             7 - The rotation of the chain.
-         *             8 - The scale of the chain.
-         *             9 - The count of this chain piece in the entire thing. (-1 for start tex, -2 for end tex)
-         */
-        public static void DrawChain(object sb, Texture2D[] textures, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
-        {
-            if (Jump <= 0f)
-                Jump = (textures[1].Height - 2f) * scale;
-            Vector2 dir = end - start;
-            dir.Normalize();
+            if (Jump <= 0)
+            {
+                if(texture.Height > 2)
+                    Jump = (texture.Height - 2f) * scale;
+                else
+                    Jump = texture.Height * scale;
+            }
+            Vector2 dir = start.DirectionTo(end);
             float length = Vector2.Distance(start, end);
-            float Way = 0f;
-            float rotation = BaseUtility.RotationTo(start, end) - 1.57f;
-            int texID = 0;
-            int maxTextures = textures.Length - 2;
-            int currentChain = 0;
-            int iterCap = 100;
-            int iters = 0;
-
-            while (Way < length)
+            for (float i = 0; i < length; i += (int)Jump)
             {
-                if (iters++ > iterCap)
-                    break;
-
-                float texWidth;
-                float texHeight;
-                Vector2 texCenter;
-                Vector2 v;
-                Color lightColor;
-                Action drawEnds = () =>
-                {
-                    if (textures[0] != null && Way == 0f)
-                    {
-                        float texWidth2 = (float)textures[0].Width;
-                        float texHeight2 = (float)textures[0].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = start - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(start + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[0], start + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -1)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                    if (textures[maxTextures + 1] != null && Way + Jump >= length)
-                    {
-                        float texWidth2 = (float)textures[maxTextures + 1].Width;
-                        float texHeight2 = (float)textures[maxTextures + 1].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = end - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(end + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[maxTextures + 1], end + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -2)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                };
-                texWidth = (float)textures[1].Width;
-                texHeight = (float)textures[1].Height;
-                texCenter = new Vector2(texWidth / 2f, texHeight / 2f) * scale;
-
-                v = (start + dir * Way) + texCenter;
-                if (InDrawZone(v))
-                {
-                    v -= Main.screenPosition;
-                    if ((Way == 0f || Way + Jump >= length) && drawEndsUnder) { drawEnds(); }
-                    lightColor = (overrideColor != null ? (Color)overrideColor : GetLightColor((start + dir * Way) + texCenter));
-                    texID++;
-                    if (texID >= maxTextures) { texID = 0; }
-                    if (OnDrawTex != null && !OnDrawTex(textures[texID + 1], (start + dir * Way) + texCenter, v - texCenter, texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, scale, currentChain)) { }
-                    else
-                    {
-                        if (sb is List<DrawData>)
-                        {
-                            DrawData dd = new DrawData(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                            dd.shader = shader;
-                            ((List<DrawData>)sb).Add(dd);
-                        }
-                        else
-                        if (sb is SpriteBatch)
-                        {
-                            ((SpriteBatch)sb).Draw(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                        }
-                    }
-                    currentChain++;
-                    if ((Way == 0f || Way + Jump >= length) && !drawEndsUnder) { drawEnds(); }
-                }
-                Way += Jump;
+                Vector2 drawPos = start + dir * i;
+                Color c;
+                if (overrideColor.HasValue)
+                    c = overrideColor.Value;
+                else
+                    c = Lighting.GetColor(drawPos.ToTileCoordinates());
+                spriteBatch.Draw(texture, drawPos - Main.screenPosition, null, c, dir.ToRotation() - MathHelper.PiOver2, texture.Size() * 0.5f, scale, 0, 0);
             }
         }
-
-        public static void DrawVectorChain(object sb, Texture2D[] textures, int shader, Vector2[] chain, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
-        {
-            if (Jump <= 0f) { Jump = (textures[1].Height - 2f) * scale; }
-
-            float length = 0f;
-            for (int m = 0; m < chain.Length - 1; m++)
-            {
-                length += Vector2.Distance(chain[m], chain[m + 1]);
-            }
-            Vector2 start = chain[0];
-            Vector2 end = chain[chain.Length - 1];
-            Vector2 dir = end - start;
-            dir.Normalize();
-            float Way = 0f;
-            float rotation = BaseUtility.RotationTo(chain[0], chain[1]) - 1.57f;
-            int texID = 0;
-            int maxTextures = textures.Length - 2;
-            int currentChain = 0;
-            Vector2 lastV = chain[0];
-            while (Way < length)
-            {
-                float texWidth;
-                float texHeight;
-                Vector2 texCenter;
-                Vector2 v;
-                Color lightColor;
-                Action drawEnds = () =>
-                {
-                    if (textures[0] != null && Way == 0f)
-                    {
-                        float texWidth2 = (float)textures[0].Width;
-                        float texHeight2 = (float)textures[0].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = start - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(start + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[0], start + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -1)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                    if (textures[maxTextures + 1] != null && Way + Jump >= length)
-                    {
-                        float texWidth2 = (float)textures[maxTextures + 1].Width;
-                        float texHeight2 = (float)textures[maxTextures + 1].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = end - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(end + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[maxTextures + 1], end + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -2)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                };
-                texWidth = (float)textures[1].Width;
-                texHeight = (float)textures[1].Height;
-                texCenter = new Vector2(texWidth / 2f, texHeight / 2f) * scale;
-
-                v = BaseUtility.MultiLerpVector(Way / length, chain) + texCenter;
-                Vector2 nextV = BaseUtility.MultiLerpVector(Math.Max(length - 1, Way + 1) / length, chain) + texCenter;
-                if (v != nextV)
-                {
-                    rotation = BaseUtility.RotationTo(v, nextV) - 1.57f;
-                }
-
-                if (InDrawZone(v))
-                {
-                    v -= Main.screenPosition;
-                    if ((Way == 0f || Way + Jump >= length) && drawEndsUnder) { drawEnds(); }
-                    lightColor = (overrideColor != null ? (Color)overrideColor : GetLightColor((start + dir * Way) + texCenter));
-                    texID++;
-                    if (texID >= maxTextures) { texID = 0; }
-                    if (OnDrawTex != null && !OnDrawTex(textures[texID + 1], (start + dir * Way) + texCenter, v - texCenter, texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, scale, currentChain)) { }
-                    else
-                    {
-                        if (sb is List<DrawData>)
-                        {
-                            DrawData dd = new DrawData(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                            dd.shader = shader;
-                            ((List<DrawData>)sb).Add(dd);
-                        }
-                        else
-                        if (sb is SpriteBatch)
-                        {
-                            ((SpriteBatch)sb).Draw(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                        }
-                    }
-                    currentChain++;
-                    if ((Way == 0f || Way + Jump >= length) && !drawEndsUnder) { drawEnds(); }
-                }
-                Way += Jump;
-            }
-        }
-
-
 
         /*
          * Draws the given texture using the override color.
@@ -1512,27 +696,16 @@ namespace AAModClassic.Base.BaseMod.Base
                 if (applyDye)
                 {
                     ((SpriteBatch)sb).End();
-                    ((SpriteBatch)sb).Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                    ((SpriteBatch)sb).Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, default, Main.GameViewMatrix.TransformationMatrix);
                     GameShaders.Armor.ApplySecondary(shader, Main.player[Main.myPlayer], null);
                 }
                 ((SpriteBatch)sb).Draw(texture, GetDrawPosition(position, origin, width, height, texture.Width, texture.Height, frame, framecount, framecountX, scale, drawCentered), frame, lightColor, rotation, origin, scale, direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 if (applyDye)
                 {
                     ((SpriteBatch)sb).End();
-                    ((SpriteBatch)sb).Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+                    ((SpriteBatch)sb).Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, default, default, RasterizerState.CullNone, default, Main.GameViewMatrix.TransformationMatrix);
                 }
             }
-        }
-
-        /*
-         * Debug draw method, draws a hitbox with absolutes, not taking into account anything else.
-         */
-        public static void DrawHitbox(SpriteBatch sb, Rectangle hitbox, Color? overrideColor = null)
-        {
-            Vector2 origin = default(Vector2);
-            Color lightColor = (overrideColor != null ? (Color)overrideColor : Color.White);
-            Vector2 position = new Vector2(hitbox.Left, hitbox.Top) - Main.screenPosition;
-            sb.Draw(TextureAssets.MagicPixel.Value, position, hitbox, lightColor, 0f, origin, 1f, SpriteEffects.None, 0);
         }
 
         public static void DrawTileTexture(SpriteBatch sb, Texture2D texture, int x, int y, bool slopeDraw = true, bool flipTex = false, bool ignoreHalfBricks = false, bool? overrideHalfBrick = null, Func<Color, Color> overrideColor = null, Vector2 offset = default(Vector2))
@@ -1682,7 +855,6 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-
         public static void DrawWallTexture(SpriteBatch sb, Texture2D texture, int x, int y, bool drawOutline = false, Func<Color, Color> overrideColor = null, Vector2 offset = default(Vector2))
         {
             Tile tile = Main.tile[x, y];
@@ -1789,14 +961,6 @@ namespace AAModClassic.Base.BaseMod.Base
         /*
          * Returns the draw position of a texture for npcs and projectiles.
          */
-        public static Vector2 GetDrawPosition(Vector2 position, Vector2 origin, int width, int height, int texWidth, int texHeight, Rectangle frame, int framecount, float scale, bool drawCentered = false)
-        {
-            return GetDrawPosition(position, origin, width, height, texWidth, texHeight, frame, framecount, 1, scale, drawCentered);
-        }
-
-        /*
-         * Returns the draw position of a texture for npcs and projectiles.
-         */
         public static Vector2 GetDrawPosition(Vector2 position, Vector2 origin, int width, int height, int texWidth, int texHeight, Rectangle frame, int framecount, int framecountX, float scale, bool drawCentered = false)
         {
             Vector2 screenPos = new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y);
@@ -1868,25 +1032,6 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        public static float GetYOffset(Player player)
-        {
-            return GetYOffset(player.bodyFrame, player.gravDir);
-        }
-
-        /*
-         * Returns an offset for Y that simulates how player frames offset normally. 
-         * This allows you to have a one-frame .png file that still 'bobs' up and down even if it doesn't animate.
-         */
-        public static float GetYOffset(Rectangle frame, float gravDir = 0f)
-        {
-            int frameID = (int)(frame.Y / frame.Height);
-            if (frameID == 7 || frameID == 8 || frameID == 9 || frameID == 14 || frameID == 15 || frameID == 16)
-            {
-                return gravDir < 0f ? 2f : -2f;
-            }
-            return 0f;
-        }
-
         //used by InDrawZone to prevent making a new rectangle every time the method is called
         private static Rectangle drawZoneRect = default(Rectangle);
 
@@ -1895,145 +1040,6 @@ namespace AAModClassic.Base.BaseMod.Base
             if ((int)Main.screenPosition.X - 300 != drawZoneRect.X || (int)Main.screenPosition.Y - 300 != drawZoneRect.Y) drawZoneRect = new Rectangle((int)Main.screenPosition.X - 300, (int)Main.screenPosition.Y - 300, Main.screenWidth + 600, Main.screenHeight + 600);
             if (noScreenPos) vec += Main.screenPosition;
             return drawZoneRect.Contains((int)vec.X, (int)vec.Y);
-        }
-
-        public static bool InDrawZone(Rectangle rect)
-        {
-            if ((int)Main.screenPosition.X - 300 != drawZoneRect.X || (int)Main.screenPosition.Y - 300 != drawZoneRect.Y) drawZoneRect = new Rectangle((int)Main.screenPosition.X - 300, (int)Main.screenPosition.Y - 300, Main.screenWidth + 600, Main.screenHeight + 600);
-            return drawZoneRect.Intersects(rect);
-        }
-    }
-    public class AmmoSlotRender
-    {
-        //------------------------------------------------------//
-        //----------------AMMO SLOT RENDERER--------------------//
-        //------------------------------------------------------//
-        // A basic class that renders an ammo-like string over  //
-        // an item when registed.                               //
-        //------------------------------------------------------//
-        //  Author(s): Grox the Great                           //
-        //------------------------------------------------------//
-
-        public int itemType = -1;
-        public int[] ammoItemTypes = new int[0];
-        public int[] ammoTypes = new int[0];
-
-        public AmmoSlotRender() //dummy constructor
-        {
-        }
-
-        /*
-         * typeisammo : If true, ammoitemtype is considered an ammo type. If false, it is considered an item type.
-         */
-        public AmmoSlotRender(int itemtype, int ammoitemtype, bool typeisammo = false) : this(itemtype, typeisammo ? default(int[]) : new int[] { ammoitemtype }, typeisammo ? new int[] { ammoitemtype } : default(int[]))
-        {
-        }
-
-        public AmmoSlotRender(int itemtype, int[] ammoitemtypes, int[] ammotypes = default(int[]))
-        {
-            itemType = itemtype;
-            ammoItemTypes = ammoitemtypes;
-            ammoTypes = ammotypes;
-        }
-
-        public virtual void Draw(SpriteBatch sb, Color color, Item item, Vector2 pos, float sc)
-        {
-            if (Main.playerInventory || item.type <= ItemID.None || item.stack <= 0 || item.type != itemType) return;
-            int totalItemCount = 0;
-            if (ammoItemTypes != default(int[])) { totalItemCount += BasePlayer.GetItemstackSum(Main.player[Main.myPlayer], ammoItemTypes, false, true, true); }
-            if (ammoTypes != default(int[])) { totalItemCount += BasePlayer.GetItemstackSum(Main.player[Main.myPlayer], ammoTypes, true, true, true); }
-            string s = "" + totalItemCount;
-            if (totalItemCount > 99999) { s = "A Lot!"; }
-            //sb.DrawString(Main.fontItemStack, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), sc *= 0.8f, SpriteEffects.None, 0f);   
-            ChatManager.DrawColorCodedStringWithShadow(sb, FontAssets.ItemStack.Value, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), new Vector2(sc *= 0.8f), -1f, 0.8f);
-        }
-    }
-
-    public class BaseArmorData(Asset<Effect> shader, string passName) : ArmorShaderData(shader, passName)
-    {
-        public static Entity lastShaderDrawObject = null;
-        public static bool secondaryApply = false;
-        int _uState = 0;
-        public Texture2D _uExtraTex = null;
-
-        public BaseArmorData SetState(int state)
-        {
-            _uState = state;
-            return this;
-        }
-
-        public override void Apply(Entity entity, DrawData? drawData = null)
-        {
-            try
-            {
-                base.Shader.Parameters["uState"].SetValue(_uState);
-                if (_uExtraTex != null) base.Shader.Parameters["uExtraTex"].SetValue(_uExtraTex);
-                Entity ent = entity;
-                if (lastShaderDrawObject != null) ent = lastShaderDrawObject;
-                if (ent != null)
-                {
-                    Color color = BaseDrawing.GetLightColor(ent.Center);
-                    if (ent is NPC) color = ((NPC)ent).GetAlpha(color);
-                    if (ent is Projectile) color = ((Projectile)ent).GetAlpha(color);
-                    if (ent is Player) color = ((Player)ent).GetImmuneAlpha(color, 0); //((Player)ent).shadow			
-                    base.Shader.Parameters["uLightColor"].SetValue(color.ToVector4());
-                    if (ent is NPC)
-                    {
-                        Vector4 v4 = new Vector4(0, 0, TextureAssets.Npc[((NPC)ent).type].Value.Width, TextureAssets.Npc[((NPC)ent).type].Value.Height);
-                        Vector4 v4_2 = new Vector4(0, 0, ((NPC)ent).frame.Width, ((NPC)ent).frame.Height);
-                        base.Shader.Parameters["uTexSize"].SetValue(v4);
-                        if (((NPC)ent).ModNPC is ParentNPC) { base.Shader.Parameters["uFrame"].SetValue(((ParentNPC)((NPC)ent).ModNPC).GetFrameV4()); }
-                        else
-                        {
-                            base.Shader.Parameters["uFrame"].SetValue(v4_2);
-                        }
-                    }
-                    else
-                    if (ent is Projectile)
-                    {
-                        Projectile proj = (Projectile)ent;
-                        Vector4 v4 = new Vector4(0, 0, TextureAssets.Projectile[proj.type].Value.Width, TextureAssets.Projectile[proj.type].Value.Height);
-                        Vector4 v4_2 = new Vector4(0, 0, TextureAssets.Projectile[proj.type].Value.Width, TextureAssets.Projectile[proj.type].Value.Height / Main.projFrames[proj.type]);
-                        base.Shader.Parameters["uTexSize"].SetValue(v4);
-                        if (proj.ModProjectile is ParentProjectile) { base.Shader.Parameters["uFrame"].SetValue(((ParentProjectile)proj.ModProjectile).GetFrameV4()); }
-                        else
-                        {
-                            base.Shader.Parameters["uFrame"].SetValue(v4_2);
-                        }
-                    }
-                    else
-                    if (ent is Player)
-                    {
-                        Vector4 v4 = new Vector4(0, 0, TextureAssets.Players[0, 0].Width(), TextureAssets.Players[0, 0].Height());
-                        Vector4 v4_2 = new Vector4(0, 0, BaseConstants.FRAME_PLAYER.Width, BaseConstants.FRAME_PLAYER.Height + 2);
-                        base.Shader.Parameters["uTexSize"].SetValue(v4);
-                        base.Shader.Parameters["uFrame"].SetValue(v4_2);
-                    }
-                    else
-                    {
-                        Vector4 v4 = new Vector4(0, 0, ent.width, ent.height);
-                        base.Shader.Parameters["uFrame"].SetValue(v4);
-                    }
-                }
-                else
-                {
-                    Color color = BaseDrawing.GetLightColor(Main.screenPosition);
-                    base.Shader.Parameters["uLightColor"].SetValue(color.ToVector4());
-                    base.Shader.Parameters["uFrame"].SetValue(new Vector4(0, 0, 4, 4));
-                }
-                base.Apply(entity, drawData);
-                secondaryApply = false;
-            }
-            catch (Exception e)
-            {
-                BaseUtility.LogFancy("AAMod~ BASE ARMOR ERROR:", e);
-            }
-        }
-
-        public override ArmorShaderData GetSecondaryShader(Entity entity)
-        {
-            secondaryApply = true;
-            return base.GetSecondaryShader(entity);
         }
     }
 }

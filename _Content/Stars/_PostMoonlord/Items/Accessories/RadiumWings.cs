@@ -1,0 +1,55 @@
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Stars._PostMoonlord.Items.Accessories
+{
+    [AutoloadEquip(EquipType.Wings)]
+	public class RadiumWings : EquipAbstract, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Accessories";
+		public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Radium Wings");
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 10, 3f);
+        }
+
+		public override void SetDefaults()
+		{
+			Item.width = 28;
+			Item.height = 40;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = ItemRarityID.Purple;
+			Item.accessory = true;
+		}
+
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new WingTimeMaxEffect(200));
+        }
+
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+		{
+			ascentWhenFalling = 0.95f;
+			ascentWhenRising = 0.15f;
+			maxCanAscendMultiplier = 1f;
+			maxAscentMultiplier = 4f;
+			constantAscend = 0.17f;
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 15);
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+			recipe.Register();
+		}
+	}
+}

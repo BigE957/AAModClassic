@@ -1,0 +1,478 @@
+Ethereal: {
+	DisplayName: Etheral
+	Tooltip:
+		'''
+		'If in the wrong hands, it can cause devastating damage, so don't give it to me.'
+		- TheRedstoneBro
+		'''
+}
+
+PoniumStaff: {
+	DisplayName: Ponium Staff
+	Tooltip:
+		'''
+		'That's a f***ing REEEEEEEEE if I've ever seen one'
+		- Beg
+		'''
+}
+
+DuckstepREMIX: {
+	DisplayName: Duckstep R.E.M.I.X.
+	Tooltip: Duckstep Launcher EX
+}
+
+Light: {
+	DisplayName: Light
+	Tooltip: Etheral EX
+}
+
+NovaFlare: {
+	DisplayName: Nova Flare
+	Tooltip:
+		'''
+		Shoots homing flares from the sky
+		Lunar Flare EX
+		'''
+}
+
+PrismeowSpectrum: {
+	DisplayName: Prismeow Spectrum
+	Tooltip:
+		'''
+		Summons a Legendary Rainbow Cat at cursor point
+		Shoots Rainbow Bolts that move in the direction of your cursor
+		Warning: Using this WILL lag your game!
+		Prismeow EX
+		'''
+}
+
+Prismeow: {
+	DisplayName: Prismeow
+	Tooltip:
+		'''
+		Fires rainbow cats
+		'Godly'
+		- Hallam
+		'''
+}
+
+TrueTerraRose: {
+	DisplayName: True Terra Rose
+	Tooltip:
+		'''
+		Some say this staff was used by the legendary hero themselves
+		Projectiles explode on hit
+		Projectiles go through walls
+		Right Clicking fires a piercing rose
+		Terra Rose EX
+		'''
+}
+
+MeteorStrike: {
+	DisplayName: Meteor Strike
+	Tooltip:
+		'''
+		Fires a barrage of meteors at your foes
+		Hitting enemies causes a smaller, but more damaging explosion
+		Hitting a tile causes a larger, but less damaging projectile
+		Inflicts Discordian Inferno
+		'''
+}
+
+Daystorm: {
+	DisplayName: Daystorm
+	Tooltip: Incinerate your enemies in a storm of scorching fiery mayhem
+}
+
+BogBomb: {
+	DisplayName: Bog Bomb
+	Tooltip: Fires an explosive bomb that inflicts venom upon whatever it strikes
+}
+
+AbyssalBomb: {
+	DisplayName: Abyssal Bomb
+	Tooltip:
+		'''
+		Fires off explosive spirit bombs
+		Small chance to fire an awakened bomb that explodes into abyss souls
+		'''
+}
+
+TerraRose: {
+	DisplayName: Terra Rose
+	Tooltip:
+		'''
+		Some say this staff was used by the legendary hero themselves
+		Projectiles go through walls
+		Right Clicking fires a piercing rose
+		'''
+}
+
+NovaFocus: {
+	DisplayName: Nova Focus
+	Tooltip: Fires an insanely powerful death laser
+}
+
+Nova: {
+	DisplayName: Nova
+	Tooltip: Fires an explosive energy blast that causes an expanding explosion
+}
+
+VoidStar: {
+	DisplayName: Void Star
+	Tooltip: Fires a dark, spinning vortex that homes in on enemies
+}
+
+TotalDestruction: {
+	DisplayName: Total Destruction
+	Tooltip: Destroys everything in front of you with a destructive laser
+}
+
+PineBreaker: {
+	DisplayName: Pine Breaker
+	Tooltip:
+		'''
+		'I don't like egg'
+		- Planterror
+		'''
+}
+
+DuckstepLauncher: {
+	DisplayName: Duckstep Launcher
+	Tooltip:
+		'''
+		Quack.
+		- Aves
+		'''
+}
+
+Placeholder: {
+	DisplayName: Placeholder
+	Tooltip:
+		'''
+		'They will die SoonTM'
+		- Fargo
+		'''
+}
+
+SkrallStaff: {
+	DisplayName: Skrall Staff
+	Tooltip:
+		'''
+		A skraltopian Diamond wrapped in a stick 
+		It's the stick that's magic. The diamond is just for show
+		- Kingskrall
+		'''
+}
+
+UmbralReaper: {
+	DisplayName: Umbral Reaper
+	Tooltip:
+		'''
+		Left clicking shoots homing spears 
+		Right clicking shoots a wave of void energy 
+		'I never touched Valkyrie' 
+		- CMD
+		'''
+}
+
+SoapBlaster: {
+	DisplayName: Soap Blaster
+	Tooltip: Rapidly shoots destructive bubbles
+}
+
+UltibladeTyphoon: {
+	DisplayName: Ultiblade Typhoon
+	Tooltip:
+		'''
+		Casts 3 fast homing razorwheels
+		Razorblade Typhoon EX
+		'''
+}
+
+HiveArtillery: {
+	DisplayName: Hive Artillery
+	Tooltip:
+		'''
+		Shoots dozens of terrifying bees
+		Bees ignore enemy invincibility frames
+		Bee Gun EX
+		'''
+}
+
+PoniumUltiscepter: {
+	DisplayName: Ponium Ultiscepter
+	Tooltip: Ponium Staff EX
+}
+
+Spectrum: {
+	DisplayName: Spectrum
+	Tooltip:
+		'''
+		Focuses a devastating beam of light
+		Last Prism EX
+		'''
+}
+
+StarburstWand: {
+	DisplayName: Starburst Wand
+	Tooltip:
+		'''
+		Hold to charge the wand
+		Wand of Sparking EX
+		'''
+}
+
+SubzeroStormStaff: {
+	DisplayName: Subzero Storm Staff
+	Tooltip: Blizzard Staff EX
+}
+
+FlamingGelWand: {
+	DisplayName: Flaming Gel Wand
+	Tooltip: It shoots flaming gel
+}
+
+Gong: {
+	DisplayName: Gong
+	Tooltip: ""
+}
+
+ManaBlade: {
+	DisplayName: Mana Blade
+	Tooltip: Fires Homing projectiles at the cost of mana
+}
+
+TrueGong: {
+	DisplayName: True Gong
+	Tooltip: MORE GONG
+}
+
+AncientArcanum: {
+	DisplayName: Ancient Arcanum
+	Tooltip: Releases a homing miniature quazar that explodes upon hitting an enemy
+}
+
+GaleOfWings: {
+	DisplayName: Gale of Wings
+	Tooltip: ""
+}
+
+GaleForce: {
+	DisplayName: Gale Force
+	Tooltip: ""
+}
+
+RoyalScepter: {
+	DisplayName: Royal Scepter
+	Tooltip: Shoots a spread of three carrots
+}
+
+RabbitsWrath: {
+	DisplayName: Rabbit's Wrath
+	Tooltip: Drops razor sharp carrots on your foes
+}
+
+RoyalStaff: {
+	DisplayName: Royal Staff
+	Tooltip:
+		'''
+		Shoots a spread of five golden carrots
+		Royal Scepter EX
+		'''
+}
+
+AshRain: {
+	DisplayName: Ash Rain
+	Tooltip:
+		'''
+		Shoots fireball which explodes on hit or after some time
+		Right click to detonate fireballs
+		'''
+}
+
+FuryFlame: {
+	DisplayName: Fury Flame
+	Tooltip: Allows you to blast explosive flames at your foes
+}
+
+SandLamp: {
+	DisplayName: Sand Lamp
+	Tooltip: ""
+}
+
+DesertStaff: {
+	DisplayName: Desert Staff
+	Tooltip: Shoots enchanted sand bolt which explodes into bouncing balls on hit
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition: {
+	DisplayName: The Life And Epic Adventures Of Anubis The Wonder Dog Special Edition
+	Tooltip: ""
+}
+
+ForsakenStaff: {
+	DisplayName: Forsaken Staff
+	Tooltip: Shoots 2 homing blasts of forsaken energy which explode into forsaken sparks
+}
+
+MushrockStaff: {
+	DisplayName: Mushrock Staff
+	Tooltip: ""
+}
+
+CrystalTome: {
+	DisplayName: Crystal Tome
+	Tooltip: Casts crystals that shatter into pieces
+}
+
+GoldDigger: {
+	DisplayName: Gold Digger
+	Tooltip:
+		'''
+		Fires a projectile that, upon collision with a tile, creates a fountain of coins
+		Only 1 fountain may be active at once
+		'''
+}
+
+OreStaff: {
+	DisplayName: Ore Staff
+	Tooltip: ""
+}
+
+BlazePike: {
+	DisplayName: Blaze Pike
+	Tooltip: Very hot to touch
+}
+
+BlazingBreath: {
+	DisplayName: Blazing Breath
+	Tooltip: ""
+}
+
+Volley: {
+	DisplayName: Volley
+	Tooltip: Shoots a volley of three flameballs at an even spread
+}
+
+Fireblast: {
+	DisplayName: Fireblast
+	Tooltip: Shoots an explosive bolt of dragonflame
+}
+
+Sunstorm: {
+	DisplayName: Sunstorm
+	Tooltip:
+		'''
+		Summons orbiting fireballs which home to enemies after some time
+		Right click and hold to release and aim manually
+		'''
+}
+
+MagicFlower: {
+	DisplayName: Magic Flower
+	Tooltip: Pretty
+}
+
+ManaRose: {
+	DisplayName: Mana Rose
+	Tooltip:
+		'''
+		Long and Magical
+		Right Clicking fires a piercing rose
+		'''
+}
+
+TrueManaRose: {
+	DisplayName: True Mana Rose
+	Tooltip:
+		'''
+		Pretty in Pink
+		Right Clicking fires a piercing rose
+		'''
+}
+
+MadnessStaff: {
+	DisplayName: Madness Staff
+	Tooltip: ""
+}
+
+GunkWand: {
+	DisplayName: Gunk Wand
+	Tooltip: ""
+}
+
+SludgeShot: {
+	DisplayName: Sludge Shot
+	Tooltip: Eew! It's mossy!
+}
+
+VenomSpray: {
+	DisplayName: Venom Spray
+	Tooltip: ""
+}
+
+Depthsprayer: {
+	DisplayName: Depthsprayer
+	Tooltip: Covers enemies in Hydratoxin
+}
+
+Toxifang: {
+	DisplayName: Toxifang
+	Tooltip: Shoots Toxic Fangs
+}
+
+AtlanteanTrident: {
+	DisplayName: Atlantean Trident
+	Tooltip: Fires off a tri-shot of water bolts
+}
+
+OceanTrident: {
+	DisplayName: Ocean Trident
+	Tooltip: Very slippery
+}
+
+ElectricityShard: {
+	DisplayName: Electricity Shard
+	Tooltip: It shoots sparks in an even spread.
+}
+
+DragonStaff: {
+	DisplayName: Dragon Staff
+	Tooltip: Shoots dragon scales.
+}
+
+Icicle: {
+	DisplayName: Icicle
+	Tooltip: Casts crystals that shatter in pieces.
+}
+
+StarStaff: {
+	DisplayName: Star Staff
+	Tooltip: ""
+}
+
+TerraFocus: {
+	DisplayName: Terra Focus
+	Tooltip: Fires shots of terra magic at your foes
+}
+
+NeutronRod: {
+	DisplayName: Neutron Rod
+	Tooltip: Fires spinning stars that bounce on walls
+}
+
+DoomStaff: {
+	DisplayName: Doom Rod
+	Tooltip: ""
+}
+
+GalacticStormspike: {
+	DisplayName: Galactic Stormspike
+	Tooltip: Shoots a branching ray of dark electricity
+}
+
+SquidStorm: {
+	DisplayName: Squid Storm
+	Tooltip: Casts tentacles from the R'lyehian depths
+}

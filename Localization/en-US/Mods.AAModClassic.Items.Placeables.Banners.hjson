@@ -1,0 +1,314 @@
+ThixxieBanner: {
+	DisplayName: Thixxie Banner
+	Tooltip: ""
+}
+
+FatPixie_Banner: {
+	DisplayName: Fat Pixie Banner
+	Tooltip: ""
+}
+
+SeraphBanner: {
+	DisplayName: Seraph Banner
+	Tooltip: ""
+}
+
+ChaosDragonBanner: {
+	DisplayName: Chaos Dragon Banner
+	Tooltip: ""
+}
+
+DjinnBanner: {
+	DisplayName: Djinn Banner
+	Tooltip: ""
+}
+
+TinyToadBanner: {
+	DisplayName: Tiny Toad Banner
+	Tooltip: ""
+}
+
+ScavengerBanner: {
+	DisplayName: Scavenger Banner
+	Tooltip: ""
+}
+
+InfernalSlimeBanner: {
+	DisplayName: Infernal Slime Banner
+	Tooltip: ""
+}
+
+DragonClawBanner: {
+	DisplayName: Dragon Claw Banner
+	Tooltip: ""
+}
+
+FlameBruteBanner: {
+	DisplayName: Flame Brute Banner
+	Tooltip: ""
+}
+
+SingemanderBanner: {
+	DisplayName: Singemander Banner
+	Tooltip: ""
+}
+
+WyrmlingBanner: {
+	DisplayName: Wyrmling Banner
+	Tooltip: ""
+}
+
+ChaoticDawnBanner: {
+	DisplayName: Chaotic Dawn Banner
+	Tooltip: ""
+}
+
+WyrmBanner: {
+	DisplayName: Wyrm Banner
+	Tooltip: ""
+}
+
+MagmaSwimmerBanner: {
+	DisplayName: Magma Swimmer Banner
+	Tooltip: ""
+}
+
+BlazeClawBanner: {
+	DisplayName: Blaze Claw Banner
+	Tooltip: ""
+}
+
+AncientLungBanner: {
+	DisplayName: Ancient Lung Banner
+	Tooltip: ""
+}
+
+MadnessBatBanner: {
+	DisplayName: Madness Bat Banner
+	Tooltip: ""
+}
+
+MadnessSlimeBanner: {
+	DisplayName: Madness Slime Banner
+	Tooltip: ""
+}
+
+MurkySlimeBanner: {
+	DisplayName: Murky Slime Banner
+	Tooltip: ""
+}
+
+HydraClawBanner: {
+	DisplayName: Hydra Claw Banner
+	Tooltip: ""
+}
+
+MossterBanner: {
+	DisplayName: Mosster Banner
+	Tooltip: ""
+}
+
+NewtBanner: {
+	DisplayName: Newt Banner
+	Tooltip: ""
+}
+
+SkulkerBanner: {
+	DisplayName: Skulker Banner
+	Tooltip: ""
+}
+
+KappaBanner: {
+	DisplayName: Kappa Banner
+	Tooltip: ""
+}
+
+ToxitoadBanner: {
+	DisplayName: Toxitoad Banner
+	Tooltip: ""
+}
+
+PigronMireBanner: {
+	DisplayName: Pigron Mire Banner
+	Tooltip: ""
+}
+
+ChaoticTwilightBanner: {
+	DisplayName: Chaotic Twilight Banner
+	Tooltip: ""
+}
+
+MiresquitoBanner: {
+	DisplayName: Miresquito Banner
+	Tooltip: ""
+}
+
+FogAnglerBanner: {
+	DisplayName: Fog Angler Banner
+	Tooltip: ""
+}
+
+AbyssClawBanner: {
+	DisplayName: Abyss Claw Banner
+	Tooltip: ""
+}
+
+SoulsuckerBanner: {
+	DisplayName: Soulsucker Banner
+	Tooltip: ""
+}
+
+FungusFrogBanner: {
+	DisplayName: Fungus Frog Banner
+	Tooltip: ""
+}
+
+MushbugBanner: {
+	DisplayName: Mushbug Banner
+	Tooltip: ""
+}
+
+MushroomCrabBanner: {
+	DisplayName: Mushroom Crab Banner
+	Tooltip: ""
+}
+
+MushroomJellyBanner: {
+	DisplayName: Mushroom Jelly Banner
+	Tooltip: ""
+}
+
+MushroomZombieBanner: {
+	DisplayName: Mushroom Zombie Banner
+	Tooltip: ""
+}
+
+SnowSerpentBanner: {
+	DisplayName: Snow Serpent Banner
+	Tooltip: ""
+}
+
+SunWatcherBanner: {
+	DisplayName: Sun Watcher Banner
+	Tooltip: ""
+}
+
+NightGuardBanner: {
+	DisplayName: Night Guard Banner
+	Tooltip: ""
+}
+
+PurityCrawlerBanner: {
+	DisplayName: Purity Crawler Banner
+	Tooltip: ""
+}
+
+PuritySphereBanner: {
+	DisplayName: Purity Sphere Banner
+	Tooltip: ""
+}
+
+PuritySquidBanner: {
+	DisplayName: Purity Squid Banner
+	Tooltip: ""
+}
+
+PurityWeaverBanner: {
+	DisplayName: Purity Weaver Banner
+	Tooltip: ""
+}
+
+TerraDeadshotBanner: {
+	DisplayName: Terra Deadshot Banner
+	Tooltip: ""
+}
+
+TerraKnightBanner: {
+	DisplayName: Terra Knight Banner
+	Tooltip: ""
+}
+
+TerraSquireBanner: {
+	DisplayName: Terra Squire Banner
+	Tooltip: ""
+}
+
+TerraWarlockBanner: {
+	DisplayName: Terra Warlock Banner
+	Tooltip: ""
+}
+
+TerraCrawlerBanner: {
+	DisplayName: Terra Crawler Banner
+	Tooltip: ""
+}
+
+TerraSphereBanner: {
+	DisplayName: Terra Sphere Banner
+	Tooltip: ""
+}
+
+TerraSquidBanner: {
+	DisplayName: Terra Squid Banner
+	Tooltip: ""
+}
+
+TerraWizardBanner: {
+	DisplayName: Terra Wizard Banner
+	Tooltip: ""
+}
+
+UnityProbeBanner: {
+	DisplayName: Unity Probe Banner
+	Tooltip: ""
+}
+
+UnityWatcherBanner: {
+	DisplayName: Unity Watcher Banner
+	Tooltip: ""
+}
+
+ShadowScoutBanner: {
+	DisplayName: Shadow Scout Banner
+	Tooltip: ""
+}
+
+StoneSearcherBanner: {
+	DisplayName: Stone Searcher Banner
+	Tooltip: ""
+}
+
+VoidScoutBanner: {
+	DisplayName: Void Scout Banner
+	Tooltip: ""
+}
+
+VortexBanner: {
+	DisplayName: Vortex Banner
+	Tooltip: ""
+}
+
+NullBanner: {
+	DisplayName: Null Banner
+	Tooltip: ""
+}
+
+SearcherBanner: {
+	DisplayName: Searcher Banner
+	Tooltip: ""
+}
+
+DimensionDiverBanner: {
+	DisplayName: Dimension Diver Banner
+	Tooltip: ""
+}
+
+RiftSharkBanner: {
+	DisplayName: Rift Shark Banner
+	Tooltip: ""
+}
+
+TrenchSquidBanner: {
+	DisplayName: Trench Squid Banner
+	Tooltip: ""
+}

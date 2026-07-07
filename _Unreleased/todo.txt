@@ -1,0 +1,11 @@
+localization
+-everything has proper loc stuff commented in cs, but mannnnnnnnnnnnn
+anything labelled with //TODOGENERAL
+anything labelled with //TODOSOC
+anything labelled with //TODOIZ
+-i think theres some stuff that still pulls from unused stuff in aamod and aaworld instead of its own stuff. fix
+anything labelled with //TODOSIEGE
+anything labelled with //TODOREFACTOR
+
+file restruct:
+-fulg blocks into removed

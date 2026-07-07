@@ -1398,7 +1398,7 @@ ItemName.AthenaBox=Athena Music Box
 ItemTooltip.AthenaBox=Plays 'Magisaint' by Turquoise
 
 ItemName.BroodBox=Broodmother Music Box
-ItemTooltip.BroodBox=Plays 'Blazing Fury' by Spectral Aves
+ItemTooltip.BroodBox=Plays 'Blazing Fury' by SpectralAves
 
 ItemName.DjinnBox=Desert Djinn Music Box
 ItemTooltip.DjinnBox=Plays 'The Dust Bowl' by Universe
@@ -1410,7 +1410,7 @@ ItemName.FateBox=True Void Music Box
 ItemTooltip.FateBox=Plays 'Nihil' by Charlie Debnam
 
 ItemName.FungusBox=Feudal Fungus Music Box
-ItemTooltip.FungusBox=Plays 'Bioluminescent Beatdown' by Spectral Aves
+ItemTooltip.FungusBox=Plays 'Bioluminescent Beatdown' by SpectralAves
 
 ItemName.GreedABox=Worm King Music Box
 ItemTooltip.GreedABox=Plays 'Ira De Riquezas Perdidas' by Universe
@@ -1419,13 +1419,13 @@ ItemName.GreedBox=Greed Music Box
 ItemTooltip.GreedBox=Plays 'Gold Digger' by Universe
 
 ItemName.GripsBox=Grips of Chaos Music Box
-ItemTooltip.GripsBox=Plays 'Twin Terror' by Spectral Aves
+ItemTooltip.GripsBox=Plays 'Twin Terror' by SpectralAves
 
 ItemName.HoardBox=Hoard Music Box
 ItemTooltip.HoardBox=Plays 'Cove' by Universe
 
 ItemName.HydraBox=Hydra Music Box
-ItemTooltip.HydraBox=Plays 'Abyssal Wrath' by Spectral Aves
+ItemTooltip.HydraBox=Plays 'Abyssal Wrath' by SpectralAves
 
 ItemName.InfernoBox=Inferno Surface Music Box
 ItemTooltip.InfernoBox=Plays 'Flame-Razed Rock' by Karamitasu
@@ -1449,13 +1449,13 @@ ItemName.MireUBox=Mire Underground Music Box
 ItemTooltip.MireUBox=Plays 'The Deepest Reaches' by Charlie Debnam
 
 ItemName.MonarchBox=Mushroom Monarch Music Box
-ItemTooltip.MonarchBox=Plays 'Fungal Face-off' by Spectral Aves
+ItemTooltip.MonarchBox=Plays 'Fungal Face-off' by SpectralAves
 
 ItemName.PagodaBox=Pagoda of the Rising Sun Music Box
 ItemTooltip.PagodaBox=Plays 'Scorched Tower' by Rockwizard
 
 ItemName.RajahBox=Rajah Rabbit Music Box
-ItemTooltip.RajahBox=Plays 'JUSTICE' by Spectral Aves
+ItemTooltip.RajahBox=Plays 'JUSTICE' by SpectralAves
 
 ItemName.SagBox=Sagittarius Music Box
 ItemTooltip.SagBox=Plays 'Event Horizon' by SpectralAves
@@ -1485,7 +1485,7 @@ ItemName.TerrariumBox=Terrarium Music Box
 ItemTooltip.TerrariumBox=Plays 'Heart of the World' by Quicksilvur feat Charlie Debnam
 
 ItemName.ToadBox=Truffle Toad Music Box
-ItemTooltip.ToadBox=Plays 'TODESTOOL' by Spectral Aves
+ItemTooltip.ToadBox=Plays 'TODESTOOL' by SpectralAves
 
 ItemName.VoidBox=Void Music Box
 ItemTooltip.VoidBox=Plays 'Gaze into Darkness' by Charlie Debnam
@@ -1678,7 +1678,7 @@ ItemName.MoonAltar=Dread Moon Altar
 ItemName.MoonAltarA=Awakened Moon Altar
 
 ItemName.MushBox=Red Mushroom Music Box
-ItemTooltip.MushBox=Plays 'Overgrowth' by Spectral Aves
+ItemTooltip.MushBox=Plays 'Overgrowth' by SpectralAves
 
 ItemName.MushroomBlock=Mushroom Block
 

@@ -1,0 +1,36 @@
+﻿using Terraria;
+using Terraria.ID;
+using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Globals;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
+
+namespace AAModClassic._Content.Terrarium.World.Tiles
+{
+    public class TerraLeafWand : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Placeables";
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Terra Leaf Wand");
+        }
+        public override void SetDefaults()
+        {
+            Item.CloneDefaults(ItemID.LivingWoodWand);
+            Item.createTile = ModContent.TileType<TerraLeaves_Tile>();
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<TerraCrystal>(), 20);
+            recipe.AddIngredient(ItemID.LeafWand);
+            recipe.AddTile(ModContent.TileType<TruePaladinsSmeltery_Tile>());
+            recipe.Register();
+        }
+    }
+}

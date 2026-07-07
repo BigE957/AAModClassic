@@ -49,6 +49,16 @@ Configs: {
 			Label: Ancient Intro Text
 			Tooltip: ""
 		}
+
+		DisableAnticheat: {
+			Label: Disable Anticheat
+			Tooltip: ""
+		}
+
+		DisablePinchThemes: {
+			Label: Disable Pinch Themes
+			Tooltip: ""
+		}
 	}
 }
 
