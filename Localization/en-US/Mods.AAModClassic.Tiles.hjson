@@ -33,31 +33,16 @@ CerberusBag_Tile.MapEntry: Cerberus Kennel
 CrystalChandelier_Tile.MapEntry: Crystal Chandelier
 EnderMemory_Tile.MapEntry: Ender Memory
 FurnitureDynamo_Tile.MapEntry: Furniture Dynamo
-AthenaBox_Tile.MapEntry: Music Box
-AcropolisBox_Tile.MapEntry: Music Box
-AthenaAwakenedBox_Tile.MapEntry: Music Box
 SkyCrystal_Tile.MapEntry: Sky Crystal
 AcropolisAltar_Tile.MapEntry: Owl Altar
-RajahBox_Tile.MapEntry: Music Box
 RoyalRabbitCage_Tile.MapEntry: Royal Rabbit Cage
-RajahAwakenedBox_Tile.MapEntry: Music Box
-GripsBox_Tile.MapEntry: Music Box
 RitualAltar_Tile.MapEntry: Ritual Altar
-ShenAwakenedBox_Tile.MapEntry: Music Box
-ShenBox_Tile.MapEntry: Music Box
-SistersBox_Tile.MapEntry: Music Box
-ChaosPreShenBox_Tile.MapEntry: Music Box
 DiscordianTorch_Tile.MapEntry: Discordian Torch
 AnyAncientCraftingStation_Tile.MapEntry: Any Ancient Crafting Station
 ChaosCrucible_Tile.MapEntry: Chaos Crucible
 ChaosAltarSafe_Tile.MapEntry: Chaos Altar
-DjinnBox_Tile.MapEntry: Music Box
 DynaskullFossil_Tile.MapEntry: Dynaskull Fossil
-AnubisBox_Tile.MapEntry: Music Box
-AnubisAwakenedBox_Tile.MapEntry: Music Box
 EvilAltarSafe_Tile.MapEntry: Evil Altar
-FungusBox_Tile.MapEntry: Music Box
-TruffleToadBox_Tile.MapEntry: Music Box
 HallowedOre_Tile.MapEntry: Hallowed Ore
 ThixxieBanner_Tile.MapEntry: Thixxie Banner
 HallowedAnvil_Tile.MapEntry: Hallowed Anvil
@@ -67,15 +52,11 @@ TruePaladinsSmeltery_Tile.MapEntry: True Paladins Smeltery
 FatPixie_Banner_Tile.MapEntry: Fat Pixie Banner
 HaphestusForge_Tile.MapEntry: Haphestus Forge
 HellstoneAnvil_Tile.MapEntry: Hellstone Anvil
-Throne_Tile.MapEntry: Throne
-GreedBox_Tile.MapEntry: Music Box
-HoardBox_Tile.MapEntry: Music Box
-GreedAwakenedBox_Tile.MapEntry: Music Box
+Throne_Tile.MapEntry: Throne of Evil
 CovetiteOre_Tile.MapEntry: Covetite Ore
 GreedAltar_Tile.MapEntry: Desire Altar
 GreedChest_Tile.MapEntry: Greed Chest
 GreedLantern_Tile.MapEntry: Stone Lantern
-BroodmotherBox_Tile.MapEntry: Music Box
 IncineriteOre_Tile.MapEntry: Incinerite Ore
 RazewoodBed_Tile.MapEntry: Razewood Bed
 RazewoodBookshelf_Tile.MapEntry: Razewood Bookshelf
@@ -97,21 +78,14 @@ RazewoodTable_Tile.MapEntry: Razewood Table
 RazewoodTub_Tile.MapEntry: Razewood Tub
 RazewoodWorkbench_Tile.MapEntry: Razewood Workbench
 DragonfireTorch_Tile.MapEntry: Dragonfire Torch
-InfernoNightBox_Tile.MapEntry: Music Box
-InfernoSurfaceBox_Tile.MapEntry: Music Box
-InfernoUndergroundBox_Tile.MapEntry: Music Box
 SharpeningLavaFish_Tile.MapEntry: Sharpening Lava Fish
-AkumaAwakenedBox_Tile.MapEntry: Music Box
-AkumaBox_Tile.MapEntry: Music Box
 DaybreakIncineriteOre_Tile.MapEntry: Daybreak Incinerite Ore
 DaybreakTorch_Tile.MapEntry: Daybreak Torch
-InfernoPagodaBox_Tile.MapEntry: Music Box
 InfernoChest_Tile.MapEntry: Inferno Chest
 DragonAltarUnsafe_Tile.MapEntry: Dragon Altar
 DragonEgg_Tile.MapEntry: Dragon Egg
 RazewoodPalmSapling_Tile.MapEntry: Razewood Palm Sapling
 RazewoodSapling_Tile.MapEntry: Razewood Sapling
-HydraBox_Tile.MapEntry: Music Box
 AbyssiumOre_Tile.MapEntry: Abyssium Ore
 BogwoodBathtub_Tile.MapEntry: Bogwood Bathtub
 BogwoodBed_Tile.MapEntry: Bogwood Bed
@@ -134,27 +108,16 @@ BogwoodSink_Tile.MapEntry: Bogwood Sink
 BogwoodTable_Tile.MapEntry: Bogwood Table
 BogwoodWorkbench_Tile.MapEntry: Bogwood Workbench
 BogtoxinTorch_Tile.MapEntry: Bogtoxin Torch
-MireDayBox_Tile.MapEntry: Music Box
-MireSurfaceBox_Tile.MapEntry: Music Box
-MireUndergroundBox_Tile.MapEntry: Music Box
 ToxinMonkfish_Tile.MapEntry: Toxin Monkfish
-YamataAwakenedBox_Tile.MapEntry: Music Box
-YamataBox_Tile.MapEntry: Music Box
 EventideAbyssiumOre_Tile.MapEntry: Eventide Abyssium Ore
 EventideTorch_Tile.MapEntry: Eventide Torch
-MireLakeBox_Tile.MapEntry: Music Box
 MireChest_Tile.MapEntry: Mire Chest
 AbyssAltarUnsafe_Tile.MapEntry: Abyss Altar
 HydraPod_Tile.MapEntry: Hydra Pod
 BogwoodPalmTreeSapling_Tile.MapEntry: Bogwood Palm Tree Sapling
 BogwoodSapling_Tile.MapEntry: Bogwood Sapling
-MonarchBox_Tile.MapEntry: Music Box
-MushroomSurfaceBox_Tile.MapEntry: Music Box
-SubzeroBox_Tile.MapEntry: Music Box
 VikingRelic_Tile.MapEntry: Viking Relic
-EquinoxBox_Tile.MapEntry: Music Box
 RadiumOre_Tile.MapEntry: Radium Ore
-StarsBox_Tile.MapEntry: Music Box
 QuantumFusionAccelerator_Tile.MapEntry: Quantum Fusion Accelerator
 RadiantArcanum_Tile.MapEntry: Radiant Arcanum
 GravAltar_Tile.MapEntry: Altar of the Force
@@ -162,9 +125,7 @@ StarAltar_Tile.MapEntry: Altar of the Stars
 WormAltar_Tile.MapEntry: Altar of the Balance
 TerraCore_Tile.MapEntry: Core of Terraria
 TerraPrismStation_Tile.MapEntry: Infinity Core
-TerrariumBox_Tile.MapEntry: Music Box
 PrismOre_Tile.MapEntry: Prism Ore
-SagittariusBox_Tile.MapEntry: Music Box
 OuroborosWoodBathtub_Tile.MapEntry: Ouroboros Wood Bathtub
 OuroborosWoodBed_Tile.MapEntry: Ouroboros Wood Bed
 OuroborosWoodBookcase_Tile.MapEntry: Ouroboros Wood Bookcase
@@ -175,9 +136,6 @@ OuroborosWoodDoorClosed_Tile.MapEntry: Ouroboros Wood Door
 OuroborosWoodDoorOpen_Tile.MapEntry: Ouroboros Wood Door
 OuroborosWoodLantern_Tile.MapEntry: Ouroboros Wood Lantern
 OuroborosWoodWorkbench_Tile.MapEntry: Ouroboros Wood Workbench
-VoidBox_Tile.MapEntry: Music Box
-ZeroAwakenedBox_Tile.MapEntry: Music Box
-ZeroBox_Tile.MapEntry: Music Box
 ApocalyptiteOre_Tile.MapEntry: Apocalyptite Ore
 DoomBathtub_Tile.MapEntry: Doom Bathtub
 DoomBed_Tile.MapEntry: Doom Bed
@@ -198,19 +156,12 @@ DoomPiano_Tile.MapEntry: Doom Piano
 DoomSink_Tile.MapEntry: Doom Sink
 DoomTable_Tile.MapEntry: Doom Table
 DoomWorkbench_Tile.MapEntry: Doom Workbench
-VoidPostMLBox_Tile.MapEntry: Music Box
-VoidPreIZBox_Tile.MapEntry: Music Box
 BinaryReassembler_Tile.MapEntry: Binary Reassembler
 DoomsdayChest_Tile.MapEntry: Doomsday Chest
 OuroborosSapling_Tile.MapEntry: Ouroboros Sapling
 AncientDataBank_Tile.MapEntry: Ancient Data Bank
 DataBank_Tile.MapEntry: Data Bank
 StormChest_Tile.MapEntry: Storm Chest
-SiegeBox_Tile.MapEntry: Music Box
-ParthenanBox_Tile.MapEntry: Music Box
-SunkenShipBox_Tile.MapEntry: Music Box
-SoulOfCthulhuBox_Tile.MapEntry: Music Box
-SunkenShipPreSoCBox_Tile.MapEntry: Music Box
 Core_Tile.MapEntry: Biomite Cell
 CoreActivator_Tile.MapEntry: Core Engine
 CoreDoor_Tile.MapEntry: Sealed Door
@@ -257,6 +208,4 @@ KeepDoor2_Tile.MapEntry: Keep Door
 KeepDoor2S_Tile.MapEntry: Keep Door
 KeepDoor3_Tile.MapEntry: Keep Door
 TerraStatue_Tile.MapEntry: Lost Hero Statue
-CthulhuBox_Tile.MapEntry: Music Box
 SunkenChest_Tile.MapEntry: Sunken Chest
-InfinityZeroBox_Tile.MapEntry: Music Box

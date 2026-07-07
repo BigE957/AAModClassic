@@ -23,10 +23,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
 			TileID.Sets.DisableSmartCursor[Type] = true;
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<Dusts.RadiumDust>();
-            AddMapEntry(new Color(200, 200, 200), name);
+            AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
             RegisterItemDrop(ModContent.ItemType<StarsBox>());
         }
 

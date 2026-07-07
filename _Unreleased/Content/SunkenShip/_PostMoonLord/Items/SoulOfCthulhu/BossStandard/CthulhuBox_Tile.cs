@@ -20,11 +20,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
             TileID.Sets.DisableSmartCursor[Type] = true;
-            LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<Dusts.CthulhuDust>();
-            AddMapEntry(new Color(200, 200, 200), name);
-			RegisterItemDrop(ModContent.ItemType<CthulhuBox>());
+            AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
+            RegisterItemDrop(ModContent.ItemType<CthulhuBox>());
 		}
 
 		public override void MouseOver(int i, int j)

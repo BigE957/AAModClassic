@@ -20,10 +20,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Tiles
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
 			TileID.Sets.DisableSmartCursor[Type] = true;
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Music Box");
             DustType = DustID.Dirt;
-            AddMapEntry(new Color(200, 160, 0), name);
+            AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
             RegisterItemDrop(ModContent.ItemType<HoardBox>());
         }
 

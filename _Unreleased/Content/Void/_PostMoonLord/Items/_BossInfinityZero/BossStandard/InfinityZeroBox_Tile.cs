@@ -23,12 +23,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
             TileID.Sets.DisableSmartCursor[Type] = true;
-            LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Music Box");
             RegisterItemDrop(ModContent.ItemType<InfinityZeroBox>());
             DustType = ModContent.DustType<Dusts.VoidDust_Unreleased>();
-            AddMapEntry(new Color(200, 200, 200), name);
-		}
+            AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
+        }
 
         public Texture2D glowTex;
         public bool glow = true;
