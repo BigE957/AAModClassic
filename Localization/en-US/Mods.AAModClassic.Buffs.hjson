@@ -10,7 +10,7 @@ PrettyPony_Buff: {
 
 CerberusWhistle_Buff: {
 	DisplayName: Cerberus
-	Description: 'Aww, that isn't so scary!'
+	Description: "'Aww, that isn't so scary!'"
 }
 
 K9Collar_Buff: {
@@ -30,7 +30,7 @@ MudFishBall_Buff: {
 
 RoyalStar_Buff: {
 	DisplayName: Royal Kitten
-	Description: 'She's so pretty!'
+	Description: "'She's so pretty!'"
 }
 
 ShinyFishBall_Buff: {
@@ -199,7 +199,7 @@ SeraphHarp_Buff: {
 
 GoddessHarp_Buff: {
 	DisplayName: Athena
-	Description: 'I'll help you, but but I'll still thrash you someday.'
+	Description: "'I'll help you, but but I'll still thrash you someday.'"
 }
 
 CottonCane_Buff: {
