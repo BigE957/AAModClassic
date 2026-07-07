@@ -27,10 +27,8 @@ public class SoCPainting_Tile : ModTile
 		TileObjectData.newTile.AnchorTop = default(AnchorData);
 		TileObjectData.newTile.AnchorWall = true;
 		TileObjectData.addTile((int)Type);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Painting");
-		AddMapEntry(new Color(171, 71, 66), val);
-		base.DustType = DustID.WoodFurniture;
+        AddMapEntry(new Color(171, 71, 66), Language.GetText("MapObject.Painting"));
+        base.DustType = DustID.WoodFurniture;
 		TileID.Sets.HasOutlines[Type] = true;
 	}
 

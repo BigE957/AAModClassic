@@ -22,10 +22,8 @@ public class RajahPainting_Tile : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 36;
 		TileObjectData.addTile((int)Type);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Painting");
-		AddMapEntry(new Color(171, 71, 66), val);
-		base.DustType = DustID.WoodFurniture;
+        AddMapEntry(new Color(171, 71, 66), Language.GetText("MapObject.Painting"));
+        base.DustType = DustID.WoodFurniture;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 	}
 
