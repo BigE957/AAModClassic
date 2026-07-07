@@ -20,10 +20,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
 			TileID.Sets.DisableSmartCursor[Type]/* tModPorter Note: _Unreleased. Use TileID.Sets.DisableSmartCursor instead */ = true;
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Music Box");
             DustType = DustID.BlueCrystalShard;
-            AddMapEntry(new Color(200, 200, 200), name);
+            AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
             RegisterItemDrop(ModContent.ItemType<AcropolisBox>());
         }
 

@@ -21,15 +21,13 @@ namespace AAModClassic._Removed.Content.Parthenan
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
-			//disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;
-			LocalizedText name = CreateMapEntryName();
 			RegisterItemDrop(ModContent.ItemType<SiegeBox>());
             DustType = ModContent.DustType<FulguriteDust>();
-            AddMapEntry(new Color(200, 200, 200), name);
-		}
+            AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
+        }
 
-		public override void MouseOver(int i, int j)
+        public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
