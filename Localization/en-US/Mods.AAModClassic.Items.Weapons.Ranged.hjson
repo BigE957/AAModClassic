@@ -736,5 +736,9 @@ AncientHydraTrishot: {
 
 CthulhuCannon: {
 	DisplayName: Cthulhu Cannon
-	Tooltip: Uses cannonballs for ammo\Fires reality-breaking bombs that fragment into powerful dark rifts on impact
+	Tooltip:
+		'''
+		Uses cannonballs for ammo
+		Fires reality-breaking bombs that fragment into powerful dark rifts on impact
+		'''
 }
